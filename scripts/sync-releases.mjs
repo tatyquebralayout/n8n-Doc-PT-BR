@@ -38,6 +38,9 @@ async function syncReleases() {
       
       console.log(`\n--- Processando Release: ${name} (${tag_name}) ---`);
 
+      // Limpa o nome da tag para usar como nome do arquivo (ex: 'n8n@1.100.1' -> '1.100.1')
+      const version = tag_name.replace('n8n@', '');
+
       // Traduz o corpo da release
       console.log('Traduzindo o conteúdo...');
       const { text: translatedBody } = await translate(body, { to: 'pt' });
@@ -45,8 +48,8 @@ async function syncReleases() {
       // Monta o conteúdo final do arquivo Markdown
       const fileContent = `---
 title: "${name}"
-description: "Notas de release para a versão ${tag_name} do n8n."
-sidebar_label: "${tag_name}"
+description: "Notas de release para a versão ${version} do n8n."
+sidebar_label: "${version}"
 ---
 
 *Publicado em: ${new Date(published_at).toLocaleDateString('pt-BR')}*
@@ -55,7 +58,7 @@ ${translatedBody}
 `;
       
       // Define o nome do arquivo e o caminho completo
-      const fileName = `${tag_name}.md`;
+      const fileName = `${version}.md`;
       const filePath = path.join(OUTPUT_DIR, fileName);
       
       // Salva o arquivo
