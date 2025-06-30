@@ -515,6 +515,7 @@ const sidebars: SidebarsConfig = {
             'contribuir/esta-documentacao/guidelines',
             'contribuir/esta-documentacao/codigo-conduta',
             'contribuir/esta-documentacao/traduzir',
+            'contribuir/esta-documentacao/markdown-features',
           ],
         },
         {
