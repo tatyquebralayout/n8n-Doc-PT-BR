@@ -22,8 +22,22 @@ const sidebars: SidebarsConfig = {
             'usando-n8n/getting-started/workflow-na-pratica',
           ],
         },
-        'usando-n8n/navegacao-editor-ui',
-        'usando-n8n/componentes-execucoes',
+        {
+          type: 'category',
+          label: '🖥️ Interface',
+          collapsed: false,
+          items: [
+            'usando-n8n/interface/navegacao-editor-ui',
+          ],
+        },
+        {
+          type: 'category',
+          label: '▶️ Execuções',
+          collapsed: false,
+          items: [
+            'usando-n8n/execucoes/componentes-execucoes',
+          ],
+        },
       ],
     },
     {
@@ -177,9 +191,30 @@ const sidebars: SidebarsConfig = {
           label: '🇧🇷 Integrações Brasileiras',
           collapsed: false,
           items: [
-            'integracoes-br/pix',
-            'integracoes-br/viacep',
-            'integracoes-br/cnpj-receita',
+            {
+              type: 'category',
+              label: '💰 Financeiro',
+              collapsed: false,
+              items: [
+                'integracoes-br/financeiro/pix',
+              ],
+            },
+            {
+              type: 'category',
+              label: '🏛️ Governo',
+              collapsed: false,
+              items: [
+                'integracoes-br/governo/cnpj-receita',
+              ],
+            },
+            {
+              type: 'category',
+              label: '📍 Localização',
+              collapsed: false,
+              items: [
+                'integracoes-br/localizacao/viacep',
+              ],
+            },
           ],
         },
       ],
@@ -295,10 +330,31 @@ const sidebars: SidebarsConfig = {
       label: '🔧 API',
       collapsed: false,
       items: [
-        'api/autenticacao',
-        'api/paginacao',
-        'api/playground',
-        'api/referencia-api',
+        {
+          type: 'category',
+          label: '💡 Conceitos',
+          collapsed: false,
+          items: [
+            'api/conceitos/autenticacao',
+            'api/conceitos/paginacao',
+          ],
+        },
+        {
+          type: 'category',
+          label: '🛠️ Ferramentas',
+          collapsed: false,
+          items: [
+            'api/ferramentas/playground',
+          ],
+        },
+        {
+          type: 'category',
+          label: '📖 Referência',
+          collapsed: false,
+          items: [
+            'api/referencia/referencia-api',
+          ],
+        },
       ],
     },
     {
@@ -306,11 +362,32 @@ const sidebars: SidebarsConfig = {
       label: '🌐 Embed',
       collapsed: false,
       items: [
-        'embed/prerequisitos',
-        'embed/implantacao',
-        'embed/configuracao',
-        'embed/gerenciar-workflows',
-        'embed/white-labelling',
+        {
+          type: 'category',
+          label: '🎯 Preparação',
+          collapsed: false,
+          items: [
+            'embed/preparacao/prerequisitos',
+          ],
+        },
+        {
+          type: 'category',
+          label: '🚀 Implementação',
+          collapsed: false,
+          items: [
+            'embed/implementacao/implantacao',
+            'embed/implementacao/configuracao',
+          ],
+        },
+        {
+          type: 'category',
+          label: '⚙️ Gerenciamento',
+          collapsed: false,
+          items: [
+            'embed/gerenciamento/gerenciar-workflows',
+            'embed/gerenciamento/white-labelling',
+          ],
+        },
       ],
     },
   ],
@@ -351,12 +428,33 @@ const sidebars: SidebarsConfig = {
       label: '📖 Referência',
       collapsed: false,
       items: [
-        'referencia/glossario',
-        'referencia/troubleshooting',
-        'referencia/migration-guide',
-        'referencia/performance-guide',
-        'referencia/changelog',
-        'referencia/apis-brasileiras',
+        {
+          type: 'category',
+          label: '📚 Guias',
+          collapsed: false,
+          items: [
+            'referencia/guias/performance-guide',
+            'referencia/guias/migration-guide',
+            'referencia/guias/troubleshooting',
+          ],
+        },
+        {
+          type: 'category',
+          label: '🔍 Recursos',
+          collapsed: false,
+          items: [
+            'referencia/recursos/glossario',
+            'referencia/recursos/apis-brasileiras',
+          ],
+        },
+        {
+          type: 'category',
+          label: '📅 Histórico',
+          collapsed: false,
+          items: [
+            'referencia/historico/changelog',
+          ],
+        },
       ],
     },
     {
@@ -364,15 +462,36 @@ const sidebars: SidebarsConfig = {
       label: '🤝 Contribuir',
       collapsed: false,
       items: [
-        'contribuir/guidelines',
-        'contribuir/traduzir',
-        'contribuir/adicionar-casos-uso',
-        'contribuir/codigo-conduta',
-        'contribuir/afiliados-e-creators',
-        'contribuir/contribuir-codigo-e-docs',
-        'contribuir/contribuir-modelos',
-        'contribuir/contribuir-community',
-        'contribuir/referral-vagas',
+        {
+          type: 'category',
+          label: '📋 Diretrizes',
+          collapsed: false,
+          items: [
+            'contribuir/diretrizes/guidelines',
+            'contribuir/diretrizes/codigo-conduta',
+            'contribuir/diretrizes/traduzir',
+          ],
+        },
+        {
+          type: 'category',
+          label: '💻 Desenvolvimento',
+          collapsed: false,
+          items: [
+            'contribuir/desenvolvimento/contribuir-codigo-e-docs',
+            'contribuir/desenvolvimento/contribuir-modelos',
+            'contribuir/desenvolvimento/adicionar-casos-uso',
+          ],
+        },
+        {
+          type: 'category',
+          label: '👥 Comunidade',
+          collapsed: false,
+          items: [
+            'contribuir/comunidade/contribuir-community',
+            'contribuir/comunidade/afiliados-e-creators',
+            'contribuir/comunidade/referral-vagas',
+          ],
+        },
       ],
     },
   ],
