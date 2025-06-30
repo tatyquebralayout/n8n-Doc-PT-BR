@@ -1,0 +1,37 @@
+name: Sync n8n Official Releases
+
+on:
+  workflow_dispatch: # Permite acionamento manual
+  schedule:
+    - cron: '0 8 * * *' # Roda todo dia às 8h UTC
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: 2. Configurar o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: 3. Instalar dependências
+        run: pnpm install
+
+      - name: 4. Rodar o script de sincronização
+        run: node scripts/sync-releases.mjs
+
+      - name: 5. Fazer o commit das alterações
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(releases): atualiza notas de release do n8n"
+          branch: main
+          commit_options: '--no-verify'
+          file_pattern: 'release-notes/n8n/*.md'
+          commit_user_name: 'GitHub Actions Bot'
+          commit_user_email: 'actions@github.com'
+          commit_author: 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>' 

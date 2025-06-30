@@ -168,5 +168,6 @@ Este código de conduta **evolui** com nossa comunidade:
 
 ---
 
-*Última atualização: Dezembro 2024*  
+*Últ
+ima atualização: Dezembro 2024*  
 *Próxima revisão: Junho 2025*
