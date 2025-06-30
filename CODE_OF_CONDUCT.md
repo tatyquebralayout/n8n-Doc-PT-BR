@@ -154,8 +154,3 @@ Este código de conduta **evolui** com nossa comunidade:
 **🎯 Objetivo Final:** Criar um ambiente onde todo brasileiro pode contribuir, aprender e crescer juntos na automação com n8n!
 
 **💪 Juntos somos mais fortes!** Sua contribuição faz a diferença para toda a comunidade brasileira.
-
----
-
-*Última atualização: Dezembro 2024*  
-*Próxima revisão: Junho 2025* 
