@@ -1,11 +1,15 @@
 # n8n Documentation Brasil 🇧🇷
 
-> **Documentação NÃO-OFICIAL do n8n, criada pela comunidade brasileira para a comunidade brasileira.**  
+> Documentação NÃO‑OFICIAL do n8n para desenvolvedores e automatizadores brasileiros.
 > _Este projeto não possui vínculo com o time oficial do n8n e serve como complemento, referência e apoio aos usuários do Brasil._
 
 [![Deploy - GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-success?logo=github)](https://tatyquebralayout.github.io/n8n-Doc-pt-BR/)
 [![Docusaurus](https://img.shields.io/badge/Built%20with-Docusaurus-blue?logo=docusaurus)](https://docusaurus.io/)
 [![MIT License](https://img.shields.io/github/license/tatyquebralayout/n8n-Doc-pt-BR)](./LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/pulls)
+[![GitHub last commit](https://img.shields.io/github/last-commit/tatyquebralayout/n8n-Doc-pt-BR)](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/commits/main)
+[![GitHub contributors](https://img.shields.io/github/contributors/tatyquebralayout/n8n-Doc-pt-BR)](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/graphs/contributors)
+[![Discord](https://img.shields.io/badge/Discord-Comunidade-7289DA?logo=discord)](https://discord.gg/YOUR_INVITE_CODE)
 
 ---
 
@@ -40,6 +44,26 @@ A documentação está organizada nas seguintes seções principais:
 
 Qualquer pessoa pode sugerir melhorias, corrigir erros, criar novos tutoriais ou ajudar na revisão!  
 Veja as [instruções de contribuição](./CONTRIBUTING.md) e faça parte.
+
+---
+
+## 🛠️ Visualização e Preview
+
+Este site é construído com [Docusaurus](https://docusaurus.io/), um gerador de sites estáticos moderno.
+
+Para visualizar as alterações localmente antes de contribuir:
+
+1.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+
+2.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npm run start
+    ```
+
+Isso abrirá o site em `http://localhost:3000` no seu navegador.
 
 ---
 

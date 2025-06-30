@@ -1,104 +1,123 @@
 ---
 sidebar_position: 1
-title: Contribuir com Código e Documentação n8n
-description: Como contribuir diretamente com o projeto n8n oficial - código e documentação
-keywords: [n8n, contribuir, código, documentação, open source]
+title: Contribuir com Código para o n8n
+description: Um guia detalhado para contribuir com código diretamente para o projeto n8n oficial.
+keywords: [n8n, contribuir, código, documentação, open source, pull request, github]
 ---
 
-# 💻 Contribuir com Código e Documentação n8n
+# 💻 Guia para Contribuir com Código para o n8n
 
-## 🎯 Objetivo
+Contribuir para o código-fonte do n8n é uma das formas mais impactantes de ajudar o projeto. Este guia detalha o processo, desde a configuração do ambiente até a submissão do seu Pull Request (PR), seguindo as diretrizes oficiais do n8n.
 
-Este guia explica como contribuir diretamente com o **projeto n8n oficial** - tanto código quanto documentação oficial.
-
-:::warning Diferença Importante
-Este é sobre contribuir com o **projeto n8n oficial**. Para contribuir com **esta documentação brasileira**, veja a seção "Esta Documentação".
+:::warning Contribuição para o Projeto Oficial
+As diretrizes abaixo são para o **projeto principal do n8n**. As interações (PRs, issues) são em **inglês**. Para contribuir com **esta documentação em português**, veja a seção "Contribuir para Esta Documentação".
 :::
 
-## 🚀 Repositórios Oficiais
+## ✅ Antes de Começar: Itens Essenciais
 
-### 📦 **Principais Repositórios**
-- **[n8n](https://github.com/n8n-io/n8n)** - Código principal do n8n
-- **[n8n-docs](https://github.com/n8n-io/n8n-docs)** - Documentação oficial
-- **[n8n-nodes-base](https://github.com/n8n-io/n8n/tree/master/packages/nodes-base)** - Nodes principais
+### 1. Código de Conduta
+O projeto é governado por um [Código de Conduta](https://github.com/n8n-io/n8n/blob/master/CODE_OF_CONDUCT.md). Ao participar, você concorda em seguir seus termos.
 
-### 🧑‍💻 **Como Começar**
+### 2. Acordo de Licença de Contribuidor (CLA)
+Para que sua contribuição seja aceita, você **precisa assinar** um Contributor License Agreement (CLA). É um processo simples: ao abrir um Pull Request, um bot irá comentar com um link para você assinar o acordo digitalmente.
 
-1. **Fork do repositório** desejado
-2. **Clone localmente**
-3. **Configure ambiente** de desenvolvimento
-4. **Faça suas alterações**
-5. **Submeta Pull Request**
+## ⚙️ Configurando o Ambiente de Desenvolvimento
 
-## 📋 Pré-requisitos
+### Pré-requisitos
+- **[Node.js](https://nodejs.org/en/):** Versão `22.16` ou mais recente.
+- **[pnpm](https://pnpm.io/):** Versão `10.2` ou mais recente.
+  - A forma recomendada de instalar é via [Corepack](https://nodejs.org/api/corepack.html), que já vem com o Node.js. Para ativar, rode: `corepack enable` e depois `corepack prepare --activate`.
+- **[Git](https://git-scm.com/)**
+- **Ferramentas de Build:** Dependendo do seu sistema operacional, pode ser necessário instalar pacotes adicionais:
+  - **Debian/Ubuntu:** `sudo apt-get install -y build-essential python`
+  - **Windows:** `npm install --global windows-build-tools`
+  - **MacOS:** Nenhuma dependência adicional é necessária.
 
-### 🛠️ **Ferramentas Necessárias**
-- Node.js (versão LTS)
-- npm ou pnpm
-- Git
-- Editor de código (VS Code recomendado)
+### Alternativa Fácil: Dev Container
+Se você usa **VS Code** e **Docker**, a forma mais fácil de começar é com um [Dev Container](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/n8n-io/n8n). Ele configura o ambiente de desenvolvimento completo automaticamente dentro de um container.
 
-### 📚 **Conhecimentos**
-- TypeScript/JavaScript
-- Vue.js (para interface)
-- Node.js APIs
-- Git workflow
+### Instalação Manual
+1.  **Fork:** Faça um [fork do repositório do n8n](https://github.com/n8n-io/n8n) para a sua conta do GitHub.
 
-## 🔧 Setup do Ambiente
+2.  **Clone o seu fork:**
+    ```bash
+    git clone https://github.com/SEU-USUARIO/n8n.git
+    cd n8n
+    ```
 
-### 1. **Clone e Instalação**
-```bash
-# Fork no GitHub primeiro
-git clone https://github.com/SEU-USUARIO/n8n.git
-cd n8n
+3.  **Adicione o repositório original como `upstream`:**
+    Isso é crucial para manter seu fork sincronizado com o projeto principal.
+    ```bash
+    git remote add upstream https://github.com/n8n-io/n8n.git
+    ```
 
-# Instalar dependências
-pnpm install
+4.  **Instale as dependências:**
+    ```bash
+    pnpm install
+    ```
 
-# Build inicial
-pnpm build
-```
+5.  **Faça o build do projeto:**
+    ```bash
+    pnpm build
+    ```
 
-### 2. **Executar em Desenvolvimento**
-```bash
-# Modo desenvolvimento
-pnpm dev
+## 🛠️ O Ciclo de Desenvolvimento
 
-# Executar n8n local
-pnpm start
-```
+1.  **Sincronize seu fork:** Antes de criar uma branch, sempre atualize seu repositório local com as últimas mudanças do `upstream`.
+    ```bash
+    git fetch upstream
+    git rebase upstream/master
+    ```
 
-## 🎯 Tipos de Contribuição
+2.  **Inicie o modo de desenvolvimento:**
+    Este comando irá observar as alterações nos arquivos, reconstruir o projeto automaticamente e recarregar o backend e o frontend.
+    ```bash
+    pnpm dev
+    ```
 
-### 🐛 **Bug Fixes**
-- Correção de bugs reportados
-- Melhorias de performance
-- Fixes de segurança
+3.  **Codifique!** Faça suas alterações, correções ou melhorias.
 
-### ⚡ **Novas Features**
-- Novos nodes
-- Melhorias na interface
-- Novas funcionalidades
+4.  **TESTE SUAS ALTERAÇÕES!**
+    Testes são **obrigatórios**. O n8n possui uma suíte de testes que você deve usar.
+    ```bash
+    # Roda todos os testes do projeto
+    pnpm test
+    ```
+    - Se você alterou um snapshot, rode `pnpm test -u` para atualizá-lo.
+    - Para verificar a cobertura de testes, use a variável de ambiente: `COVERAGE_ENABLED=true pnpm test`.
 
-### 📝 **Documentação**
-- Correções na documentação oficial
-- Novos exemplos
-- Melhorias na clareza
+## 📜 Diretrizes para Pull Requests (PRs)
 
-## 📖 Recursos Oficiais
+Seguir estas regras é fundamental para que seu PR seja revisado e potencialmente aceito.
 
-### 🔗 **Links Importantes**
-- [Contributing Guide](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md)
-- [Development Setup](https://docs.n8n.io/contribute/development/)
-- [Community Forum](https://community.n8n.io/)
+### Requisitos Gerais
+- **PRs Pequenos e Focados:** Cada PR deve resolver apenas **um** problema ou adicionar **uma** funcionalidade. PRs grandes que fazem muitas coisas diferentes serão rejeitados.
+- **Siga o Guia de Estilo:** Seu código deve seguir os padrões do n8n.
+- **Conformidade com TypeScript:** Não use `// @ts-ignore`.
+- **Reutilize Código:** Evite duplicar componentes ou lógica que já existem.
 
-### 💬 **Comunidade**
-- Discord oficial do n8n
-- GitHub Discussions
-- Community Forum
+### ✨ AVISO IMPORTANTE SOBRE NOVOS NODES ✨
+Pull Requests que introduzem **novos nodes não serão aceitos**, a menos que tenham sido explicitamente solicitados pela equipe do n8n.
 
----
+Se você deseja criar uma nova integração, o caminho correto é [**criar um node comunitário**](https://docs.n8n.io/integrations/creating-nodes/) e publicá-lo no npm.
 
-**💡 Lembre-se:** Siga sempre as diretrizes oficiais do projeto n8n para suas contribuições!
+### Testes são Obrigatórios
+Seu PR **precisa** incluir testes. A ausência de testes resultará no fechamento automático do seu PR após 14 dias.
 
-**🔄 Em construção:** Este documento será expandido com mais detalhes em breve.
+### Título do PR
+Siga estritamente as [convenções de título de PR do n8n](https://github.com/n8n-io/n8n/blob/master/.github/pull_request_title_conventions.md). Um título mal formatado pode fazer com que o PR seja ignorado.
+
+### Prazo para Feedback
+Se a equipe do n8n solicitar alterações, você tem **14 dias** para responder ou atualizar o PR. Após esse período, ele será fechado por inatividade, mas pode ser reaberto quando as alterações forem feitas.
+
+## 📂 Estrutura do Repositório
+O n8n é um monorepositório. Aqui estão algumas pastas importantes:
+- `packages/cli`: Código da linha de comando para rodar o n8n.
+- `packages/core`: O núcleo que executa os workflows.
+- `packages/editor-ui`: O frontend do editor de workflows (Vue.js).
+- `packages/nodes-base`: O código-fonte para a maioria dos nodes padrão do n8n.
+
+## 🔗 Recursos Oficiais
+- **[Contributing Guide (Oficial)](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md):** A fonte da verdade para contribuições.
+- **[Fórum da Comunidade](https://community.n8n.io/):** Para tirar dúvidas e discutir ideias.
+- **[Documentação de Criação de Nodes](https://docs.n8n.io/integrations/creating-nodes/):** O lugar para aprender a criar suas próprias integrações.
