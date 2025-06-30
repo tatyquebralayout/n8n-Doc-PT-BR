@@ -440,6 +440,8 @@ const sidebars: SidebarsConfig = {
           collapsed: false,
           items: [
             'cursos/cursos-em-video/overview',
+            'cursos/cursos-em-video/curso-iniciante',
+            'cursos/cursos-em-video/curso-avancado',
           ],
         },
         {
