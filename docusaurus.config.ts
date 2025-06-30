@@ -107,9 +107,15 @@ const config: Config = {
           position: 'left',
         },
         {
-          label: 'Catálogo',
+          label: 'Cursos Oficiais n8n',
           type: 'docSidebar',
-          sidebarId: 'catalogSidebar', 
+          sidebarId: 'cursosSidebar',
+          position: 'left',
+        },
+        {
+          label: 'Contribua',
+          type: 'docSidebar',
+          sidebarId: 'contribuirSidebar',
           position: 'left',
         },
         {

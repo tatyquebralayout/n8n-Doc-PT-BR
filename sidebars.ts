@@ -434,8 +434,8 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
-  // Catalog sidebar - "Catálogo"
-  catalogSidebar: [
+  // Cursos Sidebar
+  cursosSidebar: [
     {
       type: 'category',
       label: '🎓 Cursos',
@@ -466,6 +466,48 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+  ],
+
+  // Contribuir Sidebar
+  contribuirSidebar: [
+    {
+      type: 'category',
+      label: '🤝 Contribuir',
+      collapsed: false,
+      items: [
+        'contribuir/index',
+        {
+          type: 'category',
+          label: '📚 Esta Documentação',
+          collapsed: false,
+          items: [
+            'contribuir/esta-documentacao/overview',
+            'contribuir/esta-documentacao/guidelines',
+            'contribuir/esta-documentacao/codigo-conduta',
+            'contribuir/esta-documentacao/traduzir',
+            'contribuir/esta-documentacao/markdown-features',
+          ],
+        },
+        {
+          type: 'category',
+          label: '🚀 Projeto n8n',
+          collapsed: false,
+          items: [
+            'contribuir/projeto-n8n/overview',
+            'contribuir/projeto-n8n/contribuir-codigo-e-docs',
+            'contribuir/projeto-n8n/contribuir-modelos',
+            'contribuir/projeto-n8n/adicionar-casos-uso',
+            'contribuir/projeto-n8n/contribuir-community',
+            'contribuir/projeto-n8n/afiliados-e-creators',
+            'contribuir/projeto-n8n/referral-vagas',
+          ],
+        },
+      ],
+    },
+  ],
+
+  // O que sobrou do Catalog sidebar
+  catalogSidebar: [
     {
       type: 'category',
       label: '📖 Referência',
@@ -497,40 +539,6 @@ const sidebars: SidebarsConfig = {
           collapsed: false,
           items: [
             'referencia/historico/changelog',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: '🤝 Contribuir',
-      collapsed: false,
-      items: [
-        'contribuir/index',
-        {
-          type: 'category',
-          label: '📚 Esta Documentação',
-          collapsed: false,
-          items: [
-            'contribuir/esta-documentacao/overview',
-            'contribuir/esta-documentacao/guidelines',
-            'contribuir/esta-documentacao/codigo-conduta',
-            'contribuir/esta-documentacao/traduzir',
-            'contribuir/esta-documentacao/markdown-features',
-          ],
-        },
-        {
-          type: 'category',
-          label: '🚀 Projeto n8n',
-          collapsed: false,
-          items: [
-            'contribuir/projeto-n8n/overview',
-            'contribuir/projeto-n8n/contribuir-codigo-e-docs',
-            'contribuir/projeto-n8n/contribuir-modelos',
-            'contribuir/projeto-n8n/adicionar-casos-uso',
-            'contribuir/projeto-n8n/contribuir-community',
-            'contribuir/projeto-n8n/afiliados-e-creators',
-            'contribuir/projeto-n8n/referral-vagas',
           ],
         },
       ],
