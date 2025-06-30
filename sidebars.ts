@@ -268,6 +268,7 @@ const sidebars: SidebarsConfig = {
           label: '🧠 Nodes IA',
           collapsed: false,
           items: [
+            'advanced-ai/nodes-ia/overview',
             'advanced-ai/nodes-ia/openai-chat',
             'advanced-ai/nodes-ia/memory-manager',
             'advanced-ai/nodes-ia/output-parser',
@@ -281,6 +282,7 @@ const sidebars: SidebarsConfig = {
           label: '💡 Exemplos e Casos',
           collapsed: false,
           items: [
+            'advanced-ai/exemplos-casos/overview',
             'advanced-ai/exemplos-casos/rag-com-arquivos',
             'advanced-ai/exemplos-casos/chatbot-suporte',
             'advanced-ai/exemplos-casos/classificacao-dados',
