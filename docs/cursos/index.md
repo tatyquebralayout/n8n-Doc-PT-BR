@@ -1,112 +1,53 @@
 ---
 sidebar_position: 1
-title: Cursos n8n Brasil
-description: Cursos estruturados de n8n do básico ao avançado para a comunidade brasileira
-keywords: [n8n, cursos, treinamento, brasil, português]
+title: Cursos Oficiais n8n
+description: Aprenda n8n com os cursos oficiais em vídeo e texto, com resumos e guias em português.
+keywords: [n8n, cursos, tutorial, vídeo, texto, aprender]
 ---
 
-# 🎓 Cursos n8n Brasil
+# 🎓 Cursos Oficiais n8n
 
-Bem-vindo à **seção de cursos estruturados** de n8n em português! Aqui você encontra trilhas de aprendizado completas, do básico ao avançado, especialmente criadas para a comunidade brasileira.
+Bem-vindo à nossa central de aprendizado n8n! Esta seção oferece um guia em português para os **cursos oficiais** criados pela equipe do n8n.
 
-## 🎯 Como Funciona
+Nosso objetivo é fornecer resumos, traduções e adaptações para ajudar a comunidade brasileira a aproveitar ao máximo esses recursos incríveis.
 
-Nossos cursos são organizados por **níveis de dificuldade** e seguem uma progressão lógica de aprendizado:
-
-### 📗 **Nível 1 - Básico**
-**Público:** Iniciantes em automação e n8n  
-**Duração:** ~20 horas  
-**Pré-requisitos:** Nenhum
-
-Aprenda os fundamentos do n8n:
-- ✅ Conceitos básicos de automação
-- ✅ Interface e navegação
-- ✅ Primeiro workflow completo
-- ✅ Manipulação de dados essencial
-- ✅ Integrações principais
-- ✅ Projeto prático final
-
-### 📘 **Nível 2 - Intermediário**
-**Público:** Quem já completou o Nível 1  
-**Duração:** ~30 horas  
-**Pré-requisitos:** Nível 1 completo
-
-Técnicas avançadas de automação:
-- 🚀 Workflows complexos e lógica avançada
-- 🚀 APIs personalizadas e integrações customizadas
-- 🚀 Projeto empresarial completo
-
-## 🌟 Diferenciais dos Nossos Cursos
-
-### 🇧🇷 **100% Brasileiro**
-- Exemplos com **empresas brasileiras**
-- **APIs nacionais** (Pix, Receita Federal, ViaCEP)
-- **Contexto cultural** adaptado
-- **Horário de Brasília** nos exemplos
-
-### 🎯 **Prático e Aplicado**
-- **70% prática, 30% teoria**
-- Projetos reais do mercado brasileiro
-- Casos de uso específicos para PMEs
-- Exemplos de e-commerce nacional
-
-### 🤝 **Comunidade Ativa**
-- Suporte da comunidade brasileira
-- Fórum para dúvidas
-- Networking com outros estudantes
-- Mentoria de especialistas
-
-## 🚀 Como Começar
-
-### 1. **Avalie seu Nível**
-- **Nunca usei n8n?** → Comece pelo **Nível 1**
-- **Já criei workflows básicos?** → Considere o **Nível 2**
-
-### 2. **Siga a Sequência**
-Cada capítulo é construído sobre o anterior. **Não pule etapas!**
-
-### 3. **Pratique Muito**
-- Execute todos os exemplos
-- Adapte para sua realidade
-- Crie variações dos exercícios
-
-### 4. **Participe da Comunidade**
-- Compartilhe suas criações
-- Ajude outros estudantes
-- Receba feedback dos mentores
-
-## 📊 Progresso e Certificação
-
-### ✅ **Critérios de Conclusão**
-- Completar todos os capítulos
-- Executar todos os exercícios práticos
-- Finalizar o projeto de cada nível
-
-### 🏆 **Reconhecimento**
-- Certificado digital de conclusão
-- Badge na comunidade
-- Perfil de destaque no GitHub
-- Network profissional
-
-## 🛠️ Recursos Necessários
-
-### 💻 **Técnicos**
-- Computador com internet estável
-- n8n instalado (gratuito)
-- Editor de texto (VS Code recomendado)
-
-### ⏰ **Tempo**
-- **2-3 horas por capítulo** (recomendado)
-- **1-2 capítulos por semana** (ritmo ideal)
-- **Flexibilidade total** de horários
-
-## 🎯 Próximos Passos
-
-:::tip Pronto para Começar?
-👉 **[Iniciar Nível 1 - Capítulo 1](nivel-um/capitulo-1)**
-
-Ou continue explorando os detalhes de cada nível abaixo.
+:::tip **Qual é o formato?**
+- **Resumos em Português:** Cada capítulo aqui é um resumo do conteúdo oficial.
+- **Links para o Original:** Sempre forneceremos o link para o curso completo em inglês para um estudo aprofundado.
+- **Adaptação:** Quando possível, adicionamos notas e dicas relevantes para o contexto brasileiro.
 :::
+
+---
+
+### 📺 **Cursos em Vídeo (YouTube)**
+
+O n8n oferece cursos completos em formato de vídeo, ideais para quem prefere um aprendizado mais visual.
+
+- **[Curso de Iniciante (Beginner Course) ↗](https://www.youtube.com/watch?v=I_7_b0I1I3Y&list=PL8p-62yr-wG4s4s_lq4a4M0S-s_k4iS3q)**
+  *   Cobre todos os fundamentos, desde a interface até a criação de workflows complexos.
+  *   **Ideal para:** Quem está começando do zero.
+
+- **[Curso Avançado (Advanced Course) ↗](https://www.youtube.com/watch?v=g1GkX1BH89E&list=PL8p-62yr-wG4a2c5a_z9sDq_aV2T-tOkb)**
+  *   Aprofunda em nós técnicos, fluxos de dados complexos e recursos empresariais.
+  *   **Ideal para:** Desenvolvedores e usuários que já dominaram o básico.
+
+👉 **[Explore a seção de Cursos em Vídeo](video-courses/overview)**
+
+---
+
+### 📝 **Cursos em Texto (Oficiais)**
+
+Para quem prefere ler e seguir no seu próprio ritmo, a documentação oficial oferece cursos baseados em texto.
+
+- **[Nível 1 (Level One) ↗](https://docs.n8n.io/courses/level-one/)**
+  *   Uma introdução prática que ensina a construir um caso de uso do mundo real, passo a passo.
+  *   Foca em automação de marketing e vendas.
+
+- **[Nível 2 (Level Two) ↗](https://docs.n8n.io/courses/level-two/)**
+  *   Aprofunda na estrutura de dados, tratamento de erros e na construção de um workflow empresarial mais complexo.
+  *   Foca na automação de um processo de suporte ao cliente.
+
+👉 **[Explore a seção de Cursos em Texto](text-courses/overview)**
 
 ---
 
