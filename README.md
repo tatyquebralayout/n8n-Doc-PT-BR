@@ -282,10 +282,4 @@ MIT License - veja [LICENSE](LICENSE) para detalhes.
 
 **Desenvolvido com ❤️ para a comunidade brasileira do n8n**
 
-🇧🇷 **Orgulhosamente brasileiro** - Criando automação de qualidade mundial!
-
-### 🏆 **Reconhecimentos**
-
-- **n8n Team** - Pela plataforma incrível
-- **Docusaurus** - Framework excepcional
-- **Comunidade BR** - Feedback e sugestões 
+🇧🇷 **Orgulhosamente brasileiro** - Criando automação de qualidade mundial! 
