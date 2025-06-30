@@ -91,18 +91,6 @@ Para ver os passos completos, consulte o arquivo: **[`CONTRIBUTING.md`](./CONTRI
 
 ---
 
-## 📄 Licença
-
-Este projeto é distribuído sob a **Licença MIT**.
-
-> **Aviso de independência:**  
-> Esta documentação é uma iniciativa da comunidade brasileira e **não possui vínculo com o projeto oficial do n8n**.  
-> O conteúdo foi desenvolvido de forma independente, inspirado e baseado na documentação original do [n8n.io](https://n8n.io), respeitando os princípios de software e documentação open source.
-
-Para ler os termos completos da licença, consulte o arquivo: **[`LICENSE`](./LICENSE)**
-
----
-
 Desenvolvido com ❤️ para a comunidade n8n Brasil.
 
 > _Esta documentação é independente e não substitui a [documentação oficial do n8n](https://docs.n8n.io/)._
