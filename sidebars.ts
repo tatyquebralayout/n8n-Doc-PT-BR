@@ -512,6 +512,7 @@ const sidebars: SidebarsConfig = {
           label: '📚 Esta Documentação',
           collapsed: false,
           items: [
+            'contribuir/esta-documentacao/overview',
             'contribuir/esta-documentacao/guidelines',
             'contribuir/esta-documentacao/codigo-conduta',
             'contribuir/esta-documentacao/traduzir',
@@ -523,6 +524,7 @@ const sidebars: SidebarsConfig = {
           label: '🚀 Projeto n8n',
           collapsed: false,
           items: [
+            'contribuir/projeto-n8n/overview',
             'contribuir/projeto-n8n/contribuir-codigo-e-docs',
             'contribuir/projeto-n8n/contribuir-modelos',
             'contribuir/projeto-n8n/adicionar-casos-uso',
