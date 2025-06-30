@@ -5,7 +5,7 @@ Bem-vindo, contribuidor! Este é o guia rápido para configurar seu ambiente e c
 :::warning **Guia Completo no Site!**
 Este arquivo é um resumo técnico. Para entender **o quê** e **como** contribuir (padrões de escrita, estilo, código de conduta), por favor, leia nossa seção completa de contribuição no site:
 
-**[➡️ Ver Guias Completos de Contribuição](https://n8n.io.br/docs/contribuir/esta-documentacao/overview)**
+**[➡️ Ver Guias Completos de Contribuição](https://tatyquebralayout.github.io/n8n-Doc-pt-BR/contribuir/esta-documentacao/overview)**
 :::
 
 ## 🚀 Começando

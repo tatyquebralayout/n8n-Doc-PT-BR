@@ -8,12 +8,12 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://docs.n8n.io',
+  url: 'https://tatyquebralayout.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/',
+  baseUrl: '/n8n-Doc-pt-BR/',
 
-  organizationName: 'n8n-io',
-  projectName: 'n8n-docs-br',
+  organizationName: 'tatyquebralayout',
+  projectName: 'n8n-Doc-pt-BR',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
