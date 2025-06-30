@@ -464,7 +464,7 @@ const sidebars: SidebarsConfig = {
   contribuirSidebar: [
     {
       type: 'category',
-      label: '🤝 Participe da Comunidade',
+      label: '🤝 Como Contribuir',
       collapsed: false,
       items: [
         'contribuir/index',

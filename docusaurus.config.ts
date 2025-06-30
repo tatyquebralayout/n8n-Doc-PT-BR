@@ -113,7 +113,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          label: 'Participe da Comunidade',
+          label: 'Como Contribuir para a Documentação n8n BR',
           type: 'docSidebar',
           sidebarId: 'contribuirSidebar',
           position: 'left',

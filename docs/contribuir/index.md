@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-title: Como Participar da Comunidade
-description: Entenda as diferentes formas de contribuir com a comunidade n8n no Brasil e no mundo.
-keywords: [n8n, contribuir, comunidade, documentação, open source, brasil]
+title: Como Contribuir para a Documentação n8n BR
+description: Entenda as diferentes formas de contribuir com a documentação da comunidade brasileira e com o projeto oficial do n8n.
+keywords: [n8n, contribuir, documentação, comunidade, brasil, open source]
 ---
 
-# 🤝 Como Participar da Comunidade
+# 🤝 Como Contribuir para a Documentação n8n BR
 
 Bem-vindo à nossa central de colaboração! A força do n8n vem de sua comunidade vibrante, e existem duas maneiras fantásticas de fazer parte dela:
 
