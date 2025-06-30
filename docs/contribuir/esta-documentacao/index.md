@@ -65,6 +65,10 @@ Sua ajuda aqui impacta diretamente a comunidade brasileira. Você pode:
 - **Foco**: Orienta sobre os canais corretos para entrar em contato, tirar dúvidas, propor novas ideias ou discutir mudanças maiores.
 - **Ideal para**: Quando você precisar de ajuda ou quiser discutir algo que não está no guia.
 
+### [Entendendo o diretório .docusaurus](./docusaurus-folder)
+- **Foco**: Explica o funcionamento interno do diretório `.docusaurus`, sua estrutura e boas práticas.
+- **Ideal para**: Desenvolvedores que querem entender melhor como o Docusaurus funciona internamente.
+
 ---
 
 > **✨ Sua contribuição transforma! Veja como:**

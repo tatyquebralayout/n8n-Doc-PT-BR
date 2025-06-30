@@ -10,10 +10,8 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '🚀 n8n Oficial',
       link: {
-        type: 'generated-index',
-        title: 'Releases do n8n',
-        description: 'Notas de release oficiais do n8n, sincronizadas e traduzidas.',
-        slug: '/n8n-oficial',
+        type: 'doc',
+        id: 'n8n-oficial/index',
       },
       items: [
         {
