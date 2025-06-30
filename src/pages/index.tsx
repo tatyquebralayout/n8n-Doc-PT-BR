@@ -71,7 +71,7 @@ function HomepageFeatures() {
                 Guias completos para implantar n8n em produção. 
                 Suporte para Docker, Kubernetes, AWS, Azure e muito mais.
               </p>
-              <Link to="/deployment/docker/introducao" className={styles.featureLink}>
+              <Link to="/hosting-n8n/instalacao/docker" className={styles.featureLink}>
                 Ver guias de deploy →
               </Link>
             </div>
@@ -142,9 +142,9 @@ function HomepageQuickLinks() {
             <p>Conecte aplicações via webhooks</p>
           </Link>
           
-          <Link to="/deployment/docker/compose" className={styles.quickLinkItem}>
-            <h4>🐳 Docker Compose</h4>
-            <p>Deploy com Docker Compose</p>
+          <Link to="/hosting-n8n/instalacao/docker" className={styles.quickLinkItem}>
+            <h4>🐳 Docker</h4>
+            <p>Deploy com Docker</p>
           </Link>
           
           <Link to="/seguranca/credenciais" className={styles.quickLinkItem}>
