@@ -13,19 +13,24 @@ jobs:
       - name: 1. Checkout do repositório
         uses: actions/checkout@v4
 
-      - name: 2. Configurar o Node.js
+      - name: 2. Instalar o pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8 # ou a versão que preferir
+
+      - name: 3. Configurar o Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: 3. Instalar dependências
+      - name: 4. Instalar dependências
         run: pnpm install
 
-      - name: 4. Rodar o script de sincronização
+      - name: 5. Rodar o script de sincronização
         run: node scripts/sync-releases.mjs
 
-      - name: 5. Fazer o commit das alterações
+      - name: 6. Fazer o commit das alterações
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(releases): atualiza notas de release do n8n"
