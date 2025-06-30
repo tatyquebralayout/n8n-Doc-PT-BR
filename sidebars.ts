@@ -516,8 +516,8 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
-  // O que sobrou do Catalog sidebar
-  catalogSidebar: [
+  // Referencia Sidebar
+  referenciaSidebar: [
     {
       type: 'category',
       label: '📖 Referência',

@@ -119,6 +119,12 @@ const config: Config = {
           position: 'left',
         },
         {
+          label: 'Referência',
+          type: 'docSidebar',
+          sidebarId: 'referenciaSidebar',
+          position: 'left',
+        },
+        {
           to: '/release-notes',
           label: 'Release Notes',
           position: 'left',
