@@ -196,9 +196,10 @@ const sidebars: SidebarsConfig = {
       label: '🏗️ Hosting n8n',
       collapsed: false,
       items: [
+        'hosting-n8n/instalacao',
         {
           type: 'category',
-          label: '📦 Instalação',
+          label: '📦 Métodos de Instalação',
           collapsed: false,
           items: [
             'hosting-n8n/instalacao/docker',

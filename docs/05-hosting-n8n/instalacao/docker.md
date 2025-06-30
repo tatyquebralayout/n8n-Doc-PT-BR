@@ -1,13 +1,13 @@
 ---
 sidebar_position: 1
-title: Introdução ao Docker
-description: Guia completo para deploy do n8n usando Docker
+title: Instalação via Docker
+description: Guia completo para instalar n8n usando Docker
 keywords: [n8n, docker, deployment, containerização, produção]
 ---
 
-# 🐳 Introdução ao Docker
+# 🐳 Instalação via Docker
 
-Bem-vindo ao guia completo de deployment do n8n usando Docker! Este guia te levará do zero à produção com uma instalação robusta e segura.
+Este guia mostrará como instalar e executar o n8n usando Docker, a forma mais robusta e recomendada para ambientes de produção.
 
 ## 🎯 O que você vai aprender
 
