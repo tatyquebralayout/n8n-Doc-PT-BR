@@ -36,7 +36,7 @@ Este Código de Conduta se aplica a todos os espaços da comunidade, e também s
 
 ## Aplicação e Reporte
 
-Comportamentos abusivos, de assédio ou de outra forma inaceitáveis podem ser reportados aos líderes da comunidade responsáveis pela aplicação em **[INSIRA O EMAIL DE CONTATO DO PROJETO]**. Todas as queixas serão revistas e investigadas prontamente e de forma justa.
+Comportamentos abusivos, de assédio ou de outra forma inaceitáveis podem ser reportados aos líderes da comunidade responsáveis pela aplicação em **tatianabarros.technicaldocs@gmail.com**. Todas as queixas serão revistas e investigadas prontamente e de forma justa.
 
 Todos os líderes da comunidade são obrigados a respeitar a privacidade e a segurança do relator de qualquer incidente.
 
