@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'n8n Documentation',
-  tagline: 'Explore what\'s new: Latest release notes available now! 🚀',
+  title: 'Documentação n8n Brasil',
+  tagline: 'O hub de conhecimento para a comunidade brasileira de automação.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
