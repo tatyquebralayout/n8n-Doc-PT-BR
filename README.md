@@ -4,7 +4,7 @@
 
 # n8n Documentation Brasil 🇧🇷
 
-> Documentação NÃO‑OFICIAL do n8n para desenvolvedores e automatizadores brasileiros.
+> Documentação NÃO‑OFICIAL do n8n.
 > _Este projeto não possui vínculo com o time oficial do n8n e serve como complemento, referência e apoio aos usuários do Brasil._
 
 [![Deploy - GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-success?logo=github)](https://tatyquebralayout.github.io/n8n-Doc-pt-BR/)
@@ -82,29 +82,24 @@ Se você deseja causar um impacto global, pode levar suas habilidades para o pr�
 
 ---
 
-## 🛠️ Visualização e Preview
+## 🛠️ Configuração e Ambiente Local
 
-Este site é construído com [Docusaurus](https://docusaurus.io/), um gerador de sites estáticos moderno.
+> Este projeto usa [Docusaurus](https://docusaurus.io/) para gerar o site. Para rodar o projeto localmente e contribuir, siga as instruções detalhadas no nosso guia de configuração.
 
-Para visualizar as alterações localmente antes de contribuir:
-
-1.  **Instale as dependências:**
-    ```bash
-    npm install
-    ```
-
-2.  **Inicie o servidor de desenvolvimento:**
-    ```bash
-    npm run start
-    ```
-
-Isso abrirá o site em `http://localhost:3000` no seu navegador.
+Para ver os passos completos, consulte o arquivo: **[`SETUP.md`](./SETUP.md)**
 
 ---
 
 ## 📄 Licença
 
-MIT License.
+> **Licença MIT (MIT)**
+>
+> Este projeto é distribuído sob a Licença MIT, que permite ampla liberdade de uso. Para ler os termos na íntegra, consulte o arquivo [`LICENSE`](./LICENSE).
+
+- **Aviso de Independência:** Esta é uma iniciativa da comunidade e não possui vínculo com o projeto oficial do n8n.
+- **Permissões:** Você pode usar, copiar, modificar e distribuir este projeto livremente.
+- **Condição:** O aviso de copyright e a nota de permissão devem ser mantidos em todas as cópias.
+- **Garantia:** O projeto é fornecido "como está", sem garantias de qualquer tipo.
 
 ---
 
