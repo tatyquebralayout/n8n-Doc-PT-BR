@@ -12,25 +12,16 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <div className={styles.heroContent}>
-          <Heading as="h1" className={styles.heroTitle}>
-            n8n Documentation
-          </Heading>
-          <p className={styles.heroSubtitle}>
-            Documentação completa para automação de workflows com n8n
-          </p>
-          <div className={styles.heroButtons}>
-            <Link
-              className={clsx('button button--primary button--lg', styles.getStartedButton)}
-              to="/intro">
-              Começar agora
-            </Link>
-            <Link
-              className={clsx('button button--outline button--lg', styles.learnMoreButton)}
-              to="/release-notes">
-              Release Notes
-            </Link>
-          </div>
+        <Heading as="h1" className="hero__title">
+          {siteConfig.title}
+        </Heading>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.buttons}>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/intro">
+            Comece a Explorar - 5min ⏱️
+          </Link>
         </div>
       </div>
     </header>
@@ -117,61 +108,15 @@ function HomepageFeatures() {
   );
 }
 
-function HomepageQuickLinks() {
-  return (
-    <section className={styles.quickLinks}>
-      <div className="container">
-        <div className={styles.quickLinksHeader}>
-          <h2>Acesso Rápido</h2>
-          <p>Links diretos para as seções mais acessadas</p>
-        </div>
-        
-        <div className={styles.quickLinksGrid}>
-          <Link to="/tutorial-basico/instalacao" className={styles.quickLinkItem}>
-            <h4>🔧 Instalação</h4>
-            <p>Como instalar e configurar o n8n</p>
-          </Link>
-          
-          <Link to="/tutorial-basico/primeiro-workflow" className={styles.quickLinkItem}>
-            <h4>✨ Primeiro Workflow</h4>
-            <p>Crie seu primeiro workflow em 5 minutos</p>
-          </Link>
-          
-          <Link to="/integracoes/builtin-nodes/http-requests/webhook" className={styles.quickLinkItem}>
-            <h4>🔗 Webhooks</h4>
-            <p>Conecte aplicações via webhooks</p>
-          </Link>
-          
-          <Link to="/hosting-n8n/instalacao" className={styles.quickLinkItem}>
-            <h4>🔧 Instalação</h4>
-            <p>Guias de instalação completos</p>
-          </Link>
-          
-          <Link to="/integracoes/credential-nodes/oauth" className={styles.quickLinkItem}>
-            <h4>🛡️ Segurança</h4>
-            <p>Gerenciamento de credenciais</p>
-          </Link>
-          
-          <Link to="/integracoes/builtin-nodes/http-requests/http-request" className={styles.quickLinkItem}>
-            <h4>🌐 HTTP Request</h4>
-            <p>Fazer requisições HTTP</p>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export default function Home(): React.JSX.Element {
+export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title="Início"
-      description="Documentação completa do n8n em português brasileiro">
+      title={`Hello from ${siteConfig.title}`}
+      description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <HomepageQuickLinks />
       </main>
     </Layout>
   );
