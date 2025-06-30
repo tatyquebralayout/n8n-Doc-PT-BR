@@ -95,7 +95,7 @@ const config: Config = {
           className: 'navbar-home-link',
         },
         {
-          label: 'Criar e Usar Workflows',
+          label: 'Workflows',
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
@@ -107,13 +107,13 @@ const config: Config = {
           position: 'left',
         },
         {
-          label: 'Cursos Oficiais n8n',
+          label: 'Cursos',
           type: 'docSidebar',
           sidebarId: 'cursosSidebar',
           position: 'left',
         },
         {
-          label: 'Como Contribuir para a Documentação n8n BR',
+          label: 'Comunidade',
           type: 'docSidebar',
           sidebarId: 'contribuirSidebar',
           position: 'left',
