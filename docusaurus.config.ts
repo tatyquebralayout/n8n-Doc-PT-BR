@@ -39,7 +39,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/n8n-io/n8n-docs-br/tree/main/',
+          editUrl: 'https://github.com/tatyquebralayout/n8n-Doc-pt-BR/tree/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           routeBasePath: '/',
@@ -69,7 +69,7 @@ const config: Config = {
         path: 'release-notes',
         routeBasePath: 'release-notes',
         sidebarPath: './sidebars-release-notes.ts',
-        editUrl: 'https://github.com/n8n-io/n8n-docs-br/tree/main/',
+        editUrl: 'https://github.com/tatyquebralayout/n8n-Doc-pt-BR/tree/main/',
       },
     ],
   ],
