@@ -2,41 +2,37 @@
 
 ## 🎯 Nosso Compromisso
 
-A comunidade da **Documentação n8n Brasil** está comprometida em proporcionar uma experiência **acolhedora, respeitosa e colaborativa** para todos os contribuidores, independentemente de:
+Nossa comunidade acolhe contribuições de pessoas com diferentes trajetórias, independentemente de:
 
-- 🌎 Origem geográfica
-- 👥 Identidade de gênero
+- 🌎 Localização geográfica  
+- 👥 Identidade de gênero  
 - 🏳️‍🌈 Orientação sexual  
-- 🎨 Nível de experiência
-- 💼 Background profissional
-- 🧠 Capacidades físicas ou mentais
-- 📚 Nível educacional
+- 🎨 Nível de experiência técnica  
+- 💼 Histórico profissional  
+- 🧠 Habilidades cognitivas ou físicas  
+- 📚 Formação educacional
 
-:::info Escopo
-Este código de conduta se aplica especificamente à **comunidade desta documentação**. Para questões relacionadas ao projeto n8n em si, consulte o código de conduta oficial do n8n.
-:::
+## ✅ Boas Práticas
 
-## ✅ Comportamentos Esperados
-
-### 🤗 **Seja Acolhedor**
-- Recepcione novos contribuidores com gentileza
+### 🤗 **Acolhimento**
+- Recepcione novas pessoas na comunidade com gentileza
 - Ofereça ajuda a quem está começando
 - Compartilhe conhecimento de forma generosa
-- Reconheça e celebre contribuições de outros
+- Reconheça e celebre as contribuições de outras pessoas
 
-### 🎯 **Seja Construtivo**
+### 🎯 **Postura Construtiva**
 - Ofereça feedback específico e útil
 - Foque no conteúdo, não na pessoa
 - Sugira melhorias de forma respeitosa
-- Compartilhe alternativas quando discordar
+- Compartilhe alternativas em caso de discordância
 
-### 💬 **Comunique-se Bem**
+### 💬 **Comunicação Clara**
 - Use linguagem clara e amigável
-- Seja paciente com diferentes níveis de conhecimento
+- Tenha paciência com diferentes níveis de conhecimento
 - Esclareça quando não entender algo
-- Assume sempre boa intenção
+- Assuma sempre a boa intenção
 
-### 🇧🇷 **Valorize o Contexto Brasileiro**
+### 🇧🇷 **Valorização do Contexto Brasileiro**
 - Respeite particularidades regionais do Brasil
 - Inclua exemplos relevantes para nossa realidade
 - Considere diferentes níveis de acesso à tecnologia
@@ -53,29 +49,29 @@ Este código de conduta se aplica especificamente à **comunidade desta document
 
 ### ⚠️ **Evite**
 - Assumir conhecimento prévio sem verificar
-- Corrigir português de forma pública e embaraçosa
+- Corrigir o português de forma pública e embaraçosa
 - Descartar contribuições sem explicação
 - Criar ambientes competitivos desnecessários
 
 ## 🔧 Diretrizes Específicas
 
 ### 💬 **Em Issues e Pull Requests**
-- Seja específico sobre problemas encontrados
+- Especifique os problemas encontrados
 - Explique o contexto de suas sugestões
 - Teste sugestões antes de propor
-- Agradque contribuições mesmo que não aceitas
+- Agradeça pelas contribuições, mesmo que não sejam aceitas
 
 ### 📝 **Na Documentação**
 - Priorize clareza sobre elegância técnica
 - Inclua exemplos práticos e testados
 - Considere diferentes níveis de experiência
-- Mantenha tom amigável e acessível
+- Mantenha um tom amigável e acessível
 
 ### 🎨 **Em Discussões**
-- Mantenha discussões focadas no tópico
+- Mantenha as discussões focadas no tópico
 - Respeite diferentes opiniões e abordagens
-- Busque consenso através de diálogo
-- Escalate apenas quando necessário
+- Busque o consenso através do diálogo
+- Escale um tópico apenas quando necessário
 
 ## 🛡️ Aplicação e Consequências
 
@@ -92,24 +88,24 @@ Se você presenciar ou experienciar comportamento inaceitável, entre em contato
 ### 🎯 **Foco na Educação**
 
 Priorizamos **educação e crescimento** sobre punição. Buscamos:
-- Entender contexto e intenção
-- Explicar impacto de comportamentos
+- Entender o contexto e a intenção
+- Explicar o impacto de cada comportamento
 - Oferecer oportunidades de correção
 - Apoiar mudanças positivas
 
 ## 🌟 Reconhecimento e Celebração
 
 ### 🏆 **Valorizamos Contribuições**
-- Menciones de agradecimento em releases
+- Menções de agradecimento em releases
 - Destaque para contribuições excepcionais  
-- Lista de colaboradores ativos
+- Lista de pessoas colaboradoras ativas
 - Feedback positivo regular
 
 ### 🎉 **Formas de Contribuir**
 - Criar novos conteúdos
-- Melhorar documentação existente
+- Melhorar a documentação existente
 - Reportar erros e inconsistências
-- Ajudar outros contribuidores
+- Ajudar outras pessoas na comunidade
 - Compartilhar casos de uso
 - Traduzir e localizar conteúdo
 
@@ -117,24 +113,24 @@ Priorizamos **educação e crescimento** sobre punição. Buscamos:
 
 ### 🚀 **Nossa Visão**
 Criar a **melhor documentação técnica** em português para n8n, onde:
-- Todo brasileiro pode aprender automação
-- Conhecimento é compartilhado generosamente  
-- Comunidade cresce de forma sustentável
-- Diversidade de perspectivas é valorizada
+- Qualquer pessoa no Brasil pode aprender automação
+- O conhecimento é compartilhado generosamente  
+- A comunidade cresce de forma sustentável
+- A diversidade de perspectivas é valorizada
 
 ### 🤝 **Compromisso Mútuo**
-- **Mantenedores**: Zelar por ambiente acolhedor e produtivo
-- **Contribuidores**: Respeitar comunidade e diretrizes
-- **Usuários**: Fornecer feedback construtivo
-- **Todos**: Promover cultura de aprendizado colaborativo
+- **Pessoas Mantenedoras**: Zelar por um ambiente acolhedor e produtivo
+- **Pessoas Contribuidoras**: Respeitar a comunidade e as diretrizes
+- **Pessoas Usuárias**: Fornecer feedback construtivo
+- **Toda a Comunidade**: Promover uma cultura de aprendizado colaborativo
 
 ## 📚 Recursos Adicionais
 
 ### 🇧🇷 **Específicos do Brasil**
-- Considere diversidade regional brasileira
+- Considere a diversidade regional brasileira
 - Respeite diferentes sotaques e expressões
 - Inclua exemplos de norte a sul do país
-- Promova inclusão digital
+- Promova a inclusão digital
 
 ### 🌐 **Referências Externas**
 - [Contributor Covenant](https://www.contributor-covenant.org/pt-br/)
@@ -145,12 +141,12 @@ Criar a **melhor documentação técnica** em português para n8n, onde:
 
 Este código de conduta **evolui** com nossa comunidade:
 - Revisões regulares baseadas em experiência
-- Feedback da comunidade incorporado
-- Adaptações conforme crescimento
+- Feedback da comunidade é incorporado
+- Adaptações conforme o crescimento
 - Transparência em todas as mudanças
 
 ---
 
-**🎯 Objetivo Final:** Criar um ambiente onde todo brasileiro pode contribuir, aprender e crescer juntos na automação com n8n!
+**🎯 Objetivo Final:** Criar um ambiente onde todas as pessoas no Brasil possam contribuir, aprender e crescer juntas na automação com n8n!
 
-**💪 Juntos somos mais fortes!** Sua contribuição faz a diferença para toda a comunidade brasileira.
+**💪 A união nos fortalece!** Sua contribuição faz a diferença para toda a comunidade brasileira.
