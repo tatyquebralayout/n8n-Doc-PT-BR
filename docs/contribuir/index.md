@@ -84,22 +84,19 @@ Responda essas perguntas:
 ### 🚀 **Para o Projeto n8n Oficial**
 
 #### **🟢 Fácil (30min)**
-- Reportar bugs no GitHub
-- Participar de discussões na comunidade
-- Testar novas versões
-- Compartilhar feedback
+- Reportar bugs no [GitHub Issues](https://github.com/n8n-io/n8n/issues)
+- Participar de discussões no [Fórum da Comunidade](https://community.n8n.io/)
+- Testar novas versões beta e fornecer feedback
 
 #### **🟡 Médio (1-3 horas)**
-- Criar templates de workflow
-- Contribuir com documentação oficial
-- Participar de programas da comunidade
-- Criar conteúdo educativo
+- **[Contribuir com Modelos (Templates)](projeto-n8n/contribuir-modelos):** Criar e submeter workflows para a galeria oficial do n8n.
+- **[Adicionar Casos de Uso](projeto-n8n/adicionar-casos-uso):** Documentar soluções práticas para problemas reais.
+- **[Escrever para o Blog](projeto-n8n/afiliados-e-creators):** Criar tutoriais e artigos para o blog oficial do n8n.
 
 #### **🔴 Avançado (5+ horas)**
-- Desenvolver novos nodes
-- Contribuir com código principal
-- Liderar iniciativas da comunidade
-- Mentoring técnico global
+- **[Contribuir com Código](projeto-n8n/contribuir-codigo-e-docs):** Corrigir bugs ou melhorar funcionalidades existentes no código-fonte do n8n. Siga nosso guia detalhado!
+- **[Criar um Node Comunitário](https://docs.n8n.io/integrations/creating-nodes/):** Desenvolver sua própria integração e publicá-la para a comunidade.
+- **[Indicar Candidatos](projeto-n8n/referral-vagas):** Ajudar a n8n a encontrar novos talentos.
 
 ## 🎯 Impacto das Suas Contribuições
 

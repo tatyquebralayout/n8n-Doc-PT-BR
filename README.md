@@ -45,6 +45,16 @@ A documentação está organizada nas seguintes seções principais:
 Qualquer pessoa pode sugerir melhorias, corrigir erros, criar novos tutoriais ou ajudar na revisão!  
 Veja as [instruções de contribuição](./CONTRIBUTING.md) e faça parte.
 
+### ✨ Novidade: Guias Completos de Contribuição para o Projeto n8n!
+
+Recentemente, a seção **[Contribuir para o Projeto n8n](/docs/contribuir/projeto-n8n/overview)** foi totalmente reformulada e agora oferece guias detalhados alinhados com as diretrizes oficiais do n8n.
+
+- **[Guia para Contribuir com Código](/docs/contribuir/projeto-n8n/contribuir-codigo-e-docs):** Aprenda o passo a passo para configurar seu ambiente e enviar um Pull Request de sucesso, incluindo as regras de testes e o Acordo de Licença (CLA).
+- **[Programa para Criadores](/docs/contribuir/projeto-n8n/afiliados-e-creators):** Descubra como contribuir com templates e artigos para o blog oficial.
+- **[Indicação de Candidatos](/docs/contribuir/projeto-n8n/referral-vagas):** Saiba como indicar talentos para a n8n e ser recompensado por isso.
+
+Se você sempre quis colaborar com o n8n globalmente, agora é a hora!
+
 ---
 
 ## 🛠️ Visualização e Preview
