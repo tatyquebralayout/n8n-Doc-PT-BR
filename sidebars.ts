@@ -102,7 +102,22 @@ const sidebars: SidebarsConfig = {
                 'integracoes/builtin-nodes/http-requests/http-request',
               ],
             },
-
+            {
+              type: 'category',
+              label: '🎮 Controle de Lógica',
+              collapsed: false,
+              items: [
+                'integracoes/builtin-nodes/logic-control/index',
+              ],
+            },
+            {
+              type: 'category',
+              label: '🛠️ Utilitários',
+              collapsed: false,
+              items: [
+                'integracoes/builtin-nodes/utilities/index',
+              ],
+            },
           ],
         },
         {
@@ -127,7 +142,14 @@ const sidebars: SidebarsConfig = {
                 'integracoes/trigger-nodes/event-based/webhook-trigger',
               ],
             },
-
+            {
+              type: 'category',
+              label: '📱 App Triggers',
+              collapsed: false,
+              items: [
+                'integracoes/trigger-nodes/app-triggers/index',
+              ],
+            },
           ],
         },
         {
@@ -153,7 +175,22 @@ const sidebars: SidebarsConfig = {
                 'integracoes/app-nodes/communication/gmail',
               ],
             },
-
+            {
+              type: 'category',
+              label: '🛒 E-commerce',
+              collapsed: false,
+              items: [
+                'integracoes/app-nodes/ecommerce/index',
+              ],
+            },
+            {
+              type: 'category',
+              label: '📈 Marketing',
+              collapsed: false,
+              items: [
+                'integracoes/app-nodes/marketing/index',
+              ],
+            },
           ],
         },
         {
@@ -399,6 +436,7 @@ const sidebars: SidebarsConfig = {
       label: '🎓 Cursos',
       collapsed: false,
       items: [
+        'cursos/index',
         {
           type: 'category',
           label: '📗 Nível 1',
@@ -428,6 +466,7 @@ const sidebars: SidebarsConfig = {
       label: '📖 Referência',
       collapsed: false,
       items: [
+        'referencia/index',
         {
           type: 'category',
           label: '📚 Guias',
@@ -462,34 +501,28 @@ const sidebars: SidebarsConfig = {
       label: '🤝 Contribuir',
       collapsed: false,
       items: [
+        'contribuir/index',
         {
           type: 'category',
-          label: '📋 Diretrizes',
+          label: '📚 Esta Documentação',
           collapsed: false,
           items: [
-            'contribuir/diretrizes/guidelines',
-            'contribuir/diretrizes/codigo-conduta',
-            'contribuir/diretrizes/traduzir',
+            'contribuir/esta-documentacao/guidelines',
+            'contribuir/esta-documentacao/codigo-conduta',
+            'contribuir/esta-documentacao/traduzir',
           ],
         },
         {
           type: 'category',
-          label: '💻 Desenvolvimento',
+          label: '🚀 Projeto n8n',
           collapsed: false,
           items: [
-            'contribuir/desenvolvimento/contribuir-codigo-e-docs',
-            'contribuir/desenvolvimento/contribuir-modelos',
-            'contribuir/desenvolvimento/adicionar-casos-uso',
-          ],
-        },
-        {
-          type: 'category',
-          label: '👥 Comunidade',
-          collapsed: false,
-          items: [
-            'contribuir/comunidade/contribuir-community',
-            'contribuir/comunidade/afiliados-e-creators',
-            'contribuir/comunidade/referral-vagas',
+            'contribuir/projeto-n8n/contribuir-codigo-e-docs',
+            'contribuir/projeto-n8n/contribuir-modelos',
+            'contribuir/projeto-n8n/adicionar-casos-uso',
+            'contribuir/projeto-n8n/contribuir-community',
+            'contribuir/projeto-n8n/afiliados-e-creators',
+            'contribuir/projeto-n8n/referral-vagas',
           ],
         },
       ],

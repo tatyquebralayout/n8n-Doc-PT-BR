@@ -1,12 +1,21 @@
-# 🤝 Guia de Contribuição - n8n Documentation BR
+# 🤝 Guia de Contribuição - Documentação n8n Brasil
 
 ## 📋 Visão Geral
 
-Este guia ajuda contribuidores a entender como construir e manter a documentação do n8n criando uma **experiência excepcional para a comunidade brasileira**.
+Este guia é especificamente para **contribuir com esta documentação brasileira** do n8n. 
+
+:::warning Atenção: Duas formas de contribuir
+Existem **duas formas distintas** de contribuir:
+
+1. **📚 Esta Documentação** - Melhorar, traduzir e expandir esta documentação brasileira
+2. **🚀 Projeto n8n** - Contribuir diretamente com o projeto n8n (código, nodes, etc.)
+
+**Este guia aborda apenas a primeira!** Para contribuir com o projeto n8n, veja a seção "Projeto n8n" na navegação.
+:::
 
 ### 🎯 Objetivo
 
-Desenvolver uma documentação completa, moderna e acessível especificamente para os **usuários brasileiros do n8n**, criando um hub de conhecimento em português que facilite o aprendizado e uso da plataforma de automação mais poderosa do mercado.
+Desenvolver uma documentação completa, moderna e acessível especificamente para os **usuários brasileiros do n8n**, criando um hub de conhecimento em português que facilite o aprendizado e uso da plataforma.
 
 ## 🏗️ Arquitetura do Projeto
 
@@ -17,43 +26,34 @@ n8ndoc_BR/
 ├── 📄 docusaurus.config.ts     # Configuração principal
 ├── 📄 package.json             # Dependências e scripts
 ├── 📄 sidebars.ts              # Configuração da navegação principal
-├── 📄 sidebars-release-notes.ts # Configuração release notes
-├── 📄 tsconfig.json            # Configuração TypeScript
 ├── 📄 README.md                # Documentação do projeto
 ├── 📄 CONTRIBUTING.md          # Este guia (você está aqui!)
 │
 ├── 📂 docs/                    # Documentação principal
 │   ├── 📄 intro.md             # Página de introdução
-│   ├── 📄 markdown-features.md # Demonstração de recursos
-│   └── 📂 tutorial-basico/     # Tutoriais básicos
-│       ├── 📄 instalacao.md
-│       ├── 📄 conceitos-basicos.md
-│       └── 📄 primeiro-workflow.md
-│
-├── 📂 release-notes/           # Sistema de release notes
-│   └── 📂 v1.0.0/             # Versão específica
-│       ├── 📄 overview.md
-│       ├── 📄 new-features.md
-│       ├── 📄 improvements.md
-│       └── 📄 bug-fixes.md
+│   ├── 📂 01-usando-n8n/       # Como usar n8n
+│   ├── 📂 02-logica-e-dados/   # Lógica e manipulação de dados
+│   ├── 📂 03-integracoes/      # Integrações disponíveis
+│   ├── 📂 04-integracoes-br/   # Integrações brasileiras
+│   ├── 📂 05-hosting-n8n/      # Hospedagem e deployment
+│   ├── 📂 06-api/              # API do n8n
+│   ├── 📂 07-embed/            # n8n embarcado
+│   ├── 📂 08-advanced-ai/      # IA avançada
+│   ├── 📂 09-cursos/           # Cursos estruturados
+│   ├── 📂 10-referencia/       # Referências e recursos
+│   └── 📂 11-contribuir/       # Guias de contribuição
 │
 ├── 📂 src/                     # Código-fonte customizado
 │   ├── 📂 css/
 │   │   └── 📄 custom.css       # CSS padrão comunidade
 │   ├── 📂 pages/
-│   │   ├── 📄 index.tsx        # Homepage personalizada
-│   │   └── 📄 index.module.css # Estilos da homepage
+│   │   └── 📄 index.tsx        # Homepage personalizada
 │   └── 📂 components/
 │       └── 📂 HomepageFeatures/ # Componentes da homepage
 │
-├── 📂 static/img/              # Imagens e assets
-│   ├── 📄 n8n-logo.svg
-│   └── 📄 n8n-logo-dark.svg
-│
-└── 📂 .docusaurus/             # ⚠️ NÃO EDITAR - Gerado automaticamente
-    ├── 📄 registry.js
-    ├── 📄 routes.js
-    └── ... (outros arquivos gerados)
+└── 📂 static/img/              # Imagens e assets
+    ├── 📄 n8n-logo.svg
+    └── 📄 n8n-logo-dark.svg
 ```
 
 ## 🎨 Design System - Padrão Comunidade BR
@@ -80,14 +80,6 @@ n8ndoc_BR/
 --ifm-font-size-base: 14px;
 --ifm-line-height-base: 1.6;
 ```
-
-### 📐 Layout Principles
-
-1. **Navbar** limpa com navegação horizontal intuitiva
-2. **Sidebar** categorizadas com ícones emoji para fácil identificação
-3. **Cards** com hover effects e sombras para melhor experiência
-4. **Hero section** com gradient e botões estilizados
-5. **Footer** minimalista escuro
 
 ## 📝 Padrões de Escrita
 
@@ -177,70 +169,24 @@ const config = { ... };
 - 🎨 **Interface**
 - 🔧 **Configuração**
 
-## 🗂️ Sistema de Navegação
-
-### 📍 Sidebars Principais
-
-#### `tutorialSidebar` - "Criar e Usar Workflows"
-```typescript
-{
-  type: 'category',
-  label: '🚀 Primeiros Passos',
-  collapsed: false,
-  items: ['instalacao', 'conceitos-basicos', 'primeiro-workflow']
-}
-```
-
-#### `deploymentSidebar` - "Deployment"
-```typescript
-{
-  type: 'category', 
-  label: '🐳 Docker',
-  collapsed: false,
-  items: ['docker/introducao', 'docker/compose']
-}
-```
-
-#### `catalogSidebar` - "Catálogo"
-```typescript
-{
-  type: 'category',
-  label: '📋 Nodes Core',
-  collapsed: false,
-  items: ['catalog/core/if', 'catalog/core/set']
-}
-```
-
-### 🏷️ Convenções de Nomenclatura
-
-#### Arquivos
-- **kebab-case**: `primeiro-workflow.md`
-- **Descritivo**: `conceitos-basicos.md`
-- **Sem acentos**: `instalacao.md` (não `instalação.md`)
-
-#### Diretórios
-- **Hierárquicos**: `tutorial-basico/`, `deployment/docker/`
-- **Temáticos**: `catalog/core/`, `integracoes/`
-
 ## 🛠️ Fluxo de Desenvolvimento
 
 ### 🔧 Setup Local
 
 ```bash
-# 1. Instalar dependências
+# 1. Fork o repositório no GitHub
+# 2. Clone seu fork
+git clone https://github.com/SEU-USUARIO/n8ndoc_BR.git
+cd n8ndoc_BR
+
+# 3. Instalar dependências
 npm install
 
-# 2. Iniciar desenvolvimento
+# 4. Iniciar desenvolvimento
 npm start
 
-# 3. Acessar site
+# 5. Acessar site
 http://localhost:3000
-
-# 4. Build de produção
-npm run build
-
-# 5. Servir build
-npm run serve
 ```
 
 ### 📝 Adicionando Nova Documentação
@@ -275,57 +221,6 @@ npm start
 # Verificar em http://localhost:3000
 ```
 
-### 📋 Release Notes
-
-#### Estrutura de Versão
-```
-release-notes/
-└── v1.1.0/
-    ├── overview.md       # Visão geral da versão
-    ├── new-features.md   # Novas funcionalidades  
-    ├── improvements.md   # Melhorias
-    └── bug-fixes.md      # Correções de bugs
-```
-
-#### Template de Release
-```yaml
----
-sidebar_position: 1
-title: Visão Geral v1.1.0
-description: Principais novidades da versão 1.1.0
-keywords: [n8n, release notes, versão 1.1.0]
----
-
-# n8n v1.1.0 - Visão Geral
-
-**Data de lançamento:** 15 de Março de 2025
-**Tipo:** Versão Estável
-
-## 🎉 Principais Destaques
-
-### ⚡ Nova Funcionalidade X
-Descrição da funcionalidade...
-
-## 📊 Estatísticas da Versão
-
-| Métrica | Valor |
-|---------|-------|
-| Novos Nodes | 15 |
-| Bugs Corrigidos | 89 |
-```
-
-## 🚫 O que NÃO Editar
-
-### ⚠️ Arquivos Gerados (NÃO TOCAR)
-- `.docusaurus/` - Pasta gerada automaticamente
-- `build/` - Build de produção
-- `node_modules/` - Dependências
-
-### 🔒 Arquivos de Configuração (CUIDADO)
-- `docusaurus.config.ts` - Só modificar se souber o que está fazendo
-- `package.json` - Só para adicionar dependências aprovadas
-- `tsconfig.json` - Configuração TypeScript estabelecida
-
 ## ✅ Checklist de Qualidade
 
 ### 📝 Antes de Submeter
@@ -337,23 +232,21 @@ Descrição da funcionalidade...
 - [ ] Emojis consistentes
 - [ ] Navegação atualizada
 - [ ] Build local sem erros
-- [ ] Design consistente com padrão da comunidade
+- [ ] Português correto e acessível
 
 ### 🎨 Verificação Visual
 
-- [ ] Sidebar categorizadas corretamente
+- [ ] Sidebar organizadas corretamente
 - [ ] Cores seguindo paleta estabelecida
 - [ ] Botões e links estilizados
-- [ ] Cards com hover effects
-- [ ] Tipografia consistente
 - [ ] Layout responsivo
 
 ## 🤝 Processo de Contribuição
 
 ### 1. 🍴 Fork do Repositório
 ```bash
-git clone https://github.com/SEU-USER/n8n-docs-br.git
-cd n8n-docs-br
+git clone https://github.com/SEU-USER/n8ndoc_BR.git
+cd n8ndoc_BR
 ```
 
 ### 2. 🌿 Criar Branch
@@ -393,40 +286,51 @@ npm run build
 # Erros aparecerão no console
 ```
 
-#### CSS não Aplicando
-- Verificar `src/css/custom.css`
-- Limpar cache do navegador
-- Reiniciar servidor de desenvolvimento
-
 ### 📞 Onde Buscar Ajuda
 
 1. **Documentação Docusaurus**: https://docusaurus.io/docs
 2. **Issues do Projeto**: [GitHub Issues]
-3. **Comunidade n8n**: https://community.n8n.io
-4. **Documentação Oficial n8n**: https://docs.n8n.io
+3. **Documentação Oficial n8n**: https://docs.n8n.io
 
-## 🎯 Próximos Passos
+## 🎯 Tipos de Contribuição Bem-vindas
 
-### 📈 Roadmap de Melhorias
+### 📝 **Documentação**
+- Novos tutoriais de workflows
+- Guias passo a passo
+- Exemplos práticos
+- Casos de uso brasileiros
 
-- [ ] **Busca avançada** com filtros
-- [ ] **Widget de feedback** integrado
-- [ ] **Comentários** nas páginas
-- [ ] **Analytics** de uso
-- [ ] **PWA** (Progressive Web App)
-- [ ] **Versioning** automático
+### 🔧 **Melhorias Técnicas**
+- Correções de links quebrados
+- Otimização de imagens
+- Melhoria na navegação
+- Correções de português
 
-### 🌟 Contribuições Bem-vindas
+### 🎨 **Design e UX**
+- Melhorias visuais
+- Componentes reutilizáveis
+- Responsividade
+- Acessibilidade
 
-- 📝 **Novos tutoriais** de workflows
-- 🔗 **Integrações** com serviços populares
-- 🛠️ **Guias de deployment** em diferentes plataformas
-- 🎨 **Melhorias visuais** seguindo padrão da comunidade
-- 🌍 **Traduções** para outros idiomas
-- 🐛 **Correções** de bugs e melhorias
+### 🌍 **Localização**
+- Tradução de conteúdo
+- Adaptação para contexto brasileiro
+- Exemplos com serviços brasileiros
+
+## 🚫 O que NÃO Fazer
+
+### ⚠️ Não Editar
+- `.docusaurus/` - Pasta gerada automaticamente
+- `build/` - Build de produção
+- `node_modules/` - Dependências
+
+### 🔒 Cuidado ao Editar
+- `docusaurus.config.ts` - Configuração principal
+- `package.json` - Dependências do projeto
+- `sidebars.ts` - Estrutura de navegação
 
 ---
 
-**💡 Lembre-se:** O objetivo é manter uma **experiência consistente e profissional** enquanto fornecemos a melhor documentação possível para o n8n!
+**💡 Lembre-se:** Este guia é para contribuir com **esta documentação**. Para contribuir com o **projeto n8n**, veja a seção "🚀 Projeto n8n" na navegação.
 
 **🤝 Obrigado por contribuir!** Cada melhoria ajuda a comunidade n8n brasileira a crescer! 🇧🇷 
