@@ -1,7 +1,7 @@
 {
   "name": "n8ndoc_br",
   "version": "1.0.0",
-  "description": "Documentação completa do n8n em português brasileiro",
+  "description": "Documentação completa do n8n em português brasileiro - Hub de conhecimento para a comunidade brasileira de automação.",
   "main": "index.js",
   "private": true,
   "scripts": {
