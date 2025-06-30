@@ -1,4 +1,4 @@
-# 🎨 Cores Oficiais do n8n - Referência
+# 🎨 Paleta de Cores - n8n Documentation Brasil
 
 ## 🎯 Paleta Principal
 
