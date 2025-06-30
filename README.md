@@ -13,6 +13,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/pulls)
 [![GitHub last commit](https://img.shields.io/github/last-commit/tatyquebralayout/n8n-Doc-pt-BR)](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/commits/main)
 [![GitHub contributors](https://img.shields.io/github/contributors/tatyquebralayout/n8n-Doc-pt-BR)](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/graphs/contributors)
+[![GitHub Discussions](https://img.shields.io/github/discussions/tatyquebralayout/n8n-Doc-pt-BR?style=social&label=Discuta&logo=github)](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/discussions)
 [![Discord](https://img.shields.io/badge/Discord-Comunidade-7289DA?logo=discord)](https://discord.gg/YOUR_INVITE_CODE)
 
 ---
