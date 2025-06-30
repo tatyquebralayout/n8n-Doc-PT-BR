@@ -40,20 +40,20 @@ A documentação está organizada nas seguintes seções principais:
 
 ---
 
-## 🤝 Como contribuir
+## 🤝 Como Contribuir com a Documentação Brasileira
 
-Qualquer pessoa pode sugerir melhorias, corrigir erros, criar novos tutoriais ou ajudar na revisão!  
-Veja as [instruções de contribuição](./CONTRIBUTING.md) e faça parte.
+Este é um projeto de código aberto, feito pela comunidade para a comunidade, e sua ajuda é fundamental para mantermos a documentação rica e atualizada. Qualquer pessoa pode sugerir melhorias, corrigir erros, criar novos tutoriais ou ajudar na revisão!
 
-### ✨ Novidade: Guias Completos de Contribuição para o Projeto n8n!
+- **Para um guia técnico rápido** sobre como configurar seu ambiente e submeter sua primeira contribuição, veja nosso arquivo: [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+- **Para entender os tipos de contribuição**, como tradução, criação de conteúdo e nossas diretrizes, acesse a seção completa do nosso site: **[Guias para Colaborar com esta Documentação](/docs/contribuir/esta-documentacao/overview)**.
 
-Recentemente, a seção **[Contribuir para o Projeto n8n](/docs/contribuir/projeto-n8n/overview)** foi totalmente reformulada e agora oferece guias detalhados alinhados com as diretrizes oficiais do n8n.
+---
 
-- **[Guia para Contribuir com Código](/docs/contribuir/projeto-n8n/contribuir-codigo-e-docs):** Aprenda o passo a passo para configurar seu ambiente e enviar um Pull Request de sucesso, incluindo as regras de testes e o Acordo de Licença (CLA).
-- **[Programa para Criadores](/docs/contribuir/projeto-n8n/afiliados-e-creators):** Descubra como contribuir com templates e artigos para o blog oficial.
-- **[Indicação de Candidatos](/docs/contribuir/projeto-n8n/referral-vagas):** Saiba como indicar talentos para a n8n e ser recompensado por isso.
+### ✨ Quer ir além? Contribua também para o Projeto Oficial n8n!
 
-Se você sempre quis colaborar com o n8n globalmente, agora é a hora!
+Se você deseja causar um impacto global, pode levar suas habilidades para o próximo nível contribuindo diretamente para o ecossistema oficial do n8n. Suas melhorias no código-fonte, templates ou na documentação oficial em inglês afetam todas as instâncias do produto — seja na nuvem (Cloud), auto-hospedado (Self-hosted) ou Desktop.
+
+**➡️ [Saiba como Contribuir para o Projeto Oficial n8n](/docs/contribuir/projeto-n8n/overview)**
 
 ---
 
