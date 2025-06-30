@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 const GITHUB_API_URL = 'https://api.github.com/repos/n8n-io/n8n/releases';
-const OUTPUT_DIR = path.resolve(process.cwd(), 'release-notes/n8n');
+const OUTPUT_DIR = path.resolve(process.cwd(), 'release-notes/n8n-oficial/n8n');
 
 async function syncReleases() {
   console.log('Buscando releases do repositório n8n-io/n8n...');
