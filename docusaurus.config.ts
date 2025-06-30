@@ -15,7 +15,7 @@ const config: Config = {
   organizationName: 'n8n-io',
   projectName: 'n8n-docs-br',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {

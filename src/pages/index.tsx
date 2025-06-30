@@ -77,19 +77,19 @@ function HomepageFeatures() {
             </div>
           </div>
 
-          {/* Card: Catálogo */}
+          {/* Card: Nodes e Integrações */}
           <div className={styles.featureCard}>
             <div className={styles.featureIcon}>
               <span className={styles.iconEmoji}>🧩</span>
             </div>
             <div className={styles.featureContent}>
-              <h3 className={styles.featureTitle}>Catálogo</h3>
+              <h3 className={styles.featureTitle}>Nodes e Integrações</h3>
               <p className={styles.featureDescription}>
-                Explore mais de 400 integrações disponíveis. 
-                Documentação detalhada de todos os nodes e suas configurações.
+                Descubra os blocos de construção do n8n: Core nodes, integrações com apps,
+                triggers, credenciais e nodes da comunidade.
               </p>
-              <Link to="/catalog/core/if" className={styles.featureLink}>
-                Explorar catálogo →
+              <Link to="/integracoes/overview" className={styles.featureLink}>
+                Explorar nodes →
               </Link>
             </div>
           </div>
@@ -137,7 +137,7 @@ function HomepageQuickLinks() {
             <p>Crie seu primeiro workflow em 5 minutos</p>
           </Link>
           
-          <Link to="/integracoes/webhooks" className={styles.quickLinkItem}>
+          <Link to="/integracoes/builtin-nodes/http-requests/webhook" className={styles.quickLinkItem}>
             <h4>🔗 Webhooks</h4>
             <p>Conecte aplicações via webhooks</p>
           </Link>
@@ -147,12 +147,12 @@ function HomepageQuickLinks() {
             <p>Guias de instalação completos</p>
           </Link>
           
-          <Link to="/seguranca/credenciais" className={styles.quickLinkItem}>
+          <Link to="/integracoes/credential-nodes/oauth" className={styles.quickLinkItem}>
             <h4>🛡️ Segurança</h4>
             <p>Gerenciamento de credenciais</p>
           </Link>
           
-          <Link to="/catalog/http/http-request" className={styles.quickLinkItem}>
+          <Link to="/integracoes/builtin-nodes/http-requests/http-request" className={styles.quickLinkItem}>
             <h4>🌐 HTTP Request</h4>
             <p>Fazer requisições HTTP</p>
           </Link>

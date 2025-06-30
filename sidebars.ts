@@ -62,41 +62,89 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '🔗 Integrações',
+      label: '🧩 Nodes e Integrações',
       collapsed: false,
       items: [
+        'integracoes/overview',
         {
           type: 'category',
-          label: '🛠️ Builtin Nodes',
+          label: '🛠️ Core Nodes (Nativos)',
           collapsed: false,
           items: [
-            'integracoes/builtin-nodes/webhook',
+            {
+              type: 'category',
+              label: '📊 Processamento de Dados',
+              collapsed: false,
+              items: [
+                'integracoes/builtin-nodes/data-processing/set',
+              ],
+            },
+            {
+              type: 'category',
+              label: '🌐 Requisições HTTP',
+              collapsed: false,
+              items: [
+                'integracoes/builtin-nodes/http-requests/webhook',
+                'integracoes/builtin-nodes/http-requests/http-request',
+              ],
+            },
+
           ],
         },
         {
           type: 'category',
-          label: '⚡ Trigger Nodes',
+          label: '⚡ Trigger Nodes (Gatilhos)',
           collapsed: false,
           items: [
-            'integracoes/trigger-nodes/manual-trigger',
-            'integracoes/trigger-nodes/webhook-trigger',
-            'integracoes/trigger-nodes/schedule-trigger',
+            {
+              type: 'category',
+              label: '⏰ Baseados em Tempo',
+              collapsed: false,
+              items: [
+                'integracoes/trigger-nodes/time-based/manual-trigger',
+                'integracoes/trigger-nodes/time-based/schedule-trigger',
+              ],
+            },
+            {
+              type: 'category',
+              label: '🎯 Baseados em Eventos',
+              collapsed: false,
+              items: [
+                'integracoes/trigger-nodes/event-based/webhook-trigger',
+              ],
+            },
+
           ],
         },
         {
           type: 'category',
-          label: '📱 App Nodes',
+          label: '🔗 Integrações com Apps',
           collapsed: false,
           items: [
-            'integracoes/app-nodes/google-sheets',
-            'integracoes/app-nodes/slack',
-            'integracoes/app-nodes/gmail',
-            'integracoes/app-nodes/trello',
+            {
+              type: 'category',
+              label: '📊 Produtividade',
+              collapsed: false,
+              items: [
+                'integracoes/app-nodes/productivity/google-sheets',
+                'integracoes/app-nodes/productivity/trello',
+              ],
+            },
+            {
+              type: 'category',
+              label: '💬 Comunicação',
+              collapsed: false,
+              items: [
+                'integracoes/app-nodes/communication/slack',
+                'integracoes/app-nodes/communication/gmail',
+              ],
+            },
+
           ],
         },
         {
           type: 'category',
-          label: '🌐 Community Nodes',
+          label: '🌐 Nodes da Comunidade',
           collapsed: false,
           items: [
             'integracoes/community-nodes/overview',
@@ -106,7 +154,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🔐 Credential Nodes',
+          label: '🔐 Autenticação e Credenciais',
           collapsed: false,
           items: [
             'integracoes/credential-nodes/oauth',
@@ -116,7 +164,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🔨 Criar Nodes',
+          label: '🔨 Desenvolvimento de Nodes',
           collapsed: false,
           items: [
             'integracoes/criar-nodes/tutorial-desenvolvimento',
