@@ -100,14 +100,13 @@ Para ver os passos completos, consulte o arquivo: **[`CONTRIBUTING.md`](./CONTRI
 
 ## 📄 Licença
 
-> **Licença MIT (MIT)**
->
-> Este projeto é distribuído sob a Licença MIT, que permite ampla liberdade de uso. Para ler os termos na íntegra, consulte o arquivo [`LICENSE`](./LICENSE).
+Este projeto é distribuído sob a **Licença MIT**.
 
-- **Aviso de Independência:** Esta é uma iniciativa da comunidade e não possui vínculo com o projeto oficial do n8n.
-- **Permissões:** Você pode usar, copiar, modificar e distribuir este projeto livremente.
-- **Condição:** O aviso de copyright e a nota de permissão devem ser mantidos em todas as cópias.
-- **Garantia:** O projeto é fornecido "como está", sem garantias de qualquer tipo.
+> **Aviso de independência:**  
+> Esta documentação é uma iniciativa da comunidade brasileira e **não possui vínculo com o projeto oficial do n8n**.  
+> O conteúdo foi desenvolvido de forma independente, inspirado e baseado na documentação original do [n8n.io](https://n8n.io), respeitando os princípios de software e documentação open source.
+
+Para ler os termos completos da licença, consulte o arquivo: **[`LICENSE`](./LICENSE)**
 
 ---
 
