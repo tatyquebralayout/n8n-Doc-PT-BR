@@ -1,3 +1,9 @@
+import { Icon } from '@iconify/react';
+
+# <Icon icon="ph:atom-duotone" width="32" style={{ marginBottom: '-5px' }} /> ReAct Agent
+
+Este documento descreve o **Agente ReAct (ReAct Agent)**, um tipo de agente de IA que utiliza um loop de "Raciocínio e Ação" para resolver problemas.
+
 ---
 sidebar_position: 4
 title: Node React Agent

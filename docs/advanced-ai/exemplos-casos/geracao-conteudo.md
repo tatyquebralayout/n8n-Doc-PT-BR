@@ -1,3 +1,9 @@
+import { Icon } from '@iconify/react';
+
+# <Icon icon="ph:pencil-line-duotone" width="32" style={{ marginBottom: '-5px' }} /> Geração de Conteúdo com IA
+
+Este documento aborda o uso de IA para **geração de conteúdo**, como posts de blog, e-mails e outros materiais.
+
 ---
 sidebar_position: 3
 title: Geração de Conteúdo com IA

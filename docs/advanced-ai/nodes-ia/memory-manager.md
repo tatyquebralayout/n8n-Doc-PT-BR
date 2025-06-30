@@ -1,3 +1,9 @@
+import { Icon } from '@iconify/react';
+
+# <Icon icon="ph:memory-duotone" width="32" style={{ marginBottom: '-5px' }} /> Memory Manager
+
+Este documento descreve o **Gerenciador de Memória (Memory Manager)**, que permite que um agente de IA se lembre de interações passadas.
+
 ---
 sidebar_position: 1
 title: Node Memory Manager

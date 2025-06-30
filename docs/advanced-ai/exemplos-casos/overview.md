@@ -1,13 +1,15 @@
 ---
 sidebar_position: 1
-title: Visão Geral - Exemplos e Casos de Uso de IA
-description: Explore exemplos práticos e casos de uso de IA implementados com n8n para inspirar suas automações.
-keywords: [n8n, ia, exemplos, casos de uso, automação inteligente]
+title: Visão Geral - Exemplos e Casos
+description: Explore exemplos práticos e casos de uso de IA com n8n.
+keywords: [n8n, IA, exemplos, casos de uso, inteligência artificial]
 ---
 
-# 💡 Visão Geral - Exemplos e Casos de Uso de IA
+import { Icon } from '@iconify/react';
 
-Bem-vindo à seção de **exemplos práticos e casos de uso de Inteligência Artificial** com n8n! Aqui, você encontrará implementações do mundo real que demonstram como usar os nodes de IA do n8n para resolver problemas complexos e criar automações inteligentes.
+# <Icon icon="ph:lightbulb-duotone" width="32" style={{ marginBottom: '-5px' }} /> Visão Geral - Exemplos e Casos de Uso
+
+Esta seção apresenta exemplos práticos e casos de uso para demonstrar o poder da IA no n8n.
 
 ## O que você vai encontrar aqui?
 

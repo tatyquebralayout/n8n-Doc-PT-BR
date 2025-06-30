@@ -1,22 +1,19 @@
 ---
 sidebar_position: 1
 title: Visão Geral - Nodes de IA
-description: Conheça os nodes de Inteligência Artificial do n8n e suas funcionalidades para criar automações inteligentes.
-keywords: [n8n, ia, nodes, inteligência artificial, automação]
+description: Uma visão geral sobre os principais nodes de IA do n8n e como eles funcionam.
+keywords: [n8n, IA, nodes, visão geral, inteligência artificial]
 ---
 
-# 🧠 Visão Geral - Nodes de IA
+import { Icon } from '@iconify/react';
 
-Bem-vindo à seção de **Nodes de Inteligência Artificial** do n8n! Esta área é dedicada a explorar cada um dos blocos de construção que permitem integrar IA em seus workflows, transformando automações simples em processos inteligentes e autônomos.
+# <Icon icon="ph:cubes-duotone" width="32" style={{ marginBottom: '-5px' }} /> Visão Geral - Nodes de IA
+
+Esta seção oferece uma visão geral sobre os **principais nodes de IA** disponíveis no n8n.
 
 ## O que são os Nodes de IA?
 
-Os Nodes de IA são componentes especializados que se conectam a modelos de linguagem e outras ferramentas de IA para executar tarefas como:
-
-- **Conversação:** Interagir com modelos como o GPT da OpenAI.
-- **Gerenciamento de Memória:** Manter o contexto em conversas longas.
-- **Análise de Saída:** Estruturar e validar os dados retornados pela IA.
-- **Agentes Autônomos:** Criar sistemas que podem raciocinar e agir para atingir um objetivo.
+Os nodes de IA são blocos de construção especializados que permitem integrar modelos de linguagem (LLMs), agentes, ferramentas e sistemas de memória diretamente em seus workflows. Eles são a base para criar automações inteligentes e contextuais.
 
 ## Como navegar nesta seção?
 

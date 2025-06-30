@@ -1,3 +1,9 @@
+import { Icon } from '@iconify/react';
+
+# <Icon icon="ph:files-duotone" width="32" style={{ marginBottom: '-5px' }} /> RAG com Arquivos
+
+Este documento descreve o padrão **RAG (Retrieval-Augmented Generation)** usando arquivos como fonte de dados.
+
 ---
 sidebar_position: 4
 title: RAG com Arquivos

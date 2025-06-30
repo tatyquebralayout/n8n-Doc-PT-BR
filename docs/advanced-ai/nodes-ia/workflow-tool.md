@@ -1,3 +1,9 @@
+import { Icon } from '@iconify/react';
+
+# <Icon icon="ph:wrench-duotone" width="32" style={{ marginBottom: '-5px' }} /> Workflow as a Tool
+
+Este documento explica como usar um **workflow n8n como uma ferramenta (tool)** dentro de um agente de IA.
+
 ---
 sidebar_position: 6
 title: Node Workflow Tool

@@ -1,3 +1,9 @@
+import { Icon } from '@iconify/react';
+
+# <Icon icon="ph:cloud-duotone" width="32" style={{ marginBottom: '-5px' }} /> OpenAI Chat Model
+
+Este documento descreve como usar o node **OpenAI Chat Model** para interagir com os modelos de linguagem da OpenAI, como o GPT.
+
 ---
 sidebar_position: 2
 title: Node OpenAI Chat

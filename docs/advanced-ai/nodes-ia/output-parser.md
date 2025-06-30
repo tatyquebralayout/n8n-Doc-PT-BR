@@ -1,9 +1,8 @@
----
-sidebar_position: 3
-title: Node Output Parser
-description: Como usar o Output Parser para estruturar respostas de IA
-keywords: [n8n, output parser, ia, estruturação, parsing, formato]
----
+import { Icon } from '@iconify/react';
+
+# <Icon icon="ph:funnel-duotone" width="32" style={{ marginBottom: '-5px' }} /> Output Parser
+
+Este documento descreve o **Analisador de Saída (Output Parser)**, usado para estruturar e validar os dados retornados por um modelo de IA.
 
 # 📋 Node Output Parser
 

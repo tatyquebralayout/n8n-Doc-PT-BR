@@ -1,3 +1,9 @@
+import { Icon } from '@iconify/react';
+
+# <Icon icon="ph:tag-duotone" width="32" style={{ marginBottom: '-5px' }} /> Classificação de Dados com IA
+
+Este documento explica como usar IA para **classificar dados**, como análise de sentimentos, categorização de tickets e mais.
+
 ---
 sidebar_position: 2
 title: Classificação de Dados com IA

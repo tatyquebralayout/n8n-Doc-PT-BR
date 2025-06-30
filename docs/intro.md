@@ -6,7 +6,9 @@ slug: /intro
 keywords: [n8n, automação, workflow, introdução, tutorial]
 ---
 
-# Introdução ao n8n
+import { Icon } from '@iconify/react';
+
+# <Icon icon="ph:rocket-duotone" width="32" style={{ marginBottom: '-5px' }} /> Introdução ao n8n
 
 Bem-vindo à **documentação completa do n8n** em português brasileiro! 🎉
 
