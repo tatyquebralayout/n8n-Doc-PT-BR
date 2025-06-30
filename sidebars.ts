@@ -374,6 +374,7 @@ const sidebars: SidebarsConfig = {
           label: '💡 Conceitos',
           collapsed: false,
           items: [
+            'api/conceitos/overview',
             'api/conceitos/autenticacao',
             'api/conceitos/paginacao',
           ],
@@ -383,6 +384,7 @@ const sidebars: SidebarsConfig = {
           label: '🛠️ Ferramentas',
           collapsed: false,
           items: [
+            'api/ferramentas/overview',
             'api/ferramentas/playground',
           ],
         },
@@ -391,6 +393,7 @@ const sidebars: SidebarsConfig = {
           label: '📖 Referência',
           collapsed: false,
           items: [
+            'api/referencia/overview',
             'api/referencia/referencia-api',
           ],
         },
