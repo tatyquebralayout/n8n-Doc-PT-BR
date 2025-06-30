@@ -439,7 +439,7 @@ const sidebars: SidebarsConfig = {
           label: '📺 Cursos em Vídeo',
           collapsed: false,
           items: [
-            'cursos/video-courses/overview',
+            'cursos/cursos-em-video/overview',
           ],
         },
         {
@@ -447,17 +447,17 @@ const sidebars: SidebarsConfig = {
           label: '📝 Cursos em Texto',
           collapsed: false,
           items: [
-            'cursos/text-courses/overview',
+            'cursos/cursos-em-texto/overview',
             {
               type: 'category',
               label: '📗 Nível 1',
               collapsed: false,
               items: [
-                'cursos/text-courses/nivel-um/capitulo-1',
-                'cursos/text-courses/nivel-um/capitulo-2',
-                'cursos/text-courses/nivel-um/capitulo-3',
-                'cursos/text-courses/nivel-um/capitulo-4',
-                'cursos/text-courses/nivel-um/capitulo-5',
+                'cursos/cursos-em-texto/nivel-um/capitulo-1',
+                'cursos/cursos-em-texto/nivel-um/capitulo-2',
+                'cursos/cursos-em-texto/nivel-um/capitulo-3',
+                'cursos/cursos-em-texto/nivel-um/capitulo-4',
+                'cursos/cursos-em-texto/nivel-um/capitulo-5',
               ],
             },
             {
@@ -465,9 +465,9 @@ const sidebars: SidebarsConfig = {
               label: '📘 Nível 2',
               collapsed: false,
               items: [
-                'cursos/text-courses/nivel-dois/capitulo-1',
-                'cursos/text-courses/nivel-dois/capitulo-2',
-                'cursos/text-courses/nivel-dois/capitulo-3',
+                'cursos/cursos-em-texto/nivel-dois/capitulo-1',
+                'cursos/cursos-em-texto/nivel-dois/capitulo-2',
+                'cursos/cursos-em-texto/nivel-dois/capitulo-3',
               ],
             },
           ],

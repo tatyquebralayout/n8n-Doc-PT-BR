@@ -31,7 +31,7 @@ O n8n oferece cursos completos em formato de vídeo, ideais para quem prefere um
   *   Aprofunda em nós técnicos, fluxos de dados complexos e recursos empresariais.
   *   **Ideal para:** Desenvolvedores e usuários que já dominaram o básico.
 
-👉 **[Explore a seção de Cursos em Vídeo](video-courses/overview)**
+👉 **[Explore a seção de Cursos em Vídeo](cursos-em-video/overview)**
 
 ---
 
@@ -47,7 +47,7 @@ Para quem prefere ler e seguir no seu próprio ritmo, a documentação oficial o
   *   Aprofunda na estrutura de dados, tratamento de erros e na construção de um workflow empresarial mais complexo.
   *   Foca na automação de um processo de suporte ao cliente.
 
-👉 **[Explore a seção de Cursos em Texto](text-courses/overview)**
+👉 **[Explore a seção de Cursos em Texto](cursos-em-texto/overview)**
 
 ---
 
