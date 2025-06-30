@@ -84,9 +84,9 @@ Se você deseja causar um impacto global, pode levar suas habilidades para o pr�
 
 ## 🛠️ Configuração e Ambiente Local
 
-> Este projeto usa [Docusaurus](https://docusaurus.io/) para gerar o site. Para rodar o projeto localmente e contribuir, siga as instruções detalhadas no nosso guia de configuração.
+> Para rodar o projeto localmente e contribuir, siga as instruções detalhadas no nosso guia de contribuição.
 
-Para ver os passos completos, consulte o arquivo: **[`SETUP.md`](./SETUP.md)**
+Para ver os passos completos, consulte o arquivo: **[`CONTRIBUTING.md`](./CONTRIBUTING.md)**
 
 ---
 
