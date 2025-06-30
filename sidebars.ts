@@ -293,14 +293,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '📚 Recursos do Markdown',
-      collapsed: true,
-      items: [
-        'markdown-features',
-      ],
-    },
-    {
-      type: 'category',
       label: '🎓 Tutorial Básico',
       collapsed: true,
       items: [
@@ -472,7 +464,7 @@ const sidebars: SidebarsConfig = {
   contribuirSidebar: [
     {
       type: 'category',
-      label: '🤝 Contribuir',
+      label: '🤝 Participe da Comunidade',
       collapsed: false,
       items: [
         'contribuir/index',

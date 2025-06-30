@@ -1,48 +1,43 @@
 ---
 sidebar_position: 1
-title: Como Contribuir
-description: Guia completo para contribuir com a documentação n8n Brasil e projeto n8n oficial
-keywords: [n8n, contribuir, documentação, open source, comunidade, brasil]
+title: Como Participar da Comunidade
+description: Entenda as diferentes formas de contribuir com a comunidade n8n no Brasil e no mundo.
+keywords: [n8n, contribuir, comunidade, documentação, open source, brasil]
 ---
 
-# 🤝 Como Contribuir
+# 🤝 Como Participar da Comunidade
 
-Bem-vindo à seção de contribuições! Aqui você encontra **tudo que precisa saber** para contribuir tanto com esta documentação brasileira quanto com o projeto n8n oficial.
+Bem-vindo à nossa central de colaboração! A força do n8n vem de sua comunidade vibrante, e existem duas maneiras fantásticas de fazer parte dela:
 
-## 🎯 Duas Formas de Contribuir
-
-:::warning Importante: Entenda a Diferença
-Existem **duas formas distintas** de contribuir no ecossistema n8n:
-
-1. **📚 Esta Documentação Brasileira** - Melhorar nossa doc em português
-2. **🚀 Projeto n8n Oficial** - Contribuir diretamente com o n8n global
-
-**Cada uma tem processos e objetivos diferentes!**
+:::tip **Qual é a diferença?**
+Pense assim:
+*   **Documentação Brasileira:** É como escrever um **guia turístico local** em português para uma cidade global. Você ajuda os brasileiros a navegar melhor.
+*   **Projeto Oficial n8n:** É como **ajudar a construir** os prédios e ruas dessa cidade global. Você melhora o produto para todos no mundo.
 :::
 
-### 📚 **Contribuir com Esta Documentação**
+---
 
-Ajude a **construir a melhor documentação** de n8n em português do mundo:
+### 📚 **🇧🇷 Contribuir com a Documentação Brasileira (Nossa Iniciativa)**
 
-- ✅ **Criar novos conteúdos** em português
-- ✅ **Melhorar documentação** existente
-- ✅ **Corrigir erros** e links quebrados
-- ✅ **Traduzir e localizar** para contexto brasileiro
-- ✅ **Adicionar casos de uso** locais
+Ajude a criar o **melhor guia de n8n em português**. Esta é uma iniciativa da comunidade, para a comunidade.
 
-**👉 [Começar Aqui](esta-documentacao/guidelines)**
+- **O que você faz?** Escreve tutoriais, traduz, corrige textos, cria exemplos com foco no Brasil.
+- **Impacto:** Ajuda milhares de brasileiros a aprender e usar o n8n mais rápido.
+- **É oficial?** Não, somos um projeto da comunidade, complementar à documentação oficial.
 
-### 🚀 **Contribuir com o Projeto n8n**
+**👉 [Quero ajudar a documentação brasileira!](esta-documentacao/overview)**
 
-Participe do **desenvolvimento global** do n8n:
+---
 
-- 🌟 **Contribuir com código** do n8n
-- 🌟 **Criar nodes** personalizados
-- 🌟 **Desenvolver templates** oficiais
-- 🌟 **Participar da comunidade** global
-- 🌟 **Programas de afiliados** e creators
+### 🚀 **🌍 Contribuir com o Projeto Oficial n8n (Global)**
 
-**👉 [Começar Aqui](projeto-n8n/contribuir-codigo-e-docs)**
+Participe do **desenvolvimento do n8n** que é usado por pessoas no mundo todo.
+
+- **O que você faz?** Contribui com código, cria novos nodes, reporta bugs, melhora a documentação oficial (em inglês).
+- **Impacto:** Suas mudanças afetam o produto globalmente.
+- **É oficial?** Sim, estas são as diretrizes para contribuir diretamente com a empresa n8n.
+
+**👉 [Quero contribuir para o projeto oficial!](projeto-n8n/overview)**
 
 ## 🚀 Por Onde Começar?
 

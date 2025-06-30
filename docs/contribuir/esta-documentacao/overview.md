@@ -1,29 +1,32 @@
 ---
 sidebar_position: 1
-title: Visão Geral - Contribuir com Esta Documentação
-description: Aprenda como contribuir para melhorar e expandir a documentação brasileira do n8n.
-keywords: [n8n, contribuir, documentação, brasil, guia]
+title: Visão Geral - Documentação Brasileira
+description: Aprenda como contribuir para melhorar e expandir esta documentação da comunidade n8n para o Brasil.
+keywords: [n8n, contribuir, documentação, brasil, guia, comunidade]
 ---
 
-# 📚 Visão Geral - Contribuir com Esta Documentação
+# 📚 Visão Geral - Documentação Brasileira
 
-Bem-vindo à área de contribuição para a **Documentação n8n Brasil**! Esta seção é dedicada a todos que desejam ajudar a construir e melhorar este recurso para a comunidade brasileira.
+Bem-vindo à área de contribuição para a **Documentação n8n Brasil**! Esta é uma **iniciativa da comunidade**, focada em criar o melhor recurso de aprendizado de n8n em português.
+
+:::info **Este não é um guia oficial do n8n**
+Esta documentação é um projeto mantido pela comunidade para ajudar usuários brasileiros. As contribuições aqui **não afetam o projeto principal do n8n**.
+:::
 
 ## O que significa contribuir aqui?
 
-Contribuir com esta documentação significa ajudar a criar o **melhor e mais completo guia de n8n em português**. Isso inclui:
+Sua ajuda aqui impacta diretamente a comunidade brasileira. Você pode:
 
-- **Escrever novos tutoriais:** Compartilhe seu conhecimento criando guias práticos.
-- **Melhorar conteúdo existente:** Corrija erros, adicione exemplos ou torne as explicações mais claras.
-- **Traduzir e Localizar:** Adapte conteúdos da documentação oficial para o contexto brasileiro.
-- **Manter a Qualidade:** Siga nossas diretrizes para garantir um padrão de excelência.
+- **Escrever novos tutoriais:** Compartilhe seu conhecimento com guias práticos focados em nossas necessidades.
+- **Melhorar conteúdo existente:** Corrija, esclareça e enriqueça os documentos atuais.
+- **Traduzir e Localizar:** Adapte conteúdos para o nosso contexto.
 
 ## Como começar?
 
-- **Leia as Diretrizes:** O documento `guidelines.md` é o seu ponto de partida.
-- **Código de Conduta:** Entenda nossas regras para uma comunidade saudável.
-- **Guia de Tradução:** Aprenda a localizar conteúdo de forma eficaz.
+1.  **Leia as Diretrizes:** Entenda nossos padrões de escrita e qualidade.
+2.  **Código de Conduta:** Conheça as regras para uma colaboração saudável.
+3.  **Guia de Tradução:** Aprenda a localizar conteúdo de forma eficaz.
 
 ---
 
-**Navegue pelos documentos no menu ao lado para entender nossos padrões e começar a sua jornada como contribuidor!** 
+**Navegue pelos documentos no menu ao lado para entender nossos padrões e começar a sua jornada como contribuidor da nossa comunidade!** 

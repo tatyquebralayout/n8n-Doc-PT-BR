@@ -113,7 +113,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          label: 'Contribua',
+          label: 'Participe da Comunidade',
           type: 'docSidebar',
           sidebarId: 'contribuirSidebar',
           position: 'left',
