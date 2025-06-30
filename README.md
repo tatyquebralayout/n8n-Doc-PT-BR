@@ -83,14 +83,6 @@ Se você deseja causar um impacto global, pode levar suas habilidades para o pr�
 
 ---
 
-## 🤝 Guia de Contribuição Técnica
-
-> Este repositório segue um fluxo de contribuição padrão com Pull Requests. Para começar a colaborar, é importante entender nosso setup.
-
-Para ver os passos completos de configuração e o fluxo de trabalho, consulte o nosso guia oficial de contribuição: **[`CONTRIBUTING.md`](./CONTRIBUTING.md)**
-
----
-
 ## 🛠️ Configuração e Ambiente Local
 
 > Para rodar o projeto localmente e contribuir, siga as instruções detalhadas no nosso guia de contribuição.
