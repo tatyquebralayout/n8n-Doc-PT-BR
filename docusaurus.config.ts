@@ -40,11 +40,11 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/tatyquebralayout/n8n-Doc-pt-BR/tree/main/',
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
           routeBasePath: '/',
           sidebarCollapsed: false,
-          breadcrumbs: false,
+          breadcrumbs: true,
         },
         blog: false, // Disable blog
         pages: {
@@ -70,6 +70,8 @@ const config: Config = {
         routeBasePath: 'release-notes',
         sidebarPath: './sidebars-release-notes.ts',
         editUrl: 'https://github.com/tatyquebralayout/n8n-Doc-pt-BR/tree/main/',
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: false,
       },
     ],
   ],
@@ -125,10 +127,39 @@ const config: Config = {
           position: 'left',
         },
         {
+          label: 'Catálogo',
+          to: '/catalogo',
+          position: 'left',
+          className: 'navbar-catalog-link',
+        },
+        {
           to: '/release-notes',
           label: 'Release Notes',
           position: 'left',
           className: 'navbar-release-notes',
+        },
+        {
+          type: 'dropdown',
+          label: 'v1.0.0',
+          position: 'right',
+          className: 'navbar-version-dropdown',
+          items: [
+            {
+              label: 'v1.0.0 (Atual)',
+              href: '/',
+              className: 'dropdown-version-current',
+            },
+            {
+              label: 'Beta (Desenvolvimento)',
+              href: '/beta',
+              className: 'dropdown-version-beta',
+            },
+            {
+              label: 'Ver Todas as Versões',
+              href: '/release-notes',
+              className: 'dropdown-version-all',
+            },
+          ],
         },
         {
           type: 'localeDropdown',
@@ -141,8 +172,108 @@ const config: Config = {
 
     footer: {
       style: 'dark',
-      copyright: `© ${new Date().getFullYear()} n8n. Todos os direitos reservados`,
-      links: [],
+      links: [
+        {
+          title: '📚 Documentação',
+          items: [
+            {
+              label: 'Começar',
+              to: '/intro',
+            },
+            {
+              label: 'Tutorials',
+              to: '/tutorial-basico/instalacao',
+            },
+            {
+              label: 'Integrações',
+              to: '/integracoes/overview',
+            },
+            {
+              label: 'Deployment',
+              to: '/hosting-n8n/instalacao',
+            },
+          ],
+        },
+        {
+          title: '🚀 Recursos',
+          items: [
+            {
+              label: 'Release Notes',
+              to: '/release-notes',
+            },
+            {
+              label: 'Guias Avançados',
+              to: '/referencia/guias/performance-guide',
+            },
+            {
+              label: 'APIs Brasileiras',
+              to: '/referencia/recursos/apis-brasileiras',
+            },
+            {
+              label: 'Glossário',
+              to: '/referencia/recursos/glossario',
+            },
+          ],
+        },
+        {
+          title: '🤝 Comunidade',
+          items: [
+            {
+              label: 'Como Contribuir',
+              to: '/contribuir',
+            },
+            {
+              label: 'Diretrizes',
+              to: '/contribuir/esta-documentacao/guidelines',
+            },
+            {
+              label: 'Código de Conduta',
+              to: '/contribuir/esta-documentacao/codigo-conduta',
+            },
+            {
+              label: 'Discutir no GitHub',
+              href: 'https://github.com/tatyquebralayout/n8n-Doc-pt-BR/discussions',
+            },
+          ],
+        },
+        {
+          title: '🔗 Links Úteis',
+          items: [
+            {
+              label: 'n8n Oficial',
+              href: 'https://n8n.io',
+            },
+            {
+              label: 'Docs Oficial',
+              href: 'https://docs.n8n.io',
+            },
+            {
+              label: 'GitHub n8n',
+              href: 'https://github.com/n8n-io/n8n',
+            },
+            {
+              label: 'Comunidade n8n',
+              href: 'https://community.n8n.io',
+            },
+          ],
+        },
+      ],
+      copyright: `
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>© ${new Date().getFullYear()} n8n Documentation Brasil</span>
+            <span style="color: #ea4b71;">•</span>
+            <span>Feito com ❤️ pela comunidade</span>
+          </div>
+          <div style="font-size: 0.875rem; color: #6b7280;">
+            <span>Documentação não oficial do n8n</span>
+            <span style="margin: 0 0.5rem;">•</span>
+            <a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR" style="color: #ea4b71;">GitHub</a>
+            <span style="margin: 0 0.5rem;">•</span>
+            <a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR/blob/main/LICENSE" style="color: #ea4b71;">MIT License</a>
+          </div>
+        </div>
+      `,
     },
 
     prism: {
@@ -167,7 +298,7 @@ const config: Config = {
     announcementBar: {
       id: 'new-release',
       content: 'Explore what\'s new: Latest release notes available now! 🚀',
-      backgroundColor: '#FF6D5A',
+      backgroundColor: '#ea4b71',
       textColor: '#FFFFFF',
       isCloseable: true,
     },
