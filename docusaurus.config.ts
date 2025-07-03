@@ -98,9 +98,16 @@ const config: Config = {
         },
         {
           label: 'Comunidade',
-          to: '/comunidade',
+          type: 'docSidebar',
+          sidebarId: 'communitySidebar',
           position: 'left',
           className: 'navbar-community-link',
+        },
+        {
+          label: 'Contribuir',
+          type: 'docSidebar',
+          sidebarId: 'contribuirSidebar',
+          position: 'left',
         },
         {
           label: 'Workflows',
@@ -109,27 +116,9 @@ const config: Config = {
           position: 'left',
         },
         {
-          label: 'Deployment',
-          type: 'docSidebar', 
-          sidebarId: 'deploymentSidebar',
-          position: 'left',
-        },
-        {
           label: 'Cursos',
           type: 'docSidebar',
           sidebarId: 'cursosSidebar',
-          position: 'left',
-        },
-        {
-          label: 'Comunidade',
-          type: 'docSidebar',
-          sidebarId: 'contribuirSidebar',
-          position: 'left',
-        },
-        {
-          label: 'Referência',
-          type: 'docSidebar',
-          sidebarId: 'referenciaSidebar',
           position: 'left',
         },
         {

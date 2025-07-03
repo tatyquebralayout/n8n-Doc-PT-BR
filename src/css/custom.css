@@ -378,12 +378,6 @@ html {
   position: relative;
 }
 
-.navbar-community-link::before {
-  content: '👥';
-  margin-right: 0.25rem;
-  font-size: 0.875rem;
-}
-
 .navbar-release-notes {
   position: relative;
 }
