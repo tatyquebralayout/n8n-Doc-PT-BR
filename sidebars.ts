@@ -10,12 +10,12 @@ const sidebars: SidebarsConfig = {
     'intro',
     {
       type: 'category',
-      label: '🚀 Usando n8n',
+      label: 'Usando n8n',
       collapsed: false,
       items: [
         {
           type: 'category',
-          label: '🎯 Getting Started',
+          label: 'Getting Started',
           collapsed: false,
           items: [
             'usando-n8n/getting-started/quickstart-rapido',
@@ -24,7 +24,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🖥️ Interface',
+          label: 'Interface',
           collapsed: false,
           items: [
             'usando-n8n/interface/navegacao-editor-ui',
@@ -32,7 +32,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '▶️ Execuções',
+          label: 'Execuções',
           collapsed: false,
           items: [
             'usando-n8n/execucoes/componentes-execucoes',
@@ -42,12 +42,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '⚡ Lógica e Dados',
+      label: 'Lógica e Dados',
       collapsed: false,
       items: [
         {
           type: 'category',
-          label: '🔄 Flow Logic',
+          label: 'Flow Logic',
           collapsed: false,
           items: [
             'logica-e-dados/flow-logic/splitting',
@@ -60,7 +60,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '📊 Data Management',
+          label: 'Data Management',
           collapsed: false,
           items: [
             'logica-e-dados/data/data-structure',
@@ -76,18 +76,18 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '🧩 Nodes e Integrações',
+      label: 'Nodes e Integrações',
       collapsed: false,
       items: [
         'integracoes/overview',
         {
           type: 'category',
-          label: '🛠️ Core Nodes (Nativos)',
+          label: 'Core Nodes (Nativos)',
           collapsed: false,
           items: [
             {
               type: 'category',
-              label: '📊 Processamento de Dados',
+              label: 'Processamento de Dados',
               collapsed: false,
               items: [
                 'integracoes/builtin-nodes/data-processing/set',
@@ -95,7 +95,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '🌐 Requisições HTTP',
+              label: 'Requisições HTTP',
               collapsed: false,
               items: [
                 'integracoes/builtin-nodes/http-requests/webhook',
@@ -104,7 +104,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '🎮 Controle de Lógica',
+              label: 'Controle de Lógica',
               collapsed: false,
               items: [
                 'integracoes/builtin-nodes/logic-control/index',
@@ -112,7 +112,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '🛠️ Utilitários',
+              label: 'Utilitários',
               collapsed: false,
               items: [
                 'integracoes/builtin-nodes/utilities/index',
@@ -122,12 +122,12 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '⚡ Trigger Nodes (Gatilhos)',
+          label: 'Trigger Nodes (Gatilhos)',
           collapsed: false,
           items: [
             {
               type: 'category',
-              label: '⏰ Baseados em Tempo',
+              label: 'Baseados em Tempo',
               collapsed: false,
               items: [
                 'integracoes/trigger-nodes/time-based/manual-trigger',
@@ -136,7 +136,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '🎯 Baseados em Eventos',
+              label: 'Baseados em Eventos',
               collapsed: false,
               items: [
                 'integracoes/trigger-nodes/event-based/webhook-trigger',
@@ -144,7 +144,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '📱 App Triggers',
+              label: 'App Triggers',
               collapsed: false,
               items: [
                 'integracoes/trigger-nodes/app-triggers/index',
@@ -154,12 +154,12 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🔗 Integrações com Apps',
+          label: 'Integrações com Apps',
           collapsed: false,
           items: [
             {
               type: 'category',
-              label: '📊 Produtividade',
+              label: 'Produtividade',
               collapsed: false,
               items: [
                 'integracoes/app-nodes/productivity/google-sheets',
@@ -168,7 +168,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '💬 Comunicação',
+              label: 'Comunicação',
               collapsed: false,
               items: [
                 'integracoes/app-nodes/communication/slack',
@@ -177,7 +177,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '🛒 E-commerce',
+              label: 'E-commerce',
               collapsed: false,
               items: [
                 'integracoes/app-nodes/ecommerce/index',
@@ -185,7 +185,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '📈 Marketing',
+              label: 'Marketing',
               collapsed: false,
               items: [
                 'integracoes/app-nodes/marketing/index',
@@ -195,7 +195,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🌐 Nodes da Comunidade',
+          label: 'Nodes da Comunidade',
           collapsed: false,
           items: [
             'integracoes/community-nodes/overview',
@@ -205,7 +205,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🔐 Autenticação e Credenciais',
+          label: 'Autenticação e Credenciais',
           collapsed: false,
           items: [
             'integracoes/credential-nodes/oauth',
@@ -215,7 +215,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🔨 Desenvolvimento de Nodes',
+          label: 'Desenvolvimento de Nodes',
           collapsed: false,
           items: [
             'integracoes/criar-nodes/tutorial-desenvolvimento',
@@ -225,12 +225,12 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🇧🇷 Integrações Brasileiras',
+          label: 'Integrações Brasileiras',
           collapsed: false,
           items: [
             {
               type: 'category',
-              label: '💰 Financeiro',
+              label: 'Financeiro',
               collapsed: false,
               items: [
                 'integracoes-br/financeiro/pix',
@@ -238,7 +238,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '🏛️ Governo',
+              label: 'Governo',
               collapsed: false,
               items: [
                 'integracoes-br/governo/cnpj-receita',
@@ -246,7 +246,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '📍 Localização',
+              label: 'Localização',
               collapsed: false,
               items: [
                 'integracoes-br/localizacao/viacep',
@@ -258,14 +258,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '🤖 Advanced AI',
+      label: 'Advanced AI',
       collapsed: false,
       items: [
         'advanced-ai/tutorial-ai',
         'advanced-ai/langchain-overview',
         {
           type: 'category',
-          label: '🧠 Nodes IA',
+          label: 'Nodes IA',
           collapsed: false,
           items: [
             'advanced-ai/nodes-ia/overview',
@@ -279,7 +279,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '💡 Exemplos e Casos',
+          label: 'Exemplos e Casos',
           collapsed: false,
           items: [
             'advanced-ai/exemplos-casos/overview',
@@ -293,7 +293,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '🎓 Tutorial Básico',
+      label: 'Tutorial Básico',
       collapsed: true,
       items: [
         'tutorial-basico/instalacao',
@@ -307,13 +307,13 @@ const sidebars: SidebarsConfig = {
   deploymentSidebar: [
     {
       type: 'category',
-      label: '🏗️ Hosting n8n',
+      label: 'Hosting n8n',
       collapsed: false,
       items: [
         'hosting-n8n/instalacao',
         {
           type: 'category',
-          label: '📦 Métodos de Instalação',
+          label: 'Métodos de Instalação',
           collapsed: false,
           items: [
             'hosting-n8n/instalacao/docker',
@@ -324,7 +324,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '⚙️ Configuração',
+          label: 'Configuração',
           collapsed: false,
           items: [
             'hosting-n8n/configuracao/variaveis-ambiente',
@@ -335,7 +335,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '📈 Escalonamento',
+          label: 'Escalonamento',
           collapsed: false,
           items: [
             'hosting-n8n/escalonamento/load-balancing',
@@ -345,7 +345,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🛡️ Segurança',
+          label: 'Segurança',
           collapsed: false,
           items: [
             'hosting-n8n/seguranca/autenticacao',
@@ -358,12 +358,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '🔧 API',
+      label: 'API',
       collapsed: false,
       items: [
         {
           type: 'category',
-          label: '💡 Conceitos',
+          label: 'Conceitos',
           collapsed: false,
           items: [
             'api/conceitos/overview',
@@ -373,7 +373,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🛠️ Ferramentas',
+          label: 'Ferramentas',
           collapsed: false,
           items: [
             'api/ferramentas/overview',
@@ -382,7 +382,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '📖 Referência',
+          label: 'Referência',
           collapsed: false,
           items: [
             'api/referencia/overview',
@@ -393,12 +393,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '🌐 Embed',
+      label: 'Embed',
       collapsed: false,
       items: [
         {
           type: 'category',
-          label: '🎯 Preparação',
+          label: 'Preparação',
           collapsed: false,
           items: [
             'embed/preparacao/prerequisitos',
@@ -406,7 +406,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🚀 Implementação',
+          label: 'Implementação',
           collapsed: false,
           items: [
             'embed/implementacao/implantacao',
@@ -415,7 +415,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '⚙️ Gerenciamento',
+          label: 'Gerenciamento',
           collapsed: false,
           items: [
             'embed/gerenciamento/gerenciar-workflows',
@@ -430,13 +430,13 @@ const sidebars: SidebarsConfig = {
   cursosSidebar: [
     {
       type: 'category',
-      label: '🎓 Cursos',
+      label: 'Cursos',
       collapsed: false,
       items: [
         'cursos/index',
         {
           type: 'category',
-          label: '📺 Cursos em Vídeo',
+          label: 'Cursos em Vídeo',
           collapsed: false,
           items: [
             'cursos/cursos-em-video/overview',
@@ -446,13 +446,13 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '📝 Cursos em Texto',
+          label: 'Cursos em Texto',
           collapsed: false,
           items: [
             'cursos/cursos-em-texto/overview',
             {
               type: 'category',
-              label: '📗 Nível 1',
+              label: 'Nível 1',
               collapsed: false,
               items: [
                 'cursos/cursos-em-texto/nivel-um/capitulo-1',
@@ -464,7 +464,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'category',
-              label: '📘 Nível 2',
+              label: 'Nível 2',
               collapsed: false,
               items: [
                 'cursos/cursos-em-texto/nivel-dois/capitulo-1',
@@ -490,13 +490,13 @@ const sidebars: SidebarsConfig = {
   referenciaSidebar: [
     {
       type: 'category',
-      label: '📖 Referência',
+      label: 'Referência',
       collapsed: false,
       items: [
         'referencia/index',
         {
           type: 'category',
-          label: '📚 Guias',
+          label: 'Guias',
           collapsed: false,
           items: [
             'referencia/guias/performance-guide',
@@ -506,7 +506,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '🔍 Recursos',
+          label: 'Recursos',
           collapsed: false,
           items: [
             'referencia/recursos/glossario',
@@ -515,7 +515,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: '📅 Histórico',
+          label: 'Histórico',
           collapsed: false,
           items: [
             'referencia/historico/changelog',
