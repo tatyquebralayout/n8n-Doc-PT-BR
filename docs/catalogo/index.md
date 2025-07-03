@@ -7,7 +7,7 @@ keywords: [n8n, templates, workflows, catálogo, automação]
 
 # Catálogo de Templates
 
-Bem-vindo ao **Catálogo de Templates** da comunidade n8n Brasil! 🚀
+Bem-vindo ao **Catálogo de Templates** da comunidade n8n Brasil!
 
 Aqui você encontra workflows prontos para usar, testados pela comunidade e documentados em português. Cada template pode ser facilmente importado e customizado para suas necessidades específicas.
 
@@ -87,7 +87,7 @@ Templates usando APIs e serviços brasileiros.
 - **💰 Integração Bancária** - Open Banking + PIX + Boletos
 - **📊 Compliance Fiscal** - SPED + NFe + Simples Nacional
 
-## 🚀 **Como Usar os Templates**
+## **Como Usar os Templates**
 
 ### **1. Navegar e Descobrir**
 - Use os **filtros** para encontrar templates por categoria
@@ -172,4 +172,4 @@ Novos templates são adicionados **semanalmente**. Ative as notificações para 
 
 ---
 
-**Pronto para automatizar?** Escolha um template e comece agora mesmo! 🚀 
+**Pronto para automatizar?** Escolha um template e comece agora mesmo! 
