@@ -254,34 +254,22 @@ const config: Config = {
             {
               html: `
                 <div style="display: flex; flex-direction: column; gap: 1rem;">
-                  <div>
-                    <p style="margin: 0; font-weight: 600; font-size: 0.9rem; color: #fff;">Esta documentação foi iniciada por dois apaixonados por automação e soluções:</p>
-                  </div>
                   <div id="founder-tatiana" style="display: flex; align-items: center; gap: 0.75rem;">
-                    <img src="https://avatars.githubusercontent.com/u/134623615?v=4" alt="Tatiana Barros" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ea4b71;">
-                    <div>
+                    <img src="https://avatars.githubusercontent.com/u/172347696?v=4" alt="Tatiana Barros" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ea4b71;">
                       <div style="font-weight: 600; font-size: 0.9rem; color: #fff;">Tatiana Barros</div>
                       <div style="font-size: 0.8rem; color: #b3b3b3;">Technology Evangelist</div>
                       <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
                         <a href="https://github.com/tatyquebralayout" style="color: #ea4b71; text-decoration: none;">GitHub</a>
                         <span style="color: #666;">•</span>
                         <a href="https://www.linkedin.com/in/umataldetatiana" style="color: #ea4b71; text-decoration: none;">LinkedIn</a>
-                      </div>
-                    </div>
-                  </div>
                   <div id="founder-carlos" style="display: flex; align-items: center; gap: 0.75rem;">
-                    <img src="https://avatars.githubusercontent.com/u/65327656?v=4" alt="Carlos de Lima Junior" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ea4b71;">
-                    <div>
+                    <img src="https://avatars.githubusercontent.com/u/48963612?v=4" alt="Carlos de Lima Junior" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ea4b71;">
                       <div style="font-weight: 600; font-size: 0.9rem; color: #fff;">Carlos de Lima Junior</div>
                       <div style="font-size: 0.8rem; color: #b3b3b3;">Software Developer</div>
                       <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
                         <a href="https://github.com/CJBiohacker" style="color: #ea4b71; text-decoration: none;">GitHub</a>
                         <span style="color: #666;">•</span>
                         <a href="https://www.linkedin.com/in/carlosjunior137" style="color: #ea4b71; text-decoration: none;">LinkedIn</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               `,
             },
           ],
@@ -293,15 +281,12 @@ const config: Config = {
             <span>© ${new Date().getFullYear()} n8n Documentation Brasil</span>
             <span style="color: #ea4b71;">•</span>
             <span>Feito com ❤️ pela comunidade</span>
-          </div>
           <div style="font-size: 0.875rem; color: #6b7280;">
             <span>Documentação não oficial do n8n</span>
             <span style="margin: 0 0.5rem;">•</span>
             <a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR" style="color: #ea4b71;">GitHub</a>
             <span style="margin: 0 0.5rem;">•</span>
             <a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR/blob/main/LICENSE" style="color: #ea4b71;">MIT License</a>
-          </div>
-        </div>
       `,
     },
 
