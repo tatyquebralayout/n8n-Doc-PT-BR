@@ -20,14 +20,10 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'pt-BR',
-    locales: ['pt-BR', 'en'],
+    locales: ['pt-BR'],
     localeConfigs: {
       'pt-BR': {
-        label: 'PT-BR',
-        direction: 'ltr',
-      },
-      en: {
-        label: 'ENG',
+        label: 'Português',
         direction: 'ltr',
       },
     },
@@ -156,11 +152,7 @@ const config: Config = {
             },
           ],
         },
-        {
-          type: 'localeDropdown',
-          position: 'right',
-          dropdownItemsAfter: [],
-        },
+
       ],
       hideOnScroll: false,
     },

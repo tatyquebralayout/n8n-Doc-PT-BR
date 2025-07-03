@@ -9,6 +9,8 @@ keywords: [n8n, curso, vídeo, iniciante, youtube, tutorial]
 
 Este curso em vídeo oficial do n8n, disponível no YouTube, cobre todos os fundamentos necessários para você começar a criar suas próprias automações.
 
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/I_7_b0I1I3Y" title="n8n Beginner Course - Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 **[➡️ Assista à playlist completa no YouTube ↗](https://www.youtube.com/watch?v=I_7_b0I1I3Y&list=PL8p-62yr-wG4s4s_lq4a4M0S-s_k4iS3q)**
 
 ## Tópicos Abordados:
