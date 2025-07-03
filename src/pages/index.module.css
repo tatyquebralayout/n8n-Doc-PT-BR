@@ -9,7 +9,7 @@
 
 /* ===== HERO SECTION ===== */
 .heroBanner {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  background-color: var(--ifm-background-surface-color);
   padding: 4rem 0;
   text-align: center;
   border-bottom: 1px solid var(--ifm-color-gray-200);
@@ -86,7 +86,7 @@
 /* ===== FEATURES SECTION ===== */
 .features {
   padding: 4rem 0;
-  background: white;
+  background: var(--ifm-background-color);
 }
 
 .featuresGrid {
@@ -99,7 +99,7 @@
 }
 
 .featureCard {
-  background: white;
+  background: var(--ifm-background-surface-color);
   border: 1px solid var(--ifm-color-gray-200);
   border-radius: 12px;
   padding: 2rem;
@@ -199,7 +199,7 @@
 }
 
 .quickLinkItem {
-  background: white;
+  background: var(--ifm-background-surface-color);
   border: 1px solid var(--ifm-color-gray-200);
   border-radius: 8px;
   padding: 1.5rem;
@@ -323,4 +323,4 @@
   .quickLinkItem {
     padding: 1.25rem;
   }
-} 
+}
