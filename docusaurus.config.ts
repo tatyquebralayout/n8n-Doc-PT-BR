@@ -195,7 +195,7 @@ const config: Config = {
           ],
         },
         {
-          title: '🚀 Recursos',
+          title: 'Recursos',
           items: [
             {
               label: 'Release Notes',
@@ -297,7 +297,7 @@ const config: Config = {
 
     announcementBar: {
       id: 'new-release',
-      content: 'Explore what\'s new: Latest release notes available now! 🚀',
+      content: 'Explore what\'s new: Latest release notes available now!',
       backgroundColor: '#ea4b71',
       textColor: '#FFFFFF',
       isCloseable: true,

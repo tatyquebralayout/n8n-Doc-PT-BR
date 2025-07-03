@@ -4,11 +4,11 @@ description: "Notas de release oficiais do n8n, traduzidas para português"
 sidebar_position: 1
 ---
 
-# 🚀 Releases do n8n
+# Releases do n8n
 
 Bem-vindo às notas de release oficiais do n8n! Aqui você encontra todas as atualizações, correções e novos recursos lançados pela equipe do n8n, traduzidos para português.
 
-## 📋 Versões Disponíveis
+## Versões Disponíveis
 
 ### Versões Recentes
 
@@ -18,7 +18,7 @@ Bem-vindo às notas de release oficiais do n8n! Aqui você encontra todas as atu
 - [**v1.99.1**](./n8n/1.99.1) - *19 de junho de 2025* - Release
 - [**v1.98.2**](./n8n/1.98.2) - *18 de junho de 2025* - Release
 
-## 🔍 Como navegar
+## Como navegar
 
 Cada release contém:
 - **Novos recursos**: Funcionalidades adicionadas
@@ -26,7 +26,7 @@ Cada release contém:
 - **Correções de bugs**: Problemas resolvidos
 - **Breaking changes**: Mudanças que podem afetar workflows existentes
 
-## 🔄 Sincronização
+## Sincronização
 
 Estas notas são sincronizadas automaticamente do repositório oficial do n8n e traduzidas para facilitar o acesso da comunidade brasileira.
 

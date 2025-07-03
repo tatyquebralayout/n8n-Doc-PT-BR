@@ -11,13 +11,13 @@ Bem-vindo(a) à nossa central de notas de release. Aqui você encontra as últim
 
 ---
 
-## 📚 Nossa Documentação
+## Nossa Documentação
 
 Veja as últimas atualizações, correções e melhorias feitas em nosso projeto de documentação.
 
 [Ver Releases da Doc →](/release-notes/nossa-doc)
 
-## 🚀 n8n Oficial
+## n8n Oficial
 
 Acesse as notas de release oficiais do n8n, traduzidas e sincronizadas automaticamente para você.
 

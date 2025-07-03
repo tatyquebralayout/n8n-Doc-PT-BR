@@ -378,12 +378,6 @@ html {
   position: relative;
 }
 
-.navbar-release-notes::before {
-  content: '🚀';
-  margin-right: 0.25rem;
-  font-size: 0.875rem;
-}
-
 /* ===== SIDEBAR ===== */
 .theme-doc-sidebar-container {
   border-right: 1px solid var(--ifm-color-emphasis-200);

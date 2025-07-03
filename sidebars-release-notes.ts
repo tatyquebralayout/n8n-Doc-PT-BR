@@ -8,7 +8,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '🚀 n8n Oficial',
+      label: 'n8n Oficial',
       link: {
         type: 'doc',
         id: 'n8n-oficial/index',
@@ -22,7 +22,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '📚 Nossa Documentação',
+      label: 'Nossa Documentação',
       link: {
         type: 'generated-index',
         title: 'Releases da Documentação',
