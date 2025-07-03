@@ -39,8 +39,20 @@
   /* Background colors - Light Mode */
   --ifm-background-color: #ffffff;
   --ifm-background-surface-color: #ffffff;
+  --ifm-background-surface-secondary: #f9fafb;
   
-  /* Navbar */
+  /* Text colors - Light Mode */
+  --ifm-font-color-base: #374151;
+  --ifm-font-color-secondary: #6b7280;
+  --ifm-heading-color: #111827;
+  
+  /* Border colors - Light Mode */
+  --ifm-color-emphasis-100: #f3f4f6;
+  --ifm-color-emphasis-200: #e5e7eb;
+  --ifm-color-emphasis-300: #d1d5db;
+  --ifm-color-emphasis-400: #9ca3af;
+  
+  /* Navbar - Light Mode */
   --ifm-navbar-background-color: #ffffff;
   --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   --ifm-navbar-height: 3.75rem;
@@ -72,17 +84,6 @@
   --ifm-font-weight-normal: 400;
   --ifm-font-weight-semibold: 500;
   --ifm-font-weight-bold: 600;
-
-  /* Code */
-  --ifm-code-font-size: 13px;
-  --ifm-code-background: #f6f8fa;
-  --ifm-code-border-radius: 4px;
-  --ifm-code-padding-horizontal: 0.4rem;
-  --ifm-code-padding-vertical: 0.2rem;
-
-  /* Sidebar */
-  --ifm-sidebar-width: 280px;
-  --ifm-sidebar-background-color: #ffffff;
   
   /* Announcement bar */
   --docusaurus-announcement-bar-height: 40px;
@@ -90,12 +91,69 @@
 
 /* ===== DARK MODE ===== */
 [data-theme='dark'] {
-  --ifm-color-primary: #FF6D5A;
-  --ifm-background-color: #1b1b1d;
-  --ifm-background-surface-color: #1b1b1d;
-  --ifm-navbar-background-color: #1b1b1d;
-  --ifm-sidebar-background-color: #1b1b1d;
-  --ifm-code-background: #282c34;
+  /* Primary colors remain the same for consistency */
+  --ifm-color-primary: #ea4b71;
+  --ifm-color-primary-dark: #ea4b71;
+  --ifm-color-primary-darker: #ea4b71;
+  --ifm-color-primary-darkest: #ea4b71;
+  --ifm-color-primary-light: #ea4b71;
+  --ifm-color-primary-lighter: #ea4b71;
+  --ifm-color-primary-lightest: #ea4b71;
+
+  /* Secondary colors adjusted for dark mode */
+  --ifm-color-secondary: #ea4b71;
+  --ifm-color-accent: #ea4b71;
+  --ifm-color-success: #10b981;
+  --ifm-color-warning: #ea4b71;
+  --ifm-color-danger: #ef4444;
+  --ifm-color-info: #0ea5e9;
+
+  /* Dark mode color palette */
+  --ifm-color-gray-0: #000000;
+  --ifm-color-gray-50: #0f0f0f;
+  --ifm-color-gray-100: #1a1a1a;
+  --ifm-color-gray-200: #262626;
+  --ifm-color-gray-300: #404040;
+  --ifm-color-gray-400: #525252;
+  --ifm-color-gray-500: #737373;
+  --ifm-color-gray-600: #a3a3a3;
+  --ifm-color-gray-700: #d4d4d4;
+  --ifm-color-gray-800: #e5e5e5;
+  --ifm-color-gray-900: #f5f5f5;
+  --ifm-color-gray-1000: #ffffff;
+
+  /* Background colors - Dark Mode */
+  --ifm-background-color: #0f0f0f;
+  --ifm-background-surface-color: #1a1a1a;
+  --ifm-background-surface-secondary: #262626;
+  
+  /* Text colors - Dark Mode */
+  --ifm-font-color-base: #d4d4d4;
+  --ifm-font-color-secondary: #a3a3a3;
+  --ifm-heading-color: #f5f5f5;
+  
+  /* Border colors - Dark Mode */
+  --ifm-color-emphasis-100: #262626;
+  --ifm-color-emphasis-200: #404040;
+  --ifm-color-emphasis-300: #525252;
+  --ifm-color-emphasis-400: #737373;
+  
+  /* Navbar - Dark Mode */
+  --ifm-navbar-background-color: #0f0f0f;
+  --ifm-navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --ifm-navbar-item-color: #a3a3a3;
+  --ifm-navbar-item-color-hover: #ea4b71;
+  --ifm-navbar-item-color-active: #ea4b71;
+
+  /* Sidebar - Dark Mode */
+  --ifm-sidebar-background-color: #0f0f0f;
+  --ifm-menu-color: #a3a3a3;
+  --ifm-menu-color-background-active: rgba(234, 75, 113, 0.15);
+  --ifm-menu-color-background-hover: rgba(234, 75, 113, 0.08);
+
+  /* Code - Dark Mode */
+  --ifm-code-background: #262626;
+  --ifm-code-color: #f5f5f5;
 }
 
 /* ===== RESET E BASE ===== */
