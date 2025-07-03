@@ -1,12 +1,12 @@
-ï»¿---
+---
 sidebar_position: 7
 title: Preview de Schema
 description: Como visualizar e entender schemas de dados no n8n
-keywords: [n8n, schema, preview, estrutura, visualizaÃ§Ã£o]
+keywords: [n8n, schema, preview, estrutura, visualização]
 ---
 
-# ğŸ” Preview de Schema
+# ?? Preview de Schema
 
-Este documento detalha como **visualizar e compreender schemas de dados** no n8n, incluindo tÃ©cnicas para examinar estruturas de dados complexas, interpretar previews automÃ¡ticos, identificar tipos de campos, validar formatos esperados, e usar informaÃ§Ãµes de schema para construir mapeamentos precisos e evitar erros em transformaÃ§Ãµes de dados durante o desenvolvimento de workflows.
+Este documento detalha como **visualizar e compreender schemas de dados** no n8n, incluindo técnicas para examinar estruturas de dados complexas, interpretar previews automáticos, identificar tipos de campos, validar formatos esperados, e usar informações de schema para construir mapeamentos precisos e evitar erros em transformações de dados durante o desenvolvimento de workflows.
 
-**ğŸ”„ Em construÃ§Ã£o:** Este conteÃºdo terÃ¡ exemplos visuais de diferentes tipos de schema e interpretaÃ§Ã£o de previews.
+**?? Em construção:** Este conteúdo terá exemplos visuais de diferentes tipos de schema e interpretação de previews.

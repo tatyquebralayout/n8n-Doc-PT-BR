@@ -2,9 +2,7 @@
 title: 'Guia de Estilo'
 ---
 
-import { Icon } from '@iconify/react';
-
-# <Icon icon="ph:paint-brush-duotone" width="32" style={{ marginBottom: '-5px' }} /> Guia de Estilo para Contribuição
+# Guia de Estilo para Contribuição
 
 :::tip[Por que um Guia de Estilo é importante?]
 Um guia de estilo garante que toda a documentação tenha uma voz, estrutura e aparência consistentes. Isso não apenas cria uma experiência de leitura profissional e agradável, mas também facilita a colaboração, pois todas as pessoas que contribuem partem dos mesmos princípios. Seguir este guia é fundamental para manter a alta qualidade do nosso conteúdo.

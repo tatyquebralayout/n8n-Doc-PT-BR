@@ -1,12 +1,12 @@
-ï»¿---
+---
 sidebar_position: 3
-title: OtimizaÃ§Ã£o de Performance
-description: Como otimizar performance do n8n para mÃ¡xima eficiÃªncia em produÃ§Ã£o
-keywords: [n8n, performance, otimizaÃ§Ã£o, eficiÃªncia, produÃ§Ã£o, tuning]
+title: Otimização de Performance
+description: Como otimizar performance do n8n para máxima eficiência em produção
+keywords: [n8n, performance, otimização, eficiência, produção, tuning]
 ---
 
-#  OtimizaÃ§Ã£o de Performance
+#  Otimização de Performance
 
-Este documento detalha como **otimizar performance do n8n** para mÃ¡xima eficiÃªncia, incluindo configuraÃ§Ã£o de workers, ajuste de timeouts, otimizaÃ§Ã£o de queries de banco, gerenciamento de memÃ³ria, monitoramento de recursos, e tÃ©cnicas avanÃ§adas de tuning que maximizam throughput e minimizam latÃªncia em workflows de alta demanda para operaÃ§Ãµes empresariais crÃ­ticas.
+Este documento detalha como **otimizar performance do n8n** para máxima eficiência, incluindo configuração de workers, ajuste de timeouts, otimização de queries de banco, gerenciamento de memória, monitoramento de recursos, e técnicas avançadas de tuning que maximizam throughput e minimizam latência em workflows de alta demanda para operações empresariais críticas.
 
-** Em construÃ§Ã£o:** Este conteÃºdo incluirÃ¡ benchmarks reais e guias de tuning especÃ­ficos para diferentes workloads.
+** Em construção:** Este conteúdo incluirá benchmarks reais e guias de tuning específicos para diferentes workloads.

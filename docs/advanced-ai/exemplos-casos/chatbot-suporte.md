@@ -1,6 +1,13 @@
 import { Icon } from '@iconify/react';
 
-# <Icon icon="ph:chats-circle-duotone" width="32" style={{ marginBottom: '-5px' }} /> Chatbot de Suporte com IA
+---
+sidebar_position: 3
+title: Chatbot de Suporte com IA
+description: Como criar um chatbot de suporte inteligente
+keywords: [n8n, chatbot, suporte, ia, atendimento]
+---
+
+# Chatbot de Suporte com IA
 
 Este documento descreve como construir um **chatbot de suporte** utilizando as capacidades de IA do n8n.
 

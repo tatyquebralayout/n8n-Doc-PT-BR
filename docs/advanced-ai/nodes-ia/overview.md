@@ -1,13 +1,11 @@
 ---
 sidebar_position: 1
 title: Visão Geral - Nodes de IA
-description: Uma visão geral sobre os principais nodes de IA do n8n e como eles funcionam.
-keywords: [n8n, IA, nodes, visão geral, inteligência artificial]
+description: Introdução aos nodes de IA disponíveis no n8n
+keywords: [n8n, ia, nodes, inteligência artificial, overview]
 ---
 
-import { Icon } from '@iconify/react';
-
-# <Icon icon="ph:cubes-duotone" width="32" style={{ marginBottom: '-5px' }} /> Visão Geral - Nodes de IA
+# Visão Geral - Nodes de IA
 
 Esta seção oferece uma visão geral sobre os **principais nodes de IA** disponíveis no n8n.
 

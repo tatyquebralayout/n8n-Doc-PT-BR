@@ -1,17 +1,13 @@
-import { Icon } from '@iconify/react';
+---
+sidebar_position: 2
+title: RAG com Arquivos
+description: Como implementar RAG com arquivos no n8n
+keywords: [n8n, rag, arquivos, ia, retrieval]
+---
 
-# <Icon icon="ph:files-duotone" width="32" style={{ marginBottom: '-5px' }} /> RAG com Arquivos
+# RAG com Arquivos
 
 Este documento descreve o padrão **RAG (Retrieval-Augmented Generation)** usando arquivos como fonte de dados.
-
----
-sidebar_position: 4
-title: RAG com Arquivos
-description: Como implementar Retrieval-Augmented Generation com documentos no n8n
-keywords: [n8n, rag, retrieval, arquivos, documentos, ia, vector]
----
-
-# 📚 RAG com Arquivos
 
 Este documento explica como **implementar RAG (Retrieval-Augmented Generation)** com arquivos no n8n, abordando indexação de documentos, vector databases, busca semântica, contextualização de respostas, processamento de PDFs e documentos, e criação de sistemas que combinam conhecimento específico da empresa com capacidades de IA generativa para fornecer respostas precisas e contextualizadas.
 

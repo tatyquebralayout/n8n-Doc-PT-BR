@@ -1,4 +1,4 @@
-ï»¿---
+---
 sidebar_position: 6
 title: Tratamento de Erros
 description: Como implementar tratamento robusto de erros em workflows n8n
@@ -7,6 +7,6 @@ keywords: [n8n, error handling, erros, tratamento, debugging, robustez]
 
 #  Tratamento de Erros
 
-Este documento ensina como **implementar tratamento robusto de erros** em workflows n8n, abordando configuraÃ§Ã£o de try/catch, nodes de erro personalizados, retry automÃ¡tico, logging de falhas, notificaÃ§Ãµes de problemas, e estratÃ©gias de recuperaÃ§Ã£o que tornam automaÃ§Ãµes resilientes a falhas temporÃ¡rias e permanentes, garantindo continuidade operacional mesmo quando sistemas externos apresentam instabilidade ou indisponibilidade.
+Este documento ensina como **implementar tratamento robusto de erros** em workflows n8n, abordando configuração de try/catch, nodes de erro personalizados, retry automático, logging de falhas, notificações de problemas, e estratégias de recuperação que tornam automações resilientes a falhas temporárias e permanentes, garantindo continuidade operacional mesmo quando sistemas externos apresentam instabilidade ou indisponibilidade.
 
-** Em construÃ§Ã£o:** Este conteÃºdo incluirÃ¡ padrÃµes avanÃ§ados de recuperaÃ§Ã£o e monitoramento proativo de erros.
+** Em construção:** Este conteúdo incluirá padrões avançados de recuperação e monitoramento proativo de erros.

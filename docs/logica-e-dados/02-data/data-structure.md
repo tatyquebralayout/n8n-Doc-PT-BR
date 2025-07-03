@@ -1,12 +1,12 @@
-ï»¿---
+---
 sidebar_position: 1
 title: Estrutura de Dados
-description: Como dados sÃ£o estruturados e organizados no n8n
+description: Como dados são estruturados e organizados no n8n
 keywords: [n8n, estrutura, dados, JSON, formato]
 ---
 
-# ğŸ“Š Estrutura de Dados
+# ?? Estrutura de Dados
 
-Este documento explica como **dados sÃ£o estruturados e organizados** no n8n, abordando o formato JSON utilizado internamente, como diferentes tipos de dados sÃ£o representados, estruturas de arrays e objetos, metadados associados, e padrÃµes de organizaÃ§Ã£o que facilitam o processamento eficiente de informaÃ§Ãµes em workflows complexos com mÃºltiplas fontes de dados.
+Este documento explica como **dados são estruturados e organizados** no n8n, abordando o formato JSON utilizado internamente, como diferentes tipos de dados são representados, estruturas de arrays e objetos, metadados associados, e padrões de organização que facilitam o processamento eficiente de informações em workflows complexos com múltiplas fontes de dados.
 
-**ğŸ”„ Em construÃ§Ã£o:** Este conteÃºdo incluirÃ¡ exemplos visuais de estruturas de dados e padrÃµes de organizaÃ§Ã£o.
+**?? Em construção:** Este conteúdo incluirá exemplos visuais de estruturas de dados e padrões de organização.

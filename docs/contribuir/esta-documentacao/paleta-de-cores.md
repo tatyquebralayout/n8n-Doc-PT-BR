@@ -4,9 +4,9 @@
 
 ### 🔥 **Cor Primária Principal**
 ```css
---ifm-color-primary: #FF6D5A;
+--ifm-color-primary: #ea4b71;
 ```
-**#FF6D5A** - Laranja vibrante característico da marca n8n
+**#ea4b71** - Cor vibrante característica da marca n8n
 
 ### 🌈 **Variações da Cor Primária**
 ```css
@@ -20,10 +20,10 @@
 
 ## 🔍 **Análise Técnica das Cores**
 
-### **#FF6D5A** (Cor Principal)
-- **RGB:** 255, 109, 90
-- **HSL:** 8°, 100%, 68%
-- **CMYK:** 0%, 57%, 65%, 0%
+### **#ea4b71** (Cor Principal)
+- **RGB:** 234, 75, 113
+- **HSL:** 342°, 78%, 61%
+- **CMYK:** 0%, 68%, 52%, 8%
 - **Uso:** Logo, botões primários, links, destaques
 
 ### **#E84B3D** (Cinnabar)
@@ -53,12 +53,12 @@
 ## 🌗 **Adaptação para Dark Mode**
 
 ### **Light Mode**
-- **Ícone:** `#FF6D5A` (laranja n8n)
+- **Ícone:** `#ea4b71` (cor n8n)
 - **Texto:** `#2D2D2D` (cinza escuro)
 - **Background:** `#FFFFFF` (branco)
 
 ### **Dark Mode**
-- **Ícone:** `#FF6D5A` (mantém a cor)
+- **Ícone:** `#ea4b71` (mantém a cor)
 - **Texto:** `#FFFFFF` (branco)
 - **Background:** `#1b1b1d` (cinza muito escuro)
 
@@ -78,13 +78,13 @@ O logo oficial n8n consiste em 2 paths SVG:
 ## 🎯 **Guidelines de Uso**
 
 ### ✅ **Permitido**
-- Usar `#FF6D5A` como cor principal em qualquer elemento
+- Usar `#ea4b71` como cor principal em qualquer elemento
 - Aplicar variações da paleta para estados hover/active
 - Manter proporções do logo SVG original
 - Adaptar cores do texto para dark/light mode
 
 ### ❌ **Evitar**
-- Alterar a cor laranja `#FF6D5A` do ícone
+- Alterar a cor `#ea4b71` do ícone
 - Distorcer as proporções do logo
 - Usar cores fora da paleta oficial
 - Combinar com cores que conflitem visualmente

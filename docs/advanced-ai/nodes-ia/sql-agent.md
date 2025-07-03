@@ -1,6 +1,13 @@
 import { Icon } from '@iconify/react';
 
-# <Icon icon="ph:database-duotone" width="32" style={{ marginBottom: '-5px' }} /> SQL Agent
+---
+sidebar_position: 6
+title: SQL Agent
+description: Como usar o node SQL Agent para consultas inteligentes
+keywords: [n8n, sql, agent, database, consultas]
+---
+
+# SQL Agent
 
 Este documento descreve o **Agente SQL (SQL Agent)**, uma ferramenta de IA que pode interagir com bancos de dados.
 

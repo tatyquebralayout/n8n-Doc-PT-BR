@@ -1,17 +1,13 @@
-import { Icon } from '@iconify/react';
+---
+sidebar_position: 4
+title: Classificação de Dados com IA
+description: Como classificar dados automaticamente com IA
+keywords: [n8n, classificação, dados, ia, machine learning]
+---
 
-# <Icon icon="ph:tag-duotone" width="32" style={{ marginBottom: '-5px' }} /> Classificação de Dados com IA
+# Classificação de Dados com IA
 
 Este documento explica como usar IA para **classificar dados**, como análise de sentimentos, categorização de tickets e mais.
-
----
-sidebar_position: 2
-title: Classificação de Dados com IA
-description: Como criar sistema de classificação automática de dados usando IA no n8n
-keywords: [n8n, ia, classificação, dados, machine learning, automação]
----
-
-# 🏷️ Classificação de Dados com IA
 
 Este documento ensina como **criar sistema de classificação automática** usando IA no n8n, abordando treinamento de modelos, categorização de conteúdo, análise de sentimento, classificação de tickets de suporte, organização automática de dados, e casos de uso práticos que aplicam inteligência artificial para automatizar tarefas de categorização complexas que tradicionalmente requerem intervenção humana constante.
 

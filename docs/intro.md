@@ -1,14 +1,11 @@
 ---
 sidebar_position: 1
 title: Introdução ao n8n
-description: Bem-vindo à documentação completa do n8n em português brasileiro
-slug: /intro
-keywords: [n8n, automação, workflow, introdução, tutorial]
+description: Guia completo para começar com n8n
+keywords: [n8n, automação, workflow, introdução, guia]
 ---
 
-import { Icon } from '@iconify/react';
-
-# <Icon icon="ph:rocket-duotone" width="32" style={{ marginBottom: '-5px' }} /> Introdução ao n8n
+# Introdução ao n8n
 
 Bem-vindo à **documentação completa do n8n** em português brasileiro! 🎉
 

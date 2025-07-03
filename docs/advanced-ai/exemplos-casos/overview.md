@@ -1,13 +1,11 @@
 ---
 sidebar_position: 1
-title: Visão Geral - Exemplos e Casos
-description: Explore exemplos práticos e casos de uso de IA com n8n.
-keywords: [n8n, IA, exemplos, casos de uso, inteligência artificial]
+title: Visão Geral - Exemplos e Casos de Uso
+description: Exemplos práticos de uso de IA no n8n
+keywords: [n8n, ia, exemplos, casos de uso, práticos]
 ---
 
-import { Icon } from '@iconify/react';
-
-# <Icon icon="ph:lightbulb-duotone" width="32" style={{ marginBottom: '-5px' }} /> Visão Geral - Exemplos e Casos de Uso
+# Visão Geral - Exemplos e Casos de Uso
 
 Esta seção apresenta exemplos práticos e casos de uso para demonstrar o poder da IA no n8n.
 
