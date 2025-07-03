@@ -10,12 +10,12 @@
 
 ### 🌈 **Variações da Cor Primária**
 ```css
---ifm-color-primary-dark: #E84B3D;     /* Cinnabar - cor oficial mais escura */
---ifm-color-primary-darker: #f8591a;   /* Laranja intenso n8n */
---ifm-color-primary-darkest: #E63E26;  /* Tom mais escuro */
---ifm-color-primary-light: #FF7D6D;    /* Tom mais claro */
---ifm-color-primary-lighter: #FF9189;  /* Tom ainda mais claro */
---ifm-color-primary-lightest: #FFA399; /* Tom mais suave */
+--ifm-color-primary-dark: #ea4b71;     /* Cor principal n8n */
+--ifm-color-primary-darker: #ea4b71;   /* Cor principal n8n */
+--ifm-color-primary-darkest: #ea4b71;  /* Cor principal n8n */
+--ifm-color-primary-light: #ea4b71;    /* Cor principal n8n */
+--ifm-color-primary-lighter: #ea4b71;  /* Cor principal n8n */
+--ifm-color-primary-lightest: #ea4b71; /* Cor principal n8n */
 ```
 
 ## 🔍 **Análise Técnica das Cores**
@@ -24,26 +24,14 @@
 - **RGB:** 234, 75, 113
 - **HSL:** 342°, 78%, 61%
 - **CMYK:** 0%, 68%, 52%, 8%
-- **Uso:** Logo, botões primários, links, destaques
-
-### **#E84B3D** (Cinnabar)
-- **RGB:** 232, 75, 61
-- **HSL:** 5°, 79%, 57%
-- **CMYK:** 0%, 68%, 74%, 9%
-- **Uso:** Hover states, elementos ativos
-
-### **#f8591a** (Laranja Intenso)
-- **RGB:** 248, 89, 26
-- **HSL:** 17°, 94%, 54%
-- **CMYK:** 0%, 64%, 90%, 3%
-- **Uso:** Elementos secundários, ênfases
+- **Uso:** Logo, botões primários, links, destaques, todos os elementos de interface
 
 ## 🎨 **Cores Secundárias Implementadas**
 
 ```css
 /* Cores funcionais baseadas na marca n8n */
---ifm-color-secondary: #f8591a;      /* Laranja intenso oficial */
---ifm-color-accent: #E84B3D;         /* Cinnabar para destaques */
+--ifm-color-secondary: #ea4b71;      /* Cor principal n8n */
+--ifm-color-accent: #ea4b71;         /* Cor principal n8n */
 --ifm-color-success: #10b981;        /* Verde para sucesso */
 --ifm-color-warning: #f59e0b;        /* Amarelo para avisos */
 --ifm-color-danger: #ef4444;         /* Vermelho para erros */
@@ -79,14 +67,14 @@ O logo oficial n8n consiste em 2 paths SVG:
 
 ### ✅ **Permitido**
 - Usar `#ea4b71` como cor principal em qualquer elemento
-- Aplicar variações da paleta para estados hover/active
+- Manter a consistência da cor em todos os elementos de interface
 - Manter proporções do logo SVG original
 - Adaptar cores do texto para dark/light mode
 
 ### ❌ **Evitar**
 - Alterar a cor `#ea4b71` do ícone
 - Distorcer as proporções do logo
-- Usar cores fora da paleta oficial
+- Usar cores laranjas antigas no lugar da cor correta
 - Combinar com cores que conflitem visualmente
 
 ## 🔗 **Referências**

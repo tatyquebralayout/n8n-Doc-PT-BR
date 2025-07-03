@@ -6,17 +6,17 @@
 /* ===== VARIÁVEIS DE COR ===== */
 :root {
   /* Cores principais oficiais do n8n */
-  --ifm-color-primary: #FF6D5A;        /* Laranja principal n8n */
-  --ifm-color-primary-dark: #E84B3D;   /* Cinnabar (cor oficial mais escura) */
-  --ifm-color-primary-darker: #f8591a; /* Laranja intenso n8n */
-  --ifm-color-primary-darkest: #E63E26; /* Tom mais escuro */
-  --ifm-color-primary-light: #FF7D6D;   /* Tom mais claro */
-  --ifm-color-primary-lighter: #FF9189; /* Tom ainda mais claro */
-  --ifm-color-primary-lightest: #FFA399; /* Tom mais suave */
+  --ifm-color-primary: #ea4b71;        /* Cor principal n8n */
+  --ifm-color-primary-dark: #ea4b71;   /* Cor principal n8n */
+  --ifm-color-primary-darker: #ea4b71; /* Cor principal n8n */
+  --ifm-color-primary-darkest: #ea4b71; /* Cor principal n8n */
+  --ifm-color-primary-light: #ea4b71;   /* Cor principal n8n */
+  --ifm-color-primary-lighter: #ea4b71; /* Cor principal n8n */
+  --ifm-color-primary-lightest: #ea4b71; /* Cor principal n8n */
 
   /* Cores secundárias baseadas na marca n8n */
-  --ifm-color-secondary: #f8591a;      /* Laranja intenso oficial */
-  --ifm-color-accent: #E84B3D;         /* Cinnabar para destaques */
+  --ifm-color-secondary: #ea4b71;      /* Cor principal n8n */
+  --ifm-color-accent: #ea4b71;         /* Cor principal n8n */
   --ifm-color-success: #10b981;        /* Verde para sucesso */
   --ifm-color-warning: #f59e0b;        /* Amarelo para avisos */
   --ifm-color-danger: #ef4444;         /* Vermelho para erros */
