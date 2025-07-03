@@ -97,6 +97,12 @@ const config: Config = {
           className: 'navbar-home-link',
         },
         {
+          label: 'Comunidade',
+          to: '/comunidade',
+          position: 'left',
+          className: 'navbar-community-link',
+        },
+        {
           label: 'Workflows',
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
@@ -218,6 +224,10 @@ const config: Config = {
         {
           title: '🤝 Comunidade',
           items: [
+            {
+              label: 'Central da Comunidade',
+              to: '/comunidade',
+            },
             {
               label: 'Como Contribuir',
               to: '/contribuir',
