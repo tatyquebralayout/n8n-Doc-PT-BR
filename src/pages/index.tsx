@@ -12,16 +12,27 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/intro">
-            Comece a Explorar - 5min ⏱️
-          </Link>
+        <div className={styles.heroContent}>
+          <div className={styles.heroImageContainer}>
+            <img 
+              src="img/banner_n8n_ptbr.png" 
+              alt="n8n Documentation Brasil - Automatize tudo em português"
+              className={styles.heroImage}
+            />
+          </div>
+          <div className={styles.heroTextContent}>
+            <Heading as="h1" className="hero__title">
+              {siteConfig.title}
+            </Heading>
+            <p className="hero__subtitle">{siteConfig.tagline}</p>
+            <div className={styles.buttons}>
+              <Link
+                className="button button--secondary button--lg"
+                to="/intro">
+                Comece a Explorar - 5min ⏱️
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </header>

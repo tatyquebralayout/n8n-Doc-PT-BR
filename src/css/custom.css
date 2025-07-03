@@ -615,6 +615,41 @@ code {
   background: var(--ifm-color-gray-50);
 }
 
+/* Footer founders section */
+.footer .founders-section {
+  text-align: left;
+}
+
+.footer .founders-section img {
+  transition: transform 0.2s ease;
+}
+
+.footer .founders-section img:hover {
+  transform: scale(1.05);
+}
+
+.footer .founders-section a {
+  transition: color 0.2s ease;
+}
+
+.footer .founders-section a:hover {
+  color: #f472b6 !important;
+}
+
+/* Responsive adjustments for founders section */
+@media screen and (max-width: 768px) {
+  .footer .founders-section div[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+  
+  .footer .founders-section img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+}
+
 /* ===== MAIN LAYOUT ===== */
 .main-wrapper {
   display: flex;

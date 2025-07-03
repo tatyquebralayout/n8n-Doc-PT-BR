@@ -248,6 +248,44 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: '💡 Fundadores',
+          items: [
+            {
+              html: `
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                  <div>
+                    <p style="margin: 0; font-weight: 600; font-size: 0.9rem; color: #fff;">Esta documentação foi iniciada por dois apaixonados por automação e soluções:</p>
+                  </div>
+                  <div id="founder-tatiana" style="display: flex; align-items: center; gap: 0.75rem;">
+                    <img src="https://avatars.githubusercontent.com/u/134623615?v=4" alt="Tatiana Barros" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ea4b71;">
+                    <div>
+                      <div style="font-weight: 600; font-size: 0.9rem; color: #fff;">Tatiana Barros</div>
+                      <div style="font-size: 0.8rem; color: #b3b3b3;">Technology Evangelist</div>
+                      <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
+                        <a href="https://github.com/tatyquebralayout" style="color: #ea4b71; text-decoration: none;">GitHub</a>
+                        <span style="color: #666;">•</span>
+                        <a href="https://www.linkedin.com/in/umataldetatiana" style="color: #ea4b71; text-decoration: none;">LinkedIn</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="founder-carlos" style="display: flex; align-items: center; gap: 0.75rem;">
+                    <img src="https://avatars.githubusercontent.com/u/65327656?v=4" alt="Carlos de Lima Junior" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ea4b71;">
+                    <div>
+                      <div style="font-weight: 600; font-size: 0.9rem; color: #fff;">Carlos de Lima Junior</div>
+                      <div style="font-size: 0.8rem; color: #b3b3b3;">Software Developer</div>
+                      <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
+                        <a href="https://github.com/CJBiohacker" style="color: #ea4b71; text-decoration: none;">GitHub</a>
+                        <span style="color: #666;">•</span>
+                        <a href="https://www.linkedin.com/in/carlosjunior137" style="color: #ea4b71; text-decoration: none;">LinkedIn</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              `,
+            },
+          ],
+        },
       ],
       copyright: `
         <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">

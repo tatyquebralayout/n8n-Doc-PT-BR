@@ -9,16 +9,60 @@
 
 /* ===== HERO SECTION ===== */
 .heroBanner {
-  background-color: var(--ifm-background-surface-color);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   padding: 4rem 0;
-  text-align: center;
   border-bottom: 1px solid var(--ifm-color-gray-200);
+  overflow: hidden;
 }
 
 .heroContent {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.heroImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.heroImage:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .heroBanner {
+  background: linear-gradient(135deg, #1b1b1d 0%, #2a2a2e 100%);
+}
+
+[data-theme='dark'] .heroImage {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .heroImage:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.heroTextContent {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .heroTitle {
@@ -234,6 +278,24 @@
 
 /* ===== RESPONSIVE ===== */
 @media screen and (max-width: 996px) {
+  .heroContent {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .heroTextContent {
+    text-align: center;
+  }
+  
+  .heroImageContainer {
+    order: -1;
+  }
+  
+  .heroImage {
+    max-width: 400px;
+  }
+  
   .heroTitle {
     font-size: 2.75rem;
   }
@@ -271,6 +333,12 @@
   
   .heroContent {
     padding: 0 1rem;
+    gap: 1.5rem;
+  }
+  
+  .heroImage {
+    max-width: 320px;
+    border-radius: 8px;
   }
   
   .heroTitle {
@@ -308,6 +376,19 @@
 }
 
 @media screen and (max-width: 480px) {
+  .heroBanner {
+    padding: 2rem 0;
+  }
+  
+  .heroContent {
+    gap: 1rem;
+  }
+  
+  .heroImage {
+    max-width: 280px;
+    border-radius: 6px;
+  }
+  
   .heroTitle {
     font-size: 2rem;
   }
