@@ -1,4 +1,9 @@
-.repoCard {
+/*
+ * styles.module.css - RepoCard
+ * Refatorado para usar variáveis globais, utilitários e BEM.
+ */
+
+.repo-card {
   background-color: var(--ifm-card-background-color);
   border: 1px solid var(--ifm-card-border-color);
   border-radius: var(--ifm-card-border-radius);
@@ -6,48 +11,48 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: all var(--ifm-transition-fast) ease;
+  transition: all var(--animation-duration) var(--animation-easing);
 }
 
-.repoCard:hover {
+.repo-card:hover {
   border-color: var(--ifm-color-primary);
   box-shadow: var(--ifm-global-shadow-md);
   transform: translateY(-2px);
 }
 
-.header {
+.repo-card__header {
   display: flex;
   align-items: flex-start;
   padding: 1.5rem;
   gap: 1rem;
 }
 
-.icon {
+.repo-card__icon {
   flex-shrink: 0;
   color: var(--ifm-color-primary);
 }
 
-.titleContainer {
+.repo-card__title-container {
   display: flex;
   flex-direction: column;
 }
 
-.title {
-  font-size: 1.25rem;
+.repo-card__title {
+  font-size: var(--font-size-xl);
   margin: 0 0 0.25rem 0;
   color: var(--ifm-color-primary);
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 }
 
-.description {
-  font-size: 0.9rem;
+.repo-card__description {
+  font-size: var(--font-size-base);
   color: var(--ifm-font-color-secondary);
   margin: 0;
-  line-height: 1.5;
+  line-height: var(--line-height-normal);
   flex-grow: 1;
 }
 
-.stats {
+.repo-card__stats {
   display: flex;
   justify-content: space-around;
   padding: 1rem 1.5rem;
@@ -56,35 +61,35 @@
   gap: 1rem;
 }
 
-.stat {
+.repo-card__stat {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
   color: var(--ifm-font-color-secondary);
 }
 
-.stat span {
-  font-weight: 600;
+.repo-card__stat span {
+  font-weight: var(--font-weight-semibold);
 }
 
-.footer {
+.repo-card__footer {
   padding: 1rem 1.5rem;
   border-top: 1px solid var(--ifm-card-border-color);
 }
 
-.button {
+.repo-card__button {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   width: 100%;
   text-align: center;
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 }
 
-.loadingCard,
-.errorCard {
+.repo-card__loading,
+.repo-card__error {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,23 +99,23 @@
   min-height: 250px;
 }
 
-.errorCard {
+.repo-card__error {
   background-color: var(--ifm-color-danger-contrast-background);
   border-color: var(--ifm-color-danger-dark);
 }
 
-.errorTitle {
+.repo-card__error-title {
   color: var(--ifm-color-danger-darkest);
   margin: 1rem 0 0.5rem 0;
-  font-size: 1.1rem;
+  font-size: var(--font-size-lg);
 }
 
-.errorMessage {
+.repo-card__error-message {
   color: var(--ifm-color-danger-dark);
   margin-bottom: 1.5rem;
 }
 
-.spinner {
+.repo-card__spinner {
   width: 40px;
   height: 40px;
   border: 4px solid var(--ifm-color-primary-light);
@@ -118,10 +123,10 @@
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
-  animation: rotation 1s linear infinite;
+  animation: repo-card-rotation var(--animation-duration) linear infinite;
 }
 
-@keyframes rotation {
+@keyframes repo-card-rotation {
   0% {
     transform: rotate(0deg);
   }

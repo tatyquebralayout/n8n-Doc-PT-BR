@@ -35,8 +35,8 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({ pageId, pageTitle }) =>
 
   if (isSubmitted) {
     return (
-      <div className={styles.feedbackWidget}>
-        <div className={styles.feedbackSubmitted}>
+      <div className={styles['feedback-widget']}>
+        <div className={styles['feedback-widget__submitted']}>
           <span>Obrigado pelo seu feedback!</span>
         </div>
       </div>
@@ -44,45 +44,49 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({ pageId, pageTitle }) =>
   }
 
   return (
-    <div className={styles.feedbackWidget}>
+    <div className={styles['feedback-widget']}>
       {!isOpen ? (
         <button 
-          className={styles.feedbackTrigger}
+          className={styles['feedback-widget__trigger']}
           onClick={() => setIsOpen(true)}
           aria-label="Enviar feedback sobre esta página"
         >
           <span>Feedback</span>
         </button>
       ) : (
-        <div className={styles.feedbackPanel}>
-          <div className={styles.feedbackHeader}>
-            <h4>Esta página foi útil?</h4>
+        <div className={styles['feedback-widget__panel']}>
+          <div className={styles['feedback-widget__header']}>
+            <h4 className={styles['feedback-widget__header-title']}>Esta página foi útil?</h4>
             <button 
-              className={styles.feedbackClose}
+              className={styles['feedback-widget__close']}
               onClick={() => setIsOpen(false)}
               aria-label="Fechar feedback"
             >
               ×
             </button>
           </div>
-          
-          <div className={styles.feedbackOptions}>
+          <div className={styles['feedback-widget__options']}>
             <button 
-              className={`${styles.feedbackOption} ${selectedFeedback === 'positive' ? styles.selected : ''}`}
+              className={[
+                styles['feedback-widget__option'],
+                selectedFeedback === 'positive' ? styles['feedback-widget__option--selected'] : ''
+              ].join(' ')}
               onClick={() => setSelectedFeedback('positive')}
             >
               <span>Sim, foi útil</span>
             </button>
             <button 
-              className={`${styles.feedbackOption} ${selectedFeedback === 'negative' ? styles.selected : ''}`}
+              className={[
+                styles['feedback-widget__option'],
+                selectedFeedback === 'negative' ? styles['feedback-widget__option--selected'] : ''
+              ].join(' ')}
               onClick={() => setSelectedFeedback('negative')}
             >
               <span>Não foi útil</span>
             </button>
           </div>
-
           {selectedFeedback && (
-            <div className={styles.feedbackComment}>
+            <div className={styles['feedback-widget__comment']}>
               <textarea
                 placeholder={selectedFeedback === 'positive' 
                   ? "O que você mais gostou nesta página? (opcional)"
@@ -91,10 +95,10 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({ pageId, pageTitle }) =>
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 rows={3}
-                className={styles.feedbackTextarea}
+                className={styles['feedback-widget__textarea']}
               />
               <button 
-                className={styles.feedbackSubmit}
+                className={styles['feedback-widget__submit']}
                 onClick={handleFeedbackSubmit}
               >
                 Enviar Feedback

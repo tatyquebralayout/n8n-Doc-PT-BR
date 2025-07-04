@@ -1,39 +1,45 @@
-.guidanceCard {
+/*
+ * styles.module.css - GuidanceCard
+ * Refatorado para usar variáveis globais, utilitários e BEM.
+ */
+
+.guidance-card {
   border: 1px solid var(--ifm-color-warning-dark);
   background-color: var(--ifm-color-warning-contrast-background);
   border-radius: var(--ifm-card-border-radius);
   padding: 1.5rem;
   margin: 2rem 0;
+  transition: all var(--animation-duration) var(--animation-easing);
 }
 
-.cardTitle {
+.guidance-card__title {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.25rem;
+  font-size: var(--font-size-xl);
   margin: 0 0 1rem 0;
   color: var(--ifm-color-warning-darkest);
 }
 
-.cardTitle ion-icon {
+.guidance-card__title ion-icon {
   /* Ícone herda cor do contexto */
 }
 
-.cardContent {
-  font-size: 1rem;
-  line-height: 1.6;
+.guidance-card__content {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
 }
 
-.cardContent ul {
+.guidance-card__content ul {
   padding-left: 20px;
   margin: 0;
 }
 
-.cardContent li {
+.guidance-card__content li {
   margin-bottom: 0.5rem;
 }
 
-.goldenCard {
+.guidance-card--golden {
   border: 1px solid #FFD700;
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 } 

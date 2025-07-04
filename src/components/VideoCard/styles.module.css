@@ -1,4 +1,9 @@
-.videoCard {
+/*
+ * styles.module.css - VideoCard
+ * Refatorado para usar variáveis globais, utilitários e BEM.
+ */
+
+.video-card {
   border-radius: var(--ifm-card-border-radius);
   border: 1px solid var(--ifm-card-border-color);
   background-color: var(--ifm-card-background-color);
@@ -10,26 +15,26 @@
   height: 100%;
 }
 
-.videoCard:hover {
+.video-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--ifm-global-shadow-md);
   border-color: var(--ifm-color-primary-dark);
 }
 
-.videoContainer {
+.video-card__container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* Proporção 16:9 */
+  padding-top: 56.25%;
   background-color: #000;
   display: block;
 }
 
-.videoContainer:hover .playIcon {
+.video-card__container:hover .video-card__play-icon {
   opacity: 1;
   transform: scale(1.1);
 }
 
-.thumbnail {
+.video-card__thumbnail {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,11 +44,11 @@
   transition: opacity 0.3s ease;
 }
 
-.videoContainer:hover .thumbnail {
+.video-card__container:hover .video-card__thumbnail {
   opacity: 0.8;
 }
 
-.playIcon {
+.video-card__play-icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -56,41 +61,41 @@
   pointer-events: none;
 }
 
-.videoInfo {
+.video-card__info {
   padding: 1rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
-.titleLink {
+.video-card__title-link {
   text-decoration: none;
   color: var(--ifm-heading-color);
 }
 
-.titleLink:hover {
+.video-card__title-link:hover {
   text-decoration: underline;
   color: var(--ifm-color-primary);
 }
 
-.videoTitle {
-  font-size: 1.1rem;
+.video-card__title {
+  font-size: var(--font-size-lg);
   margin-top: 0;
   margin-bottom: 0.5rem;
-  line-height: 1.4;
+  line-height: var(--line-height-tight);
 }
 
-.channelLink {
+.video-card__channel-link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
   color: var(--ifm-font-color-secondary);
   text-decoration: none;
   margin-top: auto;
 }
 
-.channelLink:hover {
+.video-card__channel-link:hover {
   color: var(--ifm-color-primary);
   text-decoration: underline;
 } 

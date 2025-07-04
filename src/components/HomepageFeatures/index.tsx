@@ -50,7 +50,7 @@ function Feature({title, icon, description}: FeatureItem) {
         <IonicIcon 
           name={icon} 
           size={64} 
-          className={styles.featureSvg} 
+          className={styles['homepage-features__svg']} 
         />
       </div>
       <div className="text--center padding-horiz--md">
@@ -65,7 +65,7 @@ function Feature({title, icon, description}: FeatureItem) {
 
 export default function HomepageFeatures(): React.JSX.Element {
   return (
-    <section className={styles.features}>
+    <section className={styles['homepage-features']}>
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (

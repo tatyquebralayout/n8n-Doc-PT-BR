@@ -62,11 +62,11 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github' }) =>
 
   if (error) {
     return (
-      <div className={`${styles.repoCard} ${styles.errorCard}`}>
+      <div className={`${styles['repo-card']} ${styles['repo-card__error']}`}>
         <IonicIcon name="warning-outline" size={40} color="var(--ifm-color-danger)" />
-        <h4 className={styles.errorTitle}>Erro ao Carregar</h4>
-        <p className={styles.errorMessage}>{error}</p>
-        <a href={repoUrl} className={styles.button} target="_blank" rel="noopener noreferrer">
+        <h4 className={styles['repo-card__error-title']}>Erro ao Carregar</h4>
+        <p className={styles['repo-card__error-message']}>{error}</p>
+        <a href={repoUrl} className={styles['repo-card__button']} target="_blank" rel="noopener noreferrer">
           Acessar Repositório
         </a>
       </div>
@@ -75,7 +75,7 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github' }) =>
 
   if (!data) {
     return (
-      <div className={`${styles.repoCard} ${styles.loadingCard}`}>
+      <div className={`${styles['repo-card']} ${styles['repo-card__loading']}`}>
         <LoadingSkeleton variant="circle" width={40} height={40} style={{ marginBottom: 16 }} />
         <LoadingSkeleton variant="rect" width="80%" height={24} style={{ marginBottom: 8 }} />
         <LoadingSkeleton variant="line" width="60%" height={16} style={{ marginBottom: 8 }} />
@@ -85,32 +85,32 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github' }) =>
   }
 
   return (
-    <div className={styles.repoCard}>
-      <div className={styles.header}>
-        <div className={styles.icon}>
+    <div className={styles['repo-card']}>
+      <div className={styles['repo-card__header']}>
+        <div className={styles['repo-card__icon']}>
           <IonicIcon name={icon} size={40} />
         </div>
-        <div className={styles.titleContainer}>
-          <h3 className={styles.title}>{data.name}</h3>
-          <p className={styles.description}>{data.description}</p>
+        <div className={styles['repo-card__title-container']}>
+          <h3 className={styles['repo-card__title']}>{data.name}</h3>
+          <p className={styles['repo-card__description']}>{data.description}</p>
         </div>
       </div>
-      <div className={styles.stats}>
-        <div className={styles.stat}>
+      <div className={styles['repo-card__stats']}>
+        <div className={styles['repo-card__stat']}>
           <IonicIcon name="star-outline" size={16} />
           <span>{data.stars.toLocaleString('pt-BR')}</span>
         </div>
-        <div className={styles.stat}>
+        <div className={styles['repo-card__stat']}>
           <IonicIcon name="git-branch-outline" size={16} />
           <span>{data.forks.toLocaleString('pt-BR')}</span>
         </div>
-        <div className={styles.stat}>
+        <div className={styles['repo-card__stat']}>
           <IonicIcon name="eye-outline" size={16} />
           <span>{data.watchers.toLocaleString('pt-BR')}</span>
         </div>
       </div>
-      <div className={styles.footer}>
-        <a href={data.url} className={styles.button} target="_blank" rel="noopener noreferrer">
+      <div className={styles['repo-card__footer']}>
+        <a href={data.url} className={styles['repo-card__button']} target="_blank" rel="noopener noreferrer">
           <IonicIcon name="logo-github" size={18} />
           Ver no GitHub
         </a>

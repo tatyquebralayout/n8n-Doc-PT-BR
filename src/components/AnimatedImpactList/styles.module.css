@@ -1,4 +1,9 @@
-.impactContainer {
+/*
+ * styles.module.css - AnimatedImpactList
+ * Refatorado para usar variáveis globais, utilitários e BEM.
+ */
+
+.animated-impact__container {
   background-color: var(--ifm-card-background-color);
   border-radius: var(--ifm-card-border-radius);
   padding: 1.5rem 2rem;
@@ -8,9 +13,9 @@
   overflow: hidden; /* Garante que os filhos não "vazem" antes da animação */
 }
 
-.title {
-  font-size: 1.5rem;
-  font-weight: 600;
+.animated-impact__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
   margin-bottom: 1.5rem;
   color: var(--ifm-heading-color);
   display: flex;
@@ -18,41 +23,41 @@
   gap: 0.75rem;
 }
 
-.titleIcon {
+.animated-impact__title-icon {
   color: var(--ifm-color-primary);
 }
 
-.impactList {
+.animated-impact__list {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
 
-.impactItem {
+.animated-impact__item {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition: opacity var(--animation-duration) var(--animation-easing), transform var(--animation-duration) var(--animation-easing);
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: var(--font-size-lg);
 }
 
-.inView .impactItem {
+.inView .animated-impact__item {
   opacity: 1;
   transform: translateY(0);
 }
 
-.itemIcon {
+.animated-impact__item-icon {
   color: var(--ifm-color-success);
   flex-shrink: 0; /* Impede que o ícone seja esmagado */
 }
 
-.footerText {
+.animated-impact__footer {
   margin-top: 2rem;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
   border-top: 1px solid var(--ifm-color-emphasis-200);
   padding-top: 1.5rem;
   text-align: center;

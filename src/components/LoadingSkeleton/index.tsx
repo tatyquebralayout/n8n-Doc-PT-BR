@@ -21,8 +21,8 @@ const LoadingSkeleton: React.FC<LoadingSkeletonProps> = ({
   return (
     <span
       className={[
-        styles.skeleton,
-        styles[variant],
+        styles['loading-skeleton'],
+        styles[`loading-skeleton--${variant}`],
         className
       ].join(' ')}
       style={{ width, height, ...style }}

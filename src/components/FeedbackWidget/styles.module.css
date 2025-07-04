@@ -1,5 +1,9 @@
-/* ===== FEEDBACK WIDGET ===== */
-.feedbackWidget {
+/*
+ * styles.module.css - FeedbackWidget
+ * Refatorado para usar variáveis globais, utilitários e BEM.
+ */
+
+.feedback-widget {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
@@ -7,7 +11,7 @@
   font-family: var(--ifm-font-family-base);
 }
 
-.feedbackTrigger {
+.feedback-widget__trigger {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -23,13 +27,13 @@
   transition: all 0.2s ease;
 }
 
-.feedbackTrigger:hover {
+.feedback-widget__trigger:hover {
   background: var(--ifm-color-primary-dark);
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(255, 109, 90, 0.4);
 }
 
-.feedbackPanel {
+.feedback-widget__panel {
   background: var(--ifm-background-color);
   border: 1px solid var(--ifm-color-gray-200);
   border-radius: 12px;
@@ -50,21 +54,21 @@
   }
 }
 
-.feedbackHeader {
+.feedback-widget__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
 
-.feedbackHeader h4 {
+.feedback-widget__header-title {
   margin: 0;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--ifm-color-gray-900);
 }
 
-.feedbackClose {
+.feedback-widget__close {
   background: none;
   border: none;
   color: var(--ifm-color-gray-400);
@@ -74,17 +78,17 @@
   transition: color 0.2s ease;
 }
 
-.feedbackClose:hover {
+.feedback-widget__close:hover {
   color: var(--ifm-color-gray-600);
 }
 
-.feedbackOptions {
+.feedback-widget__options {
   display: flex;
   gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.feedbackOption {
+.feedback-widget__option {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -100,18 +104,18 @@
   transition: all 0.2s ease;
 }
 
-.feedbackOption:hover {
+.feedback-widget__option:hover {
   background: var(--ifm-color-gray-100);
   border-color: var(--ifm-color-gray-300);
 }
 
-.feedbackOption.selected {
+.feedback-widget__option--selected {
   background: rgba(255, 109, 90, 0.1);
   border-color: var(--ifm-color-primary);
   color: var(--ifm-color-primary);
 }
 
-.feedbackComment {
+.feedback-widget__comment {
   animation: fadeIn 0.3s ease-out;
 }
 
@@ -126,7 +130,7 @@
   }
 }
 
-.feedbackTextarea {
+.feedback-widget__textarea {
   width: 100%;
   border: 1px solid var(--ifm-color-gray-200);
   border-radius: 8px;
@@ -140,17 +144,17 @@
   transition: border-color 0.2s ease;
 }
 
-.feedbackTextarea:focus {
+.feedback-widget__textarea:focus {
   outline: none;
   border-color: var(--ifm-color-primary);
   box-shadow: 0 0 0 3px rgba(255, 109, 90, 0.1);
 }
 
-.feedbackTextarea::placeholder {
+.feedback-widget__textarea::placeholder {
   color: var(--ifm-color-gray-500);
 }
 
-.feedbackSubmit {
+.feedback-widget__submit {
   width: 100%;
   background: var(--ifm-color-primary);
   color: white;
@@ -163,11 +167,11 @@
   transition: background 0.2s ease;
 }
 
-.feedbackSubmit:hover {
+.feedback-widget__submit:hover {
   background: var(--ifm-color-primary-dark);
 }
 
-.feedbackSubmitted {
+.feedback-widget__submitted {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -196,22 +200,22 @@
 }
 
 /* Dark mode */
-[data-theme='dark'] .feedbackPanel {
+[data-theme='dark'] .feedback-widget__panel {
   background: var(--ifm-background-surface-color);
   border-color: var(--ifm-color-gray-600);
 }
 
-[data-theme='dark'] .feedbackOption {
+[data-theme='dark'] .feedback-widget__option {
   background: var(--ifm-color-gray-800);
   border-color: var(--ifm-color-gray-600);
   color: var(--ifm-color-gray-300);
 }
 
-[data-theme='dark'] .feedbackOption:hover {
+[data-theme='dark'] .feedback-widget__option:hover {
   background: var(--ifm-color-gray-700);
 }
 
-[data-theme='dark'] .feedbackTextarea {
+[data-theme='dark'] .feedback-widget__textarea {
   background: var(--ifm-color-gray-800);
   border-color: var(--ifm-color-gray-600);
   color: var(--ifm-color-gray-300);
@@ -219,17 +223,17 @@
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  .feedbackWidget {
+  .feedback-widget {
     bottom: 1rem;
     right: 1rem;
   }
   
-  .feedbackPanel {
+  .feedback-widget__panel {
     min-width: 280px;
     padding: 1rem;
   }
   
-  .feedbackOptions {
+  .feedback-widget__options {
     flex-direction: column;
     gap: 0.5rem;
   }

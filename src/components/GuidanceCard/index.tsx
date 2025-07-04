@@ -12,12 +12,12 @@ interface GuidanceCardProps {
 const GuidanceCard: React.FC<GuidanceCardProps> = ({ title, children, className, iconName }) => {
   const cardClass = className ? styles[className] : '';
   return (
-    <div className={`${styles.guidanceCard} ${cardClass}`}>
-      <div className={styles.cardHeader}>
+    <div className={`${styles['guidance-card']} ${cardClass}`}>
+      <div className={styles['guidance-card__title']}>
         {iconName && <IonicIcon name={iconName} size={24} />}
-        <h3 className={styles.cardTitle}>{title}</h3>
+        <h3>{title}</h3>
       </div>
-      <div className={styles.cardContent}>
+      <div className={styles['guidance-card__content']}>
         {children}
       </div>
     </div>

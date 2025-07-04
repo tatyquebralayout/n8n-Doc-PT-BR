@@ -1,11 +1,16 @@
-.features {
+/*
+ * styles.module.css - HomepageFeatures
+ * Refatorado para usar variáveis globais e BEM.
+ */
+
+.homepage-features {
   display: flex;
   align-items: center;
   padding: 2rem 0;
   width: 100%;
 }
 
-.featureSvg {
+.homepage-features__svg {
   height: 150px;
   width: 150px;
   padding: 2rem;
@@ -16,15 +21,15 @@
   transition: all var(--ifm-transition-fast) ease;
 }
 
-.featureSvg:hover {
+.homepage-features__svg:hover {
   background-color: var(--ifm-color-emphasis-200);
   transform: scale(1.05) rotate(-5deg);
 }
 
-[data-theme='dark'] .featureSvg {
+[data-theme='dark'] .homepage-features__svg {
   background-color: var(--ifm-background-surface-color);
 }
 
-[data-theme='dark'] .featureSvg:hover {
+[data-theme='dark'] .homepage-features__svg:hover {
   background-color: var(--ifm-color-emphasis-200);
 } 
