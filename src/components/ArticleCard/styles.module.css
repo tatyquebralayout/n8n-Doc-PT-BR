@@ -1,4 +1,9 @@
-.card {
+/*
+ * styles.module.css - ArticleCard
+ * Refatorado para usar variáveis globais, utilitários e BEM.
+ */
+
+.article-card {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -6,64 +11,65 @@
   border-radius: var(--ifm-card-border-radius);
   background-color: var(--ifm-card-background-color);
   box-shadow: var(--ifm-global-shadow-lw);
-  transition: all var(--ifm-transition-fast) ease;
+  transition: all var(--animation-duration) var(--animation-easing);
 }
 
-.card:hover {
+.article-card:hover {
   border-color: var(--ifm-color-primary);
   box-shadow: var(--ifm-global-shadow-md);
   transform: translateY(-3px);
 }
 
-.titleLink {
+.article-card__title-link {
   text-decoration: none;
 }
 
-.titleLink:hover {
+.article-card__title-link:hover {
   text-decoration: underline;
   color: var(--ifm-color-primary-dark);
 }
 
-.title {
+.article-card__title {
   margin-top: 0;
   margin-bottom: 0.5rem;
   color: var(--ifm-color-primary);
-  font-size: 1.2rem;
-  line-height: 1.4;
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-tight);
   padding: 1rem 1rem 0;
+  font-weight: var(--font-weight-bold);
 }
 
-.description {
+.article-card__description {
   flex-grow: 1;
   margin-bottom: 1rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
   color: var(--ifm-font-color-secondary);
   padding: 0 1rem;
 }
 
-.footer {
+.article-card__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: var(--font-size-sm);
   color: var(--ifm-font-color-secondary);
   border-top: 1px solid var(--ifm-card-border-color);
   padding: 0.75rem 1rem;
   margin-top: auto;
 }
 
-.author, .statItem {
+.article-card__author, .article-card__stat-item {
   display: flex;
   align-items: center;
   gap: 0.4rem;
 }
 
-.author {
-  font-weight: 600;
+.article-card__author {
+  font-weight: var(--font-weight-semibold);
 }
 
-.stats {
+.article-card__stats {
   display: flex;
   gap: 1rem;
 } 

@@ -7,7 +7,7 @@ interface CardGridProps {
 
 const CardGrid: React.FC<CardGridProps> = ({ children }) => {
   return (
-    <div className={styles.cardGrid}>
+    <div className={styles['card-grid']}>
       {children}
     </div>
   );

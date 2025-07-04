@@ -1,7 +1,13 @@
-.cardGrid {
+/*
+ * styles.module.css - CardGrid
+ * Refatorado para usar variáveis globais e BEM.
+ */
+
+.card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--ifm-spacing-horizontal);
+  gap: var(--ifm-spacing-horizontal, 2rem);
   padding: 0;
   margin-top: 2rem;
+  transition: all var(--animation-duration) var(--animation-easing);
 } 
