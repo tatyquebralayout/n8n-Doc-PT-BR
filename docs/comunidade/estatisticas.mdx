@@ -1,0 +1,88 @@
+---
+sidebar_position: 6
+title: Estatísticas e Destaques
+description: Acompanhe o crescimento, destaques e metas da comunidade n8n no Brasil através de nosso dashboard.
+keywords: [n8n, estatísticas, dashboard, comunidade, brasil, crescimento, metas]
+---
+import IonicIcon from '@site/src/components/IonicIcon';
+import CardGrid from '@site/src/components/CardGrid';
+import HighlightCard from '@site/src/components/HighlightCard';
+import CommunityStats from '@site/src/components/CommunityStats';
+import GoalMeter from '@site/src/components/GoalMeter';
+
+# <IonicIcon name="stats-chart-outline" size={32} color="#ea4b71" /> Dashboard da Comunidade
+
+Acompanhe em tempo real o crescimento, os destaques e as metas da comunidade brasileira do n8n.
+
+## <IonicIcon name="analytics-outline" size={24} /> Números Gerais
+
+<CommunityStats />
+
+## <IonicIcon name="trophy-outline" size={24} /> Destaques
+
+<CardGrid>
+  <HighlightCard
+    icon="person-outline"
+    category="Creator Destaque"
+    title="João Silva (@joaosilva)"
+    description="Criou o node PIX mais popular e ajudou dezenas de membros no Discord. Um verdadeiro pilar da nossa comunidade!"
+  />
+  <HighlightCard
+    icon="reader-outline"
+    category="Artigo Mais Lido"
+    title="Automatizando WhatsApp com n8n"
+    description="Com mais de 8.9k visualizações, este artigo se tornou a referência principal para automação de WhatsApp."
+    link="/docs/comunidade/casos-uso-avancados"
+  />
+  <HighlightCard
+    icon="people-outline"
+    category="Evento"
+    title="Meetups Presenciais em 2025"
+    description="Nossa meta para 2025 é fomentar a troca de conhecimento e networking criando espaços para meetups presenciais."
+  />
+    <HighlightCard
+    icon="calendar-outline"
+    category="Próximo Grande Evento"
+    title="Webinar n8n Brasil 2025"
+    description="Meta para Outubro de 2025: um grande webinar gratuito e ao vivo, reunindo os creators do ecossistema n8n no Brasil."
+  />
+</CardGrid>
+
+## <IonicIcon name="flag-outline" size={24} /> Metas para os Próximos 3 Meses
+
+<div className="goal-grid">
+  <GoalMeter
+    icon="logo-discord"
+    title="Novos Membros no Discord"
+    currentValue={0}
+    targetValue={300}
+  />
+  <GoalMeter
+    icon="book-outline"
+    title="Tradução da Documentação"
+    currentValue={15}
+    targetValue={100}
+    unit="%"
+  />
+  <GoalMeter
+    icon="videocam-outline"
+    title="Vídeos Tutoriais da Doc"
+    currentValue={0}
+    targetValue={50}
+  />
+  <GoalMeter
+    icon="star-outline"
+    title="Stars no Repositório da Doc"
+    currentValue={1}
+    targetValue={1000}
+  />
+</div>
+
+<style>{`
+  .goal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+`}</style> 

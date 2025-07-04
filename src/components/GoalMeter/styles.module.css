@@ -1,0 +1,44 @@
+.goalMeter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: var(--ifm-card-border-radius);
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.goalHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+.goalTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.meterBar {
+  width: 100%;
+  height: 12px;
+  background-color: var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.meterProgress {
+  height: 100%;
+  background-color: var(--ifm-color-primary);
+  border-radius: 6px;
+  transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.goalValues {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--ifm-font-color-secondary);
+} 
