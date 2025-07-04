@@ -13,4 +13,4 @@ const CardGrid: React.FC<CardGridProps> = ({ children }) => {
   );
 };
 
-export default CardGrid; 
+export default React.memo(CardGrid); 
