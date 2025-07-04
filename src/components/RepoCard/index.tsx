@@ -85,10 +85,23 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github' }) =>
   }
 
   return (
-    <div className={styles['repo-card']}>
+    <div
+      className={styles['repo-card']}
+      tabIndex={0}
+      role="link"
+      aria-label={`Acessar repositório: ${data?.name || ''}`}
+      onClick={() => data && window.open(data.url, '_blank', 'noopener noreferrer')}
+      onKeyDown={e => {
+        if ((e.key === 'Enter' || e.key === ' ') && data) {
+          e.preventDefault();
+          window.open(data.url, '_blank', 'noopener noreferrer');
+        }
+      }}
+    >
       <div className={styles['repo-card__header']}>
         <div className={styles['repo-card__icon']}>
           <IonicIcon name={icon} size={40} />
+          aria-hidden="true"
         </div>
         <div className={styles['repo-card__title-container']}>
           <h3 className={styles['repo-card__title']}>{data.name}</h3>
@@ -98,21 +111,24 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github' }) =>
       <div className={styles['repo-card__stats']}>
         <div className={styles['repo-card__stat']}>
           <IonicIcon name="star-outline" size={16} />
+          aria-hidden="true"
           <span>{data.stars.toLocaleString('pt-BR')}</span>
         </div>
         <div className={styles['repo-card__stat']}>
           <IonicIcon name="git-branch-outline" size={16} />
+          aria-hidden="true"
           <span>{data.forks.toLocaleString('pt-BR')}</span>
         </div>
         <div className={styles['repo-card__stat']}>
           <IonicIcon name="eye-outline" size={16} />
+          aria-hidden="true"
           <span>{data.watchers.toLocaleString('pt-BR')}</span>
         </div>
       </div>
       <div className={styles['repo-card__footer']}>
         <a href={data.url} className={styles['repo-card__button']} target="_blank" rel="noopener noreferrer">
           <IonicIcon name="logo-github" size={18} />
-          Ver no GitHub
+          aria-hidden="true"
         </a>
       </div>
     </div>

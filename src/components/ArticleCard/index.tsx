@@ -28,7 +28,19 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   stats
 }) => {
   return (
-    <div className={styles['article-card']}>
+    <div
+      className={styles['article-card']}
+      tabIndex={0}
+      role="link"
+      aria-label={`Acessar artigo: ${title}`}
+      onClick={() => link && window.open(link, '_self')}
+      onKeyDown={e => {
+        if ((e.key === 'Enter' || e.key === ' ') && link) {
+          e.preventDefault();
+          window.open(link, '_self');
+        }
+      }}
+    >
       {loading ? (
         <LoadingSkeleton variant="rect" width="100%" height={160} style={{ marginBottom: 16 }} />
       ) : (

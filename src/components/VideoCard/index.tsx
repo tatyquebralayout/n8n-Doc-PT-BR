@@ -12,7 +12,19 @@ interface VideoCardProps {
 
 const VideoCard: React.FC<VideoCardProps> = ({ videoId, title, channel, channelUrl }) => {
   return (
-    <div className={styles['video-card']}>
+    <div
+      className={styles['video-card']}
+      tabIndex={0}
+      role="link"
+      aria-label={`Assistir vídeo: ${title}`}
+      onClick={() => window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank', 'noopener noreferrer')}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank', 'noopener noreferrer');
+        }
+      }}
+    >
       <Link to={`https://www.youtube.com/watch?v=${videoId}`} className={styles['video-card__container']}>
         <img 
           src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`} 
@@ -20,7 +32,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId, title, channel, channelU
           className={styles['video-card__thumbnail']}
         />
         <div className={styles['video-card__play-icon']}>
-          <IonicIcon name="play-circle-outline" size={64} />
+          <IonicIcon name="play-circle-outline" size={64} aria-hidden="true" />
         </div>
       </Link>
       <div className={styles['video-card__info']}>
@@ -28,7 +40,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId, title, channel, channelU
           <h3 className={styles['video-card__title']}>{title}</h3>
         </Link>
         <a href={channelUrl} target="_blank" rel="noopener noreferrer" className={styles['video-card__channel-link']}>
-          <IonicIcon name="logo-youtube" size={16} />
+          <IonicIcon name="logo-youtube" size={16} aria-hidden="true" />
           <span>{channel}</span>
         </a>
       </div>

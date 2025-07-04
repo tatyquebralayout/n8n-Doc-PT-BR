@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+@import './variables.css';
+@import './base.css';
+@import './components.css';
+@import './utilities.css';
+
+/* custom.css agora serve apenas como ponto de entrada para os estilos globais. */
 
 /**
  * Paleta de Cores e Tipografia - Design System
@@ -75,6 +81,16 @@
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --animation-duration: 0.3s;
+  --animation-easing: ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 /* Modo Escuro */
@@ -217,7 +233,7 @@ ion-icon {
 }
 
 .footer-copyright .heart {
-  color: var(--ifm-color-primary);
+  color: #ef4444 !important;
 }
 
 .copyright-links {
@@ -590,4 +606,31 @@ a.tag:hover {
   .text-hero {
     font-size: var(--font-size-3xl);
   }
+}
+
+/* Footer - garantir cor rosa nos links e textos, branco nos títulos */
+.footer,
+.footer a,
+.footer .footer__link-item,
+.footer .footer__title,
+.footer .footer__copyright {
+  color: var(--ifm-color-primary) !important;
+}
+
+.footer a:hover,
+.footer .footer__link-item:hover {
+  color: var(--ifm-color-primary-light) !important;
+}
+
+.footer .footer__title {
+  color: #fff !important;
+}
+
+.footer .footer__copyright {
+  color: #fff !important;
+}
+
+.footer .initiator-title,
+.footer .initiator-name {
+  color: #fff !important;
 }

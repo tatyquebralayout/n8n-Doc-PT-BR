@@ -20,6 +20,7 @@ const ReactBitsDemo: React.FC = () => {
           <button 
             onClick={handleAnimation}
             className={styles.animatedButton}
+            aria-label={isAnimating ? 'Parar animação' : 'Iniciar animação'}
           >
             {isAnimating ? <><IonicIcon name="refresh-outline" size={18} /> Animando...</> : <><IonicIcon name="sparkles-outline" size={18} /> Iniciar Animação</>}
           </button>
@@ -27,8 +28,9 @@ const ReactBitsDemo: React.FC = () => {
           <button 
             onClick={() => setIsAnimating(false)}
             className={styles.stopButton}
+            aria-label="Parar animação"
           >
-                          <IonicIcon name="stop-circle-outline" size={18} /> Parar
+            <IonicIcon name="stop-circle-outline" size={18} /> Parar
           </button>
         </div>
       </div>
@@ -48,7 +50,7 @@ const ReactBitsDemo: React.FC = () => {
               cx="150"
               cy="100"
               r="30"
-              fill="#ea4b71"
+              fill="currentColor"
               className={styles.animatedCircle}
             />
             
@@ -58,7 +60,7 @@ const ReactBitsDemo: React.FC = () => {
               y1="100"
               x2="250"
               y2="100"
-              stroke="#1e40af"
+              stroke="currentColor"
               strokeWidth="3"
               className={styles.animatedLine}
             />
@@ -68,7 +70,7 @@ const ReactBitsDemo: React.FC = () => {
               x="150"
               y="160"
               textAnchor="middle"
-              fill="#374151"
+              fill="currentColor"
               fontSize="18"
               fontWeight="bold"
               className={styles.animatedText}
@@ -84,12 +86,21 @@ const ReactBitsDemo: React.FC = () => {
         <h3>Cards Interativos</h3>
         <div className={styles.cardGrid}>
           {['Workflows', 'Integrações', 'Automação'].map((title, index) => (
-            <div 
+            <div
               key={index}
               className={`${styles.card} ${isAnimating ? styles.cardAnimating : ''}`}
               style={{ animationDelay: `${index * 0.2}s` }}
+              tabIndex={0}
+              role="button"
+              aria-label={`Card interativo: ${title}`}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  // Aqui você pode definir uma ação para o card, se desejar
+                }
+              }}
             >
-              <div className={styles.cardIcon}>
+              <div className={styles.cardIcon} aria-hidden="true">
                 {index === 0 && <IonicIcon name="flash-outline" size={48} />}
                 {index === 1 && <IonicIcon name="git-network-outline" size={48} />}
                 {index === 2 && <IonicIcon name="hardware-chip-outline" size={48} />}

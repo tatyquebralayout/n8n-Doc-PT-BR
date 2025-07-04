@@ -44,19 +44,30 @@ const CommunityStats = ({ loading = false }: CommunityStatsProps) => {
   const maxValue = useMemo(() => Math.max(...stats.map(s => s.value)), []);
 
   return (
-    <div className={styles['community-stats__container']} ref={ref}>
+    <div
+      className={styles['community-stats__container']}
+      ref={ref}
+      role="list"
+      aria-label="Estatísticas da comunidade"
+    >
       {stats.map((stat, index) => {
         const barWidth = stat.value > 0 ? (stat.value / maxValue) * 100 : 0;
         return (
-          <div className={styles['community-stats__item']} key={index}>
+          <div
+            className={styles['community-stats__item']}
+            key={index}
+            role="listitem"
+            aria-label={`${stat.label}: ${stat.value.toLocaleString('pt-BR')}`}
+          >
             <div className={styles['community-stats__header']}>
-              <IonicIcon name={stat.icon} size={24} className={styles['community-stats__icon']} />
+              <IonicIcon name={stat.icon} size={24} className={styles['community-stats__icon']} aria-hidden="true" />
               <span className={styles['community-stats__label']}>{stat.label}</span>
             </div>
             <div className={styles['community-stats__bar-container']}>
               <div
                 className={styles['community-stats__bar']}
                 style={{ width: `${barWidth}%` }}
+                aria-hidden="true"
               />
               <span className={styles['community-stats__value']}>
                 {stat.value.toLocaleString('pt-BR')}

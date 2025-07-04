@@ -24,12 +24,24 @@ const HighlightCard: React.FC<HighlightCardProps> = ({
   details
 }) => {
   return (
-    <div className={styles.highlightCard}>
+    <div
+      className={styles.highlightCard}
+      tabIndex={0}
+      role="link"
+      aria-label={`Acessar destaque: ${title}`}
+      onClick={() => link && window.open(link, '_self')}
+      onKeyDown={e => {
+        if ((e.key === 'Enter' || e.key === ' ') && link) {
+          e.preventDefault();
+          window.open(link, '_self');
+        }
+      }}
+    >
       <div className={styles.cardHeader}>
         {loading ? (
           <LoadingSkeleton variant="circle" width={32} height={32} />
         ) : (
-          icon && <IonicIcon name={icon} size={32} className={styles.icon} />
+          icon && <IonicIcon name={icon} size={32} className={styles.icon} aria-hidden="true" />
         )}
         {loading ? (
           <LoadingSkeleton variant="line" width={80} height={18} />
