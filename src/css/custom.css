@@ -53,3 +53,15 @@ ion-icon {
 .navbar__logo img {
   height: 50px;
 }
+
+/* Espaçamento das seções na página da comunidade */
+.section-container {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}

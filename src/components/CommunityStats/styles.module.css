@@ -1,0 +1,62 @@
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  font-family: var(--ifm-font-family-base);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ifm-heading-color);
+}
+
+.statBarContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--ifm-color-emphasis-200);
+  border-radius: 4px;
+  height: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.statBar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.statValue {
+  position: absolute;
+  right: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: black;
+  /* Sombra/brilho branco para garantir o contraste */
+  text-shadow: 0 0 6px white, 0 0 4px white;
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] .statBarContainer {
+    background-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .statLabel {
+    color: var(--ifm-font-color-base);
+} 
