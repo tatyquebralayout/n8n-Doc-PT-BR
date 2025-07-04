@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Footer from '@theme-original/DocItem/Footer';
-import FeedbackWidget from '@site/src/components/FeedbackWidget';
+const FeedbackWidget = React.lazy(() => import('@site/src/components/FeedbackWidget'));
 import { useLocation } from '@docusaurus/router';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
@@ -15,10 +15,12 @@ export default function FooterWrapper(props) {
   return (
     <>
       <Footer {...props} />
-      <FeedbackWidget 
-        pageId={location.pathname}
-        pageTitle={document.title}
-      />
+      <Suspense fallback={null}>
+        <FeedbackWidget 
+          pageId={location.pathname}
+          pageTitle={document.title}
+        />
+      </Suspense>
     </>
   );
 } 
