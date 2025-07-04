@@ -1,0 +1,38 @@
+name: Build and Deploy Docusaurus
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Instalar pnpm
+        run: npm install -g pnpm
+
+      - name: Instalar dependências
+        run: pnpm install
+
+      - name: Build Docusaurus
+        run: pnpm build
+
+      - name: Deploy para o GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+
+      # Adicione aqui etapas de deploy se necessário 
