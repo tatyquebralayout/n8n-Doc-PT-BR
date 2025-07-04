@@ -357,7 +357,14 @@ const sidebars: SidebarsConfig = {
   // Community Sidebar
   communitySidebar: [
     'comunidade/index',
-    'comunidade/artigos',
+    {
+      type: 'category',
+      label: 'Artigos',
+      items: [
+        'comunidade/automacao-iniciantes/index',
+        'comunidade/casos-uso-avancados/index',
+      ],
+    },
     'comunidade/videos',
     'comunidade/github',
     'comunidade/como-participar',

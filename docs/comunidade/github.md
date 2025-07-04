@@ -5,7 +5,7 @@ description: Projetos e códigos da comunidade brasileira do n8n
 keywords: [n8n, github, repositórios, código, projetos, brasil]
 ---
 
-# Repositórios GitHub
+# <ion-icon name="logo-github"></ion-icon> Repositórios GitHub
 
 Projetos de código aberto, nodes customizados e ferramentas criadas pela comunidade brasileira do n8n.
 

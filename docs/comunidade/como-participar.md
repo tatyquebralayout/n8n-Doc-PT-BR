@@ -5,7 +5,7 @@ description: Como se envolver e contribuir com a comunidade n8n Brasil
 keywords: [n8n, participar, contribuir, comunidade, brasil]
 ---
 
-# Como Participar
+# <ion-icon name="hand-left-outline"></ion-icon> Como Participar
 
 Faça parte da maior comunidade de automação do Brasil! Aqui você encontra todas as formas de se envolver e contribuir.
 

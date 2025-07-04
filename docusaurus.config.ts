@@ -93,8 +93,8 @@ const config: Config = {
         src: 'img/n8n-logo.svg',
         srcDark: 'img/n8n-logo-dark.svg',
         href: '/',
-        width: 120,
-        height: 40,
+        width: 150,
+        height: 50,
       },
       items: [
         {

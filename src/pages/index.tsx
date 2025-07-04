@@ -22,12 +22,12 @@ function HomepageHeader() {
             />
           </div>
           <div className={styles.heroTextContent}>
-            <Heading as="h1" className="hero__title">
-              <IonicIcon name="rocket-outline" size={32} color="#fff" style={{marginRight: '12px'}} />
+            <Heading as="h1" className={styles.heroTitle}>
+              <IonicIcon name="rocket-outline" size={32} style={{marginRight: '12px'}} />
               {siteConfig.title}
             </Heading>
-            <p className="hero__subtitle">
-              <IonicIcon name="globe-outline" size={20} color="#fff" style={{marginRight: '8px'}} />
+            <p className={styles.heroSubtitle}>
+              <IonicIcon name="globe-outline" size={20} style={{marginRight: '8px'}} />
               {siteConfig.tagline}
             </p>
             <div className={styles.buttons}>

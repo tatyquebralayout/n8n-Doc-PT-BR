@@ -66,19 +66,24 @@
 }
 
 .heroTitle {
+  color: var(--ifm-heading-color);
   font-size: 3.5rem;
   font-weight: 700;
-  color: var(--ifm-color-gray-900);
   margin-bottom: 1.5rem;
   line-height: 1.1;
 }
 
 .heroSubtitle {
+  color: var(--ifm-font-color-secondary);
   font-size: 1.375rem;
-  color: var(--ifm-color-gray-600);
   margin-bottom: 2.5rem;
   line-height: 1.4;
   font-weight: 400;
+}
+
+.heroTitle :global(ion-icon),
+.heroSubtitle :global(ion-icon) {
+  color: inherit;
 }
 
 .heroButtons {

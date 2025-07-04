@@ -1,0 +1,48 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-card-shadow);
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+  font-size: 1.1rem;
+}
+
+.description {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.author {
+  font-weight: 500;
+}
+
+.stats {
+  display: flex;
+  gap: 0.75rem;
+} 

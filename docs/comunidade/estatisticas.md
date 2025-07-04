@@ -5,7 +5,7 @@ description: Números e destaques da comunidade brasileira do n8n
 keywords: [n8n, estatísticas, números, destaques, comunidade]
 ---
 
-# Estatísticas e Destaques
+# <ion-icon name="stats-chart-outline"></ion-icon> Estatísticas e Destaques
 
 Acompanhe o crescimento e os destaques da comunidade brasileira do n8n.
 
