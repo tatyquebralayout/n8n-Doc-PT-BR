@@ -116,4 +116,4 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github' }) =>
   );
 };
 
-export default RepoCard; 
+export default React.memo(RepoCard); 
