@@ -6,27 +6,27 @@ slug: /tutorial-basico/instalacao
 keywords: [n8n, instalação, docker, npm, setup]
 ---
 
-# Instalação do n8n
+# <IonicIcon name="download-outline" size={32} color="#ea4b71" /> Instalação do n8n
 
 Existem várias formas de instalar e executar o n8n. Escolha a opção que melhor se adapta ao seu ambiente.
 
-## Opções de Instalação
+## <IonicIcon name="options-outline" size={24} color="#ea4b71" /> Opções de Instalação
 
-### 🐳 Docker (Recomendado)
+### <IonicIcon name="logo-docker" size={20} color="#10b981" /> Docker (Recomendado)
 
 A forma mais rápida e fácil de começar:
 
 ```bash
 # Executar n8n com Docker
 docker run -it --rm \
-  --name n8n \
-  -p 5678:5678 \
-  n8nio/n8n
+--name n8n \
+-p 5678:5678 \
+n8nio/n8n
 ```
 
-Acesse http://localhost:5678 no seu navegador.
+<IonicIcon name="globe-outline" size={16} color="#0ea5e9" /> Acesse http://localhost:5678 no seu navegador.
 
-### 📦 NPM
+### <IonicIcon name="logo-npm" size={20} color="#10b981" /> NPM
 
 Para instalação via npm (requer Node.js 18+):
 
@@ -38,7 +38,7 @@ npm install n8n -g
 n8n start
 ```
 
-### 🔧 NPX (Sem instalação)
+### <IonicIcon name="flash-outline" size={20} color="#10b981" /> NPX (Sem instalação)
 
 Para testar sem instalar:
 
@@ -59,9 +59,9 @@ Na primeira execução, você deve criar uma conta de administrador para protege
 :::
 
 1. Preencha os dados do administrador:
-   - **Nome**: Seu nome completo
-   - **Email**: Seu endereço de email
-   - **Senha**: Uma senha segura
+- **Nome**: Seu nome completo
+- **Email**: Seu endereço de email
+- **Senha**: Uma senha segura
 
 2. Clique em **Criar Conta**
 
@@ -99,32 +99,32 @@ Crie um arquivo `docker-compose.yml`:
 version: '3.8'
 
 services:
-  n8n:
-    image: n8nio/n8n
-    restart: unless-stopped
-    ports:
-      - "5678:5678"
-    environment:
-      - N8N_PROTOCOL=https
-      - N8N_HOST=seu-dominio.com
-      - GENERIC_TIMEZONE=America/Sao_Paulo
-      - WEBHOOK_URL=https://seu-dominio.com/
-    volumes:
-      - n8n_data:/home/node/.n8n
+n8n:
+image: n8nio/n8n
+restart: unless-stopped
+ports:
+- "5678:5678"
+environment:
+- N8N_PROTOCOL=https
+- N8N_HOST=seu-dominio.com
+- GENERIC_TIMEZONE=America/Sao_Paulo
+- WEBHOOK_URL=https://seu-dominio.com/
+volumes:
+- n8n_data:/home/node/.n8n
 
-  postgres:
-    image: postgres:13
-    restart: unless-stopped
-    environment:
-      - POSTGRES_DB=n8n
-      - POSTGRES_USER=n8n
-      - POSTGRES_PASSWORD=senha_segura
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+postgres:
+image: postgres:13
+restart: unless-stopped
+environment:
+- POSTGRES_DB=n8n
+- POSTGRES_USER=n8n
+- POSTGRES_PASSWORD=senha_segura
+volumes:
+- postgres_data:/var/lib/postgresql/data
 
 volumes:
-  n8n_data:
-  postgres_data:
+n8n_data:
+postgres_data:
 ```
 
 Execute com:
@@ -150,9 +150,9 @@ Acesse `http://localhost:5678` e verifique se a interface carrega corretamente.
 
 Agora que o n8n está instalado e funcionando:
 
-1. 📖 [Conceitos Básicos](./conceitos-basicos) - Entenda os fundamentos
-2. 🔧 [Primeiro Workflow](./primeiro-workflow) - Crie seu primeiro fluxo
-3. 🔗 [Conectar Aplicações](./conectar-aplicacoes) - Integre suas ferramentas
+1. [Conceitos Básicos](./conceitos-basicos) - Entenda os fundamentos
+2. [Primeiro Workflow](./primeiro-workflow) - Crie seu primeiro fluxo
+3. [Conectar Aplicações](./conectar-aplicacoes) - Integre suas ferramentas
 
 ## Solução de Problemas
 

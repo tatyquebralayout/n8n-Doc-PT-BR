@@ -1,23 +1,23 @@
-# 🚀 React Bits - Demonstração de Animações SVG
+# React Bits - Demonstração de Animações SVG
 
 React Bits é uma biblioteca poderosa que permite criar componentes React com animações SVG impressionantes e interatividade avançada. Esta página demonstra como implementar e usar React Bits no nosso projeto de documentação.
 
-## 📋 **Sobre React Bits**
+## **Sobre React Bits**
 
 React Bits oferece:
-- ✨ **Animações SVG fluidas** e performáticas
-- 🎯 **Componentes interativos** personalizáveis
-- 🚀 **Performance otimizada** com dependências mínimas
-- 🎨 **Customização flexível** através de props e CSS
-- 📱 **Design responsivo** pronto para uso
+- **Animações SVG fluidas** e performáticas
+- **Componentes interativos** personalizáveis
+- **Performance otimizada** com dependências mínimas
+- **Customização flexível** através de props e CSS
+- **Design responsivo** pronto para uso
 
-## 🎬 **Demonstração Interativa**
+## **Demonstração Interativa**
 
 Clique nos botões abaixo para ver as animações em ação:
 
 <ReactBitsDemo />
 
-## 💡 **Principais Funcionalidades**
+## **Principais Funcionalidades**
 
 ### 1. **Animações SVG Avançadas**
 - Animações de **escala** e **rotação**
@@ -32,12 +32,12 @@ Clique nos botões abaixo para ver as animações em ação:
 - **Feedback visual** imediato
 
 ### 3. **Integração com Docusaurus**
-- ✅ **Compatível** com MDX
-- ✅ **Suporte a temas** (claro/escuro)
-- ✅ **Responsivo** por padrão
-- ✅ **Performance otimizada**
+- **Compatível** com MDX
+- **Suporte a temas** (claro/escuro)
+- **Responsivo** por padrão
+- **Performance otimizada**
 
-## 🛠️ **Como Implementar**
+## **Como Implementar**
 
 ### Instalação
 ```bash
@@ -50,15 +50,15 @@ import React from 'react';
 import { AnimatedButton } from 'react-bits';
 
 const MyComponent = () => {
-  return (
-    <AnimatedButton
-      variant="primary"
-      animation="bounce"
-      onClick={() => console.log('Clicado!')}
-    >
-      Clique Aqui
-    </AnimatedButton>
-  );
+return (
+<AnimatedButton
+variant="primary"
+animation="bounce"
+onClick={() => console.log('Clicado!')}
+>
+Clique Aqui
+</AnimatedButton>
+);
 };
 ```
 
@@ -67,31 +67,31 @@ const MyComponent = () => {
 import React from 'react';
 
 const AnimatedSVG = () => {
-  return (
-    <svg width="200" height="200" viewBox="0 0 200 200">
-      <circle
-        cx="100"
-        cy="100"
-        r="50"
-        fill="#ea4b71"
-        className="animated-circle"
-      />
-      <style jsx>{`
-        .animated-circle {
-          animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.1); }
-          100% { transform: scale(1); }
-        }
-      `}</style>
-    </svg>
-  );
+return (
+<svg width="200" height="200" viewBox="0 0 200 200">
+<circle
+cx="100"
+cy="100"
+r="50"
+fill="#ea4b71"
+className="animated-circle"
+/>
+<style jsx>{`
+.animated-circle {
+animation: pulse 2s infinite;
+}
+@keyframes pulse {
+0% { transform: scale(1); }
+50% { transform: scale(1.1); }
+100% { transform: scale(1); }
+}
+`}</style>
+</svg>
+);
 };
 ```
 
-## 📊 **Casos de Uso Práticos**
+## **Casos de Uso Práticos**
 
 ### 1. **Dashboards Interativos**
 - Gráficos animados em tempo real
@@ -108,46 +108,46 @@ const AnimatedSVG = () => {
 - Exemplos animados
 - Tutoriais visuais
 
-## 🎨 **Customização Avançada**
+## **Customização Avançada**
 
 ### Temas e Estilos
 ```css
 /* Tema Claro */
 .react-bits-component {
-  --primary-color: #ea4b71;
-  --secondary-color: #1e40af;
-  --background: #ffffff;
-  --text-color: #374151;
+--primary-color: #ea4b71;
+--secondary-color: #1e40af;
+--background: #ffffff;
+--text-color: #374151;
 }
 
 /* Tema Escuro */
 [data-theme='dark'] .react-bits-component {
-  --primary-color: #f472b6;
-  --secondary-color: #60a5fa;
-  --background: #1e293b;
-  --text-color: #e2e8f0;
+--primary-color: #f472b6;
+--secondary-color: #60a5fa;
+--background: #1e293b;
+--text-color: #e2e8f0;
 }
 ```
 
 ### Animações Personalizadas
 ```css
 @keyframes customSlide {
-  0% { 
-    opacity: 0; 
-    transform: translateX(-50px);
-  }
-  100% { 
-    opacity: 1; 
-    transform: translateX(0);
-  }
+0% { 
+opacity: 0; 
+transform: translateX(-50px);
+}
+100% { 
+opacity: 1; 
+transform: translateX(0);
+}
 }
 
 .custom-animation {
-  animation: customSlide 0.5s ease-out;
+animation: customSlide 0.5s ease-out;
 }
 ```
 
-## 🚀 **Performance e Otimização**
+## **Performance e Otimização**
 
 ### Melhores Práticas
 1. **Lazy Loading**: Carregue componentes sob demanda
@@ -161,20 +161,20 @@ import React, { memo, lazy, Suspense } from 'react';
 
 // Lazy loading do componente
 const HeavyAnimatedComponent = lazy(() => 
-  import('./HeavyAnimatedComponent')
+import('./HeavyAnimatedComponent')
 );
 
 // Memoização para evitar re-renders desnecessários
 const OptimizedComponent = memo(({ data }) => {
-  return (
-    <Suspense fallback={<div>Carregando...</div>}>
-      <HeavyAnimatedComponent data={data} />
-    </Suspense>
-  );
+return (
+<Suspense fallback={<div>Carregando...</div>}>
+<HeavyAnimatedComponent data={data} />
+</Suspense>
+);
 });
 ```
 
-## 📈 **Roadmap e Próximos Passos**
+## **Roadmap e Próximos Passos**
 
 ### Funcionalidades Planejadas
 - [ ] **Mais componentes animados**
@@ -188,25 +188,25 @@ const OptimizedComponent = memo(({ data }) => {
 - [ ] **Templates prontos**
 - [ ] **Plugin para Docusaurus**
 
-## 🔗 **Recursos Adicionais**
+## **Recursos Adicionais**
 
-- [📚 Documentação Oficial](https://react-bits.com)
-- [🎮 Playground Online](https://react-bits.com/playground)
-- [📖 Guia de Migração](https://react-bits.com/migration)
-- [💬 Comunidade no Discord](https://discord.gg/react-bits)
+- [ Documentação Oficial](https://react-bits.com)
+- [ Playground Online](https://react-bits.com/playground)
+- [ Guia de Migração](https://react-bits.com/migration)
+- [ Comunidade no Discord](https://discord.gg/react-bits)
 
 ---
 
-:::tip 💡 **Dica Pro**
+:::tip **Dica Pro**
 Para melhores resultados, combine React Bits com bibliotecas como **Framer Motion** ou **React Spring** para criar experiências ainda mais ricas e interativas!
 :::
 
-:::warning ⚠️ **Atenção**
+:::warning **Atenção**
 React Bits está em desenvolvimento ativo. Algumas funcionalidades podem mudar em versões futuras. Sempre consulte a documentação oficial para as últimas atualizações.
 :::
 
-## 🎯 **Conclusão**
+## **Conclusão**
 
 React Bits é uma excelente adição ao ecossistema React, oferecendo uma maneira elegante e performática de criar interfaces animadas e interativas. Com sua integração perfeita ao Docusaurus, você pode criar documentações mais envolventes e dinâmicas.
 
-**Experimente as animações acima e veja como React Bits pode transformar sua experiência de usuário!** 🚀 
+**Experimente as animações acima e veja como React Bits pode transformar sua experiência de usuário!** 

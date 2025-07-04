@@ -5,87 +5,85 @@ description: Templates e workflows prontos para usar
 keywords: [n8n, templates, workflows, catálogo, automação]
 ---
 
-# Catálogo de Templates
+# <IonicIcon name="grid-outline" size={32} color="#ea4b71" /> Catálogo de Templates
 
 Bem-vindo ao **Catálogo de Templates** da comunidade n8n Brasil!
 
 Aqui você encontra workflows prontos para usar, testados pela comunidade e documentados em português. Cada template pode ser facilmente importado e customizado para suas necessidades específicas.
 
-## 🌟 **Destaques da Semana**
+## <IonicIcon name="trending-up-outline" size={24} color="#ea4b71" /> **Destaques da Semana**
 
-### **🔥 Mais Populares**
+### <IonicIcon name="flame-outline" size={20} color="#f59e0b" /> Mais Populares
 
 <div className="template-grid">
-  <div className="template-card featured">
-    <div className="template-header">
-      <Icon icon="ph:whatsapp-logo-duotone" width="24" />
-      <h3>WhatsApp + Google Sheets</h3>
-      <span className="template-badge">Novo</span>
-    </div>
-    <p>Automatize o envio de mensagens personalizadas via WhatsApp usando dados do Google Sheets.</p>
-    <div className="template-stats">
-      <span><Icon icon="ph:download" width="16" /> 1.2k downloads</span>
-      <span><Icon icon="ph:star" width="16" /> 4.8 (124 avaliações)</span>
-    </div>
-    <div className="template-tags">
-      <span>Comunicação</span>
-      <span>Planilhas</span>
-      <span>Marketing</span>
-    </div>
-  </div>
-  
-  <div className="template-card">
-    <div className="template-header">
-      <Icon icon="ph:bank-duotone" width="24" />
-      <h3>Monitor PIX + Slack</h3>
-      <span className="template-badge">Atualizado</span>
-    </div>
-    <p>Monitore transações PIX em tempo real e notifique sua equipe no Slack automaticamente.</p>
-    <div className="template-stats">
-      <span><Icon icon="ph:download" width="16" /> 856 downloads</span>
-      <span><Icon icon="ph:star" width="16" /> 4.9 (89 avaliações)</span>
-    </div>
-    <div className="template-tags">
-      <span>Financeiro</span>
-      <span>Notificações</span>
-      <span>Brasil</span>
-    </div>
-  </div>
+<div className="template-card featured">
+<div className="template-header">
+<h3>WhatsApp + Google Sheets</h3>
+<span className="template-badge">Novo</span>
+</div>
+<p>Automatize o envio de mensagens personalizadas via WhatsApp usando dados do Google Sheets.</p>
+<div className="template-stats">
+<span>1.2k downloads</span>
+<span>4.8 (124 avaliações)</span>
+</div>
+<div className="template-tags">
+<span>Comunicação</span>
+<span>Planilhas</span>
+<span>Marketing</span>
+</div>
 </div>
 
-## 📋 **Categorias**
+<div className="template-card">
+<div className="template-header">
+<h3>Monitor PIX + Slack</h3>
+<span className="template-badge">Atualizado</span>
+</div>
+<p>Monitore transações PIX em tempo real e notifique sua equipe no Slack automaticamente.</p>
+<div className="template-stats">
+<span>856 downloads</span>
+<span>4.9 (89 avaliações)</span>
+</div>
+<div className="template-tags">
+<span>Financeiro</span>
+<span>Notificações</span>
+<span>Brasil</span>
+</div>
+</div>
+</div>
 
-### **💬 Comunicação e Notificações**
+## <IonicIcon name="apps-outline" size={24} color="#ea4b71" /> **Categorias**
+
+### <IonicIcon name="chatbubbles-outline" size={20} color="#10b981" /> Comunicação e Notificações
 Templates para automatizar comunicação com clientes, equipes e stakeholders.
 
-- **📧 Email Marketing Avançado** - Sequências automáticas com Gmail + Sheets
-- **📱 WhatsApp Business** - Chatbots e mensagens personalizadas
-- **🔔 Central de Notificações** - Slack + Teams + Discord integrados
-- **📊 Relatórios Automáticos** - Dashboards enviados por email
+- <IonicIcon name="mail-outline" size={16} color="#6b7280" /> **Email Marketing Avançado** - Sequências automáticas com Gmail + Sheets
+- <IonicIcon name="logo-whatsapp" size={16} color="#6b7280" /> **WhatsApp Business** - Chatbots e mensagens personalizadas
+- <IonicIcon name="notifications-outline" size={16} color="#6b7280" /> **Central de Notificações** - Slack + Teams + Discord integrados
+- <IonicIcon name="bar-chart-outline" size={16} color="#6b7280" /> **Relatórios Automáticos** - Dashboards enviados por email
 
-### **🛒 E-commerce e Vendas**
+### <IonicIcon name="storefront-outline" size={20} color="#10b981" /> E-commerce e Vendas
 Automações para lojas virtuais e processos de vendas.
 
-- **🎯 Lead Scoring** - Qualificação automática de leads
-- **📦 Gestão de Pedidos** - Shopify + Correios + Contabilidade
-- **💳 Conciliação Financeira** - PIX + Cartões + Boletos
-- **📈 Análise de Vendas** - Relatórios automatizados
+- <IonicIcon name="person-outline" size={16} color="#6b7280" /> **Lead Scoring** - Qualificação automática de leads
+- <IonicIcon name="basket-outline" size={16} color="#6b7280" /> **Gestão de Pedidos** - Shopify + Correios + Contabilidade
+- <IonicIcon name="card-outline" size={16} color="#6b7280" /> **Conciliação Financeira** - PIX + Cartões + Boletos
+- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> **Análise de Vendas** - Relatórios automatizados
 
-### **🏢 Gestão e Produtividade**
+### <IonicIcon name="briefcase-outline" size={20} color="#10b981" /> Gestão e Produtividade
 Templates para otimizar processos internos e aumentar produtividade.
 
-- **📅 Agendamento Inteligente** - Calendário + CRM + Notificações
-- **💼 Onboarding Funcionários** - Processo completo automatizado
-- **📋 Gestão de Projetos** - Trello + Slack + Timetracking
-- **🗂️ Backup Automático** - Dados corporativos seguros
+- <IonicIcon name="calendar-outline" size={16} color="#6b7280" /> **Agendamento Inteligente** - Calendário + CRM + Notificações
+- <IonicIcon name="people-outline" size={16} color="#6b7280" /> **Onboarding Funcionários** - Processo completo automatizado
+- <IonicIcon name="list-outline" size={16} color="#6b7280" /> **Gestão de Projetos** - Trello + Slack + Timetracking
+- <IonicIcon name="cloud-upload-outline" size={16} color="#6b7280" /> **Backup Automático** - Dados corporativos seguros
 
-### **🇧🇷 Específicos do Brasil**
+### <IonicIcon name="location-outline" size={20} color="#10b981" /> Específicos do Brasil
 Templates usando APIs e serviços brasileiros.
 
-- **🏛️ Consultas Governo** - Receita Federal + CNPJ + CPF
-- **📍 Logística CEP** - ViaCEP + Correios + Fretes
-- **💰 Integração Bancária** - Open Banking + PIX + Boletos
-- **📊 Compliance Fiscal** - SPED + NFe + Simples Nacional
+- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> **Consultas Governo** - Receita Federal + CNPJ + CPF
+- <IonicIcon name="navigate-outline" size={16} color="#6b7280" /> **Logística CEP** - ViaCEP + Correios + Fretes
+- <IonicIcon name="card-outline" size={16} color="#6b7280" /> **Integração Bancária** - Open Banking + PIX + Boletos
+- <IonicIcon name="receipt-outline" size={16} color="#6b7280" /> **Compliance Fiscal** - SPED + NFe + Simples Nacional
 
 ## **Como Usar os Templates**
 
@@ -106,61 +104,61 @@ Templates usando APIs e serviços brasileiros.
 - Teste em ambiente de **desenvolvimento**
 - Documente suas **modificações**
 
-## 🎯 **Filtros Rápidos**
+## **Filtros Rápidos**
 
 <div className="filter-buttons">
-  <button className="filter-btn active">Todos</button>
-  <button className="filter-btn">Mais Populares</button>
-  <button className="filter-btn">Mais Recentes</button>
-  <button className="filter-btn">Brasileiros</button>
-  <button className="filter-btn">Iniciantes</button>
-  <button className="filter-btn">Avançados</button>
+<button className="filter-btn active">Todos</button>
+<button className="filter-btn">Mais Populares</button>
+<button className="filter-btn">Mais Recentes</button>
+<button className="filter-btn">Brasileiros</button>
+<button className="filter-btn">Iniciantes</button>
+<button className="filter-btn">Avançados</button>
 </div>
 
-## 🤝 **Contribuir com Templates**
+## **Contribuir com Templates**
 
 Tem um workflow útil? Compartilhe com a comunidade!
 
-### **📝 Como Submeter**
+### Como Submeter
 1. **Documente** seu workflow completamente
 2. **Teste** em diferentes cenários
 3. **Prepare** arquivo JSON limpo
 4. **Envie** via GitHub ou Discord
 
-### **✅ Critérios de Qualidade**
+### Critérios de Qualidade
 - **Funcionalidade** comprovada
 - **Documentação** clara em português
 - **Configuração** simplificada
 - **Casos de uso** bem definidos
 
-### **🏆 Benefícios para Contribuidores**
+### Benefícios para Contribuidores
 - **Reconhecimento** na comunidade
 - **Feedback** de usuários reais
 - **Melhoria** dos próprios skills
 - **Networking** com outros automadores
 
-## 📊 **Estatísticas da Comunidade**
+## **Estatísticas da Comunidade**
 
 <div className="stats-grid">
-  <div className="stat-card">
-    <div className="stat-number">127</div>
-    <div className="stat-label">Templates Ativos</div>
-  </div>
-  <div className="stat-card">
-    <div className="stat-number">15.4k</div>
-    <div className="stat-label">Downloads Totais</div>
-  </div>
-  <div className="stat-card">
-    <div className="stat-number">4.7</div>
-    <div className="stat-label">Avaliação Média</div>
-  </div>
-  <div className="stat-card">
-    <div className="stat-number">89</div>
-    <div className="stat-label">Contribuidores</div>
-  </div>
+<div className="stat-card">
+<div className="stat-number">127</div>
+<div className="stat-label">Templates Ativos</div>
+</div>
+<div className="stat-card">
+<div className="stat-number">15.4k</div>
+<div className="stat-label">Downloads Totais</div>
+</div>
+<div className="stat-card">
+<div className="stat-number">4.7</div>
+<div className="stat-label">Avaliação Média</div>
+</div>
+<div className="stat-card">
+<div className="stat-number">89</div>
+<div className="stat-label">Contribuidores</div>
+</div>
 </div>
 
-## 🎉 **Próximos Passos**
+## **Próximos Passos**
 
 :::tip **Dica Pro**
 Comece com templates **simples** e vá evoluindo para casos mais complexos. A comunidade está sempre disponível para ajudar!

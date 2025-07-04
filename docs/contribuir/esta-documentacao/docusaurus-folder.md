@@ -21,34 +21,34 @@ O processo de geração do `.docusaurus` segue este fluxo:
 
 ```mermaid
 graph TD
-    A[docusaurus.config.ts] -->|Build Process| B[.docusaurus/]
-    C[docs/] -->|Build Process| B
-    D[src/] -->|Build Process| B
-    E[blog/] -->|Build Process| B
-    F[static/] -->|Build Process| B
-    
-    B --> G[routes.js<br/>Rotas do site]
-    B --> H[registry.js<br/>Registro de componentes]
-    B --> I[globalData.json<br/>Dados globais]
-    B --> J[client-modules.js<br/>Módulos do cliente]
-    B --> K[docusaurus-plugin-*/<br/>Dados dos plugins]
-    
-    G --> L[npm start<br/>Servidor de desenvolvimento]
-    H --> L
-    I --> L
-    J --> L
-    K --> L
-    
-    G --> M[npm run build<br/>Build de produção]
-    H --> M
-    I --> M
-    J --> M
-    K --> M
-    
-    M --> N[build/<br/>Site estático final]
-    
-    style B fill:#ff6b6b,stroke:#c92a2a,stroke-width:2px
-    style N fill:#51cf66,stroke:#2f9e44,stroke-width:2px
+A[docusaurus.config.ts] -->|Build Process| B[.docusaurus/]
+C[docs/] -->|Build Process| B
+D[src/] -->|Build Process| B
+E[blog/] -->|Build Process| B
+F[static/] -->|Build Process| B
+
+B --> G[routes.js<br/>Rotas do site]
+B --> H[registry.js<br/>Registro de componentes]
+B --> I[globalData.json<br/>Dados globais]
+B --> J[client-modules.js<br/>Módulos do cliente]
+B --> K[docusaurus-plugin-*/<br/>Dados dos plugins]
+
+G --> L[npm start<br/>Servidor de desenvolvimento]
+H --> L
+I --> L
+J --> L
+K --> L
+
+G --> M[npm run build<br/>Build de produção]
+H --> M
+I --> M
+J --> M
+K --> M
+
+M --> N[build/<br/>Site estático final]
+
+style B fill:#ff6b6b,stroke:#c92a2a,stroke-width:2px
+style N fill:#51cf66,stroke:#2f9e44,stroke-width:2px
 ```
 
 ## Estrutura do diretório .docusaurus
@@ -78,16 +78,16 @@ graph TD
 ## Quando o .docusaurus é criado?
 
 1. **Durante o desenvolvimento** (`npm start`):
-   - Criado na primeira execução
-   - Atualizado automaticamente com hot reload
+- Criado na primeira execução
+- Atualizado automaticamente com hot reload
 
 2. **Durante o build** (`npm run build`):
-   - Recriado completamente
-   - Otimizado para produção
+- Recriado completamente
+- Otimizado para produção
 
 3. **Após limpar** (`npm run clear`):
-   - Removido completamente
-   - Recriado na próxima execução
+- Removido completamente
+- Recriado na próxima execução
 
 ## Comandos relacionados
 
@@ -143,35 +143,35 @@ npm start
 ### routes.js (exemplo simplificado)
 ```javascript
 export default [
-  {
-    path: '/',
-    component: ComponentCreator('/','deb'),
-    exact: true
-  },
-  {
-    path: '/blog',
-    component: ComponentCreator('/blog','3d6'),
-    exact: true
-  },
-  // ... mais rotas
+{
+path: '/',
+component: ComponentCreator('/','deb'),
+exact: true
+},
+{
+path: '/blog',
+component: ComponentCreator('/blog','3d6'),
+exact: true
+},
+// ... mais rotas
 ]
 ```
 
 ### globalData.json (exemplo simplificado)
 ```json
 {
-  "docusaurus-plugin-content-docs": {
-    "default": {
-      "path": "/",
-      "versions": [{
-        "name": "current",
-        "label": "Next",
-        "isLast": true,
-        "path": "/",
-        "mainDocId": "intro"
-      }]
-    }
-  }
+"docusaurus-plugin-content-docs": {
+"default": {
+"path": "/",
+"versions": [{
+"name": "current",
+"label": "Next",
+"isLast": true,
+"path": "/",
+"mainDocId": "intro"
+}]
+}
+}
 }
 ```
 

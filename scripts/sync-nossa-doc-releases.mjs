@@ -15,7 +15,13 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 const RELEASES_DIR = path.join(__dirname, '..', 'release-notes', 'nossa-doc');
 
+// A API do GitHub é usada de forma anônima (limite de 60 reqs/hora por IP).
+// Fornecer um GITHUB_TOKEN como variável de ambiente aumenta o limite para 5000 reqs/hora.
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
+
+if (!GITHUB_TOKEN) {
+  console.log('INFO: Nenhuma GITHUB_TOKEN encontrado. Usando acesso anônimo à API do GitHub (limite de taxa menor).');
+}
 
 function formatDatePT(dateStr) {
   return new Date(dateStr).toLocaleDateString('pt-BR', {
@@ -56,19 +62,19 @@ async function updateIndex(releases) {
   for (const rel of releases.slice(0,5)) {
     const v = rel.tag_name.replace(/^v/, '');
     const d = formatDatePT(rel.published_at);
-    md += `- [v${v}](./v${v}/overview) — ${d}\n`;
+    md += `- [v${v}](./v${v}/index) — ${d}\n`;
   }
   await fs.writeFile(indexPath, md, 'utf8');
 }
 
 async function sync() {
-  const { data: releases } = await octokit.repos.listReleases({ owner: OWNER, repo: REPO, per_page: 10 });
+  const { data: releases } = await octokit.repos.listReleases({ owner: OWNER, repo: REPO, per_page: 5 });
   await fs.mkdir(RELEASES_DIR, { recursive: true });
   for (const rel of releases) {
     const version = rel.tag_name.replace(/^v/, '');
     const dir = path.join(RELEASES_DIR, `v${version}`);
     await fs.mkdir(dir, { recursive: true });
-    const filePath = path.join(dir, 'overview.md');
+    const filePath = path.join(dir, 'index.md');
     const content = await generateContent(rel);
     await fs.writeFile(filePath, content, 'utf8');
     console.log(`✔︎ v${version}`);

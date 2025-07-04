@@ -25,24 +25,24 @@ Os melhores canais e vídeos da comunidade brasileira do n8n no YouTube e outras
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="AutomaBrasil n8n Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - **[Playlist: n8n do Zero ao Profissional](https://youtube.com/playlist)**
-  - 32 episódios • 14h de conteúdo
-  - Do básico ao avançado com casos reais
+- 32 episódios • 14h de conteúdo
+- Do básico ao avançado com casos reais
 
 - **[Como Monetizar Automações com n8n](https://youtube.com/watch)**
-  - 45 min • 89k visualizações
-  - Estratégias para freelancers e agências
+- 45 min • 89k visualizações
+- Estratégias para freelancers e agências
 
 ### **TechAutomate** - *78k inscritos*
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="TechAutomate n8n IA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - **[n8n + Inteligência Artificial: Futuro da Automação](https://youtube.com/watch)**
-  - 28 min • 156k visualizações
-  - Integração com OpenAI e modelos de IA
+- 28 min • 156k visualizações
+- Integração com OpenAI e modelos de IA
 
 - **[Workflows Complexos: Estudos de Caso](https://youtube.com/playlist)**
-  - 15 episódios • 8h de conteúdo
-  - Projetos reais explicados passo a passo
+- 15 episódios • 8h de conteúdo
+- Projetos reais explicados passo a passo
 
 ## Creators Individuais
 

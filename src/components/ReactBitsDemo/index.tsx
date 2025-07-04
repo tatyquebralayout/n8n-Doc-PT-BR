@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
+import SvgIcon from '../SvgIcon';
 
 const ReactBitsDemo: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -10,7 +11,7 @@ const ReactBitsDemo: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2>🚀 React Bits Demo - Animações SVG</h2>
+      <h2><SvgIcon name="rocket" size={32} /> React Bits Demo - Animações SVG</h2>
       
       {/* Seção de Botões Animados */}
       <div className={styles.section}>
@@ -20,14 +21,14 @@ const ReactBitsDemo: React.FC = () => {
             onClick={handleAnimation}
             className={styles.animatedButton}
           >
-            {isAnimating ? '🔄 Animando...' : '✨ Iniciar Animação'}
+            {isAnimating ? <><SvgIcon name="refresh" size={18} /> Animando...</> : <><SvgIcon name="sparkle" size={18} /> Iniciar Animação</>}
           </button>
           
           <button 
             onClick={() => setIsAnimating(false)}
             className={styles.stopButton}
           >
-            ⏹️ Parar
+                          <SvgIcon name="stop" size={18} /> Parar
           </button>
         </div>
       </div>
@@ -72,7 +73,7 @@ const ReactBitsDemo: React.FC = () => {
               fontWeight="bold"
               className={styles.animatedText}
             >
-              n8n Brasil 🇧🇷
+              n8n Brasil
             </text>
           </svg>
         </div>
@@ -89,9 +90,9 @@ const ReactBitsDemo: React.FC = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className={styles.cardIcon}>
-                {index === 0 && '⚡'}
-                {index === 1 && '🔗'}
-                {index === 2 && '🤖'}
+                {index === 0 && <SvgIcon name="bolt" size={48} />}
+                {index === 1 && <SvgIcon name="link" size={48} />}
+                {index === 2 && <SvgIcon name="smart_toy" size={48} />}
               </div>
               <h4>{title}</h4>
               <p>Exemplo de card animado com React Bits</p>

@@ -5,7 +5,7 @@ description: Resumos e guias em português para os cursos em vídeo oficiais do 
 keywords: [n8n, cursos, vídeo, youtube, tutorial, iniciante, avançado]
 ---
 
-# 📺 Visão Geral - Cursos em Vídeo
+# Visão Geral - Cursos em Vídeo
 
 Esta seção serve como um guia em português para os **cursos em vídeo oficiais do n8n**, disponíveis no YouTube.
 
@@ -45,4 +45,4 @@ Nosso objetivo é facilitar o acesso e o entendimento desses recursos valiosos p
 
 ---
 
-**🔄 Em construção:** Vamos adicionar resumos detalhados em português para cada vídeo dos cursos. 
+** Em construção:** Vamos adicionar resumos detalhados em português para cada vídeo dos cursos. 

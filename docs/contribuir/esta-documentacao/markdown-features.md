@@ -5,66 +5,66 @@ description: Demonstração completa dos recursos de Markdown no Docusaurus
 keywords: [markdown, docusaurus, recursos, formatação]
 ---
 
-# Recursos do Markdown
+# <IonicIcon name="logo-markdown" size={32} color="#ea4b71" /> Recursos do Markdown
 
 Esta página demonstra os recursos de Markdown disponíveis no Docusaurus.
 
-## Formatação Básica
+## <IonicIcon name="text-outline" size={24} color="#ea4b71" /> Formatação Básica
 
-### Texto
+### <IonicIcon name="create-outline" size={20} color="#10b981" /> Texto
 
 **Texto em negrito** e *texto em itálico* e ***negrito e itálico***.
 
 ~~Texto riscado~~ e `código inline`.
 
-### Links
+### <IonicIcon name="link-outline" size={20} color="#10b981" /> Links
 
-[Link externo](https://n8n.io) e [link interno](./intro).
+<IonicIcon name="open-outline" size={16} color="#6b7280" /> [Link externo](https://n8n.io) e <IonicIcon name="document-outline" size={16} color="#6b7280" /> [link interno](./intro).
 
-### Listas
+### <IonicIcon name="list-outline" size={20} color="#10b981" /> Listas
 
-#### Lista não ordenada:
+#### <IonicIcon name="ellipse-outline" size={16} color="#6b7280" /> Lista não ordenada:
 - Item 1
 - Item 2
-  - Subitem 2.1
-  - Subitem 2.2
+- Subitem 2.1
+- Subitem 2.2
 - Item 3
 
-#### Lista ordenada:
+#### <IonicIcon name="list-outline" size={16} color="#6b7280" /> Lista ordenada:
 1. Primeiro item
 2. Segundo item
-   1. Subitem numerado
-   2. Outro subitem
+1. Subitem numerado
+2. Outro subitem
 3. Terceiro item
 
-#### Lista de tarefas:
+#### <IonicIcon name="checkbox-outline" size={16} color="#6b7280" /> Lista de tarefas:
 - [x] Tarefa concluída
 - [ ] Tarefa pendente
 - [ ] Outra tarefa pendente
 
-## Blocos de Código
+## <IonicIcon name="code-outline" size={24} color="#ea4b71" /> Blocos de Código
 
-### Código inline
+### <IonicIcon name="code-slash-outline" size={20} color="#10b981" /> Código inline
 Use `npm install` para instalar pacotes.
 
-### Blocos de código com destaque de sintaxe
+### <IonicIcon name="terminal-outline" size={20} color="#10b981" /> Blocos de código com destaque de sintaxe
 
 ```javascript title="exemplo.js"
 // Exemplo de código JavaScript
 const n8n = require('n8n');
 
 function criarWorkflow() {
-  const workflow = {
-    nodes: [
-      {
-        name: 'Start',
-        type: 'n8n-nodes-base.start',
-        position: [250, 300]
-      }
-    ]
-  };
-  
-  return workflow;
+const workflow = {
+nodes: [
+{
+name: 'Start',
+type: 'n8n-nodes-base.start',
+position: [250, 300]
+}
+]
+};
+
+return workflow;
 }
 
 console.log(criarWorkflow());
@@ -75,57 +75,57 @@ console.log(criarWorkflow());
 import requests
 
 def fazer_requisicao():
-    """Função para fazer requisição HTTP"""
-    url = "https://api.exemplo.com/dados"
-    
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-        return response.json()
-    except requests.RequestException as e:
-        print(f"Erro na requisição: {e}")
-        return None
+"""Função para fazer requisição HTTP"""
+url = "https://api.exemplo.com/dados"
+
+try:
+response = requests.get(url)
+response.raise_for_status()
+return response.json()
+except requests.RequestException as e:
+print(f"Erro na requisição: {e}")
+return None
 
 # Chamar a função
 dados = fazer_requisicao()
 print(dados)
 ```
 
-## Admonições
+## <IonicIcon name="alert-circle-outline" size={24} color="#ea4b71" /> Admonições
 
-### Tipos básicos
+### <IonicIcon name="shapes-outline" size={20} color="#10b981" /> Tipos básicos
 
 :::note Nota
-Esta é uma nota informativa.
+<IonicIcon name="information-circle-outline" size={16} color="#6b7280" /> Esta é uma nota informativa.
 :::
 
 :::tip Dica
-Esta é uma dica útil!
+<IonicIcon name="bulb-outline" size={16} color="#6b7280" /> Esta é uma dica útil!
 :::
 
 :::info Informação
-Esta é uma informação importante.
+<IonicIcon name="help-circle-outline" size={16} color="#6b7280" /> Esta é uma informação importante.
 :::
 
 :::warning Atenção
-Esta é uma mensagem de aviso.
+<IonicIcon name="warning-outline" size={16} color="#6b7280" /> Esta é uma mensagem de aviso.
 :::
 
 :::danger Perigo
-Esta é uma mensagem de perigo.
+<IonicIcon name="skull-outline" size={16} color="#6b7280" /> Esta é uma mensagem de perigo.
 :::
 
-## Citações
+## <IonicIcon name="chatbubble-outline" size={24} color="#ea4b71" /> Citações
 
-> Esta é uma citação simples.
+> <IonicIcon name="quote-outline" size={16} color="#6b7280" /> Esta é uma citação simples.
 
-> Esta é uma citação longa que pode ter múltiplas linhas
+> <IonicIcon name="quote-outline" size={16} color="#6b7280" /> Esta é uma citação longa que pode ter múltiplas linhas
 > e continua aqui. Muito útil para destacar informações
 > importantes ou citações de outras fontes.
 >
 > — Autor da Citação
 
-## Tabelas
+## <IonicIcon name="grid-outline" size={24} color="#ea4b71" /> Tabelas
 
 | Nó | Tipo | Descrição | Exemplo |
 |---------|------|-----------|---------|
@@ -134,7 +134,7 @@ Esta é uma mensagem de perigo.
 | IF | Lógica | Condições | Fluxo condicional |
 | Switch | Lógica | Múltiplas condições | Baseado em valores |
 
-### Tabela com alinhamento
+### <IonicIcon name="resize-outline" size={20} color="#10b981" /> Tabela com alinhamento
 
 | Esquerda | Centro | Direita |
 |:---------|:------:|--------:|
@@ -142,16 +142,16 @@ Esta é uma mensagem de perigo.
 | Mais texto | Também centro | 200 |
 | Último | Final | 300 |
 
-## Detalhes Expansíveis
+## <IonicIcon name="chevron-down-outline" size={24} color="#ea4b71" /> Detalhes Expansíveis
 
 <details>
-<summary>Clique para expandir detalhes</summary>
+<summary><IonicIcon name="eye-outline" size={16} color="#6b7280" /> Clique para expandir detalhes</summary>
 
 Este é o conteúdo dentro do bloco de detalhes. Você pode colocar:
 
-- Listas
-- **Texto formatado**
-- `Código`
+- <IonicIcon name="list-outline" size={16} color="#6b7280" /> Listas
+- <IonicIcon name="text-outline" size={16} color="#6b7280" /> **Texto formatado**
+- <IonicIcon name="code-outline" size={16} color="#6b7280" /> `Código`
 
 ```javascript
 // Até mesmo blocos de código
@@ -160,62 +160,62 @@ console.log("Conteúdo oculto revelado!");
 
 </details>
 
-## Emojis
+## <IonicIcon name="happy-outline" size={24} color="#ea4b71" /> Emojis
 
-Você pode usar emojis: 🎉 🚀 💡 ⚠️ 🔧 📚
+Você pode usar emojis: <IonicIcon name="heart-outline" size={16} color="#ea4b71" /> <IonicIcon name="thumbs-up-outline" size={16} color="#ea4b71" /> <IonicIcon name="star-outline" size={16} color="#ea4b71" />
 
-## Separadores
+## <IonicIcon name="remove-outline" size={24} color="#ea4b71" /> Separadores
 
 Use três traços `---` para criar separadores horizontais.
 
 ---
 
-## Exemplo de Workflow n8n
+## <IonicIcon name="git-network-outline" size={24} color="#ea4b71" /> Exemplo de Workflow n8n
 
 ```json
 {
-  "name": "Exemplo de Workflow",
-  "nodes": [
-    {
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [250, 300],
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "meu-webhook"
-      }
-    },
-    {
-      "name": "Set",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 1,
-      "position": [450, 300],
-      "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "processedAt",
-              "value": "={{ new Date().toISOString() }}"
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "connections": {
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "Set",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    }
-  }
+"name": "Exemplo de Workflow",
+"nodes": [
+{
+"name": "Webhook",
+"type": "n8n-nodes-base.webhook",
+"typeVersion": 1,
+"position": [250, 300],
+"parameters": {
+"httpMethod": "POST",
+"path": "meu-webhook"
+}
+},
+{
+"name": "Set",
+"type": "n8n-nodes-base.set",
+"typeVersion": 1,
+"position": [450, 300],
+"parameters": {
+"values": {
+"string": [
+{
+"name": "processedAt",
+"value": "={{ new Date().toISOString() }}"
+}
+]
+}
+}
+}
+],
+"connections": {
+"Webhook": {
+"main": [
+[
+{
+"node": "Set",
+"type": "main",
+"index": 0
+}
+]
+]
+}
+}
 }
 ```
 

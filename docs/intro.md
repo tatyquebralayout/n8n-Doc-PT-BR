@@ -5,87 +5,87 @@ description: Guia completo para começar com n8n
 keywords: [n8n, automação, workflow, introdução, guia]
 ---
 
-# Introdução ao n8n
+# <IonicIcon name="rocket-outline" size={32} color="#ea4b71" /> Introdução ao n8n
 
-Bem-vindo à **documentação completa do n8n** em português brasileiro! 🎉
+Bem-vindo à **documentação completa do n8n** em português brasileiro! 
 
-## O que é o n8n?
+## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> O que é o n8n?
 
 O **n8n** (pronuncia-se "n-eight-n") é uma ferramenta de automação de workflows **gratuita e de código aberto** que permite conectar diferentes aplicações e serviços para automatizar tarefas repetitivas.
 
-### Principais características
+### <IonicIcon name="star-outline" size={20} color="#ea4b71" /> Principais características
 
-- 🔗 **Conecte qualquer coisa**: Mais de 400 integrações disponíveis
-- 🎨 **Interface visual**: Editor de fluxo intuitivo e amigável
-- 🛠️ **Flexível**: Suporte a código personalizado quando necessário
-- 🔒 **Seguro**: Execute em sua própria infraestrutura
-- 💰 **Gratuito**: Core 100% gratuito e de código aberto
+- <IonicIcon name="link-outline" size={16} color="#0ea5e9" /> **Conecte qualquer coisa**: Mais de 400 integrações disponíveis
+- <IonicIcon name="eye-outline" size={16} color="#0ea5e9" /> **Interface visual**: Editor de fluxo intuitivo e amigável
+- <IonicIcon name="code-outline" size={16} color="#0ea5e9" /> **Flexível**: Suporte a código personalizado quando necessário
+- <IonicIcon name="shield-checkmark-outline" size={16} color="#0ea5e9" /> **Seguro**: Execute em sua própria infraestrutura
+- <IonicIcon name="gift-outline" size={16} color="#0ea5e9" /> **Gratuito**: Core 100% gratuito e de código aberto
 
-## Por que usar o n8n?
+## <IonicIcon name="thumbs-up-outline" size={24} color="#ea4b71" /> Por que usar o n8n?
 
-### Para Desenvolvedores
-- API REST completa
-- Webhooks nativos
-- Execução de código JavaScript/Python
-- Versionamento e deploy automatizado
+### <IonicIcon name="code-slash-outline" size={20} color="#10b981" /> Para Desenvolvedores
+- <IonicIcon name="terminal-outline" size={16} color="#6b7280" /> API REST completa
+- <IonicIcon name="wifi-outline" size={16} color="#6b7280" /> Webhooks nativos
+- <IonicIcon name="logo-javascript" size={16} color="#6b7280" /> Execução de código JavaScript/Python
+- <IonicIcon name="git-branch-outline" size={16} color="#6b7280" /> Versionamento e deploy automatizado
 
-### Para Empresas
-- Redução de custos operacionais
-- Aumento da produtividade
-- Integração entre sistemas legados
-- Automação de processos complexos
+### <IonicIcon name="business-outline" size={20} color="#10b981" /> Para Empresas
+- <IonicIcon name="trending-down-outline" size={16} color="#6b7280" /> Redução de custos operacionais
+- <IonicIcon name="trending-up-outline" size={16} color="#6b7280" /> Aumento da produtividade
+- <IonicIcon name="layers-outline" size={16} color="#6b7280" /> Integração entre sistemas legados
+- <IonicIcon name="cog-outline" size={16} color="#6b7280" /> Automação de processos complexos
 
-### Para Iniciantes
-- Interface visual intuitiva
-- Templates pré-configurados
-- Comunidade ativa
-- Documentação abrangente
+### <IonicIcon name="school-outline" size={20} color="#10b981" /> Para Iniciantes
+- <IonicIcon name="hand-left-outline" size={16} color="#6b7280" /> Interface visual intuitiva
+- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> Templates pré-configurados
+- <IonicIcon name="people-outline" size={16} color="#6b7280" /> Comunidade ativa
+- <IonicIcon name="library-outline" size={16} color="#6b7280" /> Documentação abrangente
 
-## Começando
+## <IonicIcon name="play-outline" size={24} color="#ea4b71" /> Começando
 
 Escolha uma das opções abaixo para começar:
 
-:::tip Recomendado para iniciantes
+:::tip <IonicIcon name="bulb-outline" size={18} color="#10b981" /> Recomendado para iniciantes
 Comece com o [Tutorial Básico](./tutorial-basico/instalacao) para aprender os conceitos fundamentais.
 :::
 
-:::info Para desenvolvedores
+:::info <IonicIcon name="code-outline" size={18} color="#0ea5e9" /> Para desenvolvedores
 Vá direto para a [Documentação da API](./api/introducao) para integração avançada.
 :::
 
-:::note Para empresas
+:::note <IonicIcon name="business-outline" size={18} color="#6366f1" /> Para empresas
 Consulte o [Guia de Implantação](./deployment/introducao) para configuração em produção.
 :::
 
-## Estrutura desta Documentação
+## <IonicIcon name="map-outline" size={24} color="#ea4b71" /> Estrutura desta Documentação
 
 Esta documentação está organizada nas seguintes seções:
 
-### 📚 Tutorial Básico
+### <IonicIcon name="school-outline" size={20} color="#10b981" /> Tutorial Básico
 Aprenda os conceitos fundamentais do n8n passo a passo.
 
-### 🔧 Guias Avançados
+### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Guias Avançados
 Explore recursos avançados e casos de uso complexos.
 
-### 📖 Referência da API
+### <IonicIcon name="terminal-outline" size={20} color="#10b981" /> Referência da API
 Documentação completa da API REST do n8n.
 
-### 🚀 Deployment
+### <IonicIcon name="server-outline" size={20} color="#10b981" /> Deployment
 Guias para implantação em diferentes ambientes.
 
-### 🧩 Nós (Nodes)
+### <IonicIcon name="extension-puzzle-outline" size={20} color="#10b981" /> Nós (Nodes)
 Documentação detalhada de todos os nós disponíveis.
 
-### 💡 Exemplos
+### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Exemplos
 Workflows práticos e casos de uso reais.
 
-## Contribuindo
+## <IonicIcon name="heart-outline" size={24} color="#ea4b71" /> Contribuindo
 
 Esta documentação é mantida pela comunidade brasileira do n8n. Contribuições são bem-vindas!
 
-- 📝 [Editar esta página](https://github.com/seu-repo/edit/main/docs/intro.md)
-- 🐛 [Reportar um problema](https://github.com/seu-repo/issues)
-- 💬 [Participar da discussão](https://discord.gg/n8n)
+- <IonicIcon name="create-outline" size={16} color="#6b7280" /> [Editar esta página](https://github.com/seu-repo/edit/main/docs/intro.md)
+- <IonicIcon name="bug-outline" size={16} color="#6b7280" /> [Reportar um problema](https://github.com/seu-repo/issues)
+- <IonicIcon name="chatbubbles-outline" size={16} color="#6b7280" /> [Participar da discussão](https://discord.gg/n8n)
 
 ---
 

@@ -11,4 +11,4 @@ Este documento explica como usar um **workflow n8n como uma ferramenta (tool)** 
 
 Este documento ensina como **usar Workflow Tool** para automação avançada com IA, abordando integração de workflows como ferramentas de agentes, composição de automações complexas, orquestração inteligente de processos, reutilização de workflows existentes, e criação de sistemas que combinam múltiplas automações controladas por inteligência artificial para resolver problemas empresariais sofisticados.
 
-**🔄 Em construção:** Este conteúdo incluirá casos de uso empresariais brasileiros e padrões de integração.
+** Em construção:** Este conteúdo incluirá casos de uso empresariais brasileiros e padrões de integração.

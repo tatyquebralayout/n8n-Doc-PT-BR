@@ -5,7 +5,7 @@ description: Como participar ativamente e ajudar a comunidade global do n8n a cr
 keywords: [n8n, comunidade, fórum, contribuir, ajuda, suporte]
 ---
 
-# 👥 Contribuir com a Comunidade Global n8n
+# Contribuir com a Comunidade Global n8n
 
 A comunidade é um dos pilares do n8n. Contribuir ativamente é uma forma valiosa de ganhar experiência, ajudar outros usuários e fortalecer o ecossistema. A principal plataforma para interação é o fórum oficial.
 

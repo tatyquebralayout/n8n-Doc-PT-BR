@@ -4,7 +4,7 @@ import { Octokit } from '@octokit/rest';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { translateText, translateMarkdownFile } from './translate-helper.mjs';
+import { translate } from '@vitalets/google-translate-api';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,10 +15,15 @@ const OWNER = 'n8n-io';
 const REPO = 'n8n';
 const RELEASES_DIR = path.join(__dirname, '..', 'release-notes', 'n8n-oficial', 'n8n');
 
-// Cliente do GitHub
+// A API do GitHub é usada de forma anônima (limite de 60 reqs/hora por IP).
+// Fornecer um GITHUB_TOKEN como variável de ambiente aumenta o limite para 5000 reqs/hora.
 const octokit = new Octokit({
   auth: GITHUB_TOKEN,
 });
+
+if (!GITHUB_TOKEN) {
+  console.log('INFO: Nenhuma GITHUB_TOKEN encontrado. Usando acesso anônimo à API do GitHub (limite de taxa menor).');
+}
 
 // Função para formatar a data em português
 function formatDatePT(dateString) {
@@ -51,18 +56,10 @@ async function processReleaseBody(body) {
     content = content.replace(regex, replacement);
   }
 
-  // 3) Traduz o conteúdo preservando blocos de código / links
-  content = await translateMarkdownFile(content);
+  // 3) Traduz o conteúdo de forma direta
+  const { text: translatedContent } = await translate(content, { to: 'pt' });
 
-  // 4) Ajusta links (#123) para manter slug curto
-  content = content.replace(/\[#(\d+)\]\(https:\/\/github\.com\/n8n-io\/n8n\/(issues|pull)\/\1\)/g,
-    '[#$1](https://github.com/n8n-io/n8n/$2/$1)');
-
-  // 5) Ajusta links de commit
-  content = content.replace(/\[([a-f0-9]{7,40})\]\(https:\/\/github\.com\/n8n-io\/n8n\/commit\/\1\)/g,
-    '[$1](https://github.com/n8n-io/n8n/commit/$1)');
-
-  return '\n' + content.trim();
+  return '\n' + translatedContent.trim();
 }
 
 // Função para gerar o conteúdo do arquivo Markdown
@@ -111,6 +108,10 @@ Esta é uma tradução automática das notas de release oficiais do n8n. Se enco
   return content;
 }
 
+async function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // Função principal
 async function syncReleases() {
   try {
@@ -120,7 +121,7 @@ async function syncReleases() {
     const { data: releases } = await octokit.repos.listReleases({
       owner: OWNER,
       repo: REPO,
-      per_page: 10, // Últimas 10 releases
+      per_page: 5, // Últimas 5 releases
     });
 
     console.log(`📦 Encontradas ${releases.length} releases\n`);
@@ -150,9 +151,13 @@ async function syncReleases() {
       await fs.writeFile(filePath, content, 'utf8');
       
       console.log(`✅ Release ${version} salva com sucesso!\n`);
+
+      // Adiciona um atraso de 10 segundos para não sobrecarregar a API de tradução
+      await delay(10000);
     }
 
-    // Atualiza o índice
+    // Atualiza o índice principal e a sidebar de releases
+    await updateReleaseNotesSidebar();
     await updateIndex(releases);
 
     console.log('🎉 Sincronização concluída com sucesso!');
@@ -209,6 +214,81 @@ As traduções são feitas de forma automatizada e revisadas pela comunidade. Se
 
   await fs.writeFile(indexPath, indexContent, 'utf8');
   console.log('📑 Índice atualizado com sucesso!');
+}
+
+async function updateReleaseNotesSidebar() {
+  const sidebarPath = path.join(__dirname, '..', 'sidebars-release-notes.ts');
+  const n8nReleasesDir = path.join(RELEASES_DIR);
+
+  // 1. Lê todos os arquivos no diretório
+  const files = await fs.readdir(n8nReleasesDir);
+
+  // 2. Filtra e extrai as versões dos nomes dos arquivos
+  const versions = files
+    .filter(file => file.endsWith('.md'))
+    .map(file => file.replace('.md', ''));
+
+  // 3. Ordena as versões (semver descending)
+  versions.sort((a, b) => {
+    const partsA = a.split('.').map(Number);
+    const partsB = b.split('.').map(Number);
+    for (let i = 0; i < Math.max(partsA.length, partsB.length); i++) {
+      const partA = partsA[i] || 0;
+      const partB = partsB[i] || 0;
+      if (partA > partB) return -1;
+      if (partA < partB) return 1;
+    }
+    return 0;
+  });
+
+  // 4. Gera a lista de items para a sidebar
+  const items = versions.map(v => `'n8n-oficial/n8n/${v}'`).join(',\n        ');
+
+  // 5. Gera o conteúdo completo do arquivo
+  const sidebarContent = `import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+
+const sidebars: SidebarsConfig = {
+  releaseNotesSidebar: [
+    {
+      type: 'doc',
+      id: 'index',
+    },
+    {
+      type: 'category',
+      label: 'n8n Oficial',
+      link: {
+        type: 'doc',
+        id: 'n8n-oficial/index',
+      },
+      items: [
+        ${items}
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Nossa Documentação',
+      link: {
+        type: 'generated-index',
+        title: 'Releases da Documentação',
+        description: 'Atualizações e melhorias feitas em nosso projeto de documentação.',
+        slug: '/nossa-doc',
+      },
+      items: [
+        {
+          type: 'autogenerated',
+          dirName: 'nossa-doc',
+        },
+      ],
+    },
+  ],
+};
+
+export default sidebars;
+`;
+
+  // 6. Salva o arquivo da sidebar
+  await fs.writeFile(sidebarPath, sidebarContent, 'utf8');
+  console.log('🗂️  Sidebar de releases atualizada com sucesso!');
 }
 
 // Executa o script

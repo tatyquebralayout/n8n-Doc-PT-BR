@@ -5,7 +5,7 @@ description: Aprenda como contribuir para melhorar e expandir esta documentaçã
 keywords: [n8n, contribuir, documentação, brasil, guia, comunidade]
 ---
 
-# 📚 Visão Geral - Documentação Brasileira
+# Visão Geral - Documentação Brasileira
 
 Bem-vindo à área de contribuição para a **Documentação n8n Brasil**! Esta é uma **iniciativa da comunidade**, focada em criar o melhor recurso de aprendizado de n8n em português.
 
@@ -23,9 +23,9 @@ Sua ajuda aqui impacta diretamente a comunidade brasileira. Você pode:
 
 ## Como começar?
 
-1.  **Leia as Diretrizes:** Entenda nossos padrões de escrita e qualidade.
-2.  **Código de Conduta:** Conheça as regras para uma colaboração saudável.
-3.  **Guia de Tradução:** Aprenda a localizar conteúdo de forma eficaz.
+1. **Leia as Diretrizes:** Entenda nossos padrões de escrita e qualidade.
+2. **Código de Conduta:** Conheça as regras para uma colaboração saudável.
+3. **Guia de Tradução:** Aprenda a localizar conteúdo de forma eficaz.
 
 ---
 
@@ -35,7 +35,7 @@ Sua ajuda aqui impacta diretamente a comunidade brasileira. Você pode:
 
 # Guia de Contribuição
 
-> **Bem-vindo(a) à central de colaboração da documentação n8n para a comunidade brasileira!** 👋
+> **Bem-vindo(a) à central de colaboração da documentação n8n para a comunidade brasileira!** 
 >
 > Este guia é o seu ponto de partida para construir uma documentação de excelência, feita **pela** comunidade brasileira e **para** a comunidade brasileira. Aqui você encontrará os padrões, ferramentas e orientações para garantir que sua contribuição seja clara, consistente e de alto impacto.
 >
@@ -71,7 +71,7 @@ Sua ajuda aqui impacta diretamente a comunidade brasileira. Você pode:
 
 ---
 
-> **✨ Sua contribuição transforma! Veja como:**
+> ** Sua contribuição transforma! Veja como:**
 >
 > Ao colaborar com esta documentação, você não está apenas corrigindo um texto. Você está:
 > - **Acelerando o aprendizado** de milhares de pessoas na comunidade n8n.
@@ -79,4 +79,4 @@ Sua ajuda aqui impacta diretamente a comunidade brasileira. Você pode:
 > - **Construindo um ativo coletivo**, que cresce e se aprimora com a participação de todos.
 > - **Deixando sua marca** em um projeto open source de impacto global.
 >
-> Cada linha que você melhora, cada exemplo que você adiciona e cada dúvida que você esclarece tem um efeito multiplicador. **Participe e ajude a construir a melhor e mais completa documentação do n8n para a comunidade brasileira!** 🇧🇷 
+> Cada linha que você melhora, cada exemplo que você adiciona e cada dúvida que você esclarece tem um efeito multiplicador. **Participe e ajude a construir a melhor e mais completa documentação do n8n para a comunidade brasileira!** 

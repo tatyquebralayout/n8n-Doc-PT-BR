@@ -2,6 +2,6 @@
 title: Como Contribuir
 ---
 
-# Como Contribuir
+# <IonicIcon name="git-pull-request-outline" size={32} color="#ea4b71" /> Como Contribuir
 
-Em construção... 
+**<IonicIcon name="construct-outline" size={16} color="#f59e0b" /> Em construção...** 

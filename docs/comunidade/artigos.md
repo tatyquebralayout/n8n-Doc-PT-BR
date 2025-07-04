@@ -43,4 +43,4 @@ Descubra os melhores artigos escritos pela comunidade brasileira do n8n. Desde t
 
 ## Como Submeter Seu Artigo
 
-Quer compartilhar seu conhecimento? Envie seu artigo para nossa newsletter mensal! 
+Quer compartilhar seu conhecimento? Envie o link do seu artigo, vídeo ou outro formato de conteúdo para [Ideias e Sugestões](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/discussions/categories/ideias-e-sugest%C3%B5es). 

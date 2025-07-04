@@ -11,11 +11,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Tutorial Básico',
+      className: 'sidebar-tutorial-basico',
       items: ['tutorial-basico/instalacao', 'tutorial-basico/conceitos-basicos', 'tutorial-basico/primeiro-workflow'],
     },
     {
       type: 'category',
       label: 'Usando n8n',
+      className: 'sidebar-usando-n8n',
       items: [
         {
           type: 'category',
@@ -37,6 +39,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Lógica e Dados',
+      className: 'sidebar-logica-dados',
       items: [
         {
           type: 'category',
@@ -68,8 +71,9 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Integrações',
+      className: 'sidebar-integracoes',
       items: [
-        'integracoes/overview',
+        'integracoes/index',
         {
           type: 'category',
           label: 'Nodes Integrados',
@@ -151,7 +155,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Community Nodes',
-          items: ['integracoes/community-nodes/overview', 'integracoes/community-nodes/instalacao', 'integracoes/community-nodes/populares'],
+          items: ['integracoes/community-nodes/index', 'integracoes/community-nodes/instalacao', 'integracoes/community-nodes/populares'],
         },
         {
           type: 'category',
@@ -163,6 +167,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Integrações Brasileiras',
+      className: 'sidebar-integracoes-br',
       items: [
         {
           type: 'category',
@@ -184,6 +189,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Hosting n8n',
+      className: 'sidebar-hosting',
       items: [
         'hosting-n8n/instalacao',
         {
@@ -211,6 +217,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Embed',
+      className: 'sidebar-embed',
       items: [
         {
           type: 'category',
@@ -232,6 +239,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'IA Avançada',
+      className: 'sidebar-ia-avancada',
       items: [
         'advanced-ai/tutorial-ai',
         'advanced-ai/langchain-overview',
@@ -239,7 +247,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Nodes de IA',
           items: [
-            'advanced-ai/nodes-ia/overview',
+            'advanced-ai/nodes-ia/index',
             'advanced-ai/nodes-ia/openai-chat',
             'advanced-ai/nodes-ia/memory-manager',
             'advanced-ai/nodes-ia/output-parser',
@@ -252,7 +260,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Exemplos e Casos',
           items: [
-            'advanced-ai/exemplos-casos/overview',
+            'advanced-ai/exemplos-casos/index',
             'advanced-ai/exemplos-casos/chatbot-suporte',
             'advanced-ai/exemplos-casos/classificacao-dados',
             'advanced-ai/exemplos-casos/geracao-conteudo',
@@ -264,27 +272,29 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'API',
+      className: 'sidebar-api',
       items: [
         {
           type: 'category',
           label: 'Conceitos',
-          items: ['api/conceitos/overview', 'api/conceitos/autenticacao', 'api/conceitos/paginacao'],
+          items: ['api/conceitos/index', 'api/conceitos/autenticacao', 'api/conceitos/paginacao'],
         },
         {
           type: 'category',
           label: 'Ferramentas',
-          items: ['api/ferramentas/overview', 'api/ferramentas/playground'],
+          items: ['api/ferramentas/index', 'api/ferramentas/playground'],
         },
         {
           type: 'category',
           label: 'Referência',
-          items: ['api/referencia/overview', 'api/referencia/referencia-api'],
+          items: ['api/referencia/index', 'api/referencia/referencia-api'],
         },
       ],
     },
     {
       type: 'category',
       label: 'Referência',
+      className: 'sidebar-referencia',
       items: [
         'referencia/index',
         {
@@ -312,8 +322,9 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Contribuir com o Projeto n8n',
+      className: 'sidebar-contribuir-projeto',
       items: [
-        'contribuir/projeto-n8n/overview',
+        'contribuir/projeto-n8n/index',
         'contribuir/projeto-n8n/contribuir-codigo-e-docs',
         'contribuir/projeto-n8n/contribuir-community',
         'contribuir/projeto-n8n/contribuir-modelos',
@@ -325,6 +336,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Contribuir com Esta Documentação',
+      className: 'sidebar-contribuir-docs',
       items: [
         'contribuir/esta-documentacao/index',
         'contribuir/esta-documentacao/por-que-contribuir',
@@ -358,13 +370,15 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Cursos em Vídeo',
-      items: ['cursos/cursos-em-video/overview', 'cursos/cursos-em-video/curso-iniciante', 'cursos/cursos-em-video/curso-avancado'],
+      className: 'sidebar-cursos-video',
+      items: ['cursos/cursos-em-video/index', 'cursos/cursos-em-video/curso-iniciante', 'cursos/cursos-em-video/curso-avancado'],
     },
     {
       type: 'category',
       label: 'Cursos em Texto',
+      className: 'sidebar-cursos-texto',
       items: [
-        'cursos/cursos-em-texto/overview',
+        'cursos/cursos-em-texto/index',
         {
           type: 'category',
           label: 'Nível 1',

@@ -1,4 +1,4 @@
-# 🛠️ Como Contribuir e Configurar o Ambiente
+# Como Contribuir e Configurar o Ambiente
 
 Este guia contém as instruções essenciais para configurar seu ambiente de desenvolvimento local e começar a contribuir para a Documentação n8n Brasil.
 
@@ -6,9 +6,9 @@ Este guia contém as instruções essenciais para configurar seu ambiente de des
 
 - **Node.js:** Versão LTS (Long-Term Support) é recomendada. Você pode baixar em [nodejs.org](https://nodejs.org/).
 - **pnpm:** Usamos o `pnpm` como nosso gerenciador de pacotes para garantir instalações rápidas e consistentes. Se você não o tiver, pode instalá-lo globalmente via npm:
-  ```bash
-  npm install -g pnpm
-  ```
+```bash
+npm install -g pnpm
+```
 
 ## Passos para Começar
 
@@ -16,11 +16,11 @@ Este guia contém as instruções essenciais para configurar seu ambiente de des
 Para evitar problemas com permissões e facilitar o envio de Pull Requests, o fluxo ideal é:
 - **Fork:** Primeiro, faça um [fork deste repositório](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/fork) para a sua própria conta no GitHub.
 - **Clone:** Em seguida, clone o *seu fork* para a sua máquina local.
-  ```bash
-  # Substitua SEU-USUARIO pelo seu nome de usuário no GitHub
-  git clone https://github.com/SEU-USUARIO/n8n-Doc-pt-BR.git
-  cd n8n-Doc-pt-BR
-  ```
+```bash
+# Substitua SEU-USUARIO pelo seu nome de usuário no GitHub
+git clone https://github.com/SEU-USUARIO/n8n-Doc-pt-BR.git
+cd n8n-Doc-pt-BR
+```
 
 ### 2. Instale as Dependências
 Com o `pnpm` instalado e dentro da pasta do projeto, rode o seguinte comando para instalar todas as dependências necessárias:

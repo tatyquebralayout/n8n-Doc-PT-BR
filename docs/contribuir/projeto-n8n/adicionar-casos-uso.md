@@ -5,7 +5,7 @@ description: Como estruturar e documentar casos de uso práticos para a comunida
 keywords: [n8n, casos de uso, exemplos, contribuir, automação, workflow]
 ---
 
-# 💡 Como Estruturar e Adicionar Casos de Uso
+# Como Estruturar e Adicionar Casos de Uso
 
 Compartilhar um caso de uso é uma das maneiras mais eficazes de contribuir. Um bom exemplo prático pode inspirar e ajudar dezenas de outros usuários. Um caso de uso bem estruturado é a base para um excelente **template de workflow** ou um **artigo de blog**.
 
@@ -32,15 +32,15 @@ Agora, transforme sua solução em conteúdo que possa ser compartilhado.
 - **A Solução:** Dê uma visão geral de como o workflow funciona.
 - **Ferramentas Utilizadas:** Liste os principais nodes e serviços (Ex: n8n, Google Sheets, Slack, OpenAI).
 - **Passo a Passo:** Detalhe as etapas mais importantes.
-  - Como configurar as credenciais.
-  - Quais opções marcar nos nodes-chave.
-  - Como lidar com a estrutura de dados (JSON) em pontos críticos.
+- Como configurar as credenciais.
+- Quais opções marcar nos nodes-chave.
+- Como lidar com a estrutura de dados (JSON) em pontos críticos.
 - **O Workflow (JSON):** Exporte o workflow e cole o código JSON em um bloco de código.
 
 ## 4. Compartilhe sua Criação
 Com o caso de uso bem documentado, você tem duas excelentes opções:
 
-1.  **Transforme em um Template:** Siga as diretrizes de [contribuição de modelos](./contribuir-modelos.md) e submeta seu workflow ao n8n Creator Hub.
-2.  **Escreva um Artigo para o Blog:** Use sua documentação como base para um tutorial e siga as diretrizes do [programa para criadores](./afiliados-e-creators.md).
+1. **Transforme em um Template:** Siga as diretrizes de [contribuição de modelos](./contribuir-modelos.md) e submeta seu workflow ao n8n Creator Hub.
+2. **Escreva um Artigo para o Blog:** Use sua documentação como base para um tutorial e siga as diretrizes do [programa para criadores](./afiliados-e-creators.md).
 
 Pensar em termos de "casos de uso" eleva a qualidade das suas contribuições e maximiza o impacto que você tem na comunidade n8n.

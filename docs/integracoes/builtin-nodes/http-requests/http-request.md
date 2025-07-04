@@ -5,55 +5,55 @@ description: Fazer chamadas HTTP para APIs e serviços externos
 keywords: [n8n, http, request, api, rest, webhook]
 ---
 
-# 🌐 HTTP Request Node
+# <IonicIcon name="cloud-outline" size={32} color="#ea4b71" /> HTTP Request Node
 
 O **HTTP Request Node** permite fazer **chamadas HTTP** para qualquer API ou serviço web. É o node mais versátil para integrar com sistemas externos que não possuem nodes dedicados.
 
-## 🎯 **Conceito Principal**
+## <IonicIcon name="bulb-outline" size={24} color="#ea4b71" /> **Conceito Principal**
 
 **HTTP Request = "Fazer Chamada para API"**
 
 Este node é uma **AÇÃO** que:
-- ✅ **Envia** requisições HTTP (GET, POST, PUT, DELETE)
-- ✅ **Recebe** respostas de APIs
-- ✅ **Autentica** com diferentes métodos
-- ✅ **Processa** dados de entrada e saída
+- <IonicIcon name="send-outline" size={16} color="#6b7280" /> **Envia** requisições HTTP (GET, POST, PUT, DELETE)
+- <IonicIcon name="download-outline" size={16} color="#6b7280" /> **Recebe** respostas de APIs
+- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> **Autentica** com diferentes métodos
+- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Processa** dados de entrada e saída
 
-> **💡 Diferença do Webhook:** HTTP Request FAZ chamadas. Webhook RECEBE chamadas.
+> **<IonicIcon name="information-circle-outline" size={16} color="#ea4b71" /> Diferença do Webhook:** HTTP Request FAZ chamadas. Webhook RECEBE chamadas.
 
-## ⚙️ **Configurações Principais**
+## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> **Configurações Principais**
 
-### **1. Request Method**
+### <IonicIcon name="arrow-forward-outline" size={20} color="#10b981" /> **1. Request Method**
 ```
-GET    - Buscar dados (não modifica)
-POST   - Criar novos dados
-PUT    - Atualizar dados completos
-PATCH  - Atualizar dados parciais
+GET - Buscar dados (não modifica)
+POST - Criar novos dados
+PUT - Atualizar dados completos
+PATCH - Atualizar dados parciais
 DELETE - Remover dados
 ```
 
-### **2. URL**
+### <IonicIcon name="globe-outline" size={20} color="#10b981" /> **2. URL**
 ```
 https://api.exemplo.com/v1/usuarios
 https://jsonplaceholder.typicode.com/posts
 https://api.github.com/users/{{$json.username}}
 ```
 
-### **3. Authentication**
-- **None** - Sem autenticação
-- **Basic Auth** - Usuário/senha
-- **Header Auth** - Token no cabeçalho
-- **OAuth2** - Fluxo OAuth completo
-- **Custom** - Autenticação personalizada
+### <IonicIcon name="key-outline" size={20} color="#10b981" /> **3. Authentication**
+- <IonicIcon name="close-outline" size={16} color="#6b7280" /> **None** - Sem autenticação
+- <IonicIcon name="person-outline" size={16} color="#6b7280" /> **Basic Auth** - Usuário/senha
+- <IonicIcon name="document-outline" size={16} color="#6b7280" /> **Header Auth** - Token no cabeçalho
+- <IonicIcon name="shield-outline" size={16} color="#6b7280" /> **OAuth2** - Fluxo OAuth completo
+- <IonicIcon name="code-outline" size={16} color="#6b7280" /> **Custom** - Autenticação personalizada
 
-### **4. Headers**
+### <IonicIcon name="list-outline" size={20} color="#10b981" /> **4. Headers**
 ```
 Content-Type: application/json
 Authorization: Bearer {{$json.token}}
 User-Agent: n8n-workflow/1.0
 ```
 
-## 📊 **Exemplos Práticos**
+## **Exemplos Práticos**
 
 ### **Exemplo 1: Consultar CEP (ViaCEP)**
 
@@ -66,23 +66,23 @@ URL: https://viacep.com.br/ws/{{$json.cep}}/json/
 **Entrada:**
 ```json
 {
-  "cep": "01310-100"
+"cep": "01310-100"
 }
 ```
 
 **Saída:**
 ```json
 {
-  "cep": "01310-100",
-  "logradouro": "Avenida Paulista",
-  "complemento": "",
-  "bairro": "Bela Vista", 
-  "localidade": "São Paulo",
-  "uf": "SP",
-  "ibge": "3550308",
-  "gia": "1004",
-  "ddd": "11",
-  "siafi": "7107"
+"cep": "01310-100",
+"logradouro": "Avenida Paulista",
+"complemento": "",
+"bairro": "Bela Vista", 
+"localidade": "São Paulo",
+"uf": "SP",
+"ibge": "3550308",
+"gia": "1004",
+"ddd": "11",
+"siafi": "7107"
 }
 ```
 
@@ -95,29 +95,29 @@ URL: https://viacep.com.br/ws/{{$json.cep}}/json/
 Method: POST
 URL: https://jsonplaceholder.typicode.com/users
 Headers:
-  Content-Type: application/json
+Content-Type: application/json
 ```
 
 **Body (JSON):**
 ```json
 {
-  "name": "{{$json.nome}}",
-  "email": "{{$json.email}}",
-  "username": "{{$json.nome.toLowerCase().replace(' ', '_')}}",
-  "address": {
-    "street": "{{$json.endereco}}",
-    "city": "{{$json.cidade}}"
-  }
+"name": "{{$json.nome}}",
+"email": "{{$json.email}}",
+"username": "{{$json.nome.toLowerCase().replace(' ', '_')}}",
+"address": {
+"street": "{{$json.endereco}}",
+"city": "{{$json.cidade}}"
+}
 }
 ```
 
 **Entrada:**
 ```json
 {
-  "nome": "João Silva",
-  "email": "joao@email.com",
-  "endereco": "Rua das Flores, 123",
-  "cidade": "São Paulo"
+"nome": "João Silva",
+"email": "joao@email.com",
+"endereco": "Rua das Flores, 123",
+"cidade": "São Paulo"
 }
 ```
 
@@ -130,21 +130,21 @@ Headers:
 Method: POST
 URL: https://slack.com/api/users.profile.set
 Headers:
-  Authorization: Bearer {{$credentials.slackApi.token}}
-  Content-Type: application/json
+Authorization: Bearer {{$credentials.slackApi.token}}
+Content-Type: application/json
 ```
 
 **Body:**
 ```json
 {
-  "profile": {
-    "status_text": "{{$json.status}}",
-    "status_emoji": "{{$json.emoji}}"
-  }
+"profile": {
+"status_text": "{{$json.status}}",
+"status_emoji": "{{$json.emoji}}"
+}
 }
 ```
 
-## 🔐 **Autenticação**
+## **Autenticação**
 
 ### **1. API Key no Header**
 ```
@@ -154,7 +154,7 @@ Value: sua-chave-api-aqui
 
 ### **2. Bearer Token**
 ```
-Header: Authorization  
+Header: Authorization 
 Value: Bearer {{$json.access_token}}
 ```
 
@@ -173,15 +173,15 @@ Client ID: {{$credentials.oauth.clientId}}
 Client Secret: {{$credentials.oauth.clientSecret}}
 ```
 
-## 🔄 **Processamento de Dados**
+## **Processamento de Dados**
 
 ### **Query Parameters**
 ```
 URL: https://api.exemplo.com/search
 Parameters:
-  q: {{$json.busca}}
-  limit: 10
-  offset: {{$json.page * 10}}
+q: {{$json.busca}}
+limit: 10
+offset: {{$json.page * 10}}
 ```
 
 ### **Form Data**
@@ -199,15 +199,15 @@ file: {{$binary.arquivo}}
 description: {{$json.descricao}}
 ```
 
-## 📈 **Tratamento de Respostas**
+## **Tratamento de Respostas**
 
 ### **Status Codes**
 ```javascript
 // Verificar sucesso
 if ($response.statusCode >= 200 && $response.statusCode < 300) {
-  // Sucesso
+// Sucesso
 } else {
-  // Erro
+// Erro
 }
 ```
 
@@ -228,11 +228,11 @@ const nextPage = $response.headers['link'];
 // Próxima página
 const nextUrl = $response.body.pagination.next_url;
 if (nextUrl) {
-  // Fazer próxima chamada
+// Fazer próxima chamada
 }
 ```
 
-## 🚨 **Tratamento de Erros**
+## **Tratamento de Erros**
 
 ### **Retry Logic**
 ```
@@ -244,21 +244,21 @@ Wait Between Tries: 1000ms (1 segundo)
 ```javascript
 // Capturar erro específico
 try {
-  // Fazer requisição
+// Fazer requisição
 } catch (error) {
-  if (error.httpCode === 429) {
-    // Rate limit - aguardar
-    await new Promise(resolve => setTimeout(resolve, 60000));
-  } else if (error.httpCode === 404) {
-    // Recurso não encontrado
-    return { found: false };
-  } else {
-    throw error;
-  }
+if (error.httpCode === 429) {
+// Rate limit - aguardar
+await new Promise(resolve => setTimeout(resolve, 60000));
+} else if (error.httpCode === 404) {
+// Recurso não encontrado
+return { found: false };
+} else {
+throw error;
+}
 }
 ```
 
-## 🔗 **APIs Brasileiras Populares**
+## **APIs Brasileiras Populares**
 
 ### **ViaCEP**
 ```
@@ -281,7 +281,7 @@ Headers: Authorization: Bearer {{$json.token}}
 GET https://api.correios.com.br/sro/v1/objetos/{{$json.codigo}}
 ```
 
-## ⚡ **Dicas de Performance**
+## **Dicas de Performance**
 
 ### **1. Reutilizar Conexões**
 ```
@@ -305,21 +305,21 @@ Accept-Encoding: gzip, deflate
 await new Promise(resolve => setTimeout(resolve, 100));
 ```
 
-## 🔧 **Debugging**
+## **Debugging**
 
 ### **1. Log Completo**
 ```javascript
 console.log('Request:', {
-  method: 'POST',
-  url: 'https://api.exemplo.com/dados',
-  headers: $request.headers,
-  body: $request.body
+method: 'POST',
+url: 'https://api.exemplo.com/dados',
+headers: $request.headers,
+body: $request.body
 });
 
 console.log('Response:', {
-  status: $response.statusCode,
-  headers: $response.headers,
-  body: $response.body
+status: $response.statusCode,
+headers: $response.headers,
+body: $response.body
 });
 ```
 
@@ -332,7 +332,7 @@ URL: https://webhook.site/seu-uuid
 ### **3. Postman/Insomnia**
 Teste a API primeiro antes de usar no n8n.
 
-## 📊 **Casos de Uso Comuns**
+## **Casos de Uso Comuns**
 
 ### **1. Integração CRM**
 ```
@@ -342,7 +342,7 @@ Criar leads de formulários
 
 ### **2. Notificações**
 ```
-POST /api/notifications  
+POST /api/notifications 
 Enviar alertas personalizados
 ```
 
@@ -359,7 +359,7 @@ POST https://meu-sistema.com/webhook
 Notificar sistemas internos
 ```
 
-## 🔗 **Próximos Passos**
+## **Próximos Passos**
 
 1. **[Webhook Node](./webhook)** - Para receber chamadas HTTP
 2. **[Set Node](../data-processing/set)** - Para manipular dados
@@ -367,4 +367,4 @@ Notificar sistemas internos
 
 ---
 
-**🌐 HTTP Request = Sua ponte para qualquer API do mundo!** 
+** HTTP Request = Sua ponte para qualquer API do mundo!** 

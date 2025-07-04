@@ -72,6 +72,17 @@ const config: Config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: 'https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js',
+      type: 'module',
+    },
+    {
+      src: 'https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js',
+      nomodule: true,
+    },
+  ],
+
   themeConfig: {
     image: 'img/n8n-social-card.jpg',
     
@@ -161,7 +172,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: '📚 Documentação',
+          title: 'Documentação',
           items: [
             {
               label: 'Começar',
@@ -203,7 +214,7 @@ const config: Config = {
           ],
         },
         {
-          title: '🤝 Comunidade',
+          title: 'Comunidade',
           items: [
             {
               label: 'Central da Comunidade',
@@ -228,7 +239,7 @@ const config: Config = {
           ],
         },
         {
-          title: '🔗 Links Úteis',
+          title: 'Links Úteis',
           items: [
             {
               label: 'n8n Oficial',
@@ -249,7 +260,7 @@ const config: Config = {
           ],
         },
         {
-          title: '💡 Iniciativa',
+          title: 'Iniciativa',
           items: [
             {
               html: `
@@ -289,7 +300,7 @@ const config: Config = {
           <div style="display: flex; align-items: center; gap: 0.5rem;">
             <span>© ${new Date().getFullYear()} n8n Documentation Brasil</span>
             <span style="color: #ea4b71;">•</span>
-            <span>Feito com ❤️ pela comunidade</span>
+            <span>Feito com <span style="color: #ea4b71;">♥</span> pela comunidade</span>
           </div>
           <div style="font-size: 0.875rem; color: #6b7280;">
             <span>Documentação não oficial do n8n</span>
@@ -311,7 +322,7 @@ const config: Config = {
     colorMode: {
       defaultMode: 'light',
       disableSwitch: false,
-      respectPrefersColorScheme: true,
+      respectPrefersColorScheme: false,
     },
 
     docs: {

@@ -5,7 +5,7 @@ description: Encontre a documentação detalhada para cada endpoint da API REST 
 keywords: [n8n, api, referência, endpoints, documentação]
 ---
 
-# 📖 Visão Geral - Referência da API
+# Visão Geral - Referência da API
 
 Bem-vindo à **Referência Completa da API** do n8n. Esta seção é o seu guia definitivo para todos os endpoints disponíveis, servindo como um manual técnico para desenvolvedores que precisam de informações detalhadas sobre cada recurso da API.
 

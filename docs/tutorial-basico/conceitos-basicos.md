@@ -5,66 +5,66 @@ description: Conceitos fundamentais do n8n que você precisa conhecer
 keywords: [n8n, conceitos, workflows, nodes, automação]
 ---
 
-# Conceitos Básicos do n8n
+# <IonicIcon name="bulb-outline" size={32} color="#ea4b71" /> Conceitos Básicos do n8n
 
 Antes de começar a criar seus workflows, é importante entender os conceitos fundamentais do n8n.
 
-## 🔗 O que são Workflows?
+## <IonicIcon name="git-network-outline" size={24} color="#ea4b71" /> O que são Workflows?
 
 Um **workflow** é uma sequência de tarefas automatizadas que são executadas em uma ordem específica. No n8n, workflows são representados visualmente como um fluxograma.
 
-### Características dos Workflows
-- **Visual**: Interface de arrastar e soltar
-- **Flexível**: Pode ser simples ou complexo
-- **Reutilizável**: Pode ser executado múltiplas vezes
-- **Escalável**: Suporta desde tarefas simples até processos complexos
+### <IonicIcon name="star-outline" size={20} color="#10b981" /> Características dos Workflows
+- <IonicIcon name="eye-outline" size={16} color="#6b7280" /> **Visual**: Interface de arrastar e soltar
+- <IonicIcon name="options-outline" size={16} color="#6b7280" /> **Flexível**: Pode ser simples ou complexo
+- <IonicIcon name="refresh-outline" size={16} color="#6b7280" /> **Reutilizável**: Pode ser executado múltiplas vezes
+- <IonicIcon name="trending-up-outline" size={16} color="#6b7280" /> **Escalável**: Suporta desde tarefas simples até processos complexos
 
-## 🧩 O que são Nodes?
+## <IonicIcon name="shapes-outline" size={24} color="#ea4b71" /> O que são Nodes?
 
 **Nodes** são os blocos de construção dos workflows. Cada node representa uma tarefa específica ou uma integração com um serviço.
 
-### Tipos de Nodes
+### <IonicIcon name="list-outline" size={20} color="#10b981" /> Tipos de Nodes
 
-#### 🚀 Trigger Nodes
+#### <IonicIcon name="play-outline" size={18} color="#10b981" /> Trigger Nodes
 Iniciam a execução do workflow:
-- **Webhook**: Recebe dados via HTTP
-- **Schedule**: Executa em horários específicos
-- **Manual Trigger**: Execução manual
+- <IonicIcon name="globe-outline" size={16} color="#6b7280" /> **Webhook**: Recebe dados via HTTP
+- <IonicIcon name="time-outline" size={16} color="#6b7280" /> **Schedule**: Executa em horários específicos
+- <IonicIcon name="hand-left-outline" size={16} color="#6b7280" /> **Manual Trigger**: Execução manual
 
-#### ⚙️ Regular Nodes
+#### <IonicIcon name="cog-outline" size={18} color="#10b981" /> Regular Nodes
 Executam tarefas específicas:
-- **HTTP Request**: Faz requisições para APIs
-- **Set**: Manipula dados
-- **IF**: Lógica condicional
+- <IonicIcon name="cloud-outline" size={16} color="#6b7280" /> **HTTP Request**: Faz requisições para APIs
+- <IonicIcon name="create-outline" size={16} color="#6b7280" /> **Set**: Manipula dados
+- <IonicIcon name="git-branch-outline" size={16} color="#6b7280" /> **IF**: Lógica condicional
 
-#### 📤 Output Nodes
+#### <IonicIcon name="arrow-forward-outline" size={18} color="#10b981" /> Output Nodes
 Enviam dados para destinos externos:
-- **Email**: Envia emails
-- **Database**: Salva em banco de dados
-- **File**: Salva arquivos
+- <IonicIcon name="mail-outline" size={16} color="#6b7280" /> **Email**: Envia emails
+- <IonicIcon name="server-outline" size={16} color="#6b7280" /> **Database**: Salva em banco de dados
+- <IonicIcon name="document-outline" size={16} color="#6b7280" /> **File**: Salva arquivos
 
-## 📊 Fluxo de Dados
+## <IonicIcon name="swap-horizontal-outline" size={24} color="#ea4b71" /> Fluxo de Dados
 
-### Como os Dados Fluem
-1. **Input**: Dados entram via trigger
-2. **Processing**: Nodes processam e transformam
-3. **Output**: Dados são enviados ao destino final
+### <IonicIcon name="arrow-forward-circle-outline" size={20} color="#10b981" /> Como os Dados Fluem
+1. <IonicIcon name="enter-outline" size={16} color="#6b7280" /> **Input**: Dados entram via trigger
+2. <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Processing**: Nodes processam e transformam
+3. <IonicIcon name="exit-outline" size={16} color="#6b7280" /> **Output**: Dados são enviados ao destino final
 
 ### Formato dos Dados
 ```json
 {
-  "id": 1,
-  "name": "João Silva",
-  "email": "joao@exemplo.com",
-  "timestamp": "2025-01-15T10:30:00Z"
+"id": 1,
+"name": "João Silva",
+"email": "joao@exemplo.com",
+"timestamp": "2025-01-15T10:30:00Z"
 }
 ```
 
-## 🔧 Expressões
+## <IonicIcon name="code-slash-outline" size={24} color="#ea4b71" /> Expressões
 
 Expressões permitem manipular dados dinamicamente usando JavaScript.
 
-### Exemplos Básicos
+### <IonicIcon name="library-outline" size={20} color="#10b981" /> Exemplos Básicos
 ```javascript
 // Acessar dados do item anterior
 {{ $json.nome }}
@@ -79,67 +79,67 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 {{ new Date($json.data).toLocaleDateString('pt-BR') }}
 ```
 
-## 🔗 Conexões
+## <IonicIcon name="link-outline" size={24} color="#ea4b71" /> Conexões
 
-### Como Conectar Nodes
-- **Clique e arraste** da saída de um node para a entrada de outro
-- **Múltiplas conexões** são permitidas
-- **Diferentes tipos** de dados podem fluir pelas conexões
+### <IonicIcon name="attach-outline" size={20} color="#10b981" /> Como Conectar Nodes
+- <IonicIcon name="move-outline" size={16} color="#6b7280" /> **Clique e arraste** da saída de um node para a entrada de outro
+- <IonicIcon name="git-network-outline" size={16} color="#6b7280" /> **Múltiplas conexões** são permitidas
+- <IonicIcon name="swap-horizontal-outline" size={16} color="#6b7280" /> **Diferentes tipos** de dados podem fluir pelas conexões
 
-### Tipos de Conexões
-- **Main**: Fluxo principal de dados
-- **Error**: Tratamento de erros
-- **Optional**: Conexões opcionais
+### <IonicIcon name="list-outline" size={20} color="#10b981" /> Tipos de Conexões
+- <IonicIcon name="arrow-forward-outline" size={16} color="#6b7280" /> **Main**: Fluxo principal de dados
+- <IonicIcon name="alert-circle-outline" size={16} color="#6b7280" /> **Error**: Tratamento de erros
+- <IonicIcon name="ellipsis-horizontal-outline" size={16} color="#6b7280" /> **Optional**: Conexões opcionais
 
-## 💾 Credenciais
+## <IonicIcon name="key-outline" size={24} color="#ea4b71" /> Credenciais
 
-### Gerenciamento Seguro
-- **Criptografadas**: Todas as credenciais são criptografadas
-- **Reutilizáveis**: Uma credencial pode ser usada em múltiplos nodes
-- **Testáveis**: Pode testar conectividade antes de salvar
+### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Gerenciamento Seguro
+- <IonicIcon name="lock-closed-outline" size={16} color="#6b7280" /> **Criptografadas**: Todas as credenciais são criptografadas
+- <IonicIcon name="refresh-outline" size={16} color="#6b7280" /> **Reutilizáveis**: Uma credencial pode ser usada em múltiplos nodes
+- <IonicIcon name="checkmark-circle-outline" size={16} color="#6b7280" /> **Testáveis**: Pode testar conectividade antes de salvar
 
-### Tipos Comuns
-- **API Keys**: Para serviços web
-- **OAuth2**: Para autenticação moderna
-- **Usuário/Senha**: Para bancos de dados
-- **Certificates**: Para conexões SSL
+### <IonicIcon name="options-outline" size={20} color="#10b981" /> Tipos Comuns
+- <IonicIcon name="key-outline" size={16} color="#6b7280" /> **API Keys**: Para serviços web
+- <IonicIcon name="shield-outline" size={16} color="#6b7280" /> **OAuth2**: Para autenticação moderna
+- <IonicIcon name="person-outline" size={16} color="#6b7280" /> **Usuário/Senha**: Para bancos de dados
+- <IonicIcon name="document-lock-outline" size={16} color="#6b7280" /> **Certificates**: Para conexões SSL
 
-## ⚡ Execução
+## <IonicIcon name="play-circle-outline" size={24} color="#ea4b71" /> Execução
 
-### Modos de Execução
-- **Manual**: Executado pelo usuário
-- **Trigger**: Executado automaticamente
-- **Webhook**: Executado via HTTP
-- **Schedule**: Executado em horários definidos
+### <IonicIcon name="options-outline" size={20} color="#10b981" /> Modos de Execução
+- <IonicIcon name="hand-left-outline" size={16} color="#6b7280" /> **Manual**: Executado pelo usuário
+- <IonicIcon name="flash-outline" size={16} color="#6b7280" /> **Trigger**: Executado automaticamente
+- <IonicIcon name="globe-outline" size={16} color="#6b7280" /> **Webhook**: Executado via HTTP
+- <IonicIcon name="time-outline" size={16} color="#6b7280" /> **Schedule**: Executado em horários definidos
 
-### Estados de Execução
-- ✅ **Success**: Executado com sucesso
-- ❌ **Error**: Falha na execução
-- ⏸️ **Waiting**: Aguardando entrada
-- 🔄 **Running**: Em execução
+### <IonicIcon name="pulse-outline" size={20} color="#10b981" /> Estados de Execução
+- <IonicIcon name="checkmark-circle-outline" size={16} color="#6b7280" /> **Success**: Executado com sucesso
+- <IonicIcon name="close-circle-outline" size={16} color="#6b7280" /> **Error**: Falha na execução
+- <IonicIcon name="time-outline" size={16} color="#6b7280" /> **Waiting**: Aguardando entrada
+- <IonicIcon name="play-outline" size={16} color="#6b7280" /> **Running**: Em execução
 
-## 📈 Debugging
+## <IonicIcon name="bug-outline" size={24} color="#ea4b71" /> Debugging
 
-### Ferramentas de Debug
-- **Execution Log**: Histórico detalhado
-- **Data Viewer**: Visualizar dados em cada step
-- **Error Details**: Informações de erro
-- **Performance Metrics**: Tempo de execução
+### <IonicIcon name="build-outline" size={20} color="#10b981" /> Ferramentas de Debug
+- <IonicIcon name="list-outline" size={16} color="#6b7280" /> **Execution Log**: Histórico detalhado
+- <IonicIcon name="eye-outline" size={16} color="#6b7280" /> **Data Viewer**: Visualizar dados em cada step
+- <IonicIcon name="alert-circle-outline" size={16} color="#6b7280" /> **Error Details**: Informações de erro
+- <IonicIcon name="speedometer-outline" size={16} color="#6b7280" /> **Performance Metrics**: Tempo de execução
 
-### Dicas de Debugging
-1. **Execute step by step** para identificar problemas
-2. **Verifique os dados** em cada node
-3. **Use console.log** em expressões JavaScript
-4. **Teste credenciais** separadamente
+### <IonicIcon name="bulb-outline" size={20} color="#10b981" /> Dicas de Debugging
+1. <IonicIcon name="footsteps-outline" size={16} color="#6b7280" /> **Execute step by step** para identificar problemas
+2. <IonicIcon name="search-outline" size={16} color="#6b7280" /> **Verifique os dados** em cada node
+3. <IonicIcon name="terminal-outline" size={16} color="#6b7280" /> **Use console.log** em expressões JavaScript
+4. <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> **Teste credenciais** separadamente
 
-## 🎯 Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" size={24} color="#ea4b71" /> Próximos Passos
 
 Agora que você entende os conceitos básicos, está pronto para:
 
-1. **[Criar seu primeiro workflow](./primeiro-workflow)**
-2. **[Explorar integrações disponíveis](../integracoes/http-request)**
-3. **[Configurar triggers](../workflows/triggers)**
-4. **[Aprender sobre deployment](../deployment/docker/introducao)**
+1. <IonicIcon name="create-outline" size={16} color="#6b7280" /> **[Criar seu primeiro workflow](./primeiro-workflow)**
+2. <IonicIcon name="extension-puzzle-outline" size={16} color="#6b7280" /> **[Explorar integrações disponíveis](../integracoes/http-request)**
+3. <IonicIcon name="flash-outline" size={16} color="#6b7280" /> **[Configurar triggers](../workflows/triggers)**
+4. <IonicIcon name="rocket-outline" size={16} color="#6b7280" /> **[Aprender sobre deployment](../deployment/docker/introducao)**
 
 :::tip Dica Pro
 Comece sempre com workflows simples e vá aumentando a complexidade gradualmente. O n8n é muito poderoso, mas é melhor dominar o básico primeiro!

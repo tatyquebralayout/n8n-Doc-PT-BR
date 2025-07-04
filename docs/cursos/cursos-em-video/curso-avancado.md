@@ -5,13 +5,13 @@ description: Resumo dos tópicos do curso oficial avançado do n8n no YouTube.
 keywords: [n8n, curso, vídeo, avançado, youtube, tutorial]
 ---
 
-# 🚀 Curso em Vídeo - Avançado
+# Curso em Vídeo - Avançado
 
 Este curso em vídeo oficial do n8n, disponível no YouTube, é para usuários que já dominam o básico e querem aprofundar em tópicos técnicos e recursos empresariais.
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/g1GkX1BH89E" title="n8n Advanced Course - Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-**[➡️ Assista à playlist completa no YouTube ↗](https://www.youtube.com/watch?v=g1GkX1BH89E&list=PL8p-62yr-wG4a2c5a_z9sDq_aV2T-tOkb)**
+**[ Assista à playlist completa no YouTube ↗](https://www.youtube.com/watch?v=g1GkX1BH89E&list=PL8p-62yr-wG4a2c5a_z9sDq_aV2T-tOkb)**
 
 ## Tópicos Abordados:
 

@@ -5,7 +5,7 @@ description: Saiba como contribuir diretamente para o projeto open-source global
 keywords: [n8n, contribuir, projeto oficial, open source, código, global]
 ---
 
-# 🚀 Visão Geral - Projeto Oficial n8n
+# Visão Geral - Projeto Oficial n8n
 
 Bem-vindo à seção sobre como **contribuir diretamente para o projeto oficial e global do n8n**. As contribuições feitas aqui impactam o produto usado por milhares de pessoas no mundo todo.
 

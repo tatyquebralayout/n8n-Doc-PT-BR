@@ -5,7 +5,7 @@ description: Como criar e submeter seus workflows para a galeria de templates of
 keywords: [n8n, modelos, templates, contribuir, workflows, creator hub]
 ---
 
-# 📋 Contribuir com Modelos e Templates
+# Contribuir com Modelos e Templates
 
 Uma maneira fantástica de contribuir com o ecossistema n8n é criando e compartilhando workflows que podem ser usados por outros usuários como templates. Se você construiu uma automação útil, ela pode ser um excelente ponto de partida para milhares de pessoas.
 
@@ -24,12 +24,12 @@ O n8n centraliza o processo de submissão e gerenciamento de templates através 
 
 O processo exato pode mudar, mas a referência principal é sempre o hub oficial.
 
-1.  **Acesse o Creator Hub:** A documentação oficial direciona os criadores para uma página no Notion que contém todas as informações atualizadas sobre o programa.
-    
-    **➡️ [Visite o n8n Creator Hub](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f)**
+1. **Acesse o Creator Hub:** A documentação oficial direciona os criadores para uma página no Notion que contém todas as informações atualizadas sobre o programa.
 
-2.  **Siga as Instruções:** No Creator Hub, você encontrará as diretrizes mais recentes sobre como formatar e submeter seus workflows.
+** [Visite o n8n Creator Hub](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f)**
 
-3.  **Torne-se um Creator:** O programa oferece uma oportunidade para você se tornar um criador de conteúdo reconhecido na comunidade n8n.
+2. **Siga as Instruções:** No Creator Hub, você encontrará as diretrizes mais recentes sobre como formatar e submeter seus workflows.
+
+3. **Torne-se um Creator:** O programa oferece uma oportunidade para você se tornar um criador de conteúdo reconhecido na comunidade n8n.
 
 Ao contribuir com templates, você não apenas ajuda outros usuários, mas também ganha visibilidade e constrói sua reputação como um especialista em automação com n8n.

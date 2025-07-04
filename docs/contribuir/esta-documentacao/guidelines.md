@@ -5,9 +5,9 @@ description: Diretrizes específicas para contribuir com esta documentação bra
 keywords: [n8n, contribuir, documentação, diretrizes, brasil]
 ---
 
-# 📋 Diretrizes para Contribuir com Esta Documentação
+# Diretrizes para Contribuir com Esta Documentação
 
-## 🎯 Propósito
+## Propósito
 
 Este documento estabelece as **diretrizes específicas** para contribuir com esta documentação brasileira do n8n. 
 
@@ -15,9 +15,9 @@ Este documento estabelece as **diretrizes específicas** para contribuir com est
 Estas diretrizes são para contribuir com **ESTA documentação técnica**. Para contribuir com o projeto n8n em si, veja a seção "Projeto n8n".
 :::
 
-## 📝 Padrões de Conteúdo
+## Padrões de Conteúdo
 
-### 🇧🇷 Idioma e Localização
+### Idioma e Localização
 
 - **Português brasileiro** exclusivamente
 - Adaptar exemplos para o contexto brasileiro
@@ -25,7 +25,7 @@ Estas diretrizes são para contribuir com **ESTA documentação técnica**. Para
 - Referenciar serviços populares no Brasil
 - Considerar fuso horário brasileiro
 
-### 📊 Estrutura de Documento
+### Estrutura de Documento
 
 #### Frontmatter Obrigatório
 ```yaml
@@ -43,18 +43,18 @@ keywords: [n8n, palavra-chave-1, palavra-chave-2]
 
 Introdução clara do que será abordado.
 
-## 🎯 O que você vai aprender
+## O que você vai aprender
 
 - Objetivo 1
 - Objetivo 2
 - Objetivo 3
 
-## 📋 Pré-requisitos
+## Pré-requisitos
 
 - Requisito necessário 1
 - Requisito necessário 2
 
-## 🔧 Implementação
+## Implementação
 
 ### Passo 1: Título do Passo
 Explicação detalhada...
@@ -62,28 +62,28 @@ Explicação detalhada...
 ### Passo 2: Próximo Passo
 Continuação lógica...
 
-## ✅ Verificação
+## Verificação
 
 Como confirmar que funcionou.
 
-## 🎯 Próximos Passos
+## Próximos Passos
 
 Links para documentos relacionados.
 ```
 
-### 🎨 Elementos Visuais
+### Elementos Visuais
 
 #### Emojis Padronizados
 | Contexto | Emoji | Uso |
 |----------|-------|-----|
-| Início/Começar | 🚀 | Primeiros passos, instalação |
-| Configuração | 🔧 | Setup, configurações |
-| Dados | 📊 | Manipulação de dados |
-| Integração | 🔗 | Conectores, APIs |
-| Segurança | 🛡️ | Autenticação, proteção |
-| Nuvem | ☁️ | Cloud, hospedagem |
-| Container | 🐳 | Docker, containerização |
-| Interface | 🎨 | UI, design, visual |
+| Início/Começar | | Primeiros passos, instalação |
+| Configuração | | Setup, configurações |
+| Dados | | Manipulação de dados |
+| Integração | | Conectores, APIs |
+| Segurança | | Autenticação, proteção |
+| Nuvem | | Cloud, hospedagem |
+| Container | | Docker, containerização |
+| Interface | | UI, design, visual |
 
 #### Admonições
 ```markdown
@@ -114,31 +114,31 @@ npm install n8n
 ```javascript title="config.js"
 // Código JavaScript com título
 const config = {
-  host: 'localhost',
-  port: 5678
+host: 'localhost',
+port: 5678
 };
 ```
 ```
 
-## 🗂️ Organização e Navegação
+## Organização e Navegação
 
-### 📁 Estrutura de Pastas
+### Estrutura de Pastas
 
 - **Organize por função**, não por tipo
 - **Use subpastas** quando há mais de 3 arquivos relacionados
 - **Nomes descritivos** em kebab-case
 - **Sem acentos** nos nomes de arquivo
 
-### 🧭 Sidebar
+### Sidebar
 
 - **Ordem lógica** de aprendizado
 - **Agrupamento temático** claro
 - **Labels descritivos** com emojis
 - **Hierarquia** máxima de 3 níveis
 
-## ✅ Qualidade e Revisão
+## Qualidade e Revisão
 
-### 📝 Checklist de Conteúdo
+### Checklist de Conteúdo
 
 - [ ] Português correto e fluente
 - [ ] Exemplos testados e funcionais
@@ -147,21 +147,21 @@ const config = {
 - [ ] Código formatado corretamente
 - [ ] Estrutura seguindo padrão estabelecido
 
-### 🔍 Revisão Técnica
+### Revisão Técnica
 
 - [ ] Informações atualizadas
 - [ ] Comandos testados
 - [ ] Screenshots atuais da interface
 - [ ] Compatibilidade com versão mais recente do n8n
 
-### 🎨 Revisão Visual
+### Revisão Visual
 
 - [ ] Formatação consistente
 - [ ] Emojis seguindo padrão
 - [ ] Admonições apropriadas
 - [ ] Hierarquia de títulos correta
 
-## 🚀 Processo de Contribuição
+## Processo de Contribuição
 
 ### 1. Planejamento
 - Verificar se o tópico já existe
@@ -183,56 +183,56 @@ const config = {
 - Descrição clara das mudanças
 - Screenshots se aplicável
 
-## 🎯 Tipos de Contribuição
+## Tipos de Contribuição
 
-### 📚 **Documentação Nova**
+### **Documentação Nova**
 - Tutoriais de workflows específicos
 - Guias de integrações brasileiras
 - Casos de uso práticos
 - Troubleshooting comum
 
-### 🔧 **Melhorias Existentes**
+### **Melhorias Existentes**
 - Atualização de conteúdo desatualizado
 - Correção de erros
 - Melhoria na clareza
 - Adição de exemplos
 
-### 🌟 **Enriquecimento**
+### **Enriquecimento**
 - Screenshots atualizados
 - Vídeos explicativos
 - Diagramas ilustrativos
 - Exemplos mais detalhados
 
-## 🚫 O que Evitar
+## O que Evitar
 
-### ❌ Não Fazer
+### Não Fazer
 - Copiar conteúdo da documentação oficial sem adaptação
 - Usar anglicismos desnecessários
 - Criar documentos muito longos (>2000 palavras)
 - Misturar conceitos não relacionados
 - Referenciar versões desatualizadas
 
-### ⚠️ Cuidado com
+### Cuidado com
 - Links externos que podem quebrar
 - Screenshots que ficam desatualizados rapidamente
 - Informações específicas de versão
 - Dependências externas não especificadas
 
-## 🎨 Estilo de Escrita
+## Estilo de Escrita
 
-### ✅ Prefira
+### Prefira
 - **Tom amigável e acessível**
 - **Explicações passo a passo**
 - **Exemplos práticos e reais**
 - **Linguagem simples e clara**
 
-### 📝 Formato
+### Formato
 - **Você** (segunda pessoa) para instruções
 - **Voz ativa** sempre que possível
 - **Frases curtas** e objetivas
 - **Parágrafos** de no máximo 4 linhas
 
-### 🇧🇷 Localização
+### Localização
 - **Contexto brasileiro** em exemplos
 - **Serviços populares** no Brasil
 - **Moeda nacional** (R$) quando aplicável
@@ -240,6 +240,6 @@ const config = {
 
 ---
 
-**💡 Lembre-se:** O objetivo é criar a melhor experiência possível para desenvolvedores brasileiros aprenderem n8n!
+** Lembre-se:** O objetivo é criar a melhor experiência possível para desenvolvedores brasileiros aprenderem n8n!
 
-**🤝 Dúvidas?** Abra uma issue no GitHub ou consulte outros documentos desta seção.
+** Dúvidas?** Abra uma issue no GitHub ou consulte outros documentos desta seção.

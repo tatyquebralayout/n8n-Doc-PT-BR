@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Icon } from '@iconify/react';
 import styles from './styles.module.css';
 
 interface FeedbackWidgetProps {
@@ -38,7 +37,6 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({ pageId, pageTitle }) =>
     return (
       <div className={styles.feedbackWidget}>
         <div className={styles.feedbackSubmitted}>
-          <Icon icon="ph:check-circle-duotone" width="24" />
           <span>Obrigado pelo seu feedback!</span>
         </div>
       </div>
@@ -53,7 +51,6 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({ pageId, pageTitle }) =>
           onClick={() => setIsOpen(true)}
           aria-label="Enviar feedback sobre esta página"
         >
-          <Icon icon="ph:chat-circle-text-duotone" width="18" />
           <span>Feedback</span>
         </button>
       ) : (
@@ -65,7 +62,7 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({ pageId, pageTitle }) =>
               onClick={() => setIsOpen(false)}
               aria-label="Fechar feedback"
             >
-              <Icon icon="ph:x" width="16" />
+              ×
             </button>
           </div>
           
@@ -74,14 +71,12 @@ const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({ pageId, pageTitle }) =>
               className={`${styles.feedbackOption} ${selectedFeedback === 'positive' ? styles.selected : ''}`}
               onClick={() => setSelectedFeedback('positive')}
             >
-              <Icon icon="ph:thumbs-up-duotone" width="20" />
               <span>Sim, foi útil</span>
             </button>
             <button 
               className={`${styles.feedbackOption} ${selectedFeedback === 'negative' ? styles.selected : ''}`}
               onClick={() => setSelectedFeedback('negative')}
             >
-              <Icon icon="ph:thumbs-down-duotone" width="20" />
               <span>Não foi útil</span>
             </button>
           </div>
