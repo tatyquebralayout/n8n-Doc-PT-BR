@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Octokit } from '@octokit/rest';
 import styles from './styles.module.css';
 import IonicIcon from '@site/src/components/IonicIcon';
+import LoadingSkeleton from '@site/src/components/LoadingSkeleton';
 
 interface RepoData {
   name: string;
@@ -75,8 +76,10 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github' }) =>
   if (!data) {
     return (
       <div className={`${styles.repoCard} ${styles.loadingCard}`}>
-        <div className={styles.spinner}></div>
-        <p>Carregando dados...</p>
+        <LoadingSkeleton variant="circle" width={40} height={40} style={{ marginBottom: 16 }} />
+        <LoadingSkeleton variant="rect" width="80%" height={24} style={{ marginBottom: 8 }} />
+        <LoadingSkeleton variant="line" width="60%" height={16} style={{ marginBottom: 8 }} />
+        <LoadingSkeleton variant="line" width="90%" height={16} />
       </div>
     );
   }
