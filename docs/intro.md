@@ -5,25 +5,25 @@ description: Guia completo para começar com n8n
 keywords: [n8n, automação, workflow, introdução, guia]
 ---
 
-# <IonicIcon name="rocket-outline" size={32} color="#ea4b71" /> Introdução ao n8n
+# <IonicIcon name="rocket-outline" size={32} /> Introdução ao n8n
 
 Bem-vindo à **documentação completa do n8n** em português brasileiro! 
 
-## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> O que é o n8n?
+## <IonicIcon name="help-circle-outline" size={24} /> O que é o n8n?
 
 O **n8n** (pronuncia-se "n-eight-n") é uma ferramenta de automação de workflows **gratuita e de código aberto** que permite conectar diferentes aplicações e serviços para automatizar tarefas repetitivas.
 
-### <IonicIcon name="star-outline" size={20} color="#ea4b71" /> Principais características
+### <IonicIcon name="star-outline" size={20} /> Principais características
 
-- <IonicIcon name="link-outline" size={16} color="#0ea5e9" /> **Conecte qualquer coisa**: Mais de 400 integrações disponíveis
-- <IonicIcon name="eye-outline" size={16} color="#0ea5e9" /> **Interface visual**: Editor de fluxo intuitivo e amigável
-- <IonicIcon name="code-outline" size={16} color="#0ea5e9" /> **Flexível**: Suporte a código personalizado quando necessário
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#0ea5e9" /> **Seguro**: Execute em sua própria infraestrutura
-- <IonicIcon name="gift-outline" size={16} color="#0ea5e9" /> **Gratuito**: Core 100% gratuito e de código aberto
+- <IonicIcon name="link-outline" size={16} /> **Conecte qualquer coisa**: Mais de 400 integrações disponíveis
+- <IonicIcon name="eye-outline" size={16} /> **Interface visual**: Editor de fluxo intuitivo e amigável
+- <IonicIcon name="code-outline" size={16} /> **Flexível**: Suporte a código personalizado quando necessário
+- <IonicIcon name="shield-checkmark-outline" size={16} /> **Seguro**: Execute em sua própria infraestrutura
+- <IonicIcon name="gift-outline" size={16} /> **Gratuito**: Core 100% gratuito e de código aberto
 
-## <IonicIcon name="thumbs-up-outline" size={24} color="#ea4b71" /> Por que usar o n8n?
+## <IonicIcon name="thumbs-up-outline" size={24} /> Por que usar o n8n?
 
-### <IonicIcon name="code-slash-outline" size={20} color="#10b981" /> Para Desenvolvedores
+### <IonicIcon name="code-slash-outline" size={20} /> Para Desenvolvedores
 - <IonicIcon name="terminal-outline" size={16} color="#6b7280" /> API REST completa
 - <IonicIcon name="wifi-outline" size={16} color="#6b7280" /> Webhooks nativos
 - <IonicIcon name="logo-javascript" size={16} color="#6b7280" /> Execução de código JavaScript/Python

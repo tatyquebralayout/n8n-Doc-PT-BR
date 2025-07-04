@@ -1,9 +1,9 @@
 ---
-sidebar_position: 1
 title: Integrações
 sidebar_label: Visão Geral
-description: Entenda os diferentes tipos de nodes e integrações disponíveis no n8n
+description: Entenda os diferentes tipos de nodes e integrações disponíveis no n8n.
 keywords: [n8n, nodes, integrações, overview, builtin, trigger, app, community]
+---
 import IonicIcon from '@site/src/components/IonicIcon';
 
 # <IonicIcon name="extension-puzzle-outline" size={32} /> Visão Geral de Integrações
@@ -159,4 +159,4 @@ App Integrations → Credenciais → Community Nodes
 
 ---
 
-** Explore as categorias acima para descobrir todos os nodes disponíveis!** 
+** Explore as categorias acima para descobrir todos os nodes disponíveis!**

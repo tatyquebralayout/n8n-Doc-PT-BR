@@ -16,7 +16,7 @@
 }
 
 .cardTitle ion-icon {
-  color: var(--ifm-color-warning);
+  /* Ícone herda cor do contexto */
 }
 
 .cardContent {

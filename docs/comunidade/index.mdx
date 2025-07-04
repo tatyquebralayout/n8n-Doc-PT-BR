@@ -10,25 +10,25 @@ import HighlightCard from '@site/src/components/HighlightCard';
 import IonicIcon from '@site/src/components/IonicIcon';
 import CommunityStats from '@site/src/components/CommunityStats';
 
-# <IonicIcon name="people-outline" size={32} color="#ea4b71" /> Comunidade n8n Brasil
+# <IonicIcon name="people-outline" size={32} /> Comunidade n8n Brasil
 
 Bem-vindo à maior comunidade de automação do Brasil! Aqui você encontra tudo sobre n8n em português: artigos, vídeos, projetos e muito mais.
 
 <div class="section-container">
-  <h2 class="section-title"><IonicIcon name="star-outline" size={24} color="#ea4b71" /> Destaques da Comunidade</h2>
+  <h2 class="section-title"><IonicIcon name="star-outline" size={24} /> Destaques da Comunidade</h2>
   <CardGrid>
     <HighlightCard
       icon="document-text-outline"
       category="Artigo em Destaque"
       title="Como Criar Seu Primeiro Workflow n8n"
       description="Um tutorial completo para iniciantes que querem dar os primeiros passos com n8n, cobrindo desde a instalação até a automação de uma tarefa real."
-      link="#"
+      link="/tutorial-basico/primeiro-workflow"
       details={
-        <>
+        <div className="card-details">
           <IonicIcon name="time-outline" /> 15 min de leitura
-          <span style={{ margin: '0 0.25rem' }}>•</span>
+          <span className="separator">•</span>
           <IonicIcon name="eye-outline" /> 2.1k visualizações
-        </>
+        </div>
       }
     />
     <HighlightCard
@@ -36,70 +36,65 @@ Bem-vindo à maior comunidade de automação do Brasil! Aqui você encontra tudo
       category="Vídeo em Destaque"
       title="n8n + Inteligência Artificial"
       description="Aprenda a integrar o n8n com as principais APIs de IA, como OpenAI e Hugging Face, para criar automações inteligentes e inovadoras."
-      link="#"
+      link="/advanced-ai/tutorial-ai"
       details={
-        <>
+        <div className="card-details">
           <IonicIcon name="time-outline" /> 28 min
-          <span style={{ margin: '0 0.25rem' }}>•</span>
+          <span className="separator">•</span>
           <IonicIcon name="person-outline" /> Por: TechAutomate
-        </>
+        </div>
       }
     />
     <HighlightCard
       icon="logo-github"
       category="Projeto em Destaque"
-      title="n8n-pix-integration"
-      description="Um node customizado que permite a integração completa com o sistema de pagamentos instantâneos PIX, do Banco Central do Brasil."
-      link="#"
+      title="Documentação n8n Brasil"
+      description="A documentação que você está lendo! Um projeto da comunidade para traduzir e manter o conteúdo acessível e em português."
+      link="https://github.com/tatyquebralayout/n8n-Doc-pt-BR"
       details={
-        <>
+        <div className="card-details">
           <IonicIcon name="star-outline" /> 156 stars
-          <span style={{ margin: '0 0.25rem' }}>•</span>
+          <span className="separator">•</span>
           <IonicIcon name="git-branch-outline" /> 34 forks
-        </>
+        </div>
       }
     />
   </CardGrid>
 </div>
 
 <div class="section-container">
-  <h2 class="section-title"><IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Números da Comunidade</h2>
+  <h2 class="section-title"><IonicIcon name="analytics-outline" size={24} /> Números da Comunidade</h2>
   <CommunityStats />
 </div>
 
 <div class="section-container">
-  <h2 class="section-title"><IonicIcon name="library-outline" size={24} color="#ea4b71" /> Explore o Conteúdo</h2>
+  <h2 class="section-title"><IonicIcon name="library-outline" size={24} /> Explore o Conteúdo</h2>
   
-  ### <IonicIcon name="school-outline" size={16} color="#ea4b71" /> **[Automação para Iniciantes](./automacao-iniciantes/)**
-  Guias e tutoriais para começar sua jornada com n8n.
-
-  ### <IonicIcon name="rocket-outline" size={16} color="#ea4b71" /> **[Casos de Uso Avançados](./casos-uso-avancados/)**
-  Projetos complexos e automações poderosas para usuários experientes.
-
-  ### <IonicIcon name="videocam-outline" size={16} color="#ea4b71" /> **[Vídeos de Creators](./videos)**
-  Canais e vídeos dos melhores creators brasileiros do n8n.
-
-  ### <IonicIcon name="logo-github" size={16} color="#ea4b71" /> **[Repositórios GitHub](./github)**
-  Projetos de código aberto, nodes customizados e ferramentas.
-
-  ### <IonicIcon name="hand-right-outline" size={16} color="#ea4b71" /> **[Como Participar](./como-participar)**
-  Descubra como se envolver e contribuir com a comunidade.
-
-  ### <IonicIcon name="bar-chart-outline" size={16} color="#ea4b71" /> **[Estatísticas e Destaques](./estatisticas)**
-  Números e destaques da comunidade brasileira.
+  <ul class="link-list">
+    <li><a href="./automacao-iniciantes/"><IonicIcon name="school-outline" /> **Automação para Iniciantes** - Guias e tutoriais para começar sua jornada.</a></li>
+    <li><a href="./casos-uso-avancados/"><IonicIcon name="rocket-outline" /> **Casos de Uso Avançados** - Projetos complexos para usuários experientes.</a></li>
+    <li><a href="./videos"><IonicIcon name="videocam-outline" /> **Vídeos de Creators** - Canais e vídeos dos melhores criadores brasileiros.</a></li>
+    <li><a href="./github"><IonicIcon name="logo-github" /> **Repositórios GitHub** - Nodes, ferramentas e projetos open-source.</a></li>
+    <li><a href="./como-participar"><IonicIcon name="hand-right-outline" /> **Como Participar** - Descubra como se envolver e contribuir.</a></li>
+    <li><a href="./estatisticas"><IonicIcon name="bar-chart-outline" /> **Estatísticas e Destaques** - Os números da comunidade brasileira.</a></li>
+  </ul>
 </div>
 
 <div class="section-container">
-  <h2 class="section-title"><IonicIcon name="calendar-outline" size={24} color="#ea4b71" /> Próximos Eventos</h2>
+  <h2 class="section-title"><IonicIcon name="calendar-outline" size={24} /> Próximos Eventos</h2>
   
-  - <IonicIcon name="school-outline" size={16} color="#6b7280" /> **Workshop Mensal** - *Em breve*
-  - <IonicIcon name="people-outline" size={16} color="#6b7280" /> **n8n Brasil Meetup** - *Em breve*
-  - <IonicIcon name="play-outline" size={16} color="#6b7280" /> **Demo Friday** - *Em breve*
+  <ul class="event-list">
+    <li><IonicIcon name="school-outline" /> **Workshop Mensal** - *Em breve*</li>
+    <li><IonicIcon name="people-outline" /> **n8n Brasil Meetup** - *Em breve*</li>
+    <li><IonicIcon name="play-outline" /> **Demo Friday** - *Em breve*</li>
+  </ul>
 </div>
 
 <div class="section-container">
-  <h2 class="section-title"><IonicIcon name="chatbubbles-outline" size={24} color="#ea4b71" /> Conecte-se Conosco</h2>
+  <h2 class="section-title"><IonicIcon name="chatbubbles-outline" size={24} /> Conecte-se Conosco</h2>
   
-  - <IonicIcon name="logo-discord" size={16} color="#6b7280" /> **Discord:** [Comunidade n8n Brasil](https://discord.gg/n8nbrasil)
-  - <IonicIcon name="logo-github" size={16} color="#6b7280" /> **GitHub:** [Repositório da Documentação](https://github.com/tatyquebralayout/n8n-Doc-pt-BR) 
+  <ul class="link-list">
+    <li><a href="https://discord.gg/n8nbrasil" target="_blank" rel="noopener noreferrer"><IonicIcon name="logo-discord" /> **Discord:** Comunidade n8n Brasil</a></li>
+    <li><a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR" target="_blank" rel="noopener noreferrer"><IonicIcon name="logo-github" /> **GitHub:** Repositório da Documentação</a></li>
+  </ul>
 </div> 

@@ -13,9 +13,9 @@ Bem-vindo ao **Catálogo de Templates** da comunidade n8n Brasil!
 
 Aqui você encontra workflows prontos para usar, testados pela comunidade e documentados em português. Cada template pode ser facilmente importado e customizado para suas necessidades específicas.
 
-## <IonicIcon name="trending-up-outline" size={24} color="#ea4b71" /> **Destaques da Semana**
+## <IonicIcon name="trending-up-outline" size={24} /> **Destaques da Semana**
 
-### <IonicIcon name="flame-outline" size={20} color="#f59e0b" /> Mais Populares
+### <IonicIcon name="flame-outline" size={20} /> Mais Populares
 
 <div className="template-grid">
 <div className="template-card featured">
@@ -53,39 +53,39 @@ Aqui você encontra workflows prontos para usar, testados pela comunidade e docu
 </div>
 </div>
 
-## <IonicIcon name="apps-outline" size={24} color="#ea4b71" /> **Categorias**
+## <IonicIcon name="apps-outline" size={24} /> **Categorias**
 
-### <IonicIcon name="chatbubbles-outline" size={20} color="#10b981" /> Comunicação e Notificações
+<h3 className="category-subtitle"><IonicIcon name="chatbubbles-outline" /> Comunicação e Notificações</h3>
 Templates para automatizar comunicação com clientes, equipes e stakeholders.
 
-- <IonicIcon name="mail-outline" size={16} color="#6b7280" /> **Email Marketing Avançado** - Sequências automáticas com Gmail + Sheets
-- <IonicIcon name="logo-whatsapp" size={16} color="#6b7280" /> **WhatsApp Business** - Chatbots e mensagens personalizadas
-- <IonicIcon name="notifications-outline" size={16} color="#6b7280" /> **Central de Notificações** - Slack + Teams + Discord integrados
-- <IonicIcon name="bar-chart-outline" size={16} color="#6b7280" /> **Relatórios Automáticos** - Dashboards enviados por email
+- <IonicIcon name="mail-outline" size={16} /> **Email Marketing Avançado** - Sequências automáticas com Gmail + Sheets
+- <IonicIcon name="logo-whatsapp" size={16} /> **WhatsApp Business** - Chatbots e mensagens personalizadas
+- <IonicIcon name="notifications-outline" size={16} /> **Central de Notificações** - Slack + Teams + Discord integrados
+- <IonicIcon name="bar-chart-outline" size={16} /> **Relatórios Automáticos** - Dashboards enviados por email
 
-### <IonicIcon name="storefront-outline" size={20} color="#10b981" /> E-commerce e Vendas
+<h3 className="category-subtitle"><IonicIcon name="storefront-outline" /> E-commerce e Vendas</h3>
 Automações para lojas virtuais e processos de vendas.
 
-- <IonicIcon name="person-outline" size={16} color="#6b7280" /> **Lead Scoring** - Qualificação automática de leads
-- <IonicIcon name="basket-outline" size={16} color="#6b7280" /> **Gestão de Pedidos** - Shopify + Correios + Contabilidade
-- <IonicIcon name="card-outline" size={16} color="#6b7280" /> **Conciliação Financeira** - PIX + Cartões + Boletos
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> **Análise de Vendas** - Relatórios automatizados
+- <IonicIcon name="person-outline" size={16} /> **Lead Scoring** - Qualificação automática de leads
+- <IonicIcon name="basket-outline" size={16} /> **Gestão de Pedidos** - Shopify + Correios + Contabilidade
+- <IonicIcon name="card-outline" size={16} /> **Conciliação Financeira** - PIX + Cartões + Boletos
+- <IonicIcon name="analytics-outline" size={16} /> **Análise de Vendas** - Relatórios automatizados
 
-### <IonicIcon name="briefcase-outline" size={20} color="#10b981" /> Gestão e Produtividade
+<h3 className="category-subtitle"><IonicIcon name="briefcase-outline" /> Gestão e Produtividade</h3>
 Templates para otimizar processos internos e aumentar produtividade.
 
-- <IonicIcon name="calendar-outline" size={16} color="#6b7280" /> **Agendamento Inteligente** - Calendário + CRM + Notificações
-- <IonicIcon name="people-outline" size={16} color="#6b7280" /> **Onboarding Funcionários** - Processo completo automatizado
-- <IonicIcon name="list-outline" size={16} color="#6b7280" /> **Gestão de Projetos** - Trello + Slack + Timetracking
-- <IonicIcon name="cloud-upload-outline" size={16} color="#6b7280" /> **Backup Automático** - Dados corporativos seguros
+- <IonicIcon name="calendar-outline" size={16} /> **Agendamento Inteligente** - Calendário + CRM + Notificações
+- <IonicIcon name="people-outline" size={16} /> **Onboarding Funcionários** - Processo completo automatizado
+- <IonicIcon name="list-outline" size={16} /> **Gestão de Projetos** - Trello + Slack + Timetracking
+- <IonicIcon name="cloud-upload-outline" size={16} /> **Backup Automático** - Dados corporativos seguros
 
-### <IonicIcon name="location-outline" size={20} color="#10b981" /> Específicos do Brasil
+<h3 className="category-subtitle"><IonicIcon name="location-outline" /> Específicos do Brasil</h3>
 Templates usando APIs e serviços brasileiros.
 
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> **Consultas Governo** - Receita Federal + CNPJ + CPF
-- <IonicIcon name="navigate-outline" size={16} color="#6b7280" /> **Logística CEP** - ViaCEP + Correios + Fretes
-- <IonicIcon name="card-outline" size={16} color="#6b7280" /> **Integração Bancária** - Open Banking + PIX + Boletos
-- <IonicIcon name="receipt-outline" size={16} color="#6b7280" /> **Compliance Fiscal** - SPED + NFe + Simples Nacional
+- <IonicIcon name="document-text-outline" size={16} /> **Consultas Governo** - Receita Federal + CNPJ + CPF
+- <IonicIcon name="navigate-outline" size={16} /> **Logística CEP** - ViaCEP + Correios + Fretes
+- <IonicIcon name="card-outline" size={16} /> **Integração Bancária** - Open Banking + PIX + Boletos
+- <IonicIcon name="receipt-outline" size={16} /> **Compliance Fiscal** - SPED + NFe + Simples Nacional
 
 ## **Como Usar os Templates**
 
