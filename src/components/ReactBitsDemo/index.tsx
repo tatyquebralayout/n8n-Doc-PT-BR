@@ -112,4 +112,4 @@ const ReactBitsDemo: React.FC = () => {
   );
 };
 
-export default ReactBitsDemo; 
+export default React.memo(ReactBitsDemo); 
