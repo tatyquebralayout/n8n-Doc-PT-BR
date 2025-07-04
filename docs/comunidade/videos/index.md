@@ -6,7 +6,7 @@ description: Aprenda com os melhores criadores de conteúdo do ecossistema n8n n
 
 import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="videocam-outline" size={32} color="#ea4b71" /> Vídeos da Comunidade
+# <IonicIcon name="videocam-outline" size={32} /> Vídeos da Comunidade
 
 Aprenda com os melhores criadores de conteúdo do ecossistema n8n no Brasil. Explore tutoriais, estudos de caso e projetos práticos em formato de vídeo.
 

@@ -123,7 +123,7 @@ const sidebarLinks = [
   'contribuir/esta-documentacao/codigo-conduta',
   'comunidade/index',
   'comunidade/artigos',
-  'comunidade/videos',
+      'comunidade/videos/index',
   'comunidade/github',
   'comunidade/como-participar',
   'comunidade/estatisticas',
