@@ -1,4 +1,4 @@
-# React Bits - Demonstração de Animações SVG
+# <IonicIcon name="color-palette-outline" size={32} /> React Bits - Demonstração de Animações SVG
 
 React Bits é uma biblioteca poderosa que permite criar componentes React com animações SVG impressionantes e interatividade avançada. Esta página demonstra como implementar e usar React Bits no nosso projeto de documentação.
 
@@ -73,7 +73,7 @@ return (
 cx="100"
 cy="100"
 r="50"
-fill="#ea4b71"
+fill="var(--ifm-color-primary)"
 className="animated-circle"
 />
 <style jsx>{`
@@ -114,15 +114,15 @@ animation: pulse 2s infinite;
 ```css
 /* Tema Claro */
 .react-bits-component {
---primary-color: #ea4b71;
---secondary-color: #1e40af;
+--primary-color: var(--ifm-color-primary);
+--secondary-color: var(--ifm-color-secondary);
 --background: #ffffff;
 --text-color: #374151;
 }
 
 /* Tema Escuro */
 [data-theme='dark'] .react-bits-component {
---primary-color: #f472b6;
+--primary-color: var(--ifm-color-primary-light);
 --secondary-color: #60a5fa;
 --background: #1e293b;
 --text-color: #e2e8f0;

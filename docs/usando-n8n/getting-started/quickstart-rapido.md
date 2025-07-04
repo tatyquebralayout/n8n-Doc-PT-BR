@@ -1,12 +1,15 @@
 ---
-sidebar_position: 1
+id: quickstart-rapido
 title: Quickstart Rápido
-description: Guia rápido para começar a usar n8n em poucos minutos
-keywords: [n8n, quickstart, início rápido, primeiros passos, tutorial]
+sidebar_label: Quickstart Rápido
 ---
+import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="rocket-outline" size={32} color="#ea4b71" /> Quickstart Rápido
+# <IonicIcon name="rocket-outline" size={32} /> Quickstart Rápido
 
-Este documento oferece um **guia rápido para começar com n8n** em poucos minutos, abordando instalação express, criação do primeiro workflow, conexão básica entre nodes, execução de teste, e primeiros conceitos essenciais que permitem começar a automatizar tarefas imediatamente, proporcionando experiência hands-on que demonstra o poder e simplicidade da plataforma para usuários brasileiros iniciantes.
+Este guia rápido apresenta os conceitos essenciais do n8n em menos de 5 minutos, mostrando como criar seu primeiro workflow para automatizar uma tarefa simples.
 
-**<IonicIcon name="construct-outline" size={16} color="#f59e0b" /> Em construção:** Este quickstart incluirá vídeo tutorial e exemplos específicos para cenários brasileiros comuns.
+<div class="em-construcao">
+  <IonicIcon name="construct-outline" size={16} /> 
+  <strong>Em construção:</strong> Este quickstart incluirá vídeo tutorial e exemplos específicos.
+</div>

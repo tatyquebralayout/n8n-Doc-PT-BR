@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
-import SvgIcon from '../SvgIcon';
+import IonicIcon from '@site/src/components/IonicIcon';
 
 const ReactBitsDemo: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -11,7 +11,7 @@ const ReactBitsDemo: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2><SvgIcon name="rocket" size={32} /> React Bits Demo - Animações SVG</h2>
+      <h2><IonicIcon name="rocket-outline" size={32} /> React Bits Demo - Animações SVG</h2>
       
       {/* Seção de Botões Animados */}
       <div className={styles.section}>
@@ -21,14 +21,14 @@ const ReactBitsDemo: React.FC = () => {
             onClick={handleAnimation}
             className={styles.animatedButton}
           >
-            {isAnimating ? <><SvgIcon name="refresh" size={18} /> Animando...</> : <><SvgIcon name="sparkle" size={18} /> Iniciar Animação</>}
+            {isAnimating ? <><IonicIcon name="refresh-outline" size={18} /> Animando...</> : <><IonicIcon name="sparkles-outline" size={18} /> Iniciar Animação</>}
           </button>
           
           <button 
             onClick={() => setIsAnimating(false)}
             className={styles.stopButton}
           >
-                          <SvgIcon name="stop" size={18} /> Parar
+                          <IonicIcon name="stop-circle-outline" size={18} /> Parar
           </button>
         </div>
       </div>
@@ -90,9 +90,9 @@ const ReactBitsDemo: React.FC = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className={styles.cardIcon}>
-                {index === 0 && <SvgIcon name="bolt" size={48} />}
-                {index === 1 && <SvgIcon name="link" size={48} />}
-                {index === 2 && <SvgIcon name="smart_toy" size={48} />}
+                {index === 0 && <IonicIcon name="flash-outline" size={48} />}
+                {index === 1 && <IonicIcon name="git-network-outline" size={48} />}
+                {index === 2 && <IonicIcon name="hardware-chip-outline" size={48} />}
               </div>
               <h4>{title}</h4>
               <p>Exemplo de card animado com React Bits</p>
@@ -104,7 +104,7 @@ const ReactBitsDemo: React.FC = () => {
       {/* Indicador de Status */}
       <div className={styles.status}>
         <div className={`${styles.statusIndicator} ${isAnimating ? styles.active : ''}`}>
-          <span className={styles.statusDot}></span>
+          <div className={styles.statusDot}></div>
           <span>{isAnimating ? 'Animação Ativa' : 'Animação Parada'}</span>
         </div>
       </div>

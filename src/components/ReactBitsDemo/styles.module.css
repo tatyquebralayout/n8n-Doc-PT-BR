@@ -8,17 +8,17 @@
 
 .container h2 {
   text-align: center;
-  color: #1e40af;
+  color: var(--ifm-color-secondary);
   margin-bottom: 2rem;
   font-size: 2.5rem;
   font-weight: bold;
 }
 
 .container h3 {
-  color: #374151;
+  color: var(--ifm-font-color-base);
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  border-bottom: 2px solid #ea4b71;
+  border-bottom: 2px solid var(--ifm-color-primary);
   padding-bottom: 0.5rem;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .animatedButton {
-  background: linear-gradient(45deg, #ea4b71, #f472b6);
+  background: linear-gradient(45deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -96,7 +96,7 @@
 }
 
 .svgDemo:hover {
-  border-color: #ea4b71;
+  border-color: var(--ifm-color-primary);
   box-shadow: 0 4px 12px rgba(234, 75, 113, 0.2);
 }
 
@@ -137,7 +137,7 @@
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  border-color: #ea4b71;
+  border-color: var(--ifm-color-primary);
 }
 
 .cardAnimating {
@@ -151,13 +151,13 @@
 }
 
 .card h4 {
-  color: #1e40af;
+  color: var(--ifm-color-secondary);
   margin-bottom: 0.5rem;
   font-size: 1.25rem;
 }
 
 .card p {
-  color: #6b7280;
+  color: var(--ifm-font-color-secondary);
   margin: 0;
   font-size: 0.9rem;
 }
@@ -181,21 +181,21 @@
 }
 
 .statusIndicator.active {
-  background: linear-gradient(45deg, #dcfce7, #bbf7d0);
-  border-color: #22c55e;
-  color: #16a34a;
+  background: linear-gradient(45deg, var(--ifm-color-success-contrast-background), var(--ifm-color-success-light));
+  border-color: var(--ifm-color-success);
+  color: var(--ifm-color-success-dark);
 }
 
 .statusDot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #6b7280;
+  background: var(--ifm-font-color-disabled);
   transition: all 0.3s ease;
 }
 
 .statusIndicator.active .statusDot {
-  background: #22c55e;
+  background: var(--ifm-color-success);
   animation: statusPulse 2s infinite;
 }
 
@@ -218,8 +218,8 @@
 }
 
 @keyframes textGlow {
-  0% { fill: #374151; }
-  100% { fill: #ea4b71; }
+  0% { fill: var(--ifm-font-color-base); }
+  100% { fill: var(--ifm-color-primary); }
 }
 
 @keyframes cardSlideIn {

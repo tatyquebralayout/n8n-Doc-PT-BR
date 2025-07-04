@@ -1,18 +1,19 @@
 .videoCard {
   border-radius: var(--ifm-card-border-radius);
-  border: 1px solid var(--ifm-color-emphasis-300);
+  border: 1px solid var(--ifm-card-border-color);
+  background-color: var(--ifm-card-background-color);
+  box-shadow: var(--ifm-global-shadow-lw);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
-  background-color: var(--ifm-card-background-color);
+  transition: all var(--ifm-transition-fast) ease;
   height: 100%;
 }
 
 .videoCard:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--ifm-card-box-shadow);
-  border-color: var(--ifm-color-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--ifm-global-shadow-md);
+  border-color: var(--ifm-color-primary-dark);
 }
 
 .videoContainer {
@@ -20,15 +21,39 @@
   width: 100%;
   padding-top: 56.25%; /* Proporção 16:9 */
   background-color: #000;
+  display: block;
 }
 
-.videoIframe {
+.videoContainer:hover .playIcon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.thumbnail {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: none;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.videoContainer:hover .thumbnail {
+  opacity: 0.8;
+}
+
+.playIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 4rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
 
 .videoInfo {
@@ -38,10 +63,21 @@
   flex-direction: column;
 }
 
+.titleLink {
+  text-decoration: none;
+  color: var(--ifm-heading-color);
+}
+
+.titleLink:hover {
+  text-decoration: underline;
+  color: var(--ifm-color-primary);
+}
+
 .videoTitle {
   font-size: 1.1rem;
+  margin-top: 0;
   margin-bottom: 0.5rem;
-  color: var(--ifm-heading-color);
+  line-height: 1.4;
 }
 
 .channelLink {

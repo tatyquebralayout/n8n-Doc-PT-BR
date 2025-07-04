@@ -339,8 +339,7 @@ const sidebars: SidebarsConfig = {
       className: 'sidebar-contribuir-docs',
       items: [
         'contribuir/esta-documentacao/index',
-        'contribuir/esta-documentacao/por-que-contribuir',
-        'contribuir/esta-documentacao/como-contribuir',
+        'contribuir/esta-documentacao/design-system',
         'contribuir/esta-documentacao/guidelines',
         'contribuir/esta-documentacao/guia-de-estilo',
         'contribuir/esta-documentacao/traduzir',
@@ -365,7 +364,10 @@ const sidebars: SidebarsConfig = {
         'comunidade/casos-uso-avancados/index',
       ],
     },
+    'comunidade/videos',
+    'comunidade/github',
     'comunidade/como-participar',
+    'comunidade/estatisticas',
   ],
 
   // Sidebar para Cursos

@@ -1,13 +1,13 @@
 ---
-sidebar_position: 1
-title: Instalação do n8n
-description: Guia completo para instalar n8n usando diferentes métodos
-keywords: [n8n, instalação, deployment, docker, npm, cloud, desktop]
+id: instalacao
+title: Instalação
+sidebar_label: Visão Geral
 ---
+import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="server-outline" size={32} color="#ea4b71" /> Instalação do n8n
+# <IonicIcon name="cloud-download-outline" size={32} /> Visão Geral da Instalação
 
-Bem-vindo ao guia completo de instalação do n8n! Aqui você encontrará todas as formas disponíveis para instalar e executar o n8n, desde desenvolvimento local até produção em larga escala.
+Existem várias maneiras de instalar e executar o n8n, desde um simples comando npx até deploy em clusters Kubernetes. Escolha a opção que melhor se adapta à sua necessidade.
 
 ## <IonicIcon name="options-outline" size={24} color="#ea4b71" /> Escolha seu Método de Instalação
 

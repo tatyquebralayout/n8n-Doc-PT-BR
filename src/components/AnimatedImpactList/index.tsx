@@ -16,7 +16,7 @@ const AnimatedImpactList: React.FC<AnimatedImpactListProps> = ({ items }) => {
   return (
     <div ref={ref} className={`${styles.impactContainer} ${inView ? styles.inView : ''}`}>
       <h3 className={styles.title}>
-        <IonicIcon name="sparkles-outline" size={22} color="#ea4b71" />
+        <IonicIcon name="sparkles-outline" size={22} className={styles.titleIcon} />
         Sua contribuição transforma! Veja como:
       </h3>
       <ul className={styles.impactList}>

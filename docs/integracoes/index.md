@@ -1,13 +1,14 @@
 ---
 sidebar_position: 1
-title: Visão Geral - Nodes e Integrações
+title: Integrações
+sidebar_label: Visão Geral
 description: Entenda os diferentes tipos de nodes e integrações disponíveis no n8n
 keywords: [n8n, nodes, integrações, overview, builtin, trigger, app, community]
----
+import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="extension-puzzle-outline" size={32} color="#ea4b71" /> Visão Geral - Nodes e Integrações
+# <IonicIcon name="extension-puzzle-outline" size={32} /> Visão Geral de Integrações
 
-Bem-vindo ao catálogo completo de **nodes e integrações** do n8n! Aqui você encontrará todos os blocos de construção necessários para criar workflows poderosos.
+O poder do n8n está em sua capacidade de conectar centenas de aplicações e serviços. Esta seção é o seu guia para entender e utilizar todo o potencial das integrações.
 
 ## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> O que são Nodes?
 

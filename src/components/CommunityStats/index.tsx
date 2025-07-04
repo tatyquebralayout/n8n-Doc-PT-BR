@@ -8,25 +8,25 @@ const stats = [
     icon: 'people-outline',
     value: 8954,
     label: 'Membros Ativos',
-    color: '#3b82f6', // Azul
+    className: 'members',
   },
   {
     icon: 'document-text-outline',
     value: 127,
     label: 'Artigos Publicados',
-    color: '#10b981', // Verde
+    className: 'articles',
   },
   {
     icon: 'extension-puzzle-outline',
     value: 34,
     label: 'Custom Nodes',
-    color: '#f97316', // Laranja
+    className: 'nodes',
   },
   {
     icon: 'copy-outline',
     value: 156,
     label: 'Templates',
-    color: '#8b5cf6', // Roxo
+    className: 'templates',
   },
 ];
 
@@ -43,9 +43,9 @@ const CommunityStats = () => {
       {stats.map((stat, index) => {
         const barWidth = stat.value > 0 ? (stat.value / maxValue) * 100 : 0;
         return (
-          <div className={styles.statItem} key={index}>
+          <div className={`${styles.statItem} ${styles[stat.className]}`} key={index}>
             <div className={styles.statHeader}>
-                <IonicIcon name={stat.icon} size={24} color={stat.color} />
+                <IonicIcon name={stat.icon} size={24} className={styles.statIcon} />
                 <span className={styles.statLabel}>{stat.label}</span>
             </div>
             <div className={styles.statBarContainer}>
@@ -53,7 +53,6 @@ const CommunityStats = () => {
                 className={styles.statBar}
                 style={{ 
                   width: inView ? `${barWidth}%` : '0%',
-                  backgroundColor: stat.color 
                 }}
               />
               <span className={styles.statValue}>

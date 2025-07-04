@@ -1,12 +1,17 @@
 ---
-sidebar_position: 1
+id: componentes-execucoes
 title: Componentes de Execução
-description: Como funcionam e como monitorar execuções de workflows no n8n
-keywords: [n8n, execuções, monitoring, components, workflow]
+sidebar_label: Componentes de Execução
 ---
+import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="analytics-outline" size={32} color="#ea4b71" /> Componentes de Execução
+# <IonicIcon name="analytics-outline" size={32} /> Componentes de Execução
+
+Uma execução no n8n é o processo de um workflow rodando. Cada execução é composta por vários componentes que fornecem informações detalhadas sobre o que aconteceu.
 
 Este documento detalha **componentes e monitoramento de execuções** no n8n, explicando ciclo de vida de workflows, visualização de dados entre nodes, debug de execuções, logs detalhados, métricas de performance, e ferramentas de troubleshooting que permitem identificar problemas, otimizar performance, e garantir confiabilidade das automações em ambiente de produção empresarial.
 
-**<IonicIcon name="construct-outline" size={16} color="#f59e0b" /> Em construção:** Este conteúdo incluirá dashboard de monitoramento e alertas para operações críticas.
+<div class="em-construcao">
+  <IonicIcon name="construct-outline" size={16} /> 
+  <strong>Em construção:</strong> Este conteúdo incluirá dashboard de monitoramento e alertas.
+</div>

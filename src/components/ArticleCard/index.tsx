@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
+import IonicIcon from '@site/src/components/IonicIcon';
 
 interface ArticleCardProps {
   title: string;
@@ -12,17 +14,28 @@ interface ArticleCardProps {
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ title, author, link, description, readTime, views }) => {
   return (
-    <a href={link} className={styles.card} target="_blank" rel="noopener noreferrer">
-      <h3>{title}</h3>
+    <div className={styles.card}>
+      <Link to={link} className={styles.titleLink}>
+        <h3 className={styles.title}>{title}</h3>
+      </Link>
       <p className={styles.description}>{description}</p>
       <div className={styles.footer}>
-        <span className={styles.author}>por {author}</span>
+        <span className={styles.author}>
+          <IonicIcon name="person-outline" size={16} />
+          {author}
+        </span>
         <div className={styles.stats}>
-          <span>{readTime}</span>
-          <span>{views}</span>
+          <span className={styles.statItem}>
+            <IonicIcon name="time-outline" size={16} />
+            {readTime}
+          </span>
+          <span className={styles.statItem}>
+            <IonicIcon name="eye-outline" size={16} />
+            {views}
+          </span>
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 

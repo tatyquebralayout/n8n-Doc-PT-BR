@@ -264,28 +264,28 @@ const config: Config = {
           items: [
             {
               html: `
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                  <div id="founder-tatiana" style="display: flex; align-items: center; gap: 0.75rem;">
-                    <img src="https://avatars.githubusercontent.com/u/172347696?v=4" alt="Tatiana Barros" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ea4b71;">
+                <div class="footer-initiators">
+                  <div class="initiator">
+                    <img src="https://avatars.githubusercontent.com/u/172347696?v=4" alt="Tatiana Barros" class="initiator-avatar">
                     <div>
-                      <div style="font-weight: 600; font-size: 0.9rem; color: #fff;">Tatiana Barros</div>
-                      <div style="font-size: 0.8rem; color: #b3b3b3;">Technology Evangelist</div>
-                      <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
-                        <a href="https://github.com/tatyquebralayout" style="color: #ea4b71; text-decoration: none;">GitHub</a>
-                        <span style="color: #666;">•</span>
-                        <a href="https://www.linkedin.com/in/umataldetatiana" style="color: #ea4b71; text-decoration: none;">LinkedIn</a>
+                      <div class="initiator-name">Tatiana Barros</div>
+                      <div class="initiator-title">Technology Evangelist</div>
+                      <div class="initiator-links">
+                        <a href="https://github.com/tatyquebralayout">GitHub</a>
+                        <span>•</span>
+                        <a href="https://www.linkedin.com/in/umataldetatiana">LinkedIn</a>
                       </div>
                     </div>
                   </div>
-                  <div id="founder-carlos" style="display: flex; align-items: center; gap: 0.75rem;">
-                    <img src="https://avatars.githubusercontent.com/u/48963612?v=4" alt="Carlos de Lima Junior" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ea4b71;">
+                  <div class="initiator">
+                    <img src="https://avatars.githubusercontent.com/u/48963612?v=4" alt="Carlos de Lima Junior" class="initiator-avatar">
                     <div>
-                      <div style="font-weight: 600; font-size: 0.9rem; color: #fff;">Carlos de Lima Junior</div>
-                      <div style="font-size: 0.8rem; color: #b3b3b3;">Software Developer</div>
-                      <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
-                        <a href="https://github.com/CJBiohacker" style="color: #ea4b71; text-decoration: none;">GitHub</a>
-                        <span style="color: #666;">•</span>
-                        <a href="https://www.linkedin.com/in/carlosjunior137" style="color: #ea4b71; text-decoration: none;">LinkedIn</a>
+                      <div class="initiator-name">Carlos de Lima Junior</div>
+                      <div class="initiator-title">Software Developer</div>
+                      <div class="initiator-links">
+                        <a href="https://github.com/CJBiohacker">GitHub</a>
+                        <span>•</span>
+                        <a href="https://www.linkedin.com/in/carlosjunior137">LinkedIn</a>
                       </div>
                     </div>
                   </div>
@@ -296,18 +296,18 @@ const config: Config = {
         },
       ],
       copyright: `
-        <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <div class="footer-copyright">
+          <div>
             <span>© ${new Date().getFullYear()} n8n Documentation Brasil</span>
-            <span style="color: #ea4b71;">•</span>
-            <span>Feito com <span style="color: #ea4b71;">♥</span> pela comunidade</span>
+            <span class="separator">•</span>
+            <span>Feito com <span class="heart">♥</span> pela comunidade</span>
           </div>
-          <div style="font-size: 0.875rem; color: #6b7280;">
+          <div class="copyright-links">
             <span>Documentação não oficial do n8n</span>
-            <span style="margin: 0 0.5rem;">•</span>
-            <a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR" style="color: #ea4b71;">GitHub</a>
-            <span style="margin: 0 0.5rem;">•</span>
-            <a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR/blob/main/LICENSE" style="color: #ea4b71;">MIT License</a>
+            <span class="separator">•</span>
+            <a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR">GitHub</a>
+            <span class="separator">•</span>
+            <a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR/blob/main/LICENSE">MIT License</a>
           </div>
         </div>
       `,
@@ -335,7 +335,7 @@ const config: Config = {
     announcementBar: {
       id: 'new-release',
       content: 'Explore what\'s new: Latest release notes available now!',
-      backgroundColor: '#ea4b71',
+      backgroundColor: 'var(--ifm-color-primary)',
       textColor: '#FFFFFF',
       isCloseable: true,
     },

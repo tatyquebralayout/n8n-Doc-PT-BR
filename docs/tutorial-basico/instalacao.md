@@ -6,11 +6,13 @@ slug: /tutorial-basico/instalacao
 keywords: [n8n, instalação, docker, npm, setup]
 ---
 
-# <IonicIcon name="download-outline" size={32} color="#ea4b71" /> Instalação do n8n
+import IonicIcon from '@site/src/components/IonicIcon';
+
+# <IonicIcon name="download-outline" size={32} /> Instalação do n8n
 
 Existem várias formas de instalar e executar o n8n. Escolha a opção que melhor se adapta ao seu ambiente.
 
-## <IonicIcon name="options-outline" size={24} color="#ea4b71" /> Opções de Instalação
+## <IonicIcon name="options-outline" size={24} /> Opções de Instalação
 
 ### <IonicIcon name="logo-docker" size={20} color="#10b981" /> Docker (Recomendado)
 

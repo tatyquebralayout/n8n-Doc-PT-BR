@@ -14,7 +14,7 @@ const GuidanceCard: React.FC<GuidanceCardProps> = ({ title, children, className,
   return (
     <div className={`${styles.guidanceCard} ${cardClass}`}>
       <div className={styles.cardHeader}>
-        {iconName && <IonicIcon name={iconName} size={24} color="#FFD700" />}
+        {iconName && <IonicIcon name={iconName} size={24} />}
         <h3 className={styles.cardTitle}>{title}</h3>
       </div>
       <div className={styles.cardContent}>

@@ -4,8 +4,10 @@ title: Catálogo de Templates
 description: Templates e workflows prontos para usar
 keywords: [n8n, templates, workflows, catálogo, automação]
 ---
+import IonicIcon from '@site/src/components/IonicIcon';
+import HighlightCard from '@site/src/components/HighlightCard';
 
-# <IonicIcon name="grid-outline" size={32} color="#ea4b71" /> Catálogo de Templates
+# <IonicIcon name="grid-outline" size={32} /> Catálogo de Templates
 
 Bem-vindo ao **Catálogo de Templates** da comunidade n8n Brasil!
 

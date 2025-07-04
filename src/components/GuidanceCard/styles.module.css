@@ -1,32 +1,27 @@
 .guidanceCard {
-  background-color: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-warning-dark);
+  background-color: var(--ifm-color-warning-contrast-background);
   border-radius: var(--ifm-card-border-radius);
-  border: 1px solid var(--ifm-card-border-color);
   padding: 1.5rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.cardHeader {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-  justify-content: flex-start;
+  margin: 2rem 0;
 }
 
 .cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 1.25rem;
-  margin: 0;
-  color: var(--ifm-color-primary);
+  margin: 0 0 1rem 0;
+  color: var(--ifm-color-warning-darkest);
+}
+
+.cardTitle ion-icon {
+  color: var(--ifm-color-warning);
 }
 
 .cardContent {
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--ifm-font-color-secondary);
-  flex-grow: 1;
 }
 
 .cardContent ul {

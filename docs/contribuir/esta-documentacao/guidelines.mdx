@@ -4,8 +4,13 @@ title: Diretrizes para Contribuir
 description: Diretrizes específicas para contribuir com esta documentação brasileira do n8n
 keywords: [n8n, contribuir, documentação, diretrizes, brasil]
 ---
+import IonicIcon from '@site/src/components/IonicIcon';
+import CardGrid from '@site/src/components/CardGrid';
+import GuidanceCard from '@site/src/components/GuidanceCard';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-# Diretrizes para Contribuir com Esta Documentação
+# <IonicIcon name="compass-outline" size={32} color="#10b981" /> Diretrizes para Contribuir com Esta Documentação
 
 ## Propósito
 
@@ -138,28 +143,28 @@ port: 5678
 
 ## Qualidade e Revisão
 
-### Checklist de Conteúdo
-
-- [ ] Português correto e fluente
-- [ ] Exemplos testados e funcionais
-- [ ] Links internos funcionando
-- [ ] Imagens otimizadas (WebP quando possível)
-- [ ] Código formatado corretamente
-- [ ] Estrutura seguindo padrão estabelecido
-
-### Revisão Técnica
-
-- [ ] Informações atualizadas
-- [ ] Comandos testados
-- [ ] Screenshots atuais da interface
-- [ ] Compatibilidade com versão mais recente do n8n
-
-### Revisão Visual
-
-- [ ] Formatação consistente
-- [ ] Emojis seguindo padrão
-- [ ] Admonições apropriadas
-- [ ] Hierarquia de títulos correta
+<Tabs>
+  <TabItem value="content" label="Conteúdo" default>
+    - [ ] Português correto e fluente
+    - [ ] Exemplos testados e funcionais
+    - [ ] Links internos funcionando
+    - [ ] Imagens otimizadas (WebP quando possível)
+    - [ ] Código formatado corretamente
+    - [ ] Estrutura seguindo padrão estabelecido
+  </TabItem>
+  <TabItem value="tech" label="Técnica">
+    - [ ] Informações atualizadas
+    - [ ] Comandos testados
+    - [ ] Screenshots atuais da interface
+    - [ ] Compatibilidade com versão mais recente do n8n
+  </TabItem>
+  <TabItem value="visual" label="Visual">
+    - [ ] Formatação consistente
+    - [ ] Emojis seguindo padrão
+    - [ ] Admonições apropriadas
+    - [ ] Hierarquia de títulos correta
+  </TabItem>
+</Tabs>
 
 ## Processo de Contribuição
 
@@ -203,40 +208,32 @@ port: 5678
 - Diagramas ilustrativos
 - Exemplos mais detalhados
 
-## O que Evitar
-
-### Não Fazer
-- Copiar conteúdo da documentação oficial sem adaptação
-- Usar anglicismos desnecessários
-- Criar documentos muito longos (>2000 palavras)
-- Misturar conceitos não relacionados
-- Referenciar versões desatualizadas
-
-### Cuidado com
-- Links externos que podem quebrar
-- Screenshots que ficam desatualizados rapidamente
-- Informações específicas de versão
-- Dependências externas não especificadas
-
 ## Estilo de Escrita
 
-### Prefira
-- **Tom amigável e acessível**
-- **Explicações passo a passo**
-- **Exemplos práticos e reais**
-- **Linguagem simples e clara**
-
-### Formato
-- **Você** (segunda pessoa) para instruções
-- **Voz ativa** sempre que possível
-- **Frases curtas** e objetivas
-- **Parágrafos** de no máximo 4 linhas
-
-### Localização
-- **Contexto brasileiro** em exemplos
-- **Serviços populares** no Brasil
-- **Moeda nacional** (R$) quando aplicável
-- **Fuso horário** brasileiro
+<CardGrid>
+  <GuidanceCard title="Práticas Recomendadas" iconName="checkmark-circle-outline">
+    <ul>
+      <li>Use um tom amigável e acessível.</li>
+      <li>Dê explicações passo a passo.</li>
+      <li>Foque em exemplos práticos e reais.</li>
+      <li>Use linguagem simples, clara e voz ativa.</li>
+      <li>Dirija-se ao leitor como "você".</li>
+      <li>Escreva frases curtas e parágrafos de até 4 linhas.</li>
+      <li>Sempre localize exemplos para o contexto brasileiro.</li>
+    </ul>
+  </GuidanceCard>
+  <GuidanceCard title="Práticas a Evitar" iconName="close-circle-outline">
+    <ul>
+      <li>Copiar conteúdo sem adaptar para o Brasil.</li>
+      <li>Usar anglicismos desnecessários.</li>
+      <li>Criar documentos excessivamente longos.</li>
+      <li>Misturar múltiplos conceitos não relacionados.</li>
+      <li>Referenciar versões de software antigas.</li>
+      <li>Usar links externos que quebram facilmente.</li>
+      <li>Screenshots que podem ficar desatualizados rapidamente.</li>
+    </ul>
+  </GuidanceCard>
+</CardGrid>
 
 ---
 

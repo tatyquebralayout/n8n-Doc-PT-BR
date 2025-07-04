@@ -6,6 +6,25 @@
 }
 
 .featureSvg {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
+  padding: 2rem;
+  border-radius: 50%;
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+  transition: all var(--ifm-transition-fast) ease;
+}
+
+.featureSvg:hover {
+  background-color: var(--ifm-color-emphasis-200);
+  transform: scale(1.05) rotate(-5deg);
+}
+
+[data-theme='dark'] .featureSvg {
+  background-color: var(--ifm-background-surface-color);
+}
+
+[data-theme='dark'] .featureSvg:hover {
+  background-color: var(--ifm-color-emphasis-200);
 } 
