@@ -65,7 +65,7 @@ function HomepageFeatures() {
               </p>
               <Link to="/tutorial-basico/instalacao" className={styles.featureLink}>
                 <IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" style={{marginRight: '6px'}} />
-                Começar tutorial →
+                Começar tutorial
               </Link>
             </div>
           </div>
@@ -84,7 +84,7 @@ function HomepageFeatures() {
               </p>
               <Link to="/hosting-n8n/instalacao" className={styles.featureLink}>
                 <IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" style={{marginRight: '6px'}} />
-                Ver guias de deploy →
+                Ver guias de deploy
               </Link>
             </div>
           </div>
@@ -103,7 +103,7 @@ function HomepageFeatures() {
               </p>
               <Link to="/integracoes/overview" className={styles.featureLink}>
                 <IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" style={{marginRight: '6px'}} />
-                Explorar nodes →
+                Explorar nodes
               </Link>
             </div>
           </div>
@@ -122,7 +122,7 @@ function HomepageFeatures() {
               </p>
               <Link to="/comunidade" className={styles.featureLink}>
                 <IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" style={{marginRight: '6px'}} />
-                Participar da comunidade →
+                Participar da comunidade
               </Link>
             </div>
           </div>
@@ -141,7 +141,7 @@ function HomepageFeatures() {
               </p>
               <Link to="/catalogo" className={styles.featureLink}>
                 <IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" style={{marginRight: '6px'}} />
-                Explorar catálogo →
+                Explorar catálogo
               </Link>
             </div>
           </div>
@@ -160,7 +160,7 @@ function HomepageFeatures() {
               </p>
               <Link to="/release-notes" className={styles.featureLink}>
                 <IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" style={{marginRight: '6px'}} />
-                Ver atualizações →
+                Ver atualizações
               </Link>
             </div>
           </div>
@@ -285,7 +285,7 @@ function CommunitySection() {
   );
 }
 
-export default function Home(): JSX.Element {
+export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
