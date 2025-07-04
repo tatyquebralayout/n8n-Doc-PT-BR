@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import IonicIcon from '@site/src/components/IonicIcon';
 
 import styles from './index.module.css';
+
+const HomepageFeatures = React.lazy(() => import('@site/src/components/HomepageFeatures'));
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -54,7 +55,9 @@ export default function Home(): React.ReactElement {
       description="Documentação completa do n8n em português brasileiro - Hub de conhecimento para a comunidade brasileira de automação.">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <Suspense fallback={<div>Carregando recursos...</div>}>
+          <HomepageFeatures />
+        </Suspense>
         
         <section className={styles.mainFeatures}>
           <div className="container">
