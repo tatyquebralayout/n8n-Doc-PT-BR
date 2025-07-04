@@ -1,35 +1,60 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
+import LoadingSkeleton from '@site/src/components/LoadingSkeleton';
 import IonicIcon from '@site/src/components/IonicIcon';
 
 interface HighlightCardProps {
-  icon: string;
-  category: string;
-  title: string;
-  description: string;
+  loading?: boolean;
+  icon?: string;
+  category?: string;
+  title?: string;
+  description?: string;
   link: string;
   details?: React.ReactNode;
 }
 
-export default function HighlightCard({
+const HighlightCard: React.FC<HighlightCardProps> = ({
+  loading = false,
   icon,
   category,
   title,
   description,
   link,
-  details,
-}: HighlightCardProps): React.ReactElement {
+  details
+}) => {
   return (
     <div className={styles.highlightCard}>
-      <div className={styles.cardContent}>
-        <div className={styles.cardHeader}>
-          <IonicIcon name={icon} size={24} className={styles.icon} />
+      <div className={styles.cardHeader}>
+        {loading ? (
+          <LoadingSkeleton variant="circle" width={32} height={32} />
+        ) : (
+          icon && <IonicIcon name={icon} size={32} className={styles.icon} />
+        )}
+        {loading ? (
+          <LoadingSkeleton variant="line" width={80} height={18} />
+        ) : (
           <span className={styles.category}>{category}</span>
+        )}
+      </div>
+      <div className={styles.cardContent}>
+        {loading ? (
+          <LoadingSkeleton variant="line" width="70%" height={22} style={{ marginBottom: 8 }} />
+        ) : (
+          <h3 className={styles.title}>{title}</h3>
+        )}
+        {loading ? (
+          <LoadingSkeleton variant="line" width="90%" height={16} style={{ marginBottom: 6 }} />
+        ) : (
+          <p className={styles.description}>{description}</p>
+        )}
+        <div className={styles.details}>
+          {loading ? (
+            <LoadingSkeleton variant="line" width="60%" height={16} />
+          ) : (
+            details
+          )}
         </div>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
-        {details && <div className={styles.details}>{details}</div>}
       </div>
       <div className={styles.cardFooter}>
         <Link to={link} className={styles.readMoreLink}>
@@ -38,4 +63,6 @@ export default function HighlightCard({
       </div>
     </div>
   );
-} 
+};
+
+export default HighlightCard; 
