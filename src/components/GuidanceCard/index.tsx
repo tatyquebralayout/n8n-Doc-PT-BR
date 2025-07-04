@@ -4,15 +4,17 @@ import IonicIcon from '@site/src/components/IonicIcon';
 
 interface GuidanceCardProps {
   title: string;
-  iconName: string;
   children: React.ReactNode;
+  className?: keyof typeof styles;
+  iconName?: string;
 }
 
-const GuidanceCard: React.FC<GuidanceCardProps> = ({ title, iconName, children }) => {
+const GuidanceCard: React.FC<GuidanceCardProps> = ({ title, children, className, iconName }) => {
+  const cardClass = className ? styles[className] : '';
   return (
-    <div className={styles.guidanceCard}>
+    <div className={`${styles.guidanceCard} ${cardClass}`}>
       <div className={styles.cardHeader}>
-        <IonicIcon name={iconName} size={24} color="#10b981" />
+        {iconName && <IonicIcon name={iconName} size={24} color="#FFD700" />}
         <h3 className={styles.cardTitle}>{title}</h3>
       </div>
       <div className={styles.cardContent}>

@@ -13,6 +13,7 @@
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1rem;
+  justify-content: flex-start;
 }
 
 .cardTitle {
@@ -35,4 +36,9 @@
 
 .cardContent li {
   margin-bottom: 0.5rem;
+}
+
+.goldenCard {
+  border: 1px solid #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 } 
