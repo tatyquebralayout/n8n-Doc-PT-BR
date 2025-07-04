@@ -71,15 +71,10 @@ A documentação está organizada nas seguintes seções principais:
 Este é um projeto de código aberto, feito para a comunidade BR n8n, e sua ajuda é fundamental para mantermos a documentação rica e atualizada. Qualquer pessoa pode sugerir melhorias, corrigir erros, criar novos tutoriais ou ajudar na revisão!
 
 - **Para um guia técnico rápido** sobre como configurar seu ambiente e submeter sua primeira contribuição, veja nosso arquivo: [`CONTRIBUTING.md`](./CONTRIBUTING.md).
-- **Para entender os tipos de contribuição**, como tradução, criação de conteúdo e nossas diretrizes, acesse a seção completa do nosso site: **[Guias para Colaborar com esta Documentação](/docs/contribuir/esta-documentacao/overview)**.
+- **[Contribuir com esta Documentação](/docs/contribuir/esta-documentacao/)**: Se você quer ajudar a melhorar esta documentação, corrigindo textos, adicionando exemplos ou traduzindo, comece por aqui.
+- **[Contribuir com o n8n (Oficial)](/docs/contribuir/projeto-n8n/)**: Se seu objetivo é colaborar diretamente com o código-fonte do n8n, criar novos nodes ou participar da documentação oficial em inglês.
 
----
-
-### Quer ir além? Contribua para o Projeto Oficial n8n!
-
-Se você deseja causar um impacto global, pode levar suas habilidades para o próximo nível contribuindo diretamente para o ecossistema oficial do n8n. Suas melhorias no código-fonte, templates ou na documentação oficial em inglês afetam todas as instâncias do produto — seja na nuvem (Cloud), auto-hospedado (Self-hosted) ou Desktop.
-
-**[Saiba como Contribuir para o Projeto Oficial n8n](/docs/contribuir/projeto-n8n/overview)**
+Agradecemos imensamente a todos que dedicam seu tempo para fortalecer o n8n no Brasil!
 
 ---
 

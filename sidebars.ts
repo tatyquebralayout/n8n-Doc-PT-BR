@@ -365,10 +365,7 @@ const sidebars: SidebarsConfig = {
         'comunidade/casos-uso-avancados/index',
       ],
     },
-    'comunidade/videos',
-    'comunidade/github',
     'comunidade/como-participar',
-    'comunidade/estatisticas',
   ],
 
   // Sidebar para Cursos
