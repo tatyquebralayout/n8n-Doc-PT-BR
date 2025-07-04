@@ -1,0 +1,38 @@
+.guidanceCard {
+  background-color: var(--ifm-card-background-color);
+  border-radius: var(--ifm-card-border-radius);
+  border: 1px solid var(--ifm-card-border-color);
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--ifm-color-primary);
+}
+
+.cardContent {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-secondary);
+  flex-grow: 1;
+}
+
+.cardContent ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.cardContent li {
+  margin-bottom: 0.5rem;
+} 
