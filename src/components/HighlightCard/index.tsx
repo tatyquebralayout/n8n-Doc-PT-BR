@@ -39,38 +39,22 @@ const HighlightCard: React.FC<HighlightCardProps> = ({
     >
       <div className={styles.cardHeader}>
         {loading ? (
-          <LoadingSkeleton variant="circle" width={32} height={32} />
+          <LoadingSkeleton variant="circle" width={48} height={48} />
         ) : (
-          icon && <IonicIcon name={icon} size={32} className={styles.icon} aria-hidden="true" />
+          icon && <IonicIcon name={icon} size={48} className={styles.icon} aria-hidden="true" />
         )}
         {loading ? (
-          <LoadingSkeleton variant="line" width={80} height={18} />
+          <LoadingSkeleton variant="line" width={100} height={18} />
         ) : (
           <span className={styles.category}>{category}</span>
         )}
       </div>
-      <div className={styles.cardContent}>
-        {loading ? (
-          <LoadingSkeleton variant="line" width="70%" height={22} style={{ marginBottom: 8 }} />
-        ) : (
-          <h3 className={styles.title}>{title}</h3>
-        )}
-        {loading ? (
-          <LoadingSkeleton variant="line" width="90%" height={16} style={{ marginBottom: 6 }} />
-        ) : (
-          <p className={styles.description}>{description}</p>
-        )}
-        <div className={styles.details}>
-          {loading ? (
-            <LoadingSkeleton variant="line" width="60%" height={16} />
-          ) : (
-            details
-          )}
-        </div>
-      </div>
+      <h3 className={styles.title}>{loading ? <LoadingSkeleton variant="line" width="70%" height={28} /> : title}</h3>
+      <p className={styles.description}>{loading ? <LoadingSkeleton variant="line" width="90%" height={18} /> : description}</p>
+      <div className={styles.details}>{loading ? <LoadingSkeleton variant="line" width="60%" height={16} /> : details}</div>
       <div className={styles.cardFooter}>
         <Link to={link} className={styles.readMoreLink}>
-          Leia mais <IonicIcon name="arrow-forward-outline" size={16} />
+          Leia mais <IonicIcon name="arrow-forward-outline" size={18} />
         </Link>
       </div>
     </div>
