@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styles from './styles.module.css';
 import { useInView } from 'react-intersection-observer';
 import IonicIcon from '@site/src/components/IonicIcon';
@@ -36,7 +36,7 @@ const CommunityStats = () => {
     threshold: 0.1,
   });
 
-  const maxValue = Math.max(...stats.map(s => s.value));
+  const maxValue = useMemo(() => Math.max(...stats.map(s => s.value)), []);
 
   return (
     <div className={styles.statsContainer} ref={ref}>
@@ -66,4 +66,4 @@ const CommunityStats = () => {
   );
 };
 
-export default CommunityStats; 
+export default React.memo(CommunityStats); 
