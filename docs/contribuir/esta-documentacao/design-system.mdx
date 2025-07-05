@@ -176,3 +176,100 @@ import IonicIcon from '@site/src/components/IonicIcon';
 *Este documento está em constante evolução. Contribuições são bem-vindas!* 
 
 <RepoCard loading={true} /> 
+
+---
+
+title: Design System e Convenções CSS
+---
+
+# Estrutura CSS e Convenções
+
+A partir de 2024, a documentação adota uma estrutura CSS modularizada para facilitar manutenção, escalabilidade e performance. Veja como contribuir corretamente:
+
+## Estrutura de Arquivos
+
+```
+src/css/
+├── variables.css      # Variáveis globais (cores, tipografia, espaçamentos)
+├── base.css           # Reset, tipografia e estilos base
+├── components.css     # Estilos globais de componentes (BEM)
+├── utilities.css      # Classes utilitárias reutilizáveis
+└── custom.css         # Importa todos os arquivos acima
+```
+
+## Convenções
+
+- **BEM**: Use o padrão `bloco__elemento--modificador` para classes de componentes globais.
+- **Variáveis globais**: Sempre utilize as variáveis de `variables.css` para cores, fontes, espaçamentos, etc.
+- **Utilitários**: Prefira classes utilitárias para tipografia, espaçamento, peso, etc, sempre que possível.
+- **Componentes React**: Os módulos CSS dos componentes devem consumir variáveis globais e utilitários, evitando duplicação.
+
+## Exemplos
+
+```css
+/* BEM */
+.card-details__separator { margin: 0 0.25rem; }
+
+/* Utilitário */
+.text-xs { font-size: var(--font-size-xs) !important; }
+
+/* Variável global */
+color: var(--ifm-color-primary);
+```
+
+## Boas Práticas
+
+- Não duplique regras já existentes em utilitários ou variáveis.
+- Documente novas classes utilitárias ou variáveis criadas.
+- Prefira sempre a reutilização.
+
+---
+
+Dúvidas? Consulte este arquivo ou abra uma issue para discutir padrões de CSS no projeto. 
+
+## <IonicIcon name="sparkles-outline" size={24} /> Guia de Uso de Ícones Ionicons
+
+> **Padrão obrigatório para toda a documentação e componentes React.**
+
+### Tamanhos Permitidos
+
+| Uso                  | Tamanho (px) |
+|----------------------|--------------|
+| Ícones em listas, stats, detalhes | 16           |
+| Ícones em botões, cards, navegação| 20           |
+| Ícones em títulos, seções, destaques | 24, 32      |
+| Ilustrações, banners, hero         | 48           |
+
+> **Evite usar 64px, exceto para ilustrações muito específicas.**
+
+### Estilo
+- **Apenas ícones outline** (`-outline`).
+- **Exceção:** ícones de logo (ex: `logo-github`).
+- Não usar variantes `-filled`, `-sharp`, etc.
+
+### Cor
+- **Nunca** use cor hardcoded (ex: `color="#FF0000"`).
+- Sempre use `currentColor` (padrão) ou variável CSS, ex: `color="var(--ifm-color-primary)"`.
+- O ícone herda a cor do contexto (texto, botão, etc).
+
+### Acessibilidade
+- O componente já define `aria-hidden="true"` por padrão.
+
+### Exemplo de Uso Correto
+```jsx
+<IonicIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
+<IonicIcon name="star-outline" size={16} />
+<IonicIcon name="logo-github" size={20} />
+```
+
+### Exemplo de Uso Incorreto
+```jsx
+// NÃO FAÇA:
+<IonicIcon name="star" size={18} color="#FF0000" /> // tamanho e cor fora do padrão
+<IonicIcon name="star-filled" size={24} /> // estilo não permitido
+```
+
+### Boas Práticas
+- Sempre consulte esta tabela antes de adicionar um novo ícone.
+- Se precisar de um tamanho diferente, discuta antes com a equipe.
+- Prefira reutilizar ícones já usados em outros lugares. 
