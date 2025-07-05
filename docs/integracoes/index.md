@@ -69,7 +69,7 @@ Integrações criadas pela comunidade global do n8n.
 - <IonicIcon name="refresh-outline" size={16} color="#6b7280" /> **Constantemente atualizados**
 - <IonicIcon name="extension-puzzle-outline" size={16} color="#6b7280" /> **Cobertura de serviços especializados**
 
-<IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" /> **[ Ver Community Nodes →](./community-nodes/overview)**
+<IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" /> **[ Ver Community Nodes →](./community-nodes/index)**
 
 ---
 

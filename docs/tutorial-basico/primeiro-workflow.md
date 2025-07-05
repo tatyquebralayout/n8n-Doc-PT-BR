@@ -224,10 +224,10 @@ https://outlook.office.com/webhook/YOUR/TEAMS/WEBHOOK
 
 Parabéns! Você criou seu primeiro workflow. Agora explore:
 
-1. <IonicIcon name="flash-outline" size={16} /> **[Diferentes tipos de triggers](../workflows/triggers)**
-2. <IonicIcon name="extension-puzzle-outline" size={16} /> **[Mais integrações](../integracoes/webhooks)**
-3. <IonicIcon name="code-slash-outline" size={16} /> **[Expressões avançadas](../workflows/expressoes)**
-4. <IonicIcon name="rocket-outline" size={16} /> **[Deploy em produção](../deployment/docker/introducao)**
+1. <IonicIcon name="flash-outline" size={16} /> **[Diferentes tipos de triggers](../integracoes/trigger-nodes/time-based/manual-trigger)**
+2. <IonicIcon name="extension-puzzle-outline" size={16} /> **[Mais integrações](../integracoes/index)**
+3. <IonicIcon name="code-slash-outline" size={16} /> **[Expressões avançadas](../logica-e-dados/02-data/data-mapping)**
+4. <IonicIcon name="rocket-outline" size={16} /> **[Deploy em produção](../hosting-n8n/instalacao)**
 
 :::success Sucesso!
 Você acabou de criar um workflow funcional que pode receber, processar e responder dados automaticamente. Este é o primeiro passo para automações mais complexas!

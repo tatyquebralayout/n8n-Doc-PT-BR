@@ -153,7 +153,7 @@ const config: Config = {
             },
             {
               label: 'Beta (Desenvolvimento)',
-              href: '/beta',
+              href: '/release-notes/nossa-doc',
               className: 'dropdown-version-beta',
             },
             {
@@ -184,7 +184,7 @@ const config: Config = {
             },
             {
               label: 'Integrações',
-              to: '/integracoes/overview',
+              to: '/integracoes',
             },
             {
               label: 'Deployment',

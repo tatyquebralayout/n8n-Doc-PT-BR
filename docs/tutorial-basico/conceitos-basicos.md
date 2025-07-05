@@ -138,9 +138,9 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 Agora que você entende os conceitos básicos, está pronto para:
 
 1. <IonicIcon name="create-outline" size={16} /> **[Criar seu primeiro workflow](./primeiro-workflow)**
-2. <IonicIcon name="extension-puzzle-outline" size={16} /> **[Explorar integrações disponíveis](../integracoes/http-request)**
-3. <IonicIcon name="flash-outline" size={16} /> **[Configurar triggers](../workflows/triggers)**
-4. <IonicIcon name="rocket-outline" size={16} /> **[Aprender sobre deployment](../deployment/docker/introducao)**
+2. <IonicIcon name="extension-puzzle-outline" size={16} /> **[Explorar integrações disponíveis](../integracoes/index)**
+3. <IonicIcon name="flash-outline" size={16} /> **[Configurar triggers](../integracoes/trigger-nodes/time-based/manual-trigger)**
+4. <IonicIcon name="rocket-outline" size={16} /> **[Aprender sobre deployment](../hosting-n8n/instalacao)**
 
 :::tip Dica Pro
 Comece sempre com workflows simples e vá aumentando a complexidade gradualmente. O n8n é muito poderoso, mas é melhor dominar o básico primeiro!
