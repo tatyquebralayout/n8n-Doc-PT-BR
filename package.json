@@ -67,6 +67,7 @@
     "prism-react-renderer": "^2.4.1",
     "react": "^19.1.0",
     "react-bits": "^1.0.5",
+    "react-countup": "^6.5.3",
     "react-dom": "^19.1.0",
     "react-intersection-observer": "^9.16.0"
   },

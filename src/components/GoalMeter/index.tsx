@@ -1,4 +1,5 @@
 import React from 'react';
+import CountUp from 'react-countup';
 import styles from './styles.module.css';
 import { useInView } from 'react-intersection-observer';
 import IonicIcon from '@site/src/components/IonicIcon';
@@ -20,20 +21,54 @@ const GoalMeter: React.FC<GoalMeterProps> = ({ icon, title, currentValue, target
   const percentage = Math.min((currentValue / targetValue) * 100, 100);
 
   return (
-    <div className={styles.goalMeter} ref={ref}>
-      <div className={styles.goalHeader}>
+    <div className={styles['goal-meter']} ref={ref}>
+      <div className={styles['goal-meter__header']}>
         <IonicIcon name={icon} size={24} />
-        <h4 className={styles.goalTitle}>{title}</h4>
+        <h4 className={styles['goal-meter__title']}>{title}</h4>
       </div>
-      <div className={styles.meterBar}>
+      <div className={styles['goal-meter__bar']}>
         <div 
-          className={styles.meterProgress}
-          style={{ width: inView ? `${percentage}%` : '0%' }}
+          className={styles['goal-meter__progress']}
+          style={{
+            width: inView ? `${percentage}%` : '0%',
+          }}
         />
       </div>
-      <div className={styles.goalValues}>
-        <span>{currentValue.toLocaleString('pt-BR')}{unit}</span>
-        <span>{targetValue.toLocaleString('pt-BR')}{unit}</span>
+      <div className={styles['goal-meter__values']}>
+        <span>
+          {inView ? (
+            <CountUp
+              start={0}
+              end={currentValue}
+              duration={2}
+              delay={0.5}
+              useEasing={true}
+              separator="."
+              decimal=","
+              preserveValue={true}
+            />
+          ) : (
+            '0'
+          )}
+          {unit}
+        </span>
+        <span>
+          {inView ? (
+            <CountUp
+              start={0}
+              end={targetValue}
+              duration={2}
+              delay={0.3}
+              useEasing={true}
+              separator="."
+              decimal=","
+              preserveValue={true}
+            />
+          ) : (
+            '0'
+          )}
+          {unit}
+        </span>
       </div>
     </div>
   );
