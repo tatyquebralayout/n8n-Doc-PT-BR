@@ -53,7 +53,7 @@
   height: 100%;
   border-radius: 4px;
   transition: width calc(var(--animation-duration) * 5) var(--animation-easing);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--community-stats-bar-shadow, 0 2px 4px rgba(0,0,0,0.1));
   background-color: var(--ifm-color-primary);
 }
 
@@ -63,14 +63,14 @@
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--ifm-heading-color);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  text-shadow: var(--community-stats-value-shadow, 0 1px 2px rgba(0,0,0,0.08));
 }
 
-/* Cores por tipo (mantidas, mas recomenda-se migrar para variáveis globais se possível) */
-.members .community-stats__icon, .members .community-stats__bar { color: var(--ifm-color-info, #3b82f6); background-color: var(--ifm-color-info, #3b82f6); }
-.articles .community-stats__icon, .articles .community-stats__bar { color: var(--ifm-color-success, #10b981); background-color: var(--ifm-color-success, #10b981); }
-.nodes .community-stats__icon, .nodes .community-stats__bar { color: var(--ifm-color-warning, #f97316); background-color: var(--ifm-color-warning, #f97316); }
-.templates .community-stats__icon, .templates .community-stats__bar { color: var(--ifm-color-secondary, #8b5cf6); background-color: var(--ifm-color-secondary, #8b5cf6); }
+/* Cores por tipo (migradas para variáveis globais) */
+.members .community-stats__icon, .members .community-stats__bar { color: var(--community-stats-info-color); background-color: var(--community-stats-info-color); }
+.articles .community-stats__icon, .articles .community-stats__bar { color: var(--community-stats-success-color); background-color: var(--community-stats-success-color); }
+.nodes .community-stats__icon, .nodes .community-stats__bar { color: var(--community-stats-warning-color); background-color: var(--community-stats-warning-color); }
+.templates .community-stats__icon, .templates .community-stats__bar { color: var(--community-stats-secondary-color); background-color: var(--community-stats-secondary-color); }
 
 [data-theme='dark'] .community-stats__bar-container {
   background-color: var(--ifm-background-surface-color);

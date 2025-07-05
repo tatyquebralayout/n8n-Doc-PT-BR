@@ -6,8 +6,8 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--ifm-spacing-horizontal, 2rem);
-  padding: 0;
+  gap: 2.5rem;
+  padding: 0 0.5rem;
   margin-top: 2rem;
   transition: all var(--animation-duration) var(--animation-easing);
 } 

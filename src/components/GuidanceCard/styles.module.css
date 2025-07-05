@@ -40,6 +40,6 @@
 }
 
 .guidance-card--golden {
-  border: 1px solid #FFD700;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  border: 1px solid var(--guidance-golden-border, #FFD700);
+  box-shadow: var(--guidance-golden-shadow, 0 0 10px rgba(255, 215, 0, 0.5));
 } 

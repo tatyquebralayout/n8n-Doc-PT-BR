@@ -37,7 +37,7 @@
   height: auto;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform var(--animation-duration) var(--animation-easing), box-shadow var(--animation-duration) var(--animation-easing);
 }
 
 .heroImage:hover {
@@ -66,11 +66,19 @@
 }
 
 .heroTitle {
-  color: var(--ifm-heading-color);
+  color: var(--ifm-color-primary);
   font-size: var(--font-size-4xl); /* 24px */
   font-weight: var(--font-weight-bold);
   margin-bottom: 1.5rem;
   line-height: var(--line-height-tight);
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.heroTitle ion-icon {
+  color: var(--ifm-color-primary) !important;
 }
 
 .heroSubtitle {
@@ -97,20 +105,21 @@
 .getStartedButton {
   background: var(--ifm-color-primary);
   border: none;
-  color: white;
+  color: #fff;
   font-weight: 600;
   padding: 0.875rem 2rem;
   border-radius: 8px;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all var(--animation-duration) var(--animation-easing);
   font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(234, 75, 113, 0.08);
 }
 
 .getStartedButton:hover {
   background: var(--ifm-color-primary-dark);
+  color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 109, 90, 0.4);
-  color: white;
+  box-shadow: 0 4px 12px rgba(255, 109, 90, 0.18);
   text-decoration: none;
 }
 
@@ -122,7 +131,7 @@
   padding: 0.875rem 2rem;
   border-radius: 8px;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all var(--animation-duration) var(--animation-easing);
   font-size: 1rem;
 }
 
@@ -153,7 +162,7 @@
   border: 1px solid var(--ifm-color-gray-200);
   border-radius: 12px;
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition: all var(--animation-duration) var(--animation-easing);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -481,7 +490,7 @@
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all var(--animation-duration) var(--animation-easing);
   border: 1px solid #e2e8f0;
 }
 
@@ -525,11 +534,11 @@
   align-items: center;
   padding: 0.75rem 1.5rem;
   background: var(--ifm-color-primary);
-  color: white;
+  color: white !important;
   text-decoration: none;
   border-radius: 8px;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all var(--animation-duration) var(--animation-easing);
   border: 2px solid var(--ifm-color-primary);
 }
 
@@ -539,6 +548,11 @@
   color: white;
   text-decoration: none;
   transform: translateY(-1px);
+}
+
+.communityLink:visited,
+.communityLink:active {
+  color: white !important;
 }
 
 .communityLinkDisabled {
@@ -613,7 +627,7 @@
   padding: 1.5rem;
   border: 1px solid var(--ifm-card-border-color);
   border-radius: var(--ifm-card-border-radius);
-  transition: all var(--ifm-transition-fast) ease;
+  transition: all var(--animation-duration) var(--animation-easing);
 }
 
 .mainFeature:hover {
@@ -653,7 +667,7 @@
 }
 
 .mainFeatureLink ion-icon {
-  transition: transform var(--ifm-transition-fast) ease;
+  transition: transform var(--animation-duration) var(--animation-easing);
   font-size: 1.25rem;
 }
 
@@ -779,4 +793,21 @@
 
 .ctaCard .button ion-icon {
   margin-right: 0.5rem;
+}
+
+[data-theme='dark'] .heroTitle {
+  color: var(--ifm-color-primary);
+  background: none;
+}
+
+[data-theme='dark'] .getStartedButton {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.pinkOutlineIcon {
+  color: var(--ifm-color-primary) !important;
+  font-size: 25px !important;
+  font-weight: normal !important;
+  --ionicon-stroke-width: 32px;
 }

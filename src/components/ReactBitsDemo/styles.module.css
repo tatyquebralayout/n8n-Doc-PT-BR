@@ -26,10 +26,10 @@
 .section {
   margin-bottom: 3rem;
   padding: 2rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-color-emphasis-100, #e2e8f0) 100%);
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+  border: 1px solid var(--ifm-card-border-color);
 }
 
 /* Botões */
@@ -38,6 +38,10 @@
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.animatedButton, .stopButton, .svgDemo, .card, .statusIndicator, .statusDot {
+  transition: all var(--animation-duration) var(--animation-easing);
 }
 
 .animatedButton {
@@ -49,7 +53,6 @@
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(234, 75, 113, 0.3);
 }
 
@@ -59,7 +62,7 @@
 }
 
 .stopButton {
-  background: linear-gradient(45deg, #6b7280, #9ca3af);
+  background: linear-gradient(45deg, var(--ifm-font-color-secondary), var(--ifm-color-emphasis-200, #9ca3af));
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -67,7 +70,6 @@
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(107, 114, 128, 0.3);
 }
 
@@ -82,17 +84,16 @@
   justify-content: center;
   align-items: center;
   min-height: 250px;
-  background: white;
-  border-radius: 12px;
+  background: var(--ifm-card-background-color);
+  border-radius: var(--ifm-card-border-radius);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 2rem;
 }
 
 .svgDemo {
-  border: 2px solid #e2e8f0;
+  border: 2px solid var(--ifm-card-border-color);
   border-radius: 8px;
-  background: #ffffff;
-  transition: all 0.3s ease;
+  background: var(--ifm-card-background-color);
 }
 
 .svgDemo:hover {
@@ -130,8 +131,6 @@
   text-align: center;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .card:hover {
@@ -141,7 +140,7 @@
 }
 
 .cardAnimating {
-  animation: cardSlideIn 0.6s ease-out;
+  animation: cardSlideIn var(--animation-duration) var(--animation-easing);
 }
 
 .cardIcon {
@@ -177,7 +176,6 @@
   background: #f3f4f6;
   border-radius: 9999px;
   border: 1px solid #d1d5db;
-  transition: all 0.3s ease;
 }
 
 .statusIndicator.active {
@@ -191,12 +189,11 @@
   height: 10px;
   border-radius: 50%;
   background: var(--ifm-font-color-disabled);
-  transition: all 0.3s ease;
 }
 
 .statusIndicator.active .statusDot {
   background: var(--ifm-color-success);
-  animation: statusPulse 2s infinite;
+  animation: statusPulse calc(var(--animation-duration) * 6) infinite;
 }
 
 /* Keyframes */

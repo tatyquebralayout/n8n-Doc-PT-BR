@@ -65,7 +65,7 @@ Enviam dados para destinos externos:
 
 Expressões permitem manipular dados dinamicamente usando JavaScript.
 
-### <IonicIcon name="library-outline" size={20} /> Exemplos Básicos
+### <IonicIcon name="code-outline" size={20} /> Exemplos Básicos
 ```javascript
 // Acessar dados do item anterior
 {{ $json.nome }}
