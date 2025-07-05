@@ -1,0 +1,77 @@
+/*
+ * utilities.css
+ * Classes utilitárias para tipografia, espaçamento, peso, line-height, tracking, etc.
+ * Inspirado em frameworks utilitários como Tailwind.
+ */
+
+@import './variables.css';
+
+/* Tamanhos de Texto */
+.text-xs { font-size: var(--font-size-xs) !important; }
+.text-sm { font-size: var(--font-size-sm) !important; }
+.text-base { font-size: var(--font-size-base) !important; }
+.text-md { font-size: var(--font-size-md) !important; }
+.text-lg { font-size: var(--font-size-lg) !important; }
+.text-xl { font-size: var(--font-size-xl) !important; }
+.text-2xl { font-size: var(--font-size-2xl) !important; }
+.text-3xl { font-size: var(--font-size-3xl) !important; }
+.text-4xl { font-size: var(--font-size-4xl) !important; }
+.text-5xl { font-size: var(--font-size-5xl) !important; }
+
+/* Pesos de Fonte */
+.font-normal { font-weight: var(--font-weight-normal) !important; }
+.font-medium { font-weight: var(--font-weight-medium) !important; }
+.font-semibold { font-weight: var(--font-weight-semibold) !important; }
+.font-bold { font-weight: var(--font-weight-bold) !important; }
+
+/* Line Heights */
+.leading-tight { line-height: var(--line-height-tight) !important; }
+.leading-normal { line-height: var(--line-height-normal) !important; }
+.leading-relaxed { line-height: var(--line-height-relaxed) !important; }
+
+/* Letter Spacing */
+.tracking-tight { letter-spacing: var(--letter-spacing-tight) !important; }
+.tracking-normal { letter-spacing: var(--letter-spacing-normal) !important; }
+.tracking-wide { letter-spacing: var(--letter-spacing-wide) !important; }
+.tracking-wider { letter-spacing: var(--letter-spacing-wider) !important; }
+
+/* Font Family */
+.font-sans { font-family: var(--ifm-font-family-base) !important; }
+.font-mono { font-family: var(--ifm-font-family-monospace) !important; }
+
+/* Combinações Comuns */
+.text-body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-normal);
+}
+
+.text-secondary {
+  font-size: var(--font-size-sm);
+  color: var(--ifm-font-color-secondary);
+}
+
+.text-caption {
+  font-size: var(--font-size-xs);
+  color: var(--ifm-font-color-secondary);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.text-lead {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
+}
+
+.text-hero {
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .text-hero {
+    font-size: var(--font-size-3xl);
+  }
+} 

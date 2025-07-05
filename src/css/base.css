@@ -1,0 +1,146 @@
+/*
+ * base.css
+ * Reset, normalização e estilos base para o projeto.
+ * Inclui tipografia, títulos, blockquote, tabelas, código, etc.
+ */
+
+@import './variables.css';
+
+body {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-base);
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+  line-height: var(--ifm-line-height-base);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--ifm-color-primary);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--ifm-card-border-color);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: var(--font-size-3xl); }
+  h2 { font-size: var(--font-size-2xl); }
+  h3 { font-size: var(--font-size-xl); }
+  h4 { font-size: var(--font-size-lg); }
+}
+
+blockquote {
+  background-color: var(--ifm-color-emphasis-100);
+  border-left: 4px solid var(--ifm-color-primary);
+  padding: 1rem 1.5rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+blockquote p {
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+}
+
+code {
+  background-color: var(--ifm-color-emphasis-200);
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  font-size: var(--font-size-sm);
+  color: var(--ifm-color-primary-dark);
+}
+
+[data-theme='dark'] code {
+  color: var(--ifm-color-primary-light);
+}
+
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  box-shadow: var(--ifm-global-shadow-lw);
+  border-radius: var(--ifm-card-border-radius);
+  overflow: hidden;
+}
+
+.markdown th,
+.markdown td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--ifm-card-border-color);
+}
+
+.markdown th {
+  background-color: var(--ifm-color-emphasis-100);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ifm-heading-color);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+}
+
+[data-theme='dark'] .markdown th {
+  background-color: var(--ifm-background-surface-color);
+}
+
+.markdown tr:last-child td {
+  border-bottom: none;
+}
+
+.markdown tr:nth-child(even) {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+[data-theme='dark'] .markdown tr:nth-child(even) {
+  background-color: var(--ifm-background-surface-color);
+}
+
+.markdown tr:hover {
+  background-color: var(--ifm-color-emphasis-200);
+} 

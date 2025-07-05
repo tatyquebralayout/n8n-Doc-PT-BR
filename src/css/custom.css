@@ -634,3 +634,11 @@ a.tag:hover {
 .footer .initiator-name {
   color: #fff !important;
 }
+
+ion-icon .ionicon-fill-none {
+  fill: none !important;
+  stroke: var(--ifm-color-primary) !important;
+}
+ion-icon .ionicon-stroke-width {
+  stroke: var(--ifm-color-primary) !important;
+}
