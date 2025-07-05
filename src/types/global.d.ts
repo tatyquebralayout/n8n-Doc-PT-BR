@@ -8,6 +8,8 @@ declare namespace JSX {
       size?: 'small' | 'large' | string;
       style?: React.CSSProperties;
       className?: string;
+      color?: string;
+      'aria-hidden'?: boolean | 'true' | 'false';
     };
   }
 } 

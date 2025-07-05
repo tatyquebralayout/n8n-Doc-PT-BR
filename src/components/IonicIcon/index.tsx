@@ -1,32 +1,55 @@
 import React from 'react';
 
+/**
+ * IonicIcon - Componente padronizado para uso de Ionicons na documentação.
+ *
+ * Tamanhos permitidos: 16, 20, 24, 32, 48, 64 (em px)
+ * Estilo: Apenas outline (exceto logos)
+ * Cor: Sempre via CSS variable ou currentColor (NUNCA hardcoded)
+ * Acessibilidade: aria-hidden="true" por padrão
+ *
+ * Exemplo de uso:
+ * <IonicIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
+ */
+
+const ALLOWED_SIZES = [16, 20, 24, 32, 48, 64];
+
 interface IonicIconProps {
   name: string;
-  size?: 'small' | 'large' | number;
+  size?: number;
   color?: string;
   className?: string;
   style?: React.CSSProperties;
 }
 
+const isLogo = (name: string) => name.startsWith('logo-');
+const isOutline = (name: string) => name.endsWith('-outline') || isLogo(name);
+
 const IonicIcon: React.FC<IonicIconProps> = ({ 
   name, 
-  size = 'large', 
+  size = 24, 
   color,
   className = '',
-  style = {}
+  style = {},
 }) => {
-  const iconElement = React.createElement('ion-icon', {
-    name,
-    size: typeof size === 'number' ? undefined : size,
-    style: {
-      fontSize: typeof size === 'number' ? `${size}px` : undefined,
-      color: color || 'currentColor',
-      ...style
-    },
-    className
-  });
-
-  return iconElement;
+  // Validação de tamanho
+  const iconSize = ALLOWED_SIZES.includes(size) ? size : 24;
+  // Validação de estilo
+  if (!isOutline(name)) {
+    console.warn(`IonicIcon: Apenas ícones outline ou logos são permitidos. Ícone '${name}' pode não seguir o padrão.`);
+  }
+  return (
+    <ion-icon
+      name={name}
+      style={{
+        fontSize: `${iconSize}px`,
+        color: color || 'currentColor',
+        ...style,
+      }}
+      className={className}
+      aria-hidden="true"
+    />
+  );
 };
 
 export default IonicIcon; 
