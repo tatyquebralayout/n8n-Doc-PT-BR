@@ -32,7 +32,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId, title, channel, channelU
           className={styles['video-card__thumbnail']}
         />
         <div className={styles['video-card__play-icon']}>
-          <IonicIcon name="play-circle-outline" size={64} aria-hidden="true" />
+          <IonicIcon name="play-circle-outline" size={48} aria-hidden="true" />
         </div>
       </Link>
       <div className={styles['video-card__info']}>
@@ -40,7 +40,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId, title, channel, channelU
           <h3 className={styles['video-card__title']}>{title}</h3>
         </Link>
         <a href={channelUrl} target="_blank" rel="noopener noreferrer" className={styles['video-card__channel-link']}>
-          <IonicIcon name="logo-youtube" size={16} aria-hidden="true" />
+          <IonicIcon name="logo-youtube" size={24} aria-hidden="true" />
           <span>{channel}</span>
         </a>
       </div>

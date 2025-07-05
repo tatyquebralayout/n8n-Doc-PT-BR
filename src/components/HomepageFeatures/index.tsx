@@ -49,7 +49,7 @@ function Feature({title, icon, description}: FeatureItem) {
       <div className="text--center">
         <IonicIcon 
           name={icon} 
-          size={64} 
+          size={48} 
           className={styles['homepage-features__svg']} 
         />
       </div>

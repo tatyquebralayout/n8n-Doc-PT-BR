@@ -12,6 +12,7 @@ interface HighlightCardProps {
   description?: string;
   link: string;
   details?: React.ReactNode;
+  buttonText?: string;
 }
 
 const HighlightCard: React.FC<HighlightCardProps> = ({
@@ -21,7 +22,8 @@ const HighlightCard: React.FC<HighlightCardProps> = ({
   title,
   description,
   link,
-  details
+  details,
+  buttonText = "Leia mais"
 }) => {
   return (
     <div
@@ -54,7 +56,7 @@ const HighlightCard: React.FC<HighlightCardProps> = ({
       <div className={styles.details}>{loading ? <LoadingSkeleton variant="line" width="60%" height={16} /> : details}</div>
       <div className={styles.cardFooter}>
         <Link to={link} className={styles.readMoreLink}>
-          Leia mais <IonicIcon name="arrow-forward-outline" size={18} />
+          {buttonText} <IonicIcon name="arrow-forward-outline" size={20} />
         </Link>
       </div>
     </div>

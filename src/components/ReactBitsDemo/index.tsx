@@ -22,7 +22,7 @@ const ReactBitsDemo: React.FC = () => {
             className={styles.animatedButton}
             aria-label={isAnimating ? 'Parar animação' : 'Iniciar animação'}
           >
-            {isAnimating ? <><IonicIcon name="refresh-outline" size={18} /> Animando...</> : <><IonicIcon name="sparkles-outline" size={18} /> Iniciar Animação</>}
+            {isAnimating ? <><IonicIcon name="refresh-outline" size={20} /> Animando...</> : <><IonicIcon name="sparkles-outline" size={20} /> Iniciar Animação</>}
           </button>
           
           <button 
@@ -30,7 +30,7 @@ const ReactBitsDemo: React.FC = () => {
             className={styles.stopButton}
             aria-label="Parar animação"
           >
-            <IonicIcon name="stop-circle-outline" size={18} /> Parar
+            <IonicIcon name="stop-circle-outline" size={20} /> Parar
           </button>
         </div>
       </div>
