@@ -4,6 +4,7 @@ title: Webhook
 description: Receba dados de aplicações externas através de webhooks HTTP
 keywords: [n8n, webhook, http, api, integração, trigger]
 ---
+import IonicIcon from '@site/src/components/IonicIcon';
 
 # <IonicIcon name="globe-outline" size={32} color="#ea4b71" /> Webhook Node
 
@@ -268,7 +269,7 @@ body: $request.body
 - <IonicIcon name="tunnel-outline" size={16} color="#6b7280" /> **ngrok** - Para expor webhooks locais
 - <IonicIcon name="globe-outline" size={16} color="#6b7280" /> **Webhook.site** - Para inspecionar payloads
 
-## <IonicIcon name="apps-outline" size={24} color="#ea4b71" /> **Integrações Populares**
+## <svg width="24" height="24" viewBox="0 0 512 512" fill="none" style="vertical-align:middle"><rect x="64" y="64" width="80" height="80" rx="40" stroke="#ea4b71" stroke-width="32" fill="none"/><rect x="216" y="64" width="80" height="80" rx="40" stroke="#ea4b71" stroke-width="32" fill="none"/><rect x="368" y="64" width="80" height="80" rx="40" stroke="#ea4b71" stroke-width="32" fill="none"/><rect x="64" y="216" width="80" height="80" rx="40" stroke="#ea4b71" stroke-width="32" fill="none"/><rect x="216" y="216" width="80" height="80" rx="40" stroke="#ea4b71" stroke-width="32" fill="none"/><rect x="368" y="216" width="80" height="80" rx="40" stroke="#ea4b71" stroke-width="32" fill="none"/><rect x="64" y="368" width="80" height="80" rx="40" stroke="#ea4b71" stroke-width="32" fill="none"/><rect x="216" y="368" width="80" height="80" rx="40" stroke="#ea4b71" stroke-width="32" fill="none"/><rect x="368" y="368" width="80" height="80" rx="40" stroke="#ea4b71" stroke-width="32" fill="none"/></svg> **Integrações Populares**
 
 | Serviço | Evento | Payload |
 |---------|--------|---------|

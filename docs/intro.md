@@ -4,6 +4,7 @@ title: Introdução ao n8n
 description: Guia completo para começar com n8n
 keywords: [n8n, automação, workflow, introdução, guia]
 ---
+import IonicIcon from '@site/src/components/IonicIcon';
 
 # <IonicIcon name="rocket-outline" size={32} /> Introdução ao n8n
 
@@ -39,7 +40,7 @@ O **n8n** (pronuncia-se "n-eight-n") é uma ferramenta de automação de workflo
 - <IonicIcon name="hand-left-outline" size={16} color="#6b7280" /> Interface visual intuitiva
 - <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> Templates pré-configurados
 - <IonicIcon name="people-outline" size={16} color="#6b7280" /> Comunidade ativa
-- <IonicIcon name="library-outline" size={16} color="#6b7280" /> Documentação abrangente
+- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> Documentação abrangente
 
 ## <IonicIcon name="play-outline" size={24} color="#ea4b71" /> Começando
 

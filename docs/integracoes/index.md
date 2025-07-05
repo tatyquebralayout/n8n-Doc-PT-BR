@@ -48,7 +48,6 @@ Nodes especiais que **iniciam** workflows automaticamente.
 ---
 
 ### <IonicIcon name="apps-outline" size={20} color="#10b981" /> **Integrações com Apps**
-Conexões pré-construídas com aplicações populares.
 
 **Categorias principais:**
 - <IonicIcon name="briefcase-outline" size={16} color="#6b7280" /> ** Produtividade** - Google Sheets, Notion, Airtable
