@@ -72,6 +72,12 @@ const config: Config = {
     ],
   ],
 
+  themes: ['@docusaurus/theme-mermaid'],
+  
+  markdown: {
+    mermaid: true,
+  },
+
   scripts: [
     {
       src: 'https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js',
@@ -344,6 +350,11 @@ const config: Config = {
       {name: 'keywords', content: 'n8n, automation, workflow, documentation, integration'},
       {name: 'twitter:card', content: 'summary_large_image'},
     ],
+
+    themes: ['@docusaurus/theme-mermaid'],
+    markdown: {
+      mermaid: true,
+    },
 
   } satisfies Preset.ThemeConfig,
 };
