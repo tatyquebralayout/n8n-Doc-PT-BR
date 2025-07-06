@@ -388,8 +388,8 @@ return dados;`}
 ```mermaid
 graph LR
     A[Dados da Despesa] --> B{Categoria = Viagem?}
-    B -->|Sim| C[Output 0: RH]
-    B -->|Não| D[Output 1: Análise por Valor]
+    B -->|Sim| C[Aprovação RH]
+    B -->|Não| D[Análise por Valor]
     
     style A fill:#e1f5fe
     style B fill:#ffebee
@@ -411,9 +411,9 @@ graph LR
 ```mermaid
 graph TD
     A[Despesa Não-Viagem] --> B{Análise por Valor}
-    B -->|≤ R$ 500| C[Output 0: Automática]
-    B -->|R$ 501-2000| D[Output 1: Supervisor]
-    B -->|> R$ 2000| E[Output 2: Diretoria]
+    B -->|≤ R$ 500| C[Aprovação Automática]
+    B -->|R$ 501-2000| D[Supervisor]
+    B -->|> R$ 2000| E[Diretoria]
     
     style A fill:#fff3e0
     style B fill:#ffebee
@@ -423,9 +423,9 @@ graph TD
 ```
 
 **Configuração do Switch Node "Análise por Valor"**:
-- **Rule 1**: `{{ $json.valor <= 500 }}` → Output 0 (Aprovação automática)
-- **Rule 2**: `{{ $json.valor > 500 && $json.valor <= 2000 }}` → Output 1 (Supervisor)
-- **Rule 3**: `{{ $json.valor > 2000 }}` → Output 2 (Diretoria)
+- **Rule 1**: `{{ $json.valor <= 500 }}` → **Aprovação Automática**
+- **Rule 2**: `{{ $json.valor > 500 && $json.valor <= 2000 }}` → **Supervisor**
+- **Rule 3**: `{{ $json.valor > 2000 }}` → **Diretoria**
 
 </TabItem>
 <TabItem value="passo5" label="5. Ações Finais">
@@ -633,6 +633,40 @@ if (condicao_raramente_verdadeira) {
     return {}; // Sempre retorna algo, mesmo vazio
 }
 ```
+
+### <IonicIcon name="code-outline" /> Sintaxe JavaScript em Expressões
+
+<Admonition type="tip" title="💡 Boas Práticas para Expressões">
+**Sintaxe Recomendada:**
+```javascript
+// ✅ Sintaxe padrão (mais limpa)
+{{ $json.valor > 1000 }}
+
+// ✅ Sintaxe com brackets (necessária para propriedades especiais)
+{{ $json["valor-especial"] > 1000 }}
+
+// ✅ Tratamento de tipos
+{{ parseInt($json.valor) > 1000 }}
+
+// ✅ Tratamento de valores nulos/undefined
+{{ ($json.valor || 0) > 1000 }}
+
+// ✅ Verificação de existência
+{{ $json.valor !== undefined && $json.valor > 1000 }}
+```
+
+**Evite:**
+```javascript
+// ❌ Pode causar erros com propriedades undefined
+{{ $json.valor_inexistente > 1000 }}
+
+// ❌ Sem tratamento de tipos
+{{ $json.valor_string > 1000 }}
+
+// ❌ Sem verificações de segurança
+{{ $json.nested.deep.property }}
+```
+</Admonition>
 
 </TabItem>
 <TabItem value="paralelismo" label="Paralelismo">
@@ -897,6 +931,12 @@ Após dividir o fluxo, você pode reunir os caminhos usando um **[Merge node](/l
 
 **Quando usar**: Quando diferentes caminhos precisam convergir para uma ação final comum.
 
+**Modos de Merge Disponíveis:**
+- **Append**: Concatena todos os dados de entrada
+- **Keep Key Matches**: Mantém apenas itens com chaves correspondentes  
+- **Remove Key Matches**: Remove itens duplicados por chave
+- **Pass-through**: Passa dados do primeiro input que chegar
+
 ```mermaid
 graph TD
     A[Pedido] --> B{Cliente VIP?}
@@ -929,6 +969,52 @@ Pedido → IF (Cliente VIP?)
 
 </TabItem>
 </Tabs>
+
+## <IonicIcon name="construct-outline" /> Debugging: Ferramentas e Técnicas
+
+### <IonicIcon name="search-outline" /> Debugging de Condições
+
+<Admonition type="tip" title="🔍 Técnicas de Debug para Splitting">
+**1. Adicione um [Edit Fields (Set)](/integracoes/builtin-nodes/core-nodes/edit-fields-set) antes do split:**
+```javascript
+{
+  "debug_valor": "{{ $json.categoria }}",
+  "debug_tipo": "{{ typeof $json.categoria }}",
+  "debug_condicao": "{{ $json.categoria === 'urgente' }}",
+  "debug_timestamp": "{{ new Date().toISOString() }}"
+}
+```
+
+**2. Use [Expression Editor](/referencia/glossario) para testar condições:**
+- Teste expressões isoladamente
+- Verifique tipos de dados
+- Confirme valores antes de aplicar no workflow
+
+**3. Ative logging no [Code node](/integracoes/builtin-nodes/core-nodes/code):**
+```javascript
+// Log detalhado para debug
+console.log('Splitting Debug:', {
+  item: $input.item,
+  condition: $input.item.json.categoria === 'urgente',
+  itemIndex: $itemIndex,
+  timestamp: new Date().toISOString()
+});
+
+return $input.item;
+```
+</Admonition>
+
+### <IonicIcon name="analytics-outline" /> Ferramentas de Debugging
+
+**Ferramentas Built-in:**
+- **Execution History**: Visualize dados em cada node
+- **[Debug Helper](/integracoes/builtin-nodes/core-nodes/debug-helper)**: Insira breakpoints visuais
+- **Data Pinning**: Congele dados para testes consistentes
+
+**Ferramentas Externas:**
+- **Webhook.site**: Para inspecionar payloads HTTP
+- **Postman**: Para testes manuais de APIs
+- **Browser DevTools**: Para debugging de expressões JavaScript
 
 ## Troubleshooting: Problemas Comuns
 
@@ -1013,6 +1099,36 @@ graph TD
 
 Para mais informações sobre [tratamento de erros](/logica-e-dados/01-flow-logic/error-handling).
 
+### <IonicIcon name="bug-outline" /> ❌ Problema: "Erro em Ramificação Específica"
+
+<Admonition type="danger" title="Sintomas">
+Uma ramificação falha mas o workflow continua nas outras.
+</Admonition>
+
+```mermaid
+graph TD
+    A[Dados] --> B{Switch}
+    B --> C[Ramificação 1 ✅]
+    B --> D[Ramificação 2 ❌]
+    B --> E[Ramificação 3 ✅]
+    
+    D --> F[Error Trigger]
+    F --> G[Tratamento de Erro]
+    
+    style A fill:#e1f5fe
+    style B fill:#ffebee
+    style C fill:#e8f5e8
+    style D fill:#ffcdd2
+    style E fill:#e8f5e8
+    style F fill:#ffeaa7
+    style G fill:#fdcb6e
+```
+
+**Solução**: Use [**Error Trigger**](/integracoes/builtin-nodes/core-nodes/error-trigger) para capturar erros em ramificações:
+- **Error Trigger** captura falhas de qualquer node do workflow
+- Configure **Error Workflow** específico para tratar falhas de splitting
+- Use **Continue On Fail** em nodes críticos para não quebrar outras ramificações
+
 </TabItem>
 <TabItem value="problema3" label="Multiple Output Branches">
 
@@ -1024,8 +1140,8 @@ Switch node criando saídas inesperadas.
 
 ```mermaid
 graph TD
-    A[Switch Node] --> B[Output 1]
-    A --> C[Output 2]
+    A[Switch Node] --> B[Output Esperado]
+    A --> C[Output Esperado]
     A -.-> D[❌ Output Inesperado]
     A -.-> E[❌ Output Inesperado]
     
@@ -1039,6 +1155,10 @@ graph TD
 **Solução**: Configure adequadamente o **Mode**:
 - **"Rules"**: Para múltiplas regras independentes
 - **"Expression"**: Para lógica JavaScript personalizada
+
+**Configurações Importantes:**
+- **Send data to all matching outputs**: Controla se dados vão para todos os outputs que atendem as condições
+- **Fallback Output**: Define comportamento para dados que não atendem nenhuma regra
 
 </TabItem>
 </Tabs>
@@ -1239,9 +1359,20 @@ graph LR
 ```
 
 **Configurações Recomendadas:**
+
+<Admonition type="info" title="🌐 n8n Cloud vs Self-hosted">
+**n8n Cloud:**
+- **Timeout**: Limitado pela configuração da instância
+- **Concorrência**: Baseado no plano contratado
+- **Paralelismo**: Automático até o limite do plano
+
+**Self-hosted:**
 - **Timeout**: 30s para operações simples, 5min para complexas
 - **Retry Policy**: 3 tentativas com backoff exponencial
 - **Memory Limit**: Ajuste baseado no volume de dados
+- **[Queue Mode](/hosting-n8n/configuracao/queues)**: Redis/RabbitMQ para alta concorrência
+- **Worker Scaling**: Múltiplos workers para processamento distribuído
+</Admonition>
 
 ### <IonicIcon name="swap-horizontal-outline" /> Migração de IF Múltiplos para Switch
 
@@ -1345,6 +1476,60 @@ graph TD
 </TabItem>
 </Tabs>
 
+## <IonicIcon name="extension-puzzle-outline" /> Integração com Sub-workflows
+
+### <IonicIcon name="git-branch-outline" /> Splitting + Execute Sub-workflow
+
+Para lógicas complexas, combine splitting com [**Execute Sub-workflow**](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow):
+
+```mermaid
+graph TD
+    A[Trigger Principal] --> B{Switch por Categoria}
+    B -->|Financeiro| C[Sub-workflow Financeiro]
+    B -->|RH| D[Sub-workflow RH]
+    B -->|TI| E[Sub-workflow TI]
+    
+    C --> F[Resultado Financeiro]
+    D --> G[Resultado RH]  
+    E --> H[Resultado TI]
+    
+    F --> I[Merge Final]
+    G --> I
+    H --> I
+    
+    style A fill:#e1f5fe
+    style B fill:#ffebee
+    style C fill:#fff3e0
+    style D fill:#e8f5e8
+    style E fill:#f3e5f5
+    style F fill:#fff3e0
+    style G fill:#e8f5e8
+    style H fill:#f3e5f5
+    style I fill:#fce4ec
+```
+
+**Vantagens:**
+- **Modularidade**: Cada sub-workflow é independente e reutilizável
+- **Manutenção**: Easier debugging e atualizações
+- **Performance**: Sub-workflows podem rodar em paralelo
+- **Organização**: Separa lógica complexa em componentes menores
+
+**Configuração:**
+1. **Workflow Principal**: Contém o splitting logic
+2. **Sub-workflows**: Cada um com lógica específica de categoria
+3. **Error Handling**: Cada sub-workflow pode ter seu próprio tratamento de erro
+4. **[Workflow Trigger](/integracoes/builtin-nodes/core-nodes/workflow-trigger)**: Para comunicação entre workflows
+
+<CodeBlock language="javascript" title="Exemplo: Dados passados para sub-workflow">
+{`// No Execute Sub-workflow node:
+{
+  "categoria": "{{ $json.categoria }}",
+  "dados_originais": "{{ $json }}",
+  "workflow_origem": "{{ $workflow.name }}",
+  "timestamp": "{{ new Date().toISOString() }}"
+}`}
+</CodeBlock>
+
 ## Próximos Passos
 
 <Admonition type="info" title="Agora que você domina splitting básico, explore:">
@@ -1353,6 +1538,7 @@ graph TD
 3. **[Looping](/logica-e-dados/01-flow-logic/looping)**: Lógica de repetição em workflows
 4. **[Sub-workflows](/logica-e-dados/01-flow-logic/subworkflows)**: Workflows aninhados
 5. **[Waiting](/logica-e-dados/01-flow-logic/waiting)**: Controle de tempo e aguardo
+6. **[Execute Sub-workflow](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)**: Modularização avançada
 </Admonition>
 
 ### <IonicIcon name="school-outline" /> Exercício Prático
@@ -1424,8 +1610,11 @@ Com esses fundamentos, você está pronto para projetar workflows n8n que se ada
 ---
 
 <Admonition type="note" title="📚 Recursos Adicionais">
-- [Documentação Oficial dos Nodes](https://docs.n8n.io/flow-logic/splitting/)
-- [Nodes de Controle de Lógica](/integracoes/builtin-nodes/logic-control)
+- [Documentação Oficial - Switch Node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.switch/)
+- [Documentação Oficial - IF Node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.if/)
+- [Documentação Oficial - Merge Node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.merge/)
+- [Error Trigger Node](/integracoes/builtin-nodes/core-nodes/error-trigger)
+- [Execute Sub-workflow Node](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)
 - [Expressões JavaScript no n8n](/referencia/glossario)
 - [Exemplos de Workflows](/catalogo)
 - [Integrações Brasileiras](/integracoes-br)
