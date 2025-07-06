@@ -327,34 +327,51 @@ const sidebars: SidebarsConfig = {
       items: [
         'contribuir/esta-documentacao/index',
         {
-          type: 'doc',
-          id: 'contribuir/esta-documentacao/entendendo-o-projeto/codigo-conduta',
-        },
-        {
-          type: 'doc',
-          id: 'contribuir/esta-documentacao/recursos-tecnicos/docusaurus-folder',
-        },
-        {
-          type: 'doc',
-          id: 'contribuir/esta-documentacao/suporte-e-duvidas/onde-buscar-ajuda',
-        },
-        {
-          type: 'doc',
-          id: 'contribuir/esta-documentacao/primeiros-passos/exemplos-praticos',
+          type: 'category',
+          label: 'Entendendo o Projeto',
+          items: [
+            'contribuir/esta-documentacao/entendendo-o-projeto/sobre-o-projeto',
+            'contribuir/esta-documentacao/entendendo-o-projeto/como-contribuir',
+            'contribuir/esta-documentacao/entendendo-o-projeto/codigo-conduta',
+          ],
         },
         {
           type: 'category',
-          label: 'Design e Escrita Técnica',
+          label: 'Primeiros Passos',
+          items: [
+            'contribuir/esta-documentacao/primeiros-passos/exemplos-praticos',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Padrões e Estilo',
           items: [
             'contribuir/esta-documentacao/padroes-e-estilo/guia-de-estilo',
             'contribuir/esta-documentacao/padroes-e-estilo/markdown-features',
             'contribuir/esta-documentacao/padroes-e-estilo/design-system',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Tradução e Localização',
+          items: [
+            'contribuir/esta-documentacao/traducao-e-localizacao/guia-traducao',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Recursos Técnicos',
+          items: [
+            'contribuir/esta-documentacao/recursos-tecnicos/docusaurus-folder',
             'contribuir/esta-documentacao/recursos-tecnicos/paleta-cores',
           ],
         },
         {
-          type: 'doc',
-          id: 'contribuir/esta-documentacao/traducao-e-localizacao/guia-traducao',
+          type: 'category',
+          label: 'Suporte e Dúvidas',
+          items: [
+            'contribuir/esta-documentacao/suporte-e-duvidas/onde-buscar-ajuda',
+          ],
         },
       ],
     },
