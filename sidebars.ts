@@ -308,24 +308,24 @@ const sidebars: SidebarsConfig = {
   ],
   contribuirSidebar: [
     'contribuir/index',
-    {
-      type: 'category',
-      label: 'Contribuir com o Projeto n8n',
-      items: [
-        'contribuir/projeto-n8n/index',
-        'contribuir/projeto-n8n/contribuir-codigo-e-docs',
-        'contribuir/projeto-n8n/contribuir-community',
-        'contribuir/projeto-n8n/contribuir-modelos',
-        'contribuir/projeto-n8n/adicionar-casos-uso',
-        'contribuir/projeto-n8n/afiliados-e-creators',
-        'contribuir/projeto-n8n/referral-vagas',
+          {
+        type: 'category',
+        label: 'Contribuir com o Projeto n8n',
+        items: [
+                    'contribuir/projeto-n8n/index',
+          'contribuir/projeto-n8n/contribuir-codigo-e-docs',
+          'contribuir/projeto-n8n/contribuir-modelos',
+          'contribuir/projeto-n8n/adicionar-casos-uso',
+          'contribuir/projeto-n8n/contribuir-community',
+          'contribuir/projeto-n8n/afiliados-e-creators',
+          'contribuir/projeto-n8n/referral-vagas',
       ],
     },
-    {
-      type: 'category',
-      label: 'Contribuir com Esta Documentação',
-      items: [
-        'contribuir/esta-documentacao/index',
+            {
+          type: 'category',
+          label: 'Contribuir com Esta Documentação',
+          items: [
+            'contribuir/esta-documentacao/index',
         {
           type: 'category',
           label: 'Entendendo o Projeto',
@@ -339,16 +339,16 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Primeiros Passos',
           items: [
-            'contribuir/esta-documentacao/primeiros-passos/exemplos-praticos',
+            'contribuir/esta-documentacao/primeiros-passos/getting-started',
           ],
         },
         {
           type: 'category',
           label: 'Padrões e Estilo',
           items: [
-            'contribuir/esta-documentacao/padroes-e-estilo/guia-de-estilo',
             'contribuir/esta-documentacao/padroes-e-estilo/markdown-features',
             'contribuir/esta-documentacao/padroes-e-estilo/design-system',
+            'contribuir/esta-documentacao/padroes-e-estilo/paleta-cores',
           ],
         },
         {
@@ -363,16 +363,9 @@ const sidebars: SidebarsConfig = {
           label: 'Recursos Técnicos',
           items: [
             'contribuir/esta-documentacao/recursos-tecnicos/docusaurus-folder',
-            'contribuir/esta-documentacao/recursos-tecnicos/paleta-cores',
           ],
         },
-        {
-          type: 'category',
-          label: 'Suporte e Dúvidas',
-          items: [
-            'contribuir/esta-documentacao/suporte-e-duvidas/onde-buscar-ajuda',
-          ],
-        },
+
       ],
     },
   ],

@@ -10,13 +10,15 @@ import RepoCard from '@site/src/components/RepoCard';
 import HighlightCard from '@site/src/components/HighlightCard';
 import ArticleCard from '@site/src/components/ArticleCard';
 
-# <IonicIcon name="color-palette-outline" size={32} /> Design System da Documentação n8n Brasil
+# <IonicIcon name="color-palette-outline" size={32} color="#ea4b71" /> Design System da Documentação n8n Brasil
 
 > **Este documento é a fonte da verdade para a identidade visual, componentes e padrões de interface da nossa documentação.**
 >
 > O objetivo é criar uma experiência de usuário coesa, acessível e visualmente agradável, garantindo que todas as contribuições sigam um padrão consistente.
 
-## Filosofia de Design
+---
+
+## <IonicIcon name="bulb-outline" size={24} color="#ea4b71" /> Filosofia de Design
 
 Nossa abordagem de design se baseia em três pilares:
 
@@ -24,11 +26,13 @@ Nossa abordagem de design se baseia em três pilares:
 2.  **Consistência**: Componentes e padrões visuais devem ser reutilizados de forma consistente em toda a documentação para criar uma experiência previsível.
 3.  **Comunidade**: O design deve refletir a energia e o espírito colaborativo da comunidade n8n no Brasil.
 
-## <IonicIcon name="grid-outline" size={24} /> Componentes em Ação
+---
+
+## <IonicIcon name="grid-outline" size={24} color="#ea4b71" /> Componentes React
 
 Esta seção serve como um catálogo visual dos nossos componentes React padronizados. Use-os para construir páginas de documentação ricas e interativas.
 
-### `<CardGrid />` e `<RepoCard />`
+### <IonicIcon name="card-outline" size={20} color="#ea4b71" /> `<CardGrid />` e `<RepoCard />`
 
 O `CardGrid` cria um layout responsivo para exibir cards. O `RepoCard` busca e exibe informações de um repositório do GitHub automaticamente.
 
@@ -49,9 +53,7 @@ O `CardGrid` cria um layout responsivo para exibir cards. O `RepoCard` busca e e
   <RepoCard repoUrl="https://github.com/payloadcms/payload" icon="server-outline" />
 </CardGrid>
 
----
-
-### `<HighlightCard />`
+### <IonicIcon name="star-outline" size={20} color="#ea4b71" /> `<HighlightCard />`
 
 Use o `HighlightCard` para destacar informações importantes ou links de "call-to-action".
 
@@ -76,9 +78,7 @@ Use o `HighlightCard` para destacar informações importantes ou links de "call-
   link="/workflows"
 />
 
----
-
-### `<ArticleCard />`
+### <IonicIcon name="newspaper-outline" size={20} color="#ea4b71" /> `<ArticleCard />`
 
 O `ArticleCard` é ideal para listar tutoriais, artigos da comunidade ou guias.
 
@@ -111,27 +111,27 @@ O `ArticleCard` é ideal para listar tutoriais, artigos da comunidade ou guias.
 
 ---
 
-## <IonicIcon name="color-filter-outline" size={24} /> 1. Paleta de Cores
+## <IonicIcon name="color-filter-outline" size={24} color="#ea4b71" /> Identidade Visual
+
+### <IonicIcon name="color-palette-outline" size={20} color="#ea4b71" /> Paleta de Cores
 
 A paleta de cores define a identidade visual do nosso projeto. Usamos um conjunto de cores primárias e secundárias para criar uma hierarquia visual clara.
 
-### Cores Primárias
+#### Cores Primárias
 - **Principal (`--ifm-color-primary`):** `#FF4F8A` (Rosa n8n) - Usado para links, botões primários e destaques principais.
 - **Secundária (`--ifm-color-secondary`):** `#1E40AF` (Azul Escuro) - Usado para títulos, subtítulos e elementos de contraste.
 
-### Cores de Fundo
+#### Cores de Fundo
 - **Light Mode (`--ifm-background-color`):** `#FFFFFF` (Branco)
 - **Dark Mode (`--ifm-background-color`):** `#1E293B` (Azul Ardósia Escuro)
 
-### Cores de Texto
+#### Cores de Texto
 - **Light Mode (`--ifm-font-color-base`):** `#374151` (Cinza Ardósia Escuro)
 - **Dark Mode (`--ifm-font-color-base`):** `#E2E8F0` (Cinza Ardósia Claro)
 
 *Esta seção será expandida com mais detalhes sobre cores de sucesso, aviso, erro, etc.*
 
----
-
-## <IonicIcon name="text-outline" size={24} /> 2. Tipografia
+### <IonicIcon name="text-outline" size={20} color="#ea4b71" /> Tipografia
 
 A consistência tipográfica é crucial para a legibilidade.
 
@@ -140,9 +140,7 @@ A consistência tipográfica é crucial para a legibilidade.
 
 *Esta seção será expandida com tamanhos, pesos e alturas de linha para cada nível de título e parágrafo.*
 
----
-
-## <IonicIcon name="sparkles-outline" size={24} /> 3. Iconografia
+### <IonicIcon name="sparkles-outline" size={20} color="#ea4b71" /> Iconografia
 
 Utilizamos exclusivamente a biblioteca **Ionicons** para todos os ícones da interface, garantindo um estilo visual unificado.
 
@@ -159,34 +157,62 @@ import IonicIcon from '@site/src/components/IonicIcon';
 
 ---
 
-## <IonicIcon name="grid-outline" size={24} /> 4. Componentes
+## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Padrões de Uso
 
-*Esta seção servirá como um catálogo visual dos nossos componentes React padronizados, incluindo botões, cards, alertas e outros elementos de UI. Cada componente terá exemplos de uso e suas variações.*
+### <IonicIcon name="sparkles-outline" size={20} color="#ea4b71" /> Guia de Uso de Ícones Ionicons
 
-### Botões
+> **Padrão obrigatório para toda a documentação e componentes React.**
 
-... em construção ...
+#### Tamanhos Permitidos
 
-### Cards
+| Uso                  | Tamanho (px) |
+|----------------------|--------------|
+| Ícones em listas, stats, detalhes | 16           |
+| Ícones em botões, cards, navegação| 20           |
+| Ícones em títulos, seções, destaques | 24, 32      |
+| Ilustrações, banners, hero         | 48           |
 
-... em construção ...
+> **Evite usar 64px, exceto para ilustrações muito específicas.**
+
+#### Estilo
+- **Apenas ícones outline** (`-outline`).
+- **Exceção:** ícones de logo (ex: `logo-github`).
+- Não usar variantes `-filled`, `-sharp`, etc.
+
+#### Cor
+- **Nunca** use cor hardcoded (ex: `color="#FF0000"`).
+- Sempre use `currentColor` (padrão) ou variável CSS, ex: `color="var(--ifm-color-primary)"`.
+- O ícone herda a cor do contexto (texto, botão, etc).
+
+#### Acessibilidade
+- O componente já define `aria-hidden="true"` por padrão.
+
+#### Exemplo de Uso Correto
+```jsx
+<IonicIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
+<IonicIcon name="star-outline" size={16} />
+<IonicIcon name="logo-github" size={20} />
+```
+
+#### Exemplo de Uso Incorreto
+```jsx
+// NÃO FAÇA:
+<IonicIcon name="star" size={18} color="#FF0000" /> // tamanho e cor fora do padrão
+<IonicIcon name="star-filled" size={24} /> // estilo não permitido
+```
+
+#### Boas Práticas
+- Sempre consulte esta tabela antes de adicionar um novo ícone.
+- Se precisar de um tamanho diferente, discuta antes com a equipe.
+- Prefira reutilizar ícones já usados em outros lugares.
 
 ---
 
-*Este documento está em constante evolução. Contribuições são bem-vindas!* 
-
-<RepoCard loading={true} /> 
-
----
-
-title: Design System e Convenções CSS
----
-
-# Estrutura CSS e Convenções
+## <IonicIcon name="code-outline" size={24} color="#ea4b71" /> Estrutura CSS e Convenções
 
 A partir de 2024, a documentação adota uma estrutura CSS modularizada para facilitar manutenção, escalabilidade e performance. Veja como contribuir corretamente:
 
-## Estrutura de Arquivos
+### <IonicIcon name="folder-outline" size={20} color="#ea4b71" /> Estrutura de Arquivos
 
 ```
 src/css/
@@ -197,14 +223,14 @@ src/css/
 └── custom.css         # Importa todos os arquivos acima
 ```
 
-## Convenções
+### <IonicIcon name="settings-outline" size={20} color="#ea4b71" /> Convenções
 
 - **BEM**: Use o padrão `bloco__elemento--modificador` para classes de componentes globais.
 - **Variáveis globais**: Sempre utilize as variáveis de `variables.css` para cores, fontes, espaçamentos, etc.
 - **Utilitários**: Prefira classes utilitárias para tipografia, espaçamento, peso, etc, sempre que possível.
 - **Componentes React**: Os módulos CSS dos componentes devem consumir variáveis globais e utilitários, evitando duplicação.
 
-## Exemplos
+### <IonicIcon name="code-slash-outline" size={20} color="#ea4b71" /> Exemplos
 
 ```css
 /* BEM */
@@ -217,7 +243,7 @@ src/css/
 color: var(--ifm-color-primary);
 ```
 
-## Boas Práticas
+### <IonicIcon name="checkmark-circle-outline" size={20} color="#ea4b71" /> Boas Práticas
 
 - Não duplique regras já existentes em utilitários ou variáveis.
 - Documente novas classes utilitárias ou variáveis criadas.
@@ -225,51 +251,28 @@ color: var(--ifm-color-primary);
 
 ---
 
+## <IonicIcon name="add-circle-outline" size={24} color="#ea4b71" /> Componentes Futuros
+
+*Esta seção servirá como um catálogo visual dos nossos componentes React padronizados, incluindo botões, cards, alertas e outros elementos de UI. Cada componente terá exemplos de uso e suas variações.*
+
+### <IonicIcon name="ellipse-outline" size={20} color="#ea4b71" /> Botões
+
+... em construção ...
+
+### <IonicIcon name="card-outline" size={20} color="#ea4b71" /> Cards
+
+... em construção ...
+
+---
+
+*Este documento está em constante evolução. Contribuições são bem-vindas!* 
+
+<RepoCard loading={true} /> 
+
+---
+
+> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Um design system consistente fortalece nossa identidade e melhora a experiência de todas as pessoas que usam nossa documentação.**</span>
+
+---
+
 Dúvidas? Consulte este arquivo ou abra uma issue para discutir padrões de CSS no projeto. 
-
-## <IonicIcon name="sparkles-outline" size={24} /> Guia de Uso de Ícones Ionicons
-
-> **Padrão obrigatório para toda a documentação e componentes React.**
-
-### Tamanhos Permitidos
-
-| Uso                  | Tamanho (px) |
-|----------------------|--------------|
-| Ícones em listas, stats, detalhes | 16           |
-| Ícones em botões, cards, navegação| 20           |
-| Ícones em títulos, seções, destaques | 24, 32      |
-| Ilustrações, banners, hero         | 48           |
-
-> **Evite usar 64px, exceto para ilustrações muito específicas.**
-
-### Estilo
-- **Apenas ícones outline** (`-outline`).
-- **Exceção:** ícones de logo (ex: `logo-github`).
-- Não usar variantes `-filled`, `-sharp`, etc.
-
-### Cor
-- **Nunca** use cor hardcoded (ex: `color="#FF0000"`).
-- Sempre use `currentColor` (padrão) ou variável CSS, ex: `color="var(--ifm-color-primary)"`.
-- O ícone herda a cor do contexto (texto, botão, etc).
-
-### Acessibilidade
-- O componente já define `aria-hidden="true"` por padrão.
-
-### Exemplo de Uso Correto
-```jsx
-<IonicIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
-<IonicIcon name="star-outline" size={16} />
-<IonicIcon name="logo-github" size={20} />
-```
-
-### Exemplo de Uso Incorreto
-```jsx
-// NÃO FAÇA:
-<IonicIcon name="star" size={18} color="#FF0000" /> // tamanho e cor fora do padrão
-<IonicIcon name="star-filled" size={24} /> // estilo não permitido
-```
-
-### Boas Práticas
-- Sempre consulte esta tabela antes de adicionar um novo ícone.
-- Se precisar de um tamanho diferente, discuta antes com a equipe.
-- Prefira reutilizar ícones já usados em outros lugares. 

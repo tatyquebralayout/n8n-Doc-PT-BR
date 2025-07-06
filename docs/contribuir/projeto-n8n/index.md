@@ -1,32 +1,88 @@
 ---
 sidebar_position: 1
-title: Visão Geral - Projeto Oficial n8n
-description: Saiba como contribuir diretamente para o projeto open-source global e oficial do n8n.
-keywords: [n8n, contribuir, projeto oficial, open source, código, global]
+title: Visão Geral - Contribuição ao Projeto Oficial do n8n
+description: Saiba como contribuir diretamente para o repositório oficial do n8n mantido pela n8n GmbH
+keywords: [n8n, contribuir, projeto oficial, open source, código, global, n8n GmbH]
 ---
 
-# Visão Geral - Projeto Oficial n8n
+import IonicIcon from '@site/src/components/IonicIcon';
 
-Bem-vindo à seção sobre como **contribuir diretamente para o projeto oficial e global do n8n**. As contribuições feitas aqui impactam o produto usado por milhares de pessoas no mundo todo.
+# <IonicIcon name="globe-outline" size={32} color="#ea4b71" /> Visão Geral – Contribuição ao Projeto Oficial do n8n
 
-:::warning **Esta é a contribuição oficial**
-As diretrizes nesta seção são para interagir com o repositório principal do n8n, mantido pela empresa n8n. As contribuições geralmente são em inglês.
+Contribuir com o repositório oficial do **n8n** significa colaborar diretamente com uma ferramenta de automação utilizada globalmente. É uma oportunidade para participar da evolução do projeto open source, fortalecer sua prática técnica e impactar milhares de pessoas desenvolvedoras.
+
+:::warning **Atenção**
+Esta documentação brasileira é uma **iniciativa independente**, mantida por membros da comunidade com base nas diretrizes públicas de contribuição.
+
+Não representa a documentação oficial e **não possui vínculo institucional** com a equipe do n8n.
+
+Seu objetivo é ampliar o acesso, contextualizar o conteúdo e fomentar a adoção do n8n no Brasil.
 :::
 
-## O que significa contribuir com o projeto?
+---
 
-Aqui, você pode participar do desenvolvimento do produto principal, incluindo:
+## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> O que pode ser contribuído no repositório oficial
 
-- **Código-Fonte:** Corrigir bugs ou desenvolver novas funcionalidades.
-- **Nodes:** Criar novas integrações para o ecossistema oficial.
-- **Documentação Oficial:** Melhorar os guias e referências no site `docs.n8n.io`.
+Você pode colaborar com diversas frentes:
 
-## Por onde começar?
-
-- **Guias de Código:** Aprenda como configurar seu ambiente e submeter código.
-- **Criação de Nodes:** Siga os tutoriais para criar suas próprias integrações.
-- **Comunidade Global:** Participe dos fóruns e programas oficiais.
+- **Código-fonte**: desenvolvimento de funcionalidades, correções e melhorias de performance
+- **Nodes oficiais**: criação de novas integrações seguindo o padrão do core
+- **Documentação técnica (em inglês)**: revisão, atualização e expansão de conteúdos em [docs.n8n.io](https://docs.n8n.io)
+- **Templates de workflows**: envio de modelos reutilizáveis para a biblioteca oficial
+- **Blog técnico**: redação de tutoriais, estudos de caso e experiências com a ferramenta
 
 ---
 
-**Explore os guias no menu ao lado para descobrir como sua contribuição pode moldar o futuro do n8n para todos!** 
+## <IonicIcon name="compass-outline" size={24} color="#ea4b71" /> Como começar a contribuir no projeto oficial
+
+### <IonicIcon name="link-outline" size={20} color="#ea4b71" /> 1. Acesse os guias de contribuição
+
+- [`n8n/n8n`](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md) - Contribuições para o core
+- [`n8n-docs`](https://github.com/n8n-io/n8n-docs) - Contribuições para documentação oficial
+
+### <IonicIcon name="settings-outline" size={20} color="#ea4b71" /> 2. Configure seu ambiente local
+
+- **Repositório principal**: use `git clone --recurse-submodules`, `npm install`, `lerna bootstrap`
+- **Documentação oficial**: instale `MkDocs` com Python, siga `mkdocs serve`
+
+### <IonicIcon name="star-outline" size={20} color="#ea4b71" /> 3. Escolha uma contribuição inicial
+
+- Priorize issues com labels como `good first issue`, `documentation` ou `enhancement`
+
+---
+
+## <IonicIcon name="layers-outline" size={24} color="#ea4b71" /> Fluxo de contribuição
+
+- **Fork → Branch → Commit → Pull Request**
+- Utilize convenções de commits (`feat:`, `fix:`, `docs:`) e escreva descrições objetivas
+- O time de engenharia do n8n realiza a revisão, sugere ajustes e aprova o merge
+- O conteúdo é incorporado à base oficial e publicado para toda a comunidade
+
+---
+
+## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Por que contribuir?
+
+- **Forte experiência**: trabalhe com projetos open source de alto impacto
+- **Reconhecimento global**: suas contribuições são vistas por toda a comunidade
+- **Comunidade ativa**: participe de uma comunidade técnica colaborativa
+- **Ampliação de atuação**: desenvolva código, documentação e conteúdo técnico de qualidade
+
+---
+
+## <IonicIcon name="library-outline" size={24} color="#ea4b71" /> Recursos disponíveis
+
+### <IonicIcon name="document-text-outline" size={20} color="#ea4b71" /> Guias de Desenvolvimento
+
+- **[Contribuir com Código e Docs](./contribuir-codigo-e-docs)** - Desenvolvimento de funcionalidades e documentação
+- **[Criar Nodes](./contribuir-modelos)** - Desenvolvimento de novas integrações
+- **[Adicionar Casos de Uso](./adicionar-casos-uso)** - Compartilhar workflows e templates
+
+### <IonicIcon name="people-outline" size={20} color="#ea4b71" /> Participação na Comunidade
+
+- **[Contribuir com a Comunidade](./contribuir-community)** - Ajudar outros usuários e participar de discussões
+- **[Programa de Afiliados](./afiliados-e-creators)** - Oportunidades de parceria e monetização
+- **[Referral de Vagas](./referral-vagas)** - Conecte-se com oportunidades profissionais
+
+---
+
+> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Contribuir com o repositório oficial é uma oportunidade de atuar diretamente no crescimento da ferramenta. E se você estiver começando por aqui, saiba que a documentação brasileira está aqui para guiar, traduzir e aproximar — sempre com base nas boas práticas do projeto original.**</span> 
