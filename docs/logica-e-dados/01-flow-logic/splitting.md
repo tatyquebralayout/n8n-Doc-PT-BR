@@ -9,12 +9,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 import CodeBlock from '@theme/CodeBlock';
+import IonicIcon from '@site/src/components/IonicIcon';
 
-# Splitting de Workflows: Criando Lógica Condicional no n8n
+# <IonicIcon name="git-branch-outline" /> Splitting de Workflows: Criando Lógica Condicional no n8n
 
-<IonicIcon name="git-branch-outline" />
 
-> **Caminho na documentação** Using n8n ▸ Key concepts ▸ Flow logic ▸ **Splitting workflows with conditional nodes**
+
 
 ## O que você vai aprender nesta página
 
@@ -671,6 +671,68 @@ graph TD
 - **Timeout**: Configurado por tipo de processo
 - **Retry Policy**: Configurada para falhas temporárias
 
+### <IonicIcon name="rocket-outline" /> Performance em Produção
+
+<Admonition type="tip" title="🚀 Configurações Otimizadas para Produção">
+**Processamento Distribuído:**
+- **Concurrent Executions**: 10-50 baseado na capacidade do servidor
+- **Queue Mode**: Para processamento distribuído e alta concorrência
+- **Worker Scaling**: Ajuste conforme demanda
+
+**Estratégia de Timeout:**
+- **Timeout Strategy**: 30s operações simples, 5min complexas
+- **Connection Timeout**: 10s para APIs externas
+- **Retry Backoff**: Exponencial com jitter
+
+**Monitoramento:**
+- **Métricas de Performance**: Latência, throughput, taxa de erro
+- **Alertas**: Para timeouts e falhas de execução
+- **Logs Estruturados**: Para debugging e análise
+</Admonition>
+
+### <IonicIcon name="analytics-outline" /> Monitoramento de Splitting
+
+<Admonition type="info" title="📊 Métricas Essenciais para Workflows com Splitting">
+**Eficiência de Roteamento:**
+- **Split Efficiency**: % de dados que seguem o caminho esperado
+- **Route Distribution**: Distribuição de itens por ramo
+- **Condition Accuracy**: Taxa de acerto das condições
+
+**Performance por Ramo:**
+- **Branch Performance**: Tempo médio por ramo de execução
+- **Bottleneck Detection**: Identificação de gargalos específicos
+- **Parallel Efficiency**: Eficácia do processamento paralelo
+
+**Qualidade e Confiabilidade:**
+- **Error Rate**: Falhas por tipo de condição
+- **Retry Success Rate**: Taxa de sucesso nas reexecuções
+- **Data Quality**: Integridade dos dados em cada ramo
+</Admonition>
+
+```mermaid
+graph TD
+    A[Workflow com Splitting] --> B[Coleta de Métricas]
+    B --> C[Split Efficiency]
+    B --> D[Branch Performance]
+    B --> E[Error Rate]
+    
+    C --> F[Dashboard de Monitoramento]
+    D --> F
+    E --> F
+    
+    F --> G[Alertas Automáticos]
+    F --> H[Relatórios de Performance]
+    
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#e8f5e8
+    style D fill:#f3e5f5
+    style E fill:#fce4ec
+    style F fill:#ffebee
+    style G fill:#ffcdd2
+    style H fill:#f1f8e9
+```
+
 </TabItem>
 </Tabs>
 
@@ -1188,6 +1250,71 @@ graph LR
 - **Timeout**: 30s para operações simples, 5min para complexas
 - **Retry Policy**: 3 tentativas com backoff exponencial
 - **Memory Limit**: Ajuste baseado no volume de dados
+
+### <IonicIcon name="swap-horizontal-outline" /> Migração de IF Múltiplos para Switch
+
+<Admonition type="tip" title="🔄 Refatoração para Melhor Performance">
+**Cenário Comum**: Workflows com múltiplos IFs aninhados que se tornaram difíceis de manter.
+
+**Antes: Múltiplos IFs Aninhados**
+```javascript
+// ❌ Estrutura complexa e difícil de manter
+IF (categoria === "software") {
+  IF (prioridade === "alta") {
+    IF (cliente === "vip") {
+      // Ação específica
+    } else {
+      // Outra ação
+    }
+  } else {
+    // Mais IFs...
+  }
+}
+```
+
+**Depois: Um Switch Organizado**
+```javascript
+// ✅ Estrutura clara e eficiente
+SWITCH (categoria + "_" + prioridade + "_" + cliente) {
+  case "software_alta_vip":
+    // Ação específica
+    break;
+  case "software_alta_standard":
+    // Outra ação
+    break;
+  default:
+    // Ação padrão
+}
+```
+
+**Benefícios da Migração:**
+- **Manutenibilidade**: Código mais limpo e fácil de entender
+- **Performance**: Menos overhead de processamento
+- **Escalabilidade**: Fácil adição de novos casos
+- **Debugging**: Mais simples identificar problemas
+</Admonition>
+
+```mermaid
+graph TD
+    A[IFs Múltiplos Aninhados] --> B[Análise de Padrões]
+    B --> C[Identificar Combinações]
+    C --> D[Criar Switch Unificado]
+    D --> E[Testar Migração]
+    E --> F[Deploy Otimizado]
+    
+    A --> G[❌ Difícil Manutenção]
+    A --> H[❌ Performance Baixa]
+    
+    F --> I[✅ Código Limpo]
+    F --> J[✅ Performance Melhor]
+    
+    style A fill:#ffcdd2
+    style G fill:#ffcdd2
+    style H fill:#ffcdd2
+    style F fill:#e8f5e8
+    style I fill:#e8f5e8
+    style J fill:#e8f5e8
+```
 
 </TabItem>
 <TabItem value="manutencao" label="🔧 Manutenibilidade">
