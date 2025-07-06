@@ -1,7 +1,475 @@
 ---
+sidebar_position: 1
 title: Como Contribuir
+description: Guia prático passo a passo para fazer sua primeira contribuição
+keywords: [n8n, contribuir, github, pull request, tutorial]
 ---
+import IonicIcon from '@site/src/components/IonicIcon';
+import CardGrid from '@site/src/components/CardGrid';
+import GuidanceCard from '@site/src/components/GuidanceCard';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # <IonicIcon name="git-pull-request-outline" size={32} color="#ea4b71" /> Como Contribuir
 
-**<IonicIcon name="construct-outline" size={16} color="#f59e0b" /> Em construção...** 
+:::tip Sua primeira contribuição em 15 minutos
+Este guia te leva do zero à sua primeira contribuição aprovada. Mesmo se você nunca contribuiu para um projeto open source, você vai conseguir!
+:::
+
+## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Início Rápido (5 minutos)
+
+### **Contribuições Simples (Sem Código)**
+
+<CardGrid>
+  <GuidanceCard title="Corrigir Typos" iconName="text-outline">
+    <p>Encontrou um erro de português? Clique em "Editar" no final da página e envie uma correção!</p>
+  </GuidanceCard>
+  <GuidanceCard title="Melhorar Exemplos" iconName="code-working-outline">
+    <p>Adicione exemplos brasileiros mais claros ou atualize informações desatualizadas.</p>
+  </GuidanceCard>
+  <GuidanceCard title="Reportar Problemas" iconName="bug-outline">
+    <p>Abra uma issue descrevendo problemas encontrados ou sugestões de melhoria.</p>
+  </GuidanceCard>
+</CardGrid>
+
+### **Link Direto para Contribuir**
+<IonicIcon name="open-outline" size={16} color="#6b7280" /> **[Repositório no GitHub](https://github.com/usuario/n8n-docs-brasil)**
+
+---
+
+## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Configuração do Ambiente
+
+### **Pré-requisitos**
+
+<Tabs>
+  <TabItem value="basico" label="Usuário Básico" default>
+    **Para edições simples:**
+    - Conta no GitHub
+    - Navegador web (qualquer one)
+    - Conhecimento básico de Markdown
+    
+    **✅ Você pode contribuir diretamente pelo GitHub web!**
+  </TabItem>
+  <TabItem value="avancado" label="Desenvolvedor">
+    **Para contribuições avançadas:**
+    - Node.js 18+ instalado
+    - Git configurado
+    - Editor de código (VSCode recomendado)
+    - Terminal/linha de comando
+    
+    **✅ Necessário para testar localmente**
+  </TabItem>
+</Tabs>
+
+### **Setup Local (Desenvolvedores)**
+
+```bash title="Terminal"
+# 1. Fork e clone o repositório
+git clone https://github.com/SEU-USUARIO/n8n-docs-brasil.git
+cd n8n-docs-brasil
+
+# 2. Instalar dependências
+npm install
+
+# 3. Iniciar servidor de desenvolvimento
+npm start
+
+# 4. Abrir no navegador
+# http://localhost:3000
+```
+
+---
+
+## <IonicIcon name="git-branch-outline" size={24} color="#ea4b71" /> Fluxo de Contribuição
+
+### **Método 1: Edição Rápida (GitHub Web)**
+
+**Ideal para:** Correções simples, typos, pequenas melhorias
+
+1. **<IonicIcon name="search-outline" size={16} />** Navegue até a página que quer editar
+2. **<IonicIcon name="create-outline" size={16} />** Clique em "Editar esta página" no final
+3. **<IonicIcon name="git-branch-outline" size={16} />** GitHub criará automaticamente um fork
+4. **<IonicIcon name="text-outline" size={16} />** Faça suas alterações no editor web
+5. **<IonicIcon name="save-outline" size={16} />** Adicione uma descrição clara das mudanças
+6. **<IonicIcon name="paper-plane-outline" size={16} />** Clique em "Propose changes"
+7. **<IonicIcon name="checkmark-outline" size={16} />** Envie o Pull Request
+
+:::info Vantagem
+Você não precisa instalar nada! Tudo acontece no navegador.
+:::
+
+### **Método 2: Desenvolvimento Local**
+
+**Ideal para:** Novos artigos, mudanças complexas, múltiplos arquivos
+
+<Tabs>
+  <TabItem value="passo1" label="1. Preparação">
+    ```bash title="Terminal"
+    # Criar nova branch para sua contribuição
+    git checkout -b minha-contribuicao
+    
+    # Verificar status
+    git status
+    ```
+    
+    **Nomeação de branches:**
+    - `fix/corrigir-typo-instalacao`
+    - `feat/novo-tutorial-webhook`
+    - `docs/atualizar-guia-docker`
+  </TabItem>
+  <TabItem value="passo2" label="2. Desenvolvimento">
+    ```bash title="Terminal"
+    # Iniciar servidor local
+    npm start
+    
+    # Em outro terminal, fazer mudanças
+    # Editar arquivos com seu editor favorito
+    ```
+    
+    **Durante o desenvolvimento:**
+    - Servidor recarrega automaticamente
+    - Teste suas mudanças em tempo real
+    - Verifique responsividade (mobile/desktop)
+  </TabItem>
+  <TabItem value="passo3" label="3. Commit e Push">
+    ```bash title="Terminal"
+    # Adicionar arquivos modificados
+    git add .
+    
+    # Commit com mensagem descritiva
+    git commit -m "feat: adicionar tutorial de webhook brasileiro"
+    
+    # Enviar para seu fork
+    git push origin minha-contribuicao
+    ```
+    
+    **Padrões de commit:**
+    - `feat:` nova funcionalidade
+    - `fix:` correção
+    - `docs:` documentação
+    - `style:` formatação
+  </TabItem>
+  <TabItem value="passo4" label="4. Pull Request">
+    1. **Vá para seu fork no GitHub**
+    2. **Clique em "Compare & pull request"**
+    3. **Preencha o template:**
+       - Título claro e descritivo
+       - Descrição do que foi feito
+       - Screenshots se aplicável
+       - Checklist preenchido
+    4. **Envie o PR**
+    
+    **Dica:** Use o template automático que aparece!
+  </TabItem>
+</Tabs>
+
+---
+
+## <IonicIcon name="document-outline" size={24} color="#ea4b71" /> Tipos de Contribuição
+
+### <IonicIcon name="rocket-outline" size={16} color="#ea4b71" /> Conteúdo Novo
+
+<CardGrid>
+  <GuidanceCard title="Tutoriais Práticos" iconName="book-outline">
+    <ul>
+      <li>Workflows específicos para o Brasil</li>
+      <li>Integrações com serviços brasileiros</li>
+      <li>Casos de uso reais</li>
+      <li>Troubleshooting comum</li>
+    </ul>
+  </GuidanceCard>
+  <GuidanceCard title="Guias de Integração" iconName="git-network-outline">
+    <ul>
+      <li>APIs brasileiras (ViaCEP, Receita Federal)</li>
+      <li>Sistemas de pagamento nacionais</li>
+      <li>ERPs populares no Brasil</li>
+      <li>Redes sociais e comunicação</li>
+    </ul>
+  </GuidanceCard>
+</CardGrid>
+
+**Template para novos tutoriais:**
+```markdown
+---
+title: Tutorial do [Nome da Integração]
+description: Como integrar [serviço] com n8n
+keywords: [n8n, integração, brasil, [serviço]]
+---
+
+# Tutorial: [Nome da Integração]
+
+:::tip O que você vai fazer
+Descrição clara do resultado final em 1-2 frases.
+:::
+
+## Pré-requisitos
+- [ ] n8n instalado
+- [ ] Conta no [serviço]
+- [ ] [outros requisitos]
+
+## Passo a Passo
+[Tutorial detalhado...]
+
+## Testando
+[Como verificar se funcionou]
+
+## Próximos Passos
+[Links relacionados]
+```
+
+### <IonicIcon name="pencil-outline" size={16} color="#ea4b71" /> Melhorias Existentes
+
+**Exemplos de melhorias bem-vindas:**
+- Atualizar screenshots desatualizados
+- Adicionar exemplos brasileiros mais relevantes
+- Corrigir informações desatualizadas
+- Melhorar clareza das explicações
+- Adicionar troubleshooting para problemas comuns
+
+### <IonicIcon name="color-palette-outline" size={16} color="#ea4b71" /> Melhorias Visuais
+
+- Screenshots em alta qualidade
+- Diagramas explicativos
+- GIFs demonstrativos
+- Vídeos tutoriais (YouTube embeds)
+
+---
+
+## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Checklist de Qualidade
+
+### **Antes de Enviar**
+
+<Tabs>
+  <TabItem value="conteudo" label="Conteúdo">
+    **Qualidade do Texto**
+    - [ ] Português brasileiro correto
+    - [ ] Tom conversacional e amigável
+    - [ ] Exemplos contextualizados para o Brasil
+    - [ ] Links internos funcionando
+    - [ ] Informações atualizadas
+    
+    **Estrutura**
+    - [ ] Usa template padrão
+    - [ ] Hierarquia de títulos correta
+    - [ ] Admonições apropriadas (tip, warning, etc.)
+    - [ ] Cross-references relevantes
+  </TabItem>
+  <TabItem value="tecnico" label="Técnico">
+    **Funcionalidade**
+    - [ ] Todos os comandos testados
+    - [ ] Código funciona como descrito
+    - [ ] Screenshots atuais e relevantes
+    - [ ] Links externos funcionando
+    
+    **Otimização**
+    - [ ] Imagens otimizadas (formato WebP se possível)
+    - [ ] Alt-text em todas as imagens
+    - [ ] Meta description adequada
+    - [ ] Build local funciona sem erros
+  </TabItem>
+  <TabItem value="estilo" label="Estilo">
+    **Visual**
+    - [ ] Ícones Ionicons seguindo padrão
+    - [ ] Cores da paleta oficial
+    - [ ] Formatação consistente
+    - [ ] Componentes React funcionando
+    
+    **Acessibilidade**
+    - [ ] Contraste adequado
+    - [ ] Estrutura de cabeçalhos lógica
+    - [ ] Navegação por teclado funciona
+    - [ ] Texto alternativo descritivo
+  </TabItem>
+</Tabs>
+
+---
+
+## <IonicIcon name="people-outline" size={24} color="#ea4b71" /> Processo de Revisão
+
+### **O que Acontece Após Enviar**
+
+1. **<IonicIcon name="eye-outline" size={16} />** **Revisão Automática** (2-5 min)
+   - Verificação de build
+   - Testes de links
+   - Validação de formatação
+
+2. **<IonicIcon name="people-outline" size={16} />** **Revisão Humana** (1-3 dias)
+   - Qualidade do conteúdo
+   - Correção técnica
+   - Adequação aos padrões
+
+3. **<IonicIcon name="chatbubbles-outline" size={16} />** **Feedback e Ajustes** (conforme necessário)
+   - Sugestões de melhoria
+   - Correções solicitadas
+   - Ajustes de estilo
+
+4. **<IonicIcon name="checkmark-circle-outline" size={16} />** **Aprovação e Merge**
+   - Contribuição aprovada
+   - Código integrado ao projeto
+   - Publicação automática
+
+### **Como Responder ao Feedback**
+
+**Se recebermos sugestões:**
+- Leia com mente aberta - queremos te ajudar a melhorar
+- Faça as mudanças sugeridas ou explique sua abordagem
+- Pergunte se não entender algo
+- Agradecemos por aceitar feedback construtivo!
+
+**Comandos para ajustes:**
+```bash title="Terminal"
+# Fazer ajustes baseados no feedback
+# editar arquivos...
+
+# Commit das mudanças
+git add .
+git commit -m "fix: ajustes baseados no feedback da revisão"
+git push origin minha-contribuicao
+
+# O PR é atualizado automaticamente!
+```
+
+---
+
+## <IonicIcon name="trophy-outline" size={24} color="#ea4b71" /> Exemplos de Boas Contribuições
+
+### **Contribuições Destacadas**
+
+<CardGrid>
+  <GuidanceCard title="Tutorial PagSeguro" iconName="card-outline">
+    <p><strong>Por:</strong> @usuario1<br/>
+    <strong>Impacto:</strong> +500 visualizações<br/>
+    <strong>Destaque:</strong> Primeiro tutorial completo de integração com payment brasileiro</p>
+  </GuidanceCard>
+  <GuidanceCard title="Guia ViaCEP" iconName="location-outline">
+    <p><strong>Por:</strong> @usuario2<br/>
+    <strong>Impacto:</strong> +300 visualizações<br/>
+    <strong>Destaque:</strong> Solução para validação de CEP muito procurada</p>
+  </GuidanceCard>
+  <GuidanceCard title="Troubleshooting Docker" iconName="bug-outline">
+    <p><strong>Por:</strong> @usuario3<br/>
+    <strong>Impacto:</strong> -50% support tickets<br/>
+    <strong>Destaque:</strong> Resolveu problema comum de instalação</p>
+  </GuidanceCard>
+</CardGrid>
+
+### **Padrões de Excelência**
+
+**O que faz uma contribuição se destacar:**
+- **Clara e objetiva**: Vai direto ao ponto
+- **Testada na prática**: Exemplos que realmente funcionam  
+- **Contextualizada**: Adaptada para a realidade brasileira
+- **Bem documentada**: Screenshots, código comentado, troubleshooting
+- **Acessível**: Fácil de seguir para diferentes níveis
+
+---
+
+## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> Suporte e Dúvidas
+
+### **Onde Buscar Ajuda**
+
+<CardGrid>
+  <GuidanceCard title="Dúvidas Técnicas" iconName="code-slash-outline">
+    <ul>
+      <li><strong>GitHub Issues:</strong> Para bugs e problemas técnicos</li>
+      <li><strong>Discussions:</strong> Para perguntas e ideias</li>
+      <li><strong>Discord:</strong> Para chat em tempo real</li>
+    </ul>
+  </GuidanceCard>
+  <GuidanceCard title="Sugestões de Conteúdo" iconName="bulb-outline">
+    <ul>
+      <li><strong>Issues com label "content":</strong> Novas ideias</li>
+      <li><strong>Roadmap:</strong> Planejamento de conteúdo</li>
+      <li><strong>Reuniões mensais:</strong> Discussões da comunidade</li>
+    </ul>
+  </GuidanceCard>
+  <GuidanceCard title="Suporte Geral" iconName="chatbubbles-outline">
+    <ul>
+      <li><strong>Email:</strong> contato@n8ndocs.com.br</li>
+      <li><strong>Twitter:</strong> @n8ndocsbrasil</li>
+      <li><strong>Mentoria:</strong> Programa para novos contribuidores</li>
+    </ul>
+  </GuidanceCard>
+</CardGrid>
+
+### **FAQs da Contribuição**
+
+<details>
+<summary><strong>❓ Não sei por onde começar</strong></summary>
+
+**Resposta:** Comece com issues marcadas como `good first issue`. São problemas simples perfeitos para primeira contribuição!
+
+**Links úteis:**
+- [Issues para iniciantes](https://github.com/usuario/repo/labels/good%20first%20issue)
+- [Roadmap de conteúdo](./roadmap)
+- [Mentoria para novos contribuidores](./mentoria)
+</details>
+
+<details>
+<summary><strong>❓ Minha ideia já existe?</strong></summary>
+
+**Resposta:** Antes de começar, procure por:
+1. Issues existentes relacionadas
+2. PRs em andamento
+3. Conteúdo similar na documentação
+
+Se não encontrar nada, abra uma issue para discutir sua ideia!
+</details>
+
+<details>
+<summary><strong>❓ Quanto tempo demora para aprovar?</strong></summary>
+
+**Resposta:** 
+- **Correções simples:** 1-2 dias
+- **Conteúdo novo:** 3-7 dias
+- **Mudanças grandes:** 1-2 semanas
+
+Tentamos ser rápidos, mas priorizamos qualidade!
+</details>
+
+<details>
+<summary><strong>❓ Posso contribuir sem saber programar?</strong></summary>
+
+**Resposta:** **Claro!** Muitas contribuições valiosas não envolvem código:
+- Melhorar textos e correções
+- Adicionar exemplos e casos de uso
+- Reportar problemas e sugestões
+- Revisar conteúdo de outros contribuidores
+- Traduzir e localizar conteúdo
+</details>
+
+---
+
+## <IonicIcon name="flag-outline" size={24} color="#ea4b71" /> Próximos Passos
+
+### **Sua Jornada como Contribuidor**
+
+1. **<IonicIcon name="rocket-outline" size={16} />** **Primeira Contribuição** (hoje!)
+   - Escolha uma issue `good first issue`
+   - Siga este guia passo a passo
+   - Envie seu primeiro PR
+
+2. **<IonicIcon name="trending-up-outline" size={16} />** **Contribuidor Regular** (próximas semanas)
+   - Conheça melhor o projeto
+   - Identifique suas áreas de interesse
+   - Comece a sugerir melhorias
+
+3. **<IonicIcon name="star-outline" size={16} />** **Membro da Comunidade** (próximos meses)
+   - Ajude outros contribuidores
+   - Participe de discussões e decisões
+   - Torne-se referência em alguma área
+
+### **Recursos para Continuar**
+
+- **[Diretrizes Completas](../03-padroes-e-estilo/guia-de-estilo)** - Padrões detalhados
+- **[Guia de Tradução](../04-traducao-e-localizacao/guia-traducao)** - Como localizar conteúdo
+- **[Design System](../03-padroes-e-estilo/design-system)** - Componentes visuais
+- **[Roadmap do Projeto](./roadmap)** - O que vem por aí
+
+---
+
+**🎉 Pronto para contribuir?** 
+
+Escolha uma issue marcada como `good first issue` e siga este guia. A comunidade está aqui para ajudar em cada passo!
+
+**<IonicIcon name="eye-outline" size={16} color="#ea4b71" /> [Ver Issues Disponíveis](https://github.com/usuario/repo/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)** | **<IonicIcon name="chatbubbles-outline" size={16} color="#ea4b71" /> [Fazer uma Pergunta](https://github.com/usuario/repo/discussions)** 

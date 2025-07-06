@@ -1,23 +1,22 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+// Conteúdo completo e corrigido de sidebars.ts
+
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 /**
  * Configuração completa dos sidebars para n8n Documentation BR
  * Estrutura com 11 seções principais organizadas logicamente
  */
 const sidebars: SidebarsConfig = {
-  // Tutorial sidebar - "Criar e Usar Workflows"
   tutorialSidebar: [
     'intro',
     {
       type: 'category',
       label: 'Tutorial Básico',
-      className: 'sidebar-tutorial-basico',
       items: ['tutorial-basico/instalacao', 'tutorial-basico/conceitos-basicos', 'tutorial-basico/primeiro-workflow'],
     },
     {
       type: 'category',
       label: 'Usando n8n',
-      className: 'sidebar-usando-n8n',
       items: [
         {
           type: 'category',
@@ -39,7 +38,6 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Lógica e Dados',
-      className: 'sidebar-logica-dados',
       items: [
         {
           type: 'category',
@@ -71,7 +69,6 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Integrações',
-      className: 'sidebar-integracoes',
       items: [
         'integracoes/index',
         {
@@ -167,7 +164,6 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Integrações Brasileiras',
-      className: 'sidebar-integracoes-br',
       items: [
         {
           type: 'category',
@@ -189,7 +185,6 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Hosting n8n',
-      className: 'sidebar-hosting',
       items: [
         'hosting-n8n/instalacao',
         {
@@ -217,7 +212,6 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Embed',
-      className: 'sidebar-embed',
       items: [
         {
           type: 'category',
@@ -239,7 +233,6 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'IA Avançada',
-      className: 'sidebar-ia-avancada',
       items: [
         'advanced-ai/tutorial-ai',
         'advanced-ai/langchain-overview',
@@ -272,7 +265,6 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'API',
-      className: 'sidebar-api',
       items: [
         {
           type: 'category',
@@ -294,7 +286,6 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Referência',
-      className: 'sidebar-referencia',
       items: [
         'referencia/index',
         {
@@ -315,14 +306,11 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
-
-  // Contribuir Sidebar
   contribuirSidebar: [
     'contribuir/index',
     {
       type: 'category',
       label: 'Contribuir com o Projeto n8n',
-      className: 'sidebar-contribuir-projeto',
       items: [
         'contribuir/projeto-n8n/index',
         'contribuir/projeto-n8n/contribuir-codigo-e-docs',
@@ -336,53 +324,63 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Contribuir com Esta Documentação',
-      className: 'sidebar-contribuir-docs',
       items: [
         'contribuir/esta-documentacao/index',
-        'contribuir/esta-documentacao/design-system',
-        'contribuir/esta-documentacao/guidelines',
-        'contribuir/esta-documentacao/guia-de-estilo',
-        'contribuir/esta-documentacao/traduzir',
-        'contribuir/esta-documentacao/exemplos-de-boas-contribuicoes',
-        'contribuir/esta-documentacao/duvidas-ou-sugestoes',
-        'contribuir/esta-documentacao/markdown-features',
-        'contribuir/esta-documentacao/paleta-de-cores',
-        'contribuir/esta-documentacao/docusaurus-folder',
-        'contribuir/esta-documentacao/codigo-conduta',
+        {
+          type: 'doc',
+          id: 'contribuir/esta-documentacao/entendendo-o-projeto/codigo-conduta',
+        },
+        {
+          type: 'doc',
+          id: 'contribuir/esta-documentacao/recursos-tecnicos/docusaurus-folder',
+        },
+        {
+          type: 'doc',
+          id: 'contribuir/esta-documentacao/suporte-e-duvidas/onde-buscar-ajuda',
+        },
+        {
+          type: 'doc',
+          id: 'contribuir/esta-documentacao/primeiros-passos/exemplos-praticos',
+        },
+        {
+          type: 'category',
+          label: 'Design e Escrita Técnica',
+          items: [
+            'contribuir/esta-documentacao/padroes-e-estilo/guia-de-estilo',
+            'contribuir/esta-documentacao/padroes-e-estilo/markdown-features',
+            'contribuir/esta-documentacao/padroes-e-estilo/design-system',
+            'contribuir/esta-documentacao/recursos-tecnicos/paleta-cores',
+          ],
+        },
+        {
+          type: 'doc',
+          id: 'contribuir/esta-documentacao/traducao-e-localizacao/guia-traducao',
+        },
       ],
     },
   ],
-
-  // Community Sidebar
   communitySidebar: [
     'comunidade/index',
     {
       type: 'category',
       label: 'Artigos',
-      items: [
-        'comunidade/automacao-iniciantes/index',
-        'comunidade/casos-uso-avancados/index',
-      ],
+      items: ['comunidade/automacao-iniciantes/index', 'comunidade/casos-uso-avancados/index'],
     },
     'comunidade/videos/index',
     'comunidade/github',
     'comunidade/como-participar',
     'comunidade/estatisticas',
   ],
-
-  // Sidebar para Cursos
   cursosSidebar: [
     'cursos/index',
     {
       type: 'category',
       label: 'Cursos em Vídeo',
-      className: 'sidebar-cursos-video',
       items: ['cursos/cursos-em-video/index', 'cursos/cursos-em-video/curso-iniciante', 'cursos/cursos-em-video/curso-avancado'],
     },
     {
       type: 'category',
       label: 'Cursos em Texto',
-      className: 'sidebar-cursos-texto',
       items: [
         'cursos/cursos-em-texto/index',
         {
@@ -404,11 +402,9 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
-
-  // Sidebar para o Catálogo
   catalogoSidebar: [
     'catalogo/index',
   ],
 };
 
-export default sidebars; 
+export default sidebars;

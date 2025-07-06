@@ -5,7 +5,7 @@ const path = require('path');
 const sidebarLinks = [
   'intro',
   'tutorial-basico/instalacao',
-  'tutorial-basico/conceitos-basicos', 
+  'tutorial-basico/conceitos-basicos',
   'tutorial-basico/primeiro-workflow',
   'usando-n8n/getting-started/quickstart-rapido',
   'usando-n8n/getting-started/workflow-na-pratica',
@@ -24,7 +24,7 @@ const sidebarLinks = [
   'logica-e-dados/02-data/data-pinning-editing-filtering',
   'logica-e-dados/02-data/data-structure',
   'logica-e-dados/02-data/schema-preview',
-  'integracoes/index',
+  'integracoes/overview',
   'integracoes/builtin-nodes/http-requests/http-request',
   'integracoes/builtin-nodes/http-requests/webhook',
   'integracoes/builtin-nodes/data-processing/set',
@@ -75,24 +75,24 @@ const sidebarLinks = [
   'embed/gerenciamento/white-labelling',
   'advanced-ai/tutorial-ai',
   'advanced-ai/langchain-overview',
-  'advanced-ai/nodes-ia/index',
+  'advanced-ai/nodes-ia/overview',
   'advanced-ai/nodes-ia/openai-chat',
   'advanced-ai/nodes-ia/memory-manager',
   'advanced-ai/nodes-ia/output-parser',
   'advanced-ai/nodes-ia/react-agent',
   'advanced-ai/nodes-ia/sql-agent',
   'advanced-ai/nodes-ia/workflow-tool',
-  'advanced-ai/exemplos-casos/index',
+  'advanced-ai/exemplos-casos/overview',
   'advanced-ai/exemplos-casos/chatbot-suporte',
   'advanced-ai/exemplos-casos/classificacao-dados',
   'advanced-ai/exemplos-casos/geracao-conteudo',
   'advanced-ai/exemplos-casos/rag-com-arquivos',
-  'api/conceitos/index',
+  'api/conceitos/overview',
   'api/conceitos/autenticacao',
   'api/conceitos/paginacao',
-  'api/ferramentas/index',
+  'api/ferramentas/overview',
   'api/ferramentas/playground',
-  'api/referencia/index',
+  'api/referencia/overview',
   'api/referencia/referencia-api',
   'referencia/index',
   'referencia/guias/migration-guide',
@@ -102,7 +102,7 @@ const sidebarLinks = [
   'referencia/recursos/apis-brasileiras',
   'referencia/historico/changelog',
   'contribuir/index',
-  'contribuir/projeto-n8n/index',
+  'contribuir/projeto-n8n/overview',
   'contribuir/projeto-n8n/contribuir-codigo-e-docs',
   'contribuir/projeto-n8n/contribuir-community',
   'contribuir/projeto-n8n/contribuir-modelos',
@@ -110,27 +110,28 @@ const sidebarLinks = [
   'contribuir/projeto-n8n/afiliados-e-creators',
   'contribuir/projeto-n8n/referral-vagas',
   'contribuir/esta-documentacao/index',
-  'contribuir/esta-documentacao/01-entendendo-o-projeto/codigo-conduta',
-  'contribuir/esta-documentacao/02-primeiros-passos/exemplos-praticos',
-  'contribuir/esta-documentacao/03-padroes-e-estilo/markdown-features',
-  'contribuir/esta-documentacao/03-padroes-e-estilo/design-system',
-  'contribuir/esta-documentacao/03-padroes-e-estilo/guia-de-estilo',
-  'contribuir/esta-documentacao/04-traducao-e-localizacao/guia-traducao',
-  'contribuir/esta-documentacao/05-recursos-tecnicos/paleta-cores',
-  'contribuir/esta-documentacao/05-recursos-tecnicos/docusaurus-folder',
-  'contribuir/esta-documentacao/06-suporte-e-duvidas/onde-buscar-ajuda',
+  'contribuir/esta-documentacao/por-que-contribuir',
+  'contribuir/esta-documentacao/como-contribuir',
+  'contribuir/esta-documentacao/guidelines',
+  'contribuir/esta-documentacao/guia-de-estilo',
+  'contribuir/esta-documentacao/traduzir',
+  'contribuir/esta-documentacao/exemplos-de-boas-contribuicoes',
+  'contribuir/esta-documentacao/duvidas-ou-sugestoes',
+  'contribuir/esta-documentacao/markdown-features',
+  'contribuir/esta-documentacao/paleta-de-cores',
+  'contribuir/esta-documentacao/docusaurus-folder',
+  'contribuir/esta-documentacao/codigo-conduta',
   'comunidade/index',
-  'comunidade/automacao-iniciantes/index',
-  'comunidade/casos-uso-avancados/index',
-  'comunidade/videos/index',
+  'comunidade/artigos',
+      'comunidade/videos/index',
   'comunidade/github',
   'comunidade/como-participar',
   'comunidade/estatisticas',
   'cursos/index',
-  'cursos/cursos-em-video/index',
+  'cursos/cursos-em-video/overview',
   'cursos/cursos-em-video/curso-iniciante',
   'cursos/cursos-em-video/curso-avancado',
-  'cursos/cursos-em-texto/index',
+  'cursos/cursos-em-texto/overview',
   'cursos/cursos-em-texto/nivel-um/capitulo-1',
   'cursos/cursos-em-texto/nivel-um/capitulo-2',
   'cursos/cursos-em-texto/nivel-um/capitulo-3',
@@ -142,37 +143,35 @@ const sidebarLinks = [
   'catalogo/index'
 ];
 
-console.log('🔍 Verificando links do sidebar...\n');
+console.log('\ud83d\udd0d Verificando links do sidebar...\n');
 
 let existingFiles = 0;
 let missingFiles = 0;
 const missingList = [];
 
 sidebarLinks.forEach(link => {
-  // Verificar se o arquivo existe com extensão .md ou .mdx
-  const filePathMd = path.join('docs', `${link}.md`);
-  const filePathMdx = path.join('docs', `${link}.mdx`);
+  const filePath = path.join('docs', `${link}.md`);
   
-  if (fs.existsSync(filePathMd) || fs.existsSync(filePathMdx)) {
-    console.log(`✅ ${link}`);
+  if (fs.existsSync(filePath)) {
+    console.log(`\u2705 ${link}`);
     existingFiles++;
   } else {
-    console.log(`❌ ${link} - ARQUIVO NÃO ENCONTRADO`);
+    console.log(`\u274c ${link} - ARQUIVO N\u00c3O ENCONTRADO`);
     missingFiles++;
     missingList.push(link);
   }
 });
 
-console.log('\n📊 RESUMO:');
-console.log(`✅ Arquivos existentes: ${existingFiles}`);
-console.log(`❌ Arquivos faltando: ${missingFiles}`);
-console.log(`📁 Total verificado: ${sidebarLinks.length}`);
+console.log('\n\ud83d\udcca RESUMO:');
+console.log(`\u2705 Arquivos existentes: ${existingFiles}`);
+console.log(`\u274c Arquivos faltando: ${missingFiles}`);
+console.log(`\ud83d\udcc1 Total verificado: ${sidebarLinks.length}`);
 
 if (missingList.length > 0) {
-  console.log('\n📋 ARQUIVOS FALTANDO:');
+  console.log('\n\ud83d\udccb ARQUIVOS FALTANDO:');
   missingList.forEach(file => {
-    console.log(`   - ${file}.md ou ${file}.mdx`);
+    console.log(`   - ${file}.md`);
   });
 }
 
-console.log('\n🎯 Status:', missingFiles === 0 ? 'TODOS OS LINKS FUNCIONAIS!' : `${missingFiles} links precisam ser corrigidos`); 
+console.log('\n\ud83c\udfaf Status:', missingFiles === 0 ? 'TODOS OS LINKS FUNCIONAIS!' : `${missingFiles} links precisam ser corrigidos`); 
