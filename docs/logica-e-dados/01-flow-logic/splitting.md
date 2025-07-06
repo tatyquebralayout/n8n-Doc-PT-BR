@@ -37,12 +37,12 @@ Splitting em workflows é como criar um **ponto de decisão** em um processo aut
 
 ### O que é Splitting de Workflow?
 
-No n8n, um workflow percorre naturalmente um **único caminho sequencial**. *Splitting* transforma esse caminho em **ramificações paralelas**: cada item é avaliado por um nó condicional (*IF* ou *Switch*) e roteado ao ramo que corresponde aos seus dados.
+No n8n, um [workflow](/tutorial-basico/primeiro-workflow) percorre naturalmente um **único caminho sequencial**. *Splitting* transforma esse caminho em **ramificações paralelas**: cada item é avaliado por um nó condicional ([*IF*](/integracoes/builtin-nodes/logic-control) ou [*Switch*](/integracoes/builtin-nodes/logic-control)) e roteado ao ramo que corresponde aos seus dados.
 
 <Admonition type="warning" title="⚠️ Importante: Não confunda com Split Out">
 **Splitting** ≠ **Split Out**
 
-- **Split Out**: Quebra uma lista em itens individuais para processamento em loop
+- **Split Out**: Quebra uma lista em itens individuais para [processamento em loop](/logica-e-dados/01-flow-logic/looping)
 - **Splitting condicional**: Mantém o item intacto e decide *qual* caminho ele seguirá
 
 ```mermaid
@@ -141,9 +141,9 @@ graph TD
 
 | **Nó** | **Finalidade** | **Saídas** | **Dicas Rápidas** |
 |--------|---------------|------------|------------------|
-| **IF** | Decisão binária | `true`, `false` | Combine condições com **AND/OR**; ative **Always Output Data** se for fazer merge depois |
-| **Switch** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** (lógica JavaScript) |
-| **Merge** | Reunir ramificações | — | Estratégias *Wait → All* ou *Merge By Key* garantem dados completos |
+| **[IF](/integracoes/builtin-nodes/logic-control)** | Decisão binária | `true`, `false` | Combine condições com **AND/OR**; ative **Always Output Data** se for fazer [merge](/logica-e-dados/01-flow-logic/merging) depois |
+| **[Switch](/integracoes/builtin-nodes/logic-control)** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** ([lógica JavaScript](/referencia/glossario)) |
+| **[Merge](/logica-e-dados/01-flow-logic/merging)** | Reunir ramificações | — | Estratégias *Wait → All* ou *Merge By Key* garantem dados completos |
 
 </TabItem>
 <TabItem value="if" label="Node IF">
@@ -175,7 +175,7 @@ graph TD
 **Configurações Críticas:**
 - **Always Output Data**: Garante que mesmo ramos "vazios" produzam dados
 - **Combine Conditions**: Use AND/OR para lógicas complexas
-- **Data Type**: Certifique-se de comparar tipos compatíveis
+- **Data Type**: Certifique-se de comparar tipos compatíveis - veja [estrutura de dados](/logica-e-dados/02-data/data-structure)
 
 <CodeBlock language="javascript" title="Lógica do node IF">
 {`// Lógica do node IF
@@ -228,7 +228,7 @@ graph TD
 
 **Modos de Operação:**
 - **Rules**: Comparação direta (mais simples)
-- **Expression**: Lógica JavaScript (mais flexível)
+- **Expression**: [Lógica JavaScript](/referencia/glossario) (mais flexível)
 
 <CodeBlock language="javascript" title="Lógica do node Switch">
 {`// Lógica do node Switch
@@ -287,6 +287,8 @@ graph TD
 - **Wait → All**: Aguarda todos os ramos terminarem
 - **Merge By Key**: Combina dados baseado em chaves específicas
 - **Append**: Adiciona dados sequencialmente
+
+Saiba mais sobre [manipulação de dados](/logica-e-dados/02-data/data-mapping).
 
 </TabItem>
 </Tabs>
@@ -543,7 +545,7 @@ graph LR
 </TabItem>
 <TabItem value="passo6" label="6. Merge (Opcional)">
 
-#### <IonicIcon name="git-merge-outline" /> 6. Merge – Reunir Resultados
+#### <IonicIcon name="git-merge-outline" /> 6. [Merge](/logica-e-dados/01-flow-logic/merging) – Reunir Resultados
 
 **Objetivo**: Se etapas posteriores exigirem o conjunto completo de itens, configure *Wait → All*.
 
@@ -607,7 +609,7 @@ graph TD
 
 <Admonition type="warning" title="Quando usar Always Output Data">
 ✅ **Use quando:**
-- Vai fazer merge depois
+- Vai fazer [merge](/logica-e-dados/01-flow-logic/merging) depois
 - Precisa garantir continuidade do fluxo
 - Alguns ramos podem não ter dados
 
@@ -637,7 +639,7 @@ if (condicao_raramente_verdadeira) {
 
 ### <IonicIcon name="flash-outline" /> Paralelismo e Performance
 
-**Em instâncias self-hosted**: Habilite filas Redis/RabbitMQ para processar ramos em paralelo.
+**Em instâncias self-hosted**: Habilite [filas Redis/RabbitMQ](/hosting-n8n/configuracao/queues) para processar ramos em paralelo.
 
 ```mermaid
 graph TD
@@ -743,7 +745,7 @@ graph TD
 
 ### <IonicIcon name="arrow-down-outline" /> Splitting Sequencial (Cascata)
 
-Para lógicas mais complexas, você pode encadear múltiplos splits:
+Para lógicas mais complexas, você pode encadear múltiplos splits - veja mais sobre [subworkflows](/logica-e-dados/01-flow-logic/subworkflows):
 
 <Tabs>
 <TabItem value="visao-geral" label="Visão Geral" default>
@@ -889,9 +891,9 @@ graph TD
 </TabItem>
 <TabItem value="merge" label="Splitting com Merge">
 
-### <IonicIcon name="git-merge-outline" /> Splitting com Merge
+### <IonicIcon name="git-merge-outline" /> Splitting com [Merge](/logica-e-dados/01-flow-logic/merging)
 
-Após dividir o fluxo, você pode reunir os caminhos usando um **Merge node**:
+Após dividir o fluxo, você pode reunir os caminhos usando um **[Merge node](/logica-e-dados/01-flow-logic/merging)**:
 
 **Quando usar**: Quando diferentes caminhos precisam convergir para uma ação final comum.
 
@@ -969,6 +971,8 @@ graph TD
 {`{{ $json.valor > 1000 }}    // Comparando número com número`}
 </CodeBlock>
 
+Saiba mais sobre [expressões JavaScript](/referencia/glossario) e [tipos de dados](/logica-e-dados/02-data/data-structure).
+
 </TabItem>
 </Tabs>
 
@@ -1007,6 +1011,8 @@ graph TD
 - Trate valores nulos: `{{ ($json.valor || 0) > 1000 }}`
 - Use trim para strings: `{{ $json.categoria.trim() === "Viagem" }}`
 
+Para mais informações sobre [tratamento de erros](/logica-e-dados/01-flow-logic/error-handling).
+
 </TabItem>
 <TabItem value="problema3" label="Multiple Output Branches">
 
@@ -1036,24 +1042,6 @@ graph TD
 
 </TabItem>
 </Tabs>
-
-## Checkpoint de Compreensão
-
-<Admonition type="note" title="Antes de continuar, você deve conseguir:">
-✅ **Explicar a diferença** entre node IF e Switch  
-✅ **Identificar quando usar** splitting em um workflow  
-✅ **Configurar uma condição simples** no node IF  
-✅ **Criar múltiplas regras** no node Switch  
-</Admonition>
-
-<Admonition type="question" title="Teste rápido">
-**Como você implementaria um sistema que:**
-- Envia emails promocionais para clientes ativos
-- Envia emails de reativação para clientes inativos  
-- Ignora clientes que optaram por não receber emails
-
-*Resposta esperada*: Switch com 3 regras baseadas no status do cliente (ativo/inativo/opt-out).
-</Admonition>
 
 ## Casos de Uso Comuns
 
@@ -1089,6 +1077,8 @@ graph TD
     style G fill:#f1f8e9
     style K fill:#ffcdd2
 ```
+
+Para integrar com APIs de pagamento brasileiras, consulte nossa seção sobre [integrações BR](/integracoes-br).
 
 </TabItem>
 <TabItem value="marketing" label="Marketing">
@@ -1147,6 +1137,8 @@ graph TD
     style H fill:#fff3e0
     style I fill:#f1f8e9
 ```
+
+Para automatizar respostas, considere usar [Slack](/integracoes/app-nodes/communication/slack) ou [Gmail](/integracoes/app-nodes/communication/gmail).
 
 </TabItem>
 </Tabs>
@@ -1233,7 +1225,7 @@ graph TD
 **Estratégias de Otimização:**
 - **Minimize nodes desnecessários**: Use Switch ao invés de múltiplos IFs sequenciais
 - **Cache resultados**: Para condições computacionalmente caras
-- **Use paralelismo**: Configure filas Redis/RabbitMQ para alta concorrência
+- **Use paralelismo**: Configure [filas Redis/RabbitMQ](/hosting-n8n/configuracao/queues) para alta concorrência
 
 ```mermaid
 graph LR
@@ -1292,6 +1284,8 @@ SWITCH (categoria + "_" + prioridade + "_" + cliente) {
 - **Performance**: Menos overhead de processamento
 - **Escalabilidade**: Fácil adição de novos casos
 - **Debugging**: Mais simples identificar problemas
+
+Para padrões mais complexos, considere usar [subworkflows](/logica-e-dados/01-flow-logic/subworkflows).
 </Admonition>
 
 ```mermaid
@@ -1354,10 +1348,11 @@ graph TD
 ## Próximos Passos
 
 <Admonition type="info" title="Agora que você domina splitting básico, explore:">
-1. **[Merge Nodes](/logica-e-dados/flow-logic/merging)**: Como reunir fluxos divididos
-2. **[Error Handling](/logica-e-dados/flow-logic/error-handling)**: Tratamento de erros em fluxos condicionais  
-3. **[Looping](/logica-e-dados/flow-logic/looping)**: Lógica de repetição em workflows
-4. **[Sub-workflows](/logica-e-dados/flow-logic/subworkflows)**: Workflows aninhados
+1. **[Merge Nodes](/logica-e-dados/01-flow-logic/merging)**: Como reunir fluxos divididos
+2. **[Error Handling](/logica-e-dados/01-flow-logic/error-handling)**: Tratamento de erros em fluxos condicionais  
+3. **[Looping](/logica-e-dados/01-flow-logic/looping)**: Lógica de repetição em workflows
+4. **[Sub-workflows](/logica-e-dados/01-flow-logic/subworkflows)**: Workflows aninhados
+5. **[Waiting](/logica-e-dados/01-flow-logic/waiting)**: Controle de tempo e aguardo
 </Admonition>
 
 ### <IonicIcon name="school-outline" /> Exercício Prático
@@ -1369,7 +1364,7 @@ graph TD
 - Períodos de alta temporada: Sempre requer aprovação da diretoria
 - Solicitações com menos de 30 dias de antecedência: Aprovação expressa
 
-*Dica*: Use Switch aninhados e considere múltiplas condições simultâneas.
+*Dica*: Use [Switch aninhados](/integracoes/builtin-nodes/logic-control) e considere múltiplas condições simultâneas.
 </Admonition>
 
 ## Resumo Rápido
@@ -1431,6 +1426,8 @@ Com esses fundamentos, você está pronto para projetar workflows n8n que se ada
 <Admonition type="note" title="📚 Recursos Adicionais">
 - [Documentação Oficial dos Nodes](https://docs.n8n.io/flow-logic/splitting/)
 - [Nodes de Controle de Lógica](/integracoes/builtin-nodes/logic-control)
-- [Expressões JavaScript no n8n](/referencia/expressions)
+- [Expressões JavaScript no n8n](/referencia/glossario)
 - [Exemplos de Workflows](/catalogo)
+- [Integrações Brasileiras](/integracoes-br)
+- [Guia de Instalação](/hosting-n8n/instalacao)
 </Admonition>
