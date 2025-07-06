@@ -2,99 +2,82 @@
 sidebar_position: 1
 title: Comunidade n8n Brasil
 description: Portal da comunidade brasileira do n8n - artigos, vídeos, projetos e muito mais
-keywords: [n8n, comunidade, brasil, automação, workflows]
+keywords: [n8n, comunidade, brasil, automação, workflows, contribuição]
 ---
 
-import CardGrid from '@site/src/components/CardGrid';
-import HighlightCard from '@site/src/components/HighlightCard';
 import IonicIcon from '@site/src/components/IonicIcon';
 import CommunityStats from '@site/src/components/CommunityStats';
 
-# <IonicIcon name="people-outline" size={32} /> Comunidade n8n Brasil
+# <IonicIcon name="people-outline" size={32} color="#ea4b71" /> Comunidade n8n Brasil
 
-Bem-vindo à maior comunidade de automação do Brasil! Aqui você encontra tudo sobre n8n em português: artigos, vídeos, projetos e muito mais.
+A comunidade n8n Brasil é um ponto de encontro para quem automatiza com contexto local. Aqui você encontra tutoriais em português, integrações com serviços nacionais, vídeos, projetos de código aberto e formas acessíveis de começar ou expandir suas automações.
 
-<div class="section-container">
-  <h2 class="section-title"><IonicIcon name="star-outline" size={24} /> Destaques da Comunidade</h2>
-  <CardGrid>
-    <HighlightCard
-      icon="document-text-outline"
-      category="Artigo em Destaque"
-      title="Como Criar Seu Primeiro Workflow n8n"
-      description="Um tutorial completo para iniciantes que querem dar os primeiros passos com n8n, cobrindo desde a instalação até a automação de uma tarefa real."
-      link="/tutorial-basico/primeiro-workflow"
-      details={
-        <div className="card-details">
-          <IonicIcon name="time-outline" /> 15 min de leitura
-          <span className="separator">•</span>
-          <IonicIcon name="eye-outline" /> 2.1k visualizações
-        </div>
-      }
-    />
-    <HighlightCard
-      icon="videocam-outline"
-      category="Vídeo em Destaque"
-      title="n8n + Inteligência Artificial"
-      description="Aprenda a integrar o n8n com as principais APIs de IA, como OpenAI e Hugging Face, para criar automações inteligentes e inovadoras."
-      link="/advanced-ai/tutorial-ai"
-      details={
-        <div className="card-details">
-          <IonicIcon name="time-outline" /> 28 min
-          <span className="separator">•</span>
-          <IonicIcon name="person-outline" /> Por: TechAutomate
-        </div>
-      }
-    />
-    <HighlightCard
-      icon="logo-github"
-      category="Projeto em Destaque"
-      title="Documentação n8n Brasil"
-      description="A documentação que você está lendo! Um projeto da comunidade para traduzir e manter o conteúdo acessível e em português."
-      link="https://github.com/tatyquebralayout/n8n-Doc-pt-BR"
-      details={
-        <div className="card-details">
-          <IonicIcon name="star-outline" /> 156 stars
-          <span className="separator">•</span>
-          <IonicIcon name="git-branch-outline" /> 34 forks
-        </div>
-      }
-    />
-  </CardGrid>
-</div>
+:::tip **Importante**
+Esta iniciativa é independente e comunitária. Nossa missão é complementar a documentação oficial do n8n, tornando o conteúdo mais acessível e relevante para pessoas desenvolvedoras no Brasil.
+:::
 
-<div class="section-container">
-  <h2 class="section-title"><IonicIcon name="analytics-outline" size={24} /> Números da Comunidade</h2>
-  <CommunityStats loading={true} />
-</div>
+---
 
-<div class="section-container">
-  <h2 class="section-title"><IonicIcon name="library-outline" size={24} /> Explore o Conteúdo</h2>
-  
-  <ul class="link-list">
-    <li><a href="./automacao-iniciantes/"><IonicIcon name="school-outline" /> **Automação para Iniciantes** - Guias e tutoriais para começar sua jornada.</a></li>
-    <li><a href="./casos-uso-avancados/"><IonicIcon name="rocket-outline" /> **Casos de Uso Avançados** - Projetos complexos para usuários experientes.</a></li>
-    <li><a href="./videos"><IonicIcon name="videocam-outline" /> **Vídeos de Creators** - Canais e vídeos dos melhores criadores brasileiros.</a></li>
-    <li><a href="./github"><IonicIcon name="logo-github" /> **Repositórios GitHub** - Nodes, ferramentas e projetos open-source.</a></li>
-    <li><a href="./como-participar"><IonicIcon name="hand-right-outline" /> **Como Participar** - Descubra como se envolver e contribuir.</a></li>
-    <li><a href="./estatisticas"><IonicIcon name="bar-chart-outline" /> **Estatísticas e Destaques** - Os números da comunidade brasileira.</a></li>
-  </ul>
-</div>
+## <IonicIcon name="star-outline" size={24} color="#ea4b71" /> Destaques Recentes
 
-<div class="section-container">
-  <h2 class="section-title"><IonicIcon name="calendar-outline" size={24} /> Próximos Eventos</h2>
-  
-  <ul class="event-list">
-    <li><IonicIcon name="school-outline" /> **Workshop Mensal** - *Em breve*</li>
-    <li><IonicIcon name="people-outline" /> **n8n Brasil Meetup** - *Em breve*</li>
-    <li><IonicIcon name="play-outline" /> **Demo Friday** - *Em breve*</li>
-  </ul>
-</div>
+- **[Como Criar Seu Primeiro Workflow n8n](../tutorial-basico/primeiro-workflow)** - Guia passo a passo para começar com o n8n
+- **[n8n + Inteligência Artificial](../advanced-ai/tutorial-ai)** - Integração com APIs de IA como OpenAI e Hugging Face
+- **[Documentação n8n Brasil](https://github.com/tatyquebralayout/n8n-Doc-pt-BR)** - Projeto colaborativo para traduzir e contextualizar
 
-<div class="section-container">
-  <h2 class="section-title"><IonicIcon name="chatbubbles-outline" size={24} /> Conecte-se Conosco</h2>
-  
-  <ul class="link-list">
-    <li><a href="https://discord.gg/n8nbrasil" target="_blank" rel="noopener noreferrer"><IonicIcon name="logo-discord" /> **Discord:** Comunidade n8n Brasil</a></li>
-    <li><a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR" target="_blank" rel="noopener noreferrer"><IonicIcon name="logo-github" /> **GitHub:** Repositório da Documentação</a></li>
-  </ul>
-</div> 
+---
+
+## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Números da Comunidade
+
+<CommunityStats loading={true} />
+
+---
+
+## <IonicIcon name="library-outline" size={24} color="#ea4b71" /> Como Explorar o Conteúdo
+
+### Para quem está começando
+- **[Automação para Iniciantes](./automacao-iniciantes)** - Guias e tutoriais para começar sua jornada
+- **[Tutoriais Básicos](../tutorial-basico)** - Conceitos fundamentais e primeiro workflow
+
+### Para quem já usa
+- **[Casos de Uso Avançados](./casos-uso-avancados)** - Projetos complexos para usuários experientes
+- **[Automação com IA](../advanced-ai)** - Integração com inteligência artificial
+
+### Para quem aprende por vídeo
+- **[Canais e Creators](./videos)** - Canais e vídeos dos melhores criadores brasileiros
+- **[Cursos em Vídeo](../cursos/cursos-em-video)** - Aprendizado visual estruturado
+
+### Para quem quer ver código
+- **[Projetos no GitHub](./github)** - Nodes, ferramentas e projetos open-source
+- **[Integrações com APIs brasileiras](../integracoes-br)** - Soluções específicas para o mercado local
+
+---
+
+## <IonicIcon name="hand-right-outline" size={24} color="#ea4b71" /> Como Participar
+
+### Formas de contribuir
+- **[Guia de participação](./como-participar)** - Descubra como se envolver e contribuir
+- **[Contribuir com documentação](../contribuir)** - Ajude a manter e melhorar este conteúdo
+- **[Adicionar Casos de Uso](../contribuir/projeto-n8n/adicionar-casos-uso)** - Compartilhe suas automações
+
+### Acompanhe e valorize contribuições
+- **[Estatísticas da comunidade](./estatisticas)** - Os números da comunidade brasileira
+- **[Histórico no GitHub](./github)** - Veja o impacto das suas contribuições
+
+---
+
+## <IonicIcon name="calendar-outline" size={24} color="#ea4b71" /> Eventos em Planejamento
+
+- **Workshop Mensal** – em breve
+- **Meetup n8n Brasil** – em breve
+- **Demo Friday** – em breve
+
+---
+
+## <IonicIcon name="chatbubbles-outline" size={24} color="#ea4b71" /> Conexão e Suporte
+
+- **[Discord da Comunidade](https://discord.gg/n8nbrasil)** – Dúvidas, trocas e parcerias em tempo real
+- **[Repositório no GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR)** – Acompanhe, revise ou proponha melhorias
+
+---
+
+> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Automação é melhor quando é compartilhada. Sua participação ajuda a expandir o acesso ao n8n para todas as pessoas desenvolvedoras do Brasil.**</span> 

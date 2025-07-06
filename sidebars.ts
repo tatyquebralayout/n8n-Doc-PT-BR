@@ -379,7 +379,6 @@ const sidebars: SidebarsConfig = {
     'comunidade/videos/index',
     'comunidade/github',
     'comunidade/como-participar',
-    'comunidade/estatisticas',
   ],
   cursosSidebar: [
     'cursos/index',
