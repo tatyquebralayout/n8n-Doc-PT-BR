@@ -2,92 +2,160 @@
 sidebar_position: 1
 title: Introdução ao n8n
 description: Guia completo para começar com n8n
-keywords: [n8n, automação, workflow, introdução, guia]
+keywords: [n8n, automação, workflow, introdução, guia, open source]
 ---
+
 import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="rocket-outline" size={32} /> Introdução ao n8n
+# <IonicIcon name="rocket-outline" size={32} color="#ea4b71" /> Introdução ao n8n
 
-Bem-vindo à **documentação completa do n8n** em português brasileiro! 
+Esta é a documentação em português do n8n, plataforma open-source que permite construir automações inteligentes e workflows avançados, com flexibilidade e controle total.
 
-## <IonicIcon name="help-circle-outline" size={24} /> O que é o n8n?
+---
 
-O **n8n** (pronuncia-se "n-eight-n") é uma ferramenta de automação de workflows **gratuita e de código aberto** que permite conectar diferentes aplicações e serviços para automatizar tarefas repetitivas.
+## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> Origem e evolução
 
-### <IonicIcon name="star-outline" size={20} /> Principais características
+O n8n foi idealizado em **2019** por **[Jan Oberhauser](https://github.com/janober)**, que buscava uma solução capaz de conectar apps e APIs sem a complexidade dos scripts convencionais. Com foco em código aberto e modelo "fair‑code", o projeto cresceu rapidamente e, em **abril de 2025**, atingiu a marca de **[100.000 estrelas no GitHub](https://github.com/n8n-io/n8n)**. Desde então, a comunidade só tem se fortalecido.
 
-- <IonicIcon name="link-outline" size={16} /> **Conecte qualquer coisa**: Mais de 400 integrações disponíveis
-- <IonicIcon name="eye-outline" size={16} /> **Interface visual**: Editor de fluxo intuitivo e amigável
-- <IonicIcon name="code-outline" size={16} /> **Flexível**: Suporte a código personalizado quando necessário
-- <IonicIcon name="shield-checkmark-outline" size={16} /> **Seguro**: Execute em sua própria infraestrutura
-- <IonicIcon name="gift-outline" size={16} /> **Gratuito**: Core 100% gratuito e de código aberto
+---
 
-## <IonicIcon name="thumbs-up-outline" size={24} /> Por que usar o n8n?
+## <IonicIcon name="star-outline" size={24} color="#ea4b71" /> O que é o n8n?
 
-### <IonicIcon name="code-slash-outline" size={20} /> Para Desenvolvedores
-- <IonicIcon name="terminal-outline" size={16} color="#6b7280" /> API REST completa
-- <IonicIcon name="wifi-outline" size={16} color="#6b7280" /> Webhooks nativos
-- <IonicIcon name="logo-javascript" size={16} color="#6b7280" /> Execução de código JavaScript/Python
-- <IonicIcon name="git-branch-outline" size={16} color="#6b7280" /> Versionamento e deploy automatizado
+O n8n (pronuncia-se "n‑eight‑n") é uma plataforma que oferece:
 
-### <IonicIcon name="business-outline" size={20} color="#10b981" /> Para Empresas
-- <IonicIcon name="trending-down-outline" size={16} color="#6b7280" /> Redução de custos operacionais
-- <IonicIcon name="trending-up-outline" size={16} color="#6b7280" /> Aumento da produtividade
-- <IonicIcon name="layers-outline" size={16} color="#6b7280" /> Integração entre sistemas legados
-- <IonicIcon name="cog-outline" size={16} color="#6b7280" /> Automação de processos complexos
+- **Editor visual de workflows** com mais de **400 integrações** nativas
+- **Nós de código** em JavaScript/Python para lógica específica
+- **Plugins e triggers avançados**, como webhooks, automações agendadas e ações via IA
+- **Autonomia total**: pode ser executado localmente ou na nuvem, sem dependência de terceiros
+- **Gratuito e open-source**, sob licença "fair‑code", que permite uso livre e comunidade ativa
 
-### <IonicIcon name="school-outline" size={20} color="#10b981" /> Para Iniciantes
-- <IonicIcon name="hand-left-outline" size={16} color="#6b7280" /> Interface visual intuitiva
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> Templates pré-configurados
-- <IonicIcon name="people-outline" size={16} color="#6b7280" /> Comunidade ativa
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> Documentação abrangente
+### Conceitos fundamentais
+
+**Workflow (Fluxo de Trabalho)**  
+Um workflow é uma sequência visual de etapas automatizadas. Ele conecta diferentes ferramentas — como Gmail, Notion ou Google Sheets — para que elas colaborem entre si, sem intervenção manual. No n8n, você constrói isso como se estivesse montando um fluxograma. [Saiba mais sobre workflows](../../usando-n8n/getting-started/workflow-na-pratica).
+
+**Node (Nó)**  
+Cada etapa no seu fluxo é representada por um node. Um node pode enviar um e-mail, consultar uma API, transformar dados ou aguardar um evento. É como uma peça de LEGO: pequena, funcional, e que se encaixa em outras. [Explore todos os nós](../../integracoes).
+
+**Trigger (Disparador)**  
+Todo workflow começa com algo. Um trigger é o nó que escuta esse "algo": um novo formulário enviado, uma mensagem recebida, ou simplesmente o relógio marcando a hora. Ele dá o sinal verde para o fluxo começar. [Conheça os triggers](../../integracoes/trigger-nodes).
+
+**Connection (Conexão)**  
+Os nodes são ligados entre si por connections. Elas mostram por onde os dados vão passar e em que ordem. Conectar bem significa garantir que a informação certa chegue ao lugar certo — sem ruídos. [Aprenda sobre fluxo de dados](../../logica-e-dados/02-data/data-flow).
+
+**Execution (Execução)**  
+Cada vez que um workflow é ativado, ocorre uma execução. O n8n pega seus dados reais, segue o fluxo definido, e gera um resultado — seja um e-mail enviado, uma planilha atualizada ou uma decisão automatizada. [Entenda as execuções](../../usando-n8n/execucoes/componentes-execucoes).
+
+**Data Mapping (Mapeamento de Dados)**  
+Você pode usar os dados gerados por um node anterior nos próximos passos. Esse processo é chamado de data mapping. É como dizer: "pegue o nome que veio do formulário e insira aqui no e-mail". [Aprenda mapeamento](../../logica-e-dados/02-data/data-mapping).
+
+**Error Handling (Tratamento de Erros)**  
+Em automação, erros podem acontecer — e tudo bem. O n8n permite criar caminhos de tratamento de erros que detectam, registram e até corrigem falhas automaticamente. Isso torna seus fluxos mais confiáveis e resilientes. [Tratamento de erros](../../logica-e-dados/01-flow-logic/error-handling).
+
+---
+
+## <IonicIcon name="map-outline" size={24} color="#ea4b71" /> O que você vai aprender aqui
+
+Esta introdução está estruturada para guiar você de forma progressiva:
+
+1. **Conceitos fundamentais** – entenda automação e interface do n8n
+2. **Configuração e instalação** – passo a passo para ter o ambiente pronto
+3. **Construção do primeiro workflow** – um caso real, simples e funcional
+4. **Exploração de nós e integrações** – conheça os principais recursos
+5. **Expansão prática** – adicione lógica, tratamento de erros e deploy
+
+Ao final, você terá autonomia para criar sua própria automação, seja um alerta por Slack ou integração entre APIs.
+
+---
+
+## <IonicIcon name="thumbs-up-outline" size={24} color="#ea4b71" /> Por que escolher o n8n
+
+### Para  pessoas desenvolvedoras
+- **API REST robusta**, triggers avançados e execução de código customizado
+- **Webhooks nativos** e integração com sistemas existentes
+- **Versionamento** e deploy automatizado de workflows
+
+### Para equipes e empresas
+- **Redução de custos operacionais** e infraestrutura flexível
+- **Integração entre sistemas legados** e novas tecnologias
+- **Automação de processos complexos** com monitoramento
+
+### Para iniciantes
+- **GUI intuitiva**, templates prontos e comunidade ativa em português
+- **Documentação abrangente** e exemplos práticos
+- **Curva de aprendizado suave** sem necessidade de programação avançada
+
+---
 
 ## <IonicIcon name="play-outline" size={24} color="#ea4b71" /> Começando
 
 Escolha uma das opções abaixo para começar:
 
-:::tip <IonicIcon name="bulb-outline" size={18} color="#10b981" /> Recomendado para iniciantes
-Comece com o [Tutorial Básico](./tutorial-basico/instalacao) para aprender os conceitos fundamentais.
+:::tip **Recomendado para iniciantes**
+Comece com o **[Tutorial Básico](./tutorial-basico/instalacao)** para aprender os conceitos fundamentais.
 :::
 
-:::info <IonicIcon name="code-outline" size={18} color="#0ea5e9" /> Para desenvolvedores
-Vá direto para a [Documentação da API](./api/introducao) para integração avançada.
+:::info **Para desenvolvedores**
+Vá direto para **[Integrações e API](../../integracoes)** para integração avançada.
 :::
 
-:::note <IonicIcon name="business-outline" size={18} color="#6366f1" /> Para empresas
-Consulte o [Guia de Implantação](./deployment/introducao) para configuração em produção.
+:::note **Para empresas**
+Consulte **[Hosting n8n](../../hosting-n8n)** para configuração em produção.
 :::
-
-## <IonicIcon name="map-outline" size={24} color="#ea4b71" /> Estrutura desta Documentação
-
-Esta documentação está organizada nas seguintes seções:
-
-### <IonicIcon name="school-outline" size={20} color="#10b981" /> Tutorial Básico
-Aprenda os conceitos fundamentais do n8n passo a passo.
-
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Guias Avançados
-Explore recursos avançados e casos de uso complexos.
-
-### <IonicIcon name="terminal-outline" size={20} color="#10b981" /> Referência da API
-Documentação completa da API REST do n8n.
-
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Deployment
-Guias para implantação em diferentes ambientes.
-
-### <IonicIcon name="extension-puzzle-outline" size={20} color="#10b981" /> Nós (Nodes)
-Documentação detalhada de todos os nós disponíveis.
-
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Exemplos
-Workflows práticos e casos de uso reais.
-
-## <IonicIcon name="heart-outline" size={24} color="#ea4b71" /> Contribuindo
-
-Esta documentação é mantida pela comunidade brasileira do n8n. Contribuições são bem-vindas!
-
-- <IonicIcon name="create-outline" size={16} color="#6b7280" /> [Editar esta página](https://github.com/seu-repo/edit/main/docs/intro.md)
-- <IonicIcon name="bug-outline" size={16} color="#6b7280" /> [Reportar um problema](https://github.com/seu-repo/issues)
-- <IonicIcon name="chatbubbles-outline" size={16} color="#6b7280" /> [Participar da discussão](https://discord.gg/n8n)
 
 ---
 
-**Pronto para começar?** Vamos para o [Tutorial Básico](./tutorial-basico/instalacao) e criar seu primeiro workflow! 
+## <IonicIcon name="library-outline" size={24} color="#ea4b71" /> Estrutura desta Documentação
+
+Esta documentação está organizada nas seguintes seções:
+
+### Tutorial Básico
+Aprenda os conceitos fundamentais do n8n passo a passo.
+
+### Usando n8n
+Guias práticos para usar a interface e executar workflows.
+
+### Lógica e Dados
+Conceitos avançados de fluxo de dados e tratamento de informações.
+
+### Integrações
+Documentação completa de todos os nós e integrações disponíveis.
+
+### Integrações Brasileiras
+Soluções específicas para o mercado brasileiro (PIX, CNPJ, etc.).
+
+### Hosting n8n
+Guias para implantação em diferentes ambientes.
+
+### IA Avançada
+Integração com inteligência artificial e automações inteligentes.
+
+### API
+Documentação completa da API REST do n8n.
+
+### Referência
+Guias de performance, troubleshooting e recursos adicionais.
+
+### Comunidade
+Artigos, vídeos e projetos da comunidade brasileira.
+
+### Cursos
+Aprendizado estruturado em vídeo e texto.
+
+### Como Contribuir
+Guias para contribuir com a documentação e o projeto.
+
+---
+
+## <IonicIcon name="heart-outline" size={24} color="#ea4b71" /> Compromisso da comunidade brasileira
+
+Este material é produzido **pela comunidade brasileira**, sem vínculo direto com o time oficial do n8n. O objetivo é **ampliar o acesso e contextualizar o uso** dessa ferramenta global no Brasil, seguindo as diretrizes do projeto oficial e incentivando contribuições locais.
+
+### Como contribuir
+- **[Editar esta página](../../contribuir/esta-documentacao/01-entendendo-o-projeto/como-contribuir)**
+- **[Reportar um problema](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/issues)**
+- **[Participar da discussão](https://discord.gg/n8nbrasil)**
+
+---
+
+> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Pronto para criar?** Vamos construir seu primeiro workflow juntos!</span> 
