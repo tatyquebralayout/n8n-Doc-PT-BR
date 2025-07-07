@@ -187,6 +187,155 @@ if (valor_pedido > 1000) {
     processarAutomaticamente();
 }`}
 </CodeBlock>
+<!-- Estrutura dos componentes retráteis para replicar -->
+<details>
+<summary><IonicIcon name="eye-outline" size={16} color="#6b7280" /> Copie e cole este template na dashboard do n8n: </summary>
+<CodeBlock language="json" title="Exemplo de Condicional IF">
+{`
+{
+  "name": "1 - Node IF Simples (Exemplo)",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "cc141f51-104f-4418-8855-7d60d0f5bf37",
+      "name": "Pedido Recebido (Clique)"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a3c56011-c465-4d36-865d-ea19ed69533e",
+              "leftValue": "={{ $json.valor_pedido }}",
+              "rightValue": 1000,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "9c878dfe-3b58-421a-af0b-28b854f5627c",
+      "name": "Valor > R$ 1000 "
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        800,
+        -120
+      ],
+      "id": "05194991-a2f7-476b-9d38-86caffa0228a",
+      "name": "Processamento Automático"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        800,
+        140
+      ],
+      "id": "82a80168-402c-4045-8a31-9880ac4be86c",
+      "name": "Aprovação Manual"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"valor_pedido\": 1500\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ],
+      "id": "6693b086-a4a5-4be4-a2dd-ad9d863d0410",
+      "name": "Valor do Pedido"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Pedido Recebido (Clique)": {
+      "main": [
+        [
+          {
+            "node": "Valor do Pedido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valor > R$ 1000 ": {
+      "main": [
+        [
+          {
+            "node": "Processamento Automático",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aprovação Manual",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valor do Pedido": {
+      "main": [
+        [
+          {
+            "node": "Valor > R$ 1000 ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "9f87682e-bf1b-4d70-8256-3137f28ffa9a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "5d478e0a2f4e8d45c4e0abcf4fbfa908e6f06b0598ed1dff66e5f3280b44e520"
+  },
+  "id": "EJZFhzQGa087iUZQ",
+  "tags": []
+}
+`}
+</CodeBlock>
+</details>
+<!-- ########################### -->
 
 </TabItem>
 <TabItem value="switch" label="Node Switch">
