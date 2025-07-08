@@ -160,8 +160,7 @@ const config: Config = {
         },
         {
           label: 'Cursos',
-          type: 'docSidebar',
-          sidebarId: 'cursosSidebar',
+          to: '/cursos',
           position: 'left',
         },
         // Dropdown "Contribuir" - Agrupa opções de contribuição
