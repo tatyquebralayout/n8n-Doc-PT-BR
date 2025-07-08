@@ -42,6 +42,40 @@ const sidebars: SidebarsConfig = {
           label: 'Execuções',
           items: ['usando-n8n/execucoes/componentes-execucoes'],
         },
+        {
+          type: 'category',
+          label: 'Credenciais',
+          items: [
+            'usando-n8n/credenciais/index',
+            'usando-n8n/credenciais/criar-editar',
+            'usando-n8n/credenciais/compartilhamento',
+            'usando-n8n/credenciais/boas-praticas',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Workflows',
+          items: [
+            'usando-n8n/workflows/index',
+            'usando-n8n/workflows/criar-editar',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Monitoramento',
+          items: [
+            'usando-n8n/monitoring/index',
+            'usando-n8n/monitoring/visualizar-execucoes',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Usuários e Permissões',
+          items: [
+            'usando-n8n/usuarios-permissoes/index',
+            'usando-n8n/usuarios-permissoes/criar-editar-usuarios',
+          ],
+        },
       ],
     },
     {
@@ -68,6 +102,9 @@ const sidebars: SidebarsConfig = {
             'logica-e-dados/data/binary-data',
             'logica-e-dados/data/data-flow',
             'logica-e-dados/data/data-mapping',
+            'logica-e-dados/data/data-mapping-avancado',
+            'logica-e-dados/data/transformacoes-dados',
+            'logica-e-dados/data/agregacoes-estatisticas',
             'logica-e-dados/data/data-mocking',
             'logica-e-dados/data/data-pinning-editing-filtering',
             'logica-e-dados/data/data-structure',
@@ -178,7 +215,11 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Financeiro',
-          items: ['integracoes-br/financeiro/pix'],
+          items: [
+            'integracoes-br/financeiro/pix',
+            'integracoes-br/financeiro/pix-avancado',
+            'integracoes-br/financeiro/nfe-integracao',
+          ],
         },
         {
           type: 'category',
