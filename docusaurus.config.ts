@@ -140,12 +140,17 @@ const config: Config = {
           ],
         },
         
+        // Dropdown "Comunidade" - Agrupa conteúdo da comunidade
         {
+          type: 'dropdown',
           label: 'Comunidade',
-          type: 'docSidebar',
-          sidebarId: 'communitySidebar',
           position: 'left',
-          className: 'navbar-community-link',
+          className: 'navbar-community-dropdown',
+          items: [
+            { label: 'Central da Comunidade', to: '/comunidade' },
+            { label: 'Contribuir com o Projeto n8n', to: '/contribuir/projeto-n8n' },
+            { label: 'Contribuir com Esta Documentação', to: '/contribuir/esta-documentacao' },
+          ],
         },
         {
           label: 'Cursos',
