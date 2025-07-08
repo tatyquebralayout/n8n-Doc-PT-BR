@@ -318,125 +318,138 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-  ],
-  contribuirSidebar: [
-    'contribuir/index',
-          {
-        type: 'category',
-        label: 'Contribuir com o Projeto n8n',
-        items: [
-                    'contribuir/projeto-n8n/index',
-          'contribuir/projeto-n8n/contribuir-codigo-e-docs',
-          'contribuir/projeto-n8n/contribuir-modelos',
-          'contribuir/projeto-n8n/adicionar-casos-uso',
-          'contribuir/projeto-n8n/contribuir-community',
-          'contribuir/projeto-n8n/afiliados-e-creators',
-          'contribuir/projeto-n8n/referral-vagas',
-      ],
-    },
-            {
+    {
+      type: 'category',
+      label: 'Contribuir',
+      items: [
+        'contribuir/index',
+        {
+          type: 'category',
+          label: 'Contribuir com o Projeto n8n',
+          items: [
+            'contribuir/projeto-n8n/index',
+            'contribuir/projeto-n8n/contribuir-codigo-e-docs',
+            'contribuir/projeto-n8n/contribuir-community',
+            'contribuir/projeto-n8n/contribuir-modelos',
+            'contribuir/projeto-n8n/adicionar-casos-uso',
+            'contribuir/projeto-n8n/afiliados-e-creators',
+            'contribuir/projeto-n8n/referral-vagas',
+          ],
+        },
+        {
           type: 'category',
           label: 'Contribuir com Esta Documentação',
           items: [
             'contribuir/esta-documentacao/index',
-        {
-          type: 'category',
-          label: 'Entendendo o Projeto',
-          items: [
-            'contribuir/esta-documentacao/entendendo-o-projeto/sobre-o-projeto',
-            'contribuir/esta-documentacao/entendendo-o-projeto/como-contribuir',
-            'contribuir/esta-documentacao/entendendo-o-projeto/codigo-conduta',
+            {
+              type: 'category',
+              label: 'Entendendo o Projeto',
+              items: [
+                'contribuir/esta-documentacao/01-entendendo-o-projeto/sobre-o-projeto',
+                'contribuir/esta-documentacao/01-entendendo-o-projeto/como-contribuir',
+                'contribuir/esta-documentacao/01-entendendo-o-projeto/codigo-conduta',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Primeiros Passos',
+              items: [
+                'contribuir/esta-documentacao/02-primeiros-passos/getting-started',
+                'contribuir/esta-documentacao/02-primeiros-passos/exemplos-praticos',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Padrões e Estilo',
+              items: [
+                'contribuir/esta-documentacao/03-padroes-e-estilo/guia-de-estilo',
+                'contribuir/esta-documentacao/03-padroes-e-estilo/markdown-features',
+                'contribuir/esta-documentacao/03-padroes-e-estilo/design-system',
+                'contribuir/esta-documentacao/03-padroes-e-estilo/paleta-cores',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Tradução e Localização',
+              items: [
+                'contribuir/esta-documentacao/04-traducao-e-localizacao/guia-traducao',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Suporte e Dúvidas',
+              items: [
+                'contribuir/esta-documentacao/06-suporte-e-duvidas/onde-buscar-ajuda',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Recursos Técnicos',
+              items: [
+                'contribuir/esta-documentacao/05-recursos-tecnicos/docusaurus-folder',
+                'contribuir/esta-documentacao/05-recursos-tecnicos/paleta-cores',
+              ],
+            },
           ],
         },
-        {
-          type: 'category',
-          label: 'Primeiros Passos',
-          items: [
-            'contribuir/esta-documentacao/primeiros-passos/getting-started',
-            'contribuir/esta-documentacao/primeiros-passos/exemplos-praticos',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Padrões e Estilo',
-          items: [
-            'contribuir/esta-documentacao/padroes-e-estilo/guia-de-estilo',
-            'contribuir/esta-documentacao/padroes-e-estilo/markdown-features',
-            'contribuir/esta-documentacao/padroes-e-estilo/design-system',
-            'contribuir/esta-documentacao/padroes-e-estilo/paleta-cores',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Tradução e Localização',
-          items: [
-            'contribuir/esta-documentacao/traducao-e-localizacao/guia-traducao',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Suporte e Dúvidas',
-          items: [
-            'contribuir/esta-documentacao/suporte-e-duvidas/onde-buscar-ajuda',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Recursos Técnicos',
-          items: [
-            'contribuir/esta-documentacao/recursos-tecnicos/docusaurus-folder',
-            'contribuir/esta-documentacao/recursos-tecnicos/paleta-cores',
-          ],
-        },
-
       ],
     },
-  ],
-  communitySidebar: [
-    'comunidade/index',
     {
       type: 'category',
-      label: 'Artigos',
-      items: ['comunidade/automacao-iniciantes/index', 'comunidade/casos-uso-avancados/index'],
-    },
-    'comunidade/videos/index',
-    'comunidade/github',
-    'comunidade/como-participar',
-    'comunidade/estatisticas',
-  ],
-  cursosSidebar: [
-    'cursos/index',
-    {
-      type: 'category',
-      label: 'Cursos em Vídeo',
-      items: ['cursos/cursos-em-video/index', 'cursos/cursos-em-video/curso-iniciante', 'cursos/cursos-em-video/curso-avancado'],
-    },
-    {
-      type: 'category',
-      label: 'Cursos em Texto',
+      label: 'Comunidade',
       items: [
-        'cursos/cursos-em-texto/index',
+        'comunidade/index',
+        'comunidade/automacao-iniciantes/index',
+        'comunidade/casos-uso-avancados/index',
+        'comunidade/videos/index',
+        'comunidade/github',
+        'comunidade/como-participar',
+        'comunidade/estatisticas',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Cursos',
+      items: [
+        'cursos/index',
         {
           type: 'category',
-          label: 'Nível 1',
+          label: 'Cursos em Vídeo',
           items: [
-            'cursos/cursos-em-texto/nivel-um/capitulo-1',
-            'cursos/cursos-em-texto/nivel-um/capitulo-2',
-            'cursos/cursos-em-texto/nivel-um/capitulo-3',
-            'cursos/cursos-em-texto/nivel-um/capitulo-4',
-            'cursos/cursos-em-texto/nivel-um/capitulo-5',
+            'cursos/cursos-em-video/index',
+            'cursos/cursos-em-video/curso-iniciante',
+            'cursos/cursos-em-video/curso-avancado',
           ],
         },
         {
           type: 'category',
-          label: 'Nível 2',
-          items: ['cursos/cursos-em-texto/nivel-dois/capitulo-1', 'cursos/cursos-em-texto/nivel-dois/capitulo-2', 'cursos/cursos-em-texto/nivel-dois/capitulo-3'],
+          label: 'Cursos em Texto',
+          items: [
+            'cursos/cursos-em-texto/index',
+            {
+              type: 'category',
+              label: 'Nível Um',
+              items: [
+                'cursos/cursos-em-texto/nivel-um/capitulo-1',
+                'cursos/cursos-em-texto/nivel-um/capitulo-2',
+                'cursos/cursos-em-texto/nivel-um/capitulo-3',
+                'cursos/cursos-em-texto/nivel-um/capitulo-4',
+                'cursos/cursos-em-texto/nivel-um/capitulo-5',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Nível Dois',
+              items: [
+                'cursos/cursos-em-texto/nivel-dois/capitulo-1',
+                'cursos/cursos-em-texto/nivel-dois/capitulo-2',
+                'cursos/cursos-em-texto/nivel-dois/capitulo-3',
+              ],
+            },
+          ],
         },
       ],
     },
-  ],
-  catalogoSidebar: [
-    'catalogo/index',
   ],
 };
 
