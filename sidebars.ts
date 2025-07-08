@@ -278,7 +278,11 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Gerenciamento',
-          items: ['embed/gerenciamento/gerenciar-workflows', 'embed/gerenciamento/white-labelling'],
+          items: [
+            'embed/gerenciamento/index',
+            'embed/gerenciamento/gerenciar-workflows',
+            'embed/gerenciamento/white-labelling',
+          ],
         },
       ],
     },

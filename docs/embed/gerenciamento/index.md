@@ -1,8 +1,29 @@
 ---
 sidebar_position: 1
-title: Gerenciamento do Embed
+title: Gerenciamento
+description: Visão geral das opções de gerenciamento para n8n embarcado, incluindo controle de workflows e personalização visual.
 ---
 
-# Gerenciamento do Embed
+import IonicIcon from '@site/src/components/IonicIcon';
 
-Escolha um tópico no menu lateral para ver detalhes sobre gerenciamento de workflows e white-labelling. 
+# <IonicIcon name="settings-outline" size={32} color="#ea4b71" /> Gerenciamento do n8n Embarcado
+
+Selecione abaixo o tópico desejado para acessar guias completos de gerenciamento, controle de acesso, personalização visual e integração com sistemas existentes:
+
+---
+
+- [<IonicIcon name="git-branch-outline" size={20} color="#10b981" /> Gerenciar Workflows](./gerenciar-workflows)
+  <br/><span style={{ color: '#6b7280' }}>Controle de acesso granular, versionamento integrado, backup automático, sincronização com sistemas externos, auditoria de mudanças e estratégias de governança.</span>
+
+- [<IonicIcon name="color-palette-outline" size={20} color="#10b981" /> White Labelling](./white-labelling)
+  <br/><span style={{ color: '#6b7280' }}>Personalização completa de tema, cores, logos, fontes, layout, domínio customizado e integração visual perfeita com sua aplicação principal.</span>
+
+---
+
+:::tip **Dica Pro**
+Configure primeiro o controle de acesso e permissões antes de implementar o white labelling. Isso garante que a personalização visual seja aplicada de forma segura e consistente.
+:::
+
+:::info **Recurso Adicional**
+Considere usar ferramentas de CI/CD para automatizar o deployment de configurações de gerenciamento entre ambientes.
+::: 
