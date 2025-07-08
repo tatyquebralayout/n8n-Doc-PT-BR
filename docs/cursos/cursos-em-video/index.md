@@ -45,7 +45,7 @@ Nosso objetivo é facilitar o acesso e o entendimento desses recursos valiosos p
 
 **<IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" /> [Explore o Curso Avançado](curso-avancado)**
 
-### <IonicIcon name="library-outline" size={20} color="#10b981" /> Tutoriais Essenciais
+### <IonicIcon name="library-outline" size={20} color="#10b981" /> Tutoriais Essenciais {#tutoriais-essenciais}
 
 **<IonicIcon name="logo-youtube" size={16} color="#ea4b71" /> [5 tutoriais para iniciantes ↗](https://youtu.be/4BVTkqbn_tY?si=f6IcoxcIPMkK6FIv)**
 

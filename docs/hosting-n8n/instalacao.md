@@ -39,7 +39,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 ---
 
-## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Instalação e Deploy
+## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Instalação e Deploy {#instalação-e-deploy}
 
 ### <IonicIcon name="logo-docker" size={20} color="#10b981" /> [Instalação via Docker](./instalacao/docker)
 

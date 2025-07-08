@@ -152,7 +152,7 @@ graph TD
 
 **Quando usar**: Para condições binárias simples onde você precisa de apenas dois caminhos.
 
-<Admonition type="example" title="Exemplo prático">
+<Admonition type="tip" title="Exemplo prático">
 "Se o valor do pedido for maior que R$ 1000, envie para aprovação manual. Caso contrário, processe automaticamente."
 </Admonition>
 
@@ -344,7 +344,7 @@ if (valor_pedido > 1000) {
 
 **Quando usar**: Para múltiplas condições onde você precisa de vários caminhos diferentes.
 
-<Admonition type="example" title="Exemplo prático: Classificar leads por origem">
+<Admonition type="tip" title="Exemplo prático: Classificar leads por origem">
 - Google Ads → Equipe de Marketing Pago
 - Redes Sociais → Equipe de Social Media  
 - Website → Equipe de Vendas Inbound
@@ -1026,7 +1026,7 @@ graph TD
 </TabItem>
 </Tabs>
 
-<Admonition type="example" title="Exemplo: Sistema de suporte técnico">
+<Admonition type="tip" title="Exemplo: Sistema de suporte técnico">
 **Estrutura de Decisão em 3 Níveis:**
 1. **Primeiro Split**: Tipo de problema (Software/Hardware/Rede)
 2. **Segundo Split**: Criticidade (Baixa/Média/Alta)
