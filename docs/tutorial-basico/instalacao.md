@@ -1,16 +1,16 @@
 ---
-sidebar_position: 1
-title: Instalação do n8n
-description: Aprenda como instalar o n8n em diferentes ambientes
+sidebar_position: 2
+title: Instalação Self-hosted do n8n
+description: Guia completo para instalação self-hosted do n8n com Docker e npm
 slug: /tutorial-basico/instalacao
-keywords: [n8n, instalação, docker, npm, setup]
+keywords: [n8n, instalação, docker, npm, setup, self-hosted]
 ---
 
 import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="download-outline" size={32} /> Instalação do n8n
+# <IonicIcon name="server-outline" size={32} /> Instalação Self-hosted do n8n
 
-Existem várias formas de instalar e executar o n8n. Escolha a opção que melhor se adapta ao seu ambiente.
+Esta página detalha os métodos de instalação **self-hosted** do n8n, incluindo Docker (recomendado) e npm. Para uma visão geral de todos os métodos, consulte o [Guia de Instalação – Visão Panorâmica](./guia-instalacao).
 
 ## <IonicIcon name="options-outline" size={24} /> Opções de Instalação
 
@@ -152,9 +152,14 @@ Acesse `http://localhost:5678` e verifique se a interface carrega corretamente.
 
 Agora que o n8n está instalado e funcionando:
 
-1. [Conceitos Básicos](./conceitos-basicos) - Entenda os fundamentos
-2. [Primeiro Workflow](./primeiro-workflow) - Crie seu primeiro fluxo
-3. [Conectar Aplicações](./conectar-aplicacoes) - Integre suas ferramentas
+1. **[Conceitos Básicos](./conceitos-basicos)** - Entenda os fundamentos
+2. **[Primeiro Workflow](./primeiro-workflow)** - Crie seu primeiro fluxo
+3. **[Conectar Aplicações](./conectar-aplicacoes)** - Integre suas ferramentas
+
+### Outros Métodos de Instalação
+
+- **[n8n Cloud](./instalacao-cloud)** - Instalação via serviço hospedado
+- **[Instalação Local via npm](./instalacao-npm)** - Para desenvolvimento e testes
 
 ## Solução de Problemas
 
