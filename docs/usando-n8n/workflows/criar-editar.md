@@ -6,240 +6,368 @@ keywords: [n8n, workflows, criar, editar, nodes, triggers, conexões]
 ---
 
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar e Editar Workflows
+# Criar e Editar Workflows
 
-Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o conceito inicial até a implementação completa.
+Criar workflows eficientes no n8n requer compreensão dos conceitos fundamentais, boas práticas de design e técnicas avançadas de organização. Este guia aborda todo o processo de criação e edição.
 
----
+## Conceitos Fundamentais
 
-## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Planejamento do Workflow
+### O que é um Workflow
+Um workflow no n8n é uma sequência automatizada de operações que:
+- **Processa dados** de uma ou múltiplas fontes
+- **Aplica lógica** condicional e transformações
+- **Executa ações** em sistemas externos
+- **Retorna resultados** ou continua o processamento
 
-###  Definindo o Objetivo
-
-**Antes de começar, responda:**
-
-1. **Qual problema** você quer resolver?
-2. **Quais dados** você precisa processar?
-3. **Quais sistemas** você precisa integrar?
-4. **Qual o resultado** esperado?
-5. **Com que frequência** deve executar?
-
-###  Estrutura Básica
-
-**Todo workflow precisa de:**
-
-```
-[TRIGGER] → [PROCESSAMENTO] → [AÇÃO] → [RESULTADO]
+### Estrutura Básica
+```mermaid
+graph LR
+    A[Trigger] --> B[Processamento]
+    B --> C[Lógica Condicional]
+    C --> D[Ação Final]
+    C --> E[Ação Alternativa]
 ```
 
-**Exemplo prático:**
-```
-[Novo Email] → [Extrair Dados] → [Salvar no Google Sheets] → [Notificar Slack]
-```
+## Criando seu Primeiro Workflow
 
----
+### Passo 1: Escolher o Trigger
+O trigger determina **quando** e **como** o workflow será executado:
 
-## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Criando seu Primeiro Workflow
+#### Triggers Comuns
+- **Manual Trigger**: Execução manual via interface
+- **Schedule Trigger**: Execução em intervalos programados
+- **Webhook**: Execução via requisição HTTP
+- **App Triggers**: Eventos de aplicações externas
 
-###  Passo a Passo
-
-1. **Acesse o n8n** e clique em **"Novo Workflow"**
-2. **Escolha um trigger** (Manual, Schedule, Webhook)
-3. **Configure o trigger** com os parâmetros necessários
-4. **Adicione nodes** de processamento
-5. **Conecte os nodes** na sequência desejada
-6. **Configure cada node** com suas credenciais
-7. **Teste o workflow** com dados de exemplo
-8. **Ative o workflow** quando estiver pronto
-
-###  Configuração do Trigger
-
-**Tipos de trigger disponíveis:**
-
-| Tipo | Uso | Frequência |
-|------|-----|------------|
-| **Manual** | Testes e execução sob demanda | Quando necessário |
-| **Schedule** | Tarefas agendadas | Diário, semanal, mensal |
-| **Webhook** | Eventos em tempo real | Imediato |
-| **Polling** | Verificação periódica | A cada X minutos |
-
-**Exemplo de configuração Schedule:**
+#### Exemplo: Schedule Trigger
 ```json
 {
   "rule": {
     "interval": [
       {
-        "field": "minute",
-        "value": "0"
+        "field": "hour",
+        "value": 9
       },
       {
-        "field": "hour",
-        "value": "9"
+        "field": "minute",
+        "value": 0
       }
     ]
   }
 }
 ```
 
----
+### Passo 2: Adicionar Nodes de Processamento
+Nodes processam e transformam os dados:
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Trabalhando com Nodes
+#### Tipos de Processamento
+- **Data Transformation**: Modificar estrutura dos dados
+- **Data Filtering**: Filtrar registros específicos
+- **Data Enrichment**: Adicionar informações externas
+- **Data Validation**: Validar integridade dos dados
 
-###  Tipos de Nodes
-
-**Categorias principais:**
-
-- **🔗 App Nodes**: Integrações com serviços externos
-- **⚙️ Core Nodes**: Funcionalidades básicas do n8n
-- **🔄 Function Nodes**: Lógica customizada
-- **📊 Data Nodes**: Manipulação de dados
-- **🎯 Trigger Nodes**: Iniciadores de workflow
-
-###  Configurando Nodes
-
-**Campos comuns:**
-
+#### Exemplo: Set Node
 ```json
 {
-  "resource": "message",
-  "operation": "send",
-  "channel": "{{ $json.channel }}",
-  "text": "{{ $json.message }}",
-  "additionalFields": {
-    "username": "n8n Bot",
-    "icon_emoji": ":robot_face:"
+  "values": {
+    "string": [
+      {
+        "name": "status",
+        "value": "processed"
+      },
+      {
+        "name": "timestamp",
+        "value": "={{ $now }}"
+      }
+    ]
   }
 }
 ```
 
-###  Conectando Nodes
+### Passo 3: Implementar Lógica Condicional
+Use nodes de controle de fluxo para criar caminhos condicionais:
 
-**Tipos de conexão:**
-
-- **✅ Sucesso**: Executa quando node anterior funciona
-- **❌ Erro**: Executa quando node anterior falha
-- **🔄 Retry**: Tenta novamente em caso de falha
-- **⏭️ Skip**: Pula para o próximo node
-
----
-
-## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Editando Workflows Existentes
-
-###  Modo de Edição
-
-**Para editar um workflow:**
-
-1. **Abra o workflow** na lista de workflows
-2. **Clique em "Editar"** no canto superior direito
-3. **Faça as alterações** necessárias
-4. **Teste as mudanças** antes de salvar
-5. **Salve o workflow** com Ctrl+S ou Cmd+S
-
-###  Versionamento
-
-**O n8n mantém histórico:**
-
-- **Versões automáticas** a cada salvamento
-- **Comentários** para documentar mudanças
-- **Rollback** para versões anteriores
-- **Comparação** entre versões
-
-###  Duplicação e Templates
-
-**Para reutilizar workflows:**
-
-1. **Duplique** o workflow existente
-2. **Modifique** para o novo caso de uso
-3. **Salve** com novo nome
-4. **Compartilhe** como template se necessário
-
----
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Boas Práticas
-
-###  Nomenclatura
-
-**Use nomes descritivos:**
-
-- ✅ **"Enviar Relatório Diário - Marketing"**
-- ✅ **"Sincronizar Clientes - CRM para Sheets"**
-- ❌ **"Workflow 1"**
-- ❌ **"Teste"**
-
-###  Documentação
-
-**Adicione descrições:**
-
-```markdown
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Workflow: Enviar Relatório Diário
-- **Propósito**: Envia relatório de vendas diário para equipe
-- **Trigger**: Schedule (diário às 18h)
-- **Dados processados**: Vendas do dia, métricas de conversão
-- **Saída**: Email + Slack notification
-- **Responsável**: Equipe de Marketing
+#### IF Node
+```json
+{
+  "conditions": {
+    "string": [
+      {
+        "value1": "={{ $json.status }}",
+        "operation": "equals",
+        "value2": "active"
+      }
+    ]
+  }
+}
 ```
 
-###  Segurança
+#### Switch Node
+```json
+{
+  "rules": {
+    "rules": [
+      {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.priority }}",
+              "operation": "equals",
+              "value2": "high"
+            }
+          ]
+        },
+        "outputIndex": 0
+      }
+    ]
+  }
+}
+```
 
-**Proteja seus workflows:**
+### Passo 4: Executar Ações Finais
+Nodes de ação realizam operações em sistemas externos:
 
-- **Use credenciais** em vez de hardcoded values
-- **Valide dados** de entrada
-- **Trate erros** adequadamente
-- **Monitore execuções** regularmente
+#### Exemplos de Ações
+- **Send Email**: Enviar notificações
+- **HTTP Request**: Chamar APIs externas
+- **Database Operations**: Salvar/atualizar dados
+- **File Operations**: Criar/modificar arquivos
+
+## Técnicas Avançadas de Edição
+
+### Organização de Workflows
+
+#### 1. Nomenclatura Consistente
+```yaml
+# Boas práticas de nomenclatura
+Workflow: "Processamento de Pedidos - E-commerce"
+Nodes:
+  - "Trigger - Novos Pedidos"
+  - "Validação - Dados do Cliente"
+  - "Processamento - Cálculo de Frete"
+  - "Ação - Envio de Confirmação"
+```
+
+#### 2. Estrutura Modular
+Divida workflows complexos em módulos menores:
+
+```mermaid
+graph TD
+    A[Trigger Principal] --> B[Módulo Validação]
+    B --> C[Módulo Processamento]
+    C --> D[Módulo Notificação]
+    C --> E[Módulo Relatórios]
+```
+
+#### 3. Comentários e Documentação
+Use comentários para explicar lógica complexa:
+
+```json
+{
+  "notes": "Este node calcula o desconto baseado no histórico do cliente e categoria do produto"
+}
+```
+
+### Reutilização de Código
+
+#### 1. Templates
+Crie templates para workflows comuns:
+- **Data Processing Templates**
+- **Notification Templates**
+- **Integration Templates**
+- **Error Handling Templates**
+
+#### 2. Subworkflows
+Use subworkflows para lógica reutilizável:
+```json
+{
+  "workflowId": "subworkflow-id",
+  "parameters": {
+    "inputData": "={{ $json }}"
+  }
+}
+```
+
+#### 3. Code Nodes Reutilizáveis
+Crie funções JavaScript reutilizáveis:
+```javascript
+// Função para validação de email
+function validateEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+// Função para formatação de data
+function formatDate(date, format = 'DD/MM/YYYY') {
+  return moment(date).format(format);
+}
+```
+
+## Melhores Práticas
+
+### Performance
+1. **Batch Processing**: Processe dados em lotes
+2. **Rate Limiting**: Respeite limites de API
+3. **Caching**: Use cache para dados estáticos
+4. **Optimization**: Otimize queries e operações
+
+### Confiabilidade
+1. **Error Handling**: Implemente tratamento de erros
+2. **Retry Logic**: Configure tentativas automáticas
+3. **Monitoring**: Monitore execuções
+4. **Backup**: Faça backup de workflows importantes
+
+### Manutenibilidade
+1. **Version Control**: Use controle de versão
+2. **Documentation**: Documente workflows complexos
+3. **Testing**: Teste workflows regularmente
+4. **Refactoring**: Refatore workflows antigos
+
+## Debugging e Teste
+
+### Ferramentas de Debug
+1. **Execution Inspector**: Analise execuções detalhadamente
+2. **Data Preview**: Visualize dados em cada node
+3. **Error Logs**: Analise logs de erro
+4. **Performance Monitor**: Monitore performance
+
+### Estratégias de Teste
+1. **Unit Testing**: Teste nodes individualmente
+2. **Integration Testing**: Teste workflows completos
+3. **Load Testing**: Teste com grandes volumes
+4. **Error Testing**: Teste cenários de erro
+
+### Exemplo: Workflow de Teste
+```mermaid
+graph LR
+    A[Test Data] --> B[Process Node]
+    B --> C[Validation]
+    C --> D[Expected Result]
+    C --> E[Error Handler]
+```
+
+## Workflows Complexos
+
+### Padrões de Design
+
+#### 1. Fan-out/Fan-in
+```mermaid
+graph TD
+    A[Trigger] --> B[Split Data]
+    B --> C[Process 1]
+    B --> D[Process 2]
+    B --> E[Process 3]
+    C --> F[Merge Results]
+    D --> F
+    E --> F
+    F --> G[Final Action]
+```
+
+#### 2. Pipeline Processing
+```mermaid
+graph LR
+    A[Input] --> B[Stage 1]
+    B --> C[Stage 2]
+    C --> D[Stage 3]
+    D --> E[Output]
+```
+
+#### 3. Event-driven Architecture
+```mermaid
+graph TD
+    A[Event Source] --> B[Event Router]
+    B --> C[Handler 1]
+    B --> D[Handler 2]
+    B --> E[Handler 3]
+```
+
+### Exemplo: Workflow de E-commerce
+```mermaid
+graph TD
+    A[Novo Pedido] --> B[Validar Cliente]
+    B --> C{Cliente Válido?}
+    C -->|Sim| D[Calcular Frete]
+    C -->|Não| E[Notificar Admin]
+    D --> F[Processar Pagamento]
+    F --> G{Pagamento OK?}
+    G -->|Sim| H[Enviar Confirmação]
+    G -->|Não| I[Notificar Cliente]
+    H --> J[Atualizar Estoque]
+    I --> K[Registrar Falha]
+```
+
+## Configurações Avançadas
+
+### Variáveis de Ambiente
+```json
+{
+  "variables": {
+    "API_BASE_URL": "https://api.exemplo.com",
+    "MAX_RETRIES": 3,
+    "TIMEOUT": 30000
+  }
+}
+```
+
+### Configurações de Execução
+```json
+{
+  "executionOrder": "v1",
+  "saveExecutionProgress": true,
+  "saveManualExecutions": true,
+  "callerPolicy": "workflowsFromSameOwner"
+}
+```
+
+### Permissões e Segurança
+```json
+{
+  "permissions": {
+    "owner": "user@exemplo.com",
+    "sharedWith": [
+      {
+        "user": "admin@exemplo.com",
+        "role": "editor"
+      }
+    ]
+  }
+}
+```
+
+## Troubleshooting
+
+### Problemas Comuns
+1. **Connection Issues**: Verificar credenciais e conectividade
+2. **Data Format Errors**: Validar formato dos dados
+3. **Rate Limit Exceeded**: Implementar delays e retry logic
+4. **Memory Issues**: Otimizar processamento de dados
+
+### Soluções
+1. **Error Handling Nodes**: Implementar tratamento robusto
+2. **Retry Mechanisms**: Configurar tentativas automáticas
+3. **Monitoring**: Implementar alertas e logs
+4. **Documentation**: Manter documentação atualizada
+
+## Recursos Adicionais
+
+### Documentação Oficial
+- [Workflow Editor](https://docs.n8n.io/workflows/editor/)
+- [Nodes Reference](https://docs.n8n.io/integrations/)
+- [Best Practices](https://docs.n8n.io/workflows/best-practices/)
+
+### Templates e Exemplos
+- [n8n Templates](https://n8n.io/templates/)
+- [Community Workflows](https://community.n8n.io/)
+- [GitHub Examples](https://github.com/n8n-io/n8n/tree/master/packages/cli/templates)
+
+### Ferramentas de Desenvolvimento
+- [n8n CLI](https://docs.n8n.io/hosting/cli/)
+- [n8n API](https://docs.n8n.io/api/)
+- [n8n SDK](https://docs.n8n.io/integrations/creating-nodes/)
 
 ---
 
-## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Debugging e Testes
-
-###  Testando Workflows
-
-**Estratégia de teste:**
-
-1. **Teste individual** cada node
-2. **Use dados de exemplo** realistas
-3. **Verifique saídas** em cada etapa
-4. **Teste cenários de erro**
-5. **Valide resultados finais**
-
-###  Identificando Problemas
-
-**Sinais de problemas:**
-
-- **Nodes vermelhos**: Erro na execução
-- **Conexões quebradas**: Nodes não conectados
-- **Dados vazios**: Falta de dados de entrada
-- **Timeout**: Execução muito lenta
-
-###  Ferramentas de Debug
-
-**Recursos disponíveis:**
-
-- **Logs detalhados** de cada execução
-- **Visualização de dados** em cada node
-- **Teste de credenciais** individual
-- **Simulação** de execução
-
----
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Próximos passos
-
-1. **[Organizar Workflows](./organizar)** - Estruturar projetos
-2. **[Otimizar Performance](./otimizar)** - Melhorar eficiência
-3. **[Usar Workflows em Produção](../execucoes/componentes-execucoes)** - Deploy e monitoramento
-
-> *Agora você tem os fundamentos para criar workflows eficientes. Continue aprendendo para dominar o n8n!*
-
----
-
-:::tip **Dica Pro**
-Comece com workflows simples e vá aumentando a complexidade gradualmente. É melhor ter vários workflows simples do que um muito complexo.
-:::
-
-:::warning **Importante**
-Sempre teste seus workflows antes de ativá-los em produção. Use dados de teste que não afetem sistemas reais.
-:::
-
-:::info **Recurso Adicional**
-Use o modo "Execute Once" para testar workflows sem ativá-los permanentemente.
-::: 
+**Próximos Passos:**
+- [Organização de Workflows](organizar.md)
+- [Execução de Workflows](../execucoes/index.md)
+- [Tratamento de Erros](../../logica-e-dados/01-flow-logic/error-handling.md) 
