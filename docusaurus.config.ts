@@ -147,9 +147,10 @@ const config: Config = {
           position: 'left',
           className: 'navbar-community-dropdown',
           items: [
-            { label: 'Central da Comunidade', to: '/comunidade' },
-            { label: 'Contribuir com o Projeto n8n', to: '/contribuir/projeto-n8n' },
-            { label: 'Contribuir com Esta Documentação', to: '/contribuir/esta-documentacao' },
+            { label: 'Artigos', to: '/comunidade/automacao-iniciantes' },
+            { label: 'Vídeos da Comunidade', to: '/comunidade/videos' },
+            { label: 'Repositórios da Comunidade', to: '/comunidade/github' },
+            { label: 'Como Participar', to: '/comunidade/como-participar' },
           ],
         },
         {
@@ -158,11 +159,16 @@ const config: Config = {
           sidebarId: 'cursosSidebar',
           position: 'left',
         },
+        // Dropdown "Contribuir" - Agrupa opções de contribuição
         {
+          type: 'dropdown',
           label: 'Contribuir',
-          type: 'docSidebar',
-          sidebarId: 'contribuirSidebar',
           position: 'left',
+          className: 'navbar-contribute-dropdown',
+          items: [
+            { label: 'Contribuir com o Projeto n8n', to: '/contribuir/projeto-n8n' },
+            { label: 'Contribuir com Esta Documentação', to: '/contribuir/esta-documentacao' },
+          ],
         },
         {
           label: 'Catálogo',
