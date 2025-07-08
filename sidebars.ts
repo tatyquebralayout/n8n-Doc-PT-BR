@@ -12,7 +12,14 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Tutorial Básico',
-      items: ['tutorial-basico/guia-instalacao', 'tutorial-basico/instalacao', 'tutorial-basico/conceitos-basicos', 'tutorial-basico/primeiro-workflow'],
+      items: [
+        'tutorial-basico/guia-instalacao',
+        'tutorial-basico/instalacao-cloud',
+        'tutorial-basico/instalacao-self-hosted',
+        'tutorial-basico/instalacao-npm',
+        'tutorial-basico/conceitos-basicos',
+        'tutorial-basico/primeiro-workflow'
+      ],
     },
     {
       type: 'category',
