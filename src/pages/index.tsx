@@ -214,6 +214,23 @@ export default function Home(): React.ReactElement {
                 </div>
               </div>
 
+              {/* Cursos e Aprendizado */}
+              <div className={styles.mainFeature}>
+                <div className={styles.mainFeatureIcon}>
+                  <IonicIcon name="school-outline" size={20} />
+                </div>
+                <div className={styles.mainFeatureContent}>
+                  <h4>Cursos e Aprendizado</h4>
+                  <p>Aprenda n8n com cursos estruturados em vídeo e texto.</p>
+                  <ul>
+                    <li><Link to="/cursos/cursos-em-video/curso-iniciante">Curso Iniciante</Link></li>
+                    <li><Link to="/cursos/cursos-em-video/curso-avancado">Curso Avançado</Link></li>
+                    <li><Link to="/cursos/cursos-em-texto">Cursos em Texto</Link></li>
+                    <li><Link to="/cursos">Todos os Cursos</Link></li>
+                  </ul>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
