@@ -63,18 +63,6 @@ const config: Config = {
   },
 
   plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'release-notes',
-        path: 'release-notes',
-        routeBasePath: 'release-notes',
-        sidebarPath: './sidebars-release-notes.ts',
-        editUrl: 'https://github.com/tatyquebralayout/n8n-Doc-pt-BR/tree/main/',
-        showLastUpdateAuthor: false,
-        showLastUpdateTime: false,
-      },
-    ],
     // Plugin de busca local
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
@@ -198,34 +186,9 @@ const config: Config = {
           to: '/release-notes',
           label: 'Release Notes',
           position: 'left',
-          className: 'navbar-release-notes',
+          className: 'navbar-release-notes-link',
         },
-        {
-          type: 'dropdown',
-          label: 'v1.0.0',
-          position: 'right',
-          className: 'navbar-version-dropdown',
-          items: [
-            {
-              label: 'v1.0.0 (Atual)',
-              href: '/',
-              className: 'dropdown-version-current',
-            },
-            {
-              label: 'Beta (Desenvolvimento)',
-              href: '/release-notes/nossa-doc',
-              className: 'dropdown-version-beta',
-            },
-            {
-              label: 'Ver Todas as Versões',
-              href: '/release-notes',
-              className: 'dropdown-version-all',
-            },
-          ],
-        },
-
       ],
-      hideOnScroll: false,
     },
 
     footer: {
@@ -235,41 +198,20 @@ const config: Config = {
           title: 'Documentação',
           items: [
             {
-              label: 'Começar',
-              to: '/intro',
+              label: 'Primeiros Passos',
+              to: '/primeiros-passos/instalacao',
             },
             {
-              label: 'Tutorials',
-              to: '/primeiros-passos/instalacao',
+              label: 'Usando n8n',
+              to: '/usando-n8n',
             },
             {
               label: 'Integrações',
               to: '/integracoes',
             },
             {
-              label: 'Deployment',
-              to: '/hosting-n8n/instalacao',
-            },
-          ],
-        },
-        {
-          title: 'Recursos',
-          items: [
-            {
-              label: 'Release Notes',
-              to: '/release-notes',
-            },
-            {
-              label: 'Guias Avançados',
-              to: '/referencia/guias/performance-guide',
-            },
-            {
-              label: 'APIs Brasileiras',
-              to: '/referencia/recursos/apis-brasileiras',
-            },
-            {
-              label: 'Glossário',
-              to: '/referencia/recursos/glossario',
+              label: 'API',
+              to: '/api',
             },
           ],
         },
@@ -277,140 +219,86 @@ const config: Config = {
           title: 'Comunidade',
           items: [
             {
-              label: 'Central da Comunidade',
-              to: '/comunidade',
+              label: 'Discord',
+              href: 'https://discord.gg/n8n',
             },
             {
-              label: 'Como Contribuir',
-              to: '/contribuir',
-            },
-            {
-              label: 'Diretrizes',
-              to: '/contribuir/esta-documentacao/guidelines',
-            },
-            {
-              label: 'Código de Conduta',
-              to: '/contribuir/esta-documentacao/entendendo-o-projeto/codigo-conduta',
-            },
-            {
-              label: 'Discutir no GitHub',
-              href: 'https://github.com/tatyquebralayout/n8n-Doc-pt-BR/discussions',
-            },
-          ],
-        },
-        {
-          title: 'Links Úteis',
-          items: [
-            {
-              label: 'n8n Oficial',
-              href: 'https://n8n.io',
-            },
-            {
-              label: 'Docs Oficial',
-              href: 'https://docs.n8n.io',
-            },
-            {
-              label: 'GitHub n8n',
+              label: 'GitHub',
               href: 'https://github.com/n8n-io/n8n',
             },
             {
-              label: 'Comunidade n8n',
-              href: 'https://community.n8n.io',
+              label: 'YouTube',
+              href: 'https://www.youtube.com/c/n8n-io',
+            },
+            {
+              label: 'Blog',
+              href: 'https://n8n.io/blog',
             },
           ],
         },
         {
-          title: 'Iniciativa',
+          title: 'Recursos',
           items: [
             {
-              html: `
-                <div class="footer-initiators">
-                  <div class="initiator">
-                    <img src="https://avatars.githubusercontent.com/u/172347696?v=4" alt="Tatiana Barros" class="initiator-avatar">
-                    <div>
-                      <div class="initiator-name">Tatiana Barros</div>
-                      <div class="initiator-title">Technology Evangelist</div>
-                      <div class="initiator-links">
-                        <a href="https://github.com/tatyquebralayout">GitHub</a>
-                        <span>•</span>
-                        <a href="https://www.linkedin.com/in/umataldetatiana">LinkedIn</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="initiator">
-                    <img src="https://avatars.githubusercontent.com/u/48963612?v=4" alt="Carlos de Lima Junior" class="initiator-avatar">
-                    <div>
-                      <div class="initiator-name">Carlos de Lima Junior</div>
-                      <div class="initiator-title">Software Developer</div>
-                      <div class="initiator-links">
-                        <a href="https://github.com/CJBiohacker">GitHub</a>
-                        <span>•</span>
-                        <a href="https://www.linkedin.com/in/carlosjunior137">LinkedIn</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              `,
+              label: 'n8n Cloud',
+              href: 'https://n8n.io/cloud',
+            },
+            {
+              label: 'Pricing',
+              href: 'https://n8n.io/pricing',
+            },
+            {
+              label: 'Enterprise',
+              href: 'https://n8n.io/enterprise',
+            },
+            {
+              label: 'Status',
+              href: 'https://status.n8n.io',
+            },
+          ],
+        },
+        {
+          title: 'Legal',
+          items: [
+            {
+              label: 'Privacy Policy',
+              href: 'https://n8n.io/privacy',
+            },
+            {
+              label: 'Terms of Service',
+              href: 'https://n8n.io/terms',
+            },
+            {
+              label: 'Cookie Policy',
+              href: 'https://n8n.io/cookies',
             },
           ],
         },
       ],
-      copyright: `
-        <div class="footer-copyright">
-          <div>
-            <span>© ${new Date().getFullYear()} n8n Documentation Brasil</span>
-            <span class="separator">•</span>
-            <span>Feito com <span class="heart">♥</span> pela comunidade</span>
-          </div>
-          <div class="copyright-links">
-            <span>Documentação não oficial do n8n</span>
-            <span class="separator">•</span>
-            <a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR">GitHub</a>
-            <span class="separator">•</span>
-            <a href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR/blob/main/LICENSE">MIT License</a>
-          </div>
-        </div>
-      `,
+      copyright: `Copyright © ${new Date().getFullYear()} n8n Brasil. Built with Docusaurus.`,
     },
 
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'json', 'yaml'],
+      additionalLanguages: ['bash', 'json', 'yaml', 'toml'],
     },
 
     colorMode: {
       defaultMode: 'light',
       disableSwitch: false,
-      respectPrefersColorScheme: false,
-    },
-
-    docs: {
-      sidebar: {
-        hideable: true,
-        autoCollapseCategories: true,
-      },
+      respectPrefersColorScheme: true,
     },
 
     announcementBar: {
-      id: 'new-release',
-      content: 'Explore what\'s new: Latest release notes available now!',
-      backgroundColor: 'var(--ifm-color-primary)',
-      textColor: '#FFFFFF',
-      isCloseable: true,
+      id: 'support_us',
+      content:
+        '🎉 <strong>n8n Brasil</strong> - Documentação completa em português! <a target="_blank" rel="noopener noreferrer" href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR">Contribua no GitHub</a>',
+      backgroundColor: '#fafbfc',
+      textColor: '#091E42',
+      isCloseable: false,
     },
-
-    metadata: [
-      {name: 'keywords', content: 'n8n, automation, workflow, documentation, integration'},
-      {name: 'twitter:card', content: 'summary_large_image'},
-    ],
-
-    themes: ['@docusaurus/theme-mermaid'],
-    markdown: {
-      mermaid: true,
-    },
-
-  } satisfies Preset.ThemeConfig,
-};
+  },
+} satisfies Config;
 
 export default config; 
