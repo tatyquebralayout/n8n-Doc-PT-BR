@@ -6,6 +6,7 @@ keywords: [n8n, lógica, controle, condicional, fluxo, if, switch, merge, loop, 
 ---
 
 import IonicIcon from '@site/src/components/IonicIcon';
+import Admonition from '@theme/Admonition';
 
 # <IonicIcon name="git-branch-outline" size={32} color="#ea4b71" /> Nodes de Lógica e Controle
 
