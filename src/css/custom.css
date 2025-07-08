@@ -749,3 +749,78 @@ ion-icon .ionicon-fill-none {
 ion-icon .ionicon-stroke-width {
   stroke: var(--ifm-color-primary) !important;
 }
+
+/* Ícones da barra lateral aplicados via classes CSS para consistência e para contornar erros de compilação de SVG */
+.menu__list-item--icon-intro > .menu__list-item-collapsible > .menu__link::before,
+.menu__list-item--icon-primeiros-passos > .menu__list-item-collapsible > .menu__link::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background-color: var(--ifm-color-primary);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.menu__list-item--icon-intro > .menu__list-item-collapsible > .menu__link::before {
+  mask-image: url('/svg/info-icon.svg');
+  -webkit-mask-image: url('/svg/info-icon.svg');
+}
+
+.menu__list-item--icon-primeiros-passos > .menu__list-item-collapsible > .menu__link::before {
+  mask-image: url('/svg/primeiros-passos-icon.svg');
+  -webkit-mask-image: url('/svg/primeiros-passos-icon.svg');
+}
+
+/* ==========================================================================
+  Estilos de Hierarquia na Barra Lateral (Multinível)
+========================================================================== */
+
+/* Nível 1: Categorias Principais (Sessões) - e.g., "Usando n8n" */
+.menu__list .theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link:not(.menu__link--active) {
+  color: var(--ifm-heading-color); /* Cinza mais escuro */
+  font-weight: 600; /* Semibold */
+}
+
+/* Nível 2: Sub-categorias - e.g., "Getting Started" */
+.menu__list .theme-doc-sidebar-item-category-level-2 > .menu__list-item-collapsible > .menu__link:not(.menu__link--active) {
+  color: var(--ifm-font-color-base); /* Cinza escuro padrão do corpo */
+  font-weight: 500; /* Medium */
+}
+
+/* Nível 2: Assuntos diretos sob a Sessão Principal */
+.menu__list .theme-doc-sidebar-item-link-level-2 > .menu__link:not(.menu__link--active) {
+  color: var(--ifm-font-color-secondary); /* Cinza secundário */
+  font-weight: 400; /* Normal */
+}
+
+/* Nível 3 e além: Sub-sub-categorias e Assuntos (links finais) */
+.menu__list .theme-doc-sidebar-item-category-level-3 > .menu__list-item-collapsible > .menu__link:not(.menu__link--active),
+.menu__list .theme-doc-sidebar-item-link-level-3 > .menu__link:not(.menu__link--active),
+.menu__list .theme-doc-sidebar-item-category-level-4 > .menu__list-item-collapsible > .menu__link:not(.menu__link--active),
+.menu__list .theme-doc-sidebar-item-link-level-4 > .menu__link:not(.menu__link--active) {
+  color: var(--ifm-font-color-secondary); /* Cinza secundário (mais claro) */
+  font-weight: 400; /* Normal */
+}
+
+/* Efeito de hover geral para todos os links da barra lateral, para dar feedback */
+.menu__list .menu__link:not(.menu__link--active):hover {
+  color: var(--ifm-color-primary); /* Cor rosa no hover */
+}
+
+/* ==========================================================================
+  Otimização da Animação da Barra Lateral
+========================================================================== */
+
+/* Garante uma transição suave da altura para os sub-menus, evitando "saltos" */
+.menu__list {
+  transition: height var(--ifm-transition-fast) ease-in-out;
+  will-change: height;
+}
+
