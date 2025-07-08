@@ -307,15 +307,15 @@ export default function Home(): React.ReactElement {
           <div className={styles.ctaGrid}>
             <div className={styles.ctaCard}>
               <div className={styles.ctaIcon}>
-                <IonicIcon name="create-outline" size={24} color="var(--ifm-color-primary)" />
+                <IonicIcon name="extension-puzzle-outline" size={24} color="var(--ifm-color-primary)" />
               </div>
               <div className={styles.ctaText}>
-                <h4>Quer Contribuir?</h4>
-                <p>Ajude a construir a melhor documentação para a comunidade brasileira.</p>
+                <h4>Quer Criar Seus Próprios Nodes?</h4>
+                <p>Tenha mentoria, torne-se expert e desenvolva integrações customizadas para o n8n. Aprenda com a comunidade e construa soluções únicas.</p>
               </div>
-              <Link to="/contribuir" className="button button--outline button--primary">
+              <Link to="/integracoes/criar-nodes" className="button button--outline button--primary">
                 <IonicIcon name="arrow-forward-outline" size={16} />
-                Saber mais
+                Saiba mais
               </Link>
             </div>
             <div className={styles.ctaCard}>
