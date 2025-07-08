@@ -1,6 +1,6 @@
 import React from 'react';
 import MDXComponents from '@theme-original/MDXComponents';
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 
 export default {
   ...MDXComponents,

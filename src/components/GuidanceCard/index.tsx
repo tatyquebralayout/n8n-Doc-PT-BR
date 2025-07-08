@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 
 interface GuidanceCardProps {
   title: string;
@@ -14,7 +14,7 @@ const GuidanceCard: React.FC<GuidanceCardProps> = ({ title, children, className,
   return (
     <div className={`${styles['guidance-card']} ${cardClass}`}>
       <div className={styles['guidance-card__title']}>
-        {iconName && <IonicIcon name={iconName} size={24} />}
+        {iconName && <LocalIcon name={iconName} size={24} />}
         <h3>{title}</h3>
       </div>
       <div className={styles['guidance-card__content']}>

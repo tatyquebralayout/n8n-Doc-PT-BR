@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 import styles from './styles.module.css';
 
 type FeatureItem = {
@@ -47,7 +47,7 @@ function Feature({title, icon, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <IonicIcon 
+        <LocalIcon 
           name={icon} 
           size={48} 
           className={styles['homepage-features__svg']} 

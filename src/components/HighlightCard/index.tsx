@@ -2,7 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 import LoadingSkeleton from '@site/src/components/LoadingSkeleton';
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 
 interface HighlightCardProps {
   loading?: boolean;
@@ -43,7 +43,7 @@ const HighlightCard: React.FC<HighlightCardProps> = ({
         {loading ? (
           <LoadingSkeleton variant="circle" width={48} height={48} />
         ) : (
-          icon && <IonicIcon name={icon} size={48} className={styles.icon} aria-hidden="true" />
+          icon && <LocalIcon name={icon} size={48} className={styles.icon} aria-hidden="true" />
         )}
         {loading ? (
           <LoadingSkeleton variant="line" width={100} height={18} />
@@ -56,7 +56,7 @@ const HighlightCard: React.FC<HighlightCardProps> = ({
       <div className={styles.details}>{loading ? <LoadingSkeleton variant="line" width="60%" height={16} /> : details}</div>
       <div className={styles.cardFooter}>
         <Link to={link} className={styles.readMoreLink}>
-          {buttonText} <IonicIcon name="arrow-forward-outline" size={20} />
+          {buttonText} <LocalIcon name="arrow-forward-outline" size={20} />
         </Link>
       </div>
     </div>

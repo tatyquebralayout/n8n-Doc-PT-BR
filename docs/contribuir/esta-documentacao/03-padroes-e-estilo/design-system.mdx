@@ -4,13 +4,13 @@ title: 'Design System - n8n Brasil'
 sidebar_label: 'Design System'
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 import CardGrid from '@site/src/components/CardGrid';
 import RepoCard from '@site/src/components/RepoCard';
 import HighlightCard from '@site/src/components/HighlightCard';
 import ArticleCard from '@site/src/components/ArticleCard';
 
-# <IonicIcon name="color-palette-outline" size={32} color="#ea4b71" /> Design System da Documentação n8n Brasil
+# <LocalIcon name="color-palette-outline" size={32} color="#ea4b71" /> Design System da Documentação n8n Brasil
 
 > **Este documento é a fonte da verdade para a identidade visual, componentes e padrões de interface da nossa documentação.**
 >
@@ -18,7 +18,7 @@ import ArticleCard from '@site/src/components/ArticleCard';
 
 ---
 
-## <IonicIcon name="bulb-outline" size={24} color="#ea4b71" /> Filosofia de Design
+## <LocalIcon name="bulb-outline" size={24} color="#ea4b71" /> Filosofia de Design
 
 Nossa abordagem de design se baseia em três pilares:
 
@@ -28,11 +28,11 @@ Nossa abordagem de design se baseia em três pilares:
 
 ---
 
-## <IonicIcon name="grid-outline" size={24} color="#ea4b71" /> Componentes React
+## <LocalIcon name="grid-outline" size={24} color="#ea4b71" /> Componentes React
 
 Esta seção serve como um catálogo visual dos nossos componentes React padronizados. Use-os para construir páginas de documentação ricas e interativas.
 
-### <IonicIcon name="card-outline" size={20} color="#ea4b71" /> `<CardGrid />` e `<RepoCard />`
+### <LocalIcon name="card-outline" size={20} color="#ea4b71" /> `<CardGrid />` e `<RepoCard />`
 
 O `CardGrid` cria um layout responsivo para exibir cards. O `RepoCard` busca e exibe informações de um repositório do GitHub automaticamente.
 
@@ -53,7 +53,7 @@ O `CardGrid` cria um layout responsivo para exibir cards. O `RepoCard` busca e e
   <RepoCard repoUrl="https://github.com/payloadcms/payload" icon="server-outline" />
 </CardGrid>
 
-### <IonicIcon name="star-outline" size={20} color="#ea4b71" /> `<HighlightCard />`
+### <LocalIcon name="star-outline" size={20} color="#ea4b71" /> `<HighlightCard />`
 
 Use o `HighlightCard` para destacar informações importantes ou links de "call-to-action".
 
@@ -78,7 +78,7 @@ Use o `HighlightCard` para destacar informações importantes ou links de "call-
   link="/usando-n8n/workflows"
 />
 
-### <IonicIcon name="newspaper-outline" size={20} color="#ea4b71" /> `<ArticleCard />`
+### <LocalIcon name="newspaper-outline" size={20} color="#ea4b71" /> `<ArticleCard />`
 
 O `ArticleCard` é ideal para listar tutoriais, artigos da comunidade ou guias.
 
@@ -111,9 +111,9 @@ O `ArticleCard` é ideal para listar tutoriais, artigos da comunidade ou guias.
 
 ---
 
-## <IonicIcon name="color-filter-outline" size={24} color="#ea4b71" /> Identidade Visual
+## <LocalIcon name="color-filter-outline" size={24} color="#ea4b71" /> Identidade Visual
 
-### <IonicIcon name="color-palette-outline" size={20} color="#ea4b71" /> Paleta de Cores
+### <LocalIcon name="color-palette-outline" size={20} color="#ea4b71" /> Paleta de Cores
 
 A paleta de cores define a identidade visual do nosso projeto. Usamos um conjunto de cores primárias e secundárias para criar uma hierarquia visual clara.
 
@@ -131,7 +131,7 @@ A paleta de cores define a identidade visual do nosso projeto. Usamos um conjunt
 
 *Esta seção será expandida com mais detalhes sobre cores de sucesso, aviso, erro, etc.*
 
-### <IonicIcon name="text-outline" size={20} color="#ea4b71" /> Tipografia
+### <LocalIcon name="text-outline" size={20} color="#ea4b71" /> Tipografia
 
 A consistência tipográfica é crucial para a legibilidade.
 
@@ -140,11 +140,11 @@ A consistência tipográfica é crucial para a legibilidade.
 
 *Esta seção será expandida com tamanhos, pesos e alturas de linha para cada nível de título e parágrafo.*
 
-### <IonicIcon name="sparkles-outline" size={20} color="#ea4b71" /> Iconografia
+### <LocalIcon name="sparkles-outline" size={20} color="#ea4b71" /> Iconografia
 
 Utilizamos exclusivamente a biblioteca **Ionicons** para todos os ícones da interface, garantindo um estilo visual unificado.
 
-- **Componente Padrão**: `<IonicIcon />`
+- **Componente Padrão**: `<LocalIcon />`
 - **Estilo Preferencial**: `outline` para a maioria dos casos.
 - **Tamanhos Comuns**: 16px, 20px, 24px, 32px.
 
@@ -152,14 +152,14 @@ Utilizamos exclusivamente a biblioteca **Ionicons** para todos os ícones da int
 ```jsx
 import IonicIcon from '@site/src/components/IonicIcon';
 
-<IonicIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
+<LocalIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
 ```
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Padrões de Uso
+## <LocalIcon name="construct-outline" size={24} color="#ea4b71" /> Padrões de Uso
 
-### <IonicIcon name="sparkles-outline" size={20} color="#ea4b71" /> Guia de Uso de Ícones Ionicons
+### <LocalIcon name="sparkles-outline" size={20} color="#ea4b71" /> Guia de Uso de Ícones Ionicons
 
 > **Padrão obrigatório para toda a documentação e componentes React.**
 
@@ -189,16 +189,16 @@ import IonicIcon from '@site/src/components/IonicIcon';
 
 #### Exemplo de Uso Correto
 ```jsx
-<IonicIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
-<IonicIcon name="star-outline" size={16} />
-<IonicIcon name="logo-github" size={20} />
+<LocalIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
+<LocalIcon name="star-outline" size={16} />
+<LocalIcon name="logo-github" size={20} />
 ```
 
 #### Exemplo de Uso Incorreto
 ```jsx
 // NÃO FAÇA:
-<IonicIcon name="star" size={18} color="#FF0000" /> // tamanho e cor fora do padrão
-<IonicIcon name="star-filled" size={24} /> // estilo não permitido
+<LocalIcon name="star" size={18} color="#FF0000" /> // tamanho e cor fora do padrão
+<LocalIcon name="star-filled" size={24} /> // estilo não permitido
 ```
 
 #### Boas Práticas
@@ -208,11 +208,11 @@ import IonicIcon from '@site/src/components/IonicIcon';
 
 ---
 
-## <IonicIcon name="code-outline" size={24} color="#ea4b71" /> Estrutura CSS e Convenções
+## <LocalIcon name="code-outline" size={24} color="#ea4b71" /> Estrutura CSS e Convenções
 
 A partir de 2024, a documentação adota uma estrutura CSS modularizada para facilitar manutenção, escalabilidade e performance. Veja como contribuir corretamente:
 
-### <IonicIcon name="folder-outline" size={20} color="#ea4b71" /> Estrutura de Arquivos
+### <LocalIcon name="folder-outline" size={20} color="#ea4b71" /> Estrutura de Arquivos
 
 ```
 src/css/
@@ -223,14 +223,14 @@ src/css/
 └── custom.css         # Importa todos os arquivos acima
 ```
 
-### <IonicIcon name="settings-outline" size={20} color="#ea4b71" /> Convenções
+### <LocalIcon name="settings-outline" size={20} color="#ea4b71" /> Convenções
 
 - **BEM**: Use o padrão `bloco__elemento--modificador` para classes de componentes globais.
 - **Variáveis globais**: Sempre utilize as variáveis de `variables.css` para cores, fontes, espaçamentos, etc.
 - **Utilitários**: Prefira classes utilitárias para tipografia, espaçamento, peso, etc, sempre que possível.
 - **Componentes React**: Os módulos CSS dos componentes devem consumir variáveis globais e utilitários, evitando duplicação.
 
-### <IonicIcon name="code-slash-outline" size={20} color="#ea4b71" /> Exemplos
+### <LocalIcon name="code-slash-outline" size={20} color="#ea4b71" /> Exemplos
 
 ```css
 /* BEM */
@@ -243,7 +243,7 @@ src/css/
 color: var(--ifm-color-primary);
 ```
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#ea4b71" /> Boas Práticas
+### <LocalIcon name="checkmark-circle-outline" size={20} color="#ea4b71" /> Boas Práticas
 
 - Não duplique regras já existentes em utilitários ou variáveis.
 - Documente novas classes utilitárias ou variáveis criadas.
@@ -251,15 +251,15 @@ color: var(--ifm-color-primary);
 
 ---
 
-## <IonicIcon name="add-circle-outline" size={24} color="#ea4b71" /> Componentes Futuros
+## <LocalIcon name="add-circle-outline" size={24} color="#ea4b71" /> Componentes Futuros
 
 *Esta seção servirá como um catálogo visual dos nossos componentes React padronizados, incluindo botões, cards, alertas e outros elementos de UI. Cada componente terá exemplos de uso e suas variações.*
 
-### <IonicIcon name="ellipse-outline" size={20} color="#ea4b71" /> Botões
+### <LocalIcon name="ellipse-outline" size={20} color="#ea4b71" /> Botões
 
 ... em construção ...
 
-### <IonicIcon name="card-outline" size={20} color="#ea4b71" /> Cards
+### <LocalIcon name="card-outline" size={20} color="#ea4b71" /> Cards
 
 ... em construção ...
 

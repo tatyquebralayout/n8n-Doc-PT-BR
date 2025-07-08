@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 
 interface VideoCardProps {
   videoId: string;
@@ -32,7 +32,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId, title, channel, channelU
           className={styles['video-card__thumbnail']}
         />
         <div className={styles['video-card__play-icon']}>
-          <IonicIcon name="play-circle-outline" size={48} aria-hidden="true" />
+          <LocalIcon name="play-circle-outline" size={48} aria-hidden="true" />
         </div>
       </Link>
       <div className={styles['video-card__info']}>
@@ -40,7 +40,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId, title, channel, channelU
           <h3 className={styles['video-card__title']}>{title}</h3>
         </Link>
         <a href={channelUrl} target="_blank" rel="noopener noreferrer" className={styles['video-card__channel-link']}>
-          <IonicIcon name="logo-youtube" size={24} aria-hidden="true" />
+          <LocalIcon name="logo-youtube" size={24} aria-hidden="true" />
           <span>{channel}</span>
         </a>
       </div>

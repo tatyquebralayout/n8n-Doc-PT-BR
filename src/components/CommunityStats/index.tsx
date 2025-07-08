@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import styles from './styles.module.css';
 import { useInView } from 'react-intersection-observer';
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 import LoadingSkeleton from '@site/src/components/LoadingSkeleton';
 
 interface CommunityStatsProps {
@@ -60,7 +60,7 @@ const CommunityStats = ({ loading = false }: CommunityStatsProps) => {
             aria-label={`${stat.label}: ${stat.value.toLocaleString('pt-BR')}`}
           >
             <div className={styles['community-stats__header']}>
-              <IonicIcon name={stat.icon} size={24} className={styles['community-stats__icon']} aria-hidden="true" />
+              <LocalIcon name={stat.icon} size={24} className={styles['community-stats__icon']} aria-hidden="true" />
               <span className={styles['community-stats__label']}>{stat.label}</span>
             </div>
             <div className={styles['community-stats__bar-container']}>

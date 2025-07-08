@@ -1,7 +1,7 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import styles from './styles.module.css';
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 
 interface AnimatedImpactListProps {
   items: string[];
@@ -16,7 +16,7 @@ const AnimatedImpactList: React.FC<AnimatedImpactListProps> = ({ items }) => {
   return (
     <div ref={ref} className={`${styles['animated-impact__container']} ${inView ? styles.inView : ''}`}>
       <h3 className={styles['animated-impact__title']}>
-        <IonicIcon name="sparkles-outline" size={24} className={styles['animated-impact__title-icon']} />
+        <LocalIcon name="sparkles-outline" size={24} className={styles['animated-impact__title-icon']} />
         Sua contribuição transforma! Veja como:
       </h3>
       <ul className={styles['animated-impact__list']}>
@@ -26,7 +26,7 @@ const AnimatedImpactList: React.FC<AnimatedImpactListProps> = ({ items }) => {
             className={styles['animated-impact__item']}
             style={{ transitionDelay: `${index * 150}ms` }}
           >
-            <IonicIcon name="checkmark-circle-outline" size={20} className={styles['animated-impact__item-icon']} />
+            <LocalIcon name="checkmark-circle-outline" size={20} className={styles['animated-impact__item-icon']} />
             <span dangerouslySetInnerHTML={{ __html: item }} />
           </li>
         ))}

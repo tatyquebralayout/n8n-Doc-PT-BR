@@ -9,7 +9,7 @@ import React from 'react';
  * Acessibilidade: aria-hidden="true" por padrão
  *
  * Exemplo de uso:
- * <IonicIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
+ * <LocalIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
  */
 
 const ALLOWED_SIZES = [16, 20, 24, 32, 48, 64];
@@ -25,7 +25,7 @@ interface IonicIconProps {
 const isLogo = (name: string) => name.startsWith('logo-');
 const isOutline = (name: string) => name.endsWith('-outline') || isLogo(name);
 
-const IonicIcon: React.FC<IonicIconProps> = ({ 
+const IonicIcon: React.FC<LocalIconProps> = ({ 
   name, 
   size = 24, 
   color,

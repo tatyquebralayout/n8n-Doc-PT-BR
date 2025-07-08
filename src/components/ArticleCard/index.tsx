@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 import LoadingSkeleton from '@site/src/components/LoadingSkeleton';
 
 interface ArticleCardProps {
@@ -67,7 +67,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
           <LoadingSkeleton variant="line" width="40%" height={16} />
         ) : (
           <span className={styles['article-card__author']}>
-            <IonicIcon name="person-outline" size={16} />
+            <LocalIcon name="person-outline" size={16} />
             {author}
           </span>
         )}
@@ -77,11 +77,11 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
           ) : (
             <>
               <span className={styles['article-card__stat-item']}>
-                <IonicIcon name="time-outline" size={16} />
+                <LocalIcon name="time-outline" size={16} />
                 {readTime}
               </span>
               <span className={styles['article-card__stat-item']}>
-                <IonicIcon name="eye-outline" size={16} />
+                <LocalIcon name="eye-outline" size={16} />
                 {views}
               </span>
             </>

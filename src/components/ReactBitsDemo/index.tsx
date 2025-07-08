@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 
 const ReactBitsDemo: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -11,7 +11,7 @@ const ReactBitsDemo: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2><IonicIcon name="rocket-outline" size={32} /> React Bits Demo - Animações SVG</h2>
+      <h2><LocalIcon name="rocket-outline" size={32} /> React Bits Demo - Animações SVG</h2>
       
       {/* Seção de Botões Animados */}
       <div className={styles.section}>
@@ -22,7 +22,7 @@ const ReactBitsDemo: React.FC = () => {
             className={styles.animatedButton}
             aria-label={isAnimating ? 'Parar animação' : 'Iniciar animação'}
           >
-            {isAnimating ? <><IonicIcon name="refresh-outline" size={20} /> Animando...</> : <><IonicIcon name="sparkles-outline" size={20} /> Iniciar Animação</>}
+            {isAnimating ? <><LocalIcon name="refresh-outline" size={20} /> Animando...</> : <><LocalIcon name="sparkles-outline" size={20} /> Iniciar Animação</>}
           </button>
           
           <button 
@@ -30,7 +30,7 @@ const ReactBitsDemo: React.FC = () => {
             className={styles.stopButton}
             aria-label="Parar animação"
           >
-            <IonicIcon name="stop-circle-outline" size={20} /> Parar
+            <LocalIcon name="stop-circle-outline" size={20} /> Parar
           </button>
         </div>
       </div>
@@ -101,9 +101,9 @@ const ReactBitsDemo: React.FC = () => {
               }}
             >
               <div className={styles.cardIcon} aria-hidden="true">
-                {index === 0 && <IonicIcon name="flash-outline" size={48} />}
-                {index === 1 && <IonicIcon name="git-network-outline" size={48} />}
-                {index === 2 && <IonicIcon name="hardware-chip-outline" size={48} />}
+                {index === 0 && <LocalIcon name="flash-outline" size={48} />}
+                {index === 1 && <LocalIcon name="git-network-outline" size={48} />}
+                {index === 2 && <LocalIcon name="hardware-chip-outline" size={48} />}
               </div>
               <h4>{title}</h4>
               <p>Exemplo de card animado com React Bits</p>

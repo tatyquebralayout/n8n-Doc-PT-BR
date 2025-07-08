@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import IonicIcon from '@site/src/components/IonicIcon';
+import LocalIcon from '@site/src/components/LocalIcon';
 
 import styles from './index.module.css';
 
@@ -31,14 +31,14 @@ function HomepageHeader() {
               {siteConfig.title}
             </Heading>
             <p className={styles.heroSubtitle}>
-              <IonicIcon name="globe-outline" size={20} />
+              <LocalIcon name="globe-outline" size={20} />
               {siteConfig.tagline}
             </p>
             <div className={styles.buttons}>
               <Link
                 className={styles.getStartedButton}
                 to="/intro">
-                <IonicIcon name="play-circle-outline" size={20} />
+                <LocalIcon name="play-circle-outline" size={20} />
                 Comece a Explorar - 5min
               </Link>
             </div>
@@ -68,7 +68,7 @@ export default function Home(): React.ReactElement {
               {/* Primeiros Passos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="school-outline" size={20} />
+                  <LocalIcon name="school-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Primeiros Passos</h4>
@@ -84,7 +84,7 @@ export default function Home(): React.ReactElement {
               {/* Guias Avançados */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="bulb-outline" size={20} />
+                  <LocalIcon name="bulb-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Guias Avançados</h4>
@@ -101,7 +101,7 @@ export default function Home(): React.ReactElement {
               {/* Referência da API */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="code-slash-outline" size={20} />
+                  <LocalIcon name="code-slash-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Referência da API</h4>
@@ -118,7 +118,7 @@ export default function Home(): React.ReactElement {
               {/* Deployment */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="cloud-upload-outline" size={20} />
+                  <LocalIcon name="cloud-upload-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Deployment</h4>
@@ -135,7 +135,7 @@ export default function Home(): React.ReactElement {
               {/* Nós (Nodes) */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="extension-puzzle-outline" size={20} />
+                  <LocalIcon name="extension-puzzle-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Nós (Nodes)</h4>
@@ -150,7 +150,7 @@ export default function Home(): React.ReactElement {
               {/* Exemplos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="flask-outline" size={20} />
+                  <LocalIcon name="flask-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Exemplos</h4>
@@ -166,7 +166,7 @@ export default function Home(): React.ReactElement {
               {/* Recursos Técnicos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="library-outline" size={20} />
+                  <LocalIcon name="library-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Recursos Técnicos</h4>
@@ -183,7 +183,7 @@ export default function Home(): React.ReactElement {
               {/* Contribuição para Documentação em Português */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="heart-outline" size={20} />
+                  <LocalIcon name="heart-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Contribua para a Doc em Português</h4>
@@ -200,7 +200,7 @@ export default function Home(): React.ReactElement {
               {/* Links Úteis */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="link-outline" size={20} />
+                  <LocalIcon name="link-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Links Úteis</h4>
@@ -217,7 +217,7 @@ export default function Home(): React.ReactElement {
               {/* Cursos e Aprendizado */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="school-outline" size={20} />
+                  <LocalIcon name="school-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Cursos e Aprendizado</h4>
@@ -239,7 +239,7 @@ export default function Home(): React.ReactElement {
         <div className="container">
           <div className={styles.communityContent}>
             <h2 className={styles.communityTitle}>
-              <IonicIcon name="globe-outline" size={32} color="var(--ifm-color-primary)" />
+              <LocalIcon name="globe-outline" size={32} color="var(--ifm-color-primary)" />
               Ecossistema n8n Brasil
             </h2>
             <p className={styles.communitySubtitle}>A comunidade é o coração do nosso projeto. Participe!</p>
@@ -247,7 +247,7 @@ export default function Home(): React.ReactElement {
             <div className={styles.communityGrid}>
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <IonicIcon name="logo-github" size={24} />
+                  <LocalIcon name="logo-github" size={24} />
                   <h3>Repositório GitHub</h3>
                 </div>
                 <p>Este é um projeto de código aberto. Colabore com código, documentação ou sugestões.</p>
@@ -257,43 +257,43 @@ export default function Home(): React.ReactElement {
                   rel="noopener noreferrer" 
                   className={styles.communityLink}
                 >
-                  <IonicIcon name="star-outline" size={16} />
+                  <LocalIcon name="star-outline" size={16} />
                   Dar uma estrela
                 </a>
               </div>
               
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <IonicIcon name="chatbubbles-outline" size={24} />
+                  <LocalIcon name="chatbubbles-outline" size={24} />
                   <h3>Discord</h3>
                 </div>
                 <p>Participe gratuitamente das discussões e tire dúvidas com a comunidade brasileira no Discord.</p>
                 <div className={styles.communityLinkDisabled}>
-                  <IonicIcon name="time-outline" size={16} />
+                  <LocalIcon name="time-outline" size={16} />
                   Em breve
                 </div>
               </div>
 
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <IonicIcon name="logo-youtube" size={24} />
+                  <LocalIcon name="logo-youtube" size={24} />
                   <h3>YouTube</h3>
                 </div>
                 <p>Canal dedicado a esta documentação em português, com conteúdo didático, entrevistas com profissionais da área de automação e estudos de casos reais.</p>
                 <div className={styles.communityLinkDisabled}>
-                  <IonicIcon name="time-outline" size={16} />
+                  <LocalIcon name="time-outline" size={16} />
                   Em breve
                 </div>
               </div>
 
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <IonicIcon name="newspaper-outline" size={24} />
+                  <LocalIcon name="newspaper-outline" size={24} />
                   <h3>Newsletter</h3>
                 </div>
                 <p>Receba atualizações sobre n8n, automação e novidades da documentação brasileira através da nossa newsletter na Substack.</p>
                 <div className={styles.communityLinkDisabled}>
-                  <IonicIcon name="time-outline" size={16} />
+                  <LocalIcon name="time-outline" size={16} />
                   Em breve
                 </div>
               </div>
@@ -307,20 +307,20 @@ export default function Home(): React.ReactElement {
           <div className={styles.ctaGrid}>
             <div className={styles.ctaCard}>
               <div className={styles.ctaIcon}>
-                <IonicIcon name="extension-puzzle-outline" size={24} color="var(--ifm-color-primary)" />
+                <LocalIcon name="extension-puzzle-outline" size={24} color="var(--ifm-color-primary)" />
               </div>
               <div className={styles.ctaText}>
                 <h4>Quer Criar Seus Próprios Nodes?</h4>
                 <p>Tenha mentoria, torne-se expert e desenvolva integrações customizadas para o n8n. Aprenda com a comunidade e construa soluções únicas.</p>
               </div>
               <Link to="/integracoes/criar-nodes" className="button button--outline button--primary">
-                <IonicIcon name="arrow-forward-outline" size={16} />
+                <LocalIcon name="arrow-forward-outline" size={16} />
                 Saiba mais
               </Link>
             </div>
             <div className={styles.ctaCard}>
               <div className={styles.ctaIcon}>
-                <IonicIcon name="chatbubble-ellipses-outline" size={24} color="var(--ifm-color-primary)" />
+                <LocalIcon name="chatbubble-ellipses-outline" size={24} color="var(--ifm-color-primary)" />
               </div>
               <div className={styles.ctaText}>
                 <h4>Tem uma Dúvida?</h4>
@@ -332,7 +332,7 @@ export default function Home(): React.ReactElement {
                 rel="noopener noreferrer"
                 className="button button--outline button--primary"
               >
-                <IonicIcon name="arrow-forward-outline" size={16} />
+                <LocalIcon name="arrow-forward-outline" size={16} />
                 Abrir discussão
               </a>
             </div>
