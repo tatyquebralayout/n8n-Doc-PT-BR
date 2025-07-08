@@ -774,8 +774,8 @@ ion-icon .ionicon-stroke-width {
 }
 
 .menu__list-item--icon-primeiros-passos > .menu__list-item-collapsible > .menu__link::before {
-  mask-image: url('/svg/primeiros-passos-icon.svg');
-  -webkit-mask-image: url('/svg/primeiros-passos-icon.svg');
+  mask-image: url('/svg/compass-outline.svg');
+  -webkit-mask-image: url('/svg/compass-outline.svg');
 }
 
 /* ==========================================================================
