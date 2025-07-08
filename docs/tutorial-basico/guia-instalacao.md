@@ -22,7 +22,9 @@ Bem-vindo(a) à **documentação brasileira** do n8n! Nesta seção você descob
 | **Controle total e personalização**       | **Self‑hosted** – você gerencia a infraestrutura (Docker, VPS, on‑prem etc.) |
 | **Experimentos locais e desenvolvimento** | **Instalação local via `npm`** – roda em minutos no seu laptop               |
 
-> *Ter opções flexíveis permite que o projeto evolua de protótipo a produção sem trocar de ferramenta.*
+:::tip **Flexibilidade do n8n**
+Ter opções flexíveis permite que o projeto evolua de protótipo a produção sem trocar de ferramenta.
+:::
 
 ---
 
