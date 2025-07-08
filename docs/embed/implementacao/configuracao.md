@@ -121,7 +121,7 @@ N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n-custom.css
 
 ## <IonicIcon name="sync-outline" size={24} color="#ea4b71" /> Integração com Sistemas Externos
 
-### <IonicIcon name="link-outline" size={20} color="#10b981" /> Comunicação Host <-> Embed
+### <IonicIcon name="link-outline" size={20} color="#10b981" /> Comunicação Host ↔ Embed
 
 - Use `window.postMessage` para comunicação entre o host e o iframe embed:
 ```js
