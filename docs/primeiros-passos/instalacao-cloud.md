@@ -7,11 +7,11 @@ keywords: [n8n, cloud, saas, hospedado, instalação]
 ---
 
 
-#  n8n Cloud
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> n8n Cloud
 
 O **n8n Cloud** é o serviço oficial hospedado pelos criadores do n8n, oferecendo uma experiência completa e gerenciada para executar seus workflows.
 
-##  O que é o n8n Cloud?
+## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que é o n8n Cloud?
 
 O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda a complexidade de infraestrutura, permitindo que você foque exclusivamente na criação e execução de seus workflows.
 
@@ -25,7 +25,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-##  Planos e Preços
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Planos e Preços
 
 ### **Free Trial**
 - **Duração**: 14 dias
@@ -54,7 +54,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-##  Como Começar
+## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Começar
 
 ### **1. Criar Conta**
 
@@ -84,7 +84,7 @@ Após o login, você será direcionado para o dashboard:
 
 ---
 
-##  Configurações Avançadas
+## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações Avançadas
 
 ### **Domínio Personalizado**
 
@@ -116,7 +116,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-##  Segurança e Compliance
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Compliance
 
 ### **Certificações**
 - **SOC 2 Type II** - Controles de segurança
@@ -137,7 +137,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-##  Monitoramento e Analytics
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Analytics
 
 ### **Dashboard de Execuções**
 - **Taxa de sucesso** por workflow
@@ -153,7 +153,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-##  Suporte e Recursos
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Suporte e Recursos
 
 ### **Canais de Suporte**
 - **Documentação oficial** - Guias detalhados
@@ -169,13 +169,13 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você conhece o n8n Cloud:
 
 1. **[Criar Primeiro Workflow](./primeiro-workflow)** - Aprenda a construir workflows
 2. **[Conceitos Básicos](./conceitos-basicos)** - Entenda os fundamentos
-3. **[Integrações](../integracoes/index)** - Conecte suas aplicações
+3. **[Integrações](../integracoes/)** - Conecte suas aplicações
 
 ### **Outros Métodos de Instalação**
 

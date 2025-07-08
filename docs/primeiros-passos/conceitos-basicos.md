@@ -5,11 +5,11 @@ description: Conceitos fundamentais do n8n que você precisa conhecer
 keywords: [n8n, conceitos, workflows, nodes, automação]
 ---
 
-#  Conceitos Básicos do n8n
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conceitos Básicos do n8n
 
 Antes de começar a criar seus workflows, é importante entender os conceitos fundamentais do n8n.
 
-##  O que são Workflows?
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que são Workflows?
 
 Um **workflow** é uma sequência de tarefas automatizadas que são executadas em uma ordem específica. No n8n, workflows são representados visualmente como um fluxograma.
 
@@ -19,7 +19,7 @@ Um **workflow** é uma sequência de tarefas automatizadas que são executadas e
 -  **Reutilizável**: Pode ser executado múltiplas vezes
 -  **Escalável**: Suporta desde tarefas simples até processos complexos
 
-##  O que são Nodes?
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que são Nodes?
 
 **Nodes** são os blocos de construção dos workflows. Cada node representa uma tarefa específica ou uma integração com um serviço.
 
@@ -43,7 +43,7 @@ Enviam dados para destinos externos:
 -  **Database**: Salva em banco de dados
 -  **File**: Salva arquivos
 
-##  Fluxo de Dados
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Fluxo de Dados
 
 ###  Como os Dados Fluem
 1.  **Input**: Dados entram via trigger
@@ -60,7 +60,7 @@ Enviam dados para destinos externos:
 }
 ```
 
-##  Expressões
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões
 
 Expressões permitem manipular dados dinamicamente usando JavaScript.
 
@@ -79,7 +79,7 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 {{ new Date($json.data).toLocaleDateString('pt-BR') }}
 ```
 
-##  Conexões
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conexões
 
 ###  Como Conectar Nodes
 -  **Clique e arraste** da saída de um node para a entrada de outro
@@ -91,7 +91,7 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 -  **Error**: Tratamento de erros
 -  **Optional**: Conexões opcionais
 
-##  Credenciais
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Credenciais
 
 ###  Gerenciamento Seguro
 -  **Criptografadas**: Todas as credenciais são criptografadas
@@ -104,7 +104,7 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 -  **Usuário/Senha**: Para bancos de dados
 -  **Certificates**: Para conexões SSL
 
-##  Execução
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Execução
 
 ###  Modos de Execução
 -  **Manual**: Executado pelo usuário
@@ -118,7 +118,7 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 -  **Waiting**: Aguardando entrada
 -  **Running**: Em execução
 
-##  Debugging
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Debugging
 
 ###  Ferramentas de Debug
 -  **Execution Log**: Histórico detalhado
@@ -132,12 +132,12 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 3.  **Use console.log** em expressões JavaScript
 4.  **Teste credenciais** separadamente
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você entende os conceitos básicos, está pronto para:
 
 1.  **[Criar seu primeiro workflow](./primeiro-workflow)**
-2.  **[Explorar integrações disponíveis](../integracoes/index)**
+2.  **[Explorar integrações disponíveis](../integracoes/)**
 3.  **[Configurar triggers](../integracoes/trigger-nodes/time-based/manual-trigger)**
 4.  **[Aprender sobre deployment](../hosting-n8n/instalacao)**
 

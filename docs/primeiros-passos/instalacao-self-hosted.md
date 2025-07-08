@@ -7,39 +7,39 @@ keywords: [n8n, self-hosted, docker, instalação, produção]
 ---
 
 
-#  Self-hosted (Auto-hospedado)
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Self-hosted (Auto-hospedado)
 
 O **n8n self-hosted** oferece controle total sobre sua infraestrutura, permitindo personalização completa e integração com ambientes corporativos.
 
-##  O que é Self-hosted?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que é Self-hosted?
 
 Self-hosted significa que você instala e gerencia o n8n em sua própria infraestrutura – seja um servidor local, VPS, cloud ou Kubernetes.
 
 ### **Principais Vantagens:**
 
-- 🔒 **Controle total** - Sua infraestrutura, suas regras
-- 🏢 **Integração corporativa** - VPNs, LDAP, redes privadas
-- 📊 **Compliance** - Dados nunca saem da sua rede
-- 🔧 **Personalização** - Plugins customizados e extensões
-- 💰 **Custo controlado** - Sem cobrança por execução
+- **Controle total** - Sua infraestrutura, suas regras
+- **Integração corporativa** - VPNs, LDAP, redes privadas
+- **Compliance** - Dados nunca saem da sua rede
+- **Personalização** - Plugins customizados e extensões
+- **Custo controlado** - Sem cobrança por execução
 
 ---
 
-##  Métodos de Instalação
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métodos de Instalação
 
 ###  Docker (Recomendado)
 
 A forma mais rápida e confiável para produção:
 
 ```bash
-# Execução básica
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Execução básica
 docker run -it --rm \
   --name n8n \
   -p 5678:5678 \
   -v n8n_data:/home/node/.n8n \
   n8nio/n8n
 
-# Com variáveis de ambiente
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Com variáveis de ambiente
 docker run -it --rm \
   --name n8n \
   -p 5678:5678 \
@@ -55,10 +55,10 @@ docker run -it --rm \
 Para instalação direta via npm:
 
 ```bash
-# Instalar globalmente
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar globalmente
 npm install n8n -g
 
-# Executar com configurações
+# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar com configurações
 N8N_PROTOCOL=https \
 N8N_HOST=seu-dominio.com \
 GENERIC_TIMEZONE=America/Sao_Paulo \
@@ -119,18 +119,18 @@ volumes:
 
 ---
 
-##  Configuração Avançada
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Avançada
 
 ### **Variáveis de Ambiente Essenciais**
 
 ```bash
-# Configurações básicas
+# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações básicas
 N8N_PORT=5678
 N8N_PROTOCOL=https
 N8N_HOST=seu-dominio.com
 GENERIC_TIMEZONE=America/Sao_Paulo
 
-# Banco de dados PostgreSQL
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Banco de dados PostgreSQL
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=localhost
 DB_POSTGRESDB_PORT=5432
@@ -138,14 +138,14 @@ DB_POSTGRESDB_DATABASE=n8n
 DB_POSTGRESDB_USER=n8n
 DB_POSTGRESDB_PASSWORD=senha_segura
 
-# Redis para filas
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Redis para filas
 REDIS_URL=redis://localhost:6379
 
-# Segurança
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Segurança
 N8N_ENCRYPTION_KEY=sua_chave_32_caracteres
 WEBHOOK_URL=https://seu-dominio.com/
 
-# Execuções
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Execuções
 EXECUTIONS_PROCESS=main
 EXECUTIONS_MODE=regular
 ```
@@ -181,30 +181,30 @@ server {
 #### **Com Certbot (Let's Encrypt)**
 
 ```bash
-# Instalar Certbot
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Certbot
 sudo apt install certbot python3-certbot-nginx
 
-# Gerar certificado
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerar certificado
 sudo certbot --nginx -d seu-dominio.com
 
-# Renovação automática
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Renovação automática
 sudo crontab -e
-# Adicionar: 0 12 * * * /usr/bin/certbot renew --quiet
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar: 0 12 * * * /usr/bin/certbot renew --quiet
 ```
 
 ---
 
-##  Escalabilidade
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalabilidade
 
 ### **Configuração de Filas**
 
 Para alta performance, configure Redis:
 
 ```bash
-# Instalar Redis
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Redis
 sudo apt install redis-server
 
-# Configurar n8n para usar Redis
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar n8n para usar Redis
 REDIS_URL=redis://localhost:6379
 EXECUTIONS_PROCESS=main
 EXECUTIONS_MODE=regular
@@ -270,7 +270,7 @@ spec:
 
 ---
 
-##  Segurança
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
 
 ### **Autenticação**
 
@@ -293,36 +293,36 @@ N8N_OAUTH2_TOKEN_URL=https://auth.provider.com/oauth/token
 ### **Firewall e Rede**
 
 ```bash
-# Permitir apenas HTTPS
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Permitir apenas HTTPS
 sudo ufw allow 443/tcp
 sudo ufw allow 80/tcp
 sudo ufw deny 5678/tcp
 
-# Restringir acesso por IP
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Restringir acesso por IP
 sudo ufw allow from 192.168.1.0/24 to any port 5678
 ```
 
 ---
 
-##  Backup e Recuperação
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup e Recuperação
 
 ### **Backup Automático**
 
 ```bash
 #!/bin/bash
-# backup-n8n.sh
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-n8n.sh
 
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_DIR="/backups/n8n"
 N8N_DATA="/home/node/.n8n"
 
-# Criar backup dos dados
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar backup dos dados
 tar -czf $BACKUP_DIR/n8n_data_$DATE.tar.gz $N8N_DATA
 
-# Backup do banco PostgreSQL
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup do banco PostgreSQL
 pg_dump -h localhost -U n8n n8n > $BACKUP_DIR/n8n_db_$DATE.sql
 
-# Manter apenas últimos 7 backups
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Manter apenas últimos 7 backups
 find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
 find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 ```
@@ -330,24 +330,24 @@ find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 ### **Cron Job para Backup**
 
 ```bash
-# Adicionar ao crontab
+# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
 0 2 * * * /path/to/backup-n8n.sh
 ```
 
 ---
 
-##  Monitoramento
+## <ion-icon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento
 
 ### **Logs**
 
 ```bash
-# Logs detalhados
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logs detalhados
 N8N_LOG_LEVEL=debug n8n start
 
-# Com Docker
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Com Docker
 docker logs -f n8n_container
 
-# Rotação de logs
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Rotação de logs
 logrotate /etc/logrotate.d/n8n
 ```
 
@@ -355,7 +355,7 @@ logrotate /etc/logrotate.d/n8n
 
 ```bash
 #!/bin/bash
-# health-check.sh
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> health-check.sh
 
 URL="https://seu-dominio.com/healthz"
 RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" $URL)
@@ -369,11 +369,11 @@ fi
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você tem o n8n self-hosted configurado:
 
-1. **[Configurar Integrações](../integracoes/index)** - Conecte suas aplicações
+1. **[Configurar Integrações](../integracoes/)** - Conecte suas aplicações
 2. **[Criar Primeiro Workflow](./primeiro-workflow)** - Aprenda a construir workflows
 3. **[Conceitos Básicos](./conceitos-basicos)** - Entenda os fundamentos
 

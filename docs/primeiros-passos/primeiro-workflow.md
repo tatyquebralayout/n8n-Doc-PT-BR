@@ -5,11 +5,11 @@ description: Crie seu primeiro workflow em 5 minutos
 keywords: [n8n, primeiro workflow, tutorial, webhook, http request]
 ---
 
-#  Seu Primeiro Workflow
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Seu Primeiro Workflow
 
 Vamos criar um workflow simples que recebe dados via webhook e os envia para uma API externa. Este tutorial levará apenas **5 minutos**!
 
-##  O que vamos construir
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que vamos construir
 
 Um workflow que:
 1.  **Recebe** dados via webhook
@@ -17,13 +17,13 @@ Um workflow que:
 3.  **Envia** para uma API externa
 4.  **Retorna** uma resposta
 
-##  Pré-requisitos
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
 -  n8n instalado e rodando
 -  Acesso ao editor visual
 -  Conhecimento básico dos [conceitos](./conceitos-basicos)
 
-##  Passo a Passo
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Passo a Passo
 
 ###  1. Criar Novo Workflow
 
@@ -118,7 +118,7 @@ Response Body:
 }
 ```
 
-##  Testando o Workflow
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testando o Workflow
 
 ###  1. Salvar e Ativar
 1.  Clique em **"Save"** (Ctrl+S)
@@ -127,7 +127,7 @@ Response Body:
 
 ###  2. Testar com cURL
 ```bash
-# Teste básico
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Teste básico
 curl -X POST \
 http://localhost:5678/webhook/meu-primeiro-webhook \
 -H "Content-Type: application/json" \
@@ -155,7 +155,7 @@ Você deve receber uma resposta similar a:
 }
 ```
 
-##  Visualizar Execuções
+## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visualizar Execuções
 
 ###  Acessar o Log
 1.  Na interface do n8n, vá para **"Executions"**
@@ -168,7 +168,7 @@ Você deve receber uma resposta similar a:
 -  **Node HTTP Request**: Resposta da API externa
 -  **Node Respond**: Resposta final enviada
 
-##  Melhorias Possíveis
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Melhorias Possíveis
 
 ###  1. Validação de Dados
 ```javascript
@@ -189,7 +189,7 @@ Key: logEntry
 Value: {{ `Processado: ${$json.nome} em ${new Date().toLocaleString('pt-BR')}` }}
 ```
 
-##  Integrações Reais
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integrações Reais
 
 ###  APIs Populares
 -  **Slack**: Enviar notificações
@@ -209,7 +209,7 @@ https://discord.com/api/webhooks/YOUR/DISCORD/WEBHOOK
 https://outlook.office.com/webhook/YOUR/TEAMS/WEBHOOK
 ```
 
-##  Checklist de Sucesso
+## <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Sucesso
 
 -  Workflow criado e nomeado
 -  Webhook configurado e ativo
@@ -219,12 +219,12 @@ https://outlook.office.com/webhook/YOUR/TEAMS/WEBHOOK
 -  Execuções aparecendo no log
 -  Teste com dados reais realizado
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Parabéns! Você criou seu primeiro workflow. Agora explore:
 
 1.  **[Diferentes tipos de triggers](../integracoes/trigger-nodes/time-based/manual-trigger)**
-2.  **[Mais integrações](../integracoes/index)**
+2.  **[Mais integrações](../integracoes/)**
 3.  **[Expressões avançadas](../logica-e-dados/02-data/data-mapping)**
 4.  **[Deploy em produção](../hosting-n8n/instalacao)**
 
