@@ -10,12 +10,12 @@ import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 import CodeBlock from '@theme/CodeBlock';
 
-#  Splitting de Workflows: Criando Lógica Condicional no n8n
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Splitting de Workflows: Criando Lógica Condicional no n8n
 
 
 
 
-## O que você vai aprender nesta página
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender nesta página
 
 <Admonition type="info" title="📚 Objetivos de Aprendizado">
 1. **Definir** o que é *splitting* (ramificação condicional) no n8n
@@ -26,7 +26,7 @@ import CodeBlock from '@theme/CodeBlock';
 6. **Aplicar** boas práticas e evitar armadilhas comuns em ambientes de produção
 </Admonition>
 
-## Entendendo o Conceito de Splitting
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Entendendo o Conceito de Splitting
 
 <Admonition type="tip" title="💡 Analogia Prática">
 Splitting em workflows é como criar um **ponto de decisão** em um processo automatizado. Imagine que você é um gerente de atendimento ao cliente que precisa distribuir tickets de suporte: tickets simples vão para o nível 1, problemas técnicos vão para especialistas, e reclamações urgentes vão direto para supervisores.
@@ -133,7 +133,7 @@ graph TD
 </TabItem>
 </Tabs>
 
-## Nós Essenciais para Splitting
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nós Essenciais para Splitting
 
 <Tabs>
 <TabItem value="comparativo" label="Comparativo Rápido" default>
@@ -441,7 +441,7 @@ Saiba mais sobre [manipulação de dados](/logica-e-dados/02-data/data-mapping).
 </TabItem>
 </Tabs>
 
-## Implementação Prática: Exemplo Completo
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação Prática: Exemplo Completo
 
 ###  Cenário: Sistema de Aprovação de Despesas
 
@@ -711,7 +711,7 @@ graph LR
 </TabItem>
 </Tabs>
 
-## Lógica de Execução e Controle
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Lógica de Execução e Controle
 
 ###  Entendendo a Ordem de Execução
 
@@ -857,7 +857,7 @@ graph TD
 
 ###  Performance em Produção
 
-<Admonition type="tip" title="🚀 Configurações Otimizadas para Produção">
+<Admonition type="tip" title="Configurações Otimizadas para Produção">
 **Processamento Distribuído:**
 - **Concurrent Executions**: 10-50 baseado na capacidade do servidor
 - **Queue Mode**: Para processamento distribuído e alta concorrência
@@ -876,7 +876,7 @@ graph TD
 
 ###  Monitoramento de Splitting
 
-<Admonition type="info" title="📊 Métricas Essenciais para Workflows com Splitting">
+<Admonition type="info" title="Métricas Essenciais para Workflows com Splitting">
 **Eficiência de Roteamento:**
 - **Split Efficiency**: % de dados que seguem o caminho esperado
 - **Route Distribution**: Distribuição de itens por ramo
@@ -920,7 +920,7 @@ graph TD
 </TabItem>
 </Tabs>
 
-## Padrões Avançados de Splitting
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões Avançados de Splitting
 
 <Tabs>
 <TabItem value="sequencial" label="Splitting Sequencial" default>
@@ -1118,7 +1118,7 @@ Pedido → IF (Cliente VIP?)
 </TabItem>
 </Tabs>
 
-##  Debugging: Ferramentas e Técnicas
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Debugging: Ferramentas e Técnicas
 
 ###  Debugging de Condições
 
@@ -1164,7 +1164,7 @@ return $input.item;
 - **Postman**: Para testes manuais de APIs
 - **Browser DevTools**: Para debugging de expressões JavaScript
 
-## Troubleshooting: Problemas Comuns
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting: Problemas Comuns
 
 <Tabs>
 <TabItem value="problema1" label="Workflow Para na Condição" default>
@@ -1311,7 +1311,7 @@ graph TD
 </TabItem>
 </Tabs>
 
-## Casos de Uso Comuns
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Comuns
 
 <Tabs>
 <TabItem value="ecommerce" label="E-commerce" default>
@@ -1411,7 +1411,7 @@ Para automatizar respostas, considere usar [Slack](/integracoes/app-nodes/commun
 </TabItem>
 </Tabs>
 
-## Boas Práticas e Armadilhas
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas e Armadilhas
 
 <Tabs>
 <TabItem value="boas-praticas" label="✅ Boas Práticas" default>
@@ -1486,7 +1486,7 @@ graph TD
 ```
 
 </TabItem>
-<TabItem value="performance" label="🚀 Performance">
+<TabItem value="performance" label="Performance">
 
 ###  Otimização de Performance
 
@@ -1524,7 +1524,7 @@ graph LR
 
 ###  Migração de IF Múltiplos para Switch
 
-<Admonition type="tip" title="🔄 Refatoração para Melhor Performance">
+<Admonition type="tip" title="Refatoração para Melhor Performance">
 **Cenário Comum**: Workflows com múltiplos IFs aninhados que se tornaram difíceis de manter.
 
 **Antes: Múltiplos IFs Aninhados**
@@ -1624,7 +1624,7 @@ graph TD
 </TabItem>
 </Tabs>
 
-##  Integração com Sub-workflows
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Sub-workflows
 
 ###  Splitting + Execute Sub-workflow
 
@@ -1678,7 +1678,7 @@ graph TD
 }`}
 </CodeBlock>
 
-## Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 <Admonition type="info" title="Agora que você domina splitting básico, explore:">
 1. **[Merge Nodes](/logica-e-dados/01-flow-logic/merging)**: Como reunir fluxos divididos
@@ -1701,7 +1701,7 @@ graph TD
 *Dica*: Use [Switch aninhados](/integracoes/builtin-nodes/logic-control) e considere múltiplas condições simultâneas.
 </Admonition>
 
-## Resumo Rápido
+## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Resumo Rápido
 
 <Admonition type="success" title="🎯 Pontos-Chave para Dominar Splitting">
 **Conceitos Fundamentais:**
