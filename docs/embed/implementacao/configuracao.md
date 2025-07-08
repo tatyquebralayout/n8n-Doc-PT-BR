@@ -114,7 +114,7 @@ N8N_THEME_FONT_FAMILY=Inter, sans-serif
 ```
 - CSS customizado:
 ```yaml
-N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n-custom.css
+N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n_custom.css
 ```
 
 ---
