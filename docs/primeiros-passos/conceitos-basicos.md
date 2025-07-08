@@ -14,7 +14,7 @@ Antes de começar a criar seus workflows, é importante entender os conceitos fu
 
 Um **workflow** é uma sequência de tarefas automatizadas que são executadas em uma ordem específica. No n8n, workflows são representados visualmente como um fluxograma.
 
-### <IonicIcon name="star-outline" size={20} /> Características dos Workflows
+### <IonicIcon name="bookmark-outline" size={20} /> Características dos Workflows
 - <IonicIcon name="eye-outline" size={16} /> **Visual**: Interface de arrastar e soltar
 - <IonicIcon name="options-outline" size={16} /> **Flexível**: Pode ser simples ou complexo
 - <IonicIcon name="refresh-outline" size={16} /> **Reutilizável**: Pode ser executado múltiplas vezes

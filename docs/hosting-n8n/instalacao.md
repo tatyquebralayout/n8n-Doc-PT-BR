@@ -45,7 +45,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Containerização completa** com isolamento e facilidade de deployment:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Melhor para:** Produção, ambientes isolados
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Vantagens:** Isolamento, portabilidade, fácil escalabilidade
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Vantagens:** Isolamento, portabilidade, fácil escalabilidade
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Requisitos:** Docker instalado
 
 **[→ Ver guia Docker](./instalacao/docker)**
@@ -54,7 +54,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Instalação direta** via Node Package Manager:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Melhor para:** Desenvolvimento, testes locais
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Vantagens:** Instalação rápida, controle total
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Vantagens:** Instalação rápida, controle total
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Requisitos:** Node.js 18+ e npm
 
 **[→ Ver guia NPM](./instalacao/npm)**
@@ -63,7 +63,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Plataforma n8n Cloud** totalmente gerenciada:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Melhor para:** Uso empresarial, sem manutenção
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Vantagens:** Zero configuração, suporte oficial
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Vantagens:** Zero configuração, suporte oficial
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Requisitos:** Apenas uma conta
 
 **[→ Ver guia Cloud](./instalacao/cloud)**
@@ -72,7 +72,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Aplicação desktop** para uso local:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Melhor para:** Usuários não-técnicos, uso pessoal
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Vantagens:** Interface nativa, instalação simples
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Vantagens:** Interface nativa, instalação simples
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Requisitos:** Windows, macOS ou Linux
 
 **[→ Ver guia Desktop](./instalacao/desktop)**
@@ -81,7 +81,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Deploy específico** para AWS Brasil:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Melhor para:** Empresas brasileiras, compliance LGPD
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Vantagens:** Infraestrutura local, suporte em português
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Vantagens:** Infraestrutura local, suporte em português
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Requisitos:** Conta AWS Brasil
 
 **[→ Ver guia AWS Brasil](./instalacao/aws-brasil)**
@@ -94,7 +94,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Configuração de variáveis** essenciais para produção:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Configurações básicas** e avançadas
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Segurança** e separação de ambientes
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Segurança** e separação de ambientes
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Exemplos** para Docker/Kubernetes
 
 **[→ Ver Variáveis de Ambiente](./configuracao/variaveis-ambiente)**
@@ -103,7 +103,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Guia para banco de dados** em produção:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **PostgreSQL** (recomendado) e MySQL
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Otimizações** e configurações avançadas
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Otimizações** e configurações avançadas
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Backup**, replicação e cloud
 
 **[→ Ver Configuração de Database](./configuracao/database)**
@@ -112,7 +112,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Sistema de filas** para processamento escalável:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Redis** para processamento distribuído
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Workers** e gerenciamento de jobs
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Workers** e gerenciamento de jobs
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Escalabilidade** e monitoramento
 
 **[→ Ver Configuração de Filas](./configuracao/queues)**
@@ -121,7 +121,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Configuração de HTTPS** seguro:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Certificados** e renovação automática
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Nginx** e proxy reverso
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Nginx** e proxy reverso
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Security headers** e checklist
 
 **[→ Ver SSL/HTTPS](./configuracao/ssl-https)**
@@ -134,7 +134,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Alta disponibilidade** com clustering:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Kubernetes** e Docker Swarm
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Configuração** de múltiplos nós
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Configuração** de múltiplos nós
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Failover** e recuperação
 
 **[→ Ver Clustering](./escalonamento/clustering)**
@@ -143,7 +143,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Distribuição de carga** e balanceamento:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Nginx**, HAProxy e Traefik
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Estratégias** de balanceamento
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Estratégias** de balanceamento
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Health checks** e monitoramento
 
 **[→ Ver Load Balancing](./escalonamento/load-balancing)**
@@ -152,7 +152,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Otimização** e monitoramento de performance:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Métricas** essenciais e benchmarks
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Otimizações** de banco e cache
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Otimizações** de banco e cache
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Monitoramento** e alertas
 
 **[→ Ver Performance](./escalonamento/performance)**
@@ -165,7 +165,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Métodos de autenticação** seguros:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **2FA**, SSO e LDAP/AD
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Controle de sessão** e timeout
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Controle de sessão** e timeout
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Restrições de IP** e segurança
 
 **[→ Ver Autenticação e Acesso](./seguranca/autenticacao)**
@@ -174,7 +174,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Controle granular** de acesso:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Sistema RBAC** completo
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Permissões** por workflow e credencial
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Permissões** por workflow e credencial
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Auditoria** e templates organizacionais
 
 **[→ Ver Usuários e Permissões](./seguranca/usuarios-permissoes)**
@@ -183,7 +183,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Estratégias robustas** de proteção de dados:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Estratégia 3-2-1** para backup
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Scripts automatizados** e cloud
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Scripts automatizados** e cloud
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Disaster recovery** e testes
 
 **[→ Ver Backup e Recovery](./seguranca/backup-recovery)**
@@ -192,7 +192,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 **Observabilidade** e alertas proativos:
 - <IonicIcon name="checkmark-outline" size={16} color="#6b7280" /> **Métricas** essenciais de sistema
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Dashboards** e centralização de logs
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Dashboards** e centralização de logs
 - <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Integração APM** e alertas
 
 **[→ Ver Monitoramento e Alertas](./seguranca/monitoring)**

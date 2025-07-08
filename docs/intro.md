@@ -19,7 +19,7 @@ O n8n foi idealizado em **2019** por **[Jan Oberhauser](https://github.com/janob
 
 ---
 
-## <IonicIcon name="star-outline" size={24} color="#ea4b71" /> O que é o n8n?
+## <IonicIcon name="bookmark-outline" size={24} color="#ea4b71" /> O que é o n8n?
 
 O n8n (pronuncia-se "n‑eight‑n") é uma plataforma que oferece:
 

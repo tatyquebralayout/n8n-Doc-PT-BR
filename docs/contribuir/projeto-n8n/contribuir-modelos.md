@@ -13,7 +13,7 @@ Uma maneira fantástica de contribuir com o ecossistema n8n é criando e compart
 
 ---
 
-## <IonicIcon name="star-outline" size={24} color="#ea4b71" /> O que é um bom Template?
+## <IonicIcon name="bookmark-outline" size={24} color="#ea4b71" /> O que é um bom Template?
 
 - **Reutilizável:** O workflow resolve um problema comum e pode ser facilmente adaptado por outros
 - **Bem Documentado:** Use as "Sticky Notes" (notas adesivas) no editor do n8n para explicar as partes mais importantes do seu workflow

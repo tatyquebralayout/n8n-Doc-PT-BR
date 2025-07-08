@@ -35,7 +35,7 @@ Embora o local oficial para bugs seja o [GitHub Issues](https://github.com/n8n-i
 
 ---
 
-## <IonicIcon name="star-outline" size={24} color="#ea4b71" /> Por Que Contribuir?
+## <IonicIcon name="bookmark-outline" size={24} color="#ea4b71" /> Por Que Contribuir?
 
 - **Aprender:** Ajudar os outros é uma das melhores formas de aprofundar seu próprio conhecimento
 - **Networking:** Conecte-se com outros entusiastas e profissionais de automação

@@ -147,7 +147,7 @@ App Integrations → Credenciais → Community Nodes
 
 - <IonicIcon name="search-outline" size={16} color="#6b7280" /> **Use a busca** para encontrar nodes específicos
 - <IonicIcon name="library-outline" size={16} color="#6b7280" /> **Explore por categoria** quando estiver aprendendo
-- <IonicIcon name="star-outline" size={16} color="#6b7280" /> **Comece pelos populares** para casos comuns
+- <IonicIcon name="bookmark-outline" size={16} color="#6b7280" /> **Comece pelos populares** para casos comuns
 - <IonicIcon name="target-outline" size={16} color="#6b7280" /> **Foque no seu caso de uso** para ser mais eficiente
 
 ## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> **Precisa de Ajuda?**

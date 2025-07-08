@@ -178,7 +178,7 @@ Manual Trigger → API A (buscar) → Transform (converter) → API B (salvar)
 }
 ```
 
-## <IonicIcon name="star-outline" size={24} color="#ea4b71" /> **Melhores Práticas**
+## <IonicIcon name="bookmark-outline" size={24} color="#ea4b71" /> **Melhores Práticas**
 
 ### <IonicIcon name="code-outline" size={20} color="#10b981" /> **1. Use para Desenvolvimento**
 ```

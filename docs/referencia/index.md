@@ -46,7 +46,7 @@ Acompanhe o desenvolvimento desta documentação:
 - <IonicIcon name="link-outline" size={16} /> **Links cruzados**: Navegue entre documentos relacionados
 - <IonicIcon name="pricetag-outline" size={16} /> **Tags**: Filtre conteúdo por categoria
 
-## <IonicIcon name="star-outline" size={24} /> Destaques da Seção
+## <IonicIcon name="bookmark-outline" size={24} /> Destaques da Seção
 
 ### <IonicIcon name="location-outline" size={20} /> **Foco Brasileiro**
 - <IonicIcon name="globe-outline" size={16} /> **APIs nacionais** catalogadas e testadas

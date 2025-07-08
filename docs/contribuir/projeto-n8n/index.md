@@ -45,7 +45,7 @@ Você pode colaborar com diversas frentes:
 - **Repositório principal**: use `git clone --recurse-submodules`, `npm install`, `lerna bootstrap`
 - **Documentação oficial**: instale `MkDocs` com Python, siga `mkdocs serve`
 
-### <IonicIcon name="star-outline" size={20} color="#ea4b71" /> 3. Escolha uma contribuição inicial
+### <IonicIcon name="bookmark-outline" size={20} color="#ea4b71" /> 3. Escolha uma contribuição inicial
 
 - Priorize issues com labels como `good first issue`, `documentation` ou `enhancement`
 
