@@ -112,38 +112,71 @@ Esta documentação está organizada nas seguintes seções:
 ### Tutorial Básico
 Aprenda os conceitos fundamentais do n8n passo a passo.
 
-### Usando n8n
-Guias práticos para usar a interface e executar workflows.
+- **[Instalação](./tutorial-basico/instalacao)** - Guia completo de instalação
+- **[Conceitos Básicos](./tutorial-basico/conceitos-basicos)** - Fundamentos do n8n
+- **[Primeiro Workflow](./tutorial-basico/primeiro-workflow)** - Criar primeiro fluxo
 
-### Lógica e Dados
-Conceitos avançados de fluxo de dados e tratamento de informações.
+### Guias Avançados
+Explore recursos avançados e casos de uso complexos.
 
-### Integrações
-Documentação completa de todos os nós e integrações disponíveis.
+- **[Usando n8n](../../usando-n8n)** - Guias práticos para usar a interface
+  - [Getting Started](../../usando-n8n/getting-started) - Início rápido
+  - [Interface](../../usando-n8n/interface) - Navegação e editor UI
+  - [Execuções](../../usando-n8n/execucoes) - Componentes de execução
+- **[Lógica e Dados](../../logica-e-dados)** - Conceitos avançados de fluxo
+  - [Lógica de Fluxo](../../logica-e-dados/01-flow-logic) - Error handling, looping, merging
+  - [Dados](../../logica-e-dados/02-data) - Data flow, mapping, structure
+- **[IA Avançada](../../advanced-ai)** - Integração com inteligência artificial
+- **[Embed](../../embed)** - Implementação e gerenciamento
 
-### Integrações Brasileiras
-Soluções específicas para o mercado brasileiro (PIX, CNPJ, etc.).
-
-### Hosting n8n
-Guias para implantação em diferentes ambientes.
-
-### IA Avançada
-Integração com inteligência artificial e automações inteligentes.
-
-### API
+### Referência da API
 Documentação completa da API REST do n8n.
 
-### Referência
-Guias de performance, troubleshooting e recursos adicionais.
+- **[API](../../api)** - Documentação completa da API
+  - [Conceitos](../../api/conceitos) - Autenticação, paginação
+  - [Ferramentas](../../api/ferramentas) - Playground e recursos
+  - [Referência](../../api/referencia) - Documentação técnica
 
-### Comunidade
-Artigos, vídeos e projetos da comunidade brasileira.
+### Deployment
+Guias para implantação em diferentes ambientes.
 
-### Cursos
-Aprendizado estruturado em vídeo e texto.
+- **[Hosting n8n](../../hosting-n8n)** - Guias para implantação
+  - [Instalação](../../hosting-n8n/instalacao) - Desktop, Docker, NPM, Cloud
+  - [Configuração](../../hosting-n8n/configuracao) - Variáveis, database, SSL
+  - [Segurança](../../hosting-n8n/seguranca) - Autenticação, backup, monitoring
+  - [Escalonamento](../../hosting-n8n/escalonamento) - Clustering, load balancing
 
-### Como Contribuir
-Guias para contribuir com a documentação e o projeto.
+### Nós (Nodes)
+Documentação detalhada de todos os nós disponíveis.
+
+- **[Integrações](../../integracoes)** - Todos os nós disponíveis
+  - [Nodes Integrados](../../integracoes/builtin-nodes) - HTTP, dados, lógica, utilitários
+  - [App Nodes](../../integracoes/app-nodes) - Comunicação, produtividade, e-commerce, marketing
+  - [Trigger Nodes](../../integracoes/trigger-nodes) - Baseados em tempo, eventos, apps
+  - [Credential Nodes](../../integracoes/credential-nodes) - API keys, OAuth, autenticação
+  - [Community Nodes](../../integracoes/community-nodes) - Nodes da comunidade
+  - [Criar Nodes](../../integracoes/criar-nodes) - Desenvolvimento de nodes customizados
+- **[Integrações Brasileiras](../../integracoes-br)** - PIX, CNPJ, ViaCEP
+
+### Exemplos
+Workflows práticos e casos de uso reais.
+
+- **[Comunidade](../../comunidade)** - Artigos e casos de uso
+  - [Automação para Iniciantes](../../comunidade/automacao-iniciantes)
+  - [Casos de Uso Avançados](../../comunidade/casos-uso-avancados)
+  - [Vídeos](../../comunidade/videos)
+- **[Cursos](../../cursos)** - Aprendizado estruturado
+  - [Cursos em Vídeo](../../cursos/cursos-em-video)
+  - [Cursos em Texto](../../cursos/cursos-em-texto)
+- **[Referência](../../referencia)** - Guias e recursos
+  - [Guias](../../referencia/guias) - Performance, troubleshooting
+  - [Recursos](../../referencia/recursos) - APIs brasileiras, glossário
+  - [Histórico](../../referencia/historico) - Changelog
+
+### Recursos Adicionais
+- **[Como Contribuir](../../contribuir)** - Guias para contribuição
+- **[Release Notes](../../release-notes)** - Notas de versão
+- **[Catálogo](../../catalogo)** - Índice de recursos
 
 ---
 
