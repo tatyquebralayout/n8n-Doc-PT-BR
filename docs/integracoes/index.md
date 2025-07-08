@@ -5,11 +5,11 @@ description: Entenda os diferentes tipos de nodes e integrações disponíveis n
 keywords: [n8n, nodes, integrações, overview, builtin, trigger, app, community]
 ---
 
-#  Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
 
 O poder do n8n está em sua capacidade de conectar centenas de aplicações e serviços. Esta seção é o seu guia para entender e utilizar todo o potencial das integrações.
 
-##  O que são Nodes?
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que são Nodes?
 
 **Nodes** são os blocos fundamentais do n8n. Cada node representa uma ação específica que pode ser executada em um workflow:
 
@@ -18,7 +18,7 @@ O poder do n8n está em sua capacidade de conectar centenas de aplicações e se
 -  **Gatilhos para iniciar workflows**
 -  **Conexões com aplicações externas**
 
-##  Categorias de Nodes
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Categorias de Nodes
 
 ###  **Core Nodes (Nativos)**
 Nodes internos essenciais que vêm instalados por padrão.
@@ -68,7 +68,7 @@ Integrações criadas pela comunidade global do n8n.
 -  **Constantemente atualizados**
 -  **Cobertura de serviços especializados**
 
- **[ Ver Community Nodes →](./community-nodes/index)**
+ **[ Ver Community Nodes →](./community-nodes/)**
 
 ---
 
@@ -96,7 +96,7 @@ Aprenda a criar seus próprios nodes customizados.
 
  **[ Ver Tutorial →](./criar-nodes/tutorial-desenvolvimento)**
 
-##  **Foco Brasileiro**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Foco Brasileiro**
 
 Além dos nodes globais, temos integrações específicas para o mercado brasileiro:
 
@@ -114,9 +114,9 @@ Além dos nodes globais, temos integrações específicas para o mercado brasile
 -  **IBGE** - Dados geográficos
 -  **Correios** - Rastreamento e frete
 
- **[ Ver Integrações BR →](../integracoes-br/pix)**
+ **[ Ver Integrações BR →](../integracoes-br/financeiro/pix)**
 
-##  **Como Começar?**
+## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Como Começar?**
 
 ###  1. **Para Iniciantes**
 ```
@@ -133,7 +133,7 @@ HTTP Request → Function Node → Custom Nodes
 App Integrations → Credenciais → Community Nodes
 ```
 
-##  **Estatísticas do Ecossistema**
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Estatísticas do Ecossistema**
 
 | Categoria | Quantidade | Exemplos |
 |-----------|------------|----------|
@@ -142,14 +142,14 @@ App Integrations → Credenciais → Community Nodes
 | **Community Nodes** | 200+ | APIs especializadas |
 | **Trigger Types** | 15+ | Webhook, Schedule, Email |
 
-##  **Dicas de Navegação**
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Dicas de Navegação**
 
 -  **Use a busca** para encontrar nodes específicos
 -  **Explore por categoria** quando estiver aprendendo
 -  **Comece pelos populares** para casos comuns
 -  **Foque no seu caso de uso** para ser mais eficiente
 
-##  **Precisa de Ajuda?**
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Precisa de Ajuda?**
 
 -  **[Documentação oficial](https://docs.n8n.io/integrations/)** - Catálogo completo
 -  **[Comunidade n8n](https://community.n8n.io)** - Fórum de discussões

@@ -5,19 +5,19 @@ description: Explore recursos avançados de inteligência artificial no n8n
 keywords: [n8n, IA, inteligência artificial, AI, langchain, openai, workflow]
 ---
 
-# Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo à seção de Inteligência Artificial Avançada do n8n! Aqui você encontrará recursos para integrar e utilizar IA em seus workflows de automação.
 
-## O que você encontrará aqui
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
-### 🤖 Tutorial de IA
+### Tutorial de IA
 - **Tutorial de IA**: Introdução prática aos conceitos de IA no n8n
 
-### 🔗 LangChain
+### LangChain
 - **Visão Geral do LangChain**: Framework para aplicações de IA
 
-### 🧠 Nodes de IA
+### Nodes de IA
 - **OpenAI Chat**: Integração com modelos de linguagem da OpenAI
 - **Memory Manager**: Gerenciamento de memória para conversas
 - **Output Parser**: Processamento estruturado de saídas de IA
@@ -25,13 +25,13 @@ Bem-vindo à seção de Inteligência Artificial Avançada do n8n! Aqui você en
 - **SQL Agent**: Consultas SQL inteligentes
 - **Workflow Tool**: Ferramentas para workflows com IA
 
-### 📚 Exemplos e Casos
+### Exemplos e Casos
 - **Chatbot de Suporte**: Implementação de chatbot inteligente
 - **Classificação de Dados**: Categorização automática de informações
 - **Geração de Conteúdo**: Criação automática de textos
 - **RAG com Arquivos**: Retrieval-Augmented Generation
 
-## Conceitos Fundamentais
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### Integração de IA
 O n8n oferece integração nativa com diversos serviços de IA, permitindo:
@@ -47,13 +47,13 @@ Combine a automação tradicional com recursos de IA para:
 - Gerar relatórios inteligentes
 - Criar experiências de usuário avançadas
 
-## Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 1. **Comece com o [Tutorial de IA](./tutorial-ai)** para entender os conceitos básicos
 2. **Explore a [Visão Geral do LangChain](./langchain-overview)** para frameworks avançados
-3. **Experimente os [Nodes de IA](./nodes-ia/index)** para integrações práticas
+3. **Experimente os [Nodes de IA](./nodes-ia/)** para integrações práticas
 
-## Recursos Relacionados
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
 - **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Usando n8n](../usando-n8n)** - Guias práticos

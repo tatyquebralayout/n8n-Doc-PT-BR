@@ -5,26 +5,26 @@ description: Documentação completa da API REST do n8n
 keywords: [n8n, API, REST, endpoints, autenticação, webhooks]
 ---
 
-# Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo à documentação da API REST do n8n! Aqui você encontrará tudo o que precisa para integrar e automatizar o n8n programaticamente.
 
-## O que você encontrará aqui
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
-### 📚 Conceitos
+### Conceitos
 - **Visão Geral**: Introdução aos conceitos da API
 - **Autenticação**: Métodos de autenticação e segurança
 - **Paginação**: Como navegar por grandes volumes de dados
 
-### 🛠️ Ferramentas
+### Ferramentas
 - **Visão Geral das Ferramentas**: Recursos disponíveis
 - **Playground**: Teste a API de forma interativa
 
-### 📖 Referência
+### Referência
 - **Visão Geral da Referência**: Documentação completa
 - **Referência da API**: Endpoints e parâmetros detalhados
 
-## Conceitos Fundamentais
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### API REST
 O n8n oferece uma API REST completa que permite:
@@ -45,7 +45,7 @@ Integre o n8n com sistemas externos através de webhooks:
 - Dispare workflows baseados em eventos
 - Sincronize dados em tempo real
 
-## Endpoints Principais
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Endpoints Principais
 
 ### Workflows
 - `GET /workflows` - Listar workflows
@@ -63,13 +63,13 @@ Integre o n8n com sistemas externos através de webhooks:
 - `POST /credentials` - Criar credencial
 - `PUT /credentials/{id}` - Atualizar credencial
 
-## Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
-1. **Comece com os [Conceitos](./conceitos/index)** para entender os fundamentos
-2. **Explore as [Ferramentas](./ferramentas/index)** para recursos práticos
-3. **Consulte a [Referência](./referencia/index)** para detalhes completos
+1. **Comece com os [Conceitos](./conceitos/)** para entender os fundamentos
+2. **Explore as [Ferramentas](./ferramentas/)** para recursos práticos
+3. **Consulte a [Referência](./referencia/)** para detalhes completos
 
-## Recursos Relacionados
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
 - **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Usando n8n](../usando-n8n)** - Guias práticos
