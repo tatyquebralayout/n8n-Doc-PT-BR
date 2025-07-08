@@ -6,11 +6,11 @@ keywords: [n8n, cloud, nuvem, aws, azure, gcp, instalação]
 ---
 
 
-#  Instalação na Nuvem
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalação na Nuvem
 
 Este guia detalha como **instalar n8n em provedores de nuvem**, incluindo n8n Cloud oficial e deployment em AWS, Azure, Google Cloud e outros provedores.
 
-##  Opções de Cloud
+## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Opções de Cloud
 
 ### **n8n Cloud (Oficial)**
 Serviço totalmente gerenciado pelos criadores do n8n.
@@ -20,7 +20,7 @@ Deploy em sua própria infraestrutura na nuvem.
 
 ---
 
-##  n8n Cloud (Oficial)
+## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> n8n Cloud (Oficial)
 
 ### **O que é o n8n Cloud?**
 O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda a complexidade de infraestrutura, permitindo que você foque exclusivamente na criação e execução de seus workflows.
@@ -34,7 +34,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-##  Planos e Preços
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Planos e Preços
 
 ### **Free Trial**
 - **Duração**: 14 dias
@@ -63,7 +63,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-##  Como Começar
+## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Começar
 
 ### **1. Criar Conta**
 1. Acesse [cloud.n8n.io](https://cloud.n8n.io)
@@ -90,7 +90,7 @@ Após o login, você será direcionado para o dashboard:
 
 ---
 
-##  Configurações Avançadas
+## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações Avançadas
 
 ### **Domínio Personalizado**
 Configure um domínio próprio para sua instância:
@@ -119,7 +119,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-##  Segurança e Compliance
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Compliance
 
 ### **Certificações**
 - **SOC 2 Type II** - Controles de segurança
@@ -140,7 +140,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-##  Monitoramento e Analytics
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Analytics
 
 ### **Dashboard de Execuções**
 - **Taxa de sucesso** por workflow
@@ -156,13 +156,13 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-##  Self-hosted em Cloud
+## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Self-hosted em Cloud
 
 ### **AWS (Amazon Web Services)**
 
 #### **EC2 com Docker**
 ```bash
-# Criar instância EC2
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar instância EC2
 aws ec2 run-instances \
   --image-id ami-0c55b159cbfafe1f0 \
   --instance-type t3.medium \
@@ -170,14 +170,14 @@ aws ec2 run-instances \
   --security-group-ids sg-xxxxxxxxx \
   --subnet-id subnet-xxxxxxxxx
 
-# Conectar via SSH
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
 ssh -i sua-key.pem ubuntu@seu-ip
 
-# Instalar Docker
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Docker
 sudo apt update
 sudo apt install docker.io docker-compose
 
-# Executar n8n
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar n8n
 docker run -d \
   --name n8n \
   -p 80:5678 \
@@ -187,7 +187,7 @@ docker run -d \
 
 #### **ECS (Elastic Container Service)**
 ```yaml
-# task-definition.json
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> task-definition.json
 {
   "family": "n8n",
   "networkMode": "awsvpc",
@@ -224,17 +224,17 @@ docker run -d \
 
 #### **Compute Engine**
 ```bash
-# Criar instância
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar instância
 gcloud compute instances create n8n-instance \
   --zone=us-central1-a \
   --machine-type=e2-medium \
   --image-family=ubuntu-2004-lts \
   --image-project=ubuntu-os-cloud
 
-# Conectar via SSH
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
 gcloud compute ssh n8n-instance --zone=us-central1-a
 
-# Instalar e executar n8n
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar e executar n8n
 sudo apt update
 sudo apt install docker.io docker-compose
 sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
@@ -242,7 +242,7 @@ sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
 
 #### **Cloud Run**
 ```yaml
-# cloudbuild.yaml
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> cloudbuild.yaml
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['run', '-d', '--name', 'n8n', '-p', '8080:5678', 'n8nio/n8n']
@@ -252,7 +252,7 @@ steps:
 
 #### **Azure VM**
 ```bash
-# Criar VM
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar VM
 az vm create \
   --resource-group n8n-rg \
   --name n8n-vm \
@@ -260,10 +260,10 @@ az vm create \
   --size Standard_B2s \
   --admin-username azureuser
 
-# Conectar via SSH
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
 ssh azureuser@seu-ip
 
-# Instalar e executar n8n
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar e executar n8n
 sudo apt update
 sudo apt install docker.io docker-compose
 sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
@@ -271,7 +271,7 @@ sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
 
 #### **Azure Container Instances**
 ```bash
-# Criar container
+# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar container
 az container create \
   --resource-group n8n-rg \
   --name n8n-container \
@@ -282,11 +282,11 @@ az container create \
 
 ---
 
-##  Configuração Avançada
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Avançada
 
 ### **Load Balancer**
 ```yaml
-# AWS Application Load Balancer
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> AWS Application Load Balancer
 apiVersion: v1
 kind: Service
 metadata:
@@ -302,7 +302,7 @@ spec:
 
 ### **Auto Scaling**
 ```yaml
-# Kubernetes HPA
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Kubernetes HPA
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -325,7 +325,7 @@ spec:
 
 ### **Monitoramento**
 ```yaml
-# Prometheus monitoring
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Prometheus monitoring
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -342,7 +342,7 @@ data:
 
 ---
 
-##  Suporte e Recursos
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Suporte e Recursos
 
 ### **Canais de Suporte**
 - **Documentação oficial** - Guias detalhados
@@ -358,13 +358,13 @@ data:
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você conhece as opções de cloud:
 
 1. **[Criar Primeiro Workflow](../../primeiros-passos/primeiro-workflow)** - Aprenda a construir workflows
 2. **[Conceitos Básicos](../../primeiros-passos/conceitos-basicos)** - Entenda os fundamentos
-3. **[Integrações](../../integracoes/index)** - Conecte suas aplicações
+3. **[Integrações](../../integracoes/)** - Conecte suas aplicações
 
 ### **Outros Métodos de Instalação**
 - **[Docker](./docker)** - Containerização para produção

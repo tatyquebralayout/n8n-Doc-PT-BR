@@ -6,11 +6,11 @@ keywords: [n8n, desktop, instalação, local, desenvolvimento, windows, mac]
 ---
 
 
-#  Instalação Desktop
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalação Desktop
 
 Este guia detalha como **instalar n8n Desktop** para uso local e desenvolvimento, oferecendo uma experiência nativa e simplificada.
 
-##  O que é o n8n Desktop?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que é o n8n Desktop?
 
 O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localmente sem necessidade de configurações complexas de servidor ou Docker. É ideal para usuários que preferem uma experiência mais simples e integrada ao sistema operacional.
 
@@ -24,7 +24,7 @@ O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localment
 
 ---
 
-##  Pré-requisitos
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
 ### **Requisitos do Sistema**
 - **Sistema Operacional**: Windows 10+, macOS 10.15+, Linux (Ubuntu 18.04+)
@@ -50,7 +50,7 @@ O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localment
 
 ---
 
-##  Instalação
+## <ion-icon name="download-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação
 
 ### **Windows**
 
@@ -63,10 +63,10 @@ O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localment
 
 #### **Instalação via Chocolatey**
 ```powershell
-# Instalar Chocolatey (se necessário)
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Chocolatey (se necessário)
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
-# Instalar n8n Desktop
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar n8n Desktop
 choco install n8n-desktop
 ```
 
@@ -86,10 +86,10 @@ winget install n8n.n8n-desktop
 
 #### **Instalação via Homebrew**
 ```bash
-# Instalar Homebrew (se necessário)
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Homebrew (se necessário)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Instalar n8n Desktop
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar n8n Desktop
 brew install --cask n8n-desktop
 ```
 
@@ -97,21 +97,21 @@ brew install --cask n8n-desktop
 
 #### **Ubuntu/Debian**
 ```bash
-# Adicionar repositório
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar repositório
 wget -qO- https://packages.n8n.io/gpg.key | sudo apt-key add -
 echo "deb https://packages.n8n.io/ubuntu/ focal main" | sudo tee /etc/apt/sources.list.d/n8n.list
 
-# Atualizar e instalar
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Atualizar e instalar
 sudo apt update
 sudo apt install n8n-desktop
 ```
 
 #### **Fedora/RHEL**
 ```bash
-# Adicionar repositório
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar repositório
 sudo dnf config-manager --add-repo https://packages.n8n.io/fedora/n8n.repo
 
-# Instalar
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar
 sudo dnf install n8n-desktop
 ```
 
@@ -122,7 +122,7 @@ sudo snap install n8n-desktop
 
 ---
 
-##  Configuração Inicial
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Inicial
 
 ### **Primeiro Acesso**
 1. **Inicie o n8n Desktop**
@@ -132,7 +132,7 @@ sudo snap install n8n-desktop
 
 ### **Configurações Básicas**
 ```bash
-# Configurações padrão
+# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações padrão
 Porta: 5678
 Protocolo: http
 Host: localhost
@@ -141,10 +141,10 @@ Timezone: Sistema operacional
 
 ### **Configurações Avançadas**
 ```bash
-# Arquivo de configuração (opcional)
-# Windows: %APPDATA%\n8n\config.json
-# macOS: ~/Library/Application Support/n8n/config.json
-# Linux: ~/.config/n8n/config.json
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Arquivo de configuração (opcional)
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Windows: %APPDATA%\n8n\config.json
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> macOS: ~/Library/Application Support/n8n/config.json
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Linux: ~/.config/n8n/config.json
 
 {
   "port": 5678,
@@ -157,7 +157,7 @@ Timezone: Sistema operacional
 
 ---
 
-##  Sincronização com n8n Cloud
+## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sincronização com n8n Cloud
 
 ### **Conectar com n8n Cloud**
 1. **Abra o n8n Desktop**
@@ -186,17 +186,17 @@ Timezone: Sistema operacional
 
 ---
 
-##  Estrutura de Arquivos
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura de Arquivos
 
 ### **Localização dos Dados**
 ```bash
-# Windows
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Windows
 %APPDATA%\n8n\
 
-# macOS
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> macOS
 ~/Library/Application Support/n8n/
 
-# Linux
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Linux
 ~/.config/n8n/
 ```
 
@@ -212,34 +212,34 @@ n8n/
 
 ### **Backup Manual**
 ```bash
-# Windows
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Windows
 xcopy "%APPDATA%\n8n" "C:\backup\n8n" /E /I
 
-# macOS/Linux
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> macOS/Linux
 cp -r ~/.config/n8n ~/backup/n8n
 ```
 
 ---
 
-##  Desenvolvimento
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Desenvolvimento
 
 ### **Modo Desenvolvedor**
 ```bash
-# Habilitar modo desenvolvedor
-# Windows: n8n-desktop.exe --dev
-# macOS: n8n-desktop --dev
-# Linux: n8n-desktop --dev
+# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Habilitar modo desenvolvedor
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Windows: n8n-desktop.exe --dev
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> macOS: n8n-desktop --dev
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Linux: n8n-desktop --dev
 ```
 
 ### **Logs de Desenvolvimento**
 ```bash
-# Windows
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Windows
 %APPDATA%\n8n\logs\desktop.log
 
-# macOS
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> macOS
 ~/Library/Application Support/n8n/logs/desktop.log
 
-# Linux
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Linux
 ~/.config/n8n/logs/desktop.log
 ```
 
@@ -257,7 +257,7 @@ cp -r ~/.config/n8n ~/backup/n8n
 
 ---
 
-##  Segurança
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
 
 ### **Configurações de Segurança**
 - **Autenticação local** - Conta de administrador
@@ -267,43 +267,43 @@ cp -r ~/.config/n8n ~/backup/n8n
 
 ### **Boas Práticas**
 ```bash
-# Configurar firewall (Windows)
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar firewall (Windows)
 netsh advfirewall firewall add rule name="n8n Desktop" dir=in action=allow protocol=TCP localport=5678
 
-# Configurar firewall (macOS)
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar firewall (macOS)
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add /Applications/n8n\ Desktop.app
 
-# Configurar firewall (Linux)
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar firewall (Linux)
 sudo ufw allow 5678/tcp
 ```
 
 ---
 
-##  Troubleshooting
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
 ### **Problemas Comuns**
 
 #### **Aplicação não inicia**
 ```bash
-# Verificar logs
-# Windows: %APPDATA%\n8n\logs\desktop.log
-# macOS: ~/Library/Application Support/n8n/logs/desktop.log
-# Linux: ~/.config/n8n/logs/desktop.log
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar logs
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Windows: %APPDATA%\n8n\logs\desktop.log
+# <ion-icon name="help-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> macOS: ~/Library/Application Support/n8n/logs/desktop.log
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Linux: ~/.config/n8n/logs/desktop.log
 
-# Reinstalar aplicação
-# Desinstale e baixe novamente do site oficial
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Reinstalar aplicação
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Desinstale e baixe novamente do site oficial
 ```
 
 #### **Porta já em uso**
 ```bash
-# Verificar processo usando a porta
-# Windows
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar processo usando a porta
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Windows
 netstat -ano | findstr :5678
 
-# macOS/Linux
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> macOS/Linux
 lsof -i :5678
 
-# Alterar porta na configuração
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Alterar porta na configuração
 {
   "port": 5679
 }
@@ -311,27 +311,27 @@ lsof -i :5678
 
 #### **Problemas de sincronização**
 ```bash
-# Verificar conexão com internet
+# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar conexão com internet
 ping cloud.n8n.io
 
-# Limpar cache de sincronização
-# Remova a pasta de cache e reconecte
+# <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Limpar cache de sincronização
+# <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Remova a pasta de cache e reconecte
 ```
 
 #### **Performance lenta**
 ```bash
-# Verificar recursos do sistema
-# Windows: Task Manager
-# macOS: Activity Monitor
-# Linux: htop
+# <ion-icon name="school-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar recursos do sistema
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Windows: Task Manager
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> macOS: Activity Monitor
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Linux: htop
 
-# Aumentar memória disponível
-# Feche outras aplicações
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Aumentar memória disponível
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Feche outras aplicações
 ```
 
 ---
 
-##  Atualizações
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Atualizações
 
 ### **Atualizações Automáticas**
 - **Habilitadas por padrão**
@@ -341,14 +341,14 @@ ping cloud.n8n.io
 
 ### **Atualizações Manuais**
 ```bash
-# Verificar versão atual
-# Vá em Help > About
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar versão atual
+# <ion-icon name="help-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Vá em Help > About
 
-# Baixar nova versão
-# Acesse n8n.io/desktop
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Baixar nova versão
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Acesse n8n.io/desktop
 
-# Instalar atualização
-# Execute o novo instalador
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar atualização
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Execute o novo instalador
 ```
 
 ### **Configurações de Atualização**
@@ -365,7 +365,7 @@ ping cloud.n8n.io
 
 ---
 
-##  Suporte
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Suporte
 
 ### **Recursos de Ajuda**
 - **Documentação oficial** - Guias detalhados
@@ -375,26 +375,26 @@ ping cloud.n8n.io
 
 ### **Logs para Suporte**
 ```bash
-# Coletar logs para suporte
-# Windows
+# <ion-icon name="help-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Coletar logs para suporte
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Windows
 copy "%APPDATA%\n8n\logs\*" "C:\temp\n8n-logs\"
 
-# macOS
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> macOS
 cp ~/Library/Application\ Support/n8n/logs/* ~/Desktop/n8n-logs/
 
-# Linux
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Linux
 cp ~/.config/n8n/logs/* ~/Desktop/n8n-logs/
 ```
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você tem o n8n Desktop instalado:
 
 1. **[Criar Primeiro Workflow](../../primeiros-passos/primeiro-workflow)** - Aprenda a construir workflows
 2. **[Conceitos Básicos](../../primeiros-passos/conceitos-basicos)** - Entenda os fundamentos
-3. **[Integrações](../../integracoes/index)** - Conecte suas aplicações
+3. **[Integrações](../../integracoes/)** - Conecte suas aplicações
 
 ### **Outros Métodos de Instalação**
 - **[Docker](./docker)** - Containerização para produção
