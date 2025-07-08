@@ -174,7 +174,7 @@ graph TD
 **Configurações Críticas:**
 - **Always Output Data**: Garante que mesmo ramos "vazios" produzam dados
 - **Combine Conditions**: Use AND/OR para lógicas complexas
-- **Data Type**: Certifique-se de comparar tipos compatíveis - veja [estrutura de dados](/logica-e-dados/02-data/data-structure)
+- **Data Type**: Certifique-se de comparar tipos compatíveis - veja [estrutura de dados](/logica-e-dados/data/data-structure)
 
 <CodeBlock language="javascript" title="Lógica do node IF">
 {`// Lógica do node IF
@@ -436,7 +436,7 @@ graph TD
 - **Merge By Key**: Combina dados baseado em chaves específicas
 - **Append**: Adiciona dados sequencialmente
 
-Saiba mais sobre [manipulação de dados](/logica-e-dados/02-data/data-mapping).
+Saiba mais sobre [manipulação de dados](/logica-e-dados/data/data-mapping).
 
 </TabItem>
 </Tabs>
@@ -1205,7 +1205,7 @@ graph TD
 {`{{ $json.valor > 1000 }}    // Comparando número com número`}
 </CodeBlock>
 
-Saiba mais sobre [expressões JavaScript](/referencia/glossario) e [tipos de dados](/logica-e-dados/02-data/data-structure).
+Saiba mais sobre [expressões JavaScript](/referencia/glossario) e [tipos de dados](/logica-e-dados/data/data-structure).
 
 </TabItem>
 </Tabs>

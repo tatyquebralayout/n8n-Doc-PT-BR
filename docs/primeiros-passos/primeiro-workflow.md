@@ -225,7 +225,7 @@ Parabéns! Você criou seu primeiro workflow. Agora explore:
 
 1.  **[Diferentes tipos de triggers](../integracoes/trigger-nodes/time-based/manual-trigger)**
 2.  **[Mais integrações](../integracoes/)**
-3.  **[Expressões avançadas](../logica-e-dados/02-data/data-mapping)**
+3.  **[Expressões avançadas](../logica-e-dados/data/data-mapping)**
 4.  **[Deploy em produção](../hosting-n8n/instalacao)**
 
 :::success Sucesso!

@@ -47,8 +47,8 @@ O n8n oferece ferramentas poderosas para trabalhar com dados:
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 1. **Comece com [Error Handling](./01-flow-logic/error-handling)** para criar workflows robustos
-2. **Aprenda sobre [Data Flow](./02-data/data-flow)** para entender como os dados se movem
-3. **Explore [Data Mapping](./02-data/data-mapping)** para transformar dados
+2. **Aprenda sobre [Data Flow](./data/data-flow)** para entender como os dados se movem
+3. **Explore [Data Mapping](./data/data-mapping)** para transformar dados
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
