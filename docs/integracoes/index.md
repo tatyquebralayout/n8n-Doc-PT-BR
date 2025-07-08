@@ -30,7 +30,7 @@ Nodes internos essenciais que vêm instalados por padrão.
 - <IonicIcon name="create-outline" size={16} color="#6b7280" /> **Set** - Manipulação de dados
 - <IonicIcon name="code-outline" size={16} color="#6b7280" /> **Function** - Código JavaScript customizado
 
-<IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" /> **[ Ver Core Nodes →](./builtin-nodes/http-requests/webhook)**
+<IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" /> **[ Ver Core Nodes →](./builtin-nodes/http-requests/http-request)**
 
 ---
 

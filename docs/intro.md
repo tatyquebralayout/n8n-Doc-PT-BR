@@ -50,7 +50,7 @@ Cada vez que um workflow é ativado, ocorre uma execução. O n8n pega seus dado
 Você pode usar os dados gerados por um node anterior nos próximos passos. Esse processo é chamado de data mapping. É como dizer: "pegue o nome que veio do formulário e insira aqui no e-mail". [Aprenda mapeamento](../../logica-e-dados/02-data/data-mapping).
 
 **Error Handling (Tratamento de Erros)**  
-Em automação, erros podem acontecer — e tudo bem. O n8n permite criar caminhos de tratamento de erros que detectam, registram e até corrigem falhas automaticamente. Isso torna seus fluxos mais confiáveis e resilientes. [Tratamento de erros](../../logica-e-dados/flow-logic/error-handling).
+Em automação, erros podem acontecer — e tudo bem. O n8n permite criar caminhos de tratamento de erros que detectam, registram e até corrigem falhas automaticamente. Isso torna seus fluxos mais confiáveis e resilientes. [Tratamento de erros](../../logica-e-dados/01-flow-logic/error-handling).
 
 ---
 
@@ -124,7 +124,7 @@ Explore recursos avançados e casos de uso complexos.
   - [Interface](../../usando-n8n/interface) - Navegação e editor UI
   - [Execuções](../../usando-n8n/execucoes) - Componentes de execução
 - **[Lógica e Dados](../../logica-e-dados)** - Conceitos avançados de fluxo
-  - [Lógica de Fluxo](../../logica-e-dados/flow-logic) - Error handling, looping, merging
+  - [Lógica de Fluxo](../../logica-e-dados/01-flow-logic) - Error handling, looping, merging
   - [Dados](../../logica-e-dados/02-data) - Data flow, mapping, structure
 - **[IA Avançada](../../advanced-ai)** - Integração com inteligência artificial
 - **[Embed](../../embed)** - Implementação e gerenciamento

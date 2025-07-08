@@ -1,4 +1,4 @@
-ï»¿// Script para criar labels e issues de gestÃ£o de conteÃºdo
+// Script para criar labels e issues de gestão de conteúdo
 
 async function getOctokit() {
   const { Octokit } = await import("@octokit/rest");
@@ -9,27 +9,27 @@ const owner = "tatyquebralayout";
 const repo = "n8n-Doc-pt-BR";
 
 const LABELS = [
-  { name: " CrÃ­tico", color: "FF0000", description: "Problema crÃ­tico que precisa ser resolvido imediatamente" },
+  { name: " Crítico", color: "FF0000", description: "Problema crítico que precisa ser resolvido imediatamente" },
   { name: " Importante", color: "FF8C00", description: "Problema importante que deve ser resolvido em breve" },
-  { name: " Melhoria", color: "FFD700", description: "Melhoria que pode ser implementada quando possÃ­vel" },
+  { name: " Melhoria", color: "FFD700", description: "Melhoria que pode ser implementada quando possível" },
   { name: " Polimento", color: "32CD32", description: "Pequenos ajustes e melhorias de qualidade" },
-  { name: " Vazio", color: "E6E6FA", description: "PÃ¡gina ou seÃ§Ã£o completamente vazia" },
-  { name: " Em ConstruÃ§Ã£o", color: "FFA500", description: "ConteÃºdo marcado como em construÃ§Ã£o" },
-  { name: " Links Quebrados", color: "DC143C", description: "Links que nÃ£o funcionam ou estÃ£o incorretos" },
-  { name: " PortuguÃªs BR", color: "009639", description: "Relacionado Ã  localizaÃ§Ã£o em portuguÃªs brasileiro" },
-  { name: " Clareza", color: "4169E1", description: "Melhorar clareza e compreensÃ£o do conteÃºdo" },
-  { name: " Tutorial", color: "20B2AA", description: "ConteÃºdo de tutorial ou guia passo a passo" },
-  { name: " Getting Started", color: "FF6347", description: "SeÃ§Ã£o de primeiros passos" },
-  { name: " IntegraÃ§Ãµes BR", color: "228B22", description: "IntegraÃ§Ãµes especÃ­ficas do Brasil" },
-  { name: " Comunidade", color: "FF69B4", description: "ConteÃºdo relacionado Ã  comunidade" },
-  { name: " DidÃ¡tico", color: "9370DB", description: "Melhorar aspecto educacional e didÃ¡tico" },
-  { name: " AutomaÃ§Ã£o", color: "778899", description: "AutomaÃ§Ã£o de processos" },
-  { name: " Auditoria", color: "6495ED", description: "Resultado de auditoria de conteÃºdo" },
-  { name: " Feedback", color: "DA70D6", description: "Relacionado a feedback de usuÃ¡rios" },
-  { name: " Template", color: "B0C4DE", description: "CriaÃ§Ã£o ou uso de templates" },
-  { name: " Melhoria ContÃ­nua", color: "32CD32", description: "Processo de melhoria contÃ­nua" },
-  { name: " Exemplos", color: "2E8B57", description: "Adicionar ou melhorar exemplos prÃ¡ticos" },
-  { name: " Objetividade", color: "8B4513", description: "Tornar o conteÃºdo mais direto e objetivo" }
+  { name: " Vazio", color: "E6E6FA", description: "Página ou seção completamente vazia" },
+  { name: " Em Construção", color: "FFA500", description: "Conteúdo marcado como em construção" },
+  { name: " Links Quebrados", color: "DC143C", description: "Links que não funcionam ou estão incorretos" },
+  { name: " Português BR", color: "009639", description: "Relacionado à localização em português brasileiro" },
+  { name: " Clareza", color: "4169E1", description: "Melhorar clareza e compreensão do conteúdo" },
+  { name: " Tutorial", color: "20B2AA", description: "Conteúdo de tutorial ou guia passo a passo" },
+  { name: " Getting Started", color: "FF6347", description: "Seção de primeiros passos" },
+  { name: " Integrações BR", color: "228B22", description: "Integrações específicas do Brasil" },
+  { name: " Comunidade", color: "FF69B4", description: "Conteúdo relacionado à comunidade" },
+  { name: " Didático", color: "9370DB", description: "Melhorar aspecto educacional e didático" },
+  { name: " Automação", color: "778899", description: "Automação de processos" },
+  { name: " Auditoria", color: "6495ED", description: "Resultado de auditoria de conteúdo" },
+  { name: " Feedback", color: "DA70D6", description: "Relacionado a feedback de usuários" },
+  { name: " Template", color: "B0C4DE", description: "Criação ou uso de templates" },
+  { name: " Melhoria Contínua", color: "32CD32", description: "Processo de melhoria contínua" },
+  { name: " Exemplos", color: "2E8B57", description: "Adicionar ou melhorar exemplos práticos" },
+  { name: " Objetividade", color: "8B4513", description: "Tornar o conteúdo mais direto e objetivo" }
 ];
 
 async function createLabels(octokit) {
@@ -50,7 +50,7 @@ async function createLabels(octokit) {
       createdLabels.push(label.name);
     } catch (error) {
       if (error.status === 422) {
-        console.log(` Label jÃ¡ existe: ${label.name}`);
+        console.log(` Label já existe: ${label.name}`);
       } else {
         console.error(` Erro ao criar label ${label.name}:`, error.message);
       }
@@ -61,12 +61,12 @@ async function createLabels(octokit) {
 }
 
 async function main() {
-  console.log(" Iniciando criaÃ§Ã£o de labels...");
-  console.log(` RepositÃ³rio: ${owner}/${repo}`);
+  console.log(" Iniciando criação de labels...");
+  console.log(` Repositório: ${owner}/${repo}`);
   
   const token = process.env.GITHUB_TOKEN;
   if (!token) {
-    console.error(" Token do GitHub nÃ£o encontrado. Defina GITHUB_TOKEN nas variÃ¡veis de ambiente.");
+    console.error(" Token do GitHub não encontrado. Defina GITHUB_TOKEN nas variáveis de ambiente.");
     process.exit(1);
   }
   
@@ -81,7 +81,7 @@ async function main() {
     console.log("\n Labels criadas com sucesso!");
     console.log(` Labels criadas: ${createdLabels.length}`);
     
-    console.log("\n Acesse o repositÃ³rio para ver as labels:");
+    console.log("\n Acesse o repositório para ver as labels:");
     console.log(`https://github.com/${owner}/${repo}/labels`);
     
   } catch (error) {

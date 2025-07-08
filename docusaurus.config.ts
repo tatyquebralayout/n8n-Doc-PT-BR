@@ -75,6 +75,19 @@ const config: Config = {
         showLastUpdateTime: false,
       },
     ],
+    // Plugin de busca local
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["pt", "en"],
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        searchBarPosition: "right",
+        docsRouteBasePath: "/",
+        indexPages: true,
+      },
+    ],
   ],
 
   themes: ['@docusaurus/theme-mermaid'],
@@ -171,7 +184,7 @@ const config: Config = {
           position: 'left',
           className: 'navbar-contribute-dropdown',
           items: [
-            { label: 'Contribuir com o Projeto n8n', to: '/contribuir/projeto-n8n' },
+            { label: 'Contribuir com n8n oficial', to: '/contribuir/n8n-oficial' },
             { label: 'Contribuir com Esta Documentação', to: '/contribuir/esta-documentacao' },
           ],
         },
@@ -277,7 +290,7 @@ const config: Config = {
             },
             {
               label: 'Código de Conduta',
-              to: '/contribuir/esta-documentacao/01-entendendo-o-projeto/codigo-conduta',
+              to: '/contribuir/esta-documentacao/entendendo-o-projeto/codigo-conduta',
             },
             {
               label: 'Discutir no GitHub',

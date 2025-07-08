@@ -1,4 +1,4 @@
-ï»¿// Script para criar issues de gestÃ£o de conteÃºdo
+// Script para criar issues de gestão de conteúdo
 
 async function getOctokit() {
   const { Octokit } = await import("@octokit/rest");
@@ -10,98 +10,98 @@ const repo = "n8n-Doc-pt-BR";
 
 const ISSUES = [
   {
-    title: "ðŸ“‹ Completar pÃ¡ginas Em ConstruÃ§Ã£o da seÃ§Ã£o Contribuir",
+    title: "?? Completar páginas Em Construção da seção Contribuir",
     body: `## Problema
-A seÃ§Ã£o Contribuir tem vÃ¡rias pÃ¡ginas marcadas como Em ConstruÃ§Ã£o que precisam ser completadas.
+A seção Contribuir tem várias páginas marcadas como Em Construção que precisam ser completadas.
 
-## PÃ¡ginas Afetadas
+## Páginas Afetadas
 - docs/contribuir/esta-documentacao/
-- docs/contribuir/projeto-n8n/
+- docs/contribuir/n8n-oficial/
 
 ## Tarefas
-- [ ] Revisar e completar conteÃºdo das pÃ¡ginas em construÃ§Ã£o
-- [ ] Adicionar exemplos prÃ¡ticos
+- [ ] Revisar e completar conteúdo das páginas em construção
+- [ ] Adicionar exemplos práticos
 - [ ] Criar guias passo a passo
-- [ ] Adicionar screenshots quando necessÃ¡rio
+- [ ] Adicionar screenshots quando necessário
 - [ ] Revisar e corrigir links
 
 ## Prioridade
-ðŸ”´ CrÃ­tico - Essencial para engajamento da comunidade`,
-    labels: ["ðŸ”´ CrÃ­tico", "ðŸš§ Em ConstruÃ§Ã£o", "ðŸ‘¥ Comunidade", "ðŸ“‹ Tutorial", "ðŸ‡§ðŸ‡· PortuguÃªs BR"]
+?? Crítico - Essencial para engajamento da comunidade`,
+    labels: ["?? Crítico", "?? Em Construção", "?? Comunidade", "?? Tutorial", "???? Português BR"]
   },
   
   {
-    title: "ðŸš€ Criar conteÃºdo Getting Started completo",
+    title: "?? Criar conteúdo Getting Started completo",
     body: `## Problema
-A seÃ§Ã£o Getting Started Ã© fundamental para novos usuÃ¡rios mas estÃ¡ incompleta.
+A seção Getting Started é fundamental para novos usuários mas está incompleta.
 
 ## Tarefas
-- [ ] Criar guia de instalaÃ§Ã£o simplificado
+- [ ] Criar guia de instalação simplificado
 - [ ] Desenvolver tutorial do primeiro workflow
 - [ ] Explicar conceitos fundamentais
-- [ ] Adicionar exemplos prÃ¡ticos brasileiros
+- [ ] Adicionar exemplos práticos brasileiros
 - [ ] Criar fluxo de aprendizado progressivo
 
 ## Prioridade
- CrÃ­tico - Primeira impressÃ£o dos usuÃ¡rios`,
-    labels: [" CrÃ­tico", " Getting Started", " DidÃ¡tico", " PortuguÃªs BR", " Tutorial"]
+ Crítico - Primeira impressão dos usuários`,
+    labels: [" Crítico", " Getting Started", " Didático", " Português BR", " Tutorial"]
   },
   
   {
-    title: " Auditoria e correÃ§Ã£o de links quebrados",
+    title: " Auditoria e correção de links quebrados",
     body: `## Problema
-VÃ¡rios links internos e externos estÃ£o quebrados ou incorretos.
+Vários links internos e externos estão quebrados ou incorretos.
 
 ## Tarefas
-- [ ] Executar auditoria automÃ¡tica de links
+- [ ] Executar auditoria automática de links
 - [ ] Corrigir links quebrados identificados
 - [ ] Padronizar formato de links
 - [ ] Verificar links externos periodicamente
-- [ ] Criar processo de validaÃ§Ã£o contÃ­nua
+- [ ] Criar processo de validação contínua
 
 ## Prioridade
- Importante - Afeta experiÃªncia do usuÃ¡rio`,
-    labels: [" Importante", " Links Quebrados", " AutomaÃ§Ã£o", " Auditoria"]
+ Importante - Afeta experiência do usuário`,
+    labels: [" Importante", " Links Quebrados", " Automação", " Auditoria"]
   },
   
   {
-    title: " Expandir integraÃ§Ãµes brasileiras",
+    title: " Expandir integrações brasileiras",
     body: `## Problema
-Faltam integraÃ§Ãµes especÃ­ficas para o mercado brasileiro.
+Faltam integrações específicas para o mercado brasileiro.
 
-## IntegraÃ§Ãµes PrioritÃ¡rias
+## Integrações Prioritárias
 - PIX e bancos brasileiros
 - Receita Federal (CNPJ/CPF)
 - ViaCEP e Correios
 - E-commerce nacional
 
 ## Tarefas
-- [ ] Pesquisar APIs disponÃ­veis
-- [ ] Criar documentaÃ§Ã£o das integraÃ§Ãµes
-- [ ] Desenvolver exemplos prÃ¡ticos
-- [ ] Testar integraÃ§Ãµes
-- [ ] Criar tutoriais especÃ­ficos
+- [ ] Pesquisar APIs disponíveis
+- [ ] Criar documentação das integrações
+- [ ] Desenvolver exemplos práticos
+- [ ] Testar integrações
+- [ ] Criar tutoriais específicos
 
 ## Prioridade
  Importante - Diferencial competitivo`,
-    labels: [" Importante", " IntegraÃ§Ãµes BR", " PortuguÃªs BR", " Tutorial", " Exemplos"]
+    labels: [" Importante", " Integrações BR", " Português BR", " Tutorial", " Exemplos"]
   },
   
   {
-    title: " Criar sistema de templates para conteÃºdo",
+    title: " Criar sistema de templates para conteúdo",
     body: `## Problema
-Falta padronizaÃ§Ã£o na criaÃ§Ã£o de novo conteÃºdo.
+Falta padronização na criação de novo conteúdo.
 
 ## Tarefas
 - [ ] Criar templates base
-- [ ] Definir estrutura padrÃ£o
+- [ ] Definir estrutura padrão
 - [ ] Estabelecer guias de estilo
 - [ ] Criar checklist de qualidade
-- [ ] Documentar processo de criaÃ§Ã£o
+- [ ] Documentar processo de criação
 
 ## Prioridade
- Melhoria - PadronizaÃ§Ã£o e qualidade`,
-    labels: [" Melhoria", " Template", " Melhoria ContÃ­nua"]
+ Melhoria - Padronização e qualidade`,
+    labels: [" Melhoria", " Template", " Melhoria Contínua"]
   }
 ];
 
@@ -135,12 +135,12 @@ async function createIssues(octokit) {
 }
 
 async function main() {
-  console.log(" Iniciando criaÃ§Ã£o de issues...");
-  console.log(` RepositÃ³rio: ${owner}/${repo}`);
+  console.log(" Iniciando criação de issues...");
+  console.log(` Repositório: ${owner}/${repo}`);
   
   const token = process.env.GITHUB_TOKEN;
   if (!token) {
-    console.error(" Token do GitHub nÃ£o encontrado. Defina GITHUB_TOKEN nas variÃ¡veis de ambiente.");
+    console.error(" Token do GitHub não encontrado. Defina GITHUB_TOKEN nas variáveis de ambiente.");
     process.exit(1);
   }
   
@@ -163,7 +163,7 @@ async function main() {
       });
     }
     
-    console.log("\n Acesse o repositÃ³rio para ver as issues:");
+    console.log("\n Acesse o repositório para ver as issues:");
     console.log(`https://github.com/${owner}/${repo}/issues`);
     
   } catch (error) {

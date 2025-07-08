@@ -74,7 +74,7 @@ A seção "Contribuir" tem várias páginas marcadas como "Em Construção" que 
 
 ## Páginas Afetadas
 - docs/contribuir/esta-documentacao/
-- docs/contribuir/projeto-n8n/
+- docs/contribuir/n8n-oficial/
 
 ## Tarefas
 - [ ] Revisar e completar conteúdo das páginas "em construção"

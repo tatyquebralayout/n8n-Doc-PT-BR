@@ -427,15 +427,15 @@ const sidebars: SidebarsConfig = {
         'contribuir/index',
         {
           type: 'category',
-          label: 'Contribuir com o Projeto n8n',
+          label: 'Contribuir com n8n oficial',
           items: [
-            'contribuir/projeto-n8n/index',
-            'contribuir/projeto-n8n/contribuir-codigo-e-docs',
-            'contribuir/projeto-n8n/contribuir-community',
-            'contribuir/projeto-n8n/contribuir-modelos',
-            'contribuir/projeto-n8n/adicionar-casos-uso',
-            'contribuir/projeto-n8n/afiliados-e-creators',
-            'contribuir/projeto-n8n/referral-vagas',
+            'contribuir/n8n-oficial/index',
+            'contribuir/n8n-oficial/contribuir-codigo-e-docs',
+            'contribuir/n8n-oficial/contribuir-community',
+            'contribuir/n8n-oficial/contribuir-modelos',
+            'contribuir/n8n-oficial/adicionar-casos-uso',
+            'contribuir/n8n-oficial/afiliados-e-creators',
+            'contribuir/n8n-oficial/referral-vagas',
           ],
         },
         {
