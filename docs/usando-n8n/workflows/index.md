@@ -45,6 +45,6 @@ Um workflow típico contém:
 
 ## Recursos Relacionados
 
-- **[Tutorial Básico](../tutorial-basico/primeiro-workflow)** - Seu primeiro workflow
+- **[Primeiros Passos](../primeiros-passos/primeiro-workflow)** - Seu primeiro workflow
 - **[Interface](../interface/navegacao-editor-ui)** - Navegar pela interface
 - **[Lógica e Dados](../../logica-e-dados)** - Controlar o fluxo de dados 

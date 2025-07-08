@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-title: IA Avançada
+title: Introdução
 description: Explore recursos avançados de inteligência artificial no n8n
 keywords: [n8n, IA, inteligência artificial, AI, langchain, openai, workflow]
 ---
 
-# IA Avançada
+# Introdução
 
 Bem-vindo à seção de Inteligência Artificial Avançada do n8n! Aqui você encontrará recursos para integrar e utilizar IA em seus workflows de automação.
 
@@ -55,6 +55,6 @@ Combine a automação tradicional com recursos de IA para:
 
 ## Recursos Relacionados
 
-- **[Tutorial Básico](../tutorial-basico/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Usando n8n](../usando-n8n)** - Guias práticos
 - **[Integrações](../integracoes)** - Conectar com aplicações externas 

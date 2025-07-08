@@ -2,7 +2,7 @@
 sidebar_position: 3
 title: n8n Cloud
 description: Guia completo para instalação e configuração do n8n Cloud
-slug: /tutorial-basico/instalacao-cloud
+slug: /primeiros-passos/instalacao-cloud
 keywords: [n8n, cloud, saas, hospedado, instalação]
 ---
 

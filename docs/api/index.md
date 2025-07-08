@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-title: API
+title: Introdução
 description: Documentação completa da API REST do n8n
 keywords: [n8n, API, REST, endpoints, autenticação, webhooks]
 ---
 
-# API do n8n
+# Introdução
 
 Bem-vindo à documentação da API REST do n8n! Aqui você encontrará tudo o que precisa para integrar e automatizar o n8n programaticamente.
 
@@ -71,6 +71,6 @@ Integre o n8n com sistemas externos através de webhooks:
 
 ## Recursos Relacionados
 
-- **[Tutorial Básico](../tutorial-basico/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Usando n8n](../usando-n8n)** - Guias práticos
 - **[Integrações](../integracoes)** - Conectar com aplicações externas 

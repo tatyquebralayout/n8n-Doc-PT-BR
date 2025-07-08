@@ -1,14 +1,13 @@
 ---
 sidebar_position: 1
-title: Hosting n8n
-sidebar_label: Visão Geral
+title: Introdução
 description: Guia completo para hospedar n8n em produção - instalação, configuração, escalonamento e segurança
 keywords: [n8n, hosting, hospedagem, produção, instalação, configuração, escalonamento, segurança]
 ---
 
 import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="server-outline" size={32} color="#ea4b71" /> Hosting n8n
+# <IonicIcon name="server-outline" size={32} color="#ea4b71" /> Introdução
 
 Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abrange todos os aspectos essenciais para implantar, configurar, escalar e proteger sua instalação n8n em ambiente empresarial.
 

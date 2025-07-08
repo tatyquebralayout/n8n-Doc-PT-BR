@@ -2,7 +2,7 @@
 sidebar_position: 5
 title: Instalação Local via npm
 description: Guia para instalação local do n8n via npm para desenvolvimento e testes
-slug: /tutorial-basico/instalacao-npm
+slug: /primeiros-passos/instalacao-npm
 keywords: [n8n, npm, instalação local, desenvolvimento, node.js]
 ---
 

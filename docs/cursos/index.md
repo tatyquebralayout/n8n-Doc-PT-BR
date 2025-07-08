@@ -1,13 +1,13 @@
 ---
 sidebar_position: 1
-title: Cursos Oficiais n8n
+title: Introdução
 description: Aprenda n8n com os cursos oficiais em vídeo e texto, com resumos e guias em português.
 keywords: [n8n, cursos, tutorial, vídeo, texto, aprender, oficial, documentação]
 ---
 
 import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="school-outline" size={32} color="#ea4b71" /> Cursos Oficiais n8n
+# <IonicIcon name="school-outline" size={32} color="#ea4b71" /> Introdução
 
 Bem-vindo à nossa central de aprendizado n8n! Esta seção oferece um **guia em português para os cursos oficiais** criados pela equipe do n8n.
 

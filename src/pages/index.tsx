@@ -65,18 +65,18 @@ export default function Home(): React.ReactElement {
           <div className="container">
             <div className={styles.mainFeaturesGrid}>
 
-              {/* Tutorial Básico */}
+              {/* Primeiros Passos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
                   <IonicIcon name="school-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
-                  <h4>Tutorial Básico</h4>
+                  <h4>Primeiros Passos</h4>
                   <p>Aprenda os conceitos fundamentais do n8n passo a passo.</p>
                   <ul>
-                    <li><Link to="/tutorial-basico/instalacao">Instalação</Link></li>
-                    <li><Link to="/tutorial-basico/conceitos-basicos">Conceitos Básicos</Link></li>
-                    <li><Link to="/tutorial-basico/primeiro-workflow">Primeiro Workflow</Link></li>
+                    <li><Link to="/primeiros-passos/instalacao">Instalação</Link></li>
+                    <li><Link to="/primeiros-passos/conceitos-basicos">Conceitos Básicos</Link></li>
+                    <li><Link to="/primeiros-passos/primeiro-workflow">Primeiro Workflow</Link></li>
                   </ul>
                 </div>
               </div>

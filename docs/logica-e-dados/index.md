@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-title: Lógica e Dados
+title: Introdução
 description: Aprenda sobre lógica de fluxo e manipulação de dados no n8n
 keywords: [n8n, lógica, dados, workflow, automação, fluxo]
 ---
 
-# Lógica e Dados
+# Introdução
 
 Esta seção aborda os conceitos fundamentais de lógica de fluxo e manipulação de dados no n8n, essenciais para criar workflows robustos e eficientes.
 
@@ -52,6 +52,6 @@ O n8n oferece ferramentas poderosas para trabalhar com dados:
 
 ## Recursos Relacionados
 
-- **[Tutorial Básico](../tutorial-basico/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Usando n8n](../usando-n8n)** - Guias práticos
 - **[Integrações](../integracoes)** - Conectar com aplicações externas 

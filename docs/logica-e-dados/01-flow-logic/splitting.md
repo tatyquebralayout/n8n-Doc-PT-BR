@@ -37,7 +37,7 @@ Splitting em workflows é como criar um **ponto de decisão** em um processo aut
 
 ### O que é Splitting de Workflow?
 
-No n8n, um [workflow](/tutorial-basico/primeiro-workflow) percorre naturalmente um **único caminho sequencial**. *Splitting* transforma esse caminho em **ramificações paralelas**: cada item é avaliado por um nó condicional ([*IF*](/integracoes/builtin-nodes/logic-control) ou [*Switch*](/integracoes/builtin-nodes/logic-control)) e roteado ao ramo que corresponde aos seus dados.
+No n8n, um [workflow](/primeiros-passos/primeiro-workflow) percorre naturalmente um **único caminho sequencial**. *Splitting* transforma esse caminho em **ramificações paralelas**: cada item é avaliado por um nó condicional ([*IF*](/integracoes/builtin-nodes/logic-control) ou [*Switch*](/integracoes/builtin-nodes/logic-control)) e roteado ao ramo que corresponde aos seus dados.
 
 <Admonition type="warning" title="⚠️ Importante: Não confunda com Split Out">
 **Splitting** ≠ **Split Out**

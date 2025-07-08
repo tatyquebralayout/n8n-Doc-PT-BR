@@ -42,6 +42,6 @@ O n8n oferece várias camadas de segurança:
 
 ## Recursos Relacionados
 
-- **[Tutorial Básico](../tutorial-basico/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Interface](../interface/navegacao-editor-ui)** - Navegar pela interface
 - **[Integrações](../../integracoes)** - Conectar com aplicações externas 

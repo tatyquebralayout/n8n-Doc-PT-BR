@@ -2,7 +2,7 @@
 sidebar_position: 2
 title: Instalação Self-hosted do n8n
 description: Guia completo para instalação self-hosted do n8n com Docker e npm
-slug: /tutorial-basico/instalacao
+slug: /primeiros-passos/instalacao
 keywords: [n8n, instalação, docker, npm, setup, self-hosted]
 ---
 

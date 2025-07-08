@@ -1,13 +1,13 @@
 ---
 sidebar_position: 1
-title: Embed
+title: Introdução
 description: Integre o n8n em suas aplicações através do sistema de embed
 keywords: [n8n, embed, integração, iframe, white-label, workflow]
 ---
 
 import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="code-outline" size={32} color="#ea4b71" /> Embed do n8n
+# <IonicIcon name="code-outline" size={32} color="#ea4b71" /> Introdução
 
 Bem-vindo à seção de Embed do n8n! Aqui você aprenderá como integrar o n8n em suas aplicações através do sistema de embed, permitindo oferecer automação como parte de sua plataforma.
 
@@ -79,7 +79,7 @@ O embed é ideal para:
 
 ## <IonicIcon name="link-outline" size={24} color="#ea4b71" /> Recursos Relacionados
 
-- **[Tutorial Básico](../tutorial-basico/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Hosting n8n](../hosting-n8n/instalacao)** - Configuração de instância
 - **[API](../api)** - Integração programática
 

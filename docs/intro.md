@@ -92,7 +92,7 @@ Ao final, você terá autonomia para criar sua própria automação, seja um ale
 Escolha uma das opções abaixo para começar:
 
 :::tip **Recomendado para iniciantes**
-Comece com o **[Tutorial Básico](./tutorial-basico/instalacao)** para aprender os conceitos fundamentais.
+Comece com o **[Primeiros Passos](./primeiros-passos/instalacao)** para aprender os conceitos fundamentais.
 :::
 
 :::info **Para desenvolvedores**
@@ -109,12 +109,12 @@ Consulte **[Hosting n8n](../../hosting-n8n)** para configuração em produção.
 
 Esta documentação está organizada nas seguintes seções:
 
-### Tutorial Básico
+### Primeiros Passos
 Aprenda os conceitos fundamentais do n8n passo a passo.
 
-- **[Instalação](./tutorial-basico/instalacao)** - Guia completo de instalação
-- **[Conceitos Básicos](./tutorial-basico/conceitos-basicos)** - Fundamentos do n8n
-- **[Primeiro Workflow](./tutorial-basico/primeiro-workflow)** - Criar primeiro fluxo
+- **[Instalação](./primeiros-passos/instalacao)** - Guia completo de instalação
+- **[Conceitos Básicos](./primeiros-passos/conceitos-basicos)** - Fundamentos do n8n
+- **[Primeiro Workflow](./primeiros-passos/primeiro-workflow)** - Criar primeiro fluxo
 
 ### Guias Avançados
 Explore recursos avançados e casos de uso complexos.

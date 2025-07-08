@@ -36,8 +36,8 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/tatyquebralayout/n8n-Doc-pt-BR/tree/main/',
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
           routeBasePath: '/',
           sidebarCollapsed: false,
           breadcrumbs: true,
@@ -71,8 +71,8 @@ const config: Config = {
         routeBasePath: 'release-notes',
         sidebarPath: './sidebars-release-notes.ts',
         editUrl: 'https://github.com/tatyquebralayout/n8n-Doc-pt-BR/tree/main/',
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: false,
       },
     ],
   ],
@@ -122,8 +122,8 @@ const config: Config = {
           position: 'left',
           className: 'navbar-documentation-dropdown',
           items: [
-            { label: 'Guia de Instalação do n8n', to: '/tutorial-basico/guia-instalacao' },
-            { label: 'Tutorial Básico', to: '/tutorial-basico/instalacao' },
+            { label: 'Guia de Instalação do n8n', to: '/primeiros-passos/guia-instalacao' },
+            { label: 'Primeiros Passos', to: '/primeiros-passos/instalacao' },
             { label: 'Guias Avançados', to: '/usando-n8n' },
             { label: 'Lógica e Dados', to: '/logica-e-dados' },
             { label: 'IA Avançada', to: '/advanced-ai' },
@@ -227,7 +227,7 @@ const config: Config = {
             },
             {
               label: 'Tutorials',
-              to: '/tutorial-basico/instalacao',
+              to: '/primeiros-passos/instalacao',
             },
             {
               label: 'Integrações',

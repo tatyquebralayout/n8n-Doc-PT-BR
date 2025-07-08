@@ -1,11 +1,11 @@
 ---
 id: index
-title: Referência n8n Brasil
+title: Introdução
 sidebar_label: Visão Geral
 ---
 import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="library-outline" size={32} /> Referência n8n Brasil
+# <IonicIcon name="library-outline" size={32} /> Introdução
 
 Esta seção concentra **toda a documentação de referência** para n8n em português, servindo como seu guia definitivo para consultas rápidas, troubleshooting, e recursos avançados.
 

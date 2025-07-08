@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-title: Usando n8n
+title: Introdução
 description: Guias avançados e tutoriais práticos para usar o n8n de forma eficiente
 keywords: [n8n, guias, tutoriais, workflow, automação]
 ---
 
-# Usando n8n
+# Introdução
 
 Bem-vindo aos guias avançados do n8n! Esta seção contém tutoriais práticos e recursos para ajudá-lo a usar o n8n de forma eficiente e produtiva.
 
@@ -29,6 +29,6 @@ Bem-vindo aos guias avançados do n8n! Esta seção contém tutoriais práticos 
 
 ## Recursos Relacionados
 
-- **[Tutorial Básico](../tutorial-basico/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Lógica e Dados](../logica-e-dados)** - Manipulação avançada de dados
 - **[IA Avançada](../advanced-ai)** - Integração com inteligência artificial 

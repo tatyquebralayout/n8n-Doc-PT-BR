@@ -11,21 +11,22 @@ const sidebars: SidebarsConfig = {
     'intro',
     {
       type: 'category',
-      label: 'Tutorial Básico',
+      label: 'Primeiros Passos',
       items: [
-        'tutorial-basico/guia-instalacao',
-        'tutorial-basico/instalacao',
-        'tutorial-basico/instalacao-cloud',
-        'tutorial-basico/instalacao-self-hosted',
-        'tutorial-basico/instalacao-npm',
-        'tutorial-basico/conceitos-basicos',
-        'tutorial-basico/primeiro-workflow'
+        'primeiros-passos/guia-instalacao',
+        'primeiros-passos/instalacao',
+        'primeiros-passos/instalacao-cloud',
+        'primeiros-passos/instalacao-self-hosted',
+        'primeiros-passos/instalacao-npm',
+        'primeiros-passos/conceitos-basicos',
+        'primeiros-passos/primeiro-workflow'
       ],
     },
     {
       type: 'category',
       label: 'Usando n8n',
       items: [
+        'usando-n8n/index',
         {
           type: 'category',
           label: 'Getting Started',
@@ -81,6 +82,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Lógica e Dados',
       items: [
+        'logica-e-dados/index',
         {
           type: 'category',
           label: 'Lógica de Fluxo',
@@ -115,6 +117,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Integrações',
       items: [
+        'integracoes/index',
         {
           type: 'category',
           label: 'Nodes Integrados',
@@ -241,6 +244,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Hosting n8n',
       items: [
+        'hosting-n8n/instalacao',
         {
           type: 'category',
           label: 'Instalação',
@@ -291,6 +295,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Embed',
       items: [
+        'embed/index',
         {
           type: 'category',
           label: 'Preparação',
@@ -323,6 +328,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'IA Avançada',
       items: [
+        'advanced-ai/index',
         'advanced-ai/tutorial-ai',
         'advanced-ai/langchain-overview',
         {
@@ -355,6 +361,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'API',
       items: [
+        'api/index',
         {
           type: 'category',
           label: 'Conceitos',
@@ -386,6 +393,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Referência',
       items: [
+        'referencia/index',
         {
           type: 'category',
           label: 'Guias',
@@ -416,6 +424,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Contribuir',
       items: [
+        'contribuir/index',
         {
           type: 'category',
           label: 'Contribuir com o Projeto n8n',
@@ -491,6 +500,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Comunidade',
       items: [
+        'comunidade/index',
         'comunidade/automacao-iniciantes/index',
         'comunidade/casos-uso-avancados/index',
         'comunidade/videos/index',
@@ -503,6 +513,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Cursos',
       items: [
+        'cursos/index',
         {
           type: 'category',
           label: 'Cursos em Vídeo',

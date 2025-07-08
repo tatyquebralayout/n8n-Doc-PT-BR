@@ -83,7 +83,7 @@ O script irá:
   📋 Coluna criada: 🔄 Em Progresso
   📋 Coluna criada: 👀 Revisão
   📋 Coluna criada: ✅ Concluído
-  📝 Issue criada: [CORE] Tutorial básico de instalação completo
+  📝 Issue criada: [CORE] Primeiros Passos de instalação completo
     ➡️ Adicionada ao backlog
   📝 Issue criada: [CORE] Catálogo de integrações brasileiras
     ➡️ Adicionada ao backlog

@@ -2,7 +2,7 @@
 sidebar_position: 1
 title: Guia de Instalação do n8n – Visão Panorâmica
 description: Visão geral dos métodos de instalação do n8n e como escolher a melhor opção
-slug: /tutorial-basico/guia-instalacao
+slug: /primeiros-passos/guia-instalacao
 keywords: [n8n, instalação, cloud, self-hosted, npm, docker, guia]
 ---
 

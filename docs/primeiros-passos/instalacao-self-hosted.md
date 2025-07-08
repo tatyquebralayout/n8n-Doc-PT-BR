@@ -2,7 +2,7 @@
 sidebar_position: 4
 title: Self-hosted (Auto-hospedado)
 description: Guia completo para instalação self-hosted do n8n com Docker e configurações avançadas
-slug: /tutorial-basico/instalacao-self-hosted
+slug: /primeiros-passos/instalacao-self-hosted
 keywords: [n8n, self-hosted, docker, instalação, produção]
 ---
 

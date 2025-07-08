@@ -1,12 +1,12 @@
 ---
 sidebar_position: 1
-sidebar_label: Visão Geral
+title: Introdução
 description: Entenda os diferentes tipos de nodes e integrações disponíveis no n8n.
 keywords: [n8n, nodes, integrações, overview, builtin, trigger, app, community]
 ---
 import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="extension-puzzle-outline" size={32} /> Visão Geral de Integrações
+# <IonicIcon name="extension-puzzle-outline" size={32} /> Introdução
 
 O poder do n8n está em sua capacidade de conectar centenas de aplicações e serviços. Esta seção é o seu guia para entender e utilizar todo o potencial das integrações.
 
