@@ -163,18 +163,19 @@ export default function Home(): React.ReactElement {
                 </div>
               </div>
 
-              {/* Recursos Adicionais */}
+              {/* Recursos Técnicos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="book-outline" size={20} />
+                  <IonicIcon name="library-outline" size={20} />
                 </div>
                 <div className={styles.mainFeatureContent}>
-                  <h4>Recursos Adicionais</h4>
-                  <p>Links úteis para contribuir, releases e catálogo.</p>
+                  <h4>Recursos Técnicos</h4>
+                  <p>Guias de performance, troubleshooting e referências técnicas.</p>
                   <ul>
-                    <li><Link to="/contribuir">Como Contribuir</Link></li>
-                    <li><Link to="/release-notes">Release Notes</Link></li>
-                    <li><Link to="/catalogo">Catálogo</Link></li>
+                    <li><Link to="/referencia/guias/performance-guide">Guia de Performance</Link></li>
+                    <li><Link to="/referencia/guias/troubleshooting">Troubleshooting</Link></li>
+                    <li><Link to="/referencia/recursos/glossario">Glossário</Link></li>
+                    <li><Link to="/referencia/recursos/apis-brasileiras">APIs Brasileiras</Link></li>
                   </ul>
                 </div>
               </div>
@@ -192,6 +193,23 @@ export default function Home(): React.ReactElement {
                     <li><Link to="/contribuir/esta-documentacao/01-entendendo-o-projeto/como-contribuir">Como Contribuir</Link></li>
                     <li><Link to="/contribuir/esta-documentacao/03-padroes-e-estilo/design-system">Padrões de Design</Link></li>
                     <li><Link to="/contribuir/esta-documentacao/04-traducao-e-localizacao/guia-traducao">Guia de Tradução</Link></li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Links Úteis */}
+              <div className={styles.mainFeature}>
+                <div className={styles.mainFeatureIcon}>
+                  <IonicIcon name="link-outline" size={20} />
+                </div>
+                <div className={styles.mainFeatureContent}>
+                  <h4>Links Úteis</h4>
+                  <p>Recursos essenciais para acompanhar atualizações e encontrar soluções.</p>
+                  <ul>
+                    <li><Link to="/release-notes">Release Notes</Link></li>
+                    <li><Link to="/catalogo">Catálogo de Workflows</Link></li>
+                    <li><Link to="/referencia/historico/changelog">Changelog</Link></li>
+                    <li><Link to="/comunidade">Central da Comunidade</Link></li>
                   </ul>
                 </div>
               </div>
