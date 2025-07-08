@@ -126,11 +126,11 @@ N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n-custom.css
 - Use `window.postMessage` para comunicação entre o host e o iframe embed:
 ```js
 // No host
-iframe.contentWindow.postMessage({ type: 'n8n-load-workflow', workflowId: 'abc123' }, '*');
+iframe.contentWindow.postMessage({ type: 'n8n_load_workflow', workflowId: 'abc123' }, '*');
 
 // No embed
 window.addEventListener('message', (event) => {
-  if (event.data.type === 'n8n-load-workflow') {
+  if (event.data.type === 'n8n_load_workflow') {
     // Carregar workflow
   }
 });
