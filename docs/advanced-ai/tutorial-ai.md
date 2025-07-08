@@ -1,5 +1,5 @@
 ---
-id: tutorial-ai
+sidebar_position: 1
 title: Tutorial de IA
 sidebar_label: Tutorial de IA
 ---

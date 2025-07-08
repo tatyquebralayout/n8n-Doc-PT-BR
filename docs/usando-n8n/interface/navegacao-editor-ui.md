@@ -1,5 +1,5 @@
 ---
-id: navegacao-editor-ui
+sidebar_position: 1
 title: Navegação no Editor UI
 sidebar_label: Navegação no Editor UI
 ---

@@ -1,0 +1,189 @@
+---
+sidebar_position: 2
+title: Paleta de Cores
+description: Paleta de cores e sistema de design da documentação n8n Brasil
+keywords: [n8n, cores, design, paleta, documentação]
+---
+
+import IonicIcon from '@site/src/components/IonicIcon';
+
+# <IonicIcon name="color-palette-outline" size={32} color="#ea4b71" /> Paleta de Cores
+
+Esta página define a **paleta de cores oficial** da documentação n8n Brasil e como utilizá-la de forma consistente.
+
+---
+
+## <IonicIcon name="color-fill-outline" size={24} color="#ea4b71" /> Cores Principais
+
+### **n8n Pink (#ea4b71)**
+- **Uso**: Cor principal da marca n8n
+- **Aplicação**: Títulos, ícones principais, destaque de elementos
+- **Exemplo**: `<IonicIcon name="star" color="#ea4b71" />`
+
+### **n8n Blue (#0066cc)**
+- **Uso**: Cor secundária da marca
+- **Aplicação**: Links, botões, elementos interativos
+- **Exemplo**: Links de navegação e call-to-actions
+
+---
+
+## <IonicIcon name="color-palette-outline" size={24} color="#10b981" /> Cores Semânticas
+
+### **Sucesso (#10b981)**
+- **Uso**: Confirmações, sucessos, checkmarks
+- **Aplicação**: Status de sucesso, validações positivas
+- **Exemplo**: `<IonicIcon name="checkmark" color="#10b981" />`
+
+### **Aviso (#f59e0b)**
+- **Uso**: Alertas, avisos, informações importantes
+- **Aplicação**: Notificações, dicas, conteúdo em construção
+- **Exemplo**: `<IonicIcon name="warning" color="#f59e0b" />`
+
+### **Erro (#ef4444)**
+- **Uso**: Erros, falhas, problemas críticos
+- **Aplicação**: Mensagens de erro, validações negativas
+- **Exemplo**: `<IonicIcon name="close-circle" color="#ef4444" />`
+
+### **Informação (#06b6d4)**
+- **Uso**: Informações neutras, dados, estatísticas
+- **Aplicação**: Tooltips, informações adicionais
+- **Exemplo**: `<IonicIcon name="information" color="#06b6d4" />`
+
+---
+
+## <IonicIcon name="layers-outline" size={24} color="#6b7280" /> Cores Neutras
+
+### **Cinza Escuro (#374151)**
+- **Uso**: Texto principal, títulos secundários
+- **Aplicação**: Conteúdo de leitura, navegação
+
+### **Cinza Médio (#6b7280)**
+- **Uso**: Texto secundário, subtítulos
+- **Aplicação**: Descrições, metadados
+
+### **Cinza Claro (#9ca3af)**
+- **Uso**: Texto terciário, placeholders
+- **Aplicação**: Textos de suporte, legendas
+
+### **Cinza Muito Claro (#f3f4f6)**
+- **Uso**: Fundos, separadores
+- **Aplicação**: Backgrounds de seções, cards
+
+---
+
+## <IonicIcon name="brush-outline" size={24} color="#8b5cf6" /> Cores de Destaque
+
+### **Roxo (#8b5cf6)**
+- **Uso**: Elementos especiais, premium
+- **Aplicação**: Features avançadas, conteúdo premium
+
+### **Verde (#84cc16)**
+- **Uso**: Links, elementos de ação
+- **Aplicação**: Links externos, referências
+
+### **Rosa (#ec4899)**
+- **Uso**: Elementos de destaque, callouts
+- **Aplicação**: Destaques especiais, promoções
+
+---
+
+## <IonicIcon name="code-outline" size={24} color="#f59e0b" /> Como Usar
+
+### **Em Componentes IonicIcon**
+```jsx
+<IonicIcon name="star" color="#ea4b71" size={24} />
+<IonicIcon name="checkmark" color="#10b981" size={20} />
+<IonicIcon name="warning" color="#f59e0b" size={16} />
+```
+
+### **Em CSS Customizado**
+```css
+.success-color { color: #10b981; }
+.warning-color { color: #f59e0b; }
+.error-color { color: #ef4444; }
+.info-color { color: #06b6d4; }
+```
+
+### **Em Admonitions**
+```markdown
+:::tip **Dica**
+Conteúdo com cor de sucesso automática
+:::
+
+:::warning **Atenção**
+Conteúdo com cor de aviso automática
+:::
+
+:::danger **Cuidado**
+Conteúdo com cor de erro automática
+:::
+
+:::info **Informação**
+Conteúdo com cor de informação automática
+:::
+```
+
+---
+
+## <IonicIcon name="contrast-outline" size={24} color="#374151" /> Acessibilidade
+
+### **Contraste Mínimo**
+- **Texto sobre fundo claro**: 4.5:1
+- **Texto sobre fundo escuro**: 3:1
+- **Elementos grandes**: 3:1
+
+### **Teste de Contraste**
+Sempre teste o contraste usando ferramentas como:
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- [Stark Contrast Checker](https://www.getstark.co/contrast-checker)
+
+---
+
+## <IonicIcon name="color-filter-outline" size={24} color="#ea4b71" /> Exemplos Práticos
+
+### **Cards de Destaque**
+```jsx
+<HighlightCard 
+  title="Destaque Importante"
+  description="Informação relevante"
+  type="success" // Usa cor #10b981
+/>
+```
+
+### **Navegação**
+```jsx
+<ArticleCard 
+  title="Título do Card"
+  description="Descrição"
+  link="./caminho"
+  // Links usam cor #84cc16
+/>
+```
+
+### **Status de Workflow**
+```jsx
+// Sucesso
+<IonicIcon name="checkmark-circle" color="#10b981" />
+
+// Em execução  
+<IonicIcon name="time" color="#f59e0b" />
+
+// Erro
+<IonicIcon name="close-circle" color="#ef4444" />
+```
+
+---
+
+## <IonicIcon name="checkmark-done-outline" size={24} color="#10b981" /> Checklist de Cores
+
+Antes de usar cores, verifique:
+
+- [ ] **Contraste adequado** para acessibilidade
+- [ ] **Consistência** com a paleta oficial
+- [ ] **Semântica correta** (sucesso, erro, aviso, info)
+- [ ] **Uso moderado** de cores vibrantes
+- [ ] **Teste em diferentes dispositivos**
+
+---
+
+**<IonicIcon name="color-palette-outline" size={16} color="#ea4b71" /> Uma paleta consistente cria uma experiência visual coesa e profissional!** 

@@ -1,5 +1,5 @@
 ---
-id: instalacao
+sidebar_position: 1
 title: Instalação
 sidebar_label: Visão Geral
 ---

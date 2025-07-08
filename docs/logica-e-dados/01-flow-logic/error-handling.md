@@ -1,5 +1,5 @@
 ---
-id: error-handling
+sidebar_position: 1
 title: Tratamento de Erros
 sidebar_label: Tratamento de Erros
 ---

@@ -6,7 +6,12 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
+    "start": "docusaurus start --port 3000",
+    "start:clean": "npm run kill-port && docusaurus start --port 3000",
+    "start:alt": "docusaurus start --port 3001",
+    "start:smart": "node scripts/start-dev.js",
+    "kill-port": "npx kill-port 3000 3001 3002",
+    "dev": "npm run kill-port && docusaurus start --port 3000",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -79,6 +84,7 @@
     "@vitalets/google-translate-api": "^9.2.1",
     "axios": "^1.10.0",
     "eslint": "^9.30.1",
+    "kill-port": "^2.0.1",
     "typescript": "^5.8.3"
   },
   "browserslist": {

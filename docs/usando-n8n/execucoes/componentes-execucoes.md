@@ -1,5 +1,5 @@
 ---
-id: componentes-execucoes
+sidebar_position: 1
 title: Componentes de Execução
 sidebar_label: Componentes de Execução
 ---

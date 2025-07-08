@@ -1,0 +1,209 @@
+---
+sidebar_position: 1
+title: Guia de Estilo
+description: Diretrizes de estilo e padrões para contribuir com a documentação
+keywords: [n8n, estilo, padrões, documentação, contribuir]
+---
+
+import IonicIcon from '@site/src/components/IonicIcon';
+
+# <IonicIcon name="color-palette-outline" size={32} color="#ea4b71" /> Guia de Estilo
+
+Este guia estabelece os **padrões de estilo e formatação** para manter consistência na documentação n8n Brasil.
+
+---
+
+## <IonicIcon name="chatbubbles-outline" size={24} color="#10b981" /> Tom de Voz
+
+### **Princípios Gerais**
+- **Técnico e preciso**: Use linguagem clara e técnica
+- **Inclusivo**: Evite jargões desnecessários e seja acessível
+- **Profissional**: Mantenha um tom institucional mas amigável
+- **Contextualizado**: Adapte exemplos para o contexto brasileiro
+
+### **Linguagem Inclusiva**
+- Use "pessoas desenvolvedoras" em vez de "desenvolvedores"
+- Prefira "usuários" ou "pessoas usuárias" 
+- Evite gêneros específicos quando possível
+- Use "você" para criar proximidade
+
+---
+
+## <IonicIcon name="text-outline" size={24} color="#ea4b71" /> Formatação
+
+### **Títulos e Subtítulos**
+```markdown
+# Título Principal (H1)
+## Seção Principal (H2) 
+### Subseção (H3)
+#### Tópico Específico (H4)
+```
+
+### **Destaques e Alertas**
+```markdown
+:::tip **Dica Importante**
+Conteúdo útil para o usuário
+:::
+
+:::warning **Atenção**
+Aviso sobre algo importante
+:::
+
+:::danger **Cuidado**
+Informação crítica ou perigosa
+:::
+
+:::info **Informação**
+Dados adicionais ou contexto
+:::
+```
+
+### **Listas**
+```markdown
+- Item simples
+- **Item em negrito**
+- Item com [link](./exemplo)
+
+1. Item numerado
+2. **Item numerado em negrito**
+3. Item com `código inline`
+```
+
+---
+
+## <IonicIcon name="code-outline" size={24} color="#f59e0b" /> Código e Exemplos
+
+### **Blocos de Código**
+```markdown
+```json
+{
+  "exemplo": "de configuração JSON"
+}
+```
+
+```javascript
+// Exemplo de código JavaScript
+function exemplo() {
+  return "código bem formatado";
+}
+```
+```
+
+### **Código Inline**
+```markdown
+Use `comando` para executar no terminal
+Configure a variável `N8N_BASIC_AUTH_ACTIVE`
+```
+
+---
+
+## <IonicIcon name="grid-outline" size={24} color="#8b5cf6" /> Tabelas
+
+### **Estrutura Padrão**
+```markdown
+| Campo | Tipo | Descrição | Obrigatório |
+|-------|------|-----------|-------------|
+| `url` | string | URL do webhook | Sim |
+| `method` | string | Método HTTP | Não |
+| `headers` | object | Cabeçalhos customizados | Não |
+```
+
+### **Tabelas de Integração**
+Para integrações, use sempre:
+- **Campo**: Nome do campo/parâmetro
+- **Tipo**: Tipo de dado esperado
+- **Descrição**: Explicação clara do propósito
+- **Obrigatório**: Sim/Não
+
+---
+
+## <IonicIcon name="image-outline" size={24} color="#06b6d4" /> Imagens e Screenshots
+
+### **Padrões de Nomenclatura**
+```
+interface-n8n.png
+workflow-exemplo.png
+configuracao-webhook.png
+```
+
+### **Formatação**
+```markdown
+![Descrição da imagem](./caminho/para/imagem.png)
+
+**Figura 1:** Interface principal do n8n
+```
+
+### **Requisitos**
+- Use formato PNG ou JPG
+- Mantenha resolução adequada (mínimo 800px de largura)
+- Inclua descrição acessível
+- Otimize o tamanho do arquivo
+
+---
+
+## <IonicIcon name="link-outline" size={24} color="#84cc16" /> Links e Referências
+
+### **Links Internos**
+```markdown
+[Guia de Instalação](./guia-instalacao)
+[Configuração de Webhooks](../integracoes/webhook)
+```
+
+### **Links Externos**
+```markdown
+[Documentação Oficial n8n](https://docs.n8n.io)
+[GitHub do Projeto](https://github.com/n8n-io/n8n)
+```
+
+### **Links de API**
+```markdown
+[API de Pagamentos](https://api.mercadopago.com/docs)
+```
+
+---
+
+## <IonicIcon name="color-palette-outline" size={24} color="#ec4899" /> Componentes Customizados
+
+### **IonicIcon**
+```markdown
+<IonicIcon name="checkmark-outline" size={24} color="#10b981" />
+```
+
+### **HighlightCard**
+```markdown
+<HighlightCard 
+  title="Destaque Importante"
+  description="Informação relevante para o usuário"
+  type="success"
+/>
+```
+
+### **CardGrid**
+```markdown
+<CardGrid>
+  <ArticleCard 
+    title="Título do Card"
+    description="Descrição do conteúdo"
+    link="./caminho"
+  />
+</CardGrid>
+```
+
+---
+
+## <IonicIcon name="checkmark-done-outline" size={24} color="#10b981" /> Checklist de Qualidade
+
+Antes de submeter uma contribuição, verifique:
+
+- [ ] **Tom de voz** adequado e inclusivo
+- [ ] **Formatação** consistente com o guia
+- [ ] **Links** funcionando e atualizados
+- [ ] **Código** bem formatado e testado
+- [ ] **Imagens** com descrição acessível
+- [ ] **Tabelas** seguindo o padrão estabelecido
+- [ ] **Componentes** usando a sintaxe correta
+- [ ] **Contextualização** para o Brasil quando aplicável
+
+---
+
+**<IonicIcon name="star-outline" size={16} color="#ea4b71" /> Seguir estes padrões garante uma documentação consistente e profissional para toda a comunidade!** 

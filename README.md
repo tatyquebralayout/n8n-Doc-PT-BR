@@ -86,6 +86,53 @@ Para ver os passos completos, consulte o arquivo: **[`CONTRIBUTING.md`](./CONTRI
 
 ---
 
+## 🚀 Como Executar
+
+### Desenvolvimento
+
+```bash
+# Instalar dependências
+npm install
+
+# Iniciar servidor de desenvolvimento (recomendado)
+npm run start:smart
+
+# Ou usar comandos alternativos:
+npm run start:clean    # Mata processos na porta 3000 e inicia
+npm run start:alt      # Inicia na porta 3001
+npm run dev           # Comando tradicional
+```
+
+### Comandos Úteis
+
+```bash
+# Matar processos nas portas 3000, 3001, 3002
+npm run kill-port
+
+# Build para produção
+npm run build
+
+# Servir build de produção
+npm run serve
+```
+
+### Solução de Problemas
+
+**Porta 3000 em uso:**
+```bash
+# Opção 1: Usar o comando inteligente
+npm run start:smart
+
+# Opção 2: Matar processos manualmente
+npm run kill-port
+npm run start
+
+# Opção 3: Usar porta alternativa
+npm run start:alt
+```
+
+---
+
 Desenvolvido com carinho para a comunidade n8n Brasil.
 
 > _Esta documentação é independente e não substitui a [documentação oficial do n8n](https://docs.n8n.io/)._

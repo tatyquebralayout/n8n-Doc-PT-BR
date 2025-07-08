@@ -14,6 +14,7 @@ const sidebars: SidebarsConfig = {
       label: 'Tutorial Básico',
       items: [
         'tutorial-basico/guia-instalacao',
+        'tutorial-basico/instalacao',
         'tutorial-basico/instalacao-cloud',
         'tutorial-basico/instalacao-self-hosted',
         'tutorial-basico/instalacao-npm',
@@ -25,6 +26,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Usando n8n',
       items: [
+        'usando-n8n/index',
         {
           type: 'category',
           label: 'Getting Started',
@@ -46,6 +48,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Lógica e Dados',
       items: [
+        'logica-e-dados/index',
         {
           type: 'category',
           label: 'Lógica de Fluxo',
@@ -220,6 +223,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Embed',
       items: [
+        'embed/index',
         {
           type: 'category',
           label: 'Preparação',
@@ -241,6 +245,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'IA Avançada',
       items: [
+        'advanced-ai/index',
         'advanced-ai/tutorial-ai',
         'advanced-ai/langchain-overview',
         {
@@ -273,6 +278,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'API',
       items: [
+        'api/index',
         {
           type: 'category',
           label: 'Conceitos',
@@ -347,12 +353,14 @@ const sidebars: SidebarsConfig = {
           label: 'Primeiros Passos',
           items: [
             'contribuir/esta-documentacao/primeiros-passos/getting-started',
+            'contribuir/esta-documentacao/primeiros-passos/exemplos-praticos',
           ],
         },
         {
           type: 'category',
           label: 'Padrões e Estilo',
           items: [
+            'contribuir/esta-documentacao/padroes-e-estilo/guia-de-estilo',
             'contribuir/esta-documentacao/padroes-e-estilo/markdown-features',
             'contribuir/esta-documentacao/padroes-e-estilo/design-system',
             'contribuir/esta-documentacao/padroes-e-estilo/paleta-cores',
@@ -367,9 +375,17 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
+          label: 'Suporte e Dúvidas',
+          items: [
+            'contribuir/esta-documentacao/suporte-e-duvidas/onde-buscar-ajuda',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Recursos Técnicos',
           items: [
             'contribuir/esta-documentacao/recursos-tecnicos/docusaurus-folder',
+            'contribuir/esta-documentacao/recursos-tecnicos/paleta-cores',
           ],
         },
 
@@ -386,6 +402,7 @@ const sidebars: SidebarsConfig = {
     'comunidade/videos/index',
     'comunidade/github',
     'comunidade/como-participar',
+    'comunidade/estatisticas',
   ],
   cursosSidebar: [
     'cursos/index',

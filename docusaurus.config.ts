@@ -57,6 +57,11 @@ const config: Config = {
     ],
   ],
 
+  // Configurações para evitar conflitos de porta
+  customFields: {
+    port: process.env.PORT || 3000,
+  },
+
   plugins: [
     [
       '@docusaurus/plugin-content-docs',

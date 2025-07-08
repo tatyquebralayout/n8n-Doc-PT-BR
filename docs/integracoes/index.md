@@ -1,5 +1,5 @@
 ---
-title: Integrações
+sidebar_position: 1
 sidebar_label: Visão Geral
 description: Entenda os diferentes tipos de nodes e integrações disponíveis no n8n.
 keywords: [n8n, nodes, integrações, overview, builtin, trigger, app, community]

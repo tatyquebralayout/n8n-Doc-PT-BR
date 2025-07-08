@@ -1,5 +1,5 @@
 ---
-id: quickstart-rapido
+sidebar_position: 1
 title: Quickstart Rápido
 sidebar_label: Quickstart Rápido
 ---
