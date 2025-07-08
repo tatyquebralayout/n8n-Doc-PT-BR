@@ -5,8 +5,814 @@ description: Como implementar estratégias de backup e recuperação para n8n
 keywords: [n8n, backup, recovery, restauração, continuidade, dados]
 ---
 
-# Backup e Recovery
+import IonicIcon from '@site/src/components/IonicIcon';
+
+# <IonicIcon name="backup-outline" size={32} color="#ea4b71" /> Backup e Recovery
 
 Este documento ensina como **implementar backup e recovery** para n8n, incluindo backup automático de workflows, export/import de credenciais, versionamento de configurações, recuperação point-in-time, testes de restauração, e estratégias de disaster recovery que garantem proteção completa dos dados críticos e continuidade operacional mesmo em cenários catastróficos de perda de dados ou infraestrutura.
 
-** Em construção:** Este conteúdo incluirá scripts de automação de backup e planos de continuidade específicos.
+## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+
+- <IonicIcon name="save-outline" size={16} color="#6b7280" /> Estratégias de backup 3-2-1
+- <IonicIcon name="refresh-outline" size={16} color="#6b7280" /> Scripts de automação
+- <IonicIcon name="time-outline" size={16} color="#6b7280" /> Recuperação point-in-time
+- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> Disaster recovery
+- <IonicIcon name="checkmark-circle-outline" size={16} color="#6b7280" /> Testes de restauração
+
+---
+
+## <IonicIcon name="save-outline" size={24} color="#ea4b71" /> Estratégia de Backup 3-2-1
+
+### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Princípio 3-2-1
+
+#### **Definição da Estratégia**
+- **3 cópias** dos dados (original + 2 backups)
+- **2 tipos** de mídia diferentes (disco + nuvem)
+- **1 cópia** fora do local (backup remoto)
+
+#### **Implementação**
+```bash
+# Estrutura de backup 3-2-1
+/backups/n8n/
+├── local/                    # Backup local (disco)
+│   ├── daily/               # Backups diários
+│   ├── weekly/              # Backups semanais
+│   └── monthly/             # Backups mensais
+├── cloud/                   # Backup na nuvem
+│   ├── s3/                  # Amazon S3
+│   ├── gcs/                 # Google Cloud Storage
+│   └── azure/               # Azure Blob Storage
+└── offsite/                 # Backup fora do local
+    ├── remote-server/       # Servidor remoto
+    └── tape/                # Fita (se aplicável)
+```
+
+---
+
+## <IonicIcon name="server-outline" size={24} color="#ea4b71" /> Backup de Banco de Dados
+
+### <IonicIcon name="logo-postgres" size={20} color="#10b981" /> PostgreSQL
+
+#### **Script de Backup PostgreSQL**
+```bash
+#!/bin/bash
+# backup-postgres.sh
+
+# Configurações
+DB_HOST="localhost"
+DB_PORT="5432"
+DB_NAME="n8n"
+DB_USER="n8n"
+DB_PASSWORD="senha_banco"
+BACKUP_DIR="/backups/n8n/database"
+DATE=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE="$BACKUP_DIR/n8n_db_$DATE.sql"
+RETENTION_DAYS=30
+
+# Criar diretório se não existir
+mkdir -p $BACKUP_DIR
+
+# Backup completo
+echo "Iniciando backup do PostgreSQL..."
+pg_dump -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME > $BACKUP_FILE
+
+# Verificar se o backup foi bem-sucedido
+if [ $? -eq 0 ]; then
+    echo "Backup criado com sucesso: $BACKUP_FILE"
+    
+    # Comprimir backup
+    gzip $BACKUP_FILE
+    echo "Backup comprimido: $BACKUP_FILE.gz"
+    
+    # Calcular tamanho do backup
+    BACKUP_SIZE=$(du -h "$BACKUP_FILE.gz" | cut -f1)
+    echo "Tamanho do backup: $BACKUP_SIZE"
+    
+    # Remover backups antigos
+    find $BACKUP_DIR -name "*.sql.gz" -mtime +$RETENTION_DAYS -delete
+    echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
+    
+    # Log do backup
+    echo "$(date): Backup PostgreSQL criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
+    
+else
+    echo "ERRO: Falha no backup do PostgreSQL"
+    exit 1
+fi
+```
+
+#### **Backup Incremental**
+```bash
+#!/bin/bash
+# backup-postgres-incremental.sh
+
+# Configurações
+DB_HOST="localhost"
+DB_PORT="5432"
+DB_NAME="n8n"
+DB_USER="n8n"
+BACKUP_DIR="/backups/n8n/database/incremental"
+DATE=$(date +%Y%m%d_%H%M%S)
+
+# Backup incremental usando WAL
+pg_basebackup -h $DB_HOST -p $DB_PORT -U $DB_USER \
+  -D $BACKUP_DIR/base_$DATE \
+  -Ft -z -P
+
+echo "Backup incremental criado: $BACKUP_DIR/base_$DATE"
+```
+
+### <IonicIcon name="logo-mysql" size={20} color="#10b981" /> MySQL
+
+#### **Script de Backup MySQL**
+```bash
+#!/bin/bash
+# backup-mysql.sh
+
+# Configurações
+DB_HOST="localhost"
+DB_PORT="3306"
+DB_NAME="n8n"
+DB_USER="n8n"
+DB_PASSWORD="senha_banco"
+BACKUP_DIR="/backups/n8n/database"
+DATE=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE="$BACKUP_DIR/n8n_db_$DATE.sql"
+RETENTION_DAYS=30
+
+# Criar diretório se não existir
+mkdir -p $BACKUP_DIR
+
+# Backup completo
+echo "Iniciando backup do MySQL..."
+mysqldump -h $DB_HOST -P $DB_PORT -u $DB_USER -p$DB_PASSWORD \
+  --single-transaction \
+  --routines \
+  --triggers \
+  --events \
+  $DB_NAME > $BACKUP_FILE
+
+# Verificar se o backup foi bem-sucedido
+if [ $? -eq 0 ]; then
+    echo "Backup criado com sucesso: $BACKUP_FILE"
+    
+    # Comprimir backup
+    gzip $BACKUP_FILE
+    echo "Backup comprimido: $BACKUP_FILE.gz"
+    
+    # Calcular tamanho do backup
+    BACKUP_SIZE=$(du -h "$BACKUP_FILE.gz" | cut -f1)
+    echo "Tamanho do backup: $BACKUP_SIZE"
+    
+    # Remover backups antigos
+    find $BACKUP_DIR -name "*.sql.gz" -mtime +$RETENTION_DAYS -delete
+    echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
+    
+    # Log do backup
+    echo "$(date): Backup MySQL criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
+    
+else
+    echo "ERRO: Falha no backup do MySQL"
+    exit 1
+fi
+```
+
+---
+
+## <IonicIcon name="folder-outline" size={24} color="#ea4b71" /> Backup de Workflows e Credenciais
+
+### <IonicIcon name="code-outline" size={20} color="#10b981" /> Backup via API
+
+#### **Script de Backup de Workflows**
+```bash
+#!/bin/bash
+# backup-workflows.sh
+
+# Configurações
+N8N_URL="https://seu-n8n.com"
+API_KEY="sua_api_key"
+BACKUP_DIR="/backups/n8n/workflows"
+DATE=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE="$BACKUP_DIR/workflows_$DATE.json"
+RETENTION_DAYS=30
+
+# Criar diretório se não existir
+mkdir -p $BACKUP_DIR
+
+# Backup de workflows via API
+echo "Iniciando backup de workflows..."
+curl -H "X-N8N-API-KEY: $API_KEY" \
+  "$N8N_URL/api/v1/workflows" \
+  | jq '.' > $BACKUP_FILE
+
+# Verificar se o backup foi bem-sucedido
+if [ $? -eq 0 ]; then
+    echo "Backup de workflows criado: $BACKUP_FILE"
+    
+    # Comprimir backup
+    gzip $BACKUP_FILE
+    echo "Backup comprimido: $BACKUP_FILE.gz"
+    
+    # Calcular tamanho do backup
+    BACKUP_SIZE=$(du -h "$BACKUP_FILE.gz" | cut -f1)
+    echo "Tamanho do backup: $BACKUP_SIZE"
+    
+    # Remover backups antigos
+    find $BACKUP_DIR -name "*.json.gz" -mtime +$RETENTION_DAYS -delete
+    echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
+    
+    # Log do backup
+    echo "$(date): Backup de workflows criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
+    
+else
+    echo "ERRO: Falha no backup de workflows"
+    exit 1
+fi
+```
+
+#### **Script de Backup de Credenciais**
+```bash
+#!/bin/bash
+# backup-credentials.sh
+
+# Configurações
+N8N_URL="https://seu-n8n.com"
+API_KEY="sua_api_key"
+BACKUP_DIR="/backups/n8n/credentials"
+DATE=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE="$BACKUP_DIR/credentials_$DATE.json"
+RETENTION_DAYS=30
+
+# Criar diretório se não existir
+mkdir -p $BACKUP_DIR
+
+# Backup de credenciais via API
+echo "Iniciando backup de credenciais..."
+curl -H "X-N8N-API-KEY: $API_KEY" \
+  "$N8N_URL/api/v1/credentials" \
+  | jq '.' > $BACKUP_FILE
+
+# Verificar se o backup foi bem-sucedido
+if [ $? -eq 0 ]; then
+    echo "Backup de credenciais criado: $BACKUP_FILE"
+    
+    # Comprimir backup
+    gzip $BACKUP_FILE
+    echo "Backup comprimido: $BACKUP_FILE.gz"
+    
+    # Calcular tamanho do backup
+    BACKUP_SIZE=$(du -h "$BACKUP_FILE.gz" | cut -f1)
+    echo "Tamanho do backup: $BACKUP_SIZE"
+    
+    # Remover backups antigos
+    find $BACKUP_DIR -name "*.json.gz" -mtime +$RETENTION_DAYS -delete
+    echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
+    
+    # Log do backup
+    echo "$(date): Backup de credenciais criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
+    
+else
+    echo "ERRO: Falha no backup de credenciais"
+    exit 1
+fi
+```
+
+### <IonicIcon name="logo-docker" size={20} color="#10b981" /> Backup de Volumes Docker
+
+#### **Script de Backup de Volumes**
+```bash
+#!/bin/bash
+# backup-docker-volumes.sh
+
+# Configurações
+VOLUME_NAME="n8n_data"
+BACKUP_DIR="/backups/n8n/volumes"
+DATE=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE="$BACKUP_DIR/n8n_volume_$DATE.tar.gz"
+RETENTION_DAYS=30
+
+# Criar diretório se não existir
+mkdir -p $BACKUP_DIR
+
+# Parar container n8n
+echo "Parando container n8n..."
+docker stop n8n
+
+# Backup do volume
+echo "Iniciando backup do volume Docker..."
+docker run --rm -v $VOLUME_NAME:/data -v $BACKUP_DIR:/backup \
+  alpine tar czf /backup/n8n_volume_$DATE.tar.gz -C /data .
+
+# Reiniciar container n8n
+echo "Reiniciando container n8n..."
+docker start n8n
+
+# Verificar se o backup foi bem-sucedido
+if [ $? -eq 0 ]; then
+    echo "Backup do volume criado: $BACKUP_FILE"
+    
+    # Calcular tamanho do backup
+    BACKUP_SIZE=$(du -h "$BACKUP_FILE" | cut -f1)
+    echo "Tamanho do backup: $BACKUP_SIZE"
+    
+    # Remover backups antigos
+    find $BACKUP_DIR -name "*.tar.gz" -mtime +$RETENTION_DAYS -delete
+    echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
+    
+    # Log do backup
+    echo "$(date): Backup de volume criado - $BACKUP_FILE ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
+    
+else
+    echo "ERRO: Falha no backup do volume"
+    exit 1
+fi
+```
+
+---
+
+## <IonicIcon name="cloud-upload-outline" size={24} color="#ea4b71" /> Backup na Nuvem
+
+### <IonicIcon name="logo-aws" size={20} color="#10b981" /> Amazon S3
+
+#### **Script de Backup para S3**
+```bash
+#!/bin/bash
+# backup-to-s3.sh
+
+# Configurações
+S3_BUCKET="n8n-backups"
+S3_REGION="us-east-1"
+BACKUP_DIR="/backups/n8n"
+DATE=$(date +%Y%m%d_%H%M%S)
+RETENTION_DAYS=90
+
+# Backup completo para S3
+echo "Iniciando backup para S3..."
+
+# Backup de banco de dados
+aws s3 cp $BACKUP_DIR/database/n8n_db_$DATE.sql.gz \
+  s3://$S3_BUCKET/database/n8n_db_$DATE.sql.gz \
+  --region $S3_REGION
+
+# Backup de workflows
+aws s3 cp $BACKUP_DIR/workflows/workflows_$DATE.json.gz \
+  s3://$S3_BUCKET/workflows/workflows_$DATE.json.gz \
+  --region $S3_REGION
+
+# Backup de credenciais
+aws s3 cp $BACKUP_DIR/credentials/credentials_$DATE.json.gz \
+  s3://$S3_BUCKET/credentials/credentials_$DATE.json.gz \
+  --region $S3_REGION
+
+# Backup de volumes
+aws s3 cp $BACKUP_DIR/volumes/n8n_volume_$DATE.tar.gz \
+  s3://$S3_BUCKET/volumes/n8n_volume_$DATE.tar.gz \
+  --region $S3_REGION
+
+# Configurar lifecycle para remoção automática
+aws s3api put-bucket-lifecycle-configuration \
+  --bucket $S3_BUCKET \
+  --lifecycle-configuration '{
+    "Rules": [
+      {
+        "ID": "DeleteOldBackups",
+        "Status": "Enabled",
+        "Filter": {
+          "Prefix": ""
+        },
+        "Expiration": {
+          "Days": '$RETENTION_DAYS'
+        }
+      }
+    ]
+  }'
+
+echo "Backup para S3 concluído"
+```
+
+### <IonicIcon name="logo-google" size={20} color="#10b981" /> Google Cloud Storage
+
+#### **Script de Backup para GCS**
+```bash
+#!/bin/bash
+# backup-to-gcs.sh
+
+# Configurações
+GCS_BUCKET="n8n-backups"
+BACKUP_DIR="/backups/n8n"
+DATE=$(date +%Y%m%d_%H%M%S)
+RETENTION_DAYS=90
+
+# Backup completo para GCS
+echo "Iniciando backup para Google Cloud Storage..."
+
+# Backup de banco de dados
+gsutil cp $BACKUP_DIR/database/n8n_db_$DATE.sql.gz \
+  gs://$GCS_BUCKET/database/n8n_db_$DATE.sql.gz
+
+# Backup de workflows
+gsutil cp $BACKUP_DIR/workflows/workflows_$DATE.json.gz \
+  gs://$GCS_BUCKET/workflows/workflows_$DATE.json.gz
+
+# Backup de credenciais
+gsutil cp $BACKUP_DIR/credentials/credentials_$DATE.json.gz \
+  gs://$GCS_BUCKET/credentials/credentials_$DATE.json.gz
+
+# Backup de volumes
+gsutil cp $BACKUP_DIR/volumes/n8n_volume_$DATE.tar.gz \
+  gs://$GCS_BUCKET/volumes/n8n_volume_$DATE.tar.gz
+
+# Configurar lifecycle para remoção automática
+gsutil lifecycle set lifecycle.json gs://$GCS_BUCKET
+
+echo "Backup para GCS concluído"
+```
+
+---
+
+## <IonicIcon name="refresh-outline" size={24} color="#ea4b71" /> Recuperação e Restauração
+
+### <IonicIcon name="logo-postgres" size={20} color="#10b981" /> Restauração PostgreSQL
+
+#### **Script de Restauração**
+```bash
+#!/bin/bash
+# restore-postgres.sh
+
+# Configurações
+DB_HOST="localhost"
+DB_PORT="5432"
+DB_NAME="n8n"
+DB_USER="n8n"
+BACKUP_FILE="$1"
+
+if [ -z "$BACKUP_FILE" ]; then
+    echo "Uso: $0 <arquivo_backup>"
+    exit 1
+fi
+
+# Verificar se o arquivo existe
+if [ ! -f "$BACKUP_FILE" ]; then
+    echo "ERRO: Arquivo de backup não encontrado: $BACKUP_FILE"
+    exit 1
+fi
+
+echo "Iniciando restauração do PostgreSQL..."
+
+# Parar n8n
+echo "Parando n8n..."
+docker stop n8n
+
+# Fazer backup antes da restauração
+echo "Criando backup de segurança..."
+pg_dump -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME > \
+  /backups/n8n/pre_restore_backup_$(date +%Y%m%d_%H%M%S).sql
+
+# Descomprimir backup se necessário
+if [[ "$BACKUP_FILE" == *.gz ]]; then
+    echo "Descomprimindo backup..."
+    gunzip -c "$BACKUP_FILE" > "${BACKUP_FILE%.gz}"
+    BACKUP_FILE="${BACKUP_FILE%.gz}"
+fi
+
+# Restaurar backup
+echo "Restaurando backup..."
+psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME < "$BACKUP_FILE"
+
+# Verificar se a restauração foi bem-sucedida
+if [ $? -eq 0 ]; then
+    echo "Restauração concluída com sucesso"
+    
+    # Reiniciar n8n
+    echo "Reiniciando n8n..."
+    docker start n8n
+    
+    # Log da restauração
+    echo "$(date): Restauração PostgreSQL concluída - $BACKUP_FILE" >> /var/log/n8n/restore.log
+    
+else
+    echo "ERRO: Falha na restauração"
+    exit 1
+fi
+```
+
+### <IonicIcon name="code-outline" size={20} color="#10b981" /> Restauração de Workflows
+
+#### **Script de Restauração de Workflows**
+```bash
+#!/bin/bash
+# restore-workflows.sh
+
+# Configurações
+N8N_URL="https://seu-n8n.com"
+API_KEY="sua_api_key"
+BACKUP_FILE="$1"
+
+if [ -z "$BACKUP_FILE" ]; then
+    echo "Uso: $0 <arquivo_backup>"
+    exit 1
+fi
+
+# Verificar se o arquivo existe
+if [ ! -f "$BACKUP_FILE" ]; then
+    echo "ERRO: Arquivo de backup não encontrado: $BACKUP_FILE"
+    exit 1
+fi
+
+echo "Iniciando restauração de workflows..."
+
+# Descomprimir backup se necessário
+if [[ "$BACKUP_FILE" == *.gz ]]; then
+    echo "Descomprimindo backup..."
+    gunzip -c "$BACKUP_FILE" > "${BACKUP_FILE%.gz}"
+    BACKUP_FILE="${BACKUP_FILE%.gz}"
+fi
+
+# Restaurar workflows
+echo "Restaurando workflows..."
+jq -c '.[]' "$BACKUP_FILE" | while read workflow; do
+    curl -X POST \
+      -H "X-N8N-API-KEY: $API_KEY" \
+      -H "Content-Type: application/json" \
+      -d "$workflow" \
+      "$N8N_URL/api/v1/workflows"
+    
+    if [ $? -eq 0 ]; then
+        echo "Workflow restaurado com sucesso"
+    else
+        echo "ERRO: Falha na restauração do workflow"
+    fi
+done
+
+echo "Restauração de workflows concluída"
+
+# Log da restauração
+echo "$(date): Restauração de workflows concluída - $BACKUP_FILE" >> /var/log/n8n/restore.log
+```
+
+---
+
+## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Disaster Recovery
+
+### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Plano de Disaster Recovery
+
+#### **Cenários de Recuperação**
+```bash
+# Cenários de DR documentados
+DR_SCENARIOS=(
+    "Perda de servidor principal"
+    "Corrupção de banco de dados"
+    "Falha de storage"
+    "Desastre natural"
+    "Ataque cibernético"
+    "Erro humano"
+)
+```
+
+#### **RTO e RPO**
+```bash
+# Objetivos de Recuperação
+RTO_PRIMARY=4      # 4 horas para recuperação
+RTO_SECONDARY=24   # 24 horas para recuperação secundária
+RPO_PRIMARY=1      # 1 hora de perda de dados máxima
+RPO_SECONDARY=24   # 24 horas de perda de dados máxima
+```
+
+### <IonicIcon name="server-outline" size={20} color="#10b981" /> Recuperação de Infraestrutura
+
+#### **Script de Recuperação Completa**
+```bash
+#!/bin/bash
+# disaster-recovery.sh
+
+# Configurações
+PRIMARY_SERVER="n8n-primary.empresa.com"
+BACKUP_SERVER="n8n-backup.empresa.com"
+S3_BUCKET="n8n-backups"
+LATEST_BACKUP=$(aws s3 ls s3://$S3_BUCKET/database/ | sort | tail -1 | awk '{print $4}')
+
+echo "Iniciando Disaster Recovery..."
+
+# 1. Verificar conectividade
+echo "Verificando conectividade..."
+if ! ping -c 3 $PRIMARY_SERVER > /dev/null; then
+    echo "Servidor primário indisponível, iniciando DR..."
+    
+    # 2. Provisionar servidor de backup
+    echo "Provisionando servidor de backup..."
+    # Aqui você incluiria comandos para provisionar infraestrutura
+    
+    # 3. Restaurar banco de dados
+    echo "Restaurando banco de dados..."
+    aws s3 cp s3://$S3_BUCKET/database/$LATEST_BACKUP /tmp/
+    gunzip /tmp/$LATEST_BACKUP
+    psql -h localhost -U n8n -d n8n < /tmp/${LATEST_BACKUP%.gz}
+    
+    # 4. Restaurar workflows
+    echo "Restaurando workflows..."
+    aws s3 cp s3://$S3_BUCKET/workflows/ /tmp/workflows/ --recursive
+    
+    # 5. Configurar DNS
+    echo "Atualizando DNS..."
+    # Comandos para atualizar DNS
+    
+    # 6. Verificar funcionalidade
+    echo "Verificando funcionalidade..."
+    curl -f https://$BACKUP_SERVER/healthz
+    
+    if [ $? -eq 0 ]; then
+        echo "Disaster Recovery concluído com sucesso"
+        # Notificar equipe
+        curl -X POST $WEBHOOK_URL \
+          -H "Content-type: application/json" \
+          -d '{"text":"✅ Disaster Recovery concluído - n8n disponível em backup"}'
+    else
+        echo "ERRO: Falha no Disaster Recovery"
+        exit 1
+    fi
+else
+    echo "Servidor primário está funcionando"
+fi
+```
+
+---
+
+## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Testes de Restauração
+
+### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Script de Teste
+
+#### **Teste Automatizado de Restauração**
+```bash
+#!/bin/bash
+# test-restore.sh
+
+# Configurações
+TEST_ENV="test-restore"
+BACKUP_FILE="$1"
+TEST_DB="n8n_test"
+
+if [ -z "$BACKUP_FILE" ]; then
+    echo "Uso: $0 <arquivo_backup>"
+    exit 1
+fi
+
+echo "Iniciando teste de restauração..."
+
+# 1. Criar ambiente de teste
+echo "Criando ambiente de teste..."
+docker run -d --name $TEST_ENV \
+  -e DB_TYPE=postgresdb \
+  -e DB_POSTGRESDB_HOST=localhost \
+  -e DB_POSTGRESDB_DATABASE=$TEST_DB \
+  -p 5679:5678 \
+  n8nio/n8n:latest
+
+# 2. Aguardar inicialização
+echo "Aguardando inicialização..."
+sleep 30
+
+# 3. Restaurar backup
+echo "Restaurando backup de teste..."
+gunzip -c "$BACKUP_FILE" | psql -h localhost -U n8n -d $TEST_DB
+
+# 4. Verificar restauração
+echo "Verificando restauração..."
+WORKFLOW_COUNT=$(curl -s http://localhost:5679/api/v1/workflows | jq '. | length')
+echo "Workflows restaurados: $WORKFLOW_COUNT"
+
+# 5. Testar funcionalidade
+echo "Testando funcionalidade..."
+curl -f http://localhost:5679/healthz
+
+if [ $? -eq 0 ]; then
+    echo "✅ Teste de restauração PASSOU"
+    # Limpar ambiente de teste
+    docker stop $TEST_ENV
+    docker rm $TEST_ENV
+    psql -h localhost -U n8n -c "DROP DATABASE $TEST_DB;"
+else
+    echo "❌ Teste de restauração FALHOU"
+    exit 1
+fi
+```
+
+---
+
+## <IonicIcon name="time-outline" size={24} color="#ea4b71" /> Automação com Cron
+
+### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração de Cron Jobs
+
+#### **Crontab Configuração**
+```bash
+# Adicionar ao crontab (crontab -e)
+
+# Backup diário às 2h da manhã
+0 2 * * * /path/to/backup-postgres.sh
+
+# Backup semanal completo aos domingos às 3h
+0 3 * * 0 /path/to/backup-complete.sh
+
+# Backup de workflows a cada 6 horas
+0 */6 * * * /path/to/backup-workflows.sh
+
+# Backup para nuvem diário às 4h
+0 4 * * * /path/to/backup-to-s3.sh
+
+# Teste de restauração semanal aos sábados às 5h
+0 5 * * 6 /path/to/test-restore.sh
+
+# Limpeza de backups antigos diariamente às 6h
+0 6 * * * /path/to/cleanup-old-backups.sh
+```
+
+#### **Script de Limpeza**
+```bash
+#!/bin/bash
+# cleanup-old-backups.sh
+
+# Configurações
+BACKUP_DIR="/backups/n8n"
+RETENTION_DAYS=30
+CLOUD_RETENTION_DAYS=90
+
+echo "Iniciando limpeza de backups antigos..."
+
+# Limpar backups locais
+find $BACKUP_DIR -name "*.sql.gz" -mtime +$RETENTION_DAYS -delete
+find $BACKUP_DIR -name "*.json.gz" -mtime +$RETENTION_DAYS -delete
+find $BACKUP_DIR -name "*.tar.gz" -mtime +$RETENTION_DAYS -delete
+
+# Limpar backups na nuvem (S3)
+aws s3 ls s3://n8n-backups/ --recursive | \
+  awk '$1 < "'$(date -d "$CLOUD_RETENTION_DAYS days ago" +%Y-%m-%d)'" {print $4}' | \
+  xargs -I {} aws s3 rm s3://n8n-backups/{}
+
+echo "Limpeza concluída"
+```
+
+---
+
+## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Backup
+
+### <IonicIcon name="save-outline" size={20} color="#10b981" /> Configuração
+
+- [ ] Estratégia 3-2-1 implementada
+- [ ] Scripts de backup criados
+- [ ] Automação com cron configurada
+- [ ] Backup na nuvem configurado
+- [ ] Retenção de backups definida
+
+### <IonicIcon name="refresh-outline" size={20} color="#10b981" /> Recuperação
+
+- [ ] Scripts de restauração criados
+- [ ] Testes de restauração realizados
+- [ ] Plano de DR documentado
+- [ ] RTO e RPO definidos
+- [ ] Procedimentos de recuperação testados
+
+### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Monitoramento
+
+- [ ] Logs de backup configurados
+- [ ] Alertas de falha configurados
+- [ ] Métricas de backup coletadas
+- [ ] Relatórios de backup gerados
+- [ ] Verificação de integridade implementada
+
+### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Documentação
+
+- [ ] Procedimentos documentados
+- [ ] Contatos de emergência definidos
+- [ ] Matriz de responsabilidades
+- [ ] Plano de comunicação
+- [ ] Exercícios de DR realizados
+
+---
+
+## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+
+Agora que você implementou backup e recovery:
+
+1. **[Monitoramento](./monitoring)** - Configure alertas e métricas
+2. **[Autenticação](./autenticacao)** - Configure métodos de login seguros
+3. **[Usuários e Permissões](./usuarios-permissoes)** - Configure controle de acesso
+
+---
+
+:::tip **Dica Pro**
+Teste regularmente seus backups restaurando-os em ambiente de teste. Um backup que não pode ser restaurado é inútil.
+:::
+
+:::warning **Importante**
+Mantenha pelo menos uma cópia dos backups fora do local principal e teste a recuperação pelo menos mensalmente.
+:::
+
+:::info **Recurso Adicional**
+Considere implementar backup contínuo (continuous backup) para sistemas críticos que não podem perder dados.
+:::
+
+---
+
+**<IonicIcon name="link-outline" size={16} color="#ea4b71" /> Links úteis:**
+- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> [Documentação oficial n8n](https://docs.n8n.io/)
+- <IonicIcon name="backup-outline" size={16} color="#6b7280" /> [Backup e Restore n8n](https://docs.n8n.io/hosting/backup-restore/)
+- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> [Segurança n8n](https://docs.n8n.io/hosting/security/)
