@@ -4,9 +4,9 @@ const path = require('path');
 // Lista de todos os links do sidebar extraídos do sidebars.ts
 const sidebarLinks = [
   'intro',
-  'tutorial-basico/instalacao',
-  'tutorial-basico/conceitos-basicos', 
-  'tutorial-basico/primeiro-workflow',
+  'primeiros-passos/instalacao',
+  'primeiros-passos/conceitos-basicos', 
+  'primeiros-passos/primeiro-workflow',
   'usando-n8n/getting-started/quickstart-rapido',
   'usando-n8n/getting-started/workflow-na-pratica',
   'usando-n8n/interface/navegacao-editor-ui',

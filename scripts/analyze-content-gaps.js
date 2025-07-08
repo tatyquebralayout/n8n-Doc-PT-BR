@@ -349,7 +349,7 @@ class ContentGapAnalyzer {
 
   mapEnglishToPortuguese(section, page) {
     const mappings = {
-      'getting-started': 'tutorial-basico',
+      'getting-started': 'primeiros-passos',
       'using-n8n': 'usando-n8n',
       'integrations': 'integracoes',
       'hosting': 'hosting-n8n',

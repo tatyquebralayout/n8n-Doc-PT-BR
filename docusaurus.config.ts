@@ -277,7 +277,7 @@ const config: Config = {
             },
             {
               label: 'Código de Conduta',
-              to: '/contribuir/esta-documentacao/codigo-conduta',
+              to: '/contribuir/esta-documentacao/01-entendendo-o-projeto/codigo-conduta',
             },
             {
               label: 'Discutir no GitHub',

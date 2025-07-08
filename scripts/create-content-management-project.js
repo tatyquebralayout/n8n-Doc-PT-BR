@@ -123,8 +123,8 @@ Essencial para engajar novos contribuidores e facilitar participação da comuni
 A seção Getting Started é a primeira impressão dos usuários, mas está incompleta.
 
 ## 📋 Páginas que Precisam de Conteúdo
-- \`docs/tutorial-basico/conceitos-basicos.md\` - Expandir conceitos
-- \`docs/tutorial-basico/primeiro-workflow.md\` - Tutorial mais detalhado
+- \`docs/primeiros-passos/conceitos-basicos.md\` - Expandir conceitos
+- \`docs/primeiros-passos/primeiro-workflow.md\` - Tutorial mais detalhado
 - \`docs/usando-n8n/getting-started/quickstart-rapido.md\` - Quickstart de 5 minutos
 - \`docs/usando-n8n/getting-started/workflow-na-pratica.md\` - Exemplo prático
 
