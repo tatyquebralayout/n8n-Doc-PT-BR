@@ -138,6 +138,113 @@ ion-icon {
   height: 50px;
 }
 
+/* Estilos para os dropdowns do menu */
+.navbar__dropdown {
+  position: relative;
+}
+
+.navbar__dropdown__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: var(--ifm-navbar-link-color);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.navbar__dropdown__link:hover {
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+  text-decoration: none;
+}
+
+.navbar__dropdown__link::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid currentColor;
+  margin-left: 0.25rem;
+  transition: transform var(--animation-duration) var(--animation-easing);
+}
+
+.navbar__dropdown--show .navbar__dropdown__link::after {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.navbar__dropdown__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: var(--ifm-navbar-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all var(--animation-duration) var(--animation-easing);
+  z-index: 1000;
+  padding: 0.5rem 0;
+}
+
+.navbar__dropdown--show .navbar__dropdown__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Items do dropdown */
+.navbar__dropdown__item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--ifm-navbar-link-color);
+  text-decoration: none;
+  transition: all var(--animation-duration) var(--animation-easing);
+  font-size: var(--font-size-sm);
+}
+
+.navbar__dropdown__item:hover {
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+  text-decoration: none;
+}
+
+/* Modo escuro */
+[data-theme='dark'] .navbar__dropdown__menu {
+  background: var(--ifm-navbar-background-color);
+  border-color: var(--ifm-color-emphasis-300);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 996px) {
+  .navbar__dropdown__menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+  
+  .navbar__dropdown__item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  }
+  
+  .navbar__dropdown__item:last-child {
+    border-bottom: none;
+  }
+}
+
 /* Espaçamento das seções na página da comunidade */
 .section-container {
   margin-bottom: 3rem;

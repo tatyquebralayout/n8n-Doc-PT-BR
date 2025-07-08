@@ -109,6 +109,37 @@ const config: Config = {
           position: 'left',
           className: 'navbar-home-link',
         },
+        
+        // Dropdown "Documentação" - Agrupa conteúdo principal
+        {
+          type: 'dropdown',
+          label: 'Documentação',
+          position: 'left',
+          className: 'navbar-documentation-dropdown',
+          items: [
+            { label: 'Tutorial Básico', to: '/tutorial-basico/instalacao' },
+            { label: 'Guias Avançados', to: '/usando-n8n' },
+            { label: 'Lógica e Dados', to: '/logica-e-dados' },
+            { label: 'IA Avançada', to: '/advanced-ai' },
+            { label: 'API', to: '/api' },
+            { label: 'Deployment', to: '/hosting-n8n/instalacao' },
+            { label: 'Embed', to: '/embed' },
+          ],
+        },
+        
+        // Dropdown "Integrações" - Destaque para nodes
+        {
+          type: 'dropdown',
+          label: 'Integrações',
+          position: 'left',
+          className: 'navbar-integrations-dropdown',
+          items: [
+            { label: 'Todos os Nodes', to: '/integracoes' },
+            { label: 'Integrações BR', to: '/integracoes-br' },
+            { label: 'Criar Nodes', to: '/integracoes/criar-nodes' },
+          ],
+        },
+        
         {
           label: 'Comunidade',
           type: 'docSidebar',
@@ -117,21 +148,15 @@ const config: Config = {
           className: 'navbar-community-link',
         },
         {
-          label: 'Contribuir',
-          type: 'docSidebar',
-          sidebarId: 'contribuirSidebar',
-          position: 'left',
-        },
-        {
-          label: 'Workflows',
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-        },
-        {
           label: 'Cursos',
           type: 'docSidebar',
           sidebarId: 'cursosSidebar',
+          position: 'left',
+        },
+        {
+          label: 'Contribuir',
+          type: 'docSidebar',
+          sidebarId: 'contribuirSidebar',
           position: 'left',
         },
         {
