@@ -6,13 +6,13 @@ keywords: [n8n, execuções, visualizar, status, histórico, resultados]
 ---
 
 
-#  Visualizar Execuções
+# <ion-icon name="color-palette-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visualizar Execuções
 
 Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu em cada execução dos seus workflows.
 
 ---
 
-##  1 | Onde Encontrar Execuções
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Onde Encontrar Execuções
 
 ###  Menu de Execuções
 
@@ -32,7 +32,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-##  2 | Status das Execuções
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Status das Execuções
 
 ###  Status de Sucesso
 
@@ -68,7 +68,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-##  3 | Detalhes da Execução
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Detalhes da Execução
 
 ###  Informações Gerais
 
@@ -101,7 +101,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-##  4 | Análise de Performance
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Análise de Performance
 
 ###  Métricas de Tempo
 
@@ -125,7 +125,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-##  5 | Filtros e Busca
+## <ion-icon name="filter-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Filtros e Busca
 
 ###  Filtros Disponíveis
 
@@ -149,7 +149,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-##  6 | Exportar e Compartilhar
+## <ion-icon name="cloud-download-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Exportar e Compartilhar
 
 ###  Exportar Dados
 
@@ -171,7 +171,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-##  7 | Configurações de Visualização
+## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Configurações de Visualização
 
 ###  Personalizar Interface
 
@@ -205,7 +205,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-##  8 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 8 | Próximos passos
 
 1. **[Analisar Logs](./analisar-logs)** - Investigar problemas detalhadamente
 2. **[Configurar Alertas](./configurar-alertas)** - Receber notificações automáticas

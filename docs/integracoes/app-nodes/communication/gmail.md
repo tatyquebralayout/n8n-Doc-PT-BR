@@ -5,7 +5,7 @@ description: Como integrar n8n com Gmail para automação de emails e comunicaç
 keywords: [n8n, gmail, email, integração, automação, comunicação]
 ---
 
-#  Integração Gmail
+# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Integração Gmail
 
 Este documento detalha como **integrar n8n com Gmail** para automação completa de email, incluindo configuração OAuth, envio de emails personalizados, leitura e filtros de caixa de entrada, processamento de anexos, templates dinâmicos, e casos de uso práticos como newsletters automáticas, notificações de sistema, e workflows de follow-up que otimizam a comunicação profissional brasileira.
 

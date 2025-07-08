@@ -7,11 +7,11 @@ keywords: [n8n, lógica, controle, condicional, fluxo, if, switch, merge, loop, 
 
 import Admonition from '@theme/Admonition';
 
-#  Nodes de Lógica e Controle
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Nodes de Lógica e Controle
 
 Os nodes de lógica e controle do n8n permitem criar **workflows inteligentes, adaptativos e robustos**. Com eles, você implementa decisões condicionais, múltiplos caminhos, loops, tratamento de erros e junção de dados, tornando suas automações muito mais poderosas.
 
-##  O que você vai encontrar aqui
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai encontrar aqui
 
 - **[Splitting: Ramificação Condicional](../../../logica-e-dados/01-flow-logic/splitting)**
 - **[Node IF: Decisão Binária](#node-if)**
@@ -24,7 +24,7 @@ Os nodes de lógica e controle do n8n permitem criar **workflows inteligentes, a
 
 ---
 
-##  Visão Geral dos Nodes
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral dos Nodes
 
 | Node         | Finalidade                  | Saídas         | Quando usar?                  |
 |--------------|-----------------------------|----------------|-------------------------------|
@@ -35,7 +35,7 @@ Os nodes de lógica e controle do n8n permitem criar **workflows inteligentes, a
 
 ---
 
-##  Splitting: Ramificação Condicional
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Splitting: Ramificação Condicional
 
 Crie pontos de decisão no seu workflow para que cada item siga o caminho adequado, usando **IF** e **Switch**. Veja o guia completo:
 
@@ -43,7 +43,7 @@ Crie pontos de decisão no seu workflow para que cada item siga o caminho adequa
 
 ---
 
-##  Node IF: Decisão Binária {#node-if}
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node IF: Decisão Binária {#node-if}
 
 Use o node IF para separar o fluxo em dois caminhos (Sim/Não, Verdadeiro/Falso).
 
@@ -62,7 +62,7 @@ graph TD
 
 ---
 
-##  Node Switch: Decisão Multicondicional {#node-switch}
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node Switch: Decisão Multicondicional {#node-switch}
 
 O node Switch permite criar múltiplos caminhos baseados em diferentes valores ou regras.
 
@@ -84,7 +84,7 @@ graph TD
 
 ---
 
-##  Node Merge: Reunindo Ramificações {#node-merge}
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node Merge: Reunindo Ramificações {#node-merge}
 
 Após ramificar o fluxo, use o node Merge para reunir os caminhos e consolidar dados.
 
@@ -104,21 +104,21 @@ graph TD
 
 ---
 
-##  Looping: Repetição e Processamento em Lote
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Looping: Repetição e Processamento em Lote
 
 Implemente loops para processar arrays, repetir ações e criar automações dinâmicas:
 - [Guia de Looping →](../../../logica-e-dados/01-flow-logic/looping)
 
 ---
 
-##  Tratamento de Erros
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
 
 Garanta workflows resilientes com nodes de tratamento de erro, retry automático e notificações:
 - [Guia de Tratamento de Erros →](../../../logica-e-dados/01-flow-logic/error-handling)
 
 ---
 
-##  Boas Práticas e Troubleshooting
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas e Troubleshooting
 
 - Use **Always Output Data** em IF/Switch para garantir merges corretos
 - Nomeie nodes e caminhos de forma clara
@@ -128,7 +128,7 @@ Garanta workflows resilientes com nodes de tratamento de erro, retry automático
 
 ---
 
-##  Exemplos e Casos de Uso
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos e Casos de Uso
 
 - E-commerce: Processamento de pedidos por tipo de pagamento
 - Marketing: Segmentação de leads

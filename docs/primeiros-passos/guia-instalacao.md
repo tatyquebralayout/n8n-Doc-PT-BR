@@ -7,13 +7,13 @@ keywords: [n8n, instalação, cloud, self-hosted, npm, docker, guia]
 ---
 
 
-#  Guia de Instalação do **n8n** – Visão Panorâmica
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Guia de Instalação do **n8n** – Visão Panorâmica
 
 Bem-vindo(a) à **documentação brasileira** do n8n! Nesta seção você descobrirá **sobre o que** vamos falar – os três métodos oficiais de instalação do n8n –, entenderá **por que** cada abordagem existe e aprenderá **como** escolher a que melhor se encaixa no seu cenário. Nas próximas páginas, cada método será detalhado passo a passo, com exemplos práticos e recomendações de melhores práticas.
 
 ---
 
-##  1 | Por que três rotas de instalação?
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Por que três rotas de instalação?
 
 | Necessidade frequente                     | Caminho recomendado                                                          |
 | ----------------------------------------- | ---------------------------------------------------------------------------- |
@@ -27,7 +27,7 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
 
 ---
 
-##  2 | Métodos Oficiais de Instalação
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Métodos Oficiais de Instalação
 
 ###  a) n8n Cloud
 
@@ -70,7 +70,7 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
 
 ---
 
-##  3 | Qual rota escolher?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Qual rota escolher?
 
 | Cenário real                                                   | Caminho sugerido |
 | -------------------------------------------------------------- | ---------------- |
@@ -80,7 +80,7 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
 
 ---
 
-##  4 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Próximos passos
 
 1. **[n8n Cloud](./instalacao-cloud)** – preços, isolamento e SLA.
 2. **[Self‑hosted](./instalacao-self-hosted)** – guias Docker, escalabilidade e boas práticas DevOps.

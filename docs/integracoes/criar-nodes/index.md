@@ -4,11 +4,11 @@ description: Aprenda a desenvolver e publicar nodes customizados para o n8n
 sidebar_label: Introdução
 ---
 
-# Criar Nodes Customizados
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar Nodes Customizados
 
 Bem-vindo à seção de desenvolvimento de nodes customizados para o n8n! Aqui você aprenderá como criar suas próprias integrações e estender a funcionalidade da plataforma.
 
-## O que você encontrará aqui
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### 📚 [Estrutura de um Node](./estrutura-node)
 Entenda os componentes fundamentais de um node n8n e como eles se relacionam.
@@ -19,14 +19,14 @@ Guia passo a passo para criar seu primeiro node customizado, desde a configuraç
 ### 📦 [Publicar no NPM](./publicar-npm)
 Aprenda como publicar seu node no NPM para que outros desenvolvedores possam utilizá-lo.
 
-## Por que criar nodes customizados?
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que criar nodes customizados?
 
 - **Integrações específicas**: Conecte o n8n com APIs e serviços que ainda não têm nodes oficiais
 - **Automações únicas**: Crie funcionalidades específicas para suas necessidades de negócio
 - **Contribuir com a comunidade**: Compartilhe suas soluções com outros desenvolvedores
 - **Aprender Node.js**: Desenvolva habilidades práticas em JavaScript/TypeScript
 
-## Pré-requisitos
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
 Antes de começar, certifique-se de ter:
 
@@ -35,7 +35,7 @@ Antes de começar, certifique-se de ter:
 - Familiaridade com APIs REST
 - Entendimento básico do n8n
 
-## Próximos passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos passos
 
 1. **Leia sobre a estrutura**: Comece entendendo como um node é organizado
 2. **Siga o tutorial**: Crie seu primeiro node seguindo o guia passo a passo

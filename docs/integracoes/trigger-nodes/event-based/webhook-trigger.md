@@ -5,7 +5,7 @@ description: Como configurar e usar webhook triggers no n8n para automações ba
 keywords: [n8n, webhook, trigger, eventos, automação, HTTP]
 ---
 
-# Webhook Trigger
+# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Webhook Trigger
 
 Este documento explica como **configurar e usar webhook triggers** no n8n para criar automações baseadas em eventos externos, abordando configuração de endpoints, validação de payloads, tratamento de diferentes métodos HTTP, implementação de segurança com autenticação, e casos de uso práticos que conectam sistemas externos com workflows automatizados de forma eficiente e confiável.
 

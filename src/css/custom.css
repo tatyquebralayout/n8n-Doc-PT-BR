@@ -750,32 +750,9 @@ ion-icon .ionicon-stroke-width {
   stroke: var(--ifm-color-primary) !important;
 }
 
-/* Ícones da barra lateral aplicados via classes CSS para consistência e para contornar erros de compilação de SVG */
-.menu__list-item--icon-intro > .menu__list-item-collapsible > .menu__link::before,
-.menu__list-item--icon-primeiros-passos > .menu__list-item-collapsible > .menu__link::before {
-  content: '';
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-right: 8px;
-  vertical-align: middle;
-  background-color: var(--ifm-color-primary);
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-}
-
-.menu__list-item--icon-intro > .menu__list-item-collapsible > .menu__link::before {
-  mask-image: url('/svg/info-icon.svg');
-  -webkit-mask-image: url('/svg/info-icon.svg');
-}
-
-.menu__list-item--icon-primeiros-passos > .menu__list-item-collapsible > .menu__link::before {
-  mask-image: url('/svg/compass-outline.svg');
-  -webkit-mask-image: url('/svg/compass-outline.svg');
+/* Estilos para ícones ion-icon no sidebar */
+.menu__link ion-icon {
+  color: var(--ifm-color-primary);
 }
 
 /* ==========================================================================

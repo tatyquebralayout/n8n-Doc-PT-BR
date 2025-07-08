@@ -4,7 +4,7 @@ title: Workflow na Prática
 sidebar_label: Workflow na Prática
 ---
 
-#  Workflow na Prática
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Workflow na Prática
 
 Este documento ensina como **criar workflows práticos e funcionais** no n8n, incluindo planejamento de automação, seleção de nodes apropriados, configuração de triggers, processamento de dados, tratamento de erros, e implementação de casos reais que resolvem problemas cotidianos de empresas brasileiras através de automações eficientes e bem estruturadas que agregam valor imediato ao negócio.
 

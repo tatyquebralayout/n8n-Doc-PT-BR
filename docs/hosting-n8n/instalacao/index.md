@@ -4,7 +4,7 @@ title: Instalação do n8n
 description: Sumário das opções de instalação do n8n.
 ---
 
-# Instalação do n8n
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalação do n8n
 
 Escolha uma das opções de instalação no menu lateral para ver instruções detalhadas:
 

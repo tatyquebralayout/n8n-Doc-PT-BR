@@ -5,7 +5,7 @@ description: Como implementar RAG com arquivos no n8n
 keywords: [n8n, rag, arquivos, ia, retrieval]
 ---
 
-# RAG com Arquivos
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> RAG com Arquivos
 
 Este documento descreve o padrão **RAG (Retrieval-Augmented Generation)** usando arquivos como fonte de dados.
 

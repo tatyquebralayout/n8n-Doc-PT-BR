@@ -6,13 +6,13 @@ keywords: [n8n, usuários, criar, editar, gerenciar, equipe, colaboração]
 ---
 
 
-#  Criar e Editar Usuários
+# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar e Editar Usuários
 
 Aprenda como adicionar novos membros à sua equipe, configurar suas permissões e gerenciar o acesso ao n8n de forma segura.
 
 ---
 
-##  1 | Acessando Gerenciamento de Usuários
+## <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Acessando Gerenciamento de Usuários
 
 ###  Menu de Usuários
 
@@ -30,7 +30,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-##  2 | Criando Novos Usuários
+## <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Criando Novos Usuários
 
 ###  Passo a Passo
 
@@ -62,7 +62,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-##  3 | Editando Usuários Existentes
+## <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Editando Usuários Existentes
 
 ###  Ações Disponíveis
 
@@ -86,7 +86,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-##  4 | Configurações de Autenticação
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Configurações de Autenticação
 
 ###  Métodos de Login
 
@@ -109,7 +109,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-##  5 | Organizando Usuários
+## <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Organizando Usuários
 
 ###  Grupos de Usuários
 
@@ -131,7 +131,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-##  6 | Auditoria e Monitoramento
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Auditoria e Monitoramento
 
 ###  Logs de Atividade
 
@@ -168,7 +168,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-##  7 | Gerenciando Saídas
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Gerenciando Saídas
 
 ###  Suspensão Temporária
 
@@ -192,7 +192,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-##  8 | Boas Práticas
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 8 | Boas Práticas
 
 ###  Segurança
 
@@ -214,7 +214,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-##  9 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 9 | Próximos passos
 
 1. **[Roles e Permissões](./roles-permissoes)** - Definir níveis de acesso
 2. **[Autenticação](./autenticacao)** - Configurar login seguro

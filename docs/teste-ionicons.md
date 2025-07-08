@@ -5,11 +5,11 @@ description: Página de teste para demonstrar o uso dos ícones Ionicons
 
 import IonicIcon from '@site/src/components/IonicIcon';
 
-# Teste de Ícones Ionicons
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Teste de Ícones Ionicons
 
 Esta página demonstra como usar os ícones Ionicons na documentação.
 
-## Ícones Básicos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ícones Básicos
 
 <IonicIcon name="checkmark-circle-outline" size={24} color="#10b981" /> Checkmark verde
 
@@ -19,7 +19,7 @@ Esta página demonstra como usar os ícones Ionicons na documentação.
 
 <IonicIcon name="information-circle-outline" size={24} color="#8b5cf6" /> Info roxo
 
-## Ícones de Ação
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ícones de Ação
 
 <IonicIcon name="play-outline" size={20} color="#ea4b71" /> Play
 
@@ -29,7 +29,7 @@ Esta página demonstra como usar os ícones Ionicons na documentação.
 
 <IonicIcon name="refresh-outline" size={20} color="#ea4b71" /> Refresh
 
-## Ícones de Navegação
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ícones de Navegação
 
 <IonicIcon name="arrow-forward-outline" size={16} color="#6b7280" /> Seta para frente
 
@@ -39,7 +39,7 @@ Esta página demonstra como usar os ícones Ionicons na documentação.
 
 <IonicIcon name="chevron-up-outline" size={16} color="#6b7280" /> Chevron up
 
-## Ícones de Status
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ícones de Status
 
 <IonicIcon name="add-circle-outline" size={24} color="#10b981" /> Adicionar
 
@@ -49,7 +49,7 @@ Esta página demonstra como usar os ícones Ionicons na documentação.
 
 <IonicIcon name="settings-outline" size={24} color="#6b7280" /> Configurações
 
-## Ícones de Conteúdo
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ícones de Conteúdo
 
 <IonicIcon name="document-outline" size={20} color="#6b7280" /> Documento
 
@@ -59,7 +59,7 @@ Esta página demonstra como usar os ícones Ionicons na documentação.
 
 <IonicIcon name="share-outline" size={20} color="#3b82f6" /> Compartilhar
 
-## Como Usar
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Usar
 
 ```jsx
 import IonicIcon from '@site/src/components/IonicIcon';
@@ -77,7 +77,7 @@ import IonicIcon from '@site/src/components/IonicIcon';
 <IonicIcon name="settings-outline" className="my-custom-class" />
 ```
 
-## Nomes de Ícones Disponíveis
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nomes de Ícones Disponíveis
 
 Consulte a [documentação oficial do Ionicons](https://ionic.io/ionicons) para ver todos os ícones disponíveis.
 

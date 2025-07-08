@@ -6,13 +6,13 @@ keywords: [n8n, transformações, normalização, preparação de dados, convers
 ---
 
 
-#  Transformações de Dados
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Transformações de Dados
 
 Aprenda técnicas eficientes para transformar dados entre diferentes formatos, normalizar informações e preparar dados para integração com diversos sistemas.
 
 ---
 
-##  1 | Tipos de Transformação
+## <ion-icon name="repeat-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Tipos de Transformação
 
 ###  Transformações Estruturais
 
@@ -34,7 +34,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-##  2 | Normalização de Dados
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Normalização de Dados
 
 ###  Padronização de Campos
 
@@ -84,7 +84,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-##  3 | Agregação de Dados
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Agregação de Dados
 
 ###  Cálculos de Resumo
 
@@ -149,7 +149,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-##  4 | Filtros e Segmentação
+## <ion-icon name="filter-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Filtros e Segmentação
 
 ###  Filtros Condicionais
 
@@ -187,7 +187,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-##  5 | Conversão de Formatos
+## <ion-icon name="repeat-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Conversão de Formatos
 
 ###  JSON para CSV
 
@@ -271,7 +271,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-##  6 | Enriquecimento de Dados
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Enriquecimento de Dados
 
 ###  Adicionar Informações
 
@@ -311,7 +311,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-##  7 | Sanitização e Limpeza
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Sanitização e Limpeza
 
 ###  Limpeza de Dados
 
@@ -372,7 +372,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-##  8 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 8 | Próximos passos
 
 1. **[Agregações e Estatísticas](./agregacoes-estatisticas)** - Cálculos complexos
 2. **[Integração com APIs](./integracao-apis)** - Mapeamento de respostas

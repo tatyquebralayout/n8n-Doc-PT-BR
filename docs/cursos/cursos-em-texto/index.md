@@ -6,7 +6,7 @@ keywords: [n8n, cursos, texto, documentação, nível 1, nível 2, oficial]
 ---
 
 
-#  Visão Geral - Cursos em Texto
+# <ion-icon name="school-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visão Geral - Cursos em Texto
 
 Esta seção contém **guias e resumos em português** para os **cursos em texto oficiais** da documentação do n8n.
 
@@ -16,7 +16,7 @@ Todos os cursos aqui são **baseados na documentação oficial do n8n** e adapta
 
 Cada nível é projetado para construir seu conhecimento de forma progressiva, com exemplos práticos e projetos do mundo real.
 
-##  Cursos Disponíveis
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cursos Disponíveis
 
 ###  Nível 1 (Level One)
 
@@ -42,7 +42,7 @@ Cada nível é projetado para construir seu conhecimento de forma progressiva, c
 
 ---
 
-##  Como Navegar
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Navegar
 
 ###  Estrutura dos Cursos
 

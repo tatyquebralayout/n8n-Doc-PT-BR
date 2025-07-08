@@ -6,19 +6,19 @@ keywords: [n8n, automação, workflow, introdução, guia, open source]
 ---
 
 
-#  Introdução ao n8n
+# <ion-icon name="play-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução ao n8n
 
 Esta é a documentação em português do n8n, plataforma open-source que permite construir automações inteligentes e workflows avançados, com flexibilidade e controle total.
 
 ---
 
-##  Origem e evolução
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Origem e evolução
 
 O n8n foi idealizado em **2019** por **[Jan Oberhauser](https://github.com/janober)**, que buscava uma solução capaz de conectar apps e APIs sem a complexidade dos scripts convencionais. Com foco em código aberto e modelo "fair‑code", o projeto cresceu rapidamente e, em **abril de 2025**, atingiu a marca de **[100.000 estrelas no GitHub](https://github.com/n8n-io/n8n)**. Desde então, a comunidade só tem se fortalecido.
 
 ---
 
-##  O que é o n8n?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que é o n8n?
 
 O n8n (pronuncia-se "n‑eight‑n") é uma plataforma que oferece:
 
@@ -53,7 +53,7 @@ Em automação, erros podem acontecer — e tudo bem. O n8n permite criar caminh
 
 ---
 
-##  O que você vai aprender aqui
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender aqui
 
 Esta introdução está estruturada para guiar você de forma progressiva:
 
@@ -67,7 +67,7 @@ Ao final, você terá autonomia para criar sua própria automação, seja um ale
 
 ---
 
-##  Por que escolher o n8n
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que escolher o n8n
 
 ### Para  pessoas desenvolvedoras
 - **API REST robusta**, triggers avançados e execução de código customizado
@@ -86,7 +86,7 @@ Ao final, você terá autonomia para criar sua própria automação, seja um ale
 
 ---
 
-##  Começando
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Começando
 
 Escolha uma das opções abaixo para começar:
 
@@ -104,7 +104,7 @@ Consulte **[Hosting n8n](../../hosting-n8n)** para configuração em produção.
 
 ---
 
-##  Estrutura desta Documentação
+## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura desta Documentação
 
 Esta documentação está organizada nas seguintes seções:
 
@@ -179,7 +179,7 @@ Workflows práticos e casos de uso reais.
 
 ---
 
-##  Compromisso da comunidade brasileira
+## <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Compromisso da comunidade brasileira
 
 Este material é produzido **pela comunidade brasileira**, sem vínculo direto com o time oficial do n8n. O objetivo é **ampliar o acesso e contextualizar o uso** dessa ferramenta global no Brasil, seguindo as diretrizes do projeto oficial e incentivando contribuições locais.
 

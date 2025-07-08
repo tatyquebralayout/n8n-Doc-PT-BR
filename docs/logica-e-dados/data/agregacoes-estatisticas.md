@@ -6,13 +6,13 @@ keywords: [n8n, agregações, estatísticas, cálculos, análise de dados, métr
 ---
 
 
-#  Agregações e Estatísticas
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Agregações e Estatísticas
 
 Aprenda técnicas avançadas para calcular estatísticas, criar agregações e gerar análises de dados que forneçam insights valiosos para seus workflows.
 
 ---
 
-##  1 | Estatísticas Básicas
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Estatísticas Básicas
 
 ###  Métricas de Tendência Central
 
@@ -69,7 +69,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-##  2 | Agregações por Grupo
+## <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Agregações por Grupo
 
 ###  Agrupar por Categoria
 
@@ -132,7 +132,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-##  3 | Análises de Distribuição
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Análises de Distribuição
 
 ###  Distribuição de Frequências
 
@@ -181,7 +181,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-##  4 | Análises de Tendência
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Análises de Tendência
 
 ###  Crescimento e Decrescimento
 
@@ -243,7 +243,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-##  5 | Análises de Clientes
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Análises de Clientes
 
 ###  Segmentação RFM
 
@@ -298,7 +298,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-##  6 | Métricas de Performance
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Métricas de Performance
 
 ###  KPIs de Negócio
 
@@ -354,7 +354,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-##  7 | Relatórios Automatizados
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Relatórios Automatizados
 
 ###  Resumo Executivo
 
@@ -400,7 +400,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-##  8 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 8 | Próximos passos
 
 1. **[Integração com APIs](./integracao-apis)** - Mapeamento de respostas
 2. **[Otimização de Performance](./otimizacao-performance)** - Melhorar eficiência

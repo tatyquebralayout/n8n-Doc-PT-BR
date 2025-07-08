@@ -4,13 +4,13 @@ title: 'Design System - n8n Brasil'
 sidebar_label: 'Design System'
 ---
 
-import LocalIcon from '@site/src/components/LocalIcon';
+
 import CardGrid from '@site/src/components/CardGrid';
 import RepoCard from '@site/src/components/RepoCard';
 import HighlightCard from '@site/src/components/HighlightCard';
 import ArticleCard from '@site/src/components/ArticleCard';
 
-# <LocalIcon name="color-palette-outline" size={32} color="#ea4b71" /> Design System da Documentação n8n Brasil
+# <ion-icon name="document-text-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Design System da Documentação n8n Brasil
 
 > **Este documento é a fonte da verdade para a identidade visual, componentes e padrões de interface da nossa documentação.**
 >
@@ -18,7 +18,7 @@ import ArticleCard from '@site/src/components/ArticleCard';
 
 ---
 
-## <LocalIcon name="bulb-outline" size={24} color="#ea4b71" /> Filosofia de Design
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Filosofia de Design
 
 Nossa abordagem de design se baseia em três pilares:
 
@@ -28,11 +28,11 @@ Nossa abordagem de design se baseia em três pilares:
 
 ---
 
-## <LocalIcon name="grid-outline" size={24} color="#ea4b71" /> Componentes React
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Componentes React
 
 Esta seção serve como um catálogo visual dos nossos componentes React padronizados. Use-os para construir páginas de documentação ricas e interativas.
 
-### <LocalIcon name="card-outline" size={20} color="#ea4b71" /> `<CardGrid />` e `<RepoCard />`
+### <ion-icon name="card-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> `<CardGrid />` e `<RepoCard />`
 
 O `CardGrid` cria um layout responsivo para exibir cards. O `RepoCard` busca e exibe informações de um repositório do GitHub automaticamente.
 
@@ -53,7 +53,7 @@ O `CardGrid` cria um layout responsivo para exibir cards. O `RepoCard` busca e e
   <RepoCard repoUrl="https://github.com/payloadcms/payload" icon="server-outline" />
 </CardGrid>
 
-### <LocalIcon name="star-outline" size={20} color="#ea4b71" /> `<HighlightCard />`
+### <ion-icon name="star-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> `<HighlightCard />`
 
 Use o `HighlightCard` para destacar informações importantes ou links de "call-to-action".
 
@@ -78,7 +78,7 @@ Use o `HighlightCard` para destacar informações importantes ou links de "call-
   link="/usando-n8n/workflows"
 />
 
-### <LocalIcon name="newspaper-outline" size={20} color="#ea4b71" /> `<ArticleCard />`
+### <ion-icon name="newspaper-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> `<ArticleCard />`
 
 O `ArticleCard` é ideal para listar tutoriais, artigos da comunidade ou guias.
 
@@ -111,9 +111,9 @@ O `ArticleCard` é ideal para listar tutoriais, artigos da comunidade ou guias.
 
 ---
 
-## <LocalIcon name="color-filter-outline" size={24} color="#ea4b71" /> Identidade Visual
+## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Identidade Visual
 
-### <LocalIcon name="color-palette-outline" size={20} color="#ea4b71" /> Paleta de Cores
+### <ion-icon name="color-palette-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Paleta de Cores
 
 A paleta de cores define a identidade visual do nosso projeto. Usamos um conjunto de cores primárias e secundárias para criar uma hierarquia visual clara.
 
@@ -131,7 +131,7 @@ A paleta de cores define a identidade visual do nosso projeto. Usamos um conjunt
 
 *Esta seção será expandida com mais detalhes sobre cores de sucesso, aviso, erro, etc.*
 
-### <LocalIcon name="text-outline" size={20} color="#ea4b71" /> Tipografia
+### <ion-icon name="text-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Tipografia
 
 A consistência tipográfica é crucial para a legibilidade.
 
@@ -140,7 +140,7 @@ A consistência tipográfica é crucial para a legibilidade.
 
 *Esta seção será expandida com tamanhos, pesos e alturas de linha para cada nível de título e parágrafo.*
 
-### <LocalIcon name="sparkles-outline" size={20} color="#ea4b71" /> Iconografia
+### <ion-icon name="sparkles-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Iconografia
 
 Utilizamos exclusivamente a biblioteca **Ionicons** para todos os ícones da interface, garantindo um estilo visual unificado.
 
@@ -151,14 +151,14 @@ Utilizamos exclusivamente a biblioteca **Ionicons** para todos os ícones da int
 **Exemplo de Uso:**
 ```jsx
 
-<LocalIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
+<ion-icon name="rocket-outline" style={{ fontSize: '24px', color: 'var(--ifm-color-primary)' }}></ion-icon>
 ```
 
 ---
 
-## <LocalIcon name="construct-outline" size={24} color="#ea4b71" /> Padrões de Uso
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões de Uso
 
-### <LocalIcon name="sparkles-outline" size={20} color="#ea4b71" /> Guia de Uso de Ícones Ionicons
+### <ion-icon name="sparkles-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Guia de Uso de Ícones Ionicons
 
 > **Padrão obrigatório para toda a documentação e componentes React.**
 
@@ -188,16 +188,16 @@ Utilizamos exclusivamente a biblioteca **Ionicons** para todos os ícones da int
 
 #### Exemplo de Uso Correto
 ```jsx
-<LocalIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
-<LocalIcon name="star-outline" size={16} />
-<LocalIcon name="logo-github" size={20} />
+<ion-icon name="rocket-outline" style={{ fontSize: '24px', color: 'var(--ifm-color-primary)' }}></ion-icon>
+<ion-icon name="star-outline" style={{ fontSize: '16px' }}></ion-icon>
+<ion-icon name="logo-github" style={{ fontSize: '20px' }}></ion-icon>
 ```
 
 #### Exemplo de Uso Incorreto
 ```jsx
 // NÃO FAÇA:
-<LocalIcon name="star" size={18} color="#FF0000" /> // tamanho e cor fora do padrão
-<LocalIcon name="star-filled" size={24} /> // estilo não permitido
+<ion-icon name="star" style={{ fontSize: '18px', color: '#FF0000' }}></ion-icon> // tamanho e cor fora do padrão
+<ion-icon name="star-filled" style={{ fontSize: '24px' }}></ion-icon> // estilo não permitido
 ```
 
 #### Boas Práticas
@@ -207,11 +207,11 @@ Utilizamos exclusivamente a biblioteca **Ionicons** para todos os ícones da int
 
 ---
 
-## <LocalIcon name="code-outline" size={24} color="#ea4b71" /> Estrutura CSS e Convenções
+## <ion-icon name="folder-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura CSS e Convenções
 
 A partir de 2024, a documentação adota uma estrutura CSS modularizada para facilitar manutenção, escalabilidade e performance. Veja como contribuir corretamente:
 
-### <LocalIcon name="folder-outline" size={20} color="#ea4b71" /> Estrutura de Arquivos
+### <ion-icon name="folder-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Estrutura de Arquivos
 
 ```
 src/css/
@@ -222,14 +222,14 @@ src/css/
 └── custom.css         # Importa todos os arquivos acima
 ```
 
-### <LocalIcon name="settings-outline" size={20} color="#ea4b71" /> Convenções
+### <ion-icon name="settings-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Convenções
 
 - **BEM**: Use o padrão `bloco__elemento--modificador` para classes de componentes globais.
 - **Variáveis globais**: Sempre utilize as variáveis de `variables.css` para cores, fontes, espaçamentos, etc.
 - **Utilitários**: Prefira classes utilitárias para tipografia, espaçamento, peso, etc, sempre que possível.
 - **Componentes React**: Os módulos CSS dos componentes devem consumir variáveis globais e utilitários, evitando duplicação.
 
-### <LocalIcon name="code-slash-outline" size={20} color="#ea4b71" /> Exemplos
+### <ion-icon name="code-slash-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Exemplos
 
 ```css
 /* BEM */
@@ -242,7 +242,7 @@ src/css/
 color: var(--ifm-color-primary);
 ```
 
-### <LocalIcon name="checkmark-circle-outline" size={20} color="#ea4b71" /> Boas Práticas
+### <ion-icon name="checkmark-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
 - Não duplique regras já existentes em utilitários ou variáveis.
 - Documente novas classes utilitárias ou variáveis criadas.
@@ -250,15 +250,15 @@ color: var(--ifm-color-primary);
 
 ---
 
-## <LocalIcon name="add-circle-outline" size={24} color="#ea4b71" /> Componentes Futuros
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Componentes Futuros
 
 *Esta seção servirá como um catálogo visual dos nossos componentes React padronizados, incluindo botões, cards, alertas e outros elementos de UI. Cada componente terá exemplos de uso e suas variações.*
 
-### <LocalIcon name="ellipse-outline" size={20} color="#ea4b71" /> Botões
+### <ion-icon name="ellipse-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Botões
 
 ... em construção ...
 
-### <LocalIcon name="card-outline" size={20} color="#ea4b71" /> Cards
+### <ion-icon name="card-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Cards
 
 ... em construção ...
 

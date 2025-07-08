@@ -5,7 +5,7 @@ description: Como dados são estruturados e organizados no n8n
 keywords: [n8n, estrutura, dados, JSON, formato]
 ---
 
-#  Estrutura de Dados
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Estrutura de Dados
 
 Este documento explica como **dados são estruturados e organizados** no n8n, abordando o formato JSON utilizado internamente, como diferentes tipos de dados são representados, estruturas de arrays e objetos, metadados associados, e padrões de organização que facilitam o processamento eficiente de informações em workflows complexos com múltiplas fontes de dados.
 

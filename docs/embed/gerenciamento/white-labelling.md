@@ -6,11 +6,11 @@ keywords: [n8n, embed, white labelling, branding, customização, tema]
 ---
 
 
-#  White Labelling
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> White Labelling
 
 Este documento detalha como **personalizar completamente a aparência do n8n embarcado** para sua marca, incluindo cores, logos, fontes, layout, domínio customizado, e integração visual perfeita com sua aplicação principal, criando uma experiência unificada e profissional para seus usuários.
 
-##  O que você vai aprender
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
 -  Personalização de tema e cores
 -  Branding e logos
@@ -20,13 +20,13 @@ Este documento detalha como **personalizar completamente a aparência do n8n emb
 
 ---
 
-##  Personalização de Tema
+## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Personalização de Tema
 
 ###  Configuração Básica
 
 #### **Variáveis de Ambiente para Tema**
 ```bash
-# Configurações básicas de tema
+# <ion-icon name="color-palette-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações básicas de tema
 N8N_THEME_PRIMARY_COLOR=#ea4b71
 N8N_THEME_SECONDARY_COLOR=#10b981
 N8N_THEME_ACCENT_COLOR=#f59e0b
@@ -34,7 +34,7 @@ N8N_THEME_BACKGROUND_COLOR=#ffffff
 N8N_THEME_TEXT_COLOR=#1f2937
 N8N_THEME_BORDER_COLOR=#e5e7eb
 
-# Configurações avançadas
+# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações avançadas
 N8N_THEME_FONT_FAMILY="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
 N8N_THEME_FONT_SIZE_BASE=14px
 N8N_THEME_BORDER_RADIUS=8px
@@ -43,7 +43,7 @@ N8N_THEME_SHADOW=0 4px 6px -1px rgba(0, 0, 0, 0.1)
 
 #### **Configuração via Docker**
 ```yaml
-# docker-compose.yml
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose.yml
 version: '3.8'
 services:
   n8n:
@@ -133,29 +133,29 @@ body[data-theme="dark"] .n8n-card {
 
 ---
 
-##  Branding e Logos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Branding e Logos
 
 ###  Configuração de Logo
 
 #### **Logo Principal**
 ```bash
-# Configurar logo principal
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar logo principal
 N8N_THEME_LOGO_URL=https://sua-empresa.com/logo.png
 N8N_THEME_LOGO_WIDTH=150px
 N8N_THEME_LOGO_HEIGHT=40px
 N8N_THEME_LOGO_ALT="Sua Empresa - Automação"
 
-# Logo para tema escuro
+# <ion-icon name="color-palette-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logo para tema escuro
 N8N_THEME_LOGO_DARK_URL=https://sua-empresa.com/logo-white.png
 ```
 
 #### **Favicon e Ícones**
 ```bash
-# Configurar favicon
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar favicon
 N8N_THEME_FAVICON_URL=https://sua-empresa.com/favicon.ico
 N8N_THEME_APPLE_TOUCH_ICON=https://sua-empresa.com/apple-touch-icon.png
 
-# Ícones para PWA
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ícones para PWA
 N8N_THEME_ICON_192=https://sua-empresa.com/icon-192.png
 N8N_THEME_ICON_512=https://sua-empresa.com/icon-512.png
 ```
@@ -190,7 +190,7 @@ body[data-theme="dark"] .n8n-header-logo {
 
 #### **Configuração de Texto**
 ```bash
-# Textos customizados
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Textos customizados
 N8N_THEME_APP_NAME="Sua Empresa - Automação"
 N8N_THEME_APP_DESCRIPTION="Plataforma de automação empresarial"
 N8N_THEME_FOOTER_TEXT="© 2024 Sua Empresa. Todos os direitos reservados."
@@ -225,7 +225,7 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 
 ---
 
-##  CSS Customizado
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> CSS Customizado
 
 ###  Estilos Avançados
 
@@ -415,13 +415,13 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 
 ---
 
-##  Domínio Customizado
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Domínio Customizado
 
 ###  Configuração de Domínio
 
 #### **Proxy Reverso com Nginx**
 ```nginx
-# /etc/nginx/sites-available/n8n-custom
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/nginx/sites-available/n8n-custom
 server {
     listen 80;
     server_name automação.suaempresa.com;
@@ -484,7 +484,7 @@ server {
 
 #### **Configuração com Docker**
 ```yaml
-# docker-compose.yml com domínio customizado
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose.yml com domínio customizado
 version: '3.8'
 services:
   nginx:
@@ -530,28 +530,28 @@ networks:
 #### **Certificado Let's Encrypt**
 ```bash
 #!/bin/bash
-# setup-ssl.sh
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> setup-ssl.sh
 
 DOMAIN="automação.suaempresa.com"
 EMAIL="admin@suaempresa.com"
 
-# Instalar Certbot
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Certbot
 sudo apt update
 sudo apt install certbot python3-certbot-nginx
 
-# Obter certificado
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Obter certificado
 sudo certbot --nginx -d $DOMAIN --email $EMAIL --agree-tos --non-interactive
 
-# Configurar renovação automática
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar renovação automática
 sudo crontab -e
-# Adicionar linha:
-# 0 12 * * * /usr/bin/certbot renew --quiet
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar linha:
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> 0 12 * * * /usr/bin/certbot renew --quiet
 ```
 
 #### **Headers de Segurança**
 ```nginx
-# security-headers.conf
-# Content Security Policy
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> security-headers.conf
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Content Security Policy
 add_header Content-Security-Policy "
     default-src 'self';
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net;
@@ -562,7 +562,7 @@ add_header Content-Security-Policy "
     frame-ancestors 'self';
 " always;
 
-# Outros headers de segurança
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Outros headers de segurança
 add_header X-Frame-Options "SAMEORIGIN" always;
 add_header X-Content-Type-Options "nosniff" always;
 add_header X-XSS-Protection "1; mode=block" always;
@@ -572,7 +572,7 @@ add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 
 ---
 
-##  Integração Visual
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração Visual
 
 ###  Integração com Aplicação Principal
 
@@ -788,7 +788,7 @@ new N8NIntegration();
 
 ---
 
-##  Boas Práticas
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
 ###  Design System
 
@@ -931,7 +931,7 @@ new N8NIntegration();
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você entende o white labelling do n8n:
 

@@ -4,11 +4,11 @@ title: Introdução
 sidebar_label: Visão Geral
 ---
 
-#  Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Esta seção concentra **toda a documentação de referência** para n8n em português, servindo como seu guia definitivo para consultas rápidas, troubleshooting, e recursos avançados.
 
-##  O que Você Encontra Aqui
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que Você Encontra Aqui
 
 ###  **Guias Essenciais**
 Documentação técnica aprofundada para operações avançadas:
@@ -28,7 +28,7 @@ Acompanhe o desenvolvimento desta documentação:
 
 -  **[Changelog](historico/changelog)** - Registro de todas as atualizações
 
-##  Como Usar Esta Seção
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Usar Esta Seção
 
 ###  **Para Consulta Rápida**
 -  Use o **glossário** para esclarecer termos
@@ -45,7 +45,7 @@ Acompanhe o desenvolvimento desta documentação:
 -  **Links cruzados**: Navegue entre documentos relacionados
 -  **Tags**: Filtre conteúdo por categoria
 
-##  Destaques da Seção
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Destaques da Seção
 
 ###  **Foco Brasileiro**
 -  **APIs nacionais** catalogadas e testadas
@@ -65,7 +65,7 @@ Acompanhe o desenvolvimento desta documentação:
 -  **Templates** prontos para usar
 -  **Troubleshooting** baseado em casos reais
 
-##  Recursos Mais Populares
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Mais Populares
 
 ###  **Top 5 Consultas**
 1.  **[Troubleshooting](guias/troubleshooting)** - Resolver erros comuns
@@ -80,7 +80,7 @@ Acompanhe o desenvolvimento desta documentação:
 -  **+100 soluções** no troubleshooting
 -  **Atualizado semanalmente**
 
-##  Como Contribuir
+## <ion-icon name="git-pull-request-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Contribuir
 
 ###  **Sua Experiência Importa**
 -  **Relate problemas** não documentados

@@ -6,13 +6,13 @@ keywords: [n8n, credenciais, criar, editar, autenticação, API keys]
 ---
 
 
-#  Criar e Editar Credenciais
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar e Editar Credenciais
 
 Aprenda como criar e editar credenciais no n8n para conectar suas aplicações e serviços de forma segura.
 
 ---
 
-##  1 | Onde Encontrar Credenciais
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Onde Encontrar Credenciais
 
 ###  Menu de Credenciais
 
@@ -31,7 +31,7 @@ Aprenda como criar e editar credenciais no n8n para conectar suas aplicações e
 
 ---
 
-##  2 | Tipos de Credenciais
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Tipos de Credenciais
 
 ###  API Keys
 
@@ -85,7 +85,7 @@ Aprenda como criar e editar credenciais no n8n para conectar suas aplicações e
 
 ---
 
-##  3 | Criando sua Primeira Credencial
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Criando sua Primeira Credencial
 
 ###  Exemplo: Google Sheets
 
@@ -106,7 +106,7 @@ Use nomes descritivos para suas credenciais. Em vez de "Google", use "Google She
 
 ---
 
-##  4 | Editando Credenciais
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Editando Credenciais
 
 ###  Ações Disponíveis
 
@@ -127,7 +127,7 @@ Use nomes descritivos para suas credenciais. Em vez de "Google", use "Google She
 
 ---
 
-##  5 | Boas Práticas
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Boas Práticas
 
 ###  Segurança
 
@@ -147,7 +147,7 @@ Use nomes descritivos para suas credenciais. Em vez de "Google", use "Google She
 
 ---
 
-##  6 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Próximos passos
 
 1. **[Compartilhamento de Credenciais](./compartilhamento)** - Trabalhar em equipe
 2. **[Boas Práticas](./boas-praticas)** - Manter segurança

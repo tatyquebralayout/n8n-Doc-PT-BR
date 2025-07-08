@@ -5,11 +5,11 @@ description: Encontre a documentação detalhada para cada endpoint da API REST 
 keywords: [n8n, api, referência, endpoints, documentação]
 ---
 
-# Visão Geral - Referência da API
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visão Geral - Referência da API
 
 Bem-vindo à **Referência Completa da API** do n8n. Esta seção é o seu guia definitivo para todos os endpoints disponíveis, servindo como um manual técnico para desenvolvedores que precisam de informações detalhadas sobre cada recurso da API.
 
-## O que você vai encontrar aqui?
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai encontrar aqui?
 
 Aqui você terá acesso à documentação exata de cada endpoint, incluindo:
 
@@ -19,7 +19,7 @@ Aqui você terá acesso à documentação exata de cada endpoint, incluindo:
 - **Códigos de Status:** O que cada código de status (200, 404, 500, etc.) significa no contexto da chamada.
 - **Exemplos de Requisição:** Exemplos práticos para cada endpoint.
 
-## Como usar esta seção?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como usar esta seção?
 
 - **Consulta Rápida:** Use esta seção como um dicionário quando precisar saber os detalhes de um endpoint específico.
 - **Desenvolvimento:** Baseie seu código nas estruturas de dados e parâmetros documentados aqui para evitar erros.

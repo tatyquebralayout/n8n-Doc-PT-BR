@@ -4,13 +4,13 @@ title: Como Contribuir
 description: Guia prático passo a passo para fazer sua primeira contribuição
 keywords: [n8n, contribuir, github, pull request, tutorial]
 ---
-import LocalIcon from '@site/src/components/LocalIcon';
+
 import CardGrid from '@site/src/components/CardGrid';
 import GuidanceCard from '@site/src/components/GuidanceCard';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# <span style={{display: 'flex', alignItems: 'center', gap: '12px'}}><LocalIcon name="git-pull-request-outline" size={32} color="#ea4b71" /> Como Contribuir</span>
+# <ion-icon name="git-pull-request-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '12px'}}><ion-icon name="git-pull-request-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Como Contribuir</span>
 
 Este guia oferece um caminho simples e direto para realizar sua primeira contribuição aprovada. Não é necessário ter experiência prévia com projetos open source — qualquer pessoa pode participar e fazer a diferença.
 
@@ -18,9 +18,9 @@ Seja corrigindo um erro de português ou criando um tutorial completo, cada cont
 
 ---
 
-## <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><LocalIcon name="rocket-outline" size={24} color="#ea4b71" /> Início Rápido (5 minutos)</span>
+## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><ion-icon name="rocket-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Início Rápido (5 minutos)</span>
 
-### <span style={{display: 'flex', alignItems: 'center', gap: '6px'}}><LocalIcon name="code-outline" size={20} color="#ea4b71" /> Contribuições sem código</span>
+### <span style={{display: 'flex', alignItems: 'center', gap: '6px'}}><ion-icon name="code-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Contribuições sem código</span>
 
 Essas são ótimas opções para começar a contribuir com rapidez e impacto, sem necessidade de ambiente técnico:
 
@@ -28,11 +28,11 @@ Essas são ótimas opções para começar a contribuir com rapidez e impacto, se
 - **Aprimorar exemplos** - Atualize exemplos existentes ou inclua variações mais claras e contextualizadas para a realidade brasileira  
 - **Reportar problemas** - Identificou informações confusas, incorretas ou desatualizadas? Registre uma issue com uma descrição clara do que pode ser melhorado
 
-### <span style={{display: 'flex', alignItems: 'center', gap: '6px'}}><LocalIcon name="logo-github" size={20} color="#ea4b71" /> **[<span style={{fontSize: '0.9em'}}>Link Direto para Contribuir</span>](https://github.com/tatyquebralayout/n8n-Doc-pt-BR)**</span>
+### <span style={{display: 'flex', alignItems: 'center', gap: '6px'}}><ion-icon name="logo-github" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> **[<span style={{fontSize: '0.9em'}}>Link Direto para Contribuir</span>](https://github.com/tatyquebralayout/n8n-Doc-pt-BR)**</span>
 
 ---
 
-## <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><LocalIcon name="construct-outline" size={24} color="#ea4b71" /> Configuração do Ambiente</span>
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração do Ambiente</span>
 
 ### **Pré-requisitos**
 
@@ -66,19 +66,19 @@ Essas são ótimas opções para começar a contribuir com rapidez e impacto, se
 ### **Setup Local (Contribuição Local)**
 
 ```bash title="Terminal"
-# 1. Fork e clone o repositório oficial da documentação brasileira do n8n
-# (faça o fork para sua conta antes de clonar, se for contribuir)
+# <ion-icon name="document-text-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> 1. Fork e clone o repositório oficial da documentação brasileira do n8n
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> (faça o fork para sua conta antes de clonar, se for contribuir)
 git clone https://github.com/tatyquebralayout/n8n-Doc-pt-BR.git
 cd n8n-Doc-pt-BR
 
-# 2. Instalar dependências
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> 2. Instalar dependências
 npm install
 
-# 3. Iniciar servidor de desenvolvimento
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> 3. Iniciar servidor de desenvolvimento
 npm start
 
-# 4. Abrir no navegador
-# http://localhost:3000
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> 4. Abrir no navegador
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> http://localhost:3000
 ```
 
 :::tip Dica importante
@@ -87,21 +87,21 @@ Lembre-se de fazer o fork para sua conta no GitHub antes de clonar, caso queira 
 
 ---
 
-## <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><LocalIcon name="git-branch-outline" size={24} color="#ea4b71" /> Fluxo de Contribuição</span>
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Fluxo de Contribuição</span>
 
 ### **Método 1: Edição Rápida (GitHub Web)**
 
 **Ideal para:** Correções simples, typos, pequenas melhorias e quem está começando
 
-1. **<LocalIcon name="search-outline" size={16} />** Navegue até a página que quer editar
-2. **<LocalIcon name="create-outline" size={16} />** Clique em "Editar esta página" no final
-3. **<LocalIcon name="git-branch-outline" size={16} />** GitHub criará automaticamente um fork
-4. **<LocalIcon name="text-outline" size={16} />** Faça suas alterações no editor web
-5. **<LocalIcon name="save-outline" size={16} />** Adicione uma descrição clara das mudanças
-6. **<LocalIcon name="paper-plane-outline" size={16} />** Clique em "Propose changes"
-7. **<LocalIcon name="checkmark-outline" size={16} />** Envie o Pull Request
+1. **<ion-icon name="search-outline" style={{ fontSize: '16px' }}></ion-icon>** Navegue até a página que quer editar
+2. **<ion-icon name="create-outline" style={{ fontSize: '16px' }}></ion-icon>** Clique em "Editar esta página" no final
+3. **<ion-icon name="git-branch-outline" style={{ fontSize: '16px' }}></ion-icon>** GitHub criará automaticamente um fork
+4. **<ion-icon name="text-outline" style={{ fontSize: '16px' }}></ion-icon>** Faça suas alterações no editor web
+5. **<ion-icon name="save-outline" style={{ fontSize: '16px' }}></ion-icon>** Adicione uma descrição clara das mudanças
+6. **<ion-icon name="paper-plane-outline" style={{ fontSize: '16px' }}></ion-icon>** Clique em "Propose changes"
+7. **<ion-icon name="checkmark-outline" style={{ fontSize: '16px' }}></ion-icon>** Envie o Pull Request
 
-:::tip <span style={{display: 'flex', alignItems: 'center', gap: '6px'}}><LocalIcon name="star" size={16} color="#f59e0b" /> <span style={{color: '#f59e0b'}}>Vantagem</span></span>
+:::tip <span style={{display: 'flex', alignItems: 'center', gap: '6px'}}><ion-icon name="star" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> <span style={{color: '#f59e0b'}}>Vantagem</span></span>
 Você não precisa instalar nada! Tudo acontece no navegador.
 :::
 
@@ -173,7 +173,7 @@ Recomendado para contribuições que envolvem múltiplos arquivos, criação de 
 
 ---
 
-## <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><LocalIcon name="document-outline" size={24} color="#ea4b71" /> Tipos de Contribuição</span>
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tipos de Contribuição</span>
 
 ### Criar Novo Conteúdo
 
@@ -209,19 +209,19 @@ description: Guia passo a passo para conectar o n8n com [Nome do Serviço] usand
 keywords: [n8n, integração, brasil, [serviço], automação]
 ---
 
-# Integração com [Nome do Serviço]
+# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Integração com [Nome do Serviço]
 
 :::tip Resultado esperado
 Ao final deste tutorial, você terá um fluxo funcional que [explique brevemente o objetivo, por exemplo: envia notificações via WhatsApp, consulta CEPs automaticamente etc.].
 :::
 
-## Pré-requisitos
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
 - [ ] Acesso ao n8n (local ou em nuvem)
 - [ ] Conta ativa em [Nome do Serviço]
 - [ ] [Outros itens necessários, como chaves de API, permissões, etc.]
 
-## Etapas do Tutorial
+## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Etapas do Tutorial
 
 ### 1. Visão Geral
 Breve explicação sobre o que será feito e por quê essa integração é útil.
@@ -240,14 +240,14 @@ Passo a passo com capturas de tela e explicações para cada nó utilizado:
 - Verifique se os dados foram processados corretamente
 - Dicas de verificação e logs úteis
 
-## Testando
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testando
 
 Como validar que tudo está funcionando:
 - Exemplo de input real
 - Resultado esperado
 - Mensagens de erro comuns e como resolver
 
-## Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 - [ ] Links para tutoriais relacionados
 - [ ] Sugestões de melhorias no fluxo
@@ -272,7 +272,7 @@ Como validar que tudo está funcionando:
 
 ---
 
-## <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><LocalIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Checklist de Qualidade</span>
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Qualidade</span>
 
 ### **Antes de Enviar**
 
@@ -321,26 +321,26 @@ Como validar que tudo está funcionando:
 
 ---
 
-## <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><LocalIcon name="people-outline" size={24} color="#ea4b71" /> Processo de Revisão</span>
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Processo de Revisão</span>
 
 ### **O que Acontece Após Enviar**
 
-1. **<LocalIcon name="eye-outline" size={16} />** **Revisão Automática** (2-5 min)
+1. **<ion-icon name="eye-outline" style={{ fontSize: '16px' }}></ion-icon>** **Revisão Automática** (2-5 min)
    - Verificação de build
    - Testes de links
    - Validação de formatação
 
-2. **<LocalIcon name="people-outline" size={16} />** **Revisão Humana** (1-3 dias)
+2. **<ion-icon name="people-outline" style={{ fontSize: '16px' }}></ion-icon>** **Revisão Humana** (1-3 dias)
    - Qualidade do conteúdo
    - Correção técnica
    - Adequação aos padrões
 
-3. **<LocalIcon name="chatbubbles-outline" size={16} />** **Feedback e Ajustes** (conforme necessário)
+3. **<ion-icon name="chatbubbles-outline" style={{ fontSize: '16px' }}></ion-icon>** **Feedback e Ajustes** (conforme necessário)
    - Sugestões de melhoria
    - Correções solicitadas
    - Ajustes de estilo
 
-4. **<LocalIcon name="checkmark-circle-outline" size={16} />** **Aprovação e Merge**
+4. **<ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px' }}></ion-icon>** **Aprovação e Merge**
    - Contribuição aprovada
    - Código integrado ao projeto
    - Publicação automática
@@ -359,16 +359,16 @@ Receber sugestões é parte essencial do processo de contribuição colaborativa
 **Como aplicar os ajustes no seu PR:**
 
 ```bash title="Terminal"
-# Faça as edições solicitadas
-# (edite os arquivos conforme o feedback)
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Faça as edições solicitadas
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> (edite os arquivos conforme o feedback)
 
-# Adicione as alterações
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicione as alterações
 git add .
 
-# Faça um commit descritivo
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Faça um commit descritivo
 git commit -m "fix: ajustes conforme feedback da revisão"
 
-# Envie as atualizações para o seu fork
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Envie as atualizações para o seu fork
 git push origin minha-contribuicao
 ```
 
@@ -378,8 +378,7 @@ git push origin minha-contribuicao
 
 ---
 
-#
-### **FAQs da Contribuição**
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> ### **FAQs da Contribuição**
 
 <details>
 <summary><strong>❓ Não sei por onde começar</strong></summary>
@@ -446,6 +445,6 @@ Tentamos ser rápidos, mas priorizamos qualidade!
 > 
 > <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Escolha uma issue marcada como `good first issue` e siga este guia. A comunidade está aqui para ajudar em cada passo! Todas as pessoas são bem-vindas, independente do seu nível de experiência.**</span>
 > 
-> **<LocalIcon name="eye-outline" size={16} color="#ea4b71" /> [Ver Issues Disponíveis](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)** | **<LocalIcon name="chatbubbles-outline" size={16} color="#ea4b71" /> [Fazer uma Pergunta](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/discussions)**
+> **<ion-icon name="eye-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> [Ver Issues Disponíveis](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)** | **<ion-icon name="chatbubbles-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> [Fazer uma Pergunta](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/discussions)**
 
 ---

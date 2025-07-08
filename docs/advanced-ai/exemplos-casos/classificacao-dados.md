@@ -5,7 +5,7 @@ description: Como classificar dados automaticamente com IA
 keywords: [n8n, classificação, dados, ia, machine learning]
 ---
 
-# Classificação de Dados com IA
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Classificação de Dados com IA
 
 Este documento explica como usar IA para **classificar dados**, como análise de sentimentos, categorização de tickets e mais.
 

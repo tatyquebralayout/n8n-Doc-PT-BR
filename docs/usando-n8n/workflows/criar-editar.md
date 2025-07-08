@@ -6,13 +6,13 @@ keywords: [n8n, workflows, criar, editar, nodes, triggers, conexões]
 ---
 
 
-#  Criar e Editar Workflows
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar e Editar Workflows
 
 Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o conceito inicial até a implementação completa.
 
 ---
 
-##  1 | Planejamento do Workflow
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Planejamento do Workflow
 
 ###  Definindo o Objetivo
 
@@ -39,7 +39,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-##  2 | Criando seu Primeiro Workflow
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Criando seu Primeiro Workflow
 
 ###  Passo a Passo
 
@@ -83,7 +83,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-##  3 | Trabalhando com Nodes
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Trabalhando com Nodes
 
 ###  Tipos de Nodes
 
@@ -123,7 +123,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-##  4 | Editando Workflows Existentes
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Editando Workflows Existentes
 
 ###  Modo de Edição
 
@@ -155,7 +155,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-##  5 | Boas Práticas
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Boas Práticas
 
 ###  Nomenclatura
 
@@ -171,7 +171,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 **Adicione descrições:**
 
 ```markdown
-# Workflow: Enviar Relatório Diário
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Workflow: Enviar Relatório Diário
 - **Propósito**: Envia relatório de vendas diário para equipe
 - **Trigger**: Schedule (diário às 18h)
 - **Dados processados**: Vendas do dia, métricas de conversão
@@ -190,7 +190,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-##  6 | Debugging e Testes
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Debugging e Testes
 
 ###  Testando Workflows
 
@@ -222,7 +222,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-##  7 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Próximos passos
 
 1. **[Organizar Workflows](./organizar)** - Estruturar projetos
 2. **[Otimizar Performance](./otimizar)** - Melhorar eficiência

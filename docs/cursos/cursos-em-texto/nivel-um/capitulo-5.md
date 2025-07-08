@@ -5,7 +5,7 @@ description: Quinto capítulo - projeto prático integrando todos os conceitos a
 keywords: [n8n, curso, projeto final, prática, integração]
 ---
 
-# Capítulo 5 - Projeto Final
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Capítulo 5 - Projeto Final
 
 Este capítulo final consolida todo o aprendizado através de um **projeto prático completo**, onde você construirá um workflow real que integra múltiplos serviços, processa dados, implementa lógica condicional, e resolve um problema de negócio específico, demonstrando domínio dos conceitos fundamentais do n8n e preparando para avançar ao nível intermediário.
 

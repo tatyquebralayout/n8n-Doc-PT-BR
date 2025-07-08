@@ -5,7 +5,7 @@ description: Visão geral das opções de implementação do n8n embarcado, incl
 ---
 
 
-#  Implementação do Embed
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Implementação do Embed
 
 Selecione abaixo o tópico desejado para acessar guias completos de configuração, implantação e boas práticas para integrar o n8n embarcado em sua aplicação:
 

@@ -6,13 +6,13 @@ keywords: [n8n, credenciais, segurança, boas práticas, criptografia, auditoria
 ---
 
 
-#  Boas Práticas de Segurança
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Boas Práticas de Segurança
 
 Aprenda as melhores práticas para manter suas credenciais seguras e proteger seus workflows no n8n.
 
 ---
 
-##  1 | Por que Segurança é Crítica?
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Por que Segurança é Crítica?
 
 ###  Riscos de Credenciais Comprometidas
 
@@ -33,7 +33,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 
 ---
 
-##  2 | Princípios Fundamentais
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Princípios Fundamentais
 
 ###  Princípio do Menor Privilégio
 
@@ -76,7 +76,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 
 ---
 
-##  3 | Criação de Credenciais Seguras
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Criação de Credenciais Seguras
 
 ###  Senhas Fortes
 
@@ -125,7 +125,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-##  4 | Organização e Nomenclatura
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Organização e Nomenclatura
 
 ###  Convenções de Nomenclatura
 
@@ -143,18 +143,18 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 **Sistema de cores sugerido:**
 
-- 🔴 **Vermelho**: Produção crítica
-- 🟡 **Amarelo**: Desenvolvimento/teste
-- 🟢 **Verde**: Serviços internos
-- 🔵 **Azul**: Integrações de terceiros
-- ⚫ **Preto**: Credenciais temporárias
+- **Vermelho**: Produção crítica
+- **Amarelo**: Desenvolvimento/teste
+- **Verde**: Serviços internos
+- **Azul**: Integrações de terceiros
+- **Preto**: Credenciais temporárias
 
 ###  Documentação
 
 **Informações essenciais:**
 
 ```markdown
-# Google Sheets - Marketing
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Google Sheets - Marketing
 - **Criado por**: João Silva
 - **Data de criação**: 2024-01-15
 - **Propósito**: Relatórios de marketing
@@ -165,19 +165,19 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-##  5 | Monitoramento e Auditoria
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Monitoramento e Auditoria
 
 ###  Logs de Acesso
 
 **Monitore estes eventos:**
 
-- ✅ **Login bem-sucedido**
-- ❌ **Tentativas de login falhadas**
-- 📝 **Criação de credenciais**
-- ✏️ **Edição de credenciais**
-- 🗑️ **Exclusão de credenciais**
-- 🔄 **Renovação de tokens**
-- 🚫 **Acesso negado**
+- **Login bem-sucedido**
+- **Tentativas de login falhadas**
+- **Criação de credenciais**
+- **Edição de credenciais**
+- **Exclusão de credenciais**
+- **Renovação de tokens**
+- **Acesso negado**
 
 ###  Alertas Automáticos
 
@@ -216,7 +216,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-##  6 | Backup e Recuperação
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Backup e Recuperação
 
 ###  Estratégia de Backup
 
@@ -244,7 +244,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-##  7 | Treinamento da Equipe
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Treinamento da Equipe
 
 ###  Tópicos Essenciais
 
@@ -265,7 +265,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-##  8 | Checklist de Segurança
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 8 | Checklist de Segurança
 
 ###  Checklist Diário
 
@@ -290,7 +290,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-##  9 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 9 | Próximos passos
 
 1. **[Implementar Monitoramento](../monitoring)** - Configurar alertas
 2. **[Criar Política de Segurança](../politicas-seguranca)** - Documentar regras

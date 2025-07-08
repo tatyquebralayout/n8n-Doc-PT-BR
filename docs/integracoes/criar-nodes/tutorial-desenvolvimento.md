@@ -5,7 +5,7 @@ description: Tutorial completo para desenvolver seu primeiro node personalizado 
 keywords: [n8n, desenvolvimento, node, tutorial, typescript, api]
 ---
 
-# Tutorial de Desenvolvimento de Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Tutorial de Desenvolvimento de Node
 
 Este documento oferece um **tutorial completo para desenvolver nodes personalizados** no n8n, abordando setup do ambiente de desenvolvimento, estrutura básica de um node, implementação de funcionalidades, testes unitários, debug e troubleshooting, e publicação na comunidade, capacitando desenvolvedores brasileiros a criar integrações customizadas que atendem necessidades específicas não cobertas pelos nodes oficiais.
 

@@ -5,7 +5,7 @@ description: Como gerar conteúdo automaticamente com IA
 keywords: [n8n, geração, conteúdo, ia, texto, automação]
 ---
 
-# Geração de Conteúdo com IA
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Geração de Conteúdo com IA
 
 Este documento aborda o uso de IA para **geração de conteúdo**, como posts de blog, e-mails e outros materiais.
 

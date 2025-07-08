@@ -4,15 +4,14 @@ title: Getting Started
 description: Primeiros passos técnicos para contribuir - GitHub web e desenvolvimento local
 keywords: [n8n, contribuir, github, git, desenvolvimento, local, fork, clone]
 ---
-import LocalIcon from '@site/src/components/LocalIcon';
 
-# <span style={{display: 'flex', alignItems: 'center', gap: '12px'}}><LocalIcon name="play-circle-outline" size={32} color="#ea4b71" /> Getting Started</span>
+# <ion-icon name="play-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '12px'}}><ion-icon name="play-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Getting Started</span>
 
 Este guia orienta os primeiros passos técnicos para contribuir com esta documentação. Você pode usar o **GitHub Web**, que é mais simples, ou configurar um **ambiente local de desenvolvimento**, ideal para alterações maiores.
 
 ---
 
-## <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><LocalIcon name="git-branch-outline" size={24} color="#ea4b71" /> Escolha sua Abordagem</span>
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escolha sua Abordagem</span>
 
 ### GitHub Web (mais simples)
 
@@ -36,9 +35,9 @@ Indicado para contribuições técnicas mais robustas:
 
 ---
 
-## <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><LocalIcon name="logo-github" size={24} color="#ea4b71" /> GitHub Web</span>
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><ion-icon name="logo-github" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> GitHub Web</span>
 
-### <LocalIcon name="git-branch-outline" size={20} color="#ea4b71" /> Passo 1 – Fazer Fork
+### <ion-icon name="git-branch-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Passo 1 – Fazer Fork
 
 1. Acesse: [https://github.com/tatyquebralayout/n8n-Doc-pt-BR](https://github.com/tatyquebralayout/n8n-Doc-pt-BR)
 2. Clique em **Fork** no canto superior direito
@@ -47,7 +46,7 @@ Indicado para contribuições técnicas mais robustas:
 
 **O que acontece:** Uma cópia do repositório é criada na sua conta, permitindo que você trabalhe sem afetar o original.
 
-### <LocalIcon name="create-outline" size={20} color="#ea4b71" /> Passo 2 – Editar Arquivo
+### <ion-icon name="create-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Passo 2 – Editar Arquivo
 
 **Para corrigir conteúdo existente:**
 
@@ -63,7 +62,7 @@ Indicado para contribuições técnicas mais robustas:
 - Digite o nome do arquivo com extensão `.mdx` (ex: `meu-artigo.mdx`)
 - Escreva seu conteúdo seguindo o padrão da documentação
 
-### <LocalIcon name="checkmark-outline" size={20} color="#ea4b71" /> Passo 3 – Commit
+### <ion-icon name="checkmark-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Passo 3 – Commit
 
 Use mensagens descritivas seguindo o padrão:
 
@@ -81,7 +80,7 @@ docs: atualizar exemplo de configuração do webhook
 3. Escreva uma mensagem descritiva
 4. Clique em "Commit changes"
 
-### <LocalIcon name="git-pull-request-outline" size={20} color="#ea4b71" /> Passo 4 – Pull Request
+### <ion-icon name="git-pull-request-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Passo 4 – Pull Request
 
 1. Clique em "Compare & pull request"
 2. Preencha o título seguindo o padrão: `feat: descrição da mudança`
@@ -93,9 +92,9 @@ docs: atualizar exemplo de configuração do webhook
 
 ---
 
-## <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><LocalIcon name="desktop-outline" size={24} color="#ea4b71" /> Desenvolvimento Local</span>
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><ion-icon name="desktop-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Desenvolvimento Local</span>
 
-### <LocalIcon name="settings-outline" size={20} color="#ea4b71" /> Pré-requisitos
+### <ion-icon name="settings-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
 **Software necessário:**
 - Node.js 18+ ([download](https://nodejs.org/))
@@ -108,17 +107,17 @@ node --version  # deve ser 18+
 git --version   # deve ser 2.0+
 ```
 
-### <LocalIcon name="download-outline" size={20} color="#ea4b71" /> Passo 1 – Clonar Repositório
+### <ion-icon name="download-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Passo 1 – Clonar Repositório
 
 ```bash
-# Clone seu fork
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Clone seu fork
 git clone https://github.com/SEU-USUARIO/n8n-Doc-pt-BR.git
 cd n8n-Doc-pt-BR
 
-# Adicione o repositório original como upstream
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicione o repositório original como upstream
 git remote add upstream https://github.com/tatyquebralayout/n8n-Doc-pt-BR.git
 
-# Verifique os remotes
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verifique os remotes
 git remote -v
 ```
 
@@ -130,13 +129,13 @@ upstream  https://github.com/tatyquebralayout/n8n-Doc-pt-BR.git (fetch)
 upstream  https://github.com/tatyquebralayout/n8n-Doc-pt-BR.git (push)
 ```
 
-### <LocalIcon name="play-outline" size={20} color="#ea4b71" /> Passo 2 – Instalar e Rodar
+### <ion-icon name="play-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Passo 2 – Instalar e Rodar
 
 ```bash
-# Instalar dependências
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar dependências
 npm install
 
-# Iniciar servidor de desenvolvimento
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Iniciar servidor de desenvolvimento
 npm start
 ```
 
@@ -145,50 +144,50 @@ npm start
 - Servidor local inicia em http://localhost:3000
 - Mudanças são refletidas automaticamente no navegador
 
-### <LocalIcon name="code-working-outline" size={20} color="#ea4b71" /> Passo 3 – Contribuir
+### <ion-icon name="code-working-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Passo 3 – Contribuir
 
 ```bash
-# Criar nova branch para sua contribuição
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar nova branch para sua contribuição
 git checkout -b feat/minha-nova-funcionalidade
 
-# Editar arquivos (use seu editor preferido)
-# Exemplo: code docs/meu-artigo.mdx
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Editar arquivos (use seu editor preferido)
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Exemplo: code docs/meu-artigo.mdx
 
-# Verificar mudanças
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar mudanças
 git status
 git diff
 
-# Adicionar arquivos modificados
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar arquivos modificados
 git add .
 
-# Fazer commit
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Fazer commit
 git commit -m "feat: adicionar novo tutorial sobre automação"
 
-# Enviar para seu fork
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Enviar para seu fork
 git push origin feat/minha-nova-funcionalidade
 ```
 
-### <LocalIcon name="sync-outline" size={20} color="#ea4b71" /> Passo 4 – Manter Fork Atualizado
+### <ion-icon name="sync-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Passo 4 – Manter Fork Atualizado
 
 ```bash
-# Voltar para branch principal
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Voltar para branch principal
 git checkout main
 
-# Buscar mudanças do repositório original
+# <ion-icon name="filter-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Buscar mudanças do repositório original
 git fetch upstream
 
-# Aplicar mudanças
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Aplicar mudanças
 git merge upstream/main
 
-# Enviar atualizações para seu fork
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Enviar atualizações para seu fork
 git push origin main
 ```
 
 ---
 
-## <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><LocalIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Qualidade</span>
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> <span style={{display: 'flex', alignItems: 'center', gap: '8px'}}><ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Qualidade</span>
 
-### <LocalIcon name="document-text-outline" size={20} color="#ea4b71" /> Conteúdo
+### <ion-icon name="document-text-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Conteúdo
 
 - [x] Português claro e direto
 - [x] Exemplos testados e funcionais
@@ -196,7 +195,7 @@ git push origin main
 - [x] Informações precisas e atualizadas
 - [x] Estrutura lógica e bem organizada
 
-### <LocalIcon name="code-slash-outline" size={20} color="#ea4b71" /> Código
+### <ion-icon name="code-slash-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Código
 
 - [x] Frontmatter completo (title, description, keywords)
 - [x] Markdown válido sem erros de sintaxe
@@ -204,7 +203,7 @@ git push origin main
 - [x] Ícones IonicIcon implementados corretamente
 - [x] Links internos funcionando
 
-### <LocalIcon name="settings-outline" size={20} color="#ea4b71" /> Estrutura
+### <ion-icon name="settings-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Estrutura
 
 - [x] Arquivo no diretório correto
 - [x] Nome do arquivo seguindo convenções
@@ -213,33 +212,33 @@ git push origin main
 
 ---
 
-## <LocalIcon name="help-circle-outline" size={24} color="#ea4b71" /> Troubleshooting
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
-### <LocalIcon name="warning-outline" size={20} color="#ea4b71" /> Problemas Comuns
+### <ion-icon name="warning-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Problemas Comuns
 
 **Erro: `npm install` falha**
 ```bash
-# Limpar cache do npm
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Limpar cache do npm
 npm cache clean --force
-# Tentar novamente
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Tentar novamente
 npm install
 ```
 
 **Erro: Porta 3000 ocupada**
 ```bash
-# Usar porta alternativa
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Usar porta alternativa
 npm start -- --port 3001
 ```
 
 **Erro: Git push rejeitado**
 ```bash
-# Atualizar branch local
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Atualizar branch local
 git pull origin main
-# Tentar push novamente
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Tentar push novamente
 git push origin minha-branch
 ```
 
-### <LocalIcon name="information-circle-outline" size={20} color="#ea4b71" /> Dicas Úteis
+### <ion-icon name="information-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Dicas Úteis
 
 - **Teste localmente** antes de enviar PR
 - **Use branches** para cada contribuição
@@ -249,7 +248,7 @@ git push origin minha-branch
 
 ---
 
-## <LocalIcon name="people-outline" size={24} color="#ea4b71" /> Canais de Suporte
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Canais de Suporte
 
 - **Issues no GitHub:** Para bugs e melhorias
 - **Discussions:** Para dúvidas e discussões

@@ -5,18 +5,18 @@ description: Aprenda a monitorar execuções, analisar logs e manter seus workfl
 keywords: [n8n, monitoramento, logs, execuções, métricas, alertas, performance]
 ---
 
-#  Monitoramento e Logs
+# Monitoramento e Logs
 
 Bem-vindo à seção de monitoramento do n8n! Aqui você aprenderá como acompanhar o desempenho de seus workflows, identificar problemas e manter tudo funcionando perfeitamente.
 
 ## O que você encontrará aqui
 
-### 📊 Análise e Métricas
+### Análise e Métricas
 - **Visualizar Execuções**: Acompanhar o status e resultados
 - **Analisar Logs**: Entender o que aconteceu em cada execução
 - **Métricas de Performance**: Medir eficiência e identificar gargalos
 
-### 🔔 Alertas e Notificações
+### Alertas e Notificações
 - **Configurar Alertas**: Receber notificações sobre problemas
 - **Dashboard de Status**: Visão geral da saúde dos workflows
 - **Relatórios**: Gerar insights sobre uso e performance

@@ -5,7 +5,7 @@ description: Como configurar e gerenciar API keys no n8n para integrações segu
 keywords: [n8n, api keys, autenticação, segurança, credenciais]
 ---
 
-#  Autenticação com API Keys
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Autenticação com API Keys
 
 Este documento explica como **configurar e gerenciar API keys** no n8n para autenticação segura, abordando melhores práticas de armazenamento, rotação de chaves, configuração de headers de autorização, troubleshooting de problemas de autenticação, e implementação de políticas de segurança que protegem suas integrações contra acessos não autorizados e vazamentos de credenciais.
 

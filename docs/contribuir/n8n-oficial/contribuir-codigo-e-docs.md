@@ -6,7 +6,7 @@ keywords: [n8n, contribuir, código, documentação, open source, pull request, 
 ---
 
 
-#  Guia para Contribuir com Código para o n8n
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Guia para Contribuir com Código para o n8n
 
 Contribuir para o código-fonte do n8n é uma das formas mais impactantes de ajudar o projeto. Este guia detalha o processo, desde a configuração do ambiente até a submissão do seu Pull Request (PR), seguindo as diretrizes oficiais do n8n.
 
@@ -16,7 +16,7 @@ As diretrizes abaixo são para o **projeto principal do n8n**. As interações (
 
 ---
 
-##  Antes de Começar: Itens Essenciais
+## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Antes de Começar: Itens Essenciais
 
 ### **Código de Conduta**
 O projeto é governado por um [Código de Conduta](https://github.com/n8n-io/n8n/blob/master/CODE_OF_CONDUCT.md). Ao participar, você concorda em seguir seus termos.
@@ -26,7 +26,7 @@ Para que sua contribuição seja aceita, você **precisa assinar** um Contributo
 
 ---
 
-##  Configurando o Ambiente de Desenvolvimento
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurando o Ambiente de Desenvolvimento
 
 ### **Pré-requisitos**
 - **[Node.js](https://nodejs.org/en/):** Versão `18.17` ou mais recente
@@ -66,7 +66,7 @@ pnpm build
 
 ---
 
-##  O Ciclo de Desenvolvimento
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O Ciclo de Desenvolvimento
 
 1. **Sincronize seu fork:** Antes de criar uma branch, sempre atualize seu repositório local com as últimas mudanças do `upstream`
 ```bash
@@ -83,13 +83,13 @@ pnpm dev
 
 4. **TESTE SUAS ALTERAÇÕES!**
 ```bash
-# Roda todos os testes do projeto
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Roda todos os testes do projeto
 pnpm test
 ```
 
 ---
 
-##  Diretrizes para Pull Requests (PRs)
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Diretrizes para Pull Requests (PRs)
 
 ### **Requisitos Gerais**
 - **PRs Pequenos e Focados:** Cada PR deve resolver apenas **um** problema ou adicionar **uma** funcionalidade
@@ -113,7 +113,7 @@ Se a equipe do n8n solicitar alterações, você tem **14 dias** para responder 
 
 ---
 
-##  Estrutura do Repositório
+## <ion-icon name="folder-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura do Repositório
 
 O n8n é um monorepositório. Aqui estão algumas pastas importantes:
 - `packages/cli`: Código da linha de comando para rodar o n8n
@@ -123,7 +123,7 @@ O n8n é um monorepositório. Aqui estão algumas pastas importantes:
 
 ---
 
-##  Recursos Oficiais
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Oficiais
 
 - **[Contributing Guide (Oficial)](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md):** A fonte da verdade para contribuições
 - **[Fórum da Comunidade](https://community.n8n.io/):** Para tirar dúvidas e discutir ideias

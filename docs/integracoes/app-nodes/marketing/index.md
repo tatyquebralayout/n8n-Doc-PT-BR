@@ -5,7 +5,7 @@ description: Nodes para automação de marketing digital e campanhas
 keywords: [n8n, marketing, automação, campanhas, leads]
 ---
 
-# Integrações Marketing
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Integrações Marketing
 
 Esta seção cobre **integrações para automação de marketing digital**, abordando gestão de leads, automação de email marketing, sincronização com CRMs, campanhas automatizadas, análise de performance, e casos de uso práticos que potencializam estratégias de marketing através de workflows inteligentes que nutrem leads, personalizam comunicação e otimizam conversões para negócios brasileiros.
 

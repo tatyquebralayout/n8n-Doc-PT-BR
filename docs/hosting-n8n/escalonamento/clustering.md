@@ -6,11 +6,11 @@ keywords: [n8n, clustering, alta disponibilidade, escalabilidade, cluster]
 ---
 
 
-#  Clustering
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Clustering
 
 Este documento explica como **implementar clustering** para alta disponibilidade do n8n, incluindo configuração de múltiplas instâncias, balanceamento de carga inteligente, sincronização de dados, failover automático, e arquiteturas distribuídas que garantem operação contínua mesmo com falhas de hardware ou software, proporcionando disponibilidade enterprise-grade para automações críticas de negócio.
 
-##  O que você vai aprender
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
 -  Arquiteturas de cluster para n8n
 -  Configuração de múltiplas instâncias
@@ -20,7 +20,7 @@ Este documento explica como **implementar clustering** para alta disponibilidade
 
 ---
 
-##  Por que usar Clustering?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que usar Clustering?
 
 ###  Benefícios do Clustering
 
@@ -48,7 +48,7 @@ Este documento explica como **implementar clustering** para alta disponibilidade
 
 ---
 
-##  Arquiteturas de Cluster
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquiteturas de Cluster
 
 ###  Topologia Básica
 
@@ -118,33 +118,33 @@ graph TD
 
 ---
 
-##  Configuração de Múltiplas Instâncias
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração de Múltiplas Instâncias
 
 ###  Configuração Base
 
 #### **Instância Principal (Main)**
 ```bash
-# Configuração para instância principal
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração para instância principal
 EXECUTIONS_PROCESS=main
 EXECUTIONS_MODE=regular
 
-# Este worker processa:
-# - Execuções manuais
-# - Webhooks
-# - Interface de usuário
-# - Gerenciamento de workflows
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Este worker processa:
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Execuções manuais
+# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Webhooks
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Interface de usuário
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Gerenciamento de workflows
 ```
 
 #### **Instâncias de Execução**
 ```bash
-# Configuração para instâncias de execução
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração para instâncias de execução
 EXECUTIONS_PROCESS=worker
 EXECUTIONS_MODE=regular
 
-# Este worker processa apenas:
-# - Execuções de workflows
-# - Jobs da fila
-# - Retry de falhas
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Este worker processa apenas:
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Execuções de workflows
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Jobs da fila
+# <ion-icon name="bug-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Retry de falhas
 ```
 
 ###  Docker Compose com Cluster
@@ -265,7 +265,7 @@ networks:
 
 ---
 
-##  Balanceamento de Carga
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Balanceamento de Carga
 
 ###  Configuração Nginx
 
@@ -430,13 +430,13 @@ backend n8n_backend
 
 ---
 
-##  Failover Automático
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Failover Automático
 
 ###  Health Checks
 
 #### **Endpoint de Health Check**
 ```bash
-# Configurar endpoint de health check
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar endpoint de health check
 N8N_HEALTH_CHECK_ENDPOINT=/healthz
 N8N_HEALTH_CHECK_TIMEOUT=5000
 N8N_HEALTH_CHECK_INTERVAL=30000
@@ -445,13 +445,13 @@ N8N_HEALTH_CHECK_INTERVAL=30000
 #### **Script de Health Check**
 ```bash
 #!/bin/bash
-# health-check.sh
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> health-check.sh
 
 N8N_HOST="localhost"
 N8N_PORT="5678"
 HEALTH_ENDPOINT="/healthz"
 
-# Verificar se n8n está respondendo
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar se n8n está respondendo
 if curl -f -s "http://$N8N_HOST:$N8N_PORT$HEALTH_ENDPOINT" > /dev/null; then
     echo "OK: n8n está saudável"
     exit 0
@@ -466,13 +466,13 @@ fi
 #### **Script de Monitoramento**
 ```bash
 #!/bin/bash
-# monitor-cluster.sh
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> monitor-cluster.sh
 
-# Configurações
+# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações
 CLUSTER_NODES=("n8n-main" "n8n-worker-1" "n8n-worker-2")
 WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 
-# Verificar cada nó
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar cada nó
 for node in "${CLUSTER_NODES[@]}"; do
     if ! docker exec $node curl -f -s "http://localhost:5678/healthz" > /dev/null; then
         echo "ALERTA: Nó $node não está respondendo!"
@@ -492,7 +492,7 @@ done
 
 ---
 
-##  Kubernetes Deployment
+## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Kubernetes Deployment
 
 ###  Deployment Completo
 
@@ -696,34 +696,34 @@ spec:
 
 ---
 
-##  Monitoramento de Cluster
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento de Cluster
 
 ###  Métricas Essenciais
 
 #### **Script de Monitoramento**
 ```bash
 #!/bin/bash
-# monitor-cluster-metrics.sh
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> monitor-cluster-metrics.sh
 
 echo "=== Métricas do Cluster n8n ==="
 echo
 
-# Status dos containers
+# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Status dos containers
 echo "1. Status dos Containers:"
 docker ps --filter "name=n8n" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 echo
 
-# Uso de recursos
+# <ion-icon name="school-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Uso de recursos
 echo "2. Uso de Recursos:"
 docker stats --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"
 echo
 
-# Logs de erro recentes
+# <ion-icon name="bug-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logs de erro recentes
 echo "3. Logs de Erro (últimas 10 linhas):"
 docker logs --tail 10 n8n-main 2>&1 | grep -E "(ERROR|WARN)" || echo "Nenhum erro encontrado"
 echo
 
-# Health checks
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Health checks
 echo "4. Health Checks:"
 for container in n8n-main n8n-worker-1 n8n-worker-2; do
     if docker exec $container curl -f -s "http://localhost:5678/healthz" > /dev/null; then
@@ -734,7 +734,7 @@ for container in n8n-main n8n-worker-1 n8n-worker-2; do
 done
 echo
 
-# Métricas Redis
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Métricas Redis
 echo "5. Métricas Redis:"
 echo "Jobs na fila: $(redis-cli llen n8n:queue:jobs)"
 echo "Webhooks na fila: $(redis-cli llen n8n:queue:webhooks)"
@@ -747,15 +747,15 @@ echo "Jobs falharam: $(redis-cli get n8n:stats:failed || echo '0')"
 #### **Configuração de Alertas**
 ```bash
 #!/bin/bash
-# cluster-alerts.sh
+# <ion-icon name="warning-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> cluster-alerts.sh
 
-# Configurações
+# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações
 WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 ALERT_THRESHOLD_CPU=80
 ALERT_THRESHOLD_MEMORY=85
 ALERT_THRESHOLD_QUEUE=1000
 
-# Verificar CPU
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar CPU
 CPU_USAGE=$(docker stats --no-stream --format "{{.CPUPerc}}" n8n-main | sed 's/%//')
 if (( $(echo "$CPU_USAGE > $ALERT_THRESHOLD_CPU" | bc -l) )); then
     curl -X POST $WEBHOOK_URL \
@@ -763,7 +763,7 @@ if (( $(echo "$CPU_USAGE > $ALERT_THRESHOLD_CPU" | bc -l) )); then
       -d "{\"text\":\"⚠️ CPU alta: ${CPU_USAGE}%\"}"
 fi
 
-# Verificar memória
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar memória
 MEMORY_USAGE=$(docker stats --no-stream --format "{{.MemPerc}}" n8n-main | sed 's/%//')
 if (( $(echo "$MEMORY_USAGE > $ALERT_THRESHOLD_MEMORY" | bc -l) )); then
     curl -X POST $WEBHOOK_URL \
@@ -771,7 +771,7 @@ if (( $(echo "$MEMORY_USAGE > $ALERT_THRESHOLD_MEMORY" | bc -l) )); then
       -d "{\"text\":\"⚠️ Memória alta: ${MEMORY_USAGE}%\"}"
 fi
 
-# Verificar fila
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar fila
 QUEUE_SIZE=$(redis-cli llen n8n:queue:jobs)
 if [ $QUEUE_SIZE -gt $ALERT_THRESHOLD_QUEUE ]; then
     curl -X POST $WEBHOOK_URL \
@@ -782,55 +782,55 @@ fi
 
 ---
 
-##  Troubleshooting
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
 ###  Problemas Comuns
 
 #### **Instância não inicia**
 ```bash
-# Verificar logs
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar logs
 docker logs n8n-main
 
-# Verificar variáveis de ambiente
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar variáveis de ambiente
 docker exec n8n-main env | grep -E "(DB_|REDIS_|N8N_)"
 
-# Verificar conectividade com banco
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar conectividade com banco
 docker exec n8n-main nc -zv postgres 5432
 
-# Verificar conectividade com Redis
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar conectividade com Redis
 docker exec n8n-main nc -zv redis 6379
 ```
 
 #### **Load balancer não distribui carga**
 ```bash
-# Verificar configuração nginx
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar configuração nginx
 nginx -t
 
-# Verificar upstream
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar upstream
 curl -I http://n8n-main:5678/healthz
 curl -I http://n8n-worker-1:5678/healthz
 curl -I http://n8n-worker-2:5678/healthz
 
-# Verificar logs nginx
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar logs nginx
 tail -f /var/log/nginx/error.log
 ```
 
 #### **Falhas de failover**
 ```bash
-# Verificar health checks
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar health checks
 for node in n8n-main n8n-worker-1 n8n-worker-2; do
     echo "=== $node ==="
     docker exec $node curl -f http://localhost:5678/healthz
     echo
 done
 
-# Verificar conectividade entre nós
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar conectividade entre nós
 docker network inspect n8n_network
 ```
 
 ---
 
-##  Checklist de Produção
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
 ###  Configuração
 
@@ -866,7 +866,7 @@ docker network inspect n8n_network
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você configurou o clustering:
 

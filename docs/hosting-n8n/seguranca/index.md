@@ -6,11 +6,11 @@ keywords: [n8n, segurança, autenticação, permissões, backup, monitoramento, 
 ---
 
 
-#  Segurança
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Segurança
 
 Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todos os aspectos essenciais para proteger sua instalação n8n em ambiente de produção, desde autenticação básica até estratégias avançadas de disaster recovery.
 
-##  O que você encontrará aqui
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### 🔐 **Autenticação e Controle de Acesso**
 - **Métodos de autenticação** seguros e robustos
@@ -42,7 +42,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 
 ---
 
-##  Conceitos Fundamentais
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ###  Princípio do Menor Privilégio
 
@@ -83,7 +83,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 
 ---
 
-##  Tópicos de Segurança
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tópicos de Segurança
 
 ###  [Autenticação e Acesso](./autenticacao)
 
@@ -139,7 +139,7 @@ Monitore a saúde e performance do seu n8n:
 
 ---
 
-##  Implementação por Fase
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação por Fase
 
 ###  Fase 1: Fundamentos (Semana 1-2)
 
@@ -183,7 +183,7 @@ Monitore a saúde e performance do seu n8n:
 
 ---
 
-##  Checklist de Segurança
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Segurança
 
 ###  Autenticação
 
@@ -223,7 +223,7 @@ Monitore a saúde e performance do seu n8n:
 
 ---
 
-##  Cenários de Risco
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cenários de Risco
 
 ###  Riscos de Segurança
 
@@ -245,7 +245,7 @@ Monitore a saúde e performance do seu n8n:
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você entende os fundamentos de segurança:
 
@@ -256,7 +256,7 @@ Agora que você entende os fundamentos de segurança:
 
 ---
 
-##  Recursos Úteis
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
 
 ###  Documentação Oficial
 

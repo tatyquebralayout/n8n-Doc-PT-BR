@@ -6,11 +6,11 @@ keywords: [n8n, docker, deployment, containerização, produção]
 ---
 
 
-#  Instalação via Docker
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalação via Docker
 
 Este guia mostrará como instalar e executar o n8n usando Docker, a forma mais robusta e recomendada para ambientes de produção.
 
-##  O que você vai aprender
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
 -  Como configurar n8n com Docker
 -  Variáveis de ambiente essenciais
@@ -19,7 +19,7 @@ Este guia mostrará como instalar e executar o n8n usando Docker, a forma mais r
 -  Monitoramento e logs
 -  Backup e recuperação
 
-##  Pré-requisitos
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
 Antes de começar, certifique-se de ter:
 
@@ -30,17 +30,17 @@ Antes de começar, certifique-se de ter:
 
 ---
 
-##  Instalação Rápida
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação Rápida
 
 ### **Teste Básico (Desenvolvimento)**
 ```bash
-# Executar n8n com Docker
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar n8n com Docker
 docker run -it --rm \
 --name n8n \
 -p 5678:5678 \
 n8nio/n8n
 
-# Acessar em http://localhost:5678
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Acessar em http://localhost:5678
 ```
 
 :::warning Atenção
@@ -49,10 +49,10 @@ Este comando é apenas para testes rápidos. Para produção, use Docker Compose
 
 ### **Instalação com Persistência**
 ```bash
-# Criar volume para persistência
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar volume para persistência
 docker volume create n8n_data
 
-# Executar com volume
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar com volume
 docker run -it --rm \
 --name n8n \
 -p 5678:5678 \
@@ -62,7 +62,7 @@ n8nio/n8n
 
 ---
 
-##  Docker Compose (Recomendado)
+## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Docker Compose (Recomendado)
 
 ### **Configuração Básica**
 Crie um arquivo `docker-compose.yml`:
@@ -141,29 +141,29 @@ volumes:
 
 ### **Executar com Docker Compose**
 ```bash
-# Iniciar serviços
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Iniciar serviços
 docker-compose up -d
 
-# Ver logs
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ver logs
 docker-compose logs -f n8n
 
-# Parar serviços
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Parar serviços
 docker-compose down
 ```
 
 ---
 
-##  Configuração Avançada
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Avançada
 
 ### **Variáveis de Ambiente Essenciais**
 ```bash
-# Configurações básicas
+# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações básicas
 N8N_PORT=5678
 N8N_PROTOCOL=https
 N8N_HOST=seu-dominio.com
 GENERIC_TIMEZONE=America/Sao_Paulo
 
-# Banco de dados PostgreSQL
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Banco de dados PostgreSQL
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=postgres
 DB_POSTGRESDB_PORT=5432
@@ -171,14 +171,14 @@ DB_POSTGRESDB_DATABASE=n8n
 DB_POSTGRESDB_USER=n8n
 DB_POSTGRESDB_PASSWORD=senha_segura
 
-# Redis para filas
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Redis para filas
 REDIS_URL=redis://redis:6379
 
-# Segurança
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Segurança
 N8N_ENCRYPTION_KEY=sua_chave_32_caracteres
 WEBHOOK_URL=https://seu-dominio.com/
 
-# Execuções
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Execuções
 EXECUTIONS_PROCESS=main
 EXECUTIONS_MODE=regular
 ```
@@ -257,7 +257,7 @@ networks:
 
 ### **Configuração Nginx**
 ```nginx
-# nginx.conf
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> nginx.conf
 events {
     worker_connections 1024;
 }
@@ -293,7 +293,7 @@ http {
 
 ---
 
-##  Escalabilidade
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalabilidade
 
 ### **Configuração de Filas com Redis**
 ```yaml
@@ -354,7 +354,7 @@ services:
 
 ---
 
-##  Segurança
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
 
 ### **Autenticação Básica**
 ```yaml
@@ -391,53 +391,53 @@ networks:
 
 ---
 
-##  Backup e Recuperação
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup e Recuperação
 
 ### **Backup Automático**
 ```bash
 #!/bin/bash
-# backup-n8n.sh
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-n8n.sh
 
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_DIR="/backups/n8n"
 
-# Backup dos volumes Docker
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup dos volumes Docker
 docker run --rm -v n8n_data:/data -v $BACKUP_DIR:/backup alpine tar czf /backup/n8n_data_$DATE.tar.gz -C /data .
 
-# Backup do banco PostgreSQL
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup do banco PostgreSQL
 docker exec postgres pg_dump -U n8n n8n > $BACKUP_DIR/n8n_db_$DATE.sql
 
-# Manter apenas últimos 7 backups
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Manter apenas últimos 7 backups
 find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
 find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 ```
 
 ### **Cron Job para Backup**
 ```bash
-# Adicionar ao crontab
+# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
 0 2 * * * /path/to/backup-n8n.sh
 ```
 
 ---
 
-##  Monitoramento
+## <ion-icon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento
 
 ### **Logs**
 ```bash
-# Ver logs em tempo real
+# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ver logs em tempo real
 docker-compose logs -f n8n
 
-# Logs específicos
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logs específicos
 docker logs n8n_container
 
-# Logs com filtros
+# <ion-icon name="filter-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logs com filtros
 docker-compose logs n8n | grep ERROR
 ```
 
 ### **Health Checks**
 ```bash
 #!/bin/bash
-# health-check.sh
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> health-check.sh
 
 CONTAINER_NAME="n8n"
 HEALTH_URL="http://localhost:5678/healthz"
@@ -458,39 +458,39 @@ fi
 
 ---
 
-##  Troubleshooting
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
 ### **Problemas Comuns**
 
 #### **Container não inicia**
 ```bash
-# Verificar logs
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar logs
 docker-compose logs n8n
 
-# Verificar recursos
+# <ion-icon name="school-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar recursos
 docker stats
 
-# Reiniciar container
+# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Reiniciar container
 docker-compose restart n8n
 ```
 
 #### **Problemas de conectividade**
 ```bash
-# Verificar rede
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar rede
 docker network ls
 docker network inspect n8n_network
 
-# Testar conectividade entre containers
+# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Testar conectividade entre containers
 docker exec n8n ping postgres
 ```
 
 #### **Problemas de volume**
 ```bash
-# Verificar volumes
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar volumes
 docker volume ls
 docker volume inspect n8n_data
 
-# Recriar volume (cuidado: perde dados)
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Recriar volume (cuidado: perde dados)
 docker-compose down
 docker volume rm n8n_data
 docker-compose up -d
@@ -498,7 +498,7 @@ docker-compose up -d
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você tem o n8n rodando com Docker:
 

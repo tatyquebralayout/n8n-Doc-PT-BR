@@ -6,13 +6,13 @@ keywords: [n8n, embed, pré-requisitos, integração, aplicação, iframe, CORS,
 ---
 
 
-#  Pré-requisitos para Embed
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Pré-requisitos para Embed
 
 Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em aplicações externas, garantindo integração segura, estável e escalável.
 
 ---
 
-##  Infraestrutura Recomendada
+## <ion-icon name="folder-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Infraestrutura Recomendada
 
 - **Instância dedicada do n8n** (cloud, VPS ou on-premises)
 - **Banco de dados**: PostgreSQL (recomendado) ou MySQL
@@ -25,7 +25,7 @@ Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em apli
 
 ---
 
-##  Domínios Permitidos e CORS
+## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Domínios Permitidos e CORS
 
 - Defina domínios confiáveis para o embed:
   ```bash
@@ -42,7 +42,7 @@ Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em apli
 
 ---
 
-##  Segurança e Planejamento
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Planejamento
 
 - **Chave de criptografia** obrigatória:
   ```bash
@@ -55,7 +55,7 @@ Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em apli
 
 ---
 
-##  Planejamento de Recursos
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Planejamento de Recursos
 
 - **Escalabilidade**: Planeje para múltiplos usuários simultâneos
 - **Monitoramento**: Implemente métricas de uso, alertas e dashboards
@@ -63,7 +63,7 @@ Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em apli
 
 ---
 
-##  Checklist de Pré-requisitos
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Pré-requisitos
 
 - [ ] Instância do n8n dedicada e atualizada
 - [ ] Banco de dados configurado e seguro

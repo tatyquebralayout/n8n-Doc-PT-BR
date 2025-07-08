@@ -5,7 +5,7 @@ description: Primeiro capítulo do curso intermediário - workflows complexos e 
 keywords: [n8n, curso, intermediário, workflows avançados, lógica]
 ---
 
-# Capítulo 1 - Workflows Avançados
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Capítulo 1 - Workflows Avançados
 
 Este primeiro capítulo do **Curso Nível 2** aborda **técnicas avançadas de construção de workflows**, incluindo lógica condicional complexa, loops, tratamento de erros, subworkflows, e padrões arquiteturais para workflows robustos e escaláveis, preparando você para resolver problemas de automação mais sofisticados e construir soluções enterprise-grade.
 

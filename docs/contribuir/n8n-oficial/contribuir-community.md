@@ -6,13 +6,13 @@ keywords: [n8n, comunidade, fórum, contribuir, ajuda, suporte]
 ---
 
 
-#  Contribuir com a Comunidade Global n8n
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Contribuir com a Comunidade Global n8n
 
 A comunidade é um dos pilares do n8n. Contribuir ativamente é uma forma valiosa de ganhar experiência, ajudar outros usuários e fortalecer o ecossistema. A principal plataforma para interação é o fórum oficial.
 
 ---
 
-##  Atividades no Fórum da Comunidade
+## <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Atividades no Fórum da Comunidade
 
 O [Fórum do n8n](https://community.n8n.io/) é o ponto de encontro de milhares de usuários, desde iniciantes a especialistas. Você pode contribuir de várias maneiras:
 
@@ -34,7 +34,7 @@ Embora o local oficial para bugs seja o [GitHub Issues](https://github.com/n8n-i
 
 ---
 
-##  Por Que Contribuir?
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por Que Contribuir?
 
 - **Aprender:** Ajudar os outros é uma das melhores formas de aprofundar seu próprio conhecimento
 - **Networking:** Conecte-se com outros entusiastas e profissionais de automação
@@ -42,7 +42,7 @@ Embora o local oficial para bugs seja o [GitHub Issues](https://github.com/n8n-i
 
 ---
 
-##  Links da Comunidade
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Links da Comunidade
 
 - **[Fórum Oficial](https://community.n8n.io/):** Principal plataforma de discussão
 - **[GitHub Issues](https://github.com/n8n-io/n8n/issues):** Para reportar bugs e solicitar features

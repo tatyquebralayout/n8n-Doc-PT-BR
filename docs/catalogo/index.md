@@ -6,13 +6,13 @@ keywords: [n8n, templates, workflows, catálogo, automação]
 ---
 import HighlightCard from '@site/src/components/HighlightCard';
 
-#  Catálogo de Templates
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Catálogo de Templates
 
 Bem-vindo ao **Catálogo de Templates** da comunidade n8n Brasil!
 
 Aqui você encontra workflows prontos para usar, testados pela comunidade e documentados em português. Cada template pode ser facilmente importado e customizado para suas necessidades específicas.
 
-##  **Destaques da Semana**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Destaques da Semana**
 
 ###  Mais Populares
 
@@ -52,7 +52,7 @@ Aqui você encontra workflows prontos para usar, testados pela comunidade e docu
 </div>
 </div>
 
-##  **Categorias**
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Categorias**
 
 <h3 className="category-subtitle"> Comunicação e Notificações</h3>
 Templates para automatizar comunicação com clientes, equipes e stakeholders.
@@ -86,7 +86,7 @@ Templates usando APIs e serviços brasileiros.
 -  **Integração Bancária** - Open Banking + PIX + Boletos
 -  **Compliance Fiscal** - SPED + NFe + Simples Nacional
 
-## **Como Usar os Templates**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Como Usar os Templates**
 
 ### **1. Navegar e Descobrir**
 - Use os **filtros** para encontrar templates por categoria
@@ -105,7 +105,7 @@ Templates usando APIs e serviços brasileiros.
 - Teste em ambiente de **desenvolvimento**
 - Documente suas **modificações**
 
-## **Filtros Rápidos**
+## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Filtros Rápidos**
 
 <div className="filter-buttons">
 <button className="filter-btn active">Todos</button>
@@ -116,7 +116,7 @@ Templates usando APIs e serviços brasileiros.
 <button className="filter-btn">Avançados</button>
 </div>
 
-## **Contribuir com Templates**
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Contribuir com Templates**
 
 Tem um workflow útil? Compartilhe com a comunidade!
 
@@ -138,7 +138,7 @@ Tem um workflow útil? Compartilhe com a comunidade!
 - **Melhoria** dos próprios skills
 - **Networking** com outros automadores
 
-## **Estatísticas da Comunidade**
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Estatísticas da Comunidade**
 
 <div className="stats-grid">
 <div className="stat-card">
@@ -159,7 +159,7 @@ Tem um workflow útil? Compartilhe com a comunidade!
 </div>
 </div>
 
-## **Próximos Passos**
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
 
 :::tip **Dica Pro**
 Comece com templates **simples** e vá evoluindo para casos mais complexos. A comunidade está sempre disponível para ajudar!

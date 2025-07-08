@@ -6,7 +6,7 @@ keywords: [n8n, creators, conteúdo, blog, templates, comunidade]
 ---
 
 
-#  Programa para Criadores de Conteúdo (Creators)
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Programa para Criadores de Conteúdo (Creators)
 
 Se você tem paixão por ensinar e criar, pode se tornar um criador de conteúdo (Creator) no ecossistema n8n. Isso envolve desde a criação de templates de workflows até a escrita de tutoriais para o blog oficial.
 
@@ -14,7 +14,7 @@ Esta é uma forma de construir sua marca pessoal, compartilhar seu conhecimento 
 
 ---
 
-##  Duas Formas Principais de Criar Conteúdo
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Duas Formas Principais de Criar Conteúdo
 
 ### **1. Criar Templates de Workflows**
 Como detalhado na nossa página de [Contribuição com Modelos (Templates)](./contribuir-modelos.md), você pode submeter seus workflows para a galeria oficial através do **n8n Creator Hub**.
@@ -41,7 +41,7 @@ O processo de submissão é bem definido:
 
 ---
 
-##  Links Importantes
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Links Importantes
 
 - **[n8n Creator Hub](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f):** Portal oficial para criadores
 - **[Blog Oficial n8n](https://n8n.io/blog/):** Para ver exemplos de artigos publicados

@@ -5,11 +5,11 @@ description: Fazer chamadas HTTP para APIs e serviços externos
 keywords: [n8n, http, request, api, rest, webhook]
 ---
 
-#  HTTP Request Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> HTTP Request Node
 
 O **HTTP Request Node** permite fazer **chamadas HTTP** para qualquer API ou serviço web. É o node mais versátil para integrar com sistemas externos que não possuem nodes dedicados.
 
-##  **Conceito Principal**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Conceito Principal**
 
 **HTTP Request = "Fazer Chamada para API"**
 
@@ -21,7 +21,7 @@ Este node é uma **AÇÃO** que:
 
 > ** Diferença do Webhook:** HTTP Request FAZ chamadas. Webhook RECEBE chamadas.
 
-##  **Configurações Principais**
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
 
 ###  **1. Request Method**
 ```
@@ -53,7 +53,7 @@ Authorization: Bearer {{$json.token}}
 User-Agent: n8n-workflow/1.0
 ```
 
-## **Exemplos Práticos**
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos Práticos**
 
 ### **Exemplo 1: Consultar CEP (ViaCEP)**
 
@@ -144,7 +144,7 @@ Content-Type: application/json
 }
 ```
 
-## **Autenticação**
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Autenticação**
 
 ### **1. API Key no Header**
 ```
@@ -173,7 +173,7 @@ Client ID: {{$credentials.oauth.clientId}}
 Client Secret: {{$credentials.oauth.clientSecret}}
 ```
 
-## **Processamento de Dados**
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Processamento de Dados**
 
 ### **Query Parameters**
 ```
@@ -199,7 +199,7 @@ file: {{$binary.arquivo}}
 description: {{$json.descricao}}
 ```
 
-## **Tratamento de Respostas**
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Tratamento de Respostas**
 
 ### **Status Codes**
 ```javascript
@@ -232,7 +232,7 @@ if (nextUrl) {
 }
 ```
 
-## **Tratamento de Erros**
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Tratamento de Erros**
 
 ### **Retry Logic**
 ```
@@ -258,7 +258,7 @@ throw error;
 }
 ```
 
-## **APIs Brasileiras Populares**
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **APIs Brasileiras Populares**
 
 ### **ViaCEP**
 ```
@@ -281,7 +281,7 @@ Headers: Authorization: Bearer {{$json.token}}
 GET https://api.correios.com.br/sro/v1/objetos/{{$json.codigo}}
 ```
 
-## **Dicas de Performance**
+## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Dicas de Performance**
 
 ### **1. Reutilizar Conexões**
 ```
@@ -305,7 +305,7 @@ Accept-Encoding: gzip, deflate
 await new Promise(resolve => setTimeout(resolve, 100));
 ```
 
-## **Debugging**
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Debugging**
 
 ### **1. Log Completo**
 ```javascript
@@ -332,7 +332,7 @@ URL: https://webhook.site/seu-uuid
 ### **3. Postman/Insomnia**
 Teste a API primeiro antes de usar no n8n.
 
-## **Casos de Uso Comuns**
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Casos de Uso Comuns**
 
 ### **1. Integração CRM**
 ```
@@ -359,7 +359,7 @@ POST https://meu-sistema.com/webhook
 Notificar sistemas internos
 ```
 
-## **Próximos Passos**
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
 
 1. **[Webhook Node](./webhook)** - Para receber chamadas HTTP
 2. **[Set Node](../data-processing/set)** - Para manipular dados

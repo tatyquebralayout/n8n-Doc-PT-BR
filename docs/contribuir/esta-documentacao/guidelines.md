@@ -4,11 +4,11 @@ description: Diretrizes e padrões para contribuir com a documentação do n8n B
 sidebar_label: Diretrizes
 ---
 
-# Diretrizes de Contribuição
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Diretrizes de Contribuição
 
 Bem-vindo às diretrizes de contribuição para a documentação do n8n Brasil! Este documento estabelece os padrões e processos para contribuir com o projeto.
 
-## Princípios Fundamentais
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Princípios Fundamentais
 
 ### 🎯 Missão
 Democratizar a automação no Brasil através de documentação clara, acessível e em português brasileiro.
@@ -19,7 +19,7 @@ Democratizar a automação no Brasil através de documentação clara, acessíve
 - **Inclusividade**: Linguagem acessível para todos os níveis
 - **Relevância**: Foco no contexto brasileiro
 
-## Como Contribuir
+## <ion-icon name="git-pull-request-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Contribuir
 
 ### 1. **Reportar Problemas**
 - Use o template de issue apropriado
@@ -38,7 +38,7 @@ Democratizar a automação no Brasil através de documentação clara, acessíve
 - Teste suas alterações localmente
 - Mantenha o foco no usuário brasileiro
 
-## Processo de Contribuição
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Processo de Contribuição
 
 ### Para Correções Simples
 1. Faça um fork do repositório
@@ -54,7 +54,7 @@ Democratizar a automação no Brasil através de documentação clara, acessíve
 4. Documente adequadamente
 5. Abra um Pull Request
 
-## Padrões de Qualidade
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões de Qualidade
 
 ### ✅ O que fazer
 - Escreva em português brasileiro claro
@@ -70,7 +70,7 @@ Democratizar a automação no Brasil através de documentação clara, acessíve
 - Quebrar a estrutura existente
 - Ignorar feedback da comunidade
 
-## Revisão e Aprovação
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Revisão e Aprovação
 
 ### Critérios de Aprovação
 - [ ] Conteúdo técnico correto
@@ -85,14 +85,14 @@ Democratizar a automação no Brasil através de documentação clara, acessíve
 2. **Revisão da comunidade**: Feedback de outros contribuidores
 3. **Revisão final**: Aprovação pelos mantenedores
 
-## Recursos Úteis
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
 
 - [Guia de Estilo](./03-padroes-e-estilo/guia-de-estilo) - Padrões de escrita
 - [Recursos do Markdown](./03-padroes-e-estilo/markdown-features) - Sintaxe e componentes
 - [Design System](./03-padroes-e-estilo/design-system) - Elementos visuais
 - [Guia de Tradução](./04-traducao-e-localizacao/guia-traducao) - Padrões de localização
 
-## Comunicação
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Comunicação
 
 ### Canais de Comunicação
 - **Issues do GitHub**: Para problemas e sugestões
@@ -102,7 +102,7 @@ Democratizar a automação no Brasil através de documentação clara, acessíve
 ### Código de Conduta
 Siga nosso [Código de Conduta](../01-entendendo-o-projeto/codigo-conduta) em todas as interações.
 
-## Agradecimentos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Agradecimentos
 
 Obrigado por contribuir com a documentação do n8n Brasil! Sua participação ajuda a tornar a automação mais acessível para todos os brasileiros.
 

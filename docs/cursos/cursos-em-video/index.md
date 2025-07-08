@@ -6,7 +6,7 @@ keywords: [n8n, cursos, vídeo, youtube, tutorial, iniciante, avançado, oficial
 ---
 
 
-#  Visão Geral - Cursos em Vídeo
+# <ion-icon name="videocam-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visão Geral - Cursos em Vídeo
 
 Esta seção serve como um **guia em português para os cursos em vídeo oficiais do n8n**, disponíveis no YouTube.
 
@@ -16,7 +16,7 @@ Todos os cursos aqui são **baseados nos cursos oficiais do n8n no YouTube** e a
 
 Nosso objetivo é facilitar o acesso e o entendimento desses recursos valiosos para a comunidade brasileira, oferecendo resumos e pontos-chave de cada vídeo.
 
-##  Cursos Disponíveis
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cursos Disponíveis
 
 ###  Curso de Iniciante (Beginner Course)
 
@@ -57,7 +57,7 @@ Nosso objetivo é facilitar o acesso e o entendimento desses recursos valiosos p
 
 ---
 
-##  Como Usar Esta Seção
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Usar Esta Seção
 
 ###  Nossos Resumos
 

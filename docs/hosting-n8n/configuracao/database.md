@@ -6,11 +6,11 @@ keywords: [n8n, database, banco de dados, postgresql, mysql, configuração]
 ---
 
 
-#  Configuração de Database
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração de Database
 
 Este documento explica como **configurar banco de dados** para n8n em ambiente de produção, abordando escolha entre PostgreSQL e MySQL, configuração de conexões, otimização de performance, backup e recovery, migrações entre versões, e estratégias de escalabilidade que garantem armazenamento confiável e eficiente de workflows, execuções, e credenciais em implementações empresariais robustas.
 
-##  O que você vai aprender
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
 -  Escolha entre PostgreSQL e MySQL
 -  Configuração de conexões
@@ -20,7 +20,7 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 
 ---
 
-##  Escolha do Banco de Dados
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escolha do Banco de Dados
 
 ###  PostgreSQL (Recomendado)
 
@@ -66,45 +66,45 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 
 ---
 
-##  Configuração PostgreSQL
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração PostgreSQL
 
 ###  Instalação Rápida
 
 #### **Ubuntu/Debian**
 ```bash
-# Instalar PostgreSQL
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar PostgreSQL
 sudo apt update
 sudo apt install postgresql postgresql-contrib
 
-# Iniciar serviço
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Iniciar serviço
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 
-# Criar usuário e banco
+# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar usuário e banco
 sudo -u postgres createuser --interactive n8n
 sudo -u postgres createdb n8n
 ```
 
 #### **CentOS/RHEL**
 ```bash
-# Instalar PostgreSQL
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar PostgreSQL
 sudo yum install postgresql-server postgresql-contrib
 
-# Inicializar banco
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Inicializar banco
 sudo postgresql-setup initdb
 
-# Iniciar serviço
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Iniciar serviço
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 
-# Criar usuário e banco
+# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar usuário e banco
 sudo -u postgres createuser --interactive n8n
 sudo -u postgres createdb n8n
 ```
 
 #### **Docker**
 ```bash
-# Executar PostgreSQL com Docker
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar PostgreSQL com Docker
 docker run -d \
   --name postgres-n8n \
   -e POSTGRES_DB=n8n \
@@ -119,19 +119,19 @@ docker run -d \
 
 #### **postgresql.conf - Otimizações**
 ```bash
-# /etc/postgresql/15/main/postgresql.conf
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/postgresql/15/main/postgresql.conf
 
-# Memória
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Memória
 shared_buffers = 256MB          # 25% da RAM
 effective_cache_size = 1GB      # 75% da RAM
 work_mem = 4MB                  # Para queries complexas
 maintenance_work_mem = 64MB     # Para manutenção
 
-# Conexões
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conexões
 max_connections = 100           # Ajuste conforme necessidade
 max_worker_processes = 8        # Para paralelização
 
-# Logs
+# <ion-icon name="document-text-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logs
 log_destination = 'stderr'
 logging_collector = on
 log_directory = 'log'
@@ -139,7 +139,7 @@ log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
 log_rotation_age = 1d
 log_rotation_size = 100MB
 
-# Performance
+# <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Performance
 random_page_cost = 1.1          # Para SSDs
 effective_io_concurrency = 200  # Para SSDs
 checkpoint_completion_target = 0.9
@@ -148,13 +148,13 @@ wal_buffers = 16MB
 
 #### **pg_hba.conf - Segurança**
 ```bash
-# /etc/postgresql/15/main/pg_hba.conf
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/postgresql/15/main/pg_hba.conf
 
-# Conexões locais
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conexões locais
 local   all             postgres                                peer
 local   all             all                                     md5
 
-# Conexões de rede (ajuste IPs conforme necessário)
+# <ion-icon name="repeat-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conexões de rede (ajuste IPs conforme necessário)
 host    n8n             n8n             127.0.0.1/32            md5
 host    n8n             n8n             ::1/128                 md5
 host    n8n             n8n             192.168.1.0/24          md5
@@ -163,7 +163,7 @@ host    n8n             n8n             192.168.1.0/24          md5
 ###  Variáveis de Ambiente
 
 ```bash
-# Configuração PostgreSQL
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração PostgreSQL
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=localhost
 DB_POSTGRESDB_PORT=5432
@@ -171,7 +171,7 @@ DB_POSTGRESDB_DATABASE=n8n
 DB_POSTGRESDB_USER=n8n
 DB_POSTGRESDB_PASSWORD=senha_segura
 
-# Configurações avançadas
+# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações avançadas
 DB_POSTGRESDB_SCHEMA=public
 DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED=false
 DB_POSTGRESDB_SSL_CA=/path/to/ca-certificate.crt
@@ -181,20 +181,20 @@ DB_POSTGRESDB_SSL_KEY=/path/to/client-key.key
 
 ---
 
-##  Configuração MySQL
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração MySQL
 
 ###  Instalação Rápida
 
 #### **Ubuntu/Debian**
 ```bash
-# Instalar MySQL
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar MySQL
 sudo apt update
 sudo apt install mysql-server
 
-# Configuração inicial
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração inicial
 sudo mysql_secure_installation
 
-# Criar usuário e banco
+# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar usuário e banco
 sudo mysql -u root -p
 ```
 
@@ -209,7 +209,7 @@ EXIT;
 
 #### **Docker**
 ```bash
-# Executar MySQL com Docker
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar MySQL com Docker
 docker run -d \
   --name mysql-n8n \
   -e MYSQL_DATABASE=n8n \
@@ -225,26 +225,26 @@ docker run -d \
 
 #### **my.cnf - Otimizações**
 ```ini
-# /etc/mysql/mysql.conf.d/mysqld.cnf
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/mysql/mysql.conf.d/mysqld.cnf
 
 [mysqld]
-# Memória
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Memória
 innodb_buffer_pool_size = 1G
 innodb_log_file_size = 256M
 innodb_log_buffer_size = 16M
 key_buffer_size = 256M
 
-# Conexões
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conexões
 max_connections = 200
 max_connect_errors = 1000
 
-# Logs
+# <ion-icon name="document-text-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logs
 log_error = /var/log/mysql/error.log
 slow_query_log = 1
 slow_query_log_file = /var/log/mysql/slow.log
 long_query_time = 2
 
-# Performance
+# <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Performance
 innodb_flush_log_at_trx_commit = 2
 innodb_flush_method = O_DIRECT
 innodb_file_per_table = 1
@@ -253,7 +253,7 @@ innodb_file_per_table = 1
 ###  Variáveis de Ambiente
 
 ```bash
-# Configuração MySQL
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração MySQL
 DB_TYPE=mysqldb
 DB_MYSQLDB_HOST=localhost
 DB_MYSQLDB_PORT=3306
@@ -261,7 +261,7 @@ DB_MYSQLDB_DATABASE=n8n
 DB_MYSQLDB_USER=n8n
 DB_MYSQLDB_PASSWORD=senha_segura
 
-# Configurações avançadas
+# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações avançadas
 DB_MYSQLDB_CHARSET=utf8mb4
 DB_MYSQLDB_SSL_REJECT_UNAUTHORIZED=false
 DB_MYSQLDB_SSL_CA=/path/to/ca-certificate.crt
@@ -271,7 +271,7 @@ DB_MYSQLDB_SSL_KEY=/path/to/client-key.key
 
 ---
 
-##  Otimização de Performance
+## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Otimização de Performance
 
 ###  PostgreSQL
 
@@ -325,14 +325,14 @@ OPTIMIZE TABLE workflows;
 
 ---
 
-##  Backup e Recovery
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup e Recovery
 
 ###  Backup Automático
 
 #### **PostgreSQL - Script de Backup**
 ```bash
 #!/bin/bash
-# backup-postgres.sh
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-postgres.sh
 
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_DIR="/backups/postgres"
@@ -340,16 +340,16 @@ DB_NAME="n8n"
 DB_USER="n8n"
 BACKUP_FILE="$BACKUP_DIR/n8n_$DATE.sql"
 
-# Criar diretório se não existir
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar diretório se não existir
 mkdir -p $BACKUP_DIR
 
-# Backup completo
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup completo
 pg_dump -h localhost -U $DB_USER -d $DB_NAME > $BACKUP_FILE
 
-# Comprimir backup
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Comprimir backup
 gzip $BACKUP_FILE
 
-# Manter apenas últimos 7 backups
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Manter apenas últimos 7 backups
 find $BACKUP_DIR -name "*.sql.gz" -mtime +7 -delete
 
 echo "Backup criado: $BACKUP_FILE.gz"
@@ -358,7 +358,7 @@ echo "Backup criado: $BACKUP_FILE.gz"
 #### **MySQL - Script de Backup**
 ```bash
 #!/bin/bash
-# backup-mysql.sh
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-mysql.sh
 
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_DIR="/backups/mysql"
@@ -366,16 +366,16 @@ DB_NAME="n8n"
 DB_USER="n8n"
 BACKUP_FILE="$BACKUP_DIR/n8n_$DATE.sql"
 
-# Criar diretório se não existir
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar diretório se não existir
 mkdir -p $BACKUP_DIR
 
-# Backup completo
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup completo
 mysqldump -h localhost -u $DB_USER -p$DB_PASSWORD $DB_NAME > $BACKUP_FILE
 
-# Comprimir backup
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Comprimir backup
 gzip $BACKUP_FILE
 
-# Manter apenas últimos 7 backups
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Manter apenas últimos 7 backups
 find $BACKUP_DIR -name "*.sql.gz" -mtime +7 -delete
 
 echo "Backup criado: $BACKUP_FILE.gz"
@@ -385,47 +385,47 @@ echo "Backup criado: $BACKUP_FILE.gz"
 
 #### **PostgreSQL - Restaurar Backup**
 ```bash
-# Descomprimir backup
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Descomprimir backup
 gunzip n8n_20241201_120000.sql.gz
 
-# Restaurar backup
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Restaurar backup
 psql -h localhost -U n8n -d n8n < n8n_20241201_120000.sql
 ```
 
 #### **MySQL - Restaurar Backup**
 ```bash
-# Descomprimir backup
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Descomprimir backup
 gunzip n8n_20241201_120000.sql.gz
 
-# Restaurar backup
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Restaurar backup
 mysql -h localhost -u n8n -p n8n < n8n_20241201_120000.sql
 ```
 
 ###  Cron Jobs
 
 ```bash
-# Adicionar ao crontab
-# Backup diário às 2h da manhã
+# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup diário às 2h da manhã
 0 2 * * * /path/to/backup-postgres.sh
 
-# Backup semanal completo
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup semanal completo
 0 2 * * 0 /path/to/backup-postgres-full.sh
 ```
 
 ---
 
-##  Escalabilidade
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalabilidade
 
 ###  Replicação
 
 #### **PostgreSQL - Replicação Master-Slave**
 ```bash
-# Master (postgresql.conf)
+# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Master (postgresql.conf)
 wal_level = replica
 max_wal_senders = 3
 wal_keep_segments = 64
 
-# Slave (recovery.conf)
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Slave (recovery.conf)
 standby_mode = 'on'
 primary_conninfo = 'host=master_ip port=5432 user=replicator password=senha'
 restore_command = 'cp /var/lib/postgresql/wal/%f %p'
@@ -449,7 +449,7 @@ CHANGE MASTER TO
 
 #### **AWS RDS PostgreSQL**
 ```bash
-# Configuração RDS
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração RDS
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=seu-cluster.cluster-xyz.us-east-1.rds.amazonaws.com
 DB_POSTGRESDB_PORT=5432
@@ -461,7 +461,7 @@ DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED=false
 
 #### **Google Cloud SQL**
 ```bash
-# Configuração Cloud SQL
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Cloud SQL
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=/cloudsql/project:region:instance
 DB_POSTGRESDB_PORT=5432
@@ -472,7 +472,7 @@ DB_POSTGRESDB_PASSWORD=senha_segura
 
 ---
 
-##  Docker Compose
+## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Docker Compose
 
 ###  PostgreSQL Completo
 
@@ -538,7 +538,7 @@ networks:
 
 ---
 
-##  Monitoramento
+## <ion-icon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento
 
 ###  Métricas PostgreSQL
 
@@ -577,7 +577,7 @@ LIMIT 10;
 
 ---
 
-##  Checklist de Produção
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
 ###  Configuração
 
@@ -613,7 +613,7 @@ LIMIT 10;
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você configurou o banco de dados:
 

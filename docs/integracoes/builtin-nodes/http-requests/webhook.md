@@ -5,11 +5,11 @@ description: Receba dados de aplicações externas através de webhooks HTTP
 keywords: [n8n, webhook, http, api, integração, trigger]
 ---
 
-#  Webhook Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Webhook Node
 
 O **Webhook** é um dos nodes mais importantes do n8n, permitindo que seu workflow seja **acionado por aplicações externas** através de requisições HTTP. É perfeito para integrar sistemas que precisam notificar o n8n quando algo acontece.
 
-##  O que é um Webhook?
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que é um Webhook?
 
 Um **webhook** é uma forma de receber dados de outros sistemas **em tempo real**. Ao invés de ficar consultando um serviço constantemente (polling), o webhook permite que o próprio serviço **notifique** o n8n quando algo relevante acontece.
 
@@ -17,7 +17,7 @@ Um **webhook** é uma forma de receber dados de outros sistemas **em tempo real*
 -  **Polling** = Ficar tocando a campainha para ver se alguém está em casa
 -  **Webhook** = Deixar sua campainha ligada para que as pessoas toquem quando chegarem
 
-##  **Configuração Básica**
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configuração Básica**
 
 ###  1. **Adicionando o Node**
 1.  Arraste o **Webhook** node para seu workflow
@@ -52,7 +52,7 @@ Configure segurança para seu webhook:
 -  **Basic Auth** - Usuário e senha
 -  **Header Auth** - Token no cabeçalho
 
-##  **Fluxo de Trabalho**
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Fluxo de Trabalho**
 
 ```mermaid
 graph TD
@@ -63,7 +63,7 @@ D --> E[Resposta HTTP]
 E --> A
 ```
 
-##  **Exemplos Práticos**
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos Práticos**
 
 ###  **Exemplo 1: E-commerce - Nova Compra**
 
@@ -146,7 +146,7 @@ E --> A
 3.  Enviar sequência de emails
 4.  Agendar follow-up
 
-##  **Segurança**
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Segurança**
 
 ###  **Validação de Origem**
 ```javascript
@@ -177,7 +177,7 @@ throw new Error('Assinatura inválida');
 }
 ```
 
-##  **Headers Úteis**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Headers Úteis**
 
 O webhook automaticamente captura informações importantes:
 
@@ -201,7 +201,7 @@ O webhook automaticamente captura informações importantes:
 }
 ```
 
-##  **Tratamento de Erros**
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Tratamento de Erros**
 
 ###  **Resposta de Erro Personalizada**
 ```javascript
@@ -223,7 +223,7 @@ Configure no sistema que envia o webhook:
 -  **Retry:** 3 tentativas
 -  **Backoff:** Exponencial (1s, 2s, 4s)
 
-##  **Dicas de Performance**
+## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Dicas de Performance**
 
 ###  **1. Response Rápido**
 ```javascript
@@ -249,7 +249,7 @@ Para múltiplos webhooks similares:
 Webhook → Queue → Batch Processing (a cada 100 items)
 ```
 
-##  **Debugging**
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Debugging**
 
 ###  **Logs Úteis**
 ```javascript
@@ -268,7 +268,7 @@ body: $request.body
 -  **ngrok** - Para expor webhooks locais
 -  **Webhook.site** - Para inspecionar payloads
 
-##  **Integrações Populares**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Integrações Populares**
 
 | Serviço | Evento | Payload |
 |---------|--------|---------|
@@ -278,11 +278,11 @@ body: $request.body
 | **Typeform** | `form_response` | Resposta do formulário |
 | **Calendly** | `meeting_scheduled` | Reunião agendada |
 
-##  **Problemas Comuns**
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Problemas Comuns**
 
 ###  **Webhook não dispara**
 ```bash
-# Verifique se a URL está correta
+# <ion-icon name="color-palette-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verifique se a URL está correta
 curl -X POST https://sua-instancia.n8n.io/webhook/seu-path \
 -H "Content-Type: application/json" \
 -d '{"test": "data"}'
@@ -300,7 +300,7 @@ const userAgent = $request.headers['user-agent'] || 'Desconhecido';
 const contentType = $request.headers['content-type'] || 'text/plain';
 ```
 
-##  **Próximos Passos**
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
 
 Depois de dominar webhooks, explore:
 

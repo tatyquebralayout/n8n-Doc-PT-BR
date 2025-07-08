@@ -7,18 +7,18 @@ keywords: [n8n, instalação, docker, npm, setup, self-hosted]
 ---
 
 
-#  Instalação Self-hosted do n8n
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalação Self-hosted do n8n
 
 Esta página detalha os métodos de instalação **self-hosted** do n8n, incluindo Docker (recomendado) e npm. Para uma visão geral de todos os métodos, consulte o [Guia de Instalação – Visão Panorâmica](./guia-instalacao).
 
-##  Opções de Instalação
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Opções de Instalação
 
 ###  Docker (Recomendado)
 
 A forma mais rápida e fácil de começar:
 
 ```bash
-# Executar n8n com Docker
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar n8n com Docker
 docker run -it --rm \
 --name n8n \
 -p 5678:5678 \
@@ -32,10 +32,10 @@ n8nio/n8n
 Para instalação via npm (requer Node.js 18+):
 
 ```bash
-# Instalar globalmente
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar globalmente
 npm install n8n -g
 
-# Executar
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar
 n8n start
 ```
 
@@ -47,7 +47,7 @@ Para testar sem instalar:
 npx n8n
 ```
 
-## Configuração Inicial
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Inicial
 
 ### 1. Primeiro Acesso
 
@@ -73,17 +73,17 @@ Na primeira execução, você deve criar uma conta de administrador para protege
 Você pode configurar o n8n usando variáveis de ambiente:
 
 ```bash
-# Porta da aplicação
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Porta da aplicação
 N8N_PORT=5678
 
-# URL base (importante para webhooks)
+# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> URL base (importante para webhooks)
 N8N_PROTOCOL=https
 N8N_HOST=seu-dominio.com
 
-# Fuso horário
+# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Fuso horário
 GENERIC_TIMEZONE=America/Sao_Paulo
 
-# Banco de dados (opcional)
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Banco de dados (opcional)
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=localhost
 DB_POSTGRESDB_PORT=5432
@@ -134,7 +134,7 @@ Execute com:
 docker-compose up -d
 ```
 
-## Verificando a Instalação
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificando a Instalação
 
 ### 1. Interface Web
 
@@ -147,7 +147,7 @@ Acesse `http://localhost:5678` e verifique se a interface carrega corretamente.
 3. Clique em **"Executar Workflow"**
 4. Você deve ver uma execução bem-sucedida
 
-## Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que o n8n está instalado e funcionando:
 
@@ -160,28 +160,28 @@ Agora que o n8n está instalado e funcionando:
 - **[n8n Cloud](./instalacao-cloud)** - Instalação via serviço hospedado
 - **[Instalação Local via npm](./instalacao-npm)** - Para desenvolvimento e testes
 
-## Solução de Problemas
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Solução de Problemas
 
 ### Problemas Comuns
 
 #### Porta já em uso
 ```bash
-# Verificar qual processo está usando a porta 5678
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar qual processo está usando a porta 5678
 netstat -tulpn | grep 5678
 
-# Usar uma porta diferente
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Usar uma porta diferente
 N8N_PORT=5679 n8n start
 ```
 
 #### Problemas de permissão (Linux/Mac)
 ```bash
-# Dar permissões corretas
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Dar permissões corretas
 sudo chown -R $(whoami) ~/.n8n
 ```
 
 #### Erro de memória
 ```bash
-# Aumentar limite de memória do Node.js
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Aumentar limite de memória do Node.js
 NODE_OPTIONS="--max-old-space-size=4096" n8n start
 ```
 
@@ -190,10 +190,10 @@ NODE_OPTIONS="--max-old-space-size=4096" n8n start
 Para debugar problemas, verifique os logs:
 
 ```bash
-# Logs mais detalhados
+# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logs mais detalhados
 N8N_LOG_LEVEL=debug n8n start
 
-# Com Docker
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Com Docker
 docker logs container_id
 ```
 

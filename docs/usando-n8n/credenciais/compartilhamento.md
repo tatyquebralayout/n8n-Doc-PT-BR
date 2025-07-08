@@ -6,13 +6,13 @@ keywords: [n8n, credenciais, compartilhamento, equipe, colaboração, segurança
 ---
 
 
-#  Compartilhamento de Credenciais
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Compartilhamento de Credenciais
 
 Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o controle de acesso e a segurança dos dados.
 
 ---
 
-##  1 | Por que Compartilhar Credenciais?
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Por que Compartilhar Credenciais?
 
 ###  Benefícios
 
@@ -30,7 +30,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-##  2 | Configurando Compartilhamento
+## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Configurando Compartilhamento
 
 ###  Passo a Passo
 
@@ -54,7 +54,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-##  3 | Cenários de Uso
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Cenários de Uso
 
 ###  Equipe de Marketing
 
@@ -97,7 +97,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-##  4 | Boas Práticas de Segurança
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Boas Práticas de Segurança
 
 ###  Controle de Acesso
 
@@ -124,7 +124,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-##  5 | Configurações Avançadas
+## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Configurações Avançadas
 
 ###  Expiração Automática
 
@@ -171,7 +171,7 @@ Defina janelas de tempo para uso:
 
 ---
 
-##  6 | Troubleshooting
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Troubleshooting
 
 ###  Problemas Comuns
 
@@ -192,7 +192,7 @@ Defina janelas de tempo para uso:
 
 ---
 
-##  7 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Próximos passos
 
 1. **[Boas Práticas](./boas-praticas)** - Manter segurança
 2. **[Usar Credenciais em Workflows](../execucoes/componentes-execucoes)** - Aplicar na prática

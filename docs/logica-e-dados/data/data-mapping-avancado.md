@@ -6,13 +6,13 @@ keywords: [n8n, data mapping, transformação, expressões, funções, manipula�
 ---
 
 
-#  Data Mapping Avançado
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Data Mapping Avançado
 
 Aprenda técnicas avançadas de mapeamento e transformação de dados para criar workflows mais poderosos e eficientes no n8n.
 
 ---
 
-##  1 | Expressões Avançadas
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Expressões Avançadas
 
 ###  Funções Matemáticas
 
@@ -52,7 +52,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-##  2 | Lógica Condicional
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Lógica Condicional
 
 ###  Operadores Ternários
 
@@ -92,7 +92,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-##  3 | Manipulação de Arrays
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Manipulação de Arrays
 
 ###  Filtros Avançados
 
@@ -135,7 +135,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-##  4 | Funções Customizadas
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Funções Customizadas
 
 ###  Funções JavaScript
 
@@ -186,7 +186,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-##  5 | Mapeamento de Objetos Complexos
+## <ion-icon name="location-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Mapeamento de Objetos Complexos
 
 ###  Objetos Aninhados
 
@@ -243,7 +243,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-##  6 | Manipulação de Datas
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Manipulação de Datas
 
 ###  Formatação de Datas
 
@@ -295,7 +295,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-##  7 | Validação e Sanitização
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Validação e Sanitização
 
 ###  Validações de Dados
 
@@ -347,7 +347,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-##  8 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 8 | Próximos passos
 
 1. **[Transformações de Dados](./transformacoes-dados)** - Técnicas de transformação
 2. **[Agregações e Estatísticas](./agregacoes-estatisticas)** - Cálculos complexos

@@ -6,13 +6,13 @@ keywords: [n8n, embed, configuração, parâmetros, customização, iframe, SSO,
 ---
 
 
-#  Configuração do Embed
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração do Embed
 
 Este guia ensina como **configurar o n8n embarcado** em sua aplicação, cobrindo parâmetros essenciais, permissões, customização visual, integração com autenticação e exemplos práticos para diferentes cenários empresariais.
 
 ---
 
-##  Parâmetros de Configuração
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Parâmetros de Configuração
 
 ###  Parâmetros do Iframe
 
@@ -52,7 +52,7 @@ N8N_CORS_ALLOW_ORIGIN=https://app.suaempresa.com
 
 ---
 
-##  Permissões e Controle de Acesso
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Permissões e Controle de Acesso
 
 ###  RBAC e Restrições
 
@@ -100,7 +100,7 @@ N8N_LDAP_BASE_DN=dc=suaempresa,dc=com
 
 ---
 
-##  Customização Visual
+## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Customização Visual
 
 ###  Temas e Branding
 
@@ -118,7 +118,7 @@ N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n_custom.css
 
 ---
 
-##  Integração com Sistemas Externos
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Sistemas Externos
 
 ###  Comunicação Host ↔ Embed
 
@@ -146,7 +146,7 @@ window.addEventListener('message', (event) => {
 
 ---
 
-##  Exemplos Práticos
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos Práticos
 
 ###  Exemplo de Configuração Completa
 
@@ -177,7 +177,7 @@ iframe.src = `https://n8n.suaempresa.com/embed?${params.toString()}`;
 
 ---
 
-##  Checklist de Configuração
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Configuração
 
 - [ ] Definir domínios permitidos (CORS e CSP)
 - [ ] Configurar autenticação (API Key, SSO, OAuth, LDAP)

@@ -6,11 +6,11 @@ keywords: [n8n, usuários, permissões, rbac, controle acesso, roles]
 ---
 
 
-#  Usuários e Permissões
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Usuários e Permissões
 
 Este documento detalha **gerenciamento de usuários e permissões** no n8n, incluindo criação de roles customizados, controle granular de acesso, permissões por workflow, segregação de ambientes, auditoria de ações, e implementação de RBAC (Role-Based Access Control) que garante princípio de menor privilégio e conformidade com políticas de segurança empresarial em organizações de grande porte.
 
-##  O que você vai aprender
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
 -  Sistema RBAC (Role-Based Access Control)
 -  Controle granular de permissões
@@ -20,7 +20,7 @@ Este documento detalha **gerenciamento de usuários e permissões** no n8n, incl
 
 ---
 
-##  Sistema RBAC
+## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sistema RBAC
 
 ###  Roles Padrão
 
@@ -131,7 +131,7 @@ const financeRole = {
 
 ---
 
-##  Controle Granular de Acesso
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Controle Granular de Acesso
 
 ###  Permissões por Workflow
 
@@ -235,7 +235,7 @@ const financeRole = {
 
 ---
 
-##  Segregação de Ambientes
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segregação de Ambientes
 
 ###  Ambientes Separados
 
@@ -305,13 +305,13 @@ const environments = {
 
 ---
 
-##  Auditoria e Monitoramento
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Auditoria e Monitoramento
 
 ###  Logs de Auditoria
 
 #### **Configuração de Auditoria**
 ```bash
-# Configurar logs de auditoria
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar logs de auditoria
 N8N_AUDIT_ENABLED=true
 N8N_AUDIT_LOG_LEVEL=info
 N8N_AUDIT_LOG_FILE=/var/log/n8n/audit.log
@@ -421,7 +421,7 @@ const auditEvents = {
 
 ---
 
-##  Templates de Roles Organizacionais
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Templates de Roles Organizacionais
 
 ###  Startup (10-50 funcionários)
 
@@ -643,7 +643,7 @@ const largeCompanyRoles = {
 
 ---
 
-##  Checklist de Implementação
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Implementação
 
 ###  Configuração Inicial
 
@@ -679,7 +679,7 @@ const largeCompanyRoles = {
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você configurou usuários e permissões:
 

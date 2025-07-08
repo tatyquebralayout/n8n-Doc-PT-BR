@@ -5,7 +5,7 @@ description: Resumo dos tópicos do curso oficial de iniciante do n8n no YouTube
 keywords: [n8n, curso, vídeo, iniciante, youtube, tutorial]
 ---
 
-#  Curso em Vídeo - Iniciante
+# <ion-icon name="videocam-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Curso em Vídeo - Iniciante
 
 Este curso em vídeo oficial do n8n, disponível no YouTube, cobre todos os fundamentos necessários para você começar a criar suas próprias automações.
 
@@ -13,7 +13,7 @@ Este curso em vídeo oficial do n8n, disponível no YouTube, cobre todos os fund
 
 ** [ Assista à playlist completa no YouTube ↗](https://www.youtube.com/watch?v=I_7_b0I1I3Y&list=PL8p-62yr-wG4s4s_lq4a4M0S-s_k4iS3q)**
 
-##  Tópicos Abordados:
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tópicos Abordados:
 
 -  **Introdução e Workflows:** O que são e como funcionam.
 -  **APIs e Webhooks:** Como o n8n se comunica com o mundo.

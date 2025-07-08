@@ -6,11 +6,11 @@ keywords: [n8n, comunidade, participar, contribuir, brasil]
 ---
 import HighlightCard from '@site/src/components/HighlightCard';
 
-#  Como Participar
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Como Participar
 
 A comunidade n8n Brasil é um ecossistema aberto e colaborativo. Existem várias maneiras de participar, aprender e contribuir.
 
-## Compartilhe Seu Conteúdo
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Compartilhe Seu Conteúdo
 
 ### **Artigos**
 - Envie para nossa newsletter mensal
@@ -27,7 +27,7 @@ A comunidade n8n Brasil é um ecossistema aberto e colaborativo. Existem várias
 - Adicione na lista de community nodes
 - Compartilhe templates no catálogo
 
-## Contribua com a Comunidade
+## <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Contribua com a Comunidade
 
 ### **Mentoria**
 - Ajude iniciantes em nosso Discord
@@ -44,7 +44,7 @@ A comunidade n8n Brasil é um ecossistema aberto e colaborativo. Existem várias
 - Traduza artigos importantes
 - Revise conteúdo traduzido
 
-## Conecte-se Conosco
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conecte-se Conosco
 
 ### **Redes Sociais**
 - **Discord:** [Comunidade n8n Brasil](https://discord.gg/n8nbrasil)
@@ -57,6 +57,6 @@ A comunidade n8n Brasil é um ecossistema aberto e colaborativo. Existem várias
 - **Meetups:** Presenciais e online
 - **Demo Friday:** Sextas-feiras, 17h
 
-## Código de Conduta
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Código de Conduta
 
 Nossa comunidade é baseada no respeito mútuo e colaboração. Leia nosso [código de conduta](/contribuir/esta-documentacao/entendendo-o-projeto/codigo-conduta) para entender nossas diretrizes. 

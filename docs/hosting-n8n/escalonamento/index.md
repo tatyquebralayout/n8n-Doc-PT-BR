@@ -6,11 +6,11 @@ keywords: [n8n, escalonamento, clustering, load balancing, performance, alta dis
 ---
 
 
-#  Escalonamento
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Escalonamento
 
 Esta seção contém guias completos para **escalar n8n em produção** com alta disponibilidade, performance otimizada e tolerância a falhas. Aprenda a implementar clustering, balanceamento de carga, otimização de performance e arquiteturas distribuídas para operações empresariais críticas.
 
-##  O que você vai encontrar
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai encontrar
 
 ###  [Load Balancing](./load-balancing)
 
@@ -50,7 +50,7 @@ Esta seção contém guias completos para **escalar n8n em produção** com alta
 
 ---
 
-##  Por que Escalar?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que Escalar?
 
 ###  Benefícios do Escalonamento
 
@@ -80,7 +80,7 @@ Esta seção contém guias completos para **escalar n8n em produção** com alta
 
 ---
 
-##  Arquitetura de Escalonamento
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquitetura de Escalonamento
 
 ###  Visão Geral da Arquitetura
 
@@ -125,7 +125,7 @@ graph TD
 
 ---
 
-##  Guia de Implementação
+## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Guia de Implementação
 
 ###  Ordem Recomendada
 
@@ -144,7 +144,7 @@ graph TD
 
 ---
 
-##  Monitoramento e Alertas
+## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Alertas
 
 ###  Métricas Essenciais
 
@@ -164,7 +164,7 @@ graph TD
 
 ---
 
-##  Checklist de Produção
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
 ###  Configuração
 
@@ -192,7 +192,7 @@ graph TD
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você entende o escalonamento:
 

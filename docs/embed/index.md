@@ -6,13 +6,13 @@ keywords: [n8n, embed, integração, iframe, white-label, workflow]
 ---
 
 
-#  Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo à seção de Embed do n8n! Aqui você aprenderá como integrar o n8n em suas aplicações através do sistema de embed, permitindo oferecer automação como parte de sua plataforma.
 
 ---
 
-##  O que você encontrará aqui
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 Selecione abaixo o tópico desejado para acessar guias completos de integração, configuração e gerenciamento do n8n embarcado:
 
@@ -29,7 +29,7 @@ Selecione abaixo o tópico desejado para acessar guias completos de integração
 
 ---
 
-##  Conceitos Fundamentais
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ###  Sistema de Embed
 O n8n oferece um sistema de embed que permite:
@@ -53,7 +53,7 @@ O embed é ideal para:
 
 ---
 
-##  Arquitetura
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquitetura
 
 ###  Componentes Principais
 1. **n8n Instance**: Instância do n8n configurada para embed
@@ -68,7 +68,7 @@ O embed é ideal para:
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 1. **Revise os [Pré-requisitos](./preparacao/prerequisitos)** para entender os requisitos
 2. **Configure a [Implementação](./implementacao/configuracao)** para começar
@@ -76,7 +76,7 @@ O embed é ideal para:
 
 ---
 
-##  Recursos Relacionados
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
 - **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Hosting n8n](../hosting-n8n/instalacao)** - Configuração de instância

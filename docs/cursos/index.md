@@ -6,7 +6,7 @@ keywords: [n8n, cursos, tutorial, vídeo, texto, aprender, oficial, documentaç�
 ---
 
 
-#  Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo à nossa central de aprendizado n8n! Esta seção oferece um **guia em português para os cursos oficiais** criados pela equipe do n8n.
 
@@ -14,7 +14,7 @@ Bem-vindo à nossa central de aprendizado n8n! Esta seção oferece um **guia em
 Todos os cursos aqui são **baseados na documentação oficial do n8n** e adaptados para a comunidade brasileira. Mantemos fidelidade ao conteúdo original enquanto adicionamos contexto local e traduções.
 :::
 
-##  Como Funciona
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Funciona
 
 :::tip  **Nosso Formato**
 -  **Resumos em Português:** Cada capítulo aqui é um resumo do conteúdo oficial.
@@ -25,7 +25,7 @@ Todos os cursos aqui são **baseados na documentação oficial do n8n** e adapta
 
 ---
 
-##  Cursos em Vídeo (YouTube)
+## <ion-icon name="videocam-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cursos em Vídeo (YouTube)
 
 O n8n oferece **cursos completos em formato de vídeo** no YouTube, ideais para quem prefere aprendizado visual e interativo.
 
@@ -53,7 +53,7 @@ O n8n oferece **cursos completos em formato de vídeo** no YouTube, ideais para 
 
 ---
 
-##  Cursos em Texto (Documentação Oficial)
+## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cursos em Texto (Documentação Oficial)
 
 Para quem prefere **ler e seguir no próprio ritmo**, a documentação oficial do n8n oferece cursos baseados em texto com projetos práticos.
 
@@ -81,7 +81,7 @@ Para quem prefere **ler e seguir no próprio ritmo**, a documentação oficial d
 
 ---
 
-##  Como Escolher seu Curso
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Escolher seu Curso
 
 ###  Para Iniciantes
 1. **Comece com o [Curso de Iniciante em Vídeo](cursos-em-video/curso-iniciante)** para uma introdução visual
@@ -100,7 +100,7 @@ Para quem prefere **ler e seguir no próprio ritmo**, a documentação oficial d
 
 ---
 
-##  Feito pela Comunidade
+## <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Feito pela Comunidade
 
 :::note  **Contribuição**
 Estes cursos são mantidos por **voluntários apaixonados por automação**. Contribua você também!

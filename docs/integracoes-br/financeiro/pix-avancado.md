@@ -6,13 +6,13 @@ keywords: [n8n, pix, pagamentos, recebimentos, automação, banco central, qr co
 ---
 
 
-#  PIX Avançado
+# <ion-icon name="card-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> PIX Avançado
 
 Aprenda a implementar integrações avançadas com PIX para automatizar pagamentos, recebimentos e gestão financeira no contexto brasileiro.
 
 ---
 
-##  1 | Tipos de PIX
+## <ion-icon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Tipos de PIX
 
 ###  PIX por Chave
 
@@ -55,7 +55,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-##  2 | Workflows de Pagamento
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Workflows de Pagamento
 
 ###  Criar Cobrança PIX
 
@@ -111,7 +111,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-##  3 | APIs de Bancos Brasileiros
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | APIs de Bancos Brasileiros
 
 ###  Open Banking
 
@@ -150,7 +150,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-##  4 | Segurança e Compliance
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Segurança e Compliance
 
 ###  LGPD e Segurança
 
@@ -211,7 +211,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-##  5 | Casos de Uso Empresariais
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Casos de Uso Empresariais
 
 ###  E-commerce
 
@@ -284,7 +284,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-##  6 | Relatórios e Analytics
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Relatórios e Analytics
 
 ###  Métricas de PIX
 
@@ -339,7 +339,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-##  7 | Próximos passos
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Próximos passos
 
 1. **[Integração com Nota Fiscal](./nfe-integracao)** - Automatizar NFe
 2. **[Conciliação Bancária](./conciliacao-bancaria)** - Automatizar conciliação

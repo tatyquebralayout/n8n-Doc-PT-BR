@@ -5,7 +5,7 @@ description: Como usar workflows como ferramentas para agentes de IA
 keywords: [n8n, workflow, tool, agent, ferramentas]
 ---
 
-# Workflow as a Tool
+# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Workflow as a Tool
 
 Este documento explica como usar um **workflow n8n como uma ferramenta (tool)** dentro de um agente de IA.
 

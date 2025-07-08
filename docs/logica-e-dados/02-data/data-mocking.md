@@ -5,7 +5,7 @@ description: Como criar dados de teste e simulações no n8n
 keywords: [n8n, mock, teste, simulação, dados, desenvolvimento]
 ---
 
-# Mock de Dados
+# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Mock de Dados
 
 Este documento ensina como **criar dados de teste e simulações** no n8n, abordando técnicas para gerar dados fictícios durante desenvolvimento, simular respostas de APIs externas, criar cenários de teste para validar workflows, e implementar ambientes de desenvolvimento isolados que não dependem de sistemas externos durante a fase de construção e debugging.
 

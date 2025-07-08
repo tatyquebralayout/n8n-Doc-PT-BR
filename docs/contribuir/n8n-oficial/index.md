@@ -6,7 +6,7 @@ keywords: [n8n, contribuir, projeto oficial, open source, código, global, n8n G
 ---
 
 
-#  Visão Geral – Contribuição ao Projeto Oficial do n8n
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visão Geral – Contribuição ao Projeto Oficial do n8n
 
 Contribuir com o repositório oficial do **n8n** significa colaborar diretamente com uma ferramenta de automação utilizada globalmente. É uma oportunidade para participar da evolução do projeto open source, fortalecer sua prática técnica e impactar milhares de pessoas desenvolvedoras.
 
@@ -20,7 +20,7 @@ Seu objetivo é ampliar o acesso, contextualizar o conteúdo e fomentar a adoç�
 
 ---
 
-##  O que pode ser contribuído no repositório oficial
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que pode ser contribuído no repositório oficial
 
 Você pode colaborar com diversas frentes:
 
@@ -32,7 +32,7 @@ Você pode colaborar com diversas frentes:
 
 ---
 
-##  Como começar a contribuir no projeto oficial
+## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como começar a contribuir no projeto oficial
 
 ###  1. Acesse os guias de contribuição
 
@@ -50,7 +50,7 @@ Você pode colaborar com diversas frentes:
 
 ---
 
-##  Fluxo de contribuição
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Fluxo de contribuição
 
 - **Fork → Branch → Commit → Pull Request**
 - Utilize convenções de commits (`feat:`, `fix:`, `docs:`) e escreva descrições objetivas
@@ -59,7 +59,7 @@ Você pode colaborar com diversas frentes:
 
 ---
 
-##  Por que contribuir?
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que contribuir?
 
 - **Forte experiência**: trabalhe com projetos open source de alto impacto
 - **Reconhecimento global**: suas contribuições são vistas por toda a comunidade
@@ -68,7 +68,7 @@ Você pode colaborar com diversas frentes:
 
 ---
 
-##  Recursos disponíveis
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos disponíveis
 
 ###  Guias de Desenvolvimento
 

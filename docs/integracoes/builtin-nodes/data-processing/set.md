@@ -5,11 +5,11 @@ description: Definir, modificar e manipular dados em workflows
 keywords: [n8n, set, data, manipulação, workflow]
 ---
 
-#  Set Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Set Node
 
 O **Set Node** é fundamental para **manipular dados** em workflows n8n. Ele permite definir, modificar, adicionar ou remover campos de dados que fluem entre os nodes.
 
-##  **Conceito Principal**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Conceito Principal**
 
 **Set Node = "Definir/Configurar Dados"**
 
@@ -21,7 +21,7 @@ O Set Node é uma **AÇÃO** que:
 
 > ** Diferença do Trigger:** Set é uma AÇÃO que processa dados. Triggers INICIAM workflows.
 
-##  **Configurações Principais**
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
 
 ###  **1. Keep Only Set**
 ```
@@ -51,7 +51,7 @@ Definir via JSON:
 }
 ```
 
-##  **Exemplos Práticos**
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos Práticos**
 
 ###  **Exemplo 1: Padronizar Dados de Formulário**
 
@@ -151,7 +151,7 @@ promocao: true
 }
 ```
 
-##  **Expressões Úteis**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Expressões Úteis**
 
 ###  **Datas e Tempo**
 ```javascript
@@ -211,7 +211,7 @@ lista_produtos: {{$json.produtos.join(', ')}}
 ids_produtos: {{$json.produtos.map(p => p.id)}}
 ```
 
-##  **Casos de Uso Comuns**
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Casos de Uso Comuns**
 
 ###  **1. Limpeza de Dados**
 ```
@@ -248,7 +248,7 @@ B: {{$json.order_total}}
 C: {{new Date().toLocaleDateString('pt-BR')}}
 ```
 
-##  **Dicas de Performance**
+## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Dicas de Performance**
 
 ###  **1. Use Keep Only Set quando possível**
 -  Reduz payload de dados
@@ -271,7 +271,7 @@ email: {{$json.email || 'nao-informado@email.com'}}
 telefone: {{$json.phone || 'Não informado'}}
 ```
 
-##  **Próximos Passos**
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
 
 Depois de dominar o Set Node, explore:
 

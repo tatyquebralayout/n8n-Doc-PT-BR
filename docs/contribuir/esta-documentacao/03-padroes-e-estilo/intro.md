@@ -4,6 +4,6 @@ sidebar_position: 1
 description: Página em construção.
 ---
 
-# Introdução aos Padrões e Estilo
+# <ion-icon name="play-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução aos Padrões e Estilo
 
 > Esta página está em construção. Em breve, conteúdo sobre padrões e estilo da documentação. 

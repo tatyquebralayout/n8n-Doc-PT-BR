@@ -6,11 +6,11 @@ keywords: [n8n, hosting, hospedagem, produção, instalação, configuração, e
 ---
 
 
-#  Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abrange todos os aspectos essenciais para implantar, configurar, escalar e proteger sua instalação n8n em ambiente empresarial.
 
-##  O que você encontrará aqui
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### 🚀 **Instalação e Deploy**
 - **Métodos de instalação** (Docker, NPM, Cloud, Desktop)
@@ -38,7 +38,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 ---
 
-##  Instalação e Deploy {#instalação-e-deploy}
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação e Deploy {#instalação-e-deploy}
 
 ###  [Instalação via Docker](./instalacao/docker)
 
@@ -87,7 +87,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 ---
 
-##  Configuração e Otimização
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração e Otimização
 
 ###  [Variáveis de Ambiente](./configuracao/variaveis-ambiente)
 
@@ -127,7 +127,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 ---
 
-##  Escalonamento e Performance
+## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalonamento e Performance
 
 ###  [Clustering](./escalonamento/clustering)
 
@@ -158,7 +158,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 ---
 
-##  Segurança e Compliance
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Compliance
 
 ###  [Autenticação e Acesso](./seguranca/autenticacao)
 
@@ -198,7 +198,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 ---
 
-##  Qual Método Escolher?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Qual Método Escolher?
 
 ###  Para Desenvolvimento Local
 ```
@@ -223,7 +223,7 @@ Clustering → Alta disponibilidade
 
 ---
 
-##  Requisitos Gerais
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Requisitos Gerais
 
 Independente do método escolhido, certifique-se de ter:
 
@@ -242,15 +242,15 @@ Independente do método escolhido, certifique-se de ter:
 
 ---
 
-##  Início Rápido
+## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Início Rápido
 
 Para testar rapidamente o n8n:
 
 ```bash
-# Usando Docker (mais rápido)
+# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Usando Docker (mais rápido)
 docker run -it --rm -p 5678:5678 n8nio/n8n
 
-# Usando NPM (mais direto)
+# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Usando NPM (mais direto)
 npx n8n
 ```
 
@@ -260,7 +260,7 @@ Para uma primeira experiência, recomendamos começar com o **Docker** para prod
 
 ---
 
-##  Implementação por Fase
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação por Fase
 
 ###  Fase 1: Instalação (Semana 1)
 - [ ] Escolher método de instalação
@@ -288,7 +288,7 @@ Para uma primeira experiência, recomendamos começar com o **Docker** para prod
 
 ---
 
-##  Checklist de Produção
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
 ###  Instalação
 - [ ] Método de instalação escolhido
@@ -316,7 +316,7 @@ Para uma primeira experiência, recomendamos começar com o **Docker** para prod
 
 ---
 
-##  Próximos Passos
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você conhece as opções de hosting:
 
@@ -327,7 +327,7 @@ Agora que você conhece as opções de hosting:
 
 ---
 
-##  Recursos Úteis
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
 
 ###  Documentação Oficial
 -  [Documentação n8n](https://docs.n8n.io/)

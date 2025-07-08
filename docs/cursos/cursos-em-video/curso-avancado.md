@@ -5,7 +5,7 @@ description: Resumo dos tópicos do curso oficial avançado do n8n no YouTube.
 keywords: [n8n, curso, vídeo, avançado, youtube, tutorial]
 ---
 
-# Curso em Vídeo - Avançado
+# <ion-icon name="videocam-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Curso em Vídeo - Avançado
 
 Este curso em vídeo oficial do n8n, disponível no YouTube, é para usuários que já dominam o básico e querem aprofundar em tópicos técnicos e recursos empresariais.
 
@@ -13,7 +13,7 @@ Este curso em vídeo oficial do n8n, disponível no YouTube, é para usuários q
 
 **[ Assista à playlist completa no YouTube ↗](https://www.youtube.com/watch?v=g1GkX1BH89E&list=PL8p-62yr-wG4a2c5a_z9sDq_aV2T-tOkb)**
 
-## Tópicos Abordados:
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tópicos Abordados:
 
 - **Introdução e Fluxos de Dados Complexos:** Manipulando dados aninhados.
 - **Nodes Técnicos Avançados:** Explorando o potencial máximo dos nodes.

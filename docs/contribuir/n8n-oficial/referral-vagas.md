@@ -6,7 +6,7 @@ keywords: [n8n, carreira, vagas, referral, indicação, recompensa]
 ---
 
 
-#  Programa de Indicação de Candidatos (Referral)
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Programa de Indicação de Candidatos (Referral)
 
 Conhece alguém que seria perfeito para uma das vagas abertas na n8n? Você pode indicá-lo e, se a pessoa for contratada e passar pelo período de experiência, **você recebe uma recompensa de €1.000**.
 
@@ -14,7 +14,7 @@ Esta é uma excelente forma de ajudar a n8n a crescer com talentos de confiança
 
 ---
 
-##  Como Funciona o Programa?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Funciona o Programa?
 
 O processo é simples e direto:
 
@@ -32,13 +32,13 @@ O processo é simples e direto:
 
 ---
 
-##  Oportunidades de Carreira
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Oportunidades de Carreira
 
 Além de indicar, fique sempre de olho na página de carreiras para oportunidades que possam ser do seu interesse. Trabalhar na n8n é uma chance de moldar o futuro da automação.
 
 ---
 
-##  Links Importantes
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Links Importantes
 
 - **[Página de Carreiras](https://n8n.io/careers/):** Veja todas as vagas abertas
 - **[LinkedIn n8n](https://www.linkedin.com/company/n8n-io/):** Para networking profissional

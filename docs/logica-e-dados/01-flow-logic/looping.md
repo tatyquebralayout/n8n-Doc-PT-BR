@@ -5,7 +5,7 @@ description: Como criar loops e repetições em workflows n8n
 keywords: [n8n, loop, repetição, lógica, fluxo]
 ---
 
-#  Looping no n8n
+# <ion-icon name="repeat-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Looping no n8n
 
 Este documento explica como implementar **loops e repetições** em workflows n8n, incluindo técnicas para processar arrays de dados, criar loops condicionais, iterar sobre resultados de APIs, e otimizar performance em processamentos repetitivos, permitindo criar automações mais dinâmicas e eficientes que se adaptam ao volume variável de dados.
 

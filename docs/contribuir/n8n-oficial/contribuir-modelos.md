@@ -6,13 +6,13 @@ keywords: [n8n, modelos, templates, contribuir, workflows, creator hub]
 ---
 
 
-#  Contribuir com Modelos e Templates
+# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Contribuir com Modelos e Templates
 
 Uma maneira fantástica de contribuir com o ecossistema n8n é criando e compartilhando workflows que podem ser usados por outros usuários como templates. Se você construiu uma automação útil, ela pode ser um excelente ponto de partida para milhares de pessoas.
 
 ---
 
-##  O que é um bom Template?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que é um bom Template?
 
 - **Reutilizável:** O workflow resolve um problema comum e pode ser facilmente adaptado por outros
 - **Bem Documentado:** Use as "Sticky Notes" (notas adesivas) no editor do n8n para explicar as partes mais importantes do seu workflow
@@ -21,7 +21,7 @@ Uma maneira fantástica de contribuir com o ecossistema n8n é criando e compart
 
 ---
 
-##  n8n Creator Hub
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> n8n Creator Hub
 
 O n8n centraliza o processo de submissão e gerenciamento de templates através do **n8n Creator Hub**. Este programa está em constante evolução, com o objetivo de criar um marketplace de templates.
 
@@ -37,7 +37,7 @@ O processo exato pode mudar, mas a referência principal é sempre o hub oficial
 
 ---
 
-##  Links Importantes
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Links Importantes
 
 - **[n8n Creator Hub](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f):** Portal oficial para submissão de templates
 - **[Documentação de Criação de Nodes](https://docs.n8n.io/integrations/creating-nodes/):** Para criar integrações personalizadas

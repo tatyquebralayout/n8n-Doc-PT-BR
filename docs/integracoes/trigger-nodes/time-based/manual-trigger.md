@@ -5,11 +5,11 @@ description: Iniciar workflows manualmente para testes e execuções pontuais
 keywords: [n8n, manual, trigger, execução, teste, workflow]
 ---
 
-#  Manual Trigger
+# <ion-icon name="document-text-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Manual Trigger
 
 O **Manual Trigger** é o trigger mais simples do n8n. Ele permite **executar workflows manualmente** clicando em um botão, sendo perfeito para testes, execuções pontuais e fluxos que não precisam ser automatizados.
 
-##  **Conceito Principal**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Conceito Principal**
 
 **Manual Trigger = "Executar Quando EU Clicar"**
 
@@ -21,7 +21,7 @@ Este é um **TRIGGER** que:
 
 > ** Diferença Fundamental:** Manual Trigger INICIA workflows. Nodes de ação (como Set, HTTP Request) PROCESSAM dados dentro do workflow.
 
-##  **Como Funciona**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Como Funciona**
 
 ```mermaid
 graph LR
@@ -37,7 +37,7 @@ D --> E[✅ Finalizado]
 3.  **Workflow continua** com os próximos nodes
 4.  **Execução termina** e mostra resultados
 
-##  **Configurações**
+## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações**
 
 ###  **Dados de Entrada**
 O Manual Trigger pode passar dados iniciais para o workflow:
@@ -66,7 +66,7 @@ O Manual Trigger pode passar dados iniciais para o workflow:
 }
 ```
 
-##  **Casos de Uso Práticos**
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Casos de Uso Práticos**
 
 ###  **1. Teste de Workflows**
 ```
@@ -116,7 +116,7 @@ Manual Trigger → API A (buscar) → Transform (converter) → API B (salvar)
 -  **Transform:** Converter formato
 -  **API B:** Salvar no sistema destino
 
-##  **Vantagens do Manual Trigger**
+## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Vantagens do Manual Trigger**
 
 ###  **Controle Total**
 -  Você decide **quando** executar
@@ -138,7 +138,7 @@ Manual Trigger → API A (buscar) → Transform (converter) → API B (salvar)
 -  **Diferentes cenários** de teste
 -  **Controle** de ambiente (teste/produção)
 
-##  **Limitações**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações**
 
 ###  **Não é Automático**
 -  Precisa de **intervenção humana**
@@ -155,7 +155,7 @@ Manual Trigger → API A (buscar) → Transform (converter) → API B (salvar)
 -  **Não funciona** via API externa
 - Para isso, use **[Webhook Trigger](../event-based/webhook-trigger)**
 
-##  **Configuração Avançada**
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configuração Avançada**
 
 ###  **Dados Condicionais**
 ```json
@@ -178,7 +178,7 @@ Manual Trigger → API A (buscar) → Transform (converter) → API B (salvar)
 }
 ```
 
-##  **Melhores Práticas**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Melhores Práticas**
 
 ###  **1. Use para Desenvolvimento**
 ```
@@ -218,7 +218,7 @@ Produção: Schedule/Webhook Trigger
 }
 ```
 
-##  **Transição para Automação**
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Transição para Automação**
 
 ###  **Workflow Manual → Automático**
 
@@ -244,7 +244,7 @@ Manual Trigger (testes)
 Schedule Trigger (prod) 
 ```
 
-##  **Próximos Passos**
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
 
 Depois de dominar Manual Trigger, evolua para:
 
@@ -252,7 +252,7 @@ Depois de dominar Manual Trigger, evolua para:
 2.  **[Webhook Trigger](../event-based/webhook-trigger)** - Para eventos externos
 3.  **[Set Node](../../builtin-nodes/data-processing/set)** - Para manipular dados
 
-##  **Checklist de Uso**
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Checklist de Uso**
 
 ###  **Antes de Executar:**
 -  Dados de entrada definidos

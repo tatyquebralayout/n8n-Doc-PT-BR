@@ -5,11 +5,11 @@ description: Integração completa do n8n com Google Sheets para automação de 
 keywords: [n8n, google sheets, planilhas, automação, integração]
 ---
 
-#  Google Sheets
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Google Sheets
 
 A integração do Google Sheets é uma das mais populares do n8n, permitindo automatizar completamente suas planilhas e dados.
 
-##  O que você pode fazer
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você pode fazer
 
 -  **Ler dados** de planilhas existentes
 -  **Criar novas linhas** automaticamente
@@ -18,7 +18,7 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 -  **Criar novas planilhas** programaticamente
 -  **Gerenciar permissões** de acesso
 
-##  Pré-requisitos
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
 ###  1. Conta Google
 -  Conta Google ativa
@@ -29,7 +29,7 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 -  Ativar Google Sheets API
 -  Configurar OAuth2 credentials
 
-##  Configuração Rápida
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Rápida
 
 ###  1. Criar Credencial
 1.  **Vá em:** Credentials → Add new
@@ -42,7 +42,7 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 2.  **Arrastar:** Para o canvas
 3.  **Conectar:** Sua credencial OAuth2
 
-##  Operações Disponíveis
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Operações Disponíveis
 
 ###  Read (Ler Dados)
 ```json
@@ -87,7 +87,7 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 }
 ```
 
-##  Casos de Uso Populares
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Populares
 
 ###  Lead Capture
 ```
@@ -113,7 +113,7 @@ Google Sheets → CRM API → Slack Notification
 ```
 **Cenário:** Sincronizar dados entre sistemas
 
-##  Dicas e Truques
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dicas e Truques
 
 ###  Performance
 -  **Use ranges específicos** em vez de ler planilha inteira
@@ -130,7 +130,7 @@ Google Sheets → CRM API → Slack Notification
 -  **Retry logic** para operações falhadas
 -  **Timeout settings** apropriados
 
-##  Configurações Avançadas
+## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações Avançadas
 
 ###  Service Account (Recomendado para Produção)
 ```json
@@ -161,7 +161,7 @@ Google Sheets → CRM API → Slack Notification
 }
 ```
 
-##  Troubleshooting
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
 ###  Erro: "Invalid credentials"
 ```bash
@@ -184,7 +184,7 @@ Usar batch operations
 Considerar service account
 ```
 
-##  Links Úteis
+## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Links Úteis
 
 -  **[Google Sheets API](https://developers.google.com/sheets/api)** - Documentação oficial
 -  **[Google Cloud Console](https://console.cloud.google.com)** - Gerenciar credenciais

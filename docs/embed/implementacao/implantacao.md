@@ -6,13 +6,13 @@ keywords: [n8n, embed, implantação, deployment, produção, iframe, SSO, segur
 ---
 
 
-#  Implantação do Embed
+# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Implantação do Embed
 
 Este guia explica como **implantar o n8n embarcado** em ambiente de produção, cobrindo segurança, autenticação, performance, monitoramento, exemplos de deployment e troubleshooting para garantir integração robusta e segura com sua aplicação.
 
 ---
 
-##  Segurança e Boas Práticas
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Boas Práticas
 
 ###  Checklist de Segurança para Iframes
 
@@ -31,7 +31,7 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" alway
 
 ---
 
-##  SSO e Autenticação
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> SSO e Autenticação
 
 ###  Passos para SSO Empresarial
 
@@ -55,7 +55,7 @@ N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
 
 ---
 
-##  Performance e Otimização
+## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance e Otimização
 
 ###  Recomendações
 
@@ -75,7 +75,7 @@ location ~* \.(js|css|png|jpg|svg)$ {
 
 ---
 
-##  Monitoramento e Troubleshooting
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Troubleshooting
 
 ###  Logs e Alertas
 
@@ -102,7 +102,7 @@ location ~* \.(js|css|png|jpg|svg)$ {
 
 ---
 
-##  Exemplos de Deployment
+## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos de Deployment
 
 ###  Docker Compose para Produção
 
@@ -188,7 +188,7 @@ jobs:
 
 ---
 
-##  Checklist de Produção
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
 - [ ] HTTPS obrigatório e certificado válido
 - [ ] Domínios permitidos configurados (CORS e CSP)

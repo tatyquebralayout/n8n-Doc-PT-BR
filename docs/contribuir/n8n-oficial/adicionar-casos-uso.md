@@ -6,13 +6,13 @@ keywords: [n8n, casos de uso, exemplos, contribuir, automação, workflow, templ
 ---
 
 
-#  Como Estruturar e Adicionar Casos de Uso
+# <ion-icon name="bulb-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Como Estruturar e Adicionar Casos de Uso
 
 Compartilhar um caso de uso bem documentado é uma forma poderosa de contribuir para a comunidade. Um bom **template de workflow** ou **artigo técnico** inspira outras pessoas e oferece aprendizado prático.
 
 ---
 
-##  1. Identifique o problema
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1. Identifique o problema
 
 Um caso de uso relevante começa com uma situação real:
 
@@ -22,7 +22,7 @@ Um caso de uso relevante começa com uma situação real:
 
 ---
 
-##  2. Crie o fluxo no n8n
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2. Crie o fluxo no n8n
 
 Construa seu workflow aplicando boas práticas:
 
@@ -37,7 +37,7 @@ Fluxos complexos podem ser divididos em sub‑workflows para facilitar a leitura
 
 ---
 
-##  3. Documente de forma acessível
+## <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3. Documente de forma acessível
 
 Transforme seu workflow em conteúdo de fácil consumo:
 
@@ -55,7 +55,7 @@ Transforme seu workflow em conteúdo de fácil consumo:
 
 ---
 
-##  4. Compartilhe seu caso de uso
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4. Compartilhe seu caso de uso
 
 Você pode transformar esse conteúdo em:
 
@@ -67,7 +67,7 @@ Use o conteúdo como base para um blog ou post no fórum da comunidade.
 
 ---
 
-##  Referências Oficiais do n8n
+## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências Oficiais do n8n
 
 ###  Documentação de Contribuição
 - **[Contribuir com templates](https://docs.n8n.io/help-community/contributing/#contribute-a-workflow-template)** - Guia oficial de contribuição a templates

@@ -5,17 +5,17 @@ description: Descubra as ferramentas que facilitam o desenvolvimento e teste de 
 keywords: [n8n, api, ferramentas, playground, swagger]
 ---
 
-# Visão Geral - Ferramentas da API
+# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visão Geral - Ferramentas da API
 
 Bem-vindo à seção de **Ferramentas da API** do n8n. Para tornar o desenvolvimento de integrações mais rápido e eficiente, o n8n oferece ferramentas que ajudam você a explorar, testar e depurar suas chamadas de API.
 
-## O que você vai encontrar aqui?
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai encontrar aqui?
 
 Esta seção apresenta as ferramentas disponíveis para interagir com a API do n8n:
 
 - **API Playground:** Um ambiente interativo, baseado em Swagger/OpenAPI, que permite fazer chamadas de API diretamente do seu navegador, sem escrever uma linha de código.
 
-## Por que usar essas ferramentas?
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que usar essas ferramentas?
 
 - **Agilidade:** Teste um endpoint rapidamente antes de implementá-lo em seu código.
 - **Aprendizado:** Entenda como a API funciona de forma prática e visual.
