@@ -179,6 +179,23 @@ export default function Home(): React.ReactElement {
                 </div>
               </div>
 
+              {/* Contribuição para Documentação em Português */}
+              <div className={styles.mainFeature}>
+                <div className={styles.mainFeatureIcon}>
+                  <IonicIcon name="heart-outline" size={20} />
+                </div>
+                <div className={styles.mainFeatureContent}>
+                  <h4>Contribua para a Doc em Português</h4>
+                  <p>Ajude a construir a melhor documentação do n8n para a comunidade brasileira.</p>
+                  <ul>
+                    <li><Link to="/contribuir/esta-documentacao">Contribuir com a Doc</Link></li>
+                    <li><Link to="/contribuir/esta-documentacao/01-entendendo-o-projeto/como-contribuir">Como Contribuir</Link></li>
+                    <li><Link to="/contribuir/esta-documentacao/03-padroes-e-estilo/design-system">Padrões de Design</Link></li>
+                    <li><Link to="/contribuir/esta-documentacao/04-traducao-e-localizacao/guia-traducao">Guia de Tradução</Link></li>
+                  </ul>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
