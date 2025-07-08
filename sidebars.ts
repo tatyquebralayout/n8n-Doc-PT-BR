@@ -381,7 +381,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Referência',
+          label: 'Referência da API',
           items: [
             'api/referencia/index', 
             'api/referencia/referencia-api'
