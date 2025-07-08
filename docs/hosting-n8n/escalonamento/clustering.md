@@ -5,25 +5,24 @@ description: Como implementar clustering para alta disponibilidade do n8n
 keywords: [n8n, clustering, alta disponibilidade, escalabilidade, cluster]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="server-outline" size={32} color="#ea4b71" /> Clustering
+#  Clustering
 
 Este documento explica como **implementar clustering** para alta disponibilidade do n8n, incluindo configuração de múltiplas instâncias, balanceamento de carga inteligente, sincronização de dados, failover automático, e arquiteturas distribuídas que garantem operação contínua mesmo com falhas de hardware ou software, proporcionando disponibilidade enterprise-grade para automações críticas de negócio.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> Arquiteturas de cluster para n8n
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> Configuração de múltiplas instâncias
-- <IonicIcon name="trending-up-outline" size={16} color="#6b7280" /> Balanceamento de carga inteligente
-- <IonicIcon name="refresh-outline" size={16} color="#6b7280" /> Failover automático
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> Monitoramento de cluster
+-  Arquiteturas de cluster para n8n
+-  Configuração de múltiplas instâncias
+-  Balanceamento de carga inteligente
+-  Failover automático
+-  Monitoramento de cluster
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Por que usar Clustering?
+##  Por que usar Clustering?
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Benefícios do Clustering
+###  Benefícios do Clustering
 
 **Sem Clustering (Instância Única):**
 - ❌ **Ponto único de falha** - Se o servidor cair, tudo para
@@ -38,7 +37,7 @@ Este documento explica como **implementar clustering** para alta disponibilidade
 - ✅ **Zero downtime** - Manutenção sem interrupção
 - ✅ **Performance melhorada** - Múltiplos servidores processando
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Quando Usar Clustering
+###  Quando Usar Clustering
 
 **Use clustering quando:**
 - Precisa de **99.9%+ de disponibilidade**
@@ -49,9 +48,9 @@ Este documento explica como **implementar clustering** para alta disponibilidade
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Arquiteturas de Cluster
+##  Arquiteturas de Cluster
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Topologia Básica
+###  Topologia Básica
 
 ```mermaid
 graph TD
@@ -75,7 +74,7 @@ graph TD
     style F fill:#e1f5fe
 ```
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Arquitetura Avançada
+###  Arquitetura Avançada
 
 ```mermaid
 graph TD
@@ -119,9 +118,9 @@ graph TD
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configuração de Múltiplas Instâncias
+##  Configuração de Múltiplas Instâncias
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Configuração Base
+###  Configuração Base
 
 #### **Instância Principal (Main)**
 ```bash
@@ -148,7 +147,7 @@ EXECUTIONS_MODE=regular
 # - Retry de falhas
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Docker Compose com Cluster
+###  Docker Compose com Cluster
 
 ```yaml
 version: '3.8'
@@ -266,9 +265,9 @@ networks:
 
 ---
 
-## <IonicIcon name="trending-up-outline" size={24} color="#ea4b71" /> Balanceamento de Carga
+##  Balanceamento de Carga
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração Nginx
+###  Configuração Nginx
 
 #### **nginx.conf para Cluster**
 ```nginx
@@ -373,7 +372,7 @@ http {
 }
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> HAProxy (Alternativa)
+###  HAProxy (Alternativa)
 
 #### **haproxy.cfg**
 ```bash
@@ -431,9 +430,9 @@ backend n8n_backend
 
 ---
 
-## <IonicIcon name="refresh-outline" size={24} color="#ea4b71" /> Failover Automático
+##  Failover Automático
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Health Checks
+###  Health Checks
 
 #### **Endpoint de Health Check**
 ```bash
@@ -462,7 +461,7 @@ else
 fi
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Monitoramento de Failover
+###  Monitoramento de Failover
 
 #### **Script de Monitoramento**
 ```bash
@@ -493,9 +492,9 @@ done
 
 ---
 
-## <IonicIcon name="cloud-outline" size={24} color="#ea4b71" /> Kubernetes Deployment
+##  Kubernetes Deployment
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Deployment Completo
+###  Deployment Completo
 
 #### **n8n-deployment.yaml**
 ```yaml
@@ -697,9 +696,9 @@ spec:
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento de Cluster
+##  Monitoramento de Cluster
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Métricas Essenciais
+###  Métricas Essenciais
 
 #### **Script de Monitoramento**
 ```bash
@@ -743,7 +742,7 @@ echo "Jobs processados: $(redis-cli get n8n:stats:processed || echo '0')"
 echo "Jobs falharam: $(redis-cli get n8n:stats:failed || echo '0')"
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas Automáticos
+###  Alertas Automáticos
 
 #### **Configuração de Alertas**
 ```bash
@@ -783,9 +782,9 @@ fi
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Troubleshooting
+##  Troubleshooting
 
-### <IonicIcon name="warning-outline" size={20} color="#10b981" /> Problemas Comuns
+###  Problemas Comuns
 
 #### **Instância não inicia**
 ```bash
@@ -831,9 +830,9 @@ docker network inspect n8n_network
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Produção
+##  Checklist de Produção
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Configuração
+###  Configuração
 
 - [ ] Múltiplas instâncias configuradas
 - [ ] Load balancer configurado
@@ -841,7 +840,7 @@ docker network inspect n8n_network
 - [ ] Failover automático testado
 - [ ] Banco de dados compartilhado configurado
 
-### <IonicIcon name="rocket-outline" size={20} color="#10b981" /> Performance
+###  Performance
 
 - [ ] Balanceamento de carga funcionando
 - [ ] Timeouts configurados adequadamente
@@ -849,7 +848,7 @@ docker network inspect n8n_network
 - [ ] Monitoramento ativo
 - [ ] Alertas configurados
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 - [ ] Métricas sendo coletadas
 - [ ] Logs centralizados
@@ -857,7 +856,7 @@ docker network inspect n8n_network
 - [ ] Dashboard de monitoramento
 - [ ] Backup de configurações
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 - [ ] SSL/TLS configurado
 - [ ] Acesso restrito por IP
@@ -867,7 +866,7 @@ docker network inspect n8n_network
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você configurou o clustering:
 

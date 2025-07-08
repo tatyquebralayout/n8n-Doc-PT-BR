@@ -5,25 +5,24 @@ description: Como configurar autenticação segura e controle de acesso no n8n
 keywords: [n8n, autenticação, segurança, acesso, login, usuarios]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="shield-checkmark-outline" size={32} color="#ea4b71" /> Autenticação e Acesso
+#  Autenticação e Acesso
 
 Este documento detalha como **configurar autenticação segura** no n8n, abordando métodos de login, integração com LDAP/Active Directory, SSO empresarial, autenticação de dois fatores, controle de sessão, e políticas de segurança que protegem o acesso à plataforma garantindo que apenas usuários autorizados possam criar, modificar ou executar workflows sensíveis em ambiente corporativo.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="key-outline" size={16} color="#6b7280" /> Métodos de autenticação disponíveis
-- <IonicIcon name="shield-outline" size={16} color="#6b7280" /> Configuração de segurança avançada
-- <IonicIcon name="people-outline" size={16} color="#6b7280" /> Integração com sistemas externos
-- <IonicIcon name="phone-portrait-outline" size={16} color="#6b7280" /> Autenticação de dois fatores
-- <IonicIcon name="time-outline" size={16} color="#6b7280" /> Controle de sessão e timeout
+-  Métodos de autenticação disponíveis
+-  Configuração de segurança avançada
+-  Integração com sistemas externos
+-  Autenticação de dois fatores
+-  Controle de sessão e timeout
 
 ---
 
-## <IonicIcon name="key-outline" size={24} color="#ea4b71" /> Métodos de Autenticação
+##  Métodos de Autenticação
 
-### <IonicIcon name="person-outline" size={20} color="#10b981" /> Autenticação Básica
+###  Autenticação Básica
 
 #### **Configuração Básica**
 ```bash
@@ -56,7 +55,7 @@ N8N_PASSWORD_POLICY_REQUIRE_NUMBERS=true
 N8N_PASSWORD_POLICY_REQUIRE_SPECIAL_CHARS=true
 ```
 
-### <IonicIcon name="phone-portrait-outline" size={20} color="#10b981" /> Autenticação de Dois Fatores (2FA)
+###  Autenticação de Dois Fatores (2FA)
 
 #### **Configuração 2FA**
 ```bash
@@ -93,7 +92,7 @@ N8N_2FA_PERIOD=30
 }
 ```
 
-### <IonicIcon name="business-outline" size={20} color="#10b981" /> SSO (Single Sign-On)
+###  SSO (Single Sign-On)
 
 #### **SAML 2.0**
 ```bash
@@ -128,7 +127,7 @@ N8N_OIDC_CLIENT_SECRET=seu_client_secret
 N8N_OIDC_SCOPE=openid profile email
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> LDAP/Active Directory
+###  LDAP/Active Directory
 
 #### **Configuração LDAP**
 ```bash
@@ -161,9 +160,9 @@ N8N_LDAP_GROUP_FILTER=(memberOf=cn=n8n-users,ou=groups,dc=empresa,dc=com)
 
 ---
 
-## <IonicIcon name="shield-outline" size={24} color="#ea4b71" /> Configurações de Segurança
+##  Configurações de Segurança
 
-### <IonicIcon name="lock-closed-outline" size={20} color="#10b981" /> Controle de Sessão
+###  Controle de Sessão
 
 #### **Timeout de Sessão**
 ```bash
@@ -193,7 +192,7 @@ N8N_COOKIE_DOMAIN=.seudominio.com
 N8N_COOKIE_PATH=/
 ```
 
-### <IonicIcon name="location-outline" size={20} color="#10b981" /> Restrições de IP
+###  Restrições de IP
 
 #### **Whitelist de IPs**
 ```bash
@@ -218,7 +217,7 @@ location / {
 }
 ```
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> Horários de Acesso
+###  Horários de Acesso
 
 #### **Configuração de Janelas de Tempo**
 ```bash
@@ -258,9 +257,9 @@ exit 0
 
 ---
 
-## <IonicIcon name="people-outline" size={24} color="#ea4b71" /> Integração com Sistemas Externos
+##  Integração com Sistemas Externos
 
-### <IonicIcon name="logo-google" size={20} color="#10b981" /> Google Workspace
+###  Google Workspace
 
 #### **Configuração Google OAuth**
 ```bash
@@ -283,7 +282,7 @@ N8N_SAML_ENTRY_POINT=https://accounts.google.com/o/saml2/idp?idpid=seu_idp_id
 N8N_SAML_CERT=/path/to/google_cert.pem
 ```
 
-### <IonicIcon name="logo-microsoft" size={20} color="#10b981" /> Microsoft Azure AD
+###  Microsoft Azure AD
 
 #### **Configuração Azure AD**
 ```bash
@@ -306,7 +305,7 @@ N8N_SAML_ENTRY_POINT=https://login.microsoftonline.com/seu_tenant_id/saml2
 N8N_SAML_CERT=/path/to/azure_cert.pem
 ```
 
-### <IonicIcon name="logo-github" size={20} color="#10b981" /> GitHub Enterprise
+###  GitHub Enterprise
 
 #### **Configuração GitHub OAuth**
 ```bash
@@ -322,9 +321,9 @@ N8N_OAUTH2_SCOPE=read:user user:email
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento e Auditoria
+##  Monitoramento e Auditoria
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Logs de Autenticação
+###  Logs de Autenticação
 
 #### **Configuração de Logs**
 ```bash
@@ -354,7 +353,7 @@ const authEvents = {
 };
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas de Segurança
+###  Alertas de Segurança
 
 #### **Configuração de Alertas**
 ```bash
@@ -393,9 +392,9 @@ const securityAlerts = {
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Configuração Avançada
+##  Configuração Avançada
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Proxy Reverso
+###  Proxy Reverso
 
 #### **Configuração Nginx com Autenticação**
 ```nginx
@@ -449,7 +448,7 @@ server {
 }
 ```
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Headers de Segurança
+###  Headers de Segurança
 
 #### **Configuração Completa de Headers**
 ```nginx
@@ -465,9 +464,9 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Segurança
+##  Checklist de Segurança
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Autenticação
+###  Autenticação
 
 - [ ] Autenticação básica configurada
 - [ ] 2FA ativado para usuários críticos
@@ -475,7 +474,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 - [ ] SSO configurado (se aplicável)
 - [ ] LDAP/AD integrado (se aplicável)
 
-### <IonicIcon name="lock-closed-outline" size={20} color="#10b981" /> Sessão
+###  Sessão
 
 - [ ] Timeout de sessão configurado
 - [ ] Limite de tentativas de login definido
@@ -483,7 +482,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 - [ ] Sessão secreta definida
 - [ ] Logout automático implementado
 
-### <IonicIcon name="location-outline" size={20} color="#10b981" /> Rede
+###  Rede
 
 - [ ] Restrições de IP configuradas
 - [ ] Firewall configurado
@@ -491,7 +490,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 - [ ] Acesso remoto seguro
 - [ ] Logs de acesso ativados
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 - [ ] Logs de autenticação ativados
 - [ ] Alertas de segurança configurados
@@ -501,7 +500,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você configurou a autenticação:
 
@@ -525,7 +524,7 @@ Considere implementar um sistema de gerenciamento de identidade (IAM) para autom
 
 ---
 
-**<IonicIcon name="link-outline" size={16} color="#ea4b71" /> Links úteis:**
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> [Documentação oficial n8n](https://docs.n8n.io/)
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> [Guia de Segurança n8n](https://docs.n8n.io/hosting/security/)
-- <IonicIcon name="people-outline" size={16} color="#6b7280" /> [Configuração de Usuários](https://docs.n8n.io/hosting/user-management/)
+** Links úteis:**
+-  [Documentação oficial n8n](https://docs.n8n.io/)
+-  [Guia de Segurança n8n](https://docs.n8n.io/hosting/security/)
+-  [Configuração de Usuários](https://docs.n8n.io/hosting/user-management/)

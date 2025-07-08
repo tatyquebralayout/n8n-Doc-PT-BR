@@ -5,7 +5,7 @@ description: Aprenda a monitorar execuções, analisar logs e manter seus workfl
 keywords: [n8n, monitoramento, logs, execuções, métricas, alertas, performance]
 ---
 
-# <IonicIcon name="analytics-outline" size={32} color="#ea4b71" /> Monitoramento e Logs
+#  Monitoramento e Logs
 
 Bem-vindo à seção de monitoramento do n8n! Aqui você aprenderá como acompanhar o desempenho de seus workflows, identificar problemas e manter tudo funcionando perfeitamente.
 

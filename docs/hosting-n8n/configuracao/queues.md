@@ -5,25 +5,24 @@ description: Como configurar sistema de filas para processamento escalável no n
 keywords: [n8n, queues, filas, redis, bull, processamento, escalabilidade]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="trending-up-outline" size={32} color="#ea4b71" /> Configuração de Filas
+#  Configuração de Filas
 
 Este documento detalha como **configurar sistema de filas** para processamento escalável no n8n, incluindo setup do Redis, configuração de workers, gerenciamento de jobs, tratamento de falhas, monitoramento de performance, e estratégias de distribuição de carga que permitem processar grandes volumes de workflows simultaneamente sem degradar a performance do sistema principal.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> Configuração do Redis para filas
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> Setup de workers distribuídos
-- <IonicIcon name="settings-outline" size={16} color="#6b7280" /> Gerenciamento de jobs e falhas
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> Monitoramento de performance
-- <IonicIcon name="trending-up-outline" size={16} color="#6b7280" /> Estratégias de escalabilidade
+-  Configuração do Redis para filas
+-  Setup de workers distribuídos
+-  Gerenciamento de jobs e falhas
+-  Monitoramento de performance
+-  Estratégias de escalabilidade
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Por que usar Filas?
+##  Por que usar Filas?
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Benefícios das Filas
+###  Benefícios das Filas
 
 **Sem Filas (Processamento Síncrono):**
 - ❌ **Bloqueio** - Um workflow trava todos os outros
@@ -38,7 +37,7 @@ Este documento detalha como **configurar sistema de filas** para processamento e
 - ✅ **Performance** - Melhor utilização de recursos
 - ✅ **Monitoramento** - Visibilidade completa do processamento
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Quando Usar Filas
+###  Quando Usar Filas
 
 **Use filas quando:**
 - Processa **muitos workflows** simultaneamente
@@ -49,9 +48,9 @@ Este documento detalha como **configurar sistema de filas** para processamento e
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configuração Redis
+##  Configuração Redis
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Instalação Rápida
+###  Instalação Rápida
 
 #### **Ubuntu/Debian**
 ```bash
@@ -92,7 +91,7 @@ docker run -d \
   redis:7-alpine redis-server --appendonly yes
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração Avançada
+###  Configuração Avançada
 
 #### **redis.conf - Otimizações**
 ```bash
@@ -136,7 +135,7 @@ sudo chmod 750 /var/lib/redis
 sudo ufw allow from 192.168.1.0/24 to any port 6379
 ```
 
-### <IonicIcon name="key-outline" size={20} color="#10b981" /> Variáveis de Ambiente
+###  Variáveis de Ambiente
 
 ```bash
 # Configuração básica Redis
@@ -156,9 +155,9 @@ REDIS_TIMEOUT=30000
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Configuração n8n
+##  Configuração n8n
 
-### <IonicIcon name="settings-outline" size={20} color="#10b981" /> Variáveis de Ambiente
+###  Variáveis de Ambiente
 
 ```bash
 # Configuração de filas
@@ -179,7 +178,7 @@ EXECUTIONS_RETRY_ATTEMPTS=3
 EXECUTIONS_RETRY_DELAY=5000  # 5 segundos
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Docker Compose
+###  Docker Compose
 
 ```yaml
 version: '3.8'
@@ -270,9 +269,9 @@ networks:
 
 ---
 
-## <IonicIcon name="trending-up-outline" size={24} color="#ea4b71" /> Workers Distribuídos
+##  Workers Distribuídos
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Configuração de Workers
+###  Configuração de Workers
 
 #### **Worker Principal (Main)**
 ```bash
@@ -299,7 +298,7 @@ EXECUTIONS_MODE=regular
 # - Retry de falhas
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Múltiplos Workers
+###  Múltiplos Workers
 
 #### **Docker Compose com Workers**
 ```yaml
@@ -399,9 +398,9 @@ networks:
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Gerenciamento de Jobs
+##  Gerenciamento de Jobs
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Tipos de Jobs
+###  Tipos de Jobs
 
 #### **Execuções de Workflow**
 ```javascript
@@ -437,7 +436,7 @@ networks:
 }
 ```
 
-### <IonicIcon name="refresh-outline" size={20} color="#10b981" /> Retry e Falhas
+###  Retry e Falhas
 
 #### **Configuração de Retry**
 ```bash
@@ -461,9 +460,9 @@ const retryStrategies = {
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento
+##  Monitoramento
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Métricas Redis
+###  Métricas Redis
 
 #### **Comandos de Monitoramento**
 ```bash
@@ -510,7 +509,7 @@ echo "Jobs processados: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASS
 echo "Jobs falharam: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD get n8n:stats:failed)"
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas
+###  Alertas
 
 #### **Script de Alertas**
 ```bash
@@ -544,9 +543,9 @@ fi
 
 ---
 
-## <IonicIcon name="trending-up-outline" size={24} color="#ea4b71" /> Escalabilidade
+##  Escalabilidade
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Cluster Redis
+###  Cluster Redis
 
 #### **Redis Sentinel**
 ```bash
@@ -568,7 +567,7 @@ redis-cli --cluster create \
   --cluster-replicas 1
 ```
 
-### <IonicIcon name="cloud-outline" size={20} color="#10b981" /> Cloud Redis
+###  Cloud Redis
 
 #### **AWS ElastiCache**
 ```bash
@@ -590,9 +589,9 @@ REDIS_URL=redis://:senha@10.0.0.1:6379
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Troubleshooting
+##  Troubleshooting
 
-### <IonicIcon name="warning-outline" size={20} color="#10b981" /> Problemas Comuns
+###  Problemas Comuns
 
 #### **Redis não conecta**
 ```bash
@@ -639,7 +638,7 @@ redis-cli info stats
 redis-cli flushdb
 ```
 
-### <IonicIcon name="medical-outline" size={20} color="#10b981" /> Scripts de Diagnóstico
+###  Scripts de Diagnóstico
 
 #### **Diagnóstico Completo**
 ```bash
@@ -683,9 +682,9 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Produção
+##  Checklist de Produção
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Configuração
+###  Configuração
 
 - [ ] Redis instalado e configurado
 - [ ] Autenticação Redis configurada
@@ -693,7 +692,7 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 - [ ] Conexão Redis testada
 - [ ] Workers configurados corretamente
 
-### <IonicIcon name="rocket-outline" size={20} color="#10b981" /> Performance
+###  Performance
 
 - [ ] Configurações de memória otimizadas
 - [ ] Persistência Redis configurada
@@ -701,7 +700,7 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 - [ ] Timeouts configurados
 - [ ] Retry policies definidas
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 - [ ] Scripts de monitoramento configurados
 - [ ] Alertas configurados
@@ -709,7 +708,7 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 - [ ] Logs estruturados
 - [ ] Dashboard de monitoramento
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 - [ ] Senha Redis configurada
 - [ ] Acesso restrito por IP
@@ -719,7 +718,7 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você configurou as filas:
 

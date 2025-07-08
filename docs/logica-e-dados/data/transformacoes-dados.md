@@ -5,17 +5,16 @@ description: Técnicas para transformar, normalizar e preparar dados para difere
 keywords: [n8n, transformações, normalização, preparação de dados, conversão, formatação]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="swap-horizontal-outline" size={32} color="#ea4b71" /> Transformações de Dados
+#  Transformações de Dados
 
 Aprenda técnicas eficientes para transformar dados entre diferentes formatos, normalizar informações e preparar dados para integração com diversos sistemas.
 
 ---
 
-## <IonicIcon name="shuffle-outline" size={24} color="#ea4b71" /> 1 | Tipos de Transformação
+##  1 | Tipos de Transformação
 
-### <IonicIcon name="repeat-outline" size={20} color="#10b981" /> Transformações Estruturais
+###  Transformações Estruturais
 
 **Modificar a estrutura dos dados:**
 
@@ -24,7 +23,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 - **Pivot**: Rotacionar dados de linhas para colunas
 - **Unpivot**: Rotacionar dados de colunas para linhas
 
-### <IonicIcon name="color-palette-outline" size={20} color="#10b981" /> Transformações de Formato
+###  Transformações de Formato
 
 **Alterar o formato dos dados:**
 
@@ -35,9 +34,9 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-## <IonicIcon name="layers-outline" size={24} color="#ea4b71" /> 2 | Normalização de Dados
+##  2 | Normalização de Dados
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#10b981" /> Padronização de Campos
+###  Padronização de Campos
 
 **Exemplo: Normalizar endereços brasileiros:**
 
@@ -62,7 +61,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 }
 ```
 
-### <IonicIcon name="options-outline" size={20} color="#10b981" /> Validação e Correção
+###  Validação e Correção
 
 **Validar e corrigir dados:**
 
@@ -85,9 +84,9 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-## <IonicIcon name="git-merge-outline" size={24} color="#ea4b71" /> 3 | Agregação de Dados
+##  3 | Agregação de Dados
 
-### <IonicIcon name="calculator-outline" size={20} color="#10b981" /> Cálculos de Resumo
+###  Cálculos de Resumo
 
 **Exemplo: Agregar vendas por categoria:**
 
@@ -123,7 +122,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 ]
 ```
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Análises Temporais
+###  Análises Temporais
 
 **Agregar dados por período:**
 
@@ -150,9 +149,9 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-## <IonicIcon name="filter-outline" size={24} color="#ea4b71" /> 4 | Filtros e Segmentação
+##  4 | Filtros e Segmentação
 
-### <IonicIcon name="funnel-outline" size={20} color="#10b981" /> Filtros Condicionais
+###  Filtros Condicionais
 
 **Exemplo: Segmentar clientes por valor:**
 
@@ -167,7 +166,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 })($json.clientes) }}
 ```
 
-### <IonicIcon name="search-outline" size={20} color="#10b981" /> Busca e Filtros
+###  Busca e Filtros
 
 **Filtrar por critérios complexos:**
 
@@ -188,9 +187,9 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-## <IonicIcon name="swap-horizontal-outline" size={24} color="#ea4b71" /> 5 | Conversão de Formatos
+##  5 | Conversão de Formatos
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> JSON para CSV
+###  JSON para CSV
 
 **Converter dados estruturados para tabela:**
 
@@ -220,7 +219,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 })($json.dados) }}
 ```
 
-### <IonicIcon name="code-outline" size={20} color="#10b981" /> XML para JSON
+###  XML para JSON
 
 **Converter XML estruturado:**
 
@@ -272,9 +271,9 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> 6 | Enriquecimento de Dados
+##  6 | Enriquecimento de Dados
 
-### <IonicIcon name="add-circle-outline" size={20} color="#10b981" /> Adicionar Informações
+###  Adicionar Informações
 
 **Exemplo: Enriquecer dados de clientes:**
 
@@ -292,7 +291,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 })) }}
 ```
 
-### <IonicIcon name="link-outline" size={20} color="#10b981" /> Join de Dados
+###  Join de Dados
 
 **Combinar dados de diferentes fontes:**
 
@@ -312,9 +311,9 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-## <IonicIcon name="shield-outline" size={24} color="#ea4b71" /> 7 | Sanitização e Limpeza
+##  7 | Sanitização e Limpeza
 
-### <IonicIcon name="brush-outline" size={20} color="#10b981" /> Limpeza de Dados
+###  Limpeza de Dados
 
 **Remover dados inconsistentes:**
 
@@ -334,7 +333,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 })) }}
 ```
 
-### <IonicIcon name="checkmark-done-outline" size={20} color="#10b981" /> Validação de Integridade
+###  Validação de Integridade
 
 **Verificar qualidade dos dados:**
 
@@ -373,7 +372,7 @@ Aprenda técnicas eficientes para transformar dados entre diferentes formatos, n
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 8 | Próximos passos
+##  8 | Próximos passos
 
 1. **[Agregações e Estatísticas](./agregacoes-estatisticas)** - Cálculos complexos
 2. **[Integração com APIs](./integracao-apis)** - Mapeamento de respostas

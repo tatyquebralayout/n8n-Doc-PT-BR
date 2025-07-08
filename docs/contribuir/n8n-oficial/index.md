@@ -5,9 +5,8 @@ description: Saiba como contribuir diretamente para o repositório oficial do n8
 keywords: [n8n, contribuir, projeto oficial, open source, código, global, n8n GmbH]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="globe-outline" size={32} color="#ea4b71" /> Visão Geral – Contribuição ao Projeto Oficial do n8n
+#  Visão Geral – Contribuição ao Projeto Oficial do n8n
 
 Contribuir com o repositório oficial do **n8n** significa colaborar diretamente com uma ferramenta de automação utilizada globalmente. É uma oportunidade para participar da evolução do projeto open source, fortalecer sua prática técnica e impactar milhares de pessoas desenvolvedoras.
 
@@ -21,7 +20,7 @@ Seu objetivo é ampliar o acesso, contextualizar o conteúdo e fomentar a adoç�
 
 ---
 
-## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> O que pode ser contribuído no repositório oficial
+##  O que pode ser contribuído no repositório oficial
 
 Você pode colaborar com diversas frentes:
 
@@ -33,25 +32,25 @@ Você pode colaborar com diversas frentes:
 
 ---
 
-## <IonicIcon name="compass-outline" size={24} color="#ea4b71" /> Como começar a contribuir no projeto oficial
+##  Como começar a contribuir no projeto oficial
 
-### <IonicIcon name="link-outline" size={20} color="#ea4b71" /> 1. Acesse os guias de contribuição
+###  1. Acesse os guias de contribuição
 
 - [`n8n/n8n`](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md) - Contribuições para o core
 - [`n8n-docs`](https://github.com/n8n-io/n8n-docs) - Contribuições para documentação oficial
 
-### <IonicIcon name="settings-outline" size={20} color="#ea4b71" /> 2. Configure seu ambiente local
+###  2. Configure seu ambiente local
 
 - **Repositório principal**: use `git clone --recurse-submodules`, `npm install`, `lerna bootstrap`
 - **Documentação oficial**: instale `MkDocs` com Python, siga `mkdocs serve`
 
-### <IonicIcon name="bookmark-outline" size={20} color="#ea4b71" /> 3. Escolha uma contribuição inicial
+###  3. Escolha uma contribuição inicial
 
 - Priorize issues com labels como `good first issue`, `documentation` ou `enhancement`
 
 ---
 
-## <IonicIcon name="layers-outline" size={24} color="#ea4b71" /> Fluxo de contribuição
+##  Fluxo de contribuição
 
 - **Fork → Branch → Commit → Pull Request**
 - Utilize convenções de commits (`feat:`, `fix:`, `docs:`) e escreva descrições objetivas
@@ -60,7 +59,7 @@ Você pode colaborar com diversas frentes:
 
 ---
 
-## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Por que contribuir?
+##  Por que contribuir?
 
 - **Forte experiência**: trabalhe com projetos open source de alto impacto
 - **Reconhecimento global**: suas contribuições são vistas por toda a comunidade
@@ -69,15 +68,15 @@ Você pode colaborar com diversas frentes:
 
 ---
 
-## <IonicIcon name="library-outline" size={24} color="#ea4b71" /> Recursos disponíveis
+##  Recursos disponíveis
 
-### <IonicIcon name="document-text-outline" size={20} color="#ea4b71" /> Guias de Desenvolvimento
+###  Guias de Desenvolvimento
 
 - **[Contribuir com Código e Docs](./contribuir-codigo-e-docs)** - Desenvolvimento de funcionalidades e documentação
 - **[Criar Nodes](./contribuir-modelos)** - Desenvolvimento de novas integrações
 - **[Adicionar Casos de Uso](./adicionar-casos-uso)** - Compartilhar workflows e templates
 
-### <IonicIcon name="people-outline" size={20} color="#ea4b71" /> Participação na Comunidade
+###  Participação na Comunidade
 
 - **[Contribuir com a Comunidade](./contribuir-community)** - Ajudar outros usuários e participar de discussões
 - **[Programa de Afiliados](./afiliados-e-creators)** - Oportunidades de parceria e monetização

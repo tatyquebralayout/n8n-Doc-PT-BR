@@ -5,21 +5,20 @@ description: Guia completo para começar com n8n
 keywords: [n8n, automação, workflow, introdução, guia, open source]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="rocket-outline" size={32} color="#ea4b71" /> Introdução ao n8n
+#  Introdução ao n8n
 
 Esta é a documentação em português do n8n, plataforma open-source que permite construir automações inteligentes e workflows avançados, com flexibilidade e controle total.
 
 ---
 
-## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> Origem e evolução
+##  Origem e evolução
 
 O n8n foi idealizado em **2019** por **[Jan Oberhauser](https://github.com/janober)**, que buscava uma solução capaz de conectar apps e APIs sem a complexidade dos scripts convencionais. Com foco em código aberto e modelo "fair‑code", o projeto cresceu rapidamente e, em **abril de 2025**, atingiu a marca de **[100.000 estrelas no GitHub](https://github.com/n8n-io/n8n)**. Desde então, a comunidade só tem se fortalecido.
 
 ---
 
-## <IonicIcon name="bookmark-outline" size={24} color="#ea4b71" /> O que é o n8n?
+##  O que é o n8n?
 
 O n8n (pronuncia-se "n‑eight‑n") é uma plataforma que oferece:
 
@@ -54,7 +53,7 @@ Em automação, erros podem acontecer — e tudo bem. O n8n permite criar caminh
 
 ---
 
-## <IonicIcon name="map-outline" size={24} color="#ea4b71" /> O que você vai aprender aqui
+##  O que você vai aprender aqui
 
 Esta introdução está estruturada para guiar você de forma progressiva:
 
@@ -68,7 +67,7 @@ Ao final, você terá autonomia para criar sua própria automação, seja um ale
 
 ---
 
-## <IonicIcon name="thumbs-up-outline" size={24} color="#ea4b71" /> Por que escolher o n8n
+##  Por que escolher o n8n
 
 ### Para  pessoas desenvolvedoras
 - **API REST robusta**, triggers avançados e execução de código customizado
@@ -87,7 +86,7 @@ Ao final, você terá autonomia para criar sua própria automação, seja um ale
 
 ---
 
-## <IonicIcon name="play-outline" size={24} color="#ea4b71" /> Começando
+##  Começando
 
 Escolha uma das opções abaixo para começar:
 
@@ -105,7 +104,7 @@ Consulte **[Hosting n8n](../../hosting-n8n)** para configuração em produção.
 
 ---
 
-## <IonicIcon name="library-outline" size={24} color="#ea4b71" /> Estrutura desta Documentação
+##  Estrutura desta Documentação
 
 Esta documentação está organizada nas seguintes seções:
 
@@ -180,7 +179,7 @@ Workflows práticos e casos de uso reais.
 
 ---
 
-## <IonicIcon name="heart-outline" size={24} color="#ea4b71" /> Compromisso da comunidade brasileira
+##  Compromisso da comunidade brasileira
 
 Este material é produzido **pela comunidade brasileira**, sem vínculo direto com o time oficial do n8n. O objetivo é **ampliar o acesso e contextualizar o uso** dessa ferramenta global no Brasil, seguindo as diretrizes do projeto oficial e incentivando contribuições locais.
 

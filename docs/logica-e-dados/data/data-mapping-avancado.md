@@ -5,17 +5,16 @@ description: Técnicas avançadas de mapeamento e transformação de dados no n8
 keywords: [n8n, data mapping, transformação, expressões, funções, manipulação de dados]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="code-slash-outline" size={32} color="#ea4b71" /> Data Mapping Avançado
+#  Data Mapping Avançado
 
 Aprenda técnicas avançadas de mapeamento e transformação de dados para criar workflows mais poderosos e eficientes no n8n.
 
 ---
 
-## <IonicIcon name="layers-outline" size={24} color="#ea4b71" /> 1 | Expressões Avançadas
+##  1 | Expressões Avançadas
 
-### <IonicIcon name="calculator-outline" size={20} color="#10b981" /> Funções Matemáticas
+###  Funções Matemáticas
 
 **Operações matemáticas complexas:**
 
@@ -33,7 +32,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ Math.round($json.valor * 100) / 100 }}
 ```
 
-### <IonicIcon name="text-outline" size={20} color="#10b981" /> Manipulação de Strings
+###  Manipulação de Strings
 
 **Transformações de texto avançadas:**
 
@@ -53,9 +52,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="git-branch-outline" size={24} color="#ea4b71" /> 2 | Lógica Condicional
+##  2 | Lógica Condicional
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#10b981" /> Operadores Ternários
+###  Operadores Ternários
 
 **Condições em uma linha:**
 
@@ -73,7 +72,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ $json.score > 90 ? 'Excelente' : $json.score > 70 ? 'Bom' : 'Regular' }}
 ```
 
-### <IonicIcon name="options-outline" size={20} color="#10b981" /> Validações Complexas
+###  Validações Complexas
 
 **Verificações avançadas:**
 
@@ -93,9 +92,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="list-outline" size={24} color="#ea4b71" /> 3 | Manipulação de Arrays
+##  3 | Manipulação de Arrays
 
-### <IonicIcon name="filter-outline" size={20} color="#10b981" /> Filtros Avançados
+###  Filtros Avançados
 
 **Filtrar dados complexos:**
 
@@ -113,7 +112,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ $json.pedidos.filter(pedido => new Date(pedido.data) > new Date('2024-01-01')) }}
 ```
 
-### <IonicIcon name="map-outline" size={20} color="#10b981" /> Transformações de Array
+###  Transformações de Array
 
 **Modificar arrays:**
 
@@ -136,9 +135,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> 4 | Funções Customizadas
+##  4 | Funções Customizadas
 
-### <IonicIcon name="code-outline" size={20} color="#10b981" /> Funções JavaScript
+###  Funções JavaScript
 
 **Criar funções reutilizáveis:**
 
@@ -170,7 +169,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 })($json.titulo) }}
 ```
 
-### <IonicIcon name="library-outline" size={20} color="#10b981" /> Bibliotecas Externas
+###  Bibliotecas Externas
 
 **Usar bibliotecas JavaScript:**
 
@@ -187,9 +186,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="git-merge-outline" size={24} color="#ea4b71" /> 5 | Mapeamento de Objetos Complexos
+##  5 | Mapeamento de Objetos Complexos
 
-### <IonicIcon name="layers-outline" size={20} color="#10b981" /> Objetos Aninhados
+###  Objetos Aninhados
 
 **Acessar dados profundos:**
 
@@ -212,7 +211,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 })) }}
 ```
 
-### <IonicIcon name="swap-horizontal-outline" size={20} color="#10b981" /> Transformações de Estrutura
+###  Transformações de Estrutura
 
 **Reorganizar dados:**
 
@@ -244,9 +243,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="time-outline" size={24} color="#ea4b71" /> 6 | Manipulação de Datas
+##  6 | Manipulação de Datas
 
-### <IonicIcon name="calendar-outline" size={20} color="#10b981" /> Formatação de Datas
+###  Formatação de Datas
 
 **Formatos brasileiros:**
 
@@ -269,7 +268,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ new Date($json.data).toLocaleDateString('pt-BR', { weekday: 'long' }) }}
 ```
 
-### <IonicIcon name="timer-outline" size={20} color="#10b981" /> Cálculos de Tempo
+###  Cálculos de Tempo
 
 **Operações temporais:**
 
@@ -296,9 +295,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="shield-outline" size={24} color="#ea4b71" /> 7 | Validação e Sanitização
+##  7 | Validação e Sanitização
 
-### <IonicIcon name="checkmark-done-outline" size={20} color="#10b981" /> Validações de Dados
+###  Validações de Dados
 
 **Verificar integridade:**
 
@@ -324,7 +323,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ /@empresa\.com\.br$/.test($json.email) }}
 ```
 
-### <IonicIcon name="brush-outline" size={20} color="#10b981" /> Sanitização de Dados
+###  Sanitização de Dados
 
 **Limpar dados:**
 
@@ -348,7 +347,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 8 | Próximos passos
+##  8 | Próximos passos
 
 1. **[Transformações de Dados](./transformacoes-dados)** - Técnicas de transformação
 2. **[Agregações e Estatísticas](./agregacoes-estatisticas)** - Cálculos complexos

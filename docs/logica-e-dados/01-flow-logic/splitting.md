@@ -9,9 +9,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 import CodeBlock from '@theme/CodeBlock';
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="git-branch-outline" /> Splitting de Workflows: Criando Lógica Condicional no n8n
+#  Splitting de Workflows: Criando Lógica Condicional no n8n
 
 
 
@@ -148,7 +147,7 @@ graph TD
 </TabItem>
 <TabItem value="if" label="Node IF">
 
-### <IonicIcon name="help-circle-outline" /> Node IF: Decisões Simples (Sim/Não)
+###  Node IF: Decisões Simples (Sim/Não)
 
 **Quando usar**: Para condições binárias simples onde você precisa de apenas dois caminhos.
 
@@ -189,7 +188,7 @@ if (valor_pedido > 1000) {
 </CodeBlock>
 <!-- Estrutura dos componentes retráteis para replicar -->
 <details>
-<summary><IonicIcon name="eye-outline" size={16} color="#6b7280" /> Copie e cole este template na dashboard do n8n: </summary>
+<summary> Copie e cole este template na dashboard do n8n: </summary>
 <CodeBlock language="json" title="Exemplo de Condicional IF">
 {`
 {
@@ -340,7 +339,7 @@ if (valor_pedido > 1000) {
 </TabItem>
 <TabItem value="switch" label="Node Switch">
 
-### <IonicIcon name="options-outline" /> Node Switch: Decisões Múltiplas
+###  Node Switch: Decisões Múltiplas
 
 **Quando usar**: Para múltiplas condições onde você precisa de vários caminhos diferentes.
 
@@ -407,7 +406,7 @@ switch (origem_lead) {
 </TabItem>
 <TabItem value="merge" label="Node Merge">
 
-### <IonicIcon name="git-merge-outline" /> Node Merge: Reunindo Ramificações
+###  Node Merge: Reunindo Ramificações
 
 **Quando usar**: Quando diferentes caminhos precisam convergir para uma ação final comum.
 
@@ -444,7 +443,7 @@ Saiba mais sobre [manipulação de dados](/logica-e-dados/02-data/data-mapping).
 
 ## Implementação Prática: Exemplo Completo
 
-### <IonicIcon name="business-outline" /> Cenário: Sistema de Aprovação de Despesas
+###  Cenário: Sistema de Aprovação de Despesas
 
 Vamos criar um workflow que automatiza a aprovação de despesas corporativas com base em valor e categoria:
 
@@ -492,7 +491,7 @@ graph TD
 <Tabs>
 <TabItem value="passo1" label="1. Webhook/Trigger" default>
 
-#### <IonicIcon name="play-outline" /> 1. Webhook/Trigger – Receber Dados
+####  1. Webhook/Trigger – Receber Dados
 
 **Objetivo**: O usuário envia um ticket de despesa, disparando o workflow.
 
@@ -511,7 +510,7 @@ graph TD
 </TabItem>
 <TabItem value="passo2" label="2. Extrair Dados">
 
-#### <IonicIcon name="filter-outline" /> 2. Set/Function – Extrair Dados Essenciais
+####  2. Set/Function – Extrair Dados Essenciais
 
 **Objetivo**: Extrair `priority`, `supportPlan`, `description`, `valor`, `categoria`.
 
@@ -532,7 +531,7 @@ return dados;`}
 </TabItem>
 <TabItem value="passo3" label="3. IF Categoria">
 
-#### <IonicIcon name="help-circle-outline" /> 3. IF Categoria – Verificar se é Viagem
+####  3. IF Categoria – Verificar se é Viagem
 
 ```mermaid
 graph LR
@@ -555,7 +554,7 @@ graph LR
 </TabItem>
 <TabItem value="passo4" label="4. Switch Valor">
 
-#### <IonicIcon name="calculator-outline" /> 4. Switch Valor – Análise por Valor
+####  4. Switch Valor – Análise por Valor
 
 ```mermaid
 graph TD
@@ -579,7 +578,7 @@ graph TD
 </TabItem>
 <TabItem value="passo5" label="5. Ações Finais">
 
-#### <IonicIcon name="checkmark-circle-outline" /> 5. Ações Finais – Processar Cada Caminho
+####  5. Ações Finais – Processar Cada Caminho
 
 <Tabs>
 <TabItem value="rh" label="Caminho RH" default>
@@ -694,7 +693,7 @@ graph LR
 </TabItem>
 <TabItem value="passo6" label="6. Merge (Opcional)">
 
-#### <IonicIcon name="git-merge-outline" /> 6. [Merge](/logica-e-dados/01-flow-logic/merging) – Reunir Resultados
+####  6. [Merge](/logica-e-dados/01-flow-logic/merging) – Reunir Resultados
 
 **Objetivo**: Se etapas posteriores exigirem o conjunto completo de itens, configure *Wait → All*.
 
@@ -714,7 +713,7 @@ graph LR
 
 ## Lógica de Execução e Controle
 
-### <IonicIcon name="settings-outline" /> Entendendo a Ordem de Execução
+###  Entendendo a Ordem de Execução
 
 <Tabs>
 <TabItem value="ordem" label="Ordem de Execução" default>
@@ -752,7 +751,7 @@ graph TD
 </TabItem>
 <TabItem value="always-output" label="Always Output Data">
 
-### <IonicIcon name="shield-checkmark-outline" /> Always Output Data
+###  Always Output Data
 
 **Função**: Garante que mesmo um ramo "vazio" produza um item, evitando falhas na junção.
 
@@ -783,7 +782,7 @@ if (condicao_raramente_verdadeira) {
 }
 ```
 
-### <IonicIcon name="code-outline" /> Sintaxe JavaScript em Expressões
+###  Sintaxe JavaScript em Expressões
 
 <Admonition type="tip" title="💡 Boas Práticas para Expressões">
 **Sintaxe Recomendada:**
@@ -820,7 +819,7 @@ if (condicao_raramente_verdadeira) {
 </TabItem>
 <TabItem value="paralelismo" label="Paralelismo">
 
-### <IonicIcon name="flash-outline" /> Paralelismo e Performance
+###  Paralelismo e Performance
 
 **Em instâncias self-hosted**: Habilite [filas Redis/RabbitMQ](/hosting-n8n/configuracao/queues) para processar ramos em paralelo.
 
@@ -856,7 +855,7 @@ graph TD
 - **Timeout**: Configurado por tipo de processo
 - **Retry Policy**: Configurada para falhas temporárias
 
-### <IonicIcon name="rocket-outline" /> Performance em Produção
+###  Performance em Produção
 
 <Admonition type="tip" title="🚀 Configurações Otimizadas para Produção">
 **Processamento Distribuído:**
@@ -875,7 +874,7 @@ graph TD
 - **Logs Estruturados**: Para debugging e análise
 </Admonition>
 
-### <IonicIcon name="analytics-outline" /> Monitoramento de Splitting
+###  Monitoramento de Splitting
 
 <Admonition type="info" title="📊 Métricas Essenciais para Workflows com Splitting">
 **Eficiência de Roteamento:**
@@ -926,7 +925,7 @@ graph TD
 <Tabs>
 <TabItem value="sequencial" label="Splitting Sequencial" default>
 
-### <IonicIcon name="arrow-down-outline" /> Splitting Sequencial (Cascata)
+###  Splitting Sequencial (Cascata)
 
 Para lógicas mais complexas, você pode encadear múltiplos splits - veja mais sobre [subworkflows](/logica-e-dados/01-flow-logic/subworkflows):
 
@@ -1038,7 +1037,7 @@ graph TD
 </TabItem>
 <TabItem value="paralelo" label="Splitting Paralelo">
 
-### <IonicIcon name="resize-outline" /> Splitting Paralelo
+###  Splitting Paralelo
 
 Quando você precisa executar múltiplas verificações simultaneamente:
 
@@ -1074,7 +1073,7 @@ graph TD
 </TabItem>
 <TabItem value="merge" label="Splitting com Merge">
 
-### <IonicIcon name="git-merge-outline" /> Splitting com [Merge](/logica-e-dados/01-flow-logic/merging)
+###  Splitting com [Merge](/logica-e-dados/01-flow-logic/merging)
 
 Após dividir o fluxo, você pode reunir os caminhos usando um **[Merge node](/logica-e-dados/01-flow-logic/merging)**:
 
@@ -1119,9 +1118,9 @@ Pedido → IF (Cliente VIP?)
 </TabItem>
 </Tabs>
 
-## <IonicIcon name="construct-outline" /> Debugging: Ferramentas e Técnicas
+##  Debugging: Ferramentas e Técnicas
 
-### <IonicIcon name="search-outline" /> Debugging de Condições
+###  Debugging de Condições
 
 <Admonition type="tip" title="🔍 Técnicas de Debug para Splitting">
 **1. Adicione um [Edit Fields (Set)](/integracoes/builtin-nodes/core-nodes/edit-fields-set) antes do split:**
@@ -1153,7 +1152,7 @@ return $input.item;
 ```
 </Admonition>
 
-### <IonicIcon name="analytics-outline" /> Ferramentas de Debugging
+###  Ferramentas de Debugging
 
 **Ferramentas Built-in:**
 - **Execution History**: Visualize dados em cada node
@@ -1170,7 +1169,7 @@ return $input.item;
 <Tabs>
 <TabItem value="problema1" label="Workflow Para na Condição" default>
 
-### <IonicIcon name="stop-circle-outline" /> ❌ Problema: "Workflow Para na Condição"
+###  ❌ Problema: "Workflow Para na Condição"
 
 <Admonition type="warning" title="Sintomas">
 O workflow executa até o node de splitting e não continua.
@@ -1214,7 +1213,7 @@ Saiba mais sobre [expressões JavaScript](/referencia/glossario) e [tipos de dad
 </TabItem>
 <TabItem value="problema2" label="Caminho Errado">
 
-### <IonicIcon name="alert-circle-outline" /> ❌ Problema: "Caminho Errado Sendo Executado"
+###  ❌ Problema: "Caminho Errado Sendo Executado"
 
 <Admonition type="warning" title="Sintomas">
 Os dados seguem por um caminho diferente do esperado.
@@ -1248,7 +1247,7 @@ graph TD
 
 Para mais informações sobre [tratamento de erros](/logica-e-dados/01-flow-logic/error-handling).
 
-### <IonicIcon name="bug-outline" /> ❌ Problema: "Erro em Ramificação Específica"
+###  ❌ Problema: "Erro em Ramificação Específica"
 
 <Admonition type="danger" title="Sintomas">
 Uma ramificação falha mas o workflow continua nas outras.
@@ -1281,7 +1280,7 @@ graph TD
 </TabItem>
 <TabItem value="problema3" label="Multiple Output Branches">
 
-### <IonicIcon name="warning-outline" /> ❌ Problema: "Multiple Output Branches"
+###  ❌ Problema: "Multiple Output Branches"
 
 <Admonition type="warning" title="Sintomas">
 Switch node criando saídas inesperadas.
@@ -1317,7 +1316,7 @@ graph TD
 <Tabs>
 <TabItem value="ecommerce" label="E-commerce" default>
 
-### <IonicIcon name="storefront-outline" /> 1. E-commerce: Processamento de Pedidos
+###  1. E-commerce: Processamento de Pedidos
 
 ```mermaid
 graph TD
@@ -1352,7 +1351,7 @@ Para integrar com APIs de pagamento brasileiras, consulte nossa seção sobre [i
 </TabItem>
 <TabItem value="marketing" label="Marketing">
 
-### <IonicIcon name="megaphone-outline" /> 2. Marketing: Segmentação de Leads
+###  2. Marketing: Segmentação de Leads
 
 ```mermaid
 graph TD
@@ -1381,7 +1380,7 @@ graph TD
 </TabItem>
 <TabItem value="suporte" label="Suporte">
 
-### <IonicIcon name="headset-outline" /> 3. Suporte: Triagem de Tickets
+###  3. Suporte: Triagem de Tickets
 
 ```mermaid
 graph TD
@@ -1417,7 +1416,7 @@ Para automatizar respostas, considere usar [Slack](/integracoes/app-nodes/commun
 <Tabs>
 <TabItem value="boas-praticas" label="✅ Boas Práticas" default>
 
-### <IonicIcon name="checkmark-circle-outline" /> Boas Práticas Essenciais
+###  Boas Práticas Essenciais
 
 <Admonition type="tip" title="🎯 Práticas Recomendadas">
 **Nomenclatura e Documentação:**
@@ -1453,7 +1452,7 @@ graph TD
 </TabItem>
 <TabItem value="armadilhas" label="❌ Armadilhas Comuns">
 
-### <IonicIcon name="warning-outline" /> Armadilhas a Evitar
+###  Armadilhas a Evitar
 
 <Admonition type="danger" title="🚨 Cuidados Importantes">
 **Problemas de Estrutura:**
@@ -1489,7 +1488,7 @@ graph TD
 </TabItem>
 <TabItem value="performance" label="🚀 Performance">
 
-### <IonicIcon name="speedometer-outline" /> Otimização de Performance
+###  Otimização de Performance
 
 **Estratégias de Otimização:**
 - **Minimize nodes desnecessários**: Use Switch ao invés de múltiplos IFs sequenciais
@@ -1523,7 +1522,7 @@ graph LR
 - **Worker Scaling**: Múltiplos workers para processamento distribuído
 </Admonition>
 
-### <IonicIcon name="swap-horizontal-outline" /> Migração de IF Múltiplos para Switch
+###  Migração de IF Múltiplos para Switch
 
 <Admonition type="tip" title="🔄 Refatoração para Melhor Performance">
 **Cenário Comum**: Workflows com múltiplos IFs aninhados que se tornaram difíceis de manter.
@@ -1593,7 +1592,7 @@ graph TD
 </TabItem>
 <TabItem value="manutencao" label="🔧 Manutenibilidade">
 
-### <IonicIcon name="construct-outline" /> Facilitar Manutenção
+###  Facilitar Manutenção
 
 **Nomenclatura Consistente:**
 ```mermaid
@@ -1625,9 +1624,9 @@ graph TD
 </TabItem>
 </Tabs>
 
-## <IonicIcon name="extension-puzzle-outline" /> Integração com Sub-workflows
+##  Integração com Sub-workflows
 
-### <IonicIcon name="git-branch-outline" /> Splitting + Execute Sub-workflow
+###  Splitting + Execute Sub-workflow
 
 Para lógicas complexas, combine splitting com [**Execute Sub-workflow**](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow):
 
@@ -1690,7 +1689,7 @@ graph TD
 6. **[Execute Sub-workflow](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)**: Modularização avançada
 </Admonition>
 
-### <IonicIcon name="school-outline" /> Exercício Prático
+###  Exercício Prático
 
 <Admonition type="tip" title="Desafio">
 **Crie um workflow de aprovação de férias que:**
@@ -1727,7 +1726,7 @@ graph TD
 - Configure **filas Redis/RabbitMQ** para processamento distribuído
 </Admonition>
 
-### <IonicIcon name="library-outline" /> Fluxo de Aprendizado Recomendado
+###  Fluxo de Aprendizado Recomendado
 
 ```mermaid
 graph TD

@@ -5,25 +5,24 @@ description: Como gerenciar usuários e configurar permissões granulares no n8n
 keywords: [n8n, usuários, permissões, rbac, controle acesso, roles]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="people-outline" size={32} color="#ea4b71" /> Usuários e Permissões
+#  Usuários e Permissões
 
 Este documento detalha **gerenciamento de usuários e permissões** no n8n, incluindo criação de roles customizados, controle granular de acesso, permissões por workflow, segregação de ambientes, auditoria de ações, e implementação de RBAC (Role-Based Access Control) que garante princípio de menor privilégio e conformidade com políticas de segurança empresarial em organizações de grande porte.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="people-circle-outline" size={16} color="#6b7280" /> Sistema RBAC (Role-Based Access Control)
-- <IonicIcon name="shield-outline" size={16} color="#6b7280" /> Controle granular de permissões
-- <IonicIcon name="eye-outline" size={16} color="#6b7280" /> Auditoria e monitoramento
-- <IonicIcon name="business-outline" size={16} color="#6b7280" /> Segregação de ambientes
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> Templates de roles organizacionais
+-  Sistema RBAC (Role-Based Access Control)
+-  Controle granular de permissões
+-  Auditoria e monitoramento
+-  Segregação de ambientes
+-  Templates de roles organizacionais
 
 ---
 
-## <IonicIcon name="people-circle-outline" size={24} color="#ea4b71" /> Sistema RBAC
+##  Sistema RBAC
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Roles Padrão
+###  Roles Padrão
 
 #### **Owner (Proprietário)**
 ```javascript
@@ -86,7 +85,7 @@ const viewerRole = {
 };
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Roles Customizados
+###  Roles Customizados
 
 #### **Criar Role Customizado**
 ```javascript
@@ -132,9 +131,9 @@ const financeRole = {
 
 ---
 
-## <IonicIcon name="shield-outline" size={24} color="#ea4b71" /> Controle Granular de Acesso
+##  Controle Granular de Acesso
 
-### <IonicIcon name="folder-outline" size={20} color="#10b981" /> Permissões por Workflow
+###  Permissões por Workflow
 
 #### **Configuração de Permissões**
 ```javascript
@@ -188,7 +187,7 @@ const financeRole = {
 }
 ```
 
-### <IonicIcon name="key-outline" size={20} color="#10b981" /> Permissões por Credencial
+###  Permissões por Credencial
 
 #### **Controle de Acesso a Credenciais**
 ```javascript
@@ -236,9 +235,9 @@ const financeRole = {
 
 ---
 
-## <IonicIcon name="business-outline" size={24} color="#ea4b71" /> Segregação de Ambientes
+##  Segregação de Ambientes
 
-### <IonicIcon name="git-branch-outline" size={20} color="#10b981" /> Ambientes Separados
+###  Ambientes Separados
 
 #### **Configuração de Ambientes**
 ```javascript
@@ -306,9 +305,9 @@ const environments = {
 
 ---
 
-## <IonicIcon name="eye-outline" size={24} color="#ea4b71" /> Auditoria e Monitoramento
+##  Auditoria e Monitoramento
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Logs de Auditoria
+###  Logs de Auditoria
 
 #### **Configuração de Auditoria**
 ```bash
@@ -361,7 +360,7 @@ const auditEvents = {
 };
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas de Segurança
+###  Alertas de Segurança
 
 #### **Configuração de Alertas**
 ```javascript
@@ -422,9 +421,9 @@ const auditEvents = {
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Templates de Roles Organizacionais
+##  Templates de Roles Organizacionais
 
-### <IonicIcon name="business-outline" size={20} color="#10b981" /> Startup (10-50 funcionários)
+###  Startup (10-50 funcionários)
 
 #### **Roles Essenciais**
 ```javascript
@@ -459,7 +458,7 @@ const startupRoles = {
 };
 ```
 
-### <IonicIcon name="business-outline" size={20} color="#10b981" /> Empresa Média (50-500 funcionários)
+###  Empresa Média (50-500 funcionários)
 
 #### **Roles Departamentais**
 ```javascript
@@ -542,7 +541,7 @@ const mediumCompanyRoles = {
 };
 ```
 
-### <IonicIcon name="business-outline" size={20} color="#10b981" /> Empresa Grande (500+ funcionários)
+###  Empresa Grande (500+ funcionários)
 
 #### **Roles Corporativos**
 ```javascript
@@ -644,9 +643,9 @@ const largeCompanyRoles = {
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Implementação
+##  Checklist de Implementação
 
-### <IonicIcon name="people-circle-outline" size={20} color="#10b981" /> Configuração Inicial
+###  Configuração Inicial
 
 - [ ] Roles padrão configuradas
 - [ ] Roles customizados criados
@@ -654,7 +653,7 @@ const largeCompanyRoles = {
 - [ ] Permissões granulares definidas
 - [ ] Restrições de acesso configuradas
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 - [ ] Princípio do menor privilégio aplicado
 - [ ] Auditoria ativada
@@ -662,7 +661,7 @@ const largeCompanyRoles = {
 - [ ] Logs de acesso ativados
 - [ ] Backup de configurações
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 - [ ] Métricas de acesso coletadas
 - [ ] Relatórios de auditoria gerados
@@ -670,7 +669,7 @@ const largeCompanyRoles = {
 - [ ] Dashboard de monitoramento
 - [ ] Revisão regular de permissões
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Documentação
+###  Documentação
 
 - [ ] Política de acesso documentada
 - [ ] Procedimentos de onboarding
@@ -680,7 +679,7 @@ const largeCompanyRoles = {
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você configurou usuários e permissões:
 
@@ -704,7 +703,7 @@ Considere implementar um sistema de aprovação para mudanças de permissões cr
 
 ---
 
-**<IonicIcon name="link-outline" size={16} color="#ea4b71" /> Links úteis:**
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> [Documentação oficial n8n](https://docs.n8n.io/)
-- <IonicIcon name="people-outline" size={16} color="#6b7280" /> [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> [Segurança n8n](https://docs.n8n.io/hosting/security/)
+** Links úteis:**
+-  [Documentação oficial n8n](https://docs.n8n.io/)
+-  [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
+-  [Segurança n8n](https://docs.n8n.io/hosting/security/)

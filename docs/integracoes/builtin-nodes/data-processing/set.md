@@ -5,33 +5,33 @@ description: Definir, modificar e manipular dados em workflows
 keywords: [n8n, set, data, manipulação, workflow]
 ---
 
-# <IonicIcon name="create-outline" size={32} color="#ea4b71" /> Set Node
+#  Set Node
 
 O **Set Node** é fundamental para **manipular dados** em workflows n8n. Ele permite definir, modificar, adicionar ou remover campos de dados que fluem entre os nodes.
 
-## <IonicIcon name="bulb-outline" size={24} color="#ea4b71" /> **Conceito Principal**
+##  **Conceito Principal**
 
 **Set Node = "Definir/Configurar Dados"**
 
 O Set Node é uma **AÇÃO** que:
-- <IonicIcon name="create-outline" size={16} color="#6b7280" /> **Modifica** dados existentes
-- <IonicIcon name="add-circle-outline" size={16} color="#6b7280" /> **Adiciona** novos campos
-- <IonicIcon name="trash-outline" size={16} color="#6b7280" /> **Remove** campos desnecessários
-- <IonicIcon name="swap-horizontal-outline" size={16} color="#6b7280" /> **Transforma** estruturas de dados
+-  **Modifica** dados existentes
+-  **Adiciona** novos campos
+-  **Remove** campos desnecessários
+-  **Transforma** estruturas de dados
 
-> **<IonicIcon name="information-circle-outline" size={16} color="#ea4b71" /> Diferença do Trigger:** Set é uma AÇÃO que processa dados. Triggers INICIAM workflows.
+> ** Diferença do Trigger:** Set é uma AÇÃO que processa dados. Triggers INICIAM workflows.
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> **Configurações Principais**
+##  **Configurações Principais**
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#10b981" /> **1. Keep Only Set**
+###  **1. Keep Only Set**
 ```
 Ativado = Mantém apenas os campos definidos
 Desativado = Mantém campos originais + novos
 ```
 
-### <IonicIcon name="options-outline" size={20} color="#10b981" /> **2. Modos de Operação**
+###  **2. Modos de Operação**
 
-#### <IonicIcon name="hand-left-outline" size={18} color="#10b981" /> **Manual Mode** (Mais comum)
+####  **Manual Mode** (Mais comum)
 Definir campos manualmente:
 ```
 Campo: nome
@@ -41,7 +41,7 @@ Campo: email
 Valor: joao@email.com
 ```
 
-#### <IonicIcon name="code-outline" size={18} color="#10b981" /> **JSON Mode** (Avançado)
+####  **JSON Mode** (Avançado)
 Definir via JSON:
 ```json
 {
@@ -51,9 +51,9 @@ Definir via JSON:
 }
 ```
 
-## <IonicIcon name="library-outline" size={24} color="#ea4b71" /> **Exemplos Práticos**
+##  **Exemplos Práticos**
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> **Exemplo 1: Padronizar Dados de Formulário**
+###  **Exemplo 1: Padronizar Dados de Formulário**
 
 **Entrada:**
 ```json
@@ -87,7 +87,7 @@ data_cadastro: {{new Date().toISOString()}}
 
 ---
 
-### <IonicIcon name="cloud-outline" size={20} color="#10b981" /> **Exemplo 2: Preparar Dados para API**
+###  **Exemplo 2: Preparar Dados para API**
 
 **Entrada (múltiplos campos):**
 ```json
@@ -121,7 +121,7 @@ products: {{$json.order_items}}
 
 ---
 
-### <IonicIcon name="pricetag-outline" size={20} color="#10b981" /> **Exemplo 3: Adicionar Metadados**
+###  **Exemplo 3: Adicionar Metadados**
 
 **Entrada:**
 ```json
@@ -151,9 +151,9 @@ promocao: true
 }
 ```
 
-## <IonicIcon name="code-slash-outline" size={24} color="#ea4b71" /> **Expressões Úteis**
+##  **Expressões Úteis**
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> **Datas e Tempo**
+###  **Datas e Tempo**
 ```javascript
 // Data atual
 data_atual: {{new Date().toISOString()}}
@@ -168,7 +168,7 @@ timestamp: {{Date.now()}}
 prazo: {{new Date(Date.now() + 7*24*60*60*1000).toISOString()}}
 ```
 
-### <IonicIcon name="text-outline" size={20} color="#10b981" /> **Manipulação de Strings**
+###  **Manipulação de Strings**
 ```javascript
 // Uppercase
 nome_maiusculo: {{$json.nome.toUpperCase()}}
@@ -183,7 +183,7 @@ nome_formatado: {{$json.nome.charAt(0).toUpperCase() + $json.nome.slice(1)}}
 telefone_limpo: {{$json.telefone.replace(/\s/g, '')}}
 ```
 
-### <IonicIcon name="calculator-outline" size={20} color="#10b981" /> **Cálculos e Números**
+###  **Cálculos e Números**
 ```javascript
 // Operações matemáticas
 total_com_imposto: {{$json.valor * 1.1}}
@@ -196,7 +196,7 @@ valor_arredondado: {{Math.round($json.valor * 100) / 100}}
 preco_formatado: {{$json.valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}}
 ```
 
-### <IonicIcon name="list-outline" size={20} color="#10b981" /> **Arrays e Objetos**
+###  **Arrays e Objetos**
 ```javascript
 // Tamanho do array
 total_itens: {{$json.produtos.length}}
@@ -211,16 +211,16 @@ lista_produtos: {{$json.produtos.join(', ')}}
 ids_produtos: {{$json.produtos.map(p => p.id)}}
 ```
 
-## <IonicIcon name="briefcase-outline" size={24} color="#ea4b71" /> **Casos de Uso Comuns**
+##  **Casos de Uso Comuns**
 
-### <IonicIcon name="funnel-outline" size={20} color="#10b981" /> **1. Limpeza de Dados**
+###  **1. Limpeza de Dados**
 ```
 // Remover campos desnecessários
 Keep Only Set: ✓
 Manter apenas: nome, email, telefone
 ```
 
-### <IonicIcon name="add-outline" size={20} color="#10b981" /> **2. Enriquecimento de Dados**
+###  **2. Enriquecimento de Dados**
 ```
 // Adicionar informações contextuais
 origem: webhook
@@ -228,7 +228,7 @@ processado_em: {{new Date().toISOString()}}
 versao_workflow: 1.2
 ```
 
-### <IonicIcon name="swap-horizontal-outline" size={20} color="#10b981" /> **3. Transformação de Formato**
+###  **3. Transformação de Formato**
 ```
 // De snake_case para camelCase
 firstName: {{$json.first_name}}
@@ -236,7 +236,7 @@ lastName: {{$json.last_name}}
 userEmail: {{$json.user_email}}
 ```
 
-### <IonicIcon name="apps-outline" size={20} color="#10b981" /> **4. Preparação para Diferentes APIs**
+###  **4. Preparação para Diferentes APIs**
 ```
 // Formato para Slack
 text: Novo pedido de {{$json.customer_name}}
@@ -248,14 +248,14 @@ B: {{$json.order_total}}
 C: {{new Date().toLocaleDateString('pt-BR')}}
 ```
 
-## <IonicIcon name="speedometer-outline" size={24} color="#ea4b71" /> **Dicas de Performance**
+##  **Dicas de Performance**
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#10b981" /> **1. Use Keep Only Set quando possível**
-- <IonicIcon name="trending-down-outline" size={16} color="#6b7280" /> Reduz payload de dados
-- <IonicIcon name="flash-outline" size={16} color="#6b7280" /> Melhora performance
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> Evita vazamento de dados sensíveis
+###  **1. Use Keep Only Set quando possível**
+-  Reduz payload de dados
+-  Melhora performance
+-  Evita vazamento de dados sensíveis
 
-### <IonicIcon name="code-outline" size={20} color="#10b981" /> **2. Expressões Simples**
+###  **2. Expressões Simples**
 ```javascript
 // Bom
 nome: {{$json.first_name}}
@@ -264,21 +264,21 @@ nome: {{$json.first_name}}
 dados: {{JSON.stringify($json).replace(/"/g, "'").substring(0, 100)}}
 ```
 
-### <IonicIcon name="checkmark-done-outline" size={20} color="#10b981" /> **3. Validação de Dados**
+###  **3. Validação de Dados**
 ```javascript
 // Verificar se campo existe
 email: {{$json.email || 'nao-informado@email.com'}}
 telefone: {{$json.phone || 'Não informado'}}
 ```
 
-## <IonicIcon name="arrow-forward-circle-outline" size={24} color="#ea4b71" /> **Próximos Passos**
+##  **Próximos Passos**
 
 Depois de dominar o Set Node, explore:
 
-1. <IonicIcon name="cloud-outline" size={16} color="#6b7280" /> **[HTTP Request](../http-requests/http-request)** - Para enviar dados modificados
-2. <IonicIcon name="globe-outline" size={16} color="#6b7280" /> **[Webhook](../http-requests/webhook)** - Para receber dados externos
-3. <IonicIcon name="hand-left-outline" size={16} color="#6b7280" /> **[Manual Trigger](../../trigger-nodes/time-based/manual-trigger)** - Para testes manuais
+1.  **[HTTP Request](../http-requests/http-request)** - Para enviar dados modificados
+2.  **[Webhook](../http-requests/webhook)** - Para receber dados externos
+3.  **[Manual Trigger](../../trigger-nodes/time-based/manual-trigger)** - Para testes manuais
 
 ---
 
-**<IonicIcon name="create-outline" size={16} color="#ea4b71" /> Set Node = Seu canivete suíço para transformação de dados!** 
+** Set Node = Seu canivete suíço para transformação de dados!** 

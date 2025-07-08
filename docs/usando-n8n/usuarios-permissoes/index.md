@@ -5,7 +5,7 @@ description: Aprenda a gerenciar usuários, definir permissões e controlar aces
 keywords: [n8n, usuários, permissões, acesso, roles, segurança, administração]
 ---
 
-# <IonicIcon name="people-outline" size={32} color="#ea4b71" /> Usuários e Permissões
+#  Usuários e Permissões
 
 Bem-vindo à seção de gerenciamento de usuários e permissões do n8n! Aqui você aprenderá como configurar acesso seguro e colaborativo para sua equipe.
 

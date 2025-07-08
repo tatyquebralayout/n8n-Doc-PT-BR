@@ -6,13 +6,12 @@ slug: /primeiros-passos/instalacao-cloud
 keywords: [n8n, cloud, saas, hospedado, instalação]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="cloud-outline" size={32} color="#10b981" /> n8n Cloud
+#  n8n Cloud
 
 O **n8n Cloud** é o serviço oficial hospedado pelos criadores do n8n, oferecendo uma experiência completa e gerenciada para executar seus workflows.
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#10b981" /> O que é o n8n Cloud?
+##  O que é o n8n Cloud?
 
 O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda a complexidade de infraestrutura, permitindo que você foque exclusivamente na criação e execução de seus workflows.
 
@@ -26,7 +25,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-## <IonicIcon name="card-outline" size={24} color="#10b981" /> Planos e Preços
+##  Planos e Preços
 
 ### **Free Trial**
 - **Duração**: 14 dias
@@ -55,7 +54,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-## <IonicIcon name="rocket-outline" size={24} color="#10b981" /> Como Começar
+##  Como Começar
 
 ### **1. Criar Conta**
 
@@ -85,7 +84,7 @@ Após o login, você será direcionado para o dashboard:
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#10b981" /> Configurações Avançadas
+##  Configurações Avançadas
 
 ### **Domínio Personalizado**
 
@@ -117,7 +116,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#10b981" /> Segurança e Compliance
+##  Segurança e Compliance
 
 ### **Certificações**
 - **SOC 2 Type II** - Controles de segurança
@@ -138,7 +137,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#10b981" /> Monitoramento e Analytics
+##  Monitoramento e Analytics
 
 ### **Dashboard de Execuções**
 - **Taxa de sucesso** por workflow
@@ -154,7 +153,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-## <IonicIcon name="help-circle-outline" size={24} color="#10b981" /> Suporte e Recursos
+##  Suporte e Recursos
 
 ### **Canais de Suporte**
 - **Documentação oficial** - Guias detalhados
@@ -170,7 +169,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#10b981" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você conhece o n8n Cloud:
 

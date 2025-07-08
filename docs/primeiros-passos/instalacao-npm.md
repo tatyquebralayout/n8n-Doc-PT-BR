@@ -6,13 +6,12 @@ slug: /primeiros-passos/instalacao-npm
 keywords: [n8n, npm, instalação local, desenvolvimento, node.js]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="logo-npm" size={32} color="#10b981" /> Instalação Local via npm
+#  Instalação Local via npm
 
 A instalação local via **npm** é ideal para desenvolvimento, testes rápidos e experimentação offline. É a forma mais simples de começar com o n8n.
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#10b981" /> Quando Usar npm?
+##  Quando Usar npm?
 
 ### **Cenários Ideais:**
 
@@ -31,7 +30,7 @@ A instalação local via **npm** é ideal para desenvolvimento, testes rápidos 
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#10b981" /> Pré-requisitos
+##  Pré-requisitos
 
 ### **Node.js e npm**
 
@@ -61,7 +60,7 @@ brew install node
 
 ---
 
-## <IonicIcon name="rocket-outline" size={24} color="#10b981" /> Instalação Rápida
+##  Instalação Rápida
 
 ### **1. Instalação Global (Recomendado)**
 
@@ -89,7 +88,7 @@ Abra seu navegador e acesse: `http://localhost:5678`
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#10b981" /> Configuração Avançada
+##  Configuração Avançada
 
 ### **Variáveis de Ambiente**
 
@@ -139,7 +138,7 @@ n8n start --tunnel
 
 ---
 
-## <IonicIcon name="code-outline" size={24} color="#10b981" /> Desenvolvimento
+##  Desenvolvimento
 
 ### **Instalação para Desenvolvimento**
 
@@ -230,7 +229,7 @@ export class MyNode implements INodeType {
 
 ---
 
-## <IonicIcon name="bug-outline" size={24} color="#10b981" /> Debug e Troubleshooting
+##  Debug e Troubleshooting
 
 ### **Logs Detalhados**
 
@@ -281,7 +280,7 @@ curl -X POST http://localhost:5678/webhook/test
 
 ---
 
-## <IonicIcon name="sync-outline" size={24} color="#10b981" /> Atualizações
+##  Atualizações
 
 ### **Atualizar n8n**
 
@@ -311,7 +310,7 @@ npm install -g n8n@1.98.0
 
 ---
 
-## <IonicIcon name="folder-outline" size={24} color="#10b981" /> Estrutura de Arquivos
+##  Estrutura de Arquivos
 
 ### **Diretórios Importantes**
 
@@ -344,7 +343,7 @@ cp -r ~/.n8n/workflows/ ./backup-workflows/
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#10b981" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você tem o n8n rodando localmente:
 

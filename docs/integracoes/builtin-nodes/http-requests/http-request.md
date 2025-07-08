@@ -5,25 +5,25 @@ description: Fazer chamadas HTTP para APIs e serviços externos
 keywords: [n8n, http, request, api, rest, webhook]
 ---
 
-# <IonicIcon name="cloud-outline" size={32} color="#ea4b71" /> HTTP Request Node
+#  HTTP Request Node
 
 O **HTTP Request Node** permite fazer **chamadas HTTP** para qualquer API ou serviço web. É o node mais versátil para integrar com sistemas externos que não possuem nodes dedicados.
 
-## <IonicIcon name="bulb-outline" size={24} color="#ea4b71" /> **Conceito Principal**
+##  **Conceito Principal**
 
 **HTTP Request = "Fazer Chamada para API"**
 
 Este node é uma **AÇÃO** que:
-- <IonicIcon name="send-outline" size={16} color="#6b7280" /> **Envia** requisições HTTP (GET, POST, PUT, DELETE)
-- <IonicIcon name="download-outline" size={16} color="#6b7280" /> **Recebe** respostas de APIs
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> **Autentica** com diferentes métodos
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> **Processa** dados de entrada e saída
+-  **Envia** requisições HTTP (GET, POST, PUT, DELETE)
+-  **Recebe** respostas de APIs
+-  **Autentica** com diferentes métodos
+-  **Processa** dados de entrada e saída
 
-> **<IonicIcon name="information-circle-outline" size={16} color="#ea4b71" /> Diferença do Webhook:** HTTP Request FAZ chamadas. Webhook RECEBE chamadas.
+> ** Diferença do Webhook:** HTTP Request FAZ chamadas. Webhook RECEBE chamadas.
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> **Configurações Principais**
+##  **Configurações Principais**
 
-### <IonicIcon name="arrow-forward-outline" size={20} color="#10b981" /> **1. Request Method**
+###  **1. Request Method**
 ```
 GET - Buscar dados (não modifica)
 POST - Criar novos dados
@@ -32,21 +32,21 @@ PATCH - Atualizar dados parciais
 DELETE - Remover dados
 ```
 
-### <IonicIcon name="globe-outline" size={20} color="#10b981" /> **2. URL**
+###  **2. URL**
 ```
 https://api.exemplo.com/v1/usuarios
 https://jsonplaceholder.typicode.com/posts
 https://api.github.com/users/{{$json.username}}
 ```
 
-### <IonicIcon name="key-outline" size={20} color="#10b981" /> **3. Authentication**
-- <IonicIcon name="close-outline" size={16} color="#6b7280" /> **None** - Sem autenticação
-- <IonicIcon name="person-outline" size={16} color="#6b7280" /> **Basic Auth** - Usuário/senha
-- <IonicIcon name="document-outline" size={16} color="#6b7280" /> **Header Auth** - Token no cabeçalho
-- <IonicIcon name="shield-outline" size={16} color="#6b7280" /> **OAuth2** - Fluxo OAuth completo
-- <IonicIcon name="code-outline" size={16} color="#6b7280" /> **Custom** - Autenticação personalizada
+###  **3. Authentication**
+-  **None** - Sem autenticação
+-  **Basic Auth** - Usuário/senha
+-  **Header Auth** - Token no cabeçalho
+-  **OAuth2** - Fluxo OAuth completo
+-  **Custom** - Autenticação personalizada
 
-### <IonicIcon name="list-outline" size={20} color="#10b981" /> **4. Headers**
+###  **4. Headers**
 ```
 Content-Type: application/json
 Authorization: Bearer {{$json.token}}

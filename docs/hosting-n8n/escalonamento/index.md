@@ -5,55 +5,54 @@ description: Guias completos para escalar n8n em produção com alta disponibili
 keywords: [n8n, escalonamento, clustering, load balancing, performance, alta disponibilidade]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="trending-up-outline" size={32} color="#ea4b71" /> Escalonamento
+#  Escalonamento
 
 Esta seção contém guias completos para **escalar n8n em produção** com alta disponibilidade, performance otimizada e tolerância a falhas. Aprenda a implementar clustering, balanceamento de carga, otimização de performance e arquiteturas distribuídas para operações empresariais críticas.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai encontrar
+##  O que você vai encontrar
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> [Load Balancing](./load-balancing)
+###  [Load Balancing](./load-balancing)
 
 **Balanceamento de carga para n8n em produção**
 
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> Configuração de nginx como load balancer
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> Estratégias de distribuição de carga
-- <IonicIcon name="refresh-outline" size={16} color="#6b7280" /> Health checks e failover
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> Monitoramento de performance
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> Configurações de segurança
+-  Configuração de nginx como load balancer
+-  Estratégias de distribuição de carga
+-  Health checks e failover
+-  Monitoramento de performance
+-  Configurações de segurança
 
-<IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" /> **[Ver guia completo →](./load-balancing)**
+ **[Ver guia completo →](./load-balancing)**
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> [Clustering](./clustering)
+###  [Clustering](./clustering)
 
 **Implementação de clustering para alta disponibilidade**
 
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> Arquiteturas de cluster para n8n
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> Configuração de múltiplas instâncias
-- <IonicIcon name="trending-up-outline" size={16} color="#6b7280" /> Balanceamento de carga inteligente
-- <IonicIcon name="refresh-outline" size={16} color="#6b7280" /> Failover automático
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> Monitoramento de cluster
+-  Arquiteturas de cluster para n8n
+-  Configuração de múltiplas instâncias
+-  Balanceamento de carga inteligente
+-  Failover automático
+-  Monitoramento de cluster
 
-<IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" /> **[Ver guia completo →](./clustering)**
+ **[Ver guia completo →](./clustering)**
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> [Otimização de Performance](./performance)
+###  [Otimização de Performance](./performance)
 
 **Técnicas avançadas para máxima eficiência**
 
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> Configuração de workers otimizada
-- <IonicIcon name="settings-outline" size={16} color="#6b7280" /> Ajuste de timeouts e limites
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> Otimização de banco de dados
-- <IonicIcon name="hardware-chip-outline" size={16} color="#6b7280" /> Gerenciamento de memória
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> Monitoramento de performance
+-  Configuração de workers otimizada
+-  Ajuste de timeouts e limites
+-  Otimização de banco de dados
+-  Gerenciamento de memória
+-  Monitoramento de performance
 
-<IonicIcon name="arrow-forward-outline" size={16} color="#ea4b71" /> **[Ver guia completo →](./performance)**
+ **[Ver guia completo →](./performance)**
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Por que Escalar?
+##  Por que Escalar?
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Benefícios do Escalonamento
+###  Benefícios do Escalonamento
 
 **Sem Escalonamento:**
 - ❌ **Ponto único de falha** - Se o servidor cair, tudo para
@@ -69,7 +68,7 @@ Esta seção contém guias completos para **escalar n8n em produção** com alta
 - ✅ **Zero downtime** - Manutenção sem interrupção
 - ✅ **Experiência fluida** - Sistema sempre responsivo
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Quando Escalar
+###  Quando Escalar
 
 **Considere escalar quando:**
 - Tem **muitos usuários simultâneos**
@@ -81,9 +80,9 @@ Esta seção contém guias completos para **escalar n8n em produção** com alta
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Arquitetura de Escalonamento
+##  Arquitetura de Escalonamento
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Visão Geral da Arquitetura
+###  Visão Geral da Arquitetura
 
 ```mermaid
 graph TD
@@ -107,7 +106,7 @@ graph TD
     style F fill:#e1f5fe
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Componentes Principais
+###  Componentes Principais
 
 #### **Load Balancer**
 - **Nginx/HAProxy** - Distribui requisições entre instâncias
@@ -126,28 +125,28 @@ graph TD
 
 ---
 
-## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Guia de Implementação
+##  Guia de Implementação
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Ordem Recomendada
+###  Ordem Recomendada
 
 1. **[Load Balancing](./load-balancing)** - Configure balanceamento de carga básico
 2. **[Clustering](./clustering)** - Implemente múltiplas instâncias
 3. **[Performance](./performance)** - Otimize para máxima eficiência
 4. **[Monitoramento](../monitoring)** - Configure alertas e métricas
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Pré-requisitos
+###  Pré-requisitos
 
-- <IonicIcon name="logo-docker" size={16} color="#6b7280" /> **Docker** e **Docker Compose** instalados
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> **Pelo menos 4GB de RAM** disponível
-- <IonicIcon name="hardware-chip-outline" size={16} color="#6b7280" /> **2+ vCPUs** para processamento
-- <IonicIcon name="cloud-outline" size={16} color="#6b7280" /> **Domínio** configurado com SSL
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> **Backup** configurado
+-  **Docker** e **Docker Compose** instalados
+-  **Pelo menos 4GB de RAM** disponível
+-  **2+ vCPUs** para processamento
+-  **Domínio** configurado com SSL
+-  **Backup** configurado
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento e Alertas
+##  Monitoramento e Alertas
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Métricas Essenciais
+###  Métricas Essenciais
 
 - **CPU e Memória** - Uso de recursos por instância
 - **Tempo de Execução** - Performance dos workflows
@@ -155,7 +154,7 @@ graph TD
 - **Conexões Ativas** - Carga distribuída
 - **Filas Redis** - Status do processamento
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas Recomendados
+###  Alertas Recomendados
 
 - **CPU > 80%** - Alta utilização de processamento
 - **Memória > 85%** - Pouca memória disponível
@@ -165,9 +164,9 @@ graph TD
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Produção
+##  Checklist de Produção
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Configuração
+###  Configuração
 
 - [ ] Load balancer configurado
 - [ ] Múltiplas instâncias ativas
@@ -175,7 +174,7 @@ graph TD
 - [ ] Redis cluster funcionando
 - [ ] SSL/TLS configurado
 
-### <IonicIcon name="rocket-outline" size={20} color="#10b981" /> Performance
+###  Performance
 
 - [ ] Workers otimizados
 - [ ] Timeouts configurados
@@ -183,7 +182,7 @@ graph TD
 - [ ] Monitoramento ativo
 - [ ] Alertas funcionando
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 - [ ] Acesso restrito por IP
 - [ ] Secrets gerenciados
@@ -193,7 +192,7 @@ graph TD
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você entende o escalonamento:
 

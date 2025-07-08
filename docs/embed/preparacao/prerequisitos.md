@@ -5,15 +5,14 @@ description: Requisitos técnicos e preparação para incorporar n8n em aplicaç
 keywords: [n8n, embed, pré-requisitos, integração, aplicação, iframe, CORS, segurança]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="checkbox-outline" size={32} color="#ea4b71" /> Pré-requisitos para Embed
+#  Pré-requisitos para Embed
 
 Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em aplicações externas, garantindo integração segura, estável e escalável.
 
 ---
 
-## <IonicIcon name="server-outline" size={24} color="#ea4b71" /> Infraestrutura Recomendada
+##  Infraestrutura Recomendada
 
 - **Instância dedicada do n8n** (cloud, VPS ou on-premises)
 - **Banco de dados**: PostgreSQL (recomendado) ou MySQL
@@ -26,7 +25,7 @@ Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em apli
 
 ---
 
-## <IonicIcon name="globe-outline" size={24} color="#ea4b71" /> Domínios Permitidos e CORS
+##  Domínios Permitidos e CORS
 
 - Defina domínios confiáveis para o embed:
   ```bash
@@ -43,7 +42,7 @@ Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em apli
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Segurança e Planejamento
+##  Segurança e Planejamento
 
 - **Chave de criptografia** obrigatória:
   ```bash
@@ -56,7 +55,7 @@ Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em apli
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Planejamento de Recursos
+##  Planejamento de Recursos
 
 - **Escalabilidade**: Planeje para múltiplos usuários simultâneos
 - **Monitoramento**: Implemente métricas de uso, alertas e dashboards
@@ -64,7 +63,7 @@ Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em apli
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Pré-requisitos
+##  Checklist de Pré-requisitos
 
 - [ ] Instância do n8n dedicada e atualizada
 - [ ] Banco de dados configurado e seguro

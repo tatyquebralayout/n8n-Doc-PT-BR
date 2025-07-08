@@ -5,25 +5,24 @@ description: Como configurar variáveis de ambiente para n8n em diferentes ambie
 keywords: [n8n, environment variables, variáveis ambiente, configuração, deployment]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="settings-outline" size={32} color="#ea4b71" /> Variáveis de Ambiente
+#  Variáveis de Ambiente
 
 Este documento explica como **configurar variáveis de ambiente** para n8n em diferentes contextos de deployment, abordando variáveis essenciais de produção, configuração de segurança, otimização de performance, separação entre ambientes (dev/staging/prod), e gerenciamento seguro de credenciais através de environment variables que facilitam deployment automatizado e configuração flexível sem hardcoding.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="settings-outline" size={16} color="#6b7280" /> Variáveis essenciais para produção
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> Configurações de segurança
-- <IonicIcon name="rocket-outline" size={16} color="#6b7280" /> Otimização de performance
-- <IonicIcon name="folder-outline" size={16} color="#6b7280" /> Separação de ambientes
-- <IonicIcon name="key-outline" size={16} color="#6b7280" /> Gerenciamento de credenciais
+-  Variáveis essenciais para produção
+-  Configurações de segurança
+-  Otimização de performance
+-  Separação de ambientes
+-  Gerenciamento de credenciais
 
 ---
 
-## <IonicIcon name="flash-outline" size={24} color="#ea4b71" /> Configuração Básica
+##  Configuração Básica
 
-### <IonicIcon name="globe-outline" size={20} color="#10b981" /> Variáveis Essenciais
+###  Variáveis Essenciais
 
 ```bash
 # Configurações básicas
@@ -39,7 +38,7 @@ WEBHOOK_URL=https://seu-dominio.com/
 GENERIC_TIMEZONE=America/Sao_Paulo
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Banco de Dados
+###  Banco de Dados
 
 ```bash
 # PostgreSQL (Recomendado)
@@ -59,7 +58,7 @@ DB_MYSQLDB_USER=n8n
 DB_MYSQLDB_PASSWORD=senha_segura
 ```
 
-### <IonicIcon name="key-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 ```bash
 # Chave de criptografia (32 caracteres)
@@ -76,9 +75,9 @@ N8N_USER_MANAGEMENT_DISABLED=false
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Configurações de Segurança
+##  Configurações de Segurança
 
-### <IonicIcon name="lock-closed-outline" size={20} color="#10b981" /> Autenticação
+###  Autenticação
 
 #### **Basic Auth**
 ```bash
@@ -102,7 +101,7 @@ N8N_OAUTH2_AUTHORIZATION_URL=https://auth.provider.com/oauth/authorize
 N8N_OAUTH2_TOKEN_URL=https://auth.provider.com/oauth/token
 ```
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Criptografia
+###  Criptografia
 
 ```bash
 # Chave de criptografia obrigatória
@@ -114,7 +113,7 @@ openssl rand -hex 16
 node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"
 ```
 
-### <IonicIcon name="eye-off-outline" size={20} color="#10b981" /> Privacidade de Dados
+###  Privacidade de Dados
 
 ```bash
 # Configurações LGPD
@@ -130,9 +129,9 @@ EXECUTIONS_DATA_PRUNE_TIMEOUT=3600  # 1 hora
 
 ---
 
-## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Performance e Escalabilidade
+##  Performance e Escalabilidade
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Redis para Filas
+###  Redis para Filas
 
 ```bash
 # Configurar Redis para processamento distribuído
@@ -147,7 +146,7 @@ EXECUTIONS_TIMEOUT=300000  # 5 minutos
 EXECUTIONS_TIMEOUT_MAX=3600000  # 1 hora
 ```
 
-### <IonicIcon name="hardware-chip-outline" size={20} color="#10b981" /> Recursos do Sistema
+###  Recursos do Sistema
 
 ```bash
 # Limites de memória
@@ -158,7 +157,7 @@ N8N_TIMEOUT=30000  # 30 segundos
 N8N_TIMEOUT_MAX=300000  # 5 minutos
 ```
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Logs e Monitoramento
+###  Logs e Monitoramento
 
 ```bash
 # Nível de logs
@@ -173,9 +172,9 @@ N8N_METRICS=true
 
 ---
 
-## <IonicIcon name="folder-outline" size={24} color="#ea4b71" /> Separação de Ambientes
+##  Separação de Ambientes
 
-### <IonicIcon name="code-outline" size={20} color="#10b981" /> Desenvolvimento
+###  Desenvolvimento
 
 ```bash
 # .env.development
@@ -196,7 +195,7 @@ N8N_LOG_FORMAT=simple
 N8N_BASIC_AUTH_ACTIVE=false
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Staging
+###  Staging
 
 ```bash
 # .env.staging
@@ -221,7 +220,7 @@ N8N_BASIC_AUTH_PASSWORD=senha_staging
 N8N_LOG_LEVEL=info
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Produção
+###  Produção
 
 ```bash
 # .env.production
@@ -259,9 +258,9 @@ N8N_LOG_FORMAT=json
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Docker e Containerização
+##  Docker e Containerização
 
-### <IonicIcon name="logo-docker" size={20} color="#10b981" /> Docker Compose
+###  Docker Compose
 
 ```yaml
 version: '3.8'
@@ -333,7 +332,7 @@ volumes:
   redis_data:
 ```
 
-### <IonicIcon name="cloud-outline" size={20} color="#10b981" /> Kubernetes
+###  Kubernetes
 
 ```yaml
 apiVersion: apps/v1
@@ -396,9 +395,9 @@ spec:
 
 ---
 
-## <IonicIcon name="key-outline" size={24} color="#ea4b71" /> Gerenciamento de Credenciais
+##  Gerenciamento de Credenciais
 
-### <IonicIcon name="lock-closed-outline" size={20} color="#10b981" /> Variáveis Sensíveis
+###  Variáveis Sensíveis
 
 ```bash
 # Nunca commite estas variáveis no código!
@@ -408,7 +407,7 @@ N8N_BASIC_AUTH_PASSWORD=senha_admin
 REDIS_PASSWORD=senha_redis
 ```
 
-### <IonicIcon name="folder-outline" size={20} color="#10b981" /> Arquivo .env
+###  Arquivo .env
 
 ```bash
 # .env (não commitar no git)
@@ -418,7 +417,7 @@ N8N_BASIC_AUTH_PASSWORD=senha_admin
 REDIS_PASSWORD=senha_redis
 ```
 
-### <IonicIcon name="cloud-outline" size={20} color="#10b981" /> Secrets Management
+###  Secrets Management
 
 #### **Docker Secrets**
 ```yaml
@@ -455,9 +454,9 @@ data:
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento e Debugging
+##  Monitoramento e Debugging
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Logs
+###  Logs
 
 ```bash
 # Níveis de log
@@ -471,7 +470,7 @@ N8N_LOG_FORMAT=simple  # Formato simples
 N8N_LOG_FORMAT=json    # Formato JSON (recomendado)
 ```
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Métricas
+###  Métricas
 
 ```bash
 # Ativar métricas
@@ -484,7 +483,7 @@ N8N_METRICS_ENDPOINT=/metrics
 N8N_METRICS_PREFIX=n8n_
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Health Checks
+###  Health Checks
 
 ```bash
 # Endpoint de health check
@@ -497,9 +496,9 @@ N8N_HEALTH_CHECK_INTERVAL=30000
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Produção
+##  Checklist de Produção
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 - [ ] `N8N_ENCRYPTION_KEY` configurada (32 caracteres)
 - [ ] `N8N_BASIC_AUTH_ACTIVE=true` ou OAuth2 configurado
@@ -508,7 +507,7 @@ N8N_HEALTH_CHECK_INTERVAL=30000
 - [ ] Firewall configurado
 - [ ] SSL/HTTPS configurado
 
-### <IonicIcon name="rocket-outline" size={20} color="#10b981" /> Performance
+###  Performance
 
 - [ ] `REDIS_URL` configurado para filas
 - [ ] `EXECUTIONS_PROCESS=main` configurado
@@ -516,7 +515,7 @@ N8N_HEALTH_CHECK_INTERVAL=30000
 - [ ] Timeouts adequados configurados
 - [ ] Recursos do sistema adequados
 
-### <IonicIcon name="folder-outline" size={20} color="#10b981" /> Configuração
+###  Configuração
 
 - [ ] `GENERIC_TIMEZONE=America/Sao_Paulo`
 - [ ] `WEBHOOK_URL` configurado corretamente
@@ -526,7 +525,7 @@ N8N_HEALTH_CHECK_INTERVAL=30000
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você configurou as variáveis de ambiente:
 

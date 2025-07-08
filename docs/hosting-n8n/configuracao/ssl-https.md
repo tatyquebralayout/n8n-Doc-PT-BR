@@ -5,25 +5,24 @@ description: Como configurar SSL e HTTPS para n8n seguro em produção
 keywords: [n8n, ssl, https, segurança, certificados, nginx]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="shield-checkmark-outline" size={32} color="#ea4b71" /> Configuração SSL/HTTPS
+#  Configuração SSL/HTTPS
 
 Este documento ensina como **configurar SSL/HTTPS** para n8n em produção, abordando obtenção de certificados SSL, configuração de reverse proxy com nginx, renovação automática via Let's Encrypt, implementação de security headers, e melhores práticas de segurança que garantem comunicação criptografada e protegem workflows e credenciais contra interceptação e ataques man-in-the-middle.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="shield-outline" size={16} color="#6b7280" /> Obtenção de certificados SSL
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> Configuração de reverse proxy
-- <IonicIcon name="refresh-outline" size={16} color="#6b7280" /> Renovação automática
-- <IonicIcon name="settings-outline" size={16} color="#6b7280" /> Security headers
-- <IonicIcon name="checkmark-circle-outline" size={16} color="#6b7280" /> Melhores práticas
+-  Obtenção de certificados SSL
+-  Configuração de reverse proxy
+-  Renovação automática
+-  Security headers
+-  Melhores práticas
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Por que HTTPS é Essencial?
+##  Por que HTTPS é Essencial?
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Benefícios do HTTPS
+###  Benefícios do HTTPS
 
 **Sem HTTPS:**
 - ❌ **Dados expostos** - Credenciais e workflows visíveis
@@ -39,7 +38,7 @@ Este documento ensina como **configurar SSL/HTTPS** para n8n em produção, abor
 - ✅ **Confiança** - Navegadores confiam na conexão
 - ✅ **Compliance** - Atende requisitos de segurança
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Quando Usar HTTPS
+###  Quando Usar HTTPS
 
 **Sempre use HTTPS em:**
 - **Produção** - Qualquer ambiente público
@@ -50,9 +49,9 @@ Este documento ensina como **configurar SSL/HTTPS** para n8n em produção, abor
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Obtenção de Certificados
+##  Obtenção de Certificados
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Let's Encrypt (Gratuito)
+###  Let's Encrypt (Gratuito)
 
 #### **Instalação do Certbot**
 ```bash
@@ -91,7 +90,7 @@ sudo crontab -e
 0 12 * * * /usr/bin/certbot renew --quiet
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Certificados Comerciais
+###  Certificados Comerciais
 
 #### **Comprar Certificado**
 ```bash
@@ -126,9 +125,9 @@ sudo chmod 600 /etc/ssl/private/n8n/private.key
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Configuração Nginx
+##  Configuração Nginx
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Instalação e Configuração Básica
+###  Instalação e Configuração Básica
 
 #### **Instalar Nginx**
 ```bash
@@ -215,7 +214,7 @@ server {
 }
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração Avançada
+###  Configuração Avançada
 
 #### **Otimizações de Performance**
 ```nginx
@@ -300,9 +299,9 @@ server {
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Docker e Containerização
+##  Docker e Containerização
 
-### <IonicIcon name="logo-docker" size={20} color="#10b981" /> Docker Compose com Nginx
+###  Docker Compose com Nginx
 
 ```yaml
 version: '3.8'
@@ -384,7 +383,7 @@ networks:
     driver: bridge
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Nginx Configuration para Docker
+###  Nginx Configuration para Docker
 
 ```nginx
 # nginx.conf
@@ -474,9 +473,9 @@ http {
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Security Headers
+##  Security Headers
 
-### <IonicIcon name="settings-outline" size={20} color="#10b981" /> Headers Essenciais
+###  Headers Essenciais
 
 ```nginx
 # Security Headers para n8n
@@ -503,7 +502,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração Completa
+###  Configuração Completa
 
 ```nginx
 # Configuração completa de segurança
@@ -556,9 +555,9 @@ server {
 
 ---
 
-## <IonicIcon name="refresh-outline" size={24} color="#ea4b71" /> Renovação Automática
+##  Renovação Automática
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> Script de Renovação
+###  Script de Renovação
 
 ```bash
 #!/bin/bash
@@ -577,7 +576,7 @@ else
 fi
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Cron Job
+###  Cron Job
 
 ```bash
 # Adicionar ao crontab
@@ -590,7 +589,7 @@ sudo crontab -e
 0 12 * * 0 /usr/bin/certbot renew --dry-run
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 ```bash
 #!/bin/bash
@@ -616,9 +615,9 @@ fi
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Testes e Validação
+##  Testes e Validação
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#10b981" /> Testes de SSL
+###  Testes de SSL
 
 #### **Verificar Certificado**
 ```bash
@@ -641,7 +640,7 @@ nmap --script ssl-enum-ciphers -p 443 seudominio.com
 # - https://csp-evaluator.withgoogle.com/
 ```
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Testes de Performance
+###  Testes de Performance
 
 ```bash
 # Testar performance HTTPS
@@ -660,9 +659,9 @@ curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Produção
+##  Checklist de Produção
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> SSL/HTTPS
+###  SSL/HTTPS
 
 - [ ] Certificado SSL válido instalado
 - [ ] Redirecionamento HTTP → HTTPS configurado
@@ -670,7 +669,7 @@ curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 - [ ] Renovação automática configurada
 - [ ] Certificado testado e validado
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Nginx
+###  Nginx
 
 - [ ] Nginx instalado e configurado
 - [ ] Proxy reverso funcionando
@@ -678,7 +677,7 @@ curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 - [ ] Rate limiting aplicado
 - [ ] Logs configurados
 
-### <IonicIcon name="settings-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 - [ ] Security headers configurados
 - [ ] Content Security Policy aplicado
@@ -686,7 +685,7 @@ curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 - [ ] Acesso restrito por IP (se necessário)
 - [ ] Monitoramento de certificados ativo
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 - [ ] Scripts de renovação testados
 - [ ] Alertas configurados
@@ -696,7 +695,7 @@ curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você configurou SSL/HTTPS:
 

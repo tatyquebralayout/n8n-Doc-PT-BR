@@ -5,17 +5,16 @@ description: Como implantar e configurar n8n embarcado em produção
 keywords: [n8n, embed, implantação, deployment, produção, iframe, SSO, segurança]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="rocket-outline" size={32} color="#ea4b71" /> Implantação do Embed
+#  Implantação do Embed
 
 Este guia explica como **implantar o n8n embarcado** em ambiente de produção, cobrindo segurança, autenticação, performance, monitoramento, exemplos de deployment e troubleshooting para garantir integração robusta e segura com sua aplicação.
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Segurança e Boas Práticas
+##  Segurança e Boas Práticas
 
-### <IonicIcon name="lock-closed-outline" size={20} color="#10b981" /> Checklist de Segurança para Iframes
+###  Checklist de Segurança para Iframes
 
 - Use `X-Frame-Options: SAMEORIGIN` ou `ALLOW-FROM` para restringir domínios
 - Implemente `Content-Security-Policy` para limitar origens do embed
@@ -32,9 +31,9 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" alway
 
 ---
 
-## <IonicIcon name="key-outline" size={24} color="#ea4b71" /> SSO e Autenticação
+##  SSO e Autenticação
 
-### <IonicIcon name="people-outline" size={20} color="#10b981" /> Passos para SSO Empresarial
+###  Passos para SSO Empresarial
 
 - Configure SAML, OAuth2 ou LDAP conforme o sistema da empresa
 - Mapeie usuários e permissões automaticamente
@@ -56,9 +55,9 @@ N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
 
 ---
 
-## <IonicIcon name="speedometer-outline" size={24} color="#ea4b71" /> Performance e Otimização
+##  Performance e Otimização
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Recomendações
+###  Recomendações
 
 - Use lazy loading para carregar o embed apenas quando necessário
 - Ative cache de assets estáticos (CSS, JS, imagens)
@@ -76,9 +75,9 @@ location ~* \.(js|css|png|jpg|svg)$ {
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento e Troubleshooting
+##  Monitoramento e Troubleshooting
 
-### <IonicIcon name="bug-outline" size={20} color="#10b981" /> Logs e Alertas
+###  Logs e Alertas
 
 - Ative logs de acesso e auditoria no backend do n8n
 - Configure alertas para falhas de autenticação e erros de integração
@@ -94,7 +93,7 @@ location ~* \.(js|css|png|jpg|svg)$ {
 }
 ```
 
-### <IonicIcon name="help-circle-outline" size={20} color="#10b981" /> Estratégias de Fallback
+###  Estratégias de Fallback
 
 - Exiba mensagens de erro amigáveis no embed
 - Implemente retry automático para falhas temporárias
@@ -103,9 +102,9 @@ location ~* \.(js|css|png|jpg|svg)$ {
 
 ---
 
-## <IonicIcon name="server-outline" size={24} color="#ea4b71" /> Exemplos de Deployment
+##  Exemplos de Deployment
 
-### <IonicIcon name="logo-docker" size={20} color="#10b981" /> Docker Compose para Produção
+###  Docker Compose para Produção
 
 ```yaml
 version: '3.8'
@@ -144,7 +143,7 @@ volumes:
   pg_data:
 ```
 
-### <IonicIcon name="globe-outline" size={20} color="#10b981" /> Proxy Reverso com Nginx
+###  Proxy Reverso com Nginx
 
 ```nginx
 server {
@@ -171,7 +170,7 @@ server {
 }
 ```
 
-### <IonicIcon name="code-outline" size={20} color="#10b981" /> CI/CD para Automação de Deployment
+###  CI/CD para Automação de Deployment
 
 - Use GitHub Actions, GitLab CI ou outra ferramenta para automatizar build e deploy
 - Exemplo de job para deploy automático:
@@ -189,7 +188,7 @@ jobs:
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Produção
+##  Checklist de Produção
 
 - [ ] HTTPS obrigatório e certificado válido
 - [ ] Domínios permitidos configurados (CORS e CSP)

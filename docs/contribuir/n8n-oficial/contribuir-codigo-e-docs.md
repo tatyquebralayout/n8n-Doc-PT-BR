@@ -5,9 +5,8 @@ description: Um guia detalhado para contribuir com código diretamente para o pr
 keywords: [n8n, contribuir, código, documentação, open source, pull request, github]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="code-outline" size={32} color="#ea4b71" /> Guia para Contribuir com Código para o n8n
+#  Guia para Contribuir com Código para o n8n
 
 Contribuir para o código-fonte do n8n é uma das formas mais impactantes de ajudar o projeto. Este guia detalha o processo, desde a configuração do ambiente até a submissão do seu Pull Request (PR), seguindo as diretrizes oficiais do n8n.
 
@@ -17,7 +16,7 @@ As diretrizes abaixo são para o **projeto principal do n8n**. As interações (
 
 ---
 
-## <IonicIcon name="checkbox-outline" size={24} color="#ea4b71" /> Antes de Começar: Itens Essenciais
+##  Antes de Começar: Itens Essenciais
 
 ### **Código de Conduta**
 O projeto é governado por um [Código de Conduta](https://github.com/n8n-io/n8n/blob/master/CODE_OF_CONDUCT.md). Ao participar, você concorda em seguir seus termos.
@@ -27,7 +26,7 @@ Para que sua contribuição seja aceita, você **precisa assinar** um Contributo
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Configurando o Ambiente de Desenvolvimento
+##  Configurando o Ambiente de Desenvolvimento
 
 ### **Pré-requisitos**
 - **[Node.js](https://nodejs.org/en/):** Versão `18.17` ou mais recente
@@ -67,7 +66,7 @@ pnpm build
 
 ---
 
-## <IonicIcon name="refresh-outline" size={24} color="#ea4b71" /> O Ciclo de Desenvolvimento
+##  O Ciclo de Desenvolvimento
 
 1. **Sincronize seu fork:** Antes de criar uma branch, sempre atualize seu repositório local com as últimas mudanças do `upstream`
 ```bash
@@ -90,7 +89,7 @@ pnpm test
 
 ---
 
-## <IonicIcon name="git-pull-request-outline" size={24} color="#ea4b71" /> Diretrizes para Pull Requests (PRs)
+##  Diretrizes para Pull Requests (PRs)
 
 ### **Requisitos Gerais**
 - **PRs Pequenos e Focados:** Cada PR deve resolver apenas **um** problema ou adicionar **uma** funcionalidade
@@ -114,7 +113,7 @@ Se a equipe do n8n solicitar alterações, você tem **14 dias** para responder 
 
 ---
 
-## <IonicIcon name="folder-outline" size={24} color="#ea4b71" /> Estrutura do Repositório
+##  Estrutura do Repositório
 
 O n8n é um monorepositório. Aqui estão algumas pastas importantes:
 - `packages/cli`: Código da linha de comando para rodar o n8n
@@ -124,7 +123,7 @@ O n8n é um monorepositório. Aqui estão algumas pastas importantes:
 
 ---
 
-## <IonicIcon name="library-outline" size={24} color="#ea4b71" /> Recursos Oficiais
+##  Recursos Oficiais
 
 - **[Contributing Guide (Oficial)](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md):** A fonte da verdade para contribuições
 - **[Fórum da Comunidade](https://community.n8n.io/):** Para tirar dúvidas e discutir ideias

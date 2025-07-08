@@ -4,10 +4,9 @@ title: Como Participar
 description: Saiba como se envolver e colaborar com a comunidade n8n do Brasil.
 keywords: [n8n, comunidade, participar, contribuir, brasil]
 ---
-import IonicIcon from '@site/src/components/IonicIcon';
 import HighlightCard from '@site/src/components/HighlightCard';
 
-# <IonicIcon name="people-outline" size={32} /> Como Participar
+#  Como Participar
 
 A comunidade n8n Brasil é um ecossistema aberto e colaborativo. Existem várias maneiras de participar, aprender e contribuir.
 

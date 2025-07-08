@@ -5,25 +5,24 @@ description: Como implementar monitoramento abrangente e sistema de alertas para
 keywords: [n8n, monitoramento, alertas, observabilidade, métricas]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="analytics-outline" size={32} color="#ea4b71" /> Monitoramento e Alertas
+#  Monitoramento e Alertas
 
 Este documento explica como **implementar monitoramento abrangente** do n8n, abordando métricas de performance, logs estruturados, alertas proativos, dashboards de observabilidade, integração com ferramentas de APM, e sistemas de notificação que detectam problemas antes que afetem usuários finais, garantindo visibilidade completa sobre saúde e performance das automações em produção.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="speedometer-outline" size={16} color="#6b7280" /> Métricas essenciais de monitoramento
-- <IonicIcon name="notifications-outline" size={16} color="#6b7280" /> Configuração de alertas
-- <IonicIcon name="bar-chart-outline" size={16} color="#6b7280" /> Dashboards de observabilidade
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> Integração com ferramentas APM
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> Logs estruturados
+-  Métricas essenciais de monitoramento
+-  Configuração de alertas
+-  Dashboards de observabilidade
+-  Integração com ferramentas APM
+-  Logs estruturados
 
 ---
 
-## <IonicIcon name="speedometer-outline" size={24} color="#ea4b71" /> Métricas Essenciais
+##  Métricas Essenciais
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Métricas de Sistema
+###  Métricas de Sistema
 
 #### **CPU e Memória**
 ```bash
@@ -71,7 +70,7 @@ echo "Network In: $NETWORK_IN bytes"
 echo "Network Out: $NETWORK_OUT bytes"
 ```
 
-### <IonicIcon name="code-outline" size={20} color="#10b981" /> Métricas de Aplicação
+###  Métricas de Aplicação
 
 #### **Métricas n8n**
 ```bash
@@ -148,9 +147,9 @@ echo "Node.js CPU: $NODE_CPU"
 
 ---
 
-## <IonicIcon name="notifications-outline" size={24} color="#ea4b71" /> Sistema de Alertas
+##  Sistema de Alertas
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração de Alertas
+###  Configuração de Alertas
 
 #### **Script de Monitoramento**
 ```bash
@@ -227,7 +226,7 @@ if (( $(echo "$RESPONSE_TIME > $ALERT_THRESHOLD_RESPONSE_TIME" | bc -l) )); then
 fi
 ```
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> Alertas Baseados em Tempo
+###  Alertas Baseados em Tempo
 
 #### **Alertas de Horário**
 ```bash
@@ -265,9 +264,9 @@ echo "Current thresholds - CPU: ${ALERT_THRESHOLD_CPU}%, Memory: ${ALERT_THRESHO
 
 ---
 
-## <IonicIcon name="bar-chart-outline" size={24} color="#ea4b71" /> Dashboards de Observabilidade
+##  Dashboards de Observabilidade
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Grafana Dashboard
+###  Grafana Dashboard
 
 #### **Configuração do Grafana**
 ```yaml
@@ -374,7 +373,7 @@ scrape_configs:
 }
 ```
 
-### <IonicIcon name="logo-datadog" size={20} color="#10b981" /> Datadog Integration
+###  Datadog Integration
 
 #### **Configuração Datadog**
 ```yaml
@@ -436,9 +435,9 @@ function trackAPIPerformance(endpoint, duration, statusCode) {
 
 ---
 
-## <IonicIcon name="document-text-outline" size={24} color="#ea4b71" /> Logs Estruturados
+##  Logs Estruturados
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração de Logs
+###  Configuração de Logs
 
 #### **Configuração n8n**
 ```bash
@@ -468,7 +467,7 @@ N8N_LOG_MAX_FILES=10
 }
 ```
 
-### <IonicIcon name="search-outline" size={20} color="#10b981" /> Centralização de Logs
+###  Centralização de Logs
 
 #### **ELK Stack Configuration**
 ```yaml
@@ -547,9 +546,9 @@ output {
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Integração com Ferramentas APM
+##  Integração com Ferramentas APM
 
-### <IonicIcon name="logo-newrelic" size={20} color="#10b981" /> New Relic
+###  New Relic
 
 #### **Configuração New Relic**
 ```javascript
@@ -582,7 +581,7 @@ exports.config = {
 };
 ```
 
-### <IonicIcon name="logo-appdynamics" size={20} color="#10b981" /> AppDynamics
+###  AppDynamics
 
 #### **Configuração AppDynamics**
 ```javascript
@@ -608,9 +607,9 @@ appd.endBT();
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Monitoramento
+##  Checklist de Monitoramento
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Métricas
+###  Métricas
 
 - [ ] Métricas de sistema configuradas
 - [ ] Métricas de aplicação implementadas
@@ -618,7 +617,7 @@ appd.endBT();
 - [ ] Coleta automática configurada
 - [ ] Retenção de dados definida
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas
+###  Alertas
 
 - [ ] Alertas críticos configurados
 - [ ] Alertas de warning configurados
@@ -626,7 +625,7 @@ appd.endBT();
 - [ ] Canais de notificação configurados
 - [ ] Testes de alertas realizados
 
-### <IonicIcon name="bar-chart-outline" size={20} color="#10b981" /> Dashboards
+###  Dashboards
 
 - [ ] Dashboard principal criado
 - [ ] Dashboards específicos por equipe
@@ -634,7 +633,7 @@ appd.endBT();
 - [ ] Histórico de dados
 - [ ] Exportação de relatórios
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Logs
+###  Logs
 
 - [ ] Logs estruturados configurados
 - [ ] Centralização de logs implementada
@@ -644,7 +643,7 @@ appd.endBT();
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você configurou o monitoramento:
 
@@ -668,7 +667,7 @@ Considere implementar SLOs (Service Level Objectives) e SLIs (Service Level Indi
 
 ---
 
-**<IonicIcon name="link-outline" size={16} color="#ea4b71" /> Links úteis:**
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> [Documentação oficial n8n](https://docs.n8n.io/)
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> [Monitoramento n8n](https://docs.n8n.io/hosting/monitoring/)
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> [Segurança n8n](https://docs.n8n.io/hosting/security/)
+** Links úteis:**
+-  [Documentação oficial n8n](https://docs.n8n.io/)
+-  [Monitoramento n8n](https://docs.n8n.io/hosting/monitoring/)
+-  [Segurança n8n](https://docs.n8n.io/hosting/security/)

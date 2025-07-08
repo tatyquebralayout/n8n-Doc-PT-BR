@@ -5,13 +5,12 @@ description: Como instalar e configurar n8n em provedores de nuvem
 keywords: [n8n, cloud, nuvem, aws, azure, gcp, instalação]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="cloud-outline" size={32} color="#ea4b71" /> Instalação na Nuvem
+#  Instalação na Nuvem
 
 Este guia detalha como **instalar n8n em provedores de nuvem**, incluindo n8n Cloud oficial e deployment em AWS, Azure, Google Cloud e outros provedores.
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Opções de Cloud
+##  Opções de Cloud
 
 ### **n8n Cloud (Oficial)**
 Serviço totalmente gerenciado pelos criadores do n8n.
@@ -21,7 +20,7 @@ Deploy em sua própria infraestrutura na nuvem.
 
 ---
 
-## <IonicIcon name="cloud-outline" size={24} color="#ea4b71" /> n8n Cloud (Oficial)
+##  n8n Cloud (Oficial)
 
 ### **O que é o n8n Cloud?**
 O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda a complexidade de infraestrutura, permitindo que você foque exclusivamente na criação e execução de seus workflows.
@@ -35,7 +34,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-## <IonicIcon name="card-outline" size={24} color="#ea4b71" /> Planos e Preços
+##  Planos e Preços
 
 ### **Free Trial**
 - **Duração**: 14 dias
@@ -64,7 +63,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Como Começar
+##  Como Começar
 
 ### **1. Criar Conta**
 1. Acesse [cloud.n8n.io](https://cloud.n8n.io)
@@ -91,7 +90,7 @@ Após o login, você será direcionado para o dashboard:
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configurações Avançadas
+##  Configurações Avançadas
 
 ### **Domínio Personalizado**
 Configure um domínio próprio para sua instância:
@@ -120,7 +119,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Segurança e Compliance
+##  Segurança e Compliance
 
 ### **Certificações**
 - **SOC 2 Type II** - Controles de segurança
@@ -141,7 +140,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento e Analytics
+##  Monitoramento e Analytics
 
 ### **Dashboard de Execuções**
 - **Taxa de sucesso** por workflow
@@ -157,7 +156,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-## <IonicIcon name="server-outline" size={24} color="#ea4b71" /> Self-hosted em Cloud
+##  Self-hosted em Cloud
 
 ### **AWS (Amazon Web Services)**
 
@@ -283,7 +282,7 @@ az container create \
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Configuração Avançada
+##  Configuração Avançada
 
 ### **Load Balancer**
 ```yaml
@@ -343,7 +342,7 @@ data:
 
 ---
 
-## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> Suporte e Recursos
+##  Suporte e Recursos
 
 ### **Canais de Suporte**
 - **Documentação oficial** - Guias detalhados
@@ -359,7 +358,7 @@ data:
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você conhece as opções de cloud:
 
@@ -388,7 +387,7 @@ Para **self-hosted** em cloud, considere custos de infraestrutura, manutenção 
 
 ---
 
-**<IonicIcon name="link-outline" size={16} color="#ea4b71" /> Links úteis:**
-- <IonicIcon name="cloud-outline" size={16} color="#6b7280" /> [n8n Cloud](https://cloud.n8n.io)
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> [Documentação oficial](https://docs.n8n.io/)
-- <IonicIcon name="logo-github" size={16} color="#6b7280" /> [Repositório n8n](https://github.com/n8n-io/n8n)
+** Links úteis:**
+-  [n8n Cloud](https://cloud.n8n.io)
+-  [Documentação oficial](https://docs.n8n.io/)
+-  [Repositório n8n](https://github.com/n8n-io/n8n)

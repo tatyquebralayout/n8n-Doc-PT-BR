@@ -5,24 +5,23 @@ description: Como adicionar, configurar e gerenciar usuários no n8n
 keywords: [n8n, usuários, criar, editar, gerenciar, equipe, colaboração]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="person-add-outline" size={32} color="#ea4b71" /> Criar e Editar Usuários
+#  Criar e Editar Usuários
 
 Aprenda como adicionar novos membros à sua equipe, configurar suas permissões e gerenciar o acesso ao n8n de forma segura.
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> 1 | Acessando Gerenciamento de Usuários
+##  1 | Acessando Gerenciamento de Usuários
 
-### <IonicIcon name="people-circle-outline" size={20} color="#10b981" /> Menu de Usuários
+###  Menu de Usuários
 
 1. **Acesse o menu lateral** → Clique em **"Usuários"**
 2. **Visualize todos os usuários** ativos
 3. **Filtre por role** ou status
 4. **Pesquise** usuários específicos
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Permissões Necessárias
+###  Permissões Necessárias
 
 **Para gerenciar usuários, você precisa:**
 - **Role de Admin** ou **Owner**
@@ -31,9 +30,9 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-## <IonicIcon name="add-circle-outline" size={24} color="#ea4b71" /> 2 | Criando Novos Usuários
+##  2 | Criando Novos Usuários
 
-### <IonicIcon name="person-outline" size={20} color="#10b981" /> Passo a Passo
+###  Passo a Passo
 
 1. **Clique em "+ Adicionar Usuário"**
 2. **Preencha os campos obrigatórios:**
@@ -46,7 +45,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
    - **Tags** para organização
 4. **Clique em "Criar Usuário"**
 
-### <IonicIcon name="mail-outline" size={20} color="#10b981" /> Convite por Email
+###  Convite por Email
 
 **Para convites automáticos:**
 
@@ -63,9 +62,9 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-## <IonicIcon name="pencil-outline" size={24} color="#ea4b71" /> 3 | Editando Usuários Existentes
+##  3 | Editando Usuários Existentes
 
-### <IonicIcon name="options-outline" size={20} color="#10b981" /> Ações Disponíveis
+###  Ações Disponíveis
 
 **Para cada usuário, você pode:**
 
@@ -75,7 +74,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 - **Excluir**: Remover permanentemente
 - **Auditar**: Ver histórico de atividades
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Alterando Roles
+###  Alterando Roles
 
 **Mudanças de role:**
 
@@ -87,9 +86,9 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-## <IonicIcon name="key-outline" size={24} color="#ea4b71" /> 4 | Configurações de Autenticação
+##  4 | Configurações de Autenticação
 
-### <IonicIcon name="lock-closed-outline" size={20} color="#10b981" /> Métodos de Login
+###  Métodos de Login
 
 **Opções disponíveis:**
 
@@ -98,7 +97,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 - **2FA**: Autenticação de dois fatores
 - **LDAP**: Integração com diretório ativo
 
-### <IonicIcon name="phone-portrait-outline" size={20} color="#10b981" /> Configurando 2FA
+###  Configurando 2FA
 
 **Para ativar 2FA:**
 
@@ -110,9 +109,9 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-## <IonicIcon name="people-outline" size={24} color="#ea4b71" /> 5 | Organizando Usuários
+##  5 | Organizando Usuários
 
-### <IonicIcon name="folder-outline" size={20} color="#10b981" /> Grupos de Usuários
+###  Grupos de Usuários
 
 **Crie grupos para facilitar gerenciamento:**
 
@@ -121,7 +120,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 - **Desenvolvedores**: Acesso completo a workflows
 - **Viewers**: Apenas visualização
 
-### <IonicIcon name="pricetag-outline" size={20} color="#10b981" /> Tags e Categorização
+###  Tags e Categorização
 
 **Use tags para organização:**
 
@@ -132,9 +131,9 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-## <IonicIcon name="eye-outline" size={24} color="#ea4b71" /> 6 | Auditoria e Monitoramento
+##  6 | Auditoria e Monitoramento
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Logs de Atividade
+###  Logs de Atividade
 
 **Monitore estas atividades:**
 
@@ -144,7 +143,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 - **Alterações**: Modificações em configurações
 - **Acessos a dados**: Visualização de informações sensíveis
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas de Segurança
+###  Alertas de Segurança
 
 **Configure notificações para:**
 
@@ -169,9 +168,9 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-## <IonicIcon name="trash-outline" size={24} color="#ea4b71" /> 7 | Gerenciando Saídas
+##  7 | Gerenciando Saídas
 
-### <IonicIcon name="pause-circle-outline" size={20} color="#10b981" /> Suspensão Temporária
+###  Suspensão Temporária
 
 **Para suspender um usuário:**
 
@@ -181,7 +180,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 4. **Adicione motivo** (opcional)
 5. **Confirme** a suspensão
 
-### <IonicIcon name="close-circle-outline" size={20} color="#10b981" /> Exclusão Permanente
+###  Exclusão Permanente
 
 **Para excluir um usuário:**
 
@@ -193,9 +192,9 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> 8 | Boas Práticas
+##  8 | Boas Práticas
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 - ✅ **Use roles mínimos** necessários
 - ✅ **Ative 2FA** para todos os usuários
@@ -204,7 +203,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 - ❌ **Não compartilhe** contas entre usuários
 - ❌ **Evite** roles com privilégios excessivos
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Documentação
+###  Documentação
 
 **Mantenha registros de:**
 
@@ -215,7 +214,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 9 | Próximos passos
+##  9 | Próximos passos
 
 1. **[Roles e Permissões](./roles-permissoes)** - Definir níveis de acesso
 2. **[Autenticação](./autenticacao)** - Configurar login seguro

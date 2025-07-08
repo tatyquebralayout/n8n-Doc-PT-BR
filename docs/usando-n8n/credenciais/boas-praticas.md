@@ -5,17 +5,16 @@ description: Guia completo de boas práticas para manter suas credenciais segura
 keywords: [n8n, credenciais, segurança, boas práticas, criptografia, auditoria]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="shield-checkmark-outline" size={32} color="#ea4b71" /> Boas Práticas de Segurança
+#  Boas Práticas de Segurança
 
 Aprenda as melhores práticas para manter suas credenciais seguras e proteger seus workflows no n8n.
 
 ---
 
-## <IonicIcon name="alert-triangle-outline" size={24} color="#ea4b71" /> 1 | Por que Segurança é Crítica?
+##  1 | Por que Segurança é Crítica?
 
-### <IonicIcon name="warning-outline" size={20} color="#f59e0b" /> Riscos de Credenciais Comprometidas
+###  Riscos de Credenciais Comprometidas
 
 - **Acesso não autorizado** a sistemas críticos
 - **Vazamento de dados** sensíveis
@@ -24,7 +23,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 - **Danos à reputação** da empresa
 - **Consequências legais** por violação de dados
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#10b981" /> Benefícios da Segurança
+###  Benefícios da Segurança
 
 - **Proteção de dados** confidenciais
 - **Conformidade** com regulamentações
@@ -34,9 +33,9 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 
 ---
 
-## <IonicIcon name="lock-closed-outline" size={24} color="#ea4b71" /> 2 | Princípios Fundamentais
+##  2 | Princípios Fundamentais
 
-### <IonicIcon name="key-outline" size={20} color="#10b981" /> Princípio do Menor Privilégio
+###  Princípio do Menor Privilégio
 
 **Dê apenas as permissões necessárias:**
 
@@ -54,7 +53,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 }
 ```
 
-### <IonicIcon name="eye-off-outline" size={20} color="#10b981" /> Defesa em Profundidade
+###  Defesa em Profundidade
 
 **Múltiplas camadas de segurança:**
 
@@ -64,7 +63,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 4. **Backup** seguro de credenciais
 5. **Plano de resposta** a incidentes
 
-### <IonicIcon name="refresh-outline" size={20} color="#10b981" /> Rotação Regular
+###  Rotação Regular
 
 **Cronograma recomendado:**
 
@@ -77,9 +76,9 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> 3 | Criação de Credenciais Seguras
+##  3 | Criação de Credenciais Seguras
 
-### <IonicIcon name="create-outline" size={20} color="#10b981" /> Senhas Fortes
+###  Senhas Fortes
 
 **Critérios mínimos:**
 
@@ -95,7 +94,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 K9#mP$vL2@nX7!
 ```
 
-### <IonicIcon name="key-outline" size={20} color="#10b981" /> API Keys Seguras
+###  API Keys Seguras
 
 **Boas práticas:**
 
@@ -110,7 +109,7 @@ K9#mP$vL2@nX7!
 n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 ```
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Configuração OAuth
+###  Configuração OAuth
 
 **Configurações seguras:**
 
@@ -126,9 +125,9 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-## <IonicIcon name="folder-outline" size={24} color="#ea4b71" /> 4 | Organização e Nomenclatura
+##  4 | Organização e Nomenclatura
 
-### <IonicIcon name="pricetag-outline" size={20} color="#10b981" /> Convenções de Nomenclatura
+###  Convenções de Nomenclatura
 
 **Estrutura recomendada:**
 ```
@@ -140,7 +139,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - `DEV_SLACK_NOTIFICATIONS_2024`
 - `TEST_STRIPE_PAYMENTS_2024`
 
-### <IonicIcon name="color-palette-outline" size={20} color="#10b981" /> Categorização por Cores
+###  Categorização por Cores
 
 **Sistema de cores sugerido:**
 
@@ -150,7 +149,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - 🔵 **Azul**: Integrações de terceiros
 - ⚫ **Preto**: Credenciais temporárias
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Documentação
+###  Documentação
 
 **Informações essenciais:**
 
@@ -166,9 +165,9 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-## <IonicIcon name="eye-outline" size={24} color="#ea4b71" /> 5 | Monitoramento e Auditoria
+##  5 | Monitoramento e Auditoria
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Logs de Acesso
+###  Logs de Acesso
 
 **Monitore estes eventos:**
 
@@ -180,7 +179,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - 🔄 **Renovação de tokens**
 - 🚫 **Acesso negado**
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas Automáticos
+###  Alertas Automáticos
 
 **Configure notificações para:**
 
@@ -205,7 +204,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 }
 ```
 
-### <IonicIcon name="bar-chart-outline" size={20} color="#10b981" /> Relatórios de Segurança
+###  Relatórios de Segurança
 
 **Relatórios mensais incluem:**
 
@@ -217,9 +216,9 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-## <IonicIcon name="backup-outline" size={24} color="#ea4b71" /> 6 | Backup e Recuperação
+##  6 | Backup e Recuperação
 
-### <IonicIcon name="cloud-upload-outline" size={20} color="#10b981" /> Estratégia de Backup
+###  Estratégia de Backup
 
 **Backup 3-2-1:**
 - **3 cópias** dos dados
@@ -231,7 +230,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - **Backup semanal**: Configurações completas
 - **Backup mensal**: Auditoria e logs
 
-### <IonicIcon name="refresh-circle-outline" size={20} color="#10b981" /> Plano de Recuperação
+###  Plano de Recuperação
 
 **Documente o processo:**
 
@@ -245,9 +244,9 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> 7 | Treinamento da Equipe
+##  7 | Treinamento da Equipe
 
-### <IonicIcon name="people-circle-outline" size={20} color="#10b981" /> Tópicos Essenciais
+###  Tópicos Essenciais
 
 **Capacite sua equipe em:**
 
@@ -257,7 +256,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - **Identificação** de atividades suspeitas
 - **Procedimentos** de emergência
 
-### <IonicIcon name="calendar-outline" size={20} color="#10b981" /> Cronograma de Treinamento
+###  Cronograma de Treinamento
 
 - **Onboarding**: Segurança básica (1 hora)
 - **Trimestral**: Atualizações de políticas (30 min)
@@ -266,23 +265,23 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-## <IonicIcon name="checkmark-done-outline" size={24} color="#ea4b71" /> 8 | Checklist de Segurança
+##  8 | Checklist de Segurança
 
-### <IonicIcon name="list-outline" size={20} color="#10b981" /> Checklist Diário
+###  Checklist Diário
 
 - [ ] **Verificar** logs de acesso
 - [ ] **Revisar** alertas de segurança
 - [ ] **Confirmar** backup automático
 - [ ] **Monitorar** tentativas de login
 
-### <IonicIcon name="calendar-outline" size={20} color="#10b981" /> Checklist Semanal
+###  Checklist Semanal
 
 - [ ] **Auditar** credenciais criadas
 - [ ] **Verificar** usuários ativos
 - [ ] **Revisar** permissões de acesso
 - [ ] **Atualizar** documentação
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> Checklist Mensal
+###  Checklist Mensal
 
 - [ ] **Renovar** credenciais expirando
 - [ ] **Gerar** relatórios de segurança
@@ -291,7 +290,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 9 | Próximos passos
+##  9 | Próximos passos
 
 1. **[Implementar Monitoramento](../monitoring)** - Configurar alertas
 2. **[Criar Política de Segurança](../politicas-seguranca)** - Documentar regras

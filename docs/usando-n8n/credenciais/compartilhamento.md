@@ -5,24 +5,23 @@ description: Como compartilhar credenciais de forma segura com sua equipe no n8n
 keywords: [n8n, credenciais, compartilhamento, equipe, colaboração, segurança]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="people-outline" size={32} color="#ea4b71" /> Compartilhamento de Credenciais
+#  Compartilhamento de Credenciais
 
 Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o controle de acesso e a segurança dos dados.
 
 ---
 
-## <IonicIcon name="shield-outline" size={24} color="#ea4b71" /> 1 | Por que Compartilhar Credenciais?
+##  1 | Por que Compartilhar Credenciais?
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#10b981" /> Benefícios
+###  Benefícios
 
 - **Colaboração em equipe**: Múltiplos usuários podem usar as mesmas integrações
 - **Centralização**: Uma única fonte de verdade para credenciais
 - **Controle de acesso**: Gerenciar quem pode usar quais credenciais
 - **Auditoria**: Rastrear quem usou cada credencial
 
-### <IonicIcon name="warning-outline" size={20} color="#f59e0b" /> Considerações de Segurança
+###  Considerações de Segurança
 
 - **Princípio do menor privilégio**: Compartilhe apenas o necessário
 - **Monitoramento**: Acompanhe o uso das credenciais
@@ -31,9 +30,9 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> 2 | Configurando Compartilhamento
+##  2 | Configurando Compartilhamento
 
-### <IonicIcon name="person-add-outline" size={20} color="#10b981" /> Passo a Passo
+###  Passo a Passo
 
 1. **Acesse a credencial** que deseja compartilhar
 2. **Clique em "Compartilhar"** ou "Configurações"
@@ -45,7 +44,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 5. **Configure notificações** (opcional)
 6. **Salve as configurações**
 
-### <IonicIcon name="options-outline" size={20} color="#10b981" /> Tipos de Permissão
+###  Tipos de Permissão
 
 | Permissão | Pode Usar | Pode Editar | Pode Compartilhar | Pode Excluir |
 |-----------|-----------|-------------|-------------------|--------------|
@@ -55,9 +54,9 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-## <IonicIcon name="business-outline" size={24} color="#ea4b71" /> 3 | Cenários de Uso
+##  3 | Cenários de Uso
 
-### <IonicIcon name="people-circle-outline" size={20} color="#10b981" /> Equipe de Marketing
+###  Equipe de Marketing
 
 **Credenciais compartilhadas:**
 - Google Analytics
@@ -70,7 +69,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 - Acesso de leitura para todos
 - Apenas líderes com acesso de escrita
 
-### <IonicIcon name="calculator-outline" size={20} color="#10b981" /> Equipe Financeira
+###  Equipe Financeira
 
 **Credenciais compartilhadas:**
 - Stripe
@@ -83,7 +82,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 - Acesso restrito a membros da equipe
 - Auditoria rigorosa de uso
 
-### <IonicIcon name="code-outline" size={20} color="#10b981" /> Equipe de Desenvolvimento
+###  Equipe de Desenvolvimento
 
 **Credenciais compartilhadas:**
 - GitHub
@@ -98,9 +97,9 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-## <IonicIcon name="lock-closed-outline" size={24} color="#ea4b71" /> 4 | Boas Práticas de Segurança
+##  4 | Boas Práticas de Segurança
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Controle de Acesso
+###  Controle de Acesso
 
 - ✅ **Audite regularmente** quem tem acesso
 - ✅ **Remova acessos** de usuários que saíram
@@ -109,14 +108,14 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 - ❌ **Não compartilhe** credenciais pessoais
 - ❌ **Evite** credenciais com privilégios excessivos
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> Rotação e Renovação
+###  Rotação e Renovação
 
 - **Tokens OAuth**: Renove a cada 90 dias
 - **API Keys**: Rotacione a cada 6 meses
 - **Senhas**: Mude a cada 3 meses
 - **Certificados**: Renove antes da expiração
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 - **Logs de acesso**: Monitore quem usa cada credencial
 - **Alertas**: Configure notificações para uso suspeito
@@ -125,9 +124,9 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> 5 | Configurações Avançadas
+##  5 | Configurações Avançadas
 
-### <IonicIcon name="timer-outline" size={20} color="#10b981" /> Expiração Automática
+###  Expiração Automática
 
 Configure credenciais para expirar automaticamente:
 
@@ -139,7 +138,7 @@ Configure credenciais para expirar automaticamente:
 }
 ```
 
-### <IonicIcon name="location-outline" size={20} color="#10b981" /> Restrições de IP
+###  Restrições de IP
 
 Limite o acesso por endereço IP:
 
@@ -155,7 +154,7 @@ Limite o acesso por endereço IP:
 }
 ```
 
-### <IonicIcon name="calendar-outline" size={20} color="#10b981" /> Horários de Acesso
+###  Horários de Acesso
 
 Defina janelas de tempo para uso:
 
@@ -172,9 +171,9 @@ Defina janelas de tempo para uso:
 
 ---
 
-## <IonicIcon name="alert-circle-outline" size={24} color="#ea4b71" /> 6 | Troubleshooting
+##  6 | Troubleshooting
 
-### <IonicIcon name="help-circle-outline" size={20} color="#10b981" /> Problemas Comuns
+###  Problemas Comuns
 
 **"Credencial não encontrada"**
 - Verifique se a credencial foi compartilhada
@@ -193,7 +192,7 @@ Defina janelas de tempo para uso:
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 7 | Próximos passos
+##  7 | Próximos passos
 
 1. **[Boas Práticas](./boas-praticas)** - Manter segurança
 2. **[Usar Credenciais em Workflows](../execucoes/componentes-execucoes)** - Aplicar na prática

@@ -5,17 +5,16 @@ description: Técnicas para calcular estatísticas, agregações e análises de 
 keywords: [n8n, agregações, estatísticas, cálculos, análise de dados, métricas, relatórios]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="analytics-outline" size={32} color="#ea4b71" /> Agregações e Estatísticas
+#  Agregações e Estatísticas
 
 Aprenda técnicas avançadas para calcular estatísticas, criar agregações e gerar análises de dados que forneçam insights valiosos para seus workflows.
 
 ---
 
-## <IonicIcon name="calculator-outline" size={24} color="#ea4b71" /> 1 | Estatísticas Básicas
+##  1 | Estatísticas Básicas
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Métricas de Tendência Central
+###  Métricas de Tendência Central
 
 **Calcular médias, medianas e modas:**
 
@@ -47,7 +46,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas.map(v => v.valor)) }}
 ```
 
-### <IonicIcon name="pulse-outline" size={20} color="#10b981" /> Medidas de Dispersão
+###  Medidas de Dispersão
 
 **Calcular variância e desvio padrão:**
 
@@ -70,9 +69,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="git-merge-outline" size={24} color="#ea4b71" /> 2 | Agregações por Grupo
+##  2 | Agregações por Grupo
 
-### <IonicIcon name="folder-outline" size={20} color="#10b981" /> Agrupar por Categoria
+###  Agrupar por Categoria
 
 **Exemplo: Análise de vendas por categoria:**
 
@@ -101,7 +100,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas) }}
 ```
 
-### <IonicIcon name="calendar-outline" size={20} color="#10b981" /> Agregações Temporais
+###  Agregações Temporais
 
 **Análise por período:**
 
@@ -133,9 +132,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="bar-chart-outline" size={24} color="#ea4b71" /> 3 | Análises de Distribuição
+##  3 | Análises de Distribuição
 
-### <IonicIcon name="pie-chart-outline" size={20} color="#10b981" /> Distribuição de Frequências
+###  Distribuição de Frequências
 
 **Criar histogramas e distribuições:**
 
@@ -157,7 +156,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas.map(v => v.valor)) }}
 ```
 
-### <IonicIcon name="stats-chart-outline" size={20} color="#10b981" /> Percentis e Quartis
+###  Percentis e Quartis
 
 **Calcular percentis para análise:**
 
@@ -182,9 +181,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="trending-up-outline" size={24} color="#ea4b71" /> 4 | Análises de Tendência
+##  4 | Análises de Tendência
 
-### <IonicIcon name="arrow-up-outline" size={20} color="#10b981" /> Crescimento e Decrescimento
+###  Crescimento e Decrescimento
 
 **Calcular taxas de crescimento:**
 
@@ -219,7 +218,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas) }}
 ```
 
-### <IonicIcon name="repeat-outline" size={20} color="#10b981" /> Sazonalidade
+###  Sazonalidade
 
 **Identificar padrões sazonais:**
 
@@ -244,9 +243,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="people-outline" size={24} color="#ea4b71" /> 5 | Análises de Clientes
+##  5 | Análises de Clientes
 
-### <IonicIcon name="person-circle-outline" size={20} color="#10b981" /> Segmentação RFM
+###  Segmentação RFM
 
 **Análise RFM (Recency, Frequency, Monetary):**
 
@@ -277,7 +276,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.clientes) }}
 ```
 
-### <IonicIcon name="trophy-outline" size={20} color="#10b981" /> Ranking e Top Performers
+###  Ranking e Top Performers
 
 **Identificar melhores clientes:**
 
@@ -299,9 +298,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> 6 | Métricas de Performance
+##  6 | Métricas de Performance
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> KPIs de Negócio
+###  KPIs de Negócio
 
 **Calcular indicadores-chave:**
 
@@ -323,7 +322,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas) }}
 ```
 
-### <IonicIcon name="trending-down-outline" size={20} color="#10b981" /> Análise de Churn
+###  Análise de Churn
 
 **Calcular taxa de abandono:**
 
@@ -355,9 +354,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="document-text-outline" size={24} color="#ea4b71" /> 7 | Relatórios Automatizados
+##  7 | Relatórios Automatizados
 
-### <IonicIcon name="newspaper-outline" size={20} color="#10b981" /> Resumo Executivo
+###  Resumo Executivo
 
 **Gerar relatório resumido:**
 
@@ -401,7 +400,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 8 | Próximos passos
+##  8 | Próximos passos
 
 1. **[Integração com APIs](./integracao-apis)** - Mapeamento de respostas
 2. **[Otimização de Performance](./otimizacao-performance)** - Melhorar eficiência

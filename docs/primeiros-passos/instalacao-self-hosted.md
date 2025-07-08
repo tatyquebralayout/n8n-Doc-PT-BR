@@ -6,13 +6,12 @@ slug: /primeiros-passos/instalacao-self-hosted
 keywords: [n8n, self-hosted, docker, instalação, produção]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="server-outline" size={32} color="#10b981" /> Self-hosted (Auto-hospedado)
+#  Self-hosted (Auto-hospedado)
 
 O **n8n self-hosted** oferece controle total sobre sua infraestrutura, permitindo personalização completa e integração com ambientes corporativos.
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#10b981" /> O que é Self-hosted?
+##  O que é Self-hosted?
 
 Self-hosted significa que você instala e gerencia o n8n em sua própria infraestrutura – seja um servidor local, VPS, cloud ou Kubernetes.
 
@@ -26,9 +25,9 @@ Self-hosted significa que você instala e gerencia o n8n em sua própria infraes
 
 ---
 
-## <IonicIcon name="options-outline" size={24} color="#10b981" /> Métodos de Instalação
+##  Métodos de Instalação
 
-### <IonicIcon name="logo-docker" size={20} color="#10b981" /> Docker (Recomendado)
+###  Docker (Recomendado)
 
 A forma mais rápida e confiável para produção:
 
@@ -51,7 +50,7 @@ docker run -it --rm \
   n8nio/n8n
 ```
 
-### <IonicIcon name="logo-npm" size={20} color="#10b981" /> NPM (Node.js)
+###  NPM (Node.js)
 
 Para instalação direta via npm:
 
@@ -66,7 +65,7 @@ GENERIC_TIMEZONE=America/Sao_Paulo \
 n8n start
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Docker Compose (Produção)
+###  Docker Compose (Produção)
 
 Configuração completa com banco de dados:
 
@@ -120,7 +119,7 @@ volumes:
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#10b981" /> Configuração Avançada
+##  Configuração Avançada
 
 ### **Variáveis de Ambiente Essenciais**
 
@@ -195,7 +194,7 @@ sudo crontab -e
 
 ---
 
-## <IonicIcon name="trending-up-outline" size={24} color="#10b981" /> Escalabilidade
+##  Escalabilidade
 
 ### **Configuração de Filas**
 
@@ -271,7 +270,7 @@ spec:
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#10b981" /> Segurança
+##  Segurança
 
 ### **Autenticação**
 
@@ -305,7 +304,7 @@ sudo ufw allow from 192.168.1.0/24 to any port 5678
 
 ---
 
-## <IonicIcon name="backup-outline" size={24} color="#10b981" /> Backup e Recuperação
+##  Backup e Recuperação
 
 ### **Backup Automático**
 
@@ -337,7 +336,7 @@ find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#10b981" /> Monitoramento
+##  Monitoramento
 
 ### **Logs**
 
@@ -370,7 +369,7 @@ fi
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#10b981" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você tem o n8n self-hosted configurado:
 

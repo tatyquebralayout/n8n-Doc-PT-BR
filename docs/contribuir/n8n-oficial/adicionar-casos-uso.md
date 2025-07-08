@@ -5,15 +5,14 @@ description: Como estruturar e documentar casos de uso práticos para a comunida
 keywords: [n8n, casos de uso, exemplos, contribuir, automação, workflow, templates]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="bulb-outline" size={32} color="#ea4b71" /> Como Estruturar e Adicionar Casos de Uso
+#  Como Estruturar e Adicionar Casos de Uso
 
 Compartilhar um caso de uso bem documentado é uma forma poderosa de contribuir para a comunidade. Um bom **template de workflow** ou **artigo técnico** inspira outras pessoas e oferece aprendizado prático.
 
 ---
 
-## <IonicIcon name="search-outline" size={24} color="#ea4b71" /> 1. Identifique o problema
+##  1. Identifique o problema
 
 Um caso de uso relevante começa com uma situação real:
 
@@ -23,26 +22,26 @@ Um caso de uso relevante começa com uma situação real:
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> 2. Crie o fluxo no n8n
+##  2. Crie o fluxo no n8n
 
 Construa seu workflow aplicando boas práticas:
 
-### <IonicIcon name="eye-outline" size={20} color="#ea4b71" /> Clareza visual
+###  Clareza visual
 Mantenha nodes organizados e evite layouts confusos tipo "espaguete".
 
-### <IonicIcon name="document-text-outline" size={20} color="#ea4b71" /> Documentação interna
+###  Documentação interna
 Use *Sticky Notes* para explicar a lógica, configurações específicas e dicas técnicas.
 
-### <IonicIcon name="layers-outline" size={20} color="#ea4b71" /> Modularidade
+###  Modularidade
 Fluxos complexos podem ser divididos em sub‑workflows para facilitar a leitura e reutilização.
 
 ---
 
-## <IonicIcon name="library-outline" size={24} color="#ea4b71" /> 3. Documente de forma acessível
+##  3. Documente de forma acessível
 
 Transforme seu workflow em conteúdo de fácil consumo:
 
-### <IonicIcon name="grid-outline" size={20} color="#ea4b71" /> Estrutura técnica recomendada
+###  Estrutura técnica recomendada
 
 | Seção | Conteúdo esperado |
 |-------|-------------------|
@@ -56,26 +55,26 @@ Transforme seu workflow em conteúdo de fácil consumo:
 
 ---
 
-## <IonicIcon name="share-outline" size={24} color="#ea4b71" /> 4. Compartilhe seu caso de uso
+##  4. Compartilhe seu caso de uso
 
 Você pode transformar esse conteúdo em:
 
-### <IonicIcon name="cube-outline" size={20} color="#ea4b71" /> Template oficial
+###  Template oficial
 Submeta via [n8n Creator Hub](https://docs.n8n.io/help-community/contributing/#contribute-a-workflow-template) seguindo as diretrizes oficiais.
 
-### <IonicIcon name="document-text-outline" size={20} color="#ea4b71" /> Artigo técnico
+###  Artigo técnico
 Use o conteúdo como base para um blog ou post no fórum da comunidade.
 
 ---
 
-## <IonicIcon name="link-outline" size={24} color="#ea4b71" /> Referências Oficiais do n8n
+##  Referências Oficiais do n8n
 
-### <IonicIcon name="library-outline" size={20} color="#ea4b71" /> Documentação de Contribuição
+###  Documentação de Contribuição
 - **[Contribuir com templates](https://docs.n8n.io/help-community/contributing/#contribute-a-workflow-template)** - Guia oficial de contribuição a templates
 - **[Criar nós (nodes)](https://docs.n8n.io/integrations/creating-nodes/overview/)** - Documentação técnica para construir integrações
 - **[Como enviar nós comunitários](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/)** - Padrões para empacotar e submeter nodes
 
-### <IonicIcon name="people-outline" size={20} color="#ea4b71" /> Recursos da Comunidade
+###  Recursos da Comunidade
 - **[n8n Community](https://community.n8n.io/)** - Fórum oficial para discussões e compartilhamento
 - **[n8n Discord](https://discord.gg/n8n)** - Comunidade ativa para troca de experiências
 - **[GitHub Discussions](https://github.com/n8n-io/n8n/discussions)** - Espaço para debates técnicos

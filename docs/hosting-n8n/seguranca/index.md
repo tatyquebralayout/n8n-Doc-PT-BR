@@ -5,13 +5,12 @@ description: Guia completo de segurança para n8n - autenticação, permissões,
 keywords: [n8n, segurança, autenticação, permissões, backup, monitoramento, rbac, sso, 2fa]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="shield-checkmark-outline" size={32} color="#ea4b71" /> Segurança
+#  Segurança
 
 Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todos os aspectos essenciais para proteger sua instalação n8n em ambiente de produção, desde autenticação básica até estratégias avançadas de disaster recovery.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você encontrará aqui
+##  O que você encontrará aqui
 
 ### 🔐 **Autenticação e Controle de Acesso**
 - **Métodos de autenticação** seguros e robustos
@@ -43,9 +42,9 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 
 ---
 
-## <IonicIcon name="shield-outline" size={24} color="#ea4b71" /> Conceitos Fundamentais
+##  Conceitos Fundamentais
 
-### <IonicIcon name="key-outline" size={20} color="#10b981" /> Princípio do Menor Privilégio
+###  Princípio do Menor Privilégio
 
 **Dê apenas as permissões necessárias** para cada usuário realizar suas funções específicas. Isso minimiza o risco de acesso não autorizado e limita o impacto de comprometimentos.
 
@@ -63,7 +62,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 }
 ```
 
-### <IonicIcon name="eye-off-outline" size={20} color="#10b981" /> Defesa em Profundidade
+###  Defesa em Profundidade
 
 **Múltiplas camadas de segurança** que protegem contra diferentes tipos de ameaças:
 
@@ -73,7 +72,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 4. **Monitoramento contínuo** (logs, alertas)
 5. **Backup e recuperação** (disaster recovery)
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> Zero Trust
+###  Zero Trust
 
 **Nunca confie, sempre verifique** - cada acesso deve ser autenticado e autorizado, independentemente da origem:
 
@@ -84,9 +83,9 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 
 ---
 
-## <IonicIcon name="document-text-outline" size={24} color="#ea4b71" /> Tópicos de Segurança
+##  Tópicos de Segurança
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> [Autenticação e Acesso](./autenticacao)
+###  [Autenticação e Acesso](./autenticacao)
 
 Configure métodos de autenticação seguros e controle de acesso robusto:
 
@@ -99,7 +98,7 @@ Configure métodos de autenticação seguros e controle de acesso robusto:
 
 **[→ Ver Autenticação e Acesso](./autenticacao)**
 
-### <IonicIcon name="people-outline" size={20} color="#10b981" /> [Usuários e Permissões](./usuarios-permissoes)
+###  [Usuários e Permissões](./usuarios-permissoes)
 
 Implemente controle granular de acesso com sistema RBAC:
 
@@ -112,7 +111,7 @@ Implemente controle granular de acesso com sistema RBAC:
 
 **[→ Ver Usuários e Permissões](./usuarios-permissoes)**
 
-### <IonicIcon name="backup-outline" size={20} color="#10b981" /> [Backup e Recovery](./backup-recovery)
+###  [Backup e Recovery](./backup-recovery)
 
 Proteja seus dados com estratégias robustas de backup:
 
@@ -125,7 +124,7 @@ Proteja seus dados com estratégias robustas de backup:
 
 **[→ Ver Backup e Recovery](./backup-recovery)**
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> [Monitoramento e Alertas](./monitoring)
+###  [Monitoramento e Alertas](./monitoring)
 
 Monitore a saúde e performance do seu n8n:
 
@@ -140,9 +139,9 @@ Monitore a saúde e performance do seu n8n:
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Implementação por Fase
+##  Implementação por Fase
 
-### <IonicIcon name="rocket-outline" size={20} color="#10b981" /> Fase 1: Fundamentos (Semana 1-2)
+###  Fase 1: Fundamentos (Semana 1-2)
 
 **Configuração básica de segurança:**
 
@@ -152,7 +151,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Logs de acesso ativados
 - [ ] Backup básico configurado
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Fase 2: Controle de Acesso (Semana 3-4)
+###  Fase 2: Controle de Acesso (Semana 3-4)
 
 **Implementação de RBAC e permissões:**
 
@@ -162,7 +161,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Auditoria de acesso ativada
 - [ ] 2FA implementado para admins
 
-### <IonicIcon name="cloud-upload-outline" size={20} color="#10b981" /> Fase 3: Backup e Recuperação (Semana 5-6)
+###  Fase 3: Backup e Recuperação (Semana 5-6)
 
 **Estratégia robusta de proteção de dados:**
 
@@ -172,7 +171,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Testes de backup realizados
 - [ ] Plano de DR documentado
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Fase 4: Monitoramento (Semana 7-8)
+###  Fase 4: Monitoramento (Semana 7-8)
 
 **Observabilidade e alertas:**
 
@@ -184,9 +183,9 @@ Monitore a saúde e performance do seu n8n:
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Segurança
+##  Checklist de Segurança
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Autenticação
+###  Autenticação
 
 - [ ] HTTPS configurado e funcionando
 - [ ] Autenticação básica ativada
@@ -195,7 +194,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Timeout de sessão configurado
 - [ ] Restrições de IP implementadas (se necessário)
 
-### <IonicIcon name="people-circle-outline" size={20} color="#10b981" /> Controle de Acesso
+###  Controle de Acesso
 
 - [ ] Sistema RBAC implementado
 - [ ] Roles e permissões definidos
@@ -204,7 +203,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Revisão regular de permissões
 - [ ] Procedimentos de onboarding/offboarding
 
-### <IonicIcon name="backup-outline" size={20} color="#10b981" /> Proteção de Dados
+###  Proteção de Dados
 
 - [ ] Estratégia de backup 3-2-1 implementada
 - [ ] Backup automatizado funcionando
@@ -213,7 +212,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Criptografia em repouso ativada
 - [ ] Retenção de dados definida
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 - [ ] Métricas essenciais coletadas
 - [ ] Sistema de alertas configurado
@@ -224,9 +223,9 @@ Monitore a saúde e performance do seu n8n:
 
 ---
 
-## <IonicIcon name="warning-outline" size={24} color="#ea4b71" /> Cenários de Risco
+##  Cenários de Risco
 
-### <IonicIcon name="alert-triangle-outline" size={20} color="#f59e0b" /> Riscos de Segurança
+###  Riscos de Segurança
 
 | Risco | Impacto | Mitigação |
 |-------|---------|-----------|
@@ -236,7 +235,7 @@ Monitore a saúde e performance do seu n8n:
 | **Downtime** | Alto | Monitoramento, alertas, redundância |
 | **Conformidade** | Médio | Logs, auditoria, políticas documentadas |
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Medidas de Proteção
+###  Medidas de Proteção
 
 - **Detecção precoce** através de monitoramento contínuo
 - **Resposta rápida** com alertas automatizados
@@ -246,7 +245,7 @@ Monitore a saúde e performance do seu n8n:
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você entende os fundamentos de segurança:
 
@@ -257,28 +256,28 @@ Agora que você entende os fundamentos de segurança:
 
 ---
 
-## <IonicIcon name="link-outline" size={24} color="#ea4b71" /> Recursos Úteis
+##  Recursos Úteis
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Documentação Oficial
+###  Documentação Oficial
 
-- <IonicIcon name="link-outline" size={16} color="#6b7280" /> [Documentação n8n](https://docs.n8n.io/)
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> [Segurança n8n](https://docs.n8n.io/hosting/security/)
-- <IonicIcon name="people-outline" size={16} color="#6b7280" /> [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
-- <IonicIcon name="backup-outline" size={16} color="#6b7280" /> [Backup e Restore](https://docs.n8n.io/hosting/backup-restore/)
+-  [Documentação n8n](https://docs.n8n.io/)
+-  [Segurança n8n](https://docs.n8n.io/hosting/security/)
+-  [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
+-  [Backup e Restore](https://docs.n8n.io/hosting/backup-restore/)
 
-### <IonicIcon name="school-outline" size={20} color="#10b981" /> Ferramentas Recomendadas
+###  Ferramentas Recomendadas
 
-- <IonicIcon name="logo-grafana" size={16} color="#6b7280" /> **Grafana** - Dashboards de monitoramento
-- <IonicIcon name="logo-prometheus" size={16} color="#6b7280" /> **Prometheus** - Coleta de métricas
-- <IonicIcon name="logo-elastic" size={16} color="#6b7280" /> **ELK Stack** - Centralização de logs
-- <IonicIcon name="logo-aws" size={16} color="#6b7280" /> **AWS S3** - Backup na nuvem
-- <IonicIcon name="logo-google" size={16} color="#6b7280" /> **Google Cloud Storage** - Backup na nuvem
+-  **Grafana** - Dashboards de monitoramento
+-  **Prometheus** - Coleta de métricas
+-  **ELK Stack** - Centralização de logs
+-  **AWS S3** - Backup na nuvem
+-  **Google Cloud Storage** - Backup na nuvem
 
-### <IonicIcon name="people-circle-outline" size={20} color="#10b981" /> Comunidade
+###  Comunidade
 
-- <IonicIcon name="logo-discord" size={16} color="#6b7280" /> [Discord n8n](https://discord.gg/n8n)
-- <IonicIcon name="logo-github" size={16} color="#6b7280" /> [GitHub n8n](https://github.com/n8n-io/n8n)
-- <IonicIcon name="logo-stackoverflow" size={16} color="#6b7280" /> [Stack Overflow](https://stackoverflow.com/questions/tagged/n8n)
+-  [Discord n8n](https://discord.gg/n8n)
+-  [GitHub n8n](https://github.com/n8n-io/n8n)
+-  [Stack Overflow](https://stackoverflow.com/questions/tagged/n8n)
 
 ---
 

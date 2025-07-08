@@ -5,25 +5,24 @@ description: Como implementar balanceamento de carga para n8n em produção
 keywords: [n8n, load balancing, balanceamento, carga, nginx, produção]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="trending-up-outline" size={32} color="#ea4b71" /> Load Balancing
+#  Load Balancing
 
 Este documento explica como **implementar balanceamento de carga** para n8n em ambiente de produção, abordando configuração de nginx como proxy reverso, distribuição de requisições entre múltiplas instâncias, health checks automáticos, failover inteligente, e estratégias de alta disponibilidade que garantem performance consistente e tolerância a falhas em implementações empresariais de grande escala.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> Configuração de nginx como load balancer
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> Estratégias de distribuição de carga
-- <IonicIcon name="refresh-outline" size={16} color="#6b7280" /> Health checks e failover
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> Monitoramento de performance
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> Configurações de segurança
+-  Configuração de nginx como load balancer
+-  Estratégias de distribuição de carga
+-  Health checks e failover
+-  Monitoramento de performance
+-  Configurações de segurança
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Por que usar Load Balancing?
+##  Por que usar Load Balancing?
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Benefícios do Load Balancing
+###  Benefícios do Load Balancing
 
 **Sem Load Balancing (Instância Única):**
 - ❌ **Ponto único de falha** - Se o servidor cair, tudo para
@@ -38,7 +37,7 @@ Este documento explica como **implementar balanceamento de carga** para n8n em a
 - ✅ **Zero downtime** - Manutenção sem interrupção
 - ✅ **Distribuição inteligente** - Carga distribuída automaticamente
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Quando Usar Load Balancing
+###  Quando Usar Load Balancing
 
 **Use load balancing quando:**
 - Tem **muitos usuários simultâneos**
@@ -49,9 +48,9 @@ Este documento explica como **implementar balanceamento de carga** para n8n em a
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Estratégias de Distribuição
+##  Estratégias de Distribuição
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Algoritmos de Balanceamento
+###  Algoritmos de Balanceamento
 
 #### **Round Robin (Padrão)**
 ```nginx
@@ -91,7 +90,7 @@ upstream n8n_backend {
 }
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Configuração por Tipo de Tráfego
+###  Configuração por Tipo de Tráfego
 
 #### **Distribuição Inteligente**
 ```nginx
@@ -120,9 +119,9 @@ upstream n8n_ui {
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configuração Nginx
+##  Configuração Nginx
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração Básica
+###  Configuração Básica
 
 #### **nginx.conf Principal**
 ```nginx
@@ -278,7 +277,7 @@ server {
 }
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Configuração Avançada
+###  Configuração Avançada
 
 #### **Load Balancing com Health Checks**
 ```nginx
@@ -325,9 +324,9 @@ upstream n8n_api {
 
 ---
 
-## <IonicIcon name="server-outline" size={24} color="#ea4b71" /> HAProxy (Alternativa)
+##  HAProxy (Alternativa)
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração HAProxy
+###  Configuração HAProxy
 
 #### **haproxy.cfg**
 ```bash
@@ -438,9 +437,9 @@ backend n8n_health
 
 ---
 
-## <IonicIcon name="refresh-outline" size={24} color="#ea4b71" /> Health Checks e Failover
+##  Health Checks e Failover
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração de Health Checks
+###  Configuração de Health Checks
 
 #### **Endpoint de Health Check**
 ```bash
@@ -469,7 +468,7 @@ else
 fi
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Monitoramento de Failover
+###  Monitoramento de Failover
 
 #### **Script de Monitoramento**
 ```bash
@@ -512,9 +511,9 @@ done
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento de Performance
+##  Monitoramento de Performance
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Métricas Essenciais
+###  Métricas Essenciais
 
 #### **Script de Métricas**
 ```bash
@@ -558,7 +557,7 @@ echo "6. Performance do Nginx:"
 curl -s http://localhost/nginx_status
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas Automáticos
+###  Alertas Automáticos
 
 #### **Configuração de Alertas**
 ```bash
@@ -589,9 +588,9 @@ fi
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Configurações de Segurança
+##  Configurações de Segurança
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Rate Limiting
+###  Rate Limiting
 
 #### **Configuração Avançada de Rate Limiting**
 ```nginx
@@ -618,7 +617,7 @@ location /admin/ {
 }
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Headers de Segurança
+###  Headers de Segurança
 
 #### **Security Headers Avançados**
 ```nginx
@@ -634,9 +633,9 @@ add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Troubleshooting
+##  Troubleshooting
 
-### <IonicIcon name="warning-outline" size={20} color="#10b981" /> Problemas Comuns
+###  Problemas Comuns
 
 #### **Load balancer não distribui carga**
 ```bash
@@ -677,9 +676,9 @@ openssl s_client -connect seudominio.com:443 -servername seudominio.com
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Produção
+##  Checklist de Produção
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Configuração
+###  Configuração
 
 - [ ] Load balancer configurado
 - [ ] Múltiplos backends configurados
@@ -687,7 +686,7 @@ openssl s_client -connect seudominio.com:443 -servername seudominio.com
 - [ ] Failover automático testado
 - [ ] SSL/TLS configurado
 
-### <IonicIcon name="rocket-outline" size={20} color="#10b981" /> Performance
+###  Performance
 
 - [ ] Rate limiting aplicado
 - [ ] Gzip compression ativado
@@ -695,7 +694,7 @@ openssl s_client -connect seudominio.com:443 -servername seudominio.com
 - [ ] Timeouts adequados
 - [ ] Monitoramento ativo
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 - [ ] Métricas sendo coletadas
 - [ ] Logs centralizados
@@ -703,7 +702,7 @@ openssl s_client -connect seudominio.com:443 -servername seudominio.com
 - [ ] Dashboard de monitoramento
 - [ ] Backup de configurações
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 - [ ] Security headers configurados
 - [ ] Rate limiting aplicado
@@ -713,7 +712,7 @@ openssl s_client -connect seudominio.com:443 -servername seudominio.com
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você configurou o load balancing:
 

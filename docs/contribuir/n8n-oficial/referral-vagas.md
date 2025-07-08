@@ -5,9 +5,8 @@ description: Saiba como indicar candidatos para vagas na n8n e receber uma recom
 keywords: [n8n, carreira, vagas, referral, indicação, recompensa]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="people-circle-outline" size={32} color="#ea4b71" /> Programa de Indicação de Candidatos (Referral)
+#  Programa de Indicação de Candidatos (Referral)
 
 Conhece alguém que seria perfeito para uma das vagas abertas na n8n? Você pode indicá-lo e, se a pessoa for contratada e passar pelo período de experiência, **você recebe uma recompensa de €1.000**.
 
@@ -15,7 +14,7 @@ Esta é uma excelente forma de ajudar a n8n a crescer com talentos de confiança
 
 ---
 
-## <IonicIcon name="play-outline" size={24} color="#ea4b71" /> Como Funciona o Programa?
+##  Como Funciona o Programa?
 
 O processo é simples e direto:
 
@@ -33,13 +32,13 @@ O processo é simples e direto:
 
 ---
 
-## <IonicIcon name="briefcase-outline" size={24} color="#ea4b71" /> Oportunidades de Carreira
+##  Oportunidades de Carreira
 
 Além de indicar, fique sempre de olho na página de carreiras para oportunidades que possam ser do seu interesse. Trabalhar na n8n é uma chance de moldar o futuro da automação.
 
 ---
 
-## <IonicIcon name="link-outline" size={24} color="#ea4b71" /> Links Importantes
+##  Links Importantes
 
 - **[Página de Carreiras](https://n8n.io/careers/):** Veja todas as vagas abertas
 - **[LinkedIn n8n](https://www.linkedin.com/company/n8n-io/):** Para networking profissional

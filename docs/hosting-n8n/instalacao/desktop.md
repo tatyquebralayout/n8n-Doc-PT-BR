@@ -5,13 +5,12 @@ description: Como instalar n8n Desktop para uso local e desenvolvimento
 keywords: [n8n, desktop, instalação, local, desenvolvimento, windows, mac]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="desktop-outline" size={32} color="#ea4b71" /> Instalação Desktop
+#  Instalação Desktop
 
 Este guia detalha como **instalar n8n Desktop** para uso local e desenvolvimento, oferecendo uma experiência nativa e simplificada.
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> O que é o n8n Desktop?
+##  O que é o n8n Desktop?
 
 O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localmente sem necessidade de configurações complexas de servidor ou Docker. É ideal para usuários que preferem uma experiência mais simples e integrada ao sistema operacional.
 
@@ -25,7 +24,7 @@ O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localment
 
 ---
 
-## <IonicIcon name="checkbox-outline" size={24} color="#ea4b71" /> Pré-requisitos
+##  Pré-requisitos
 
 ### **Requisitos do Sistema**
 - **Sistema Operacional**: Windows 10+, macOS 10.15+, Linux (Ubuntu 18.04+)
@@ -51,7 +50,7 @@ O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localment
 
 ---
 
-## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Instalação
+##  Instalação
 
 ### **Windows**
 
@@ -123,7 +122,7 @@ sudo snap install n8n-desktop
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configuração Inicial
+##  Configuração Inicial
 
 ### **Primeiro Acesso**
 1. **Inicie o n8n Desktop**
@@ -158,7 +157,7 @@ Timezone: Sistema operacional
 
 ---
 
-## <IonicIcon name="sync-outline" size={24} color="#ea4b71" /> Sincronização com n8n Cloud
+##  Sincronização com n8n Cloud
 
 ### **Conectar com n8n Cloud**
 1. **Abra o n8n Desktop**
@@ -187,7 +186,7 @@ Timezone: Sistema operacional
 
 ---
 
-## <IonicIcon name="folder-outline" size={24} color="#ea4b71" /> Estrutura de Arquivos
+##  Estrutura de Arquivos
 
 ### **Localização dos Dados**
 ```bash
@@ -222,7 +221,7 @@ cp -r ~/.config/n8n ~/backup/n8n
 
 ---
 
-## <IonicIcon name="code-outline" size={24} color="#ea4b71" /> Desenvolvimento
+##  Desenvolvimento
 
 ### **Modo Desenvolvedor**
 ```bash
@@ -258,7 +257,7 @@ cp -r ~/.config/n8n ~/backup/n8n
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Segurança
+##  Segurança
 
 ### **Configurações de Segurança**
 - **Autenticação local** - Conta de administrador
@@ -280,7 +279,7 @@ sudo ufw allow 5678/tcp
 
 ---
 
-## <IonicIcon name="bug-outline" size={24} color="#ea4b71" /> Troubleshooting
+##  Troubleshooting
 
 ### **Problemas Comuns**
 
@@ -332,7 +331,7 @@ ping cloud.n8n.io
 
 ---
 
-## <IonicIcon name="sync-outline" size={24} color="#ea4b71" /> Atualizações
+##  Atualizações
 
 ### **Atualizações Automáticas**
 - **Habilitadas por padrão**
@@ -366,7 +365,7 @@ ping cloud.n8n.io
 
 ---
 
-## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> Suporte
+##  Suporte
 
 ### **Recursos de Ajuda**
 - **Documentação oficial** - Guias detalhados
@@ -389,7 +388,7 @@ cp ~/.config/n8n/logs/* ~/Desktop/n8n-logs/
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você tem o n8n Desktop instalado:
 
@@ -421,7 +420,7 @@ O **n8n Desktop** é para **uso pessoal** e **desenvolvimento**. Para **produç�
 
 ---
 
-**<IonicIcon name="link-outline" size={16} color="#ea4b71" /> Links úteis:**
-- <IonicIcon name="desktop-outline" size={16} color="#6b7280" /> [Download n8n Desktop](https://n8n.io/desktop)
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> [Documentação oficial](https://docs.n8n.io/)
-- <IonicIcon name="logo-github" size={16} color="#6b7280" /> [Repositório n8n](https://github.com/n8n-io/n8n)
+** Links úteis:**
+-  [Download n8n Desktop](https://n8n.io/desktop)
+-  [Documentação oficial](https://docs.n8n.io/)
+-  [Repositório n8n](https://github.com/n8n-io/n8n)

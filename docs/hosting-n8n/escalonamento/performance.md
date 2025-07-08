@@ -5,25 +5,24 @@ description: Como otimizar performance do n8n para máxima eficiência em produ�
 keywords: [n8n, performance, otimização, eficiência, produção, tuning]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="speedometer-outline" size={32} color="#ea4b71" /> Otimização de Performance
+#  Otimização de Performance
 
 Este documento detalha como **otimizar performance do n8n** para máxima eficiência, incluindo configuração de workers, ajuste de timeouts, otimização de queries de banco, gerenciamento de memória, monitoramento de recursos, e técnicas avançadas de tuning que maximizam throughput e minimizam latência em workflows de alta demanda para operações empresariais críticas.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> Configuração de workers otimizada
-- <IonicIcon name="settings-outline" size={16} color="#6b7280" /> Ajuste de timeouts e limites
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> Otimização de banco de dados
-- <IonicIcon name="hardware-chip-outline" size={16} color="#6b7280" /> Gerenciamento de memória
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> Monitoramento de performance
+-  Configuração de workers otimizada
+-  Ajuste de timeouts e limites
+-  Otimização de banco de dados
+-  Gerenciamento de memória
+-  Monitoramento de performance
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Por que Otimizar Performance?
+##  Por que Otimizar Performance?
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Impacto da Performance
+###  Impacto da Performance
 
 **Performance Baixa:**
 - ❌ **Workflows lentos** - Execuções demoram muito
@@ -39,7 +38,7 @@ Este documento detalha como **otimizar performance do n8n** para máxima eficiê
 - ✅ **Experiência fluida** - Interface rápida e responsiva
 - ✅ **Custos reduzidos** - Menos servidores necessários
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Quando Otimizar
+###  Quando Otimizar
 
 **Otimize performance quando:**
 - Workflows demoram **mais de 30 segundos**
@@ -50,9 +49,9 @@ Este documento detalha como **otimizar performance do n8n** para máxima eficiê
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Configuração de Workers
+##  Configuração de Workers
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Otimização de Workers
+###  Otimização de Workers
 
 #### **Configuração Base**
 ```bash
@@ -81,7 +80,7 @@ EXECUTIONS_RETRY_ATTEMPTS=3
 EXECUTIONS_RETRY_DELAY=5000  # 5 segundos
 ```
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Múltiplos Workers
+###  Múltiplos Workers
 
 #### **Docker Compose com Workers Otimizados**
 ```yaml
@@ -231,9 +230,9 @@ networks:
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Otimização de Timeouts
+##  Otimização de Timeouts
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração de Timeouts
+###  Configuração de Timeouts
 
 #### **Timeouts por Tipo de Operação**
 ```bash
@@ -267,7 +266,7 @@ EXECUTIONS_RETRY_BACKOFF_FACTOR=2
 EXECUTIONS_RETRY_MAX_DELAY=300000
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Estratégias de Timeout
+###  Estratégias de Timeout
 
 #### **Timeout Adaptativo**
 ```javascript
@@ -288,9 +287,9 @@ function getTimeoutForOperation(type) {
 
 ---
 
-## <IonicIcon name="server-outline" size={24} color="#ea4b71" /> Otimização de Banco de Dados
+##  Otimização de Banco de Dados
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> PostgreSQL Otimizado
+###  PostgreSQL Otimizado
 
 #### **postgresql.conf - Otimizações**
 ```bash
@@ -350,7 +349,7 @@ CREATE INDEX CONCURRENTLY idx_webhook_entity ON webhook_entity(webhook_id);
 CREATE INDEX CONCURRENTLY idx_webhook_entity_path ON webhook_entity(path);
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Manutenção de Banco
+###  Manutenção de Banco
 
 #### **Script de Manutenção**
 ```bash
@@ -393,9 +392,9 @@ echo "Manutenção concluída!"
 
 ---
 
-## <IonicIcon name="hardware-chip-outline" size={24} color="#ea4b71" /> Gerenciamento de Memória
+##  Gerenciamento de Memória
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração de Memória
+###  Configuração de Memória
 
 #### **Limites de Memória Node.js**
 ```bash
@@ -422,7 +421,7 @@ appendonly yes
 appendfsync everysec
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Monitoramento de Memória
+###  Monitoramento de Memória
 
 #### **Script de Monitoramento de Memória**
 ```bash
@@ -472,9 +471,9 @@ done
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento de Performance
+##  Monitoramento de Performance
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Métricas de Performance
+###  Métricas de Performance
 
 #### **Script de Métricas**
 ```bash
@@ -527,7 +526,7 @@ echo "Jobs processados: $(redis-cli get n8n:stats:processed || echo '0')"
 echo "Jobs falharam: $(redis-cli get n8n:stats:failed || echo '0')"
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas de Performance
+###  Alertas de Performance
 
 #### **Configuração de Alertas**
 ```bash
@@ -589,9 +588,9 @@ fi
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Técnicas Avançadas de Tuning
+##  Técnicas Avançadas de Tuning
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Otimização de Workflows
+###  Otimização de Workflows
 
 #### **Boas Práticas de Performance**
 ```javascript
@@ -633,7 +632,7 @@ async function retryWithBackoff(fn, maxRetries = 3) {
 }
 ```
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Otimização de Rede
+###  Otimização de Rede
 
 #### **Configuração de Rede**
 ```bash
@@ -660,9 +659,9 @@ net.netfilter.nf_conntrack_tcp_timeout_established = 86400
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Troubleshooting
+##  Troubleshooting
 
-### <IonicIcon name="warning-outline" size={20} color="#10b981" /> Problemas Comuns
+###  Problemas Comuns
 
 #### **Performance lenta**
 ```bash
@@ -707,9 +706,9 @@ docker logs n8n-main | grep -i timeout
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Produção
+##  Checklist de Produção
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Configuração
+###  Configuração
 
 - [ ] Workers configurados adequadamente
 - [ ] Timeouts otimizados
@@ -717,7 +716,7 @@ docker logs n8n-main | grep -i timeout
 - [ ] Redis configurado
 - [ ] Memória configurada
 
-### <IonicIcon name="rocket-outline" size={20} color="#10b981" /> Performance
+###  Performance
 
 - [ ] Métricas sendo coletadas
 - [ ] Alertas configurados
@@ -725,7 +724,7 @@ docker logs n8n-main | grep -i timeout
 - [ ] Logs estruturados
 - [ ] Backup de configurações
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 - [ ] Dashboard de performance
 - [ ] Alertas funcionando
@@ -733,7 +732,7 @@ docker logs n8n-main | grep -i timeout
 - [ ] Métricas históricas
 - [ ] Relatórios automáticos
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Manutenção
+###  Manutenção
 
 - [ ] Scripts de manutenção
 - [ ] Limpeza automática
@@ -743,7 +742,7 @@ docker logs n8n-main | grep -i timeout
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você otimizou a performance:
 

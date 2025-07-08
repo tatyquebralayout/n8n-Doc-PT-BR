@@ -5,25 +5,24 @@ description: Personalizar a aparência do n8n para sua marca
 keywords: [n8n, embed, white labelling, branding, customização, tema]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="color-palette-outline" size={32} color="#ea4b71" /> White Labelling
+#  White Labelling
 
 Este documento detalha como **personalizar completamente a aparência do n8n embarcado** para sua marca, incluindo cores, logos, fontes, layout, domínio customizado, e integração visual perfeita com sua aplicação principal, criando uma experiência unificada e profissional para seus usuários.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="color-palette-outline" size={16} color="#6b7280" /> Personalização de tema e cores
-- <IonicIcon name="image-outline" size={16} color="#6b7280" /> Branding e logos
-- <IonicIcon name="code-outline" size={16} color="#6b7280" /> CSS customizado
-- <IonicIcon name="globe-outline" size={16} color="#6b7280" /> Domínio customizado
-- <IonicIcon name="construct-outline" size={16} color="#6b7280" /> Integração visual
+-  Personalização de tema e cores
+-  Branding e logos
+-  CSS customizado
+-  Domínio customizado
+-  Integração visual
 
 ---
 
-## <IonicIcon name="color-palette-outline" size={24} color="#ea4b71" /> Personalização de Tema
+##  Personalização de Tema
 
-### <IonicIcon name="settings-outline" size={20} color="#10b981" /> Configuração Básica
+###  Configuração Básica
 
 #### **Variáveis de Ambiente para Tema**
 ```bash
@@ -64,7 +63,7 @@ services:
       - "5678:5678"
 ```
 
-### <IonicIcon name="color-fill-outline" size={20} color="#10b981" /> Esquemas de Cores
+###  Esquemas de Cores
 
 #### **Tema Escuro**
 ```css
@@ -134,9 +133,9 @@ body[data-theme="dark"] .n8n-card {
 
 ---
 
-## <IonicIcon name="image-outline" size={24} color="#ea4b71" /> Branding e Logos
+##  Branding e Logos
 
-### <IonicIcon name="logo-outline" size={20} color="#10b981" /> Configuração de Logo
+###  Configuração de Logo
 
 #### **Logo Principal**
 ```bash
@@ -187,7 +186,7 @@ body[data-theme="dark"] .n8n-header-logo {
 }
 ```
 
-### <IonicIcon name="text-outline" size={20} color="#10b981" /> Texto e Marca
+###  Texto e Marca
 
 #### **Configuração de Texto**
 ```bash
@@ -226,9 +225,9 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 
 ---
 
-## <IonicIcon name="code-outline" size={24} color="#ea4b71" /> CSS Customizado
+##  CSS Customizado
 
-### <IonicIcon name="brush-outline" size={20} color="#10b981" /> Estilos Avançados
+###  Estilos Avançados
 
 #### **Layout Customizado**
 ```css
@@ -359,7 +358,7 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 }
 ```
 
-### <IonicIcon name="phone-portrait-outline" size={20} color="#10b981" /> Responsividade
+###  Responsividade
 
 #### **CSS Responsivo**
 ```css
@@ -416,9 +415,9 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 
 ---
 
-## <IonicIcon name="globe-outline" size={24} color="#ea4b71" /> Domínio Customizado
+##  Domínio Customizado
 
-### <IonicIcon name="settings-outline" size={20} color="#10b981" /> Configuração de Domínio
+###  Configuração de Domínio
 
 #### **Proxy Reverso com Nginx**
 ```nginx
@@ -526,7 +525,7 @@ networks:
     driver: bridge
 ```
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> SSL e Segurança
+###  SSL e Segurança
 
 #### **Certificado Let's Encrypt**
 ```bash
@@ -573,9 +572,9 @@ add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Integração Visual
+##  Integração Visual
 
-### <IonicIcon name="link-outline" size={20} color="#10b981" /> Integração com Aplicação Principal
+###  Integração com Aplicação Principal
 
 #### **CSS para Integração**
 ```css
@@ -789,9 +788,9 @@ new N8NIntegration();
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Boas Práticas
+##  Boas Práticas
 
-### <IonicIcon name="color-palette-outline" size={20} color="#10b981" /> Design System
+###  Design System
 
 #### **Guia de Cores**
 ```css
@@ -884,7 +883,7 @@ new N8NIntegration();
 }
 ```
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Acessibilidade
+###  Acessibilidade
 
 #### **WCAG Compliance**
 ```css
@@ -932,7 +931,7 @@ new N8NIntegration();
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você entende o white labelling do n8n:
 

@@ -5,17 +5,16 @@ description: Integrações avançadas com PIX para automação de pagamentos e r
 keywords: [n8n, pix, pagamentos, recebimentos, automação, banco central, qr code]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="card-outline" size={32} color="#ea4b71" /> PIX Avançado
+#  PIX Avançado
 
 Aprenda a implementar integrações avançadas com PIX para automatizar pagamentos, recebimentos e gestão financeira no contexto brasileiro.
 
 ---
 
-## <IonicIcon name="qr-code-outline" size={24} color="#ea4b71" /> 1 | Tipos de PIX
+##  1 | Tipos de PIX
 
-### <IonicIcon name="person-outline" size={20} color="#10b981" /> PIX por Chave
+###  PIX por Chave
 
 **Integração com chaves PIX:**
 
@@ -31,7 +30,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-### <IonicIcon name="location-outline" size={20} color="#10b981" /> PIX por QR Code
+###  PIX por QR Code
 
 **QR Code estático e dinâmico:**
 
@@ -56,9 +55,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> 2 | Workflows de Pagamento
+##  2 | Workflows de Pagamento
 
-### <IonicIcon name="add-circle-outline" size={20} color="#10b981" /> Criar Cobrança PIX
+###  Criar Cobrança PIX
 
 **Exemplo: Workflow de cobrança automática:**
 
@@ -88,7 +87,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 ]
 ```
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#10b981" /> Monitorar Pagamentos
+###  Monitorar Pagamentos
 
 **Workflow de monitoramento:**
 
@@ -112,9 +111,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> 3 | APIs de Bancos Brasileiros
+##  3 | APIs de Bancos Brasileiros
 
-### <IonicIcon name="logo-google" size={20} color="#10b981" /> Open Banking
+###  Open Banking
 
 **Integração com Open Banking:**
 
@@ -138,7 +137,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-### <IonicIcon name="settings-outline" size={20} color="#10b981" /> APIs Específicas
+###  APIs Específicas
 
 **Exemplos de APIs bancárias:**
 
@@ -151,9 +150,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="shield-outline" size={24} color="#ea4b71" /> 4 | Segurança e Compliance
+##  4 | Segurança e Compliance
 
-### <IonicIcon name="lock-closed-outline" size={20} color="#10b981" /> LGPD e Segurança
+###  LGPD e Segurança
 
 **Requisitos de segurança:**
 
@@ -179,7 +178,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-### <IonicIcon name="checkmark-done-outline" size={20} color="#10b981" /> Validações
+###  Validações
 
 **Validações obrigatórias:**
 
@@ -212,9 +211,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="business-outline" size={24} color="#ea4b71" /> 5 | Casos de Uso Empresariais
+##  5 | Casos de Uso Empresariais
 
-### <IonicIcon name="storefront-outline" size={20} color="#10b981" /> E-commerce
+###  E-commerce
 
 **Automação para lojas online:**
 
@@ -251,7 +250,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-### <IonicIcon name="people-outline" size={20} color="#10b981" /> B2B
+###  B2B
 
 **Pagamentos entre empresas:**
 
@@ -285,9 +284,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="trending-up-outline" size={24} color="#ea4b71" /> 6 | Relatórios e Analytics
+##  6 | Relatórios e Analytics
 
-### <IonicIcon name="bar-chart-outline" size={20} color="#10b981" /> Métricas de PIX
+###  Métricas de PIX
 
 **KPIs importantes:**
 
@@ -310,7 +309,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 })($json.transacoes_pix) }}
 ```
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> Análise Temporal
+###  Análise Temporal
 
 **Padrões de pagamento:**
 
@@ -340,7 +339,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 7 | Próximos passos
+##  7 | Próximos passos
 
 1. **[Integração com Nota Fiscal](./nfe-integracao)** - Automatizar NFe
 2. **[Conciliação Bancária](./conciliacao-bancaria)** - Automatizar conciliação

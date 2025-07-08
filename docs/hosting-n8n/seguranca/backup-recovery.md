@@ -5,25 +5,24 @@ description: Como implementar estratégias de backup e recuperação para n8n
 keywords: [n8n, backup, recovery, restauração, continuidade, dados]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="backup-outline" size={32} color="#ea4b71" /> Backup e Recovery
+#  Backup e Recovery
 
 Este documento ensina como **implementar backup e recovery** para n8n, incluindo backup automático de workflows, export/import de credenciais, versionamento de configurações, recuperação point-in-time, testes de restauração, e estratégias de disaster recovery que garantem proteção completa dos dados críticos e continuidade operacional mesmo em cenários catastróficos de perda de dados ou infraestrutura.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="save-outline" size={16} color="#6b7280" /> Estratégias de backup 3-2-1
-- <IonicIcon name="refresh-outline" size={16} color="#6b7280" /> Scripts de automação
-- <IonicIcon name="time-outline" size={16} color="#6b7280" /> Recuperação point-in-time
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> Disaster recovery
-- <IonicIcon name="checkmark-circle-outline" size={16} color="#6b7280" /> Testes de restauração
+-  Estratégias de backup 3-2-1
+-  Scripts de automação
+-  Recuperação point-in-time
+-  Disaster recovery
+-  Testes de restauração
 
 ---
 
-## <IonicIcon name="save-outline" size={24} color="#ea4b71" /> Estratégia de Backup 3-2-1
+##  Estratégia de Backup 3-2-1
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Princípio 3-2-1
+###  Princípio 3-2-1
 
 #### **Definição da Estratégia**
 - **3 cópias** dos dados (original + 2 backups)
@@ -49,9 +48,9 @@ Este documento ensina como **implementar backup e recovery** para n8n, incluindo
 
 ---
 
-## <IonicIcon name="server-outline" size={24} color="#ea4b71" /> Backup de Banco de Dados
+##  Backup de Banco de Dados
 
-### <IonicIcon name="logo-postgres" size={20} color="#10b981" /> PostgreSQL
+###  PostgreSQL
 
 #### **Script de Backup PostgreSQL**
 ```bash
@@ -122,7 +121,7 @@ pg_basebackup -h $DB_HOST -p $DB_PORT -U $DB_USER \
 echo "Backup incremental criado: $BACKUP_DIR/base_$DATE"
 ```
 
-### <IonicIcon name="logo-mysql" size={20} color="#10b981" /> MySQL
+###  MySQL
 
 #### **Script de Backup MySQL**
 ```bash
@@ -179,9 +178,9 @@ fi
 
 ---
 
-## <IonicIcon name="folder-outline" size={24} color="#ea4b71" /> Backup de Workflows e Credenciais
+##  Backup de Workflows e Credenciais
 
-### <IonicIcon name="code-outline" size={20} color="#10b981" /> Backup via API
+###  Backup via API
 
 #### **Script de Backup de Workflows**
 ```bash
@@ -277,7 +276,7 @@ else
 fi
 ```
 
-### <IonicIcon name="logo-docker" size={20} color="#10b981" /> Backup de Volumes Docker
+###  Backup de Volumes Docker
 
 #### **Script de Backup de Volumes**
 ```bash
@@ -330,9 +329,9 @@ fi
 
 ---
 
-## <IonicIcon name="cloud-upload-outline" size={24} color="#ea4b71" /> Backup na Nuvem
+##  Backup na Nuvem
 
-### <IonicIcon name="logo-aws" size={20} color="#10b981" /> Amazon S3
+###  Amazon S3
 
 #### **Script de Backup para S3**
 ```bash
@@ -390,7 +389,7 @@ aws s3api put-bucket-lifecycle-configuration \
 echo "Backup para S3 concluído"
 ```
 
-### <IonicIcon name="logo-google" size={20} color="#10b981" /> Google Cloud Storage
+###  Google Cloud Storage
 
 #### **Script de Backup para GCS**
 ```bash
@@ -430,9 +429,9 @@ echo "Backup para GCS concluído"
 
 ---
 
-## <IonicIcon name="refresh-outline" size={24} color="#ea4b71" /> Recuperação e Restauração
+##  Recuperação e Restauração
 
-### <IonicIcon name="logo-postgres" size={20} color="#10b981" /> Restauração PostgreSQL
+###  Restauração PostgreSQL
 
 #### **Script de Restauração**
 ```bash
@@ -496,7 +495,7 @@ else
 fi
 ```
 
-### <IonicIcon name="code-outline" size={20} color="#10b981" /> Restauração de Workflows
+###  Restauração de Workflows
 
 #### **Script de Restauração de Workflows**
 ```bash
@@ -552,9 +551,9 @@ echo "$(date): Restauração de workflows concluída - $BACKUP_FILE" >> /var/log
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Disaster Recovery
+##  Disaster Recovery
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Plano de Disaster Recovery
+###  Plano de Disaster Recovery
 
 #### **Cenários de Recuperação**
 ```bash
@@ -578,7 +577,7 @@ RPO_PRIMARY=1      # 1 hora de perda de dados máxima
 RPO_SECONDARY=24   # 24 horas de perda de dados máxima
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Recuperação de Infraestrutura
+###  Recuperação de Infraestrutura
 
 #### **Script de Recuperação Completa**
 ```bash
@@ -637,9 +636,9 @@ fi
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Testes de Restauração
+##  Testes de Restauração
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Script de Teste
+###  Script de Teste
 
 #### **Teste Automatizado de Restauração**
 ```bash
@@ -698,9 +697,9 @@ fi
 
 ---
 
-## <IonicIcon name="time-outline" size={24} color="#ea4b71" /> Automação com Cron
+##  Automação com Cron
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração de Cron Jobs
+###  Configuração de Cron Jobs
 
 #### **Crontab Configuração**
 ```bash
@@ -752,9 +751,9 @@ echo "Limpeza concluída"
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Backup
+##  Checklist de Backup
 
-### <IonicIcon name="save-outline" size={20} color="#10b981" /> Configuração
+###  Configuração
 
 - [ ] Estratégia 3-2-1 implementada
 - [ ] Scripts de backup criados
@@ -762,7 +761,7 @@ echo "Limpeza concluída"
 - [ ] Backup na nuvem configurado
 - [ ] Retenção de backups definida
 
-### <IonicIcon name="refresh-outline" size={20} color="#10b981" /> Recuperação
+###  Recuperação
 
 - [ ] Scripts de restauração criados
 - [ ] Testes de restauração realizados
@@ -770,7 +769,7 @@ echo "Limpeza concluída"
 - [ ] RTO e RPO definidos
 - [ ] Procedimentos de recuperação testados
 
-### <IonicIcon name="analytics-outline" size={20} color="#10b981" /> Monitoramento
+###  Monitoramento
 
 - [ ] Logs de backup configurados
 - [ ] Alertas de falha configurados
@@ -778,7 +777,7 @@ echo "Limpeza concluída"
 - [ ] Relatórios de backup gerados
 - [ ] Verificação de integridade implementada
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Documentação
+###  Documentação
 
 - [ ] Procedimentos documentados
 - [ ] Contatos de emergência definidos
@@ -788,7 +787,7 @@ echo "Limpeza concluída"
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você implementou backup e recovery:
 
@@ -812,7 +811,7 @@ Considere implementar backup contínuo (continuous backup) para sistemas crític
 
 ---
 
-**<IonicIcon name="link-outline" size={16} color="#ea4b71" /> Links úteis:**
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> [Documentação oficial n8n](https://docs.n8n.io/)
-- <IonicIcon name="backup-outline" size={16} color="#6b7280" /> [Backup e Restore n8n](https://docs.n8n.io/hosting/backup-restore/)
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> [Segurança n8n](https://docs.n8n.io/hosting/security/)
+** Links úteis:**
+-  [Documentação oficial n8n](https://docs.n8n.io/)
+-  [Backup e Restore n8n](https://docs.n8n.io/hosting/backup-restore/)
+-  [Segurança n8n](https://docs.n8n.io/hosting/security/)

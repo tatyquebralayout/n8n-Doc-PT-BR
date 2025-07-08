@@ -5,15 +5,14 @@ description: Como criar e submeter seus workflows para a galeria de templates of
 keywords: [n8n, modelos, templates, contribuir, workflows, creator hub]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="copy-outline" size={32} color="#ea4b71" /> Contribuir com Modelos e Templates
+#  Contribuir com Modelos e Templates
 
 Uma maneira fantástica de contribuir com o ecossistema n8n é criando e compartilhando workflows que podem ser usados por outros usuários como templates. Se você construiu uma automação útil, ela pode ser um excelente ponto de partida para milhares de pessoas.
 
 ---
 
-## <IonicIcon name="bookmark-outline" size={24} color="#ea4b71" /> O que é um bom Template?
+##  O que é um bom Template?
 
 - **Reutilizável:** O workflow resolve um problema comum e pode ser facilmente adaptado por outros
 - **Bem Documentado:** Use as "Sticky Notes" (notas adesivas) no editor do n8n para explicar as partes mais importantes do seu workflow
@@ -22,7 +21,7 @@ Uma maneira fantástica de contribuir com o ecossistema n8n é criando e compart
 
 ---
 
-## <IonicIcon name="apps-outline" size={24} color="#ea4b71" /> n8n Creator Hub
+##  n8n Creator Hub
 
 O n8n centraliza o processo de submissão e gerenciamento de templates através do **n8n Creator Hub**. Este programa está em constante evolução, com o objetivo de criar um marketplace de templates.
 
@@ -38,7 +37,7 @@ O processo exato pode mudar, mas a referência principal é sempre o hub oficial
 
 ---
 
-## <IonicIcon name="link-outline" size={24} color="#ea4b71" /> Links Importantes
+##  Links Importantes
 
 - **[n8n Creator Hub](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f):** Portal oficial para submissão de templates
 - **[Documentação de Criação de Nodes](https://docs.n8n.io/integrations/creating-nodes/):** Para criar integrações personalizadas

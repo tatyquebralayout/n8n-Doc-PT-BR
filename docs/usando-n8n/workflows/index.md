@@ -5,7 +5,7 @@ description: Aprenda a criar, editar, organizar e otimizar workflows no n8n
 keywords: [n8n, workflows, automação, gerenciamento, organização, otimização]
 ---
 
-# <IonicIcon name="git-branch-outline" size={32} color="#ea4b71" /> Gerenciar Workflows
+#  Gerenciar Workflows
 
 Bem-vindo à seção de gerenciamento de workflows do n8n! Aqui você aprenderá como criar, organizar e otimizar seus workflows para máxima eficiência.
 

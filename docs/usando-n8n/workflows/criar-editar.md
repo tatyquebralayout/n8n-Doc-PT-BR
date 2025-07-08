@@ -5,17 +5,16 @@ description: Guia completo para criar e editar workflows no n8n
 keywords: [n8n, workflows, criar, editar, nodes, triggers, conexões]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="add-circle-outline" size={32} color="#ea4b71" /> Criar e Editar Workflows
+#  Criar e Editar Workflows
 
 Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o conceito inicial até a implementação completa.
 
 ---
 
-## <IonicIcon name="bulb-outline" size={24} color="#ea4b71" /> 1 | Planejamento do Workflow
+##  1 | Planejamento do Workflow
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Definindo o Objetivo
+###  Definindo o Objetivo
 
 **Antes de começar, responda:**
 
@@ -25,7 +24,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 4. **Qual o resultado** esperado?
 5. **Com que frequência** deve executar?
 
-### <IonicIcon name="git-branch-outline" size={20} color="#10b981" /> Estrutura Básica
+###  Estrutura Básica
 
 **Todo workflow precisa de:**
 
@@ -40,9 +39,9 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-## <IonicIcon name="create-outline" size={24} color="#ea4b71" /> 2 | Criando seu Primeiro Workflow
+##  2 | Criando seu Primeiro Workflow
 
-### <IonicIcon name="play-outline" size={20} color="#10b981" /> Passo a Passo
+###  Passo a Passo
 
 1. **Acesse o n8n** e clique em **"Novo Workflow"**
 2. **Escolha um trigger** (Manual, Schedule, Webhook)
@@ -53,7 +52,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 7. **Teste o workflow** com dados de exemplo
 8. **Ative o workflow** quando estiver pronto
 
-### <IonicIcon name="settings-outline" size={20} color="#10b981" /> Configuração do Trigger
+###  Configuração do Trigger
 
 **Tipos de trigger disponíveis:**
 
@@ -84,9 +83,9 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> 3 | Trabalhando com Nodes
+##  3 | Trabalhando com Nodes
 
-### <IonicIcon name="apps-outline" size={20} color="#10b981" /> Tipos de Nodes
+###  Tipos de Nodes
 
 **Categorias principais:**
 
@@ -96,7 +95,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 - **📊 Data Nodes**: Manipulação de dados
 - **🎯 Trigger Nodes**: Iniciadores de workflow
 
-### <IonicIcon name="options-outline" size={20} color="#10b981" /> Configurando Nodes
+###  Configurando Nodes
 
 **Campos comuns:**
 
@@ -113,7 +112,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 }
 ```
 
-### <IonicIcon name="link-outline" size={20} color="#10b981" /> Conectando Nodes
+###  Conectando Nodes
 
 **Tipos de conexão:**
 
@@ -124,9 +123,9 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-## <IonicIcon name="pencil-outline" size={24} color="#ea4b71" /> 4 | Editando Workflows Existentes
+##  4 | Editando Workflows Existentes
 
-### <IonicIcon name="copy-outline" size={20} color="#10b981" /> Modo de Edição
+###  Modo de Edição
 
 **Para editar um workflow:**
 
@@ -136,7 +135,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 4. **Teste as mudanças** antes de salvar
 5. **Salve o workflow** com Ctrl+S ou Cmd+S
 
-### <IonicIcon name="git-branch-outline" size={20} color="#10b981" /> Versionamento
+###  Versionamento
 
 **O n8n mantém histórico:**
 
@@ -145,7 +144,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 - **Rollback** para versões anteriores
 - **Comparação** entre versões
 
-### <IonicIcon name="duplicate-outline" size={20} color="#10b981" /> Duplicação e Templates
+###  Duplicação e Templates
 
 **Para reutilizar workflows:**
 
@@ -156,9 +155,9 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> 5 | Boas Práticas
+##  5 | Boas Práticas
 
-### <IonicIcon name="naming-outline" size={20} color="#10b981" /> Nomenclatura
+###  Nomenclatura
 
 **Use nomes descritivos:**
 
@@ -167,7 +166,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 - ❌ **"Workflow 1"**
 - ❌ **"Teste"**
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Documentação
+###  Documentação
 
 **Adicione descrições:**
 
@@ -180,7 +179,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 - **Responsável**: Equipe de Marketing
 ```
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 **Proteja seus workflows:**
 
@@ -191,9 +190,9 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-## <IonicIcon name="bug-outline" size={24} color="#ea4b71" /> 6 | Debugging e Testes
+##  6 | Debugging e Testes
 
-### <IonicIcon name="play-circle-outline" size={20} color="#10b981" /> Testando Workflows
+###  Testando Workflows
 
 **Estratégia de teste:**
 
@@ -203,7 +202,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 4. **Teste cenários de erro**
 5. **Valide resultados finais**
 
-### <IonicIcon name="alert-circle-outline" size={20} color="#10b981" /> Identificando Problemas
+###  Identificando Problemas
 
 **Sinais de problemas:**
 
@@ -212,7 +211,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 - **Dados vazios**: Falta de dados de entrada
 - **Timeout**: Execução muito lenta
 
-### <IonicIcon name="medical-outline" size={20} color="#10b981" /> Ferramentas de Debug
+###  Ferramentas de Debug
 
 **Recursos disponíveis:**
 
@@ -223,7 +222,7 @@ Aprenda os fundamentos para criar e editar workflows eficientes no n8n, desde o 
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 7 | Próximos passos
+##  7 | Próximos passos
 
 1. **[Organizar Workflows](./organizar)** - Estruturar projetos
 2. **[Otimizar Performance](./otimizar)** - Melhorar eficiência

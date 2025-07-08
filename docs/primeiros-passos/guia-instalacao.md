@@ -6,15 +6,14 @@ slug: /primeiros-passos/guia-instalacao
 keywords: [n8n, instalação, cloud, self-hosted, npm, docker, guia]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="compass-outline" size={32} color="#ea4b71" /> Guia de Instalação do **n8n** – Visão Panorâmica
+#  Guia de Instalação do **n8n** – Visão Panorâmica
 
 Bem-vindo(a) à **documentação brasileira** do n8n! Nesta seção você descobrirá **sobre o que** vamos falar – os três métodos oficiais de instalação do n8n –, entenderá **por que** cada abordagem existe e aprenderá **como** escolher a que melhor se encaixa no seu cenário. Nas próximas páginas, cada método será detalhado passo a passo, com exemplos práticos e recomendações de melhores práticas.
 
 ---
 
-## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> 1 | Por que três rotas de instalação?
+##  1 | Por que três rotas de instalação?
 
 | Necessidade frequente                     | Caminho recomendado                                                          |
 | ----------------------------------------- | ---------------------------------------------------------------------------- |
@@ -28,9 +27,9 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
 
 ---
 
-## <IonicIcon name="list-outline" size={24} color="#ea4b71" /> 2 | Métodos Oficiais de Instalação
+##  2 | Métodos Oficiais de Instalação
 
-### <IonicIcon name="cloud-outline" size={20} color="#10b981" /> a) n8n Cloud
+###  a) n8n Cloud
 
 * **O que é?** Serviço totalmente hospedado, gerenciado e escalável pelos criadores do n8n.
 * **Ideal para** times que buscam *time‑to‑value* imediato, suporte oficial e zero sobrecarga operacional.
@@ -42,7 +41,7 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
   * Plano pago (com *free trial*). Cobrança por usuário e/ou execuções.
   * Customizações de sistema operacional ou banco de dados não estão sob seu controle.
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> b) Self‑hosted (Auto‑hospedado)
+###  b) Self‑hosted (Auto‑hospedado)
 
 * **O que é?** Você instala o n8n em sua própria infraestrutura – VPS, bare‑metal ou Kubernetes.
 * **Sabores disponíveis**
@@ -57,7 +56,7 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
   * PostgreSQL + Redis para escalar com filas.
   * Know‑how DevOps: TLS, backups e observabilidade.
 
-### <IonicIcon name="logo-npm" size={20} color="#10b981" /> c) Instalação Local via **npm** (Node.js)
+###  c) Instalação Local via **npm** (Node.js)
 
 * **Objetivo**: ambiente sandbox para desenvolvimento, testes rápidos ou demonstrações offline.
 * **Requisitos mínimos**
@@ -71,7 +70,7 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> 3 | Qual rota escolher?
+##  3 | Qual rota escolher?
 
 | Cenário real                                                   | Caminho sugerido |
 | -------------------------------------------------------------- | ---------------- |
@@ -81,7 +80,7 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 4 | Próximos passos
+##  4 | Próximos passos
 
 1. **[n8n Cloud](./instalacao-cloud)** – preços, isolamento e SLA.
 2. **[Self‑hosted](./instalacao-self-hosted)** – guias Docker, escalabilidade e boas práticas DevOps.

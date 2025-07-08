@@ -5,33 +5,32 @@ description: Guia completo para instalar n8n usando Docker
 keywords: [n8n, docker, deployment, containerização, produção]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="logo-docker" size={32} color="#ea4b71" /> Instalação via Docker
+#  Instalação via Docker
 
 Este guia mostrará como instalar e executar o n8n usando Docker, a forma mais robusta e recomendada para ambientes de produção.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="settings-outline" size={16} color="#6b7280" /> Como configurar n8n com Docker
-- <IonicIcon name="code-outline" size={16} color="#6b7280" /> Variáveis de ambiente essenciais
-- <IonicIcon name="folder-outline" size={16} color="#6b7280" /> Configuração de volumes e persistência
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> Configuração de rede e segurança
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> Monitoramento e logs
-- <IonicIcon name="save-outline" size={16} color="#6b7280" /> Backup e recuperação
+-  Como configurar n8n com Docker
+-  Variáveis de ambiente essenciais
+-  Configuração de volumes e persistência
+-  Configuração de rede e segurança
+-  Monitoramento e logs
+-  Backup e recuperação
 
-## <IonicIcon name="checkbox-outline" size={24} color="#ea4b71" /> Pré-requisitos
+##  Pré-requisitos
 
 Antes de começar, certifique-se de ter:
 
-- <IonicIcon name="logo-docker" size={16} color="#6b7280" /> **Docker** instalado (versão 20.10 ou superior)
-- <IonicIcon name="copy-outline" size={16} color="#6b7280" /> **Docker Compose** instalado (versão 1.28 ou superior)
-- <IonicIcon name="hardware-chip-outline" size={16} color="#6b7280" /> **Pelo menos 2GB de RAM** disponível
-- <IonicIcon name="globe-outline" size={16} color="#6b7280" /> **Porta 5678** disponível (ou outra de sua escolha)
+-  **Docker** instalado (versão 20.10 ou superior)
+-  **Docker Compose** instalado (versão 1.28 ou superior)
+-  **Pelo menos 2GB de RAM** disponível
+-  **Porta 5678** disponível (ou outra de sua escolha)
 
 ---
 
-## <IonicIcon name="flash-outline" size={24} color="#ea4b71" /> Instalação Rápida
+##  Instalação Rápida
 
 ### **Teste Básico (Desenvolvimento)**
 ```bash
@@ -63,7 +62,7 @@ n8nio/n8n
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Docker Compose (Recomendado)
+##  Docker Compose (Recomendado)
 
 ### **Configuração Básica**
 Crie um arquivo `docker-compose.yml`:
@@ -154,7 +153,7 @@ docker-compose down
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configuração Avançada
+##  Configuração Avançada
 
 ### **Variáveis de Ambiente Essenciais**
 ```bash
@@ -294,7 +293,7 @@ http {
 
 ---
 
-## <IonicIcon name="trending-up-outline" size={24} color="#ea4b71" /> Escalabilidade
+##  Escalabilidade
 
 ### **Configuração de Filas com Redis**
 ```yaml
@@ -355,7 +354,7 @@ services:
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Segurança
+##  Segurança
 
 ### **Autenticação Básica**
 ```yaml
@@ -392,7 +391,7 @@ networks:
 
 ---
 
-## <IonicIcon name="backup-outline" size={24} color="#ea4b71" /> Backup e Recuperação
+##  Backup e Recuperação
 
 ### **Backup Automático**
 ```bash
@@ -421,7 +420,7 @@ find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento
+##  Monitoramento
 
 ### **Logs**
 ```bash
@@ -459,7 +458,7 @@ fi
 
 ---
 
-## <IonicIcon name="bug-outline" size={24} color="#ea4b71" /> Troubleshooting
+##  Troubleshooting
 
 ### **Problemas Comuns**
 
@@ -499,7 +498,7 @@ docker-compose up -d
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você tem o n8n rodando com Docker:
 
@@ -524,7 +523,7 @@ Mantenha sempre backups regulares dos volumes e do banco de dados. Em caso de fa
 
 ---
 
-**<IonicIcon name="link-outline" size={16} color="#ea4b71" /> Links úteis:**
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> [Documentação oficial Docker n8n](https://docs.n8n.io/hosting/installation/docker/)
-- <IonicIcon name="logo-docker" size={16} color="#6b7280" /> [Imagem oficial no Docker Hub](https://hub.docker.com/r/n8nio/n8n)
-- <IonicIcon name="logo-github" size={16} color="#6b7280" /> [Repositório n8n no GitHub](https://github.com/n8n-io/n8n)
+** Links úteis:**
+-  [Documentação oficial Docker n8n](https://docs.n8n.io/hosting/installation/docker/)
+-  [Imagem oficial no Docker Hub](https://hub.docker.com/r/n8nio/n8n)
+-  [Repositório n8n no GitHub](https://github.com/n8n-io/n8n)

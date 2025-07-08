@@ -5,17 +5,16 @@ description: Automatizar geração, envio e gestão de Notas Fiscais Eletrônica
 keywords: [n8n, nfe, nota fiscal, sefaz, automação, fiscal, contabilidade]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="document-text-outline" size={32} color="#ea4b71" /> Integração com NFe
+#  Integração com NFe
 
 Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas (NFe) integrando com a SEFAZ e sistemas contábeis brasileiros.
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> 1 | Configuração da NFe
+##  1 | Configuração da NFe
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Certificado Digital
+###  Certificado Digital
 
 **Configuração do certificado A1:**
 
@@ -38,7 +37,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-### <IonicIcon name="business-outline" size={20} color="#10b981" /> Dados da Empresa
+###  Dados da Empresa
 
 **Informações obrigatórias:**
 
@@ -65,9 +64,9 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> 2 | Estrutura da NFe
+##  2 | Estrutura da NFe
 
-### <IonicIcon name="list-outline" size={20} color="#10b981" /> Cabeçalho da Nota
+###  Cabeçalho da Nota
 
 **Dados básicos da NFe:**
 
@@ -91,7 +90,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-### <IonicIcon name="person-outline" size={20} color="#10b981" /> Dados do Destinatário
+###  Dados do Destinatário
 
 **Informações do cliente:**
 
@@ -120,9 +119,9 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ---
 
-## <IonicIcon name="cart-outline" size={24} color="#ea4b71" /> 3 | Itens da Nota
+##  3 | Itens da Nota
 
-### <IonicIcon name="pricetag-outline" size={20} color="#10b981" /> Produtos e Serviços
+###  Produtos e Serviços
 
 **Estrutura dos itens:**
 
@@ -164,7 +163,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-### <IonicIcon name="calculator-outline" size={20} color="#10b981" /> Cálculos Fiscais
+###  Cálculos Fiscais
 
 **Automatizar cálculos:**
 
@@ -201,9 +200,9 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ---
 
-## <IonicIcon name="cloud-upload-outline" size={24} color="#ea4b71" /> 4 | Envio para SEFAZ
+##  4 | Envio para SEFAZ
 
-### <IonicIcon name="send-outline" size={20} color="#10b981" /> Autorização
+###  Autorização
 
 **Workflow de autorização:**
 
@@ -249,7 +248,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#10b981" /> Tratamento de Respostas
+###  Tratamento de Respostas
 
 **Processar retornos da SEFAZ:**
 
@@ -302,9 +301,9 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ---
 
-## <IonicIcon name="document-text-outline" size={24} color="#ea4b71" /> 5 | Geração de DANFE
+##  5 | Geração de DANFE
 
-### <IonicIcon name="print-outline" size={20} color="#10b981" /> Template do DANFE
+###  Template do DANFE
 
 **Estrutura do documento:**
 
@@ -346,7 +345,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-### <IonicIcon name="mail-outline" size={20} color="#10b981" /> Envio Automático
+###  Envio Automático
 
 **Workflow de envio:**
 
@@ -390,9 +389,9 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ---
 
-## <IonicIcon name="sync-outline" size={24} color="#ea4b71" /> 6 | Integração com Sistemas
+##  6 | Integração com Sistemas
 
-### <IonicIcon name="business-outline" size={20} color="#10b981" /> ERP e CRM
+###  ERP e CRM
 
 **Sincronização com sistemas:**
 
@@ -431,7 +430,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-### <IonicIcon name="cloud-outline" size={20} color="#10b981" /> Contabilidade
+###  Contabilidade
 
 **Integração contábil:**
 
@@ -464,9 +463,9 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> 7 | Relatórios Fiscais
+##  7 | Relatórios Fiscais
 
-### <IonicIcon name="bar-chart-outline" size={20} color="#10b981" /> Relatórios Obrigatórios
+###  Relatórios Obrigatórios
 
 **Relatórios para SEFAZ:**
 
@@ -498,7 +497,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 })($json.nfes) }}
 ```
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Arquivos SPED
+###  Arquivos SPED
 
 **Geração de SPED:**
 
@@ -554,7 +553,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 8 | Próximos passos
+##  8 | Próximos passos
 
 1. **[Conciliação Bancária](./conciliacao-bancaria)** - Automatizar conciliação
 2. **[Relatórios Fiscais](./relatorios-fiscais)** - Gerar relatórios obrigatórios

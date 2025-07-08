@@ -6,15 +6,14 @@ slug: /primeiros-passos/instalacao
 keywords: [n8n, instalação, docker, npm, setup, self-hosted]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="server-outline" size={32} /> Instalação Self-hosted do n8n
+#  Instalação Self-hosted do n8n
 
 Esta página detalha os métodos de instalação **self-hosted** do n8n, incluindo Docker (recomendado) e npm. Para uma visão geral de todos os métodos, consulte o [Guia de Instalação – Visão Panorâmica](./guia-instalacao).
 
-## <IonicIcon name="options-outline" size={24} /> Opções de Instalação
+##  Opções de Instalação
 
-### <IonicIcon name="logo-docker" size={20} color="#10b981" /> Docker (Recomendado)
+###  Docker (Recomendado)
 
 A forma mais rápida e fácil de começar:
 
@@ -26,9 +25,9 @@ docker run -it --rm \
 n8nio/n8n
 ```
 
-<IonicIcon name="globe-outline" size={16} color="#0ea5e9" /> Acesse http://localhost:5678 no seu navegador.
+ Acesse http://localhost:5678 no seu navegador.
 
-### <IonicIcon name="logo-npm" size={20} color="#10b981" /> NPM
+###  NPM
 
 Para instalação via npm (requer Node.js 18+):
 
@@ -40,7 +39,7 @@ npm install n8n -g
 n8n start
 ```
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> NPX (Sem instalação)
+###  NPX (Sem instalação)
 
 Para testar sem instalar:
 

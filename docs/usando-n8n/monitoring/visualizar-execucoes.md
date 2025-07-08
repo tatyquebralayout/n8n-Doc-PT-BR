@@ -5,24 +5,23 @@ description: Como acompanhar e analisar execuções de workflows no n8n
 keywords: [n8n, execuções, visualizar, status, histórico, resultados]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="eye-outline" size={32} color="#ea4b71" /> Visualizar Execuções
+#  Visualizar Execuções
 
 Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu em cada execução dos seus workflows.
 
 ---
 
-## <IonicIcon name="list-outline" size={24} color="#ea4b71" /> 1 | Onde Encontrar Execuções
+##  1 | Onde Encontrar Execuções
 
-### <IonicIcon name="apps-outline" size={20} color="#10b981" /> Menu de Execuções
+###  Menu de Execuções
 
 1. **Acesse o menu lateral** → Clique em **"Execuções"**
 2. **Visualize todas as execuções** recentes
 3. **Filtre por workflow** específico
 4. **Pesquise** por data, status ou conteúdo
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> Histórico de Execuções
+###  Histórico de Execuções
 
 **Informações disponíveis:**
 - **Data e hora** da execução
@@ -33,9 +32,9 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-## <IonicIcon name="color-palette-outline" size={24} color="#ea4b71" /> 2 | Status das Execuções
+##  2 | Status das Execuções
 
-### <IonicIcon name="checkmark-circle-outline" size={20} color="#10b981" /> Status de Sucesso
+###  Status de Sucesso
 
 **Características:**
 - **Cor verde** no indicador
@@ -43,7 +42,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 - **Dados processados** conforme esperado
 - **Logs limpos** sem erros
 
-### <IonicIcon name="close-circle-outline" size={20} color="#ef4444" /> Status de Erro
+###  Status de Erro
 
 **Características:**
 - **Cor vermelha** no indicador
@@ -51,7 +50,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 - **Execução interrompida** no ponto de falha
 - **Logs com detalhes** do erro
 
-### <IonicIcon name="pause-circle-outline" size={20} color="#f59e0b" /> Status de Aguardando
+###  Status de Aguardando
 
 **Características:**
 - **Cor amarela** no indicador
@@ -59,7 +58,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 - **Aguardando input** manual ou condição
 - **Pode ser retomado** quando necessário
 
-### <IonicIcon name="play-circle-outline" size={20} color="#3b82f6" /> Status de Em Andamento
+###  Status de Em Andamento
 
 **Características:**
 - **Cor azul** no indicador
@@ -69,9 +68,9 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-## <IonicIcon name="document-text-outline" size={24} color="#ea4b71" /> 3 | Detalhes da Execução
+##  3 | Detalhes da Execução
 
-### <IonicIcon name="information-circle-outline" size={20} color="#10b981" /> Informações Gerais
+###  Informações Gerais
 
 **Ao clicar em uma execução:**
 
@@ -89,7 +88,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 }
 ```
 
-### <IonicIcon name="git-branch-outline" size={20} color="#10b981" /> Fluxo de Execução
+###  Fluxo de Execução
 
 **Visualização do caminho:**
 
@@ -102,9 +101,9 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> 4 | Análise de Performance
+##  4 | Análise de Performance
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Métricas de Tempo
+###  Métricas de Tempo
 
 **Tempos importantes:**
 
@@ -115,7 +114,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 | **Tempo de Espera** | Tempo entre nodes | 100ms |
 | **Tempo de Processamento** | Tempo ativo de processamento | 2m 15s |
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Análise de Tendências
+###  Análise de Tendências
 
 **Compare execuções:**
 
@@ -126,9 +125,9 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-## <IonicIcon name="search-outline" size={24} color="#ea4b71" /> 5 | Filtros e Busca
+##  5 | Filtros e Busca
 
-### <IonicIcon name="funnel-outline" size={20} color="#10b981" /> Filtros Disponíveis
+###  Filtros Disponíveis
 
 **Filtre execuções por:**
 
@@ -138,7 +137,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 - **Trigger**: Tipo de gatilho
 - **Duração**: Tempo de execução
 
-### <IonicIcon name="search-circle-outline" size={20} color="#10b981" /> Busca Avançada
+###  Busca Avançada
 
 **Pesquise por:**
 
@@ -150,9 +149,9 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-## <IonicIcon name="download-outline" size={24} color="#ea4b71" /> 6 | Exportar e Compartilhar
+##  6 | Exportar e Compartilhar
 
-### <IonicIcon name="document-download-outline" size={20} color="#10b981" /> Exportar Dados
+###  Exportar Dados
 
 **Formatos disponíveis:**
 
@@ -161,7 +160,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 - **PDF**: Relatório formatado
 - **Logs**: Arquivo de texto com logs
 
-### <IonicIcon name="share-outline" size={20} color="#10b981" /> Compartilhar Execuções
+###  Compartilhar Execuções
 
 **Opções de compartilhamento:**
 
@@ -172,9 +171,9 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> 7 | Configurações de Visualização
+##  7 | Configurações de Visualização
 
-### <IonicIcon name="options-outline" size={20} color="#10b981" /> Personalizar Interface
+###  Personalizar Interface
 
 **Configurações disponíveis:**
 
@@ -195,7 +194,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 }
 ```
 
-### <IonicIcon name="eye-off-outline" size={20} color="#10b981" /> Ocultar Informações Sensíveis
+###  Ocultar Informações Sensíveis
 
 **Proteja dados sensíveis:**
 
@@ -206,7 +205,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> 8 | Próximos passos
+##  8 | Próximos passos
 
 1. **[Analisar Logs](./analisar-logs)** - Investigar problemas detalhadamente
 2. **[Configurar Alertas](./configurar-alertas)** - Receber notificações automáticas

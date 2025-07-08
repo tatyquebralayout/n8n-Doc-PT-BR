@@ -5,13 +5,12 @@ description: Como instalar n8n usando npm para máximo controle e customização
 keywords: [n8n, npm, instalação, nodejs, customização, desenvolvimento]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="logo-npm" size={32} color="#ea4b71" /> Instalação via NPM
+#  Instalação via NPM
 
 Este guia detalha como **instalar n8n via npm** para máximo controle e customização, ideal para desenvolvimento, testes e ambientes personalizados.
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Quando Usar NPM?
+##  Quando Usar NPM?
 
 ### **Cenários Ideais:**
 - 🧪 **Desenvolvimento** - Criar e testar nodes customizados
@@ -28,7 +27,7 @@ Este guia detalha como **instalar n8n via npm** para máximo controle e customiz
 
 ---
 
-## <IonicIcon name="checkbox-outline" size={24} color="#ea4b71" /> Pré-requisitos
+##  Pré-requisitos
 
 ### **Node.js e npm**
 ```bash
@@ -56,7 +55,7 @@ brew install node
 
 ---
 
-## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Instalação Rápida
+##  Instalação Rápida
 
 ### **1. Instalação Global (Recomendado)**
 ```bash
@@ -81,7 +80,7 @@ Abra seu navegador e acesse: `http://localhost:5678`
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configuração Avançada
+##  Configuração Avançada
 
 ### **Variáveis de Ambiente**
 ```bash
@@ -126,7 +125,7 @@ n8n start --tunnel
 
 ---
 
-## <IonicIcon name="code-outline" size={24} color="#ea4b71" /> Desenvolvimento
+##  Desenvolvimento
 
 ### **Instalação para Desenvolvimento**
 ```bash
@@ -214,7 +213,7 @@ export class MyNode implements INodeType {
 
 ---
 
-## <IonicIcon name="bug-outline" size={24} color="#ea4b71" /> Debug e Troubleshooting
+##  Debug e Troubleshooting
 
 ### **Logs Detalhados**
 ```bash
@@ -264,7 +263,7 @@ curl -X POST http://localhost:5678/webhook/test
 
 ---
 
-## <IonicIcon name="sync-outline" size={24} color="#ea4b71" /> Atualizações
+##  Atualizações
 
 ### **Atualizar n8n**
 ```bash
@@ -292,7 +291,7 @@ npm install -g n8n@1.98.0
 
 ---
 
-## <IonicIcon name="folder-outline" size={24} color="#ea4b71" /> Estrutura de Arquivos
+##  Estrutura de Arquivos
 
 ### **Diretórios Importantes**
 ```bash
@@ -323,7 +322,7 @@ cp -r ~/.n8n/workflows/ ./backup-workflows/
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você tem o n8n rodando localmente:
 
@@ -352,7 +351,7 @@ Lembre-se: a instalação npm é para **desenvolvimento e testes**. Para produç
 
 ---
 
-**<IonicIcon name="link-outline" size={16} color="#ea4b71" /> Links úteis:**
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> [Documentação oficial n8n](https://docs.n8n.io/)
-- <IonicIcon name="logo-github" size={16} color="#6b7280" /> [Repositório n8n no GitHub](https://github.com/n8n-io/n8n)
-- <IonicIcon name="logo-npm" size={16} color="#6b7280" /> [Pacote n8n no npm](https://www.npmjs.com/package/n8n)
+** Links úteis:**
+-  [Documentação oficial n8n](https://docs.n8n.io/)
+-  [Repositório n8n no GitHub](https://github.com/n8n-io/n8n)
+-  [Pacote n8n no npm](https://www.npmjs.com/package/n8n)

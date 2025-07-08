@@ -5,23 +5,23 @@ description: Como configurar n8n na AWS Brasil com foco na região de São Paulo
 keywords: [n8n, aws, brasil, são paulo, us-east-1, ec2, rds, vpc, compliance]
 ---
 
-# <IonicIcon name="logo-aws" size={32} color="#ea4b71" /> AWS Brasil
+#  AWS Brasil
 
 Este guia detalha como **configurar n8n na AWS Brasil**, focando na região us-east-1 (São Paulo), configurações de compliance brasileiro, otimização de custos, e implementação de alta disponibilidade seguindo as melhores práticas para o mercado brasileiro.
 
-## <IonicIcon name="location-outline" size={24} color="#ea4b71" /> Região AWS Brasil
+##  Região AWS Brasil
 
-### <IonicIcon name="pin-outline" size={20} color="#10b981" /> us-east-1 (São Paulo)
+###  us-east-1 (São Paulo)
 
 A região de São Paulo oferece:
-- <IonicIcon name="speedometer-outline" size={16} color="#6b7280" /> **Baixa latência** para usuários brasileiros
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> **Compliance LGPD** com data residency
-- <IonicIcon name="card-outline" size={16} color="#6b7280" /> **Cobrança em BRL** (sem conversão de moeda)
-- <IonicIcon name="business-outline" size={16} color="#6b7280" /> **Suporte local** em português
+-  **Baixa latência** para usuários brasileiros
+-  **Compliance LGPD** com data residency
+-  **Cobrança em BRL** (sem conversão de moeda)
+-  **Suporte local** em português
 
-## <IonicIcon name="server-outline" size={24} color="#ea4b71" /> Arquitetura Recomendada
+##  Arquitetura Recomendada
 
-### <IonicIcon name="layers-outline" size={20} color="#10b981" /> Componentes da Infraestrutura
+###  Componentes da Infraestrutura
 
 ```yaml
 # docker-compose.yml para AWS Brasil
@@ -97,9 +97,9 @@ networks:
     driver: bridge
 ```
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configuração de Recursos AWS
+##  Configuração de Recursos AWS
 
-### <IonicIcon name="hardware-chip-outline" size={20} color="#10b981" /> EC2 Instance Types
+###  EC2 Instance Types
 
 **Para Desenvolvimento:**
 ```bash
@@ -131,7 +131,7 @@ Storage: 100GB gp3
 Custo: ~R$ 400/mês
 ```
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> RDS PostgreSQL
+###  RDS PostgreSQL
 
 **Configuração Recomendada:**
 ```bash
@@ -152,7 +152,7 @@ Backup: 30 dias
 Custo: ~R$ 200/mês
 ```
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> VPC e Segurança
+###  VPC e Segurança
 
 **Configuração de Rede:**
 ```bash
@@ -172,9 +172,9 @@ rds-sg:
   - Port 5432 (PostgreSQL) - n8n-sg
 ```
 
-## <IonicIcon name="card-outline" size={24} color="#ea4b71" /> Otimização de Custos
+##  Otimização de Custos
 
-### <IonicIcon name="calculator-outline" size={20} color="#10b981" /> Estratégias de Economia
+###  Estratégias de Economia
 
 **1. Reserved Instances:**
 ```bash
@@ -200,9 +200,9 @@ IA: R$ 0,0125/GB/mês
 Archive: R$ 0,004/GB/mês
 ```
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Compliance Brasileiro
+##  Compliance Brasileiro
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> LGPD (Lei Geral de Proteção de Dados)
+###  LGPD (Lei Geral de Proteção de Dados)
 
 **Configurações de Privacidade:**
 ```bash
@@ -225,7 +225,7 @@ EXECUTIONS_DATA_MAX_AGE=30
 - Backup criptografado dos logs
 ```
 
-### <IonicIcon name="business-outline" size={20} color="#10b981" /> Marco Civil da Internet
+###  Marco Civil da Internet
 
 **Requisitos de Armazenamento:**
 ```bash
@@ -236,9 +236,9 @@ EXECUTIONS_DATA_MAX_AGE=30
 - Criptografia em repouso
 ```
 
-## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Deployment Automatizado
+##  Deployment Automatizado
 
-### <IonicIcon name="code-outline" size={20} color="#10b981" /> Terraform para AWS Brasil
+###  Terraform para AWS Brasil
 
 ```hcl
 # main.tf
@@ -312,9 +312,9 @@ resource "aws_db_instance" "n8n_database" {
 }
 ```
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento e Alertas
+##  Monitoramento e Alertas
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> CloudWatch
+###  CloudWatch
 
 **Métricas Essenciais:**
 ```bash
@@ -344,9 +344,9 @@ Subject: "Alerta n8n - CPU alta"
 Message: "A instância n8n está com CPU em 85%. Verifique imediatamente."
 ```
 
-## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> Troubleshooting
+##  Troubleshooting
 
-### <IonicIcon name="warning-outline" size={20} color="#f59e0b" /> Problemas Comuns
+###  Problemas Comuns
 
 **1. Alto Latência:**
 ```bash
@@ -373,9 +373,9 @@ aws rds describe-db-snapshots \
   --db-instance-identifier n8n-db
 ```
 
-## <IonicIcon name="bulb-outline" size={24} color="#ea4b71" /> Dicas para o Brasil
+##  Dicas para o Brasil
 
-### <IonicIcon name="trending-up-outline" size={20} color="#10b981" /> Otimizações Específicas
+###  Otimizações Específicas
 
 1. **Fuso Horário:** Sempre use `America/Sao_Paulo`
 2. **Moeda:** Configure alertas de custo em BRL
@@ -383,16 +383,16 @@ aws rds describe-db-snapshots \
 4. **Compliance:** Implemente logs para LGPD desde o início
 5. **Backup:** Use múltiplas regiões para disaster recovery
 
-### <IonicIcon name="link-outline" size={20} color="#10b981" /> Recursos Úteis
+###  Recursos Úteis
 
-- <IonicIcon name="document-text-outline" size={16} color="#6b7280" /> **[AWS Brasil](https://aws.amazon.com/pt/)** - Portal oficial
-- <IonicIcon name="school-outline" size={16} color="#6b7280" /> **[AWS Training](https://aws.amazon.com/pt/training/)** - Cursos gratuitos
-- <IonicIcon name="people-outline" size={16} color="#6b7280" /> **[AWS User Groups Brasil](https://aws.amazon.com/pt/events/aws-user-groups/)** - Comunidade local
-- <IonicIcon name="calculator-outline" size={16} color="#6b7280" /> **[AWS Pricing Calculator](https://calculator.aws/)** - Calculadora de custos
+-  **[AWS Brasil](https://aws.amazon.com/pt/)** - Portal oficial
+-  **[AWS Training](https://aws.amazon.com/pt/training/)** - Cursos gratuitos
+-  **[AWS User Groups Brasil](https://aws.amazon.com/pt/events/aws-user-groups/)** - Comunidade local
+-  **[AWS Pricing Calculator](https://calculator.aws/)** - Calculadora de custos
 
 ---
 
-**<IonicIcon name="checkmark-circle-outline" size={16} color="#10b981" /> Próximos passos:**
+** Próximos passos:**
 1. **[Google Cloud Brasil](./gcp-brasil)** - Configuração no GCP
 2. **[Azure Brasil](./azure-brasil)** - Configuração no Azure
 3. **[Compliance LGPD](../compliance/lgpd)** - Configurações de privacidade 

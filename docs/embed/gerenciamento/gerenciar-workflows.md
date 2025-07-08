@@ -5,25 +5,24 @@ description: Como gerenciar e controlar workflows em n8n embarcado
 keywords: [n8n, embed, workflows, gerenciamento, controle, permissões]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="settings-outline" size={32} color="#ea4b71" /> Gerenciar Workflows Embarcados
+#  Gerenciar Workflows Embarcados
 
 Este documento detalha como **gerenciar workflows em n8n embarcado**, incluindo controle de acesso granular, versionamento integrado, backup automático, sincronização com sistemas externos, auditoria de mudanças, e estratégias de governança que garantem controle total sobre automações criadas dentro do ambiente embarcado mantendo compliance e segurança empresarial.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> Gerenciamento via API REST
-- <IonicIcon name="shield-checkmark-outline" size={16} color="#6b7280" /> Controle de acesso e permissões
-- <IonicIcon name="git-branch-outline" size={16} color="#6b7280" /> Versionamento de workflows
-- <IonicIcon name="analytics-outline" size={16} color="#6b7280" /> Auditoria e logs
-- <IonicIcon name="backup-outline" size={16} color="#6b7280" /> Backup e recovery
+-  Gerenciamento via API REST
+-  Controle de acesso e permissões
+-  Versionamento de workflows
+-  Auditoria e logs
+-  Backup e recovery
 
 ---
 
-## <IonicIcon name="server-outline" size={24} color="#ea4b71" /> Gerenciamento via API REST
+##  Gerenciamento via API REST
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Endpoints Principais
+###  Endpoints Principais
 
 O n8n oferece uma API REST completa para gerenciar workflows programaticamente:
 
@@ -82,7 +81,7 @@ GET /api/v1/executions/{id}
 POST /api/v1/executions/{id}/stop
 ```
 
-### <IonicIcon name="key-outline" size={20} color="#10b981" /> Autenticação
+###  Autenticação
 
 #### **API Key (Recomendado)**
 ```bash
@@ -112,9 +111,9 @@ curl -H "X-N8N-API-KEY: sua_api_key" \
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Controle de Acesso e Permissões
+##  Controle de Acesso e Permissões
 
-### <IonicIcon name="people-outline" size={20} color="#10b981" /> Sistema RBAC
+###  Sistema RBAC
 
 O n8n implementa Role-Based Access Control (RBAC) para controle granular de acesso:
 
@@ -164,7 +163,7 @@ const roles = {
 }
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Integração com Sistemas Externos
+###  Integração com Sistemas Externos
 
 #### **SAML/SSO**
 ```yaml
@@ -187,9 +186,9 @@ N8N_LDAP_BASE_DN=dc=empresa,dc=com
 
 ---
 
-## <IonicIcon name="git-branch-outline" size={24} color="#ea4b71" /> Versionamento de Workflows
+##  Versionamento de Workflows
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> Histórico Automático
+###  Histórico Automático
 
 O n8n mantém histórico completo de versões automaticamente:
 
@@ -232,7 +231,7 @@ POST /api/v1/workflows/{id}/versions/{version}/restore
 GET /api/v1/workflows/{id}/versions/compare?from=3&to=5
 ```
 
-### <IonicIcon name="document-text-outline" size={20} color="#10b981" /> Documentação de Mudanças
+###  Documentação de Mudanças
 
 #### **Comentários de Versão**
 ```javascript
@@ -254,9 +253,9 @@ curl -X GET "https://seu-n8n.com/api/v1/workflows/{id}/changelog?from=1&to=5" \
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Auditoria e Logs
+##  Auditoria e Logs
 
-### <IonicIcon name="eye-outline" size={20} color="#10b981" /> Logs de Atividade
+###  Logs de Atividade
 
 #### **Eventos Auditados**
 ```javascript
@@ -288,7 +287,7 @@ GET /api/v1/audit-logs?event=workflow.updated
 GET /api/v1/audit-logs/export?format=csv
 ```
 
-### <IonicIcon name="notifications-outline" size={20} color="#10b981" /> Alertas de Segurança
+###  Alertas de Segurança
 
 #### **Configuração de Alertas**
 ```javascript
@@ -328,9 +327,9 @@ POST /webhook/security-alerts
 
 ---
 
-## <IonicIcon name="backup-outline" size={24} color="#ea4b71" /> Backup e Recovery
+##  Backup e Recovery
 
-### <IonicIcon name="save-outline" size={20} color="#10b981" /> Backup Automático
+###  Backup Automático
 
 #### **Script de Backup**
 ```bash
@@ -376,7 +375,7 @@ echo "Backup criado: $BACKUP_DIR/n8n_backup_$DATE.tar.gz"
 0 2 * * 0 /path/to/backup-workflows-full.sh
 ```
 
-### <IonicIcon name="refresh-outline" size={20} color="#10b981" /> Restauração
+###  Restauração
 
 #### **Restaurar Workflows**
 ```bash
@@ -404,9 +403,9 @@ echo "Workflows restaurados com sucesso"
 
 ---
 
-## <IonicIcon name="sync-outline" size={24} color="#ea4b71" /> Sincronização e Integração
+##  Sincronização e Integração
 
-### <IonicIcon name="globe-outline" size={20} color="#10b981" /> Webhooks
+###  Webhooks
 
 #### **Sincronização com Sistemas Externos**
 ```javascript
@@ -431,7 +430,7 @@ echo "Workflows restaurados com sucesso"
 }
 ```
 
-### <IonicIcon name="git-branch-outline" size={20} color="#10b981" /> Integração com Git
+###  Integração com Git
 
 #### **Sincronização com Repositório**
 ```bash
@@ -462,9 +461,9 @@ echo "Workflows sincronizados com Git"
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Boas Práticas
+##  Boas Práticas
 
-### <IonicIcon name="naming-outline" size={20} color="#10b981" /> Nomenclatura e Documentação
+###  Nomenclatura e Documentação
 
 #### **Padrões de Nomenclatura**
 ```javascript
@@ -492,7 +491,7 @@ const namingPatterns = {
 }
 ```
 
-### <IonicIcon name="shield-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 #### **Proteção de Dados Sensíveis**
 ```javascript
@@ -538,7 +537,7 @@ const namingPatterns = {
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você entende o gerenciamento de workflows embarcados:
 

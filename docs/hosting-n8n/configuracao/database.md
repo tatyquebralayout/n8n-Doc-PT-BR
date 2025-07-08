@@ -5,25 +5,24 @@ description: Como configurar banco de dados para n8n em produção
 keywords: [n8n, database, banco de dados, postgresql, mysql, configuração]
 ---
 
-import IonicIcon from '@site/src/components/IonicIcon';
 
-# <IonicIcon name="server-outline" size={32} color="#ea4b71" /> Configuração de Database
+#  Configuração de Database
 
 Este documento explica como **configurar banco de dados** para n8n em ambiente de produção, abordando escolha entre PostgreSQL e MySQL, configuração de conexões, otimização de performance, backup e recovery, migrações entre versões, e estratégias de escalabilidade que garantem armazenamento confiável e eficiente de workflows, execuções, e credenciais em implementações empresariais robustas.
 
-## <IonicIcon name="school-outline" size={24} color="#ea4b71" /> O que você vai aprender
+##  O que você vai aprender
 
-- <IonicIcon name="server-outline" size={16} color="#6b7280" /> Escolha entre PostgreSQL e MySQL
-- <IonicIcon name="settings-outline" size={16} color="#6b7280" /> Configuração de conexões
-- <IonicIcon name="rocket-outline" size={16} color="#6b7280" /> Otimização de performance
-- <IonicIcon name="backup-outline" size={16} color="#6b7280" /> Backup e recovery
-- <IonicIcon name="trending-up-outline" size={16} color="#6b7280" /> Estratégias de escalabilidade
+-  Escolha entre PostgreSQL e MySQL
+-  Configuração de conexões
+-  Otimização de performance
+-  Backup e recovery
+-  Estratégias de escalabilidade
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Escolha do Banco de Dados
+##  Escolha do Banco de Dados
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> PostgreSQL (Recomendado)
+###  PostgreSQL (Recomendado)
 
 **Vantagens:**
 - ✅ **Melhor performance** para workloads complexos
@@ -39,7 +38,7 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 - Alto volume de dados
 - Requisitos de compliance
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> MySQL (Alternativa)
+###  MySQL (Alternativa)
 
 **Vantagens:**
 - ✅ **Fácil configuração** e manutenção
@@ -53,7 +52,7 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 - Equipes com experiência em MySQL
 - Infraestrutura existente MySQL
 
-### <IonicIcon name="folder-outline" size={20} color="#10b981" /> SQLite (Desenvolvimento)
+###  SQLite (Desenvolvimento)
 
 **Vantagens:**
 - ✅ **Zero configuração** - arquivo único
@@ -67,9 +66,9 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configuração PostgreSQL
+##  Configuração PostgreSQL
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Instalação Rápida
+###  Instalação Rápida
 
 #### **Ubuntu/Debian**
 ```bash
@@ -116,7 +115,7 @@ docker run -d \
   postgres:15
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração Avançada
+###  Configuração Avançada
 
 #### **postgresql.conf - Otimizações**
 ```bash
@@ -161,7 +160,7 @@ host    n8n             n8n             ::1/128                 md5
 host    n8n             n8n             192.168.1.0/24          md5
 ```
 
-### <IonicIcon name="key-outline" size={20} color="#10b981" /> Variáveis de Ambiente
+###  Variáveis de Ambiente
 
 ```bash
 # Configuração PostgreSQL
@@ -182,9 +181,9 @@ DB_POSTGRESDB_SSL_KEY=/path/to/client-key.key
 
 ---
 
-## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configuração MySQL
+##  Configuração MySQL
 
-### <IonicIcon name="flash-outline" size={20} color="#10b981" /> Instalação Rápida
+###  Instalação Rápida
 
 #### **Ubuntu/Debian**
 ```bash
@@ -222,7 +221,7 @@ docker run -d \
   mysql:8.0
 ```
 
-### <IonicIcon name="construct-outline" size={20} color="#10b981" /> Configuração Avançada
+###  Configuração Avançada
 
 #### **my.cnf - Otimizações**
 ```ini
@@ -251,7 +250,7 @@ innodb_flush_method = O_DIRECT
 innodb_file_per_table = 1
 ```
 
-### <IonicIcon name="key-outline" size={20} color="#10b981" /> Variáveis de Ambiente
+###  Variáveis de Ambiente
 
 ```bash
 # Configuração MySQL
@@ -272,9 +271,9 @@ DB_MYSQLDB_SSL_KEY=/path/to/client-key.key
 
 ---
 
-## <IonicIcon name="rocket-outline" size={24} color="#ea4b71" /> Otimização de Performance
+##  Otimização de Performance
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> PostgreSQL
+###  PostgreSQL
 
 #### **Índices Recomendados**
 ```sql
@@ -299,7 +298,7 @@ ALTER DATABASE n8n SET effective_io_concurrency = 200;
 VACUUM ANALYZE;
 ```
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> MySQL
+###  MySQL
 
 #### **Índices Recomendados**
 ```sql
@@ -326,9 +325,9 @@ OPTIMIZE TABLE workflows;
 
 ---
 
-## <IonicIcon name="backup-outline" size={24} color="#ea4b71" /> Backup e Recovery
+##  Backup e Recovery
 
-### <IonicIcon name="save-outline" size={20} color="#10b981" /> Backup Automático
+###  Backup Automático
 
 #### **PostgreSQL - Script de Backup**
 ```bash
@@ -382,7 +381,7 @@ find $BACKUP_DIR -name "*.sql.gz" -mtime +7 -delete
 echo "Backup criado: $BACKUP_FILE.gz"
 ```
 
-### <IonicIcon name="refresh-outline" size={20} color="#10b981" /> Restauração
+###  Restauração
 
 #### **PostgreSQL - Restaurar Backup**
 ```bash
@@ -402,7 +401,7 @@ gunzip n8n_20241201_120000.sql.gz
 mysql -h localhost -u n8n -p n8n < n8n_20241201_120000.sql
 ```
 
-### <IonicIcon name="time-outline" size={20} color="#10b981" /> Cron Jobs
+###  Cron Jobs
 
 ```bash
 # Adicionar ao crontab
@@ -415,9 +414,9 @@ mysql -h localhost -u n8n -p n8n < n8n_20241201_120000.sql
 
 ---
 
-## <IonicIcon name="trending-up-outline" size={24} color="#ea4b71" /> Escalabilidade
+##  Escalabilidade
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Replicação
+###  Replicação
 
 #### **PostgreSQL - Replicação Master-Slave**
 ```bash
@@ -446,7 +445,7 @@ CHANGE MASTER TO
   MASTER_LOG_POS=154;
 ```
 
-### <IonicIcon name="cloud-outline" size={20} color="#10b981" /> Cloud Databases
+###  Cloud Databases
 
 #### **AWS RDS PostgreSQL**
 ```bash
@@ -473,9 +472,9 @@ DB_POSTGRESDB_PASSWORD=senha_segura
 
 ---
 
-## <IonicIcon name="construct-outline" size={24} color="#ea4b71" /> Docker Compose
+##  Docker Compose
 
-### <IonicIcon name="logo-docker" size={20} color="#10b981" /> PostgreSQL Completo
+###  PostgreSQL Completo
 
 ```yaml
 version: '3.8'
@@ -539,9 +538,9 @@ networks:
 
 ---
 
-## <IonicIcon name="analytics-outline" size={24} color="#ea4b71" /> Monitoramento
+##  Monitoramento
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Métricas PostgreSQL
+###  Métricas PostgreSQL
 
 ```sql
 -- Queries lentas
@@ -561,7 +560,7 @@ FROM pg_stat_activity
 WHERE state = 'active';
 ```
 
-### <IonicIcon name="speedometer-outline" size={20} color="#10b981" /> Métricas MySQL
+###  Métricas MySQL
 
 ```sql
 -- Status do servidor
@@ -578,9 +577,9 @@ LIMIT 10;
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" size={24} color="#ea4b71" /> Checklist de Produção
+##  Checklist de Produção
 
-### <IonicIcon name="server-outline" size={20} color="#10b981" /> Configuração
+###  Configuração
 
 - [ ] PostgreSQL 15+ ou MySQL 8.0+ instalado
 - [ ] Usuário dedicado criado para n8n
@@ -588,7 +587,7 @@ LIMIT 10;
 - [ ] Variáveis de ambiente configuradas
 - [ ] Conexão testada e funcionando
 
-### <IonicIcon name="rocket-outline" size={20} color="#10b981" /> Performance
+###  Performance
 
 - [ ] Índices criados nas tabelas principais
 - [ ] Configurações de memória otimizadas
@@ -596,7 +595,7 @@ LIMIT 10;
 - [ ] Estatísticas atualizadas regularmente
 - [ ] Vacuum/Analyze configurado
 
-### <IonicIcon name="backup-outline" size={20} color="#10b981" /> Backup
+###  Backup
 
 - [ ] Script de backup automático configurado
 - [ ] Backup testado e funcionando
@@ -604,7 +603,7 @@ LIMIT 10;
 - [ ] Backup em localização segura
 - [ ] Procedimento de restauração documentado
 
-### <IonicIcon name="shield-checkmark-outline" size={20} color="#10b981" /> Segurança
+###  Segurança
 
 - [ ] Senha forte configurada
 - [ ] Acesso restrito por IP (se aplicável)
@@ -614,7 +613,7 @@ LIMIT 10;
 
 ---
 
-## <IonicIcon name="arrow-forward-outline" size={24} color="#ea4b71" /> Próximos Passos
+##  Próximos Passos
 
 Agora que você configurou o banco de dados:
 
