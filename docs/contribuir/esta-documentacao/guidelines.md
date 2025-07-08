@@ -33,8 +33,8 @@ Democratizar a automação no Brasil através de documentação clara, acessíve
 - Considere o impacto na experiência do usuário
 
 ### 3. **Contribuir Conteúdo**
-- Siga o [Guia de Estilo](./03-padroes-e-estilo/guia-de-estilo.mdx)
-- Use os [Recursos do Markdown](./03-padroes-e-estilo/markdown-features.mdx)
+- Siga o [Guia de Estilo](./padroes-e-estilo/guia-de-estilo)
+- Use os [Recursos do Markdown](./padroes-e-estilo/markdown-features)
 - Teste suas alterações localmente
 - Mantenha o foco no usuário brasileiro
 
@@ -87,10 +87,10 @@ Democratizar a automação no Brasil através de documentação clara, acessíve
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
 
-- [Guia de Estilo](./03-padroes-e-estilo/guia-de-estilo.mdx) - Padrões de escrita
-- [Recursos do Markdown](./03-padroes-e-estilo/markdown-features.mdx) - Sintaxe e componentes
-- [Design System](./03-padroes-e-estilo/design-system.mdx) - Elementos visuais
-- [Guia de Tradução](./04-traducao-e-localizacao/guia-traducao.mdx) - Padrões de localização
+- [Guia de Estilo](./padroes-e-estilo/guia-de-estilo) - Padrões de escrita
+- [Recursos do Markdown](./padroes-e-estilo/markdown-features) - Sintaxe e componentes
+- [Design System](./padroes-e-estilo/design-system) - Elementos visuais
+- [Guia de Tradução](./traducao-e-localizacao/guia-traducao) - Padrões de localização
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Comunicação
 
@@ -100,7 +100,7 @@ Democratizar a automação no Brasil através de documentação clara, acessíve
 - **Pull Requests**: Para contribuições de código
 
 ### Código de Conduta
-Siga nosso [Código de Conduta](./01-entendendo-o-projeto/codigo-conduta.mdx) em todas as interações.
+Siga nosso [Código de Conduta](./entendendo-o-projeto/codigo-conduta) em todas as interações.
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Agradecimentos
 

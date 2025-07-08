@@ -19,7 +19,7 @@ As diretrizes abaixo são para o **projeto principal do n8n**. As interações (
 ## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Antes de Começar: Itens Essenciais
 
 ### **Código de Conduta**
-O projeto é governado por um [Código de Conduta](https://github.com/n8n-io/n8n/blob/master/CODE_OF_CONDUCT.md). Ao participar, você concorda em seguir seus termos.
+O projeto é governado por um [Código de Conduta](https://github.com/n8n-io/n8n/blob/master/CODE_OF_CONDUCT). Ao participar, você concorda em seguir seus termos.
 
 ### **Acordo de Licença de Contribuidor (CLA)**
 Para que sua contribuição seja aceita, você **precisa assinar** um Contributor License Agreement (CLA). É um processo simples: ao abrir um Pull Request, um bot irá comentar com um link para você assinar o acordo digitalmente.
@@ -106,7 +106,7 @@ Se você deseja criar uma nova integração, o caminho correto é [**criar um no
 Seu PR **precisa** incluir testes. A ausência de testes resultará no fechamento automático do seu PR após 14 dias.
 
 ### **Título do PR**
-Siga estritamente as [convenções de título de PR do n8n](https://github.com/n8n-io/n8n/blob/master/.github/pull_request_title_conventions.md). Um título mal formatado pode fazer com que o PR seja ignorado.
+Siga estritamente as [convenções de título de PR do n8n](https://github.com/n8n-io/n8n/blob/master/.github/pull_request_title_conventions). Um título mal formatado pode fazer com que o PR seja ignorado.
 
 ### **Prazo para Feedback**
 Se a equipe do n8n solicitar alterações, você tem **14 dias** para responder ou atualizar o PR. Após esse período, ele será fechado por inatividade.
@@ -125,7 +125,7 @@ O n8n é um monorepositório. Aqui estão algumas pastas importantes:
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Oficiais
 
-- **[Contributing Guide (Oficial)](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md):** A fonte da verdade para contribuições
+- **[Contributing Guide (Oficial)](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING):** A fonte da verdade para contribuições
 - **[Fórum da Comunidade](https://community.n8n.io/):** Para tirar dúvidas e discutir ideias
 - **[Documentação de Criação de Nodes](https://docs.n8n.io/integrations/creating-nodes/):** O lugar para aprender a criar suas próprias integrações
 

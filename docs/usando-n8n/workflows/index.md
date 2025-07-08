@@ -45,6 +45,6 @@ Um workflow típico contém:
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Primeiros Passos](../primeiros-passos/primeiro-workflow)** - Seu primeiro workflow
+- **[Primeiros Passos](../../primeiros-passos/primeiro-workflow)** - Seu primeiro workflow
 - **[Interface](../interface/navegacao-editor-ui)** - Navegar pela interface
 - **[Lógica e Dados](../../logica-e-dados)** - Controlar o fluxo de dados 

@@ -293,8 +293,8 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 9 | Próximos passos
 
 1. **[Implementar Monitoramento](../monitoring)** - Configurar alertas
-2. **[Criar Política de Segurança](../politicas-seguranca)** - Documentar regras
-3. **[Treinar Equipe](../treinamento-seguranca)** - Capacitar usuários
+2. **[Criar Política de Segurança](politicas-seguranca)** - Documentar regras
+3. **[Treinar Equipe](treinamento-seguranca)** - Capacitar usuários
 
 > *A segurança é um processo contínuo. Mantenha-se atualizado e sempre priorize a proteção dos dados!*
 

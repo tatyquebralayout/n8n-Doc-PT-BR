@@ -29,6 +29,6 @@ Bem-vindo aos guias avançados do n8n! Esta seção contém tutoriais práticos 
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](../../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Lógica e Dados](../logica-e-dados)** - Manipulação avançada de dados
 - **[IA Avançada](../advanced-ai)** - Integração com inteligência artificial 

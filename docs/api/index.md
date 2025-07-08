@@ -71,6 +71,6 @@ Integre o n8n com sistemas externos através de webhooks:
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](../../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Usando n8n](../usando-n8n)** - Guias práticos
 - **[Integrações](../integracoes)** - Conectar com aplicações externas 

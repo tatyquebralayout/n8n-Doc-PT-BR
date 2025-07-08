@@ -36,7 +36,7 @@ Você pode colaborar com diversas frentes:
 
 ###  1. Acesse os guias de contribuição
 
-- [`n8n/n8n`](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md) - Contribuições para o core
+- [`n8n/n8n`](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING) - Contribuições para o core
 - [`n8n-docs`](https://github.com/n8n-io/n8n-docs) - Contribuições para documentação oficial
 
 ###  2. Configure seu ambiente local

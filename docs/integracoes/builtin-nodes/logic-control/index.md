@@ -13,12 +13,12 @@ Os nodes de lógica e controle do n8n permitem criar **workflows inteligentes, a
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai encontrar aqui
 
-- **[Splitting: Ramificação Condicional](../../../logica-e-dados/01-flow-logic/splitting)**
+- **[Splitting: Ramificação Condicional](../../../logica-e-dados/flow-logic/splitting)**
 - **[Node IF: Decisão Binária](#node-if)**
 - **[Node Switch: Decisão Multicondicional](#node-switch)**
 - **[Node Merge: Reunindo Ramificações](#node-merge)**
-- **[Looping: Repetição e Processamento em Lote](../../../logica-e-dados/01-flow-logic/looping)**
-- **[Tratamento de Erros](../../../logica-e-dados/01-flow-logic/error-handling)**
+- **[Looping: Repetição e Processamento em Lote](../../../logica-e-dados/flow-logic/looping)**
+- **[Tratamento de Erros](../../../logica-e-dados/flow-logic/error-handling)**
 - **Boas práticas, debugging e troubleshooting**
 - **Casos de uso reais**
 
@@ -31,7 +31,7 @@ Os nodes de lógica e controle do n8n permitem criar **workflows inteligentes, a
 | [IF](#node-if)      | Decisão binária (Sim/Não)      | true, false    | Separar fluxo em dois caminhos |
 | [Switch](#node-switch)  | Decisão múltipla (casos)        | 1 por regra    | Vários caminhos possíveis      |
 | [Merge](#node-merge)   | Reunir ramificações             | 1              | Consolidar dados/fluxos        |
-| [Looping](../../../logica-e-dados/01-flow-logic/looping)   | Repetição/processamento em lote | -              | Iterar sobre listas/arrays      |
+| [Looping](../../../logica-e-dados/flow-logic/looping)   | Repetição/processamento em lote | -              | Iterar sobre listas/arrays      |
 
 ---
 
@@ -39,7 +39,7 @@ Os nodes de lógica e controle do n8n permitem criar **workflows inteligentes, a
 
 Crie pontos de decisão no seu workflow para que cada item siga o caminho adequado, usando **IF** e **Switch**. Veja o guia completo:
 
-- [Splitting: Como ramificar fluxos e criar lógica condicional →](../../../logica-e-dados/01-flow-logic/splitting)
+- [Splitting: Como ramificar fluxos e criar lógica condicional →](../../../logica-e-dados/flow-logic/splitting)
 
 ---
 
@@ -57,7 +57,7 @@ graph TD
     B -->|Não| D[Processamento Automático]
 ```
 
-- [Guia detalhado: Splitting e IF →](../../../logica-e-dados/01-flow-logic/splitting)
+- [Guia detalhado: Splitting e IF →](../../../logica-e-dados/flow-logic/splitting)
 - [Documentação oficial IF Node (EN)](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.if/)
 
 ---
@@ -79,7 +79,7 @@ graph TD
     B -->|Outros| G[Triagem Geral]
 ```
 
-- [Guia detalhado: Splitting e Switch →](../../../logica-e-dados/01-flow-logic/splitting)
+- [Guia detalhado: Splitting e Switch →](../../../logica-e-dados/flow-logic/splitting)
 - [Documentação oficial Switch Node (EN)](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.switch/)
 
 ---
@@ -99,7 +99,7 @@ graph TD
     D --> E[Processo Final]
 ```
 
-- [Guia detalhado: Merge →](../../../logica-e-dados/01-flow-logic/merging)
+- [Guia detalhado: Merge →](../../../logica-e-dados/flow-logic/merging)
 - [Documentação oficial Merge Node (EN)](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.merge/)
 
 ---
@@ -107,14 +107,14 @@ graph TD
 ## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Looping: Repetição e Processamento em Lote
 
 Implemente loops para processar arrays, repetir ações e criar automações dinâmicas:
-- [Guia de Looping →](../../../logica-e-dados/01-flow-logic/looping)
+- [Guia de Looping →](../../../logica-e-dados/flow-logic/looping)
 
 ---
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
 
 Garanta workflows resilientes com nodes de tratamento de erro, retry automático e notificações:
-- [Guia de Tratamento de Erros →](../../../logica-e-dados/01-flow-logic/error-handling)
+- [Guia de Tratamento de Erros →](../../../logica-e-dados/flow-logic/error-handling)
 
 ---
 
@@ -124,7 +124,7 @@ Garanta workflows resilientes com nodes de tratamento de erro, retry automático
 - Nomeie nodes e caminhos de forma clara
 - Teste expressões no editor antes de usar
 - Use [Debug Helper](/integracoes/builtin-nodes/core-nodes/debug-helper) e Execution History para depuração
-- Consulte [Splitting: Troubleshooting e dicas](../../../logica-e-dados/01-flow-logic/splitting#troubleshooting-problemas-comuns)
+- Consulte [Splitting: Troubleshooting e dicas](../../../logica-e-dados/flow-logic/splitting#troubleshooting-problemas-comuns)
 
 ---
 
@@ -136,7 +136,7 @@ Garanta workflows resilientes com nodes de tratamento de erro, retry automático
 - Workflows paralelos com Merge
 
 Veja exemplos completos em:
-- [Splitting: Casos de uso e exemplos práticos →](../../../logica-e-dados/01-flow-logic/splitting#casos-de-uso-comuns)
+- [Splitting: Casos de uso e exemplos práticos →](../../../logica-e-dados/flow-logic/splitting#casos-de-uso-comuns)
 - [Catálogo de Workflows](/catalogo)
 
 ---

@@ -42,6 +42,6 @@ O n8n oferece várias camadas de segurança:
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Primeiros Passos](../primeiros-passos/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](../../primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Interface](../interface/navegacao-editor-ui)** - Navegar pela interface
 - **[Integrações](../../integracoes)** - Conectar com aplicações externas 

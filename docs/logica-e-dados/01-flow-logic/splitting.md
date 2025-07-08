@@ -41,7 +41,7 @@ No n8n, um [workflow](/primeiros-passos/primeiro-workflow) percorre naturalmente
 <Admonition type="warning" title="⚠️ Importante: Não confunda com Split Out">
 **Splitting** ≠ **Split Out**
 
-- **Split Out**: Quebra uma lista em itens individuais para [processamento em loop](/logica-e-dados/01-flow-logic/looping)
+- **Split Out**: Quebra uma lista em itens individuais para [processamento em loop](/logica-e-dados/flow-logic/looping)
 - **Splitting condicional**: Mantém o item intacto e decide *qual* caminho ele seguirá
 
 ```mermaid
@@ -140,9 +140,9 @@ graph TD
 
 | **Nó** | **Finalidade** | **Saídas** | **Dicas Rápidas** |
 |--------|---------------|------------|------------------|
-| **[IF](/integracoes/builtin-nodes/logic-control)** | Decisão binária | `true`, `false` | Combine condições com **AND/OR**; ative **Always Output Data** se for fazer [merge](/logica-e-dados/01-flow-logic/merging) depois |
-| **[Switch](/integracoes/builtin-nodes/logic-control)** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** ([lógica JavaScript](/referencia/glossario)) |
-| **[Merge](/logica-e-dados/01-flow-logic/merging)** | Reunir ramificações | — | Estratégias *Wait → All* ou *Merge By Key* garantem dados completos |
+| **[IF](/integracoes/builtin-nodes/logic-control)** | Decisão binária | `true`, `false` | Combine condições com **AND/OR**; ative **Always Output Data** se for fazer [merge](/logica-e-dados/flow-logic/merging) depois |
+| **[Switch](/integracoes/builtin-nodes/logic-control)** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** ([lógica JavaScript](/referencia/recursos/glossario)) |
+| **[Merge](/logica-e-dados/flow-logic/merging)** | Reunir ramificações | — | Estratégias *Wait → All* ou *Merge By Key* garantem dados completos |
 
 </TabItem>
 <TabItem value="if" label="Node IF">
@@ -174,7 +174,7 @@ graph TD
 **Configurações Críticas:**
 - **Always Output Data**: Garante que mesmo ramos "vazios" produzam dados
 - **Combine Conditions**: Use AND/OR para lógicas complexas
-- **Data Type**: Certifique-se de comparar tipos compatíveis - veja [estrutura de dados](/logica-e-dados/data/data-structure)
+- **Data Type**: Certifique-se de comparar tipos compatíveis - veja [transformações de dados](/logica-e-dados/data/transformacoes-dados)
 
 <CodeBlock language="javascript" title="Lógica do node IF">
 {`// Lógica do node IF
@@ -376,7 +376,7 @@ graph TD
 
 **Modos de Operação:**
 - **Rules**: Comparação direta (mais simples)
-- **Expression**: [Lógica JavaScript](/referencia/glossario) (mais flexível)
+- **Expression**: [Lógica JavaScript](/referencia/recursos/glossario) (mais flexível)
 
 <CodeBlock language="javascript" title="Lógica do node Switch">
 {`// Lógica do node Switch
@@ -436,7 +436,7 @@ graph TD
 - **Merge By Key**: Combina dados baseado em chaves específicas
 - **Append**: Adiciona dados sequencialmente
 
-Saiba mais sobre [manipulação de dados](/logica-e-dados/data/data-mapping).
+Saiba mais sobre [manipulação de dados](/logica-e-dados/data/data-mapping-avancado).
 
 </TabItem>
 </Tabs>
@@ -693,7 +693,7 @@ graph LR
 </TabItem>
 <TabItem value="passo6" label="6. Merge (Opcional)">
 
-####  6. [Merge](/logica-e-dados/01-flow-logic/merging) – Reunir Resultados
+####  6. [Merge](/logica-e-dados/flow-logic/merging) – Reunir Resultados
 
 **Objetivo**: Se etapas posteriores exigirem o conjunto completo de itens, configure *Wait → All*.
 
@@ -757,7 +757,7 @@ graph TD
 
 <Admonition type="warning" title="Quando usar Always Output Data">
 ✅ **Use quando:**
-- Vai fazer [merge](/logica-e-dados/01-flow-logic/merging) depois
+- Vai fazer [merge](/logica-e-dados/flow-logic/merging) depois
 - Precisa garantir continuidade do fluxo
 - Alguns ramos podem não ter dados
 
@@ -927,7 +927,7 @@ graph TD
 
 ###  Splitting Sequencial (Cascata)
 
-Para lógicas mais complexas, você pode encadear múltiplos splits - veja mais sobre [subworkflows](/logica-e-dados/01-flow-logic/subworkflows):
+Para lógicas mais complexas, você pode encadear múltiplos splits - veja mais sobre [subworkflows](/logica-e-dados/flow-logic/subworkflows):
 
 <Tabs>
 <TabItem value="visao-geral" label="Visão Geral" default>
@@ -1073,9 +1073,9 @@ graph TD
 </TabItem>
 <TabItem value="merge" label="Splitting com Merge">
 
-###  Splitting com [Merge](/logica-e-dados/01-flow-logic/merging)
+###  Splitting com [Merge](/logica-e-dados/flow-logic/merging)
 
-Após dividir o fluxo, você pode reunir os caminhos usando um **[Merge node](/logica-e-dados/01-flow-logic/merging)**:
+Após dividir o fluxo, você pode reunir os caminhos usando um **[Merge node](/logica-e-dados/flow-logic/merging)**:
 
 **Quando usar**: Quando diferentes caminhos precisam convergir para uma ação final comum.
 
@@ -1133,7 +1133,7 @@ Pedido → IF (Cliente VIP?)
 }
 ```
 
-**2. Use [Expression Editor](/referencia/glossario) para testar condições:**
+**2. Use [Expression Editor](/referencia/recursos/glossario) para testar condições:**
 - Teste expressões isoladamente
 - Verifique tipos de dados
 - Confirme valores antes de aplicar no workflow
@@ -1205,7 +1205,7 @@ graph TD
 {`{{ $json.valor > 1000 }}    // Comparando número com número`}
 </CodeBlock>
 
-Saiba mais sobre [expressões JavaScript](/referencia/glossario) e [tipos de dados](/logica-e-dados/data/data-structure).
+Saiba mais sobre [expressões JavaScript](/referencia/recursos/glossario) e [tipos de dados](/logica-e-dados/data/transformacoes-dados).
 
 </TabItem>
 </Tabs>
@@ -1245,7 +1245,7 @@ graph TD
 - Trate valores nulos: `{{ ($json.valor || 0) > 1000 }}`
 - Use trim para strings: `{{ $json.categoria.trim() === "Viagem" }}`
 
-Para mais informações sobre [tratamento de erros](/logica-e-dados/01-flow-logic/error-handling).
+Para mais informações sobre [tratamento de erros](/logica-e-dados/flow-logic/error-handling).
 
 ###  ❌ Problema: "Erro em Ramificação Específica"
 
@@ -1564,7 +1564,7 @@ SWITCH (categoria + "_" + prioridade + "_" + cliente) {
 - **Escalabilidade**: Fácil adição de novos casos
 - **Debugging**: Mais simples identificar problemas
 
-Para padrões mais complexos, considere usar [subworkflows](/logica-e-dados/01-flow-logic/subworkflows).
+Para padrões mais complexos, considere usar [subworkflows](/logica-e-dados/flow-logic/subworkflows).
 </Admonition>
 
 ```mermaid
@@ -1681,11 +1681,11 @@ graph TD
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 <Admonition type="info" title="Agora que você domina splitting básico, explore:">
-1. **[Merge Nodes](/logica-e-dados/01-flow-logic/merging)**: Como reunir fluxos divididos
-2. **[Error Handling](/logica-e-dados/01-flow-logic/error-handling)**: Tratamento de erros em fluxos condicionais  
-3. **[Looping](/logica-e-dados/01-flow-logic/looping)**: Lógica de repetição em workflows
-4. **[Sub-workflows](/logica-e-dados/01-flow-logic/subworkflows)**: Workflows aninhados
-5. **[Waiting](/logica-e-dados/01-flow-logic/waiting)**: Controle de tempo e aguardo
+1. **[Merge Nodes](/logica-e-dados/flow-logic/merging)**: Como reunir fluxos divididos
+2. **[Error Handling](/logica-e-dados/flow-logic/error-handling)**: Tratamento de erros em fluxos condicionais  
+3. **[Looping](/logica-e-dados/flow-logic/looping)**: Lógica de repetição em workflows
+4. **[Sub-workflows](/logica-e-dados/flow-logic/subworkflows)**: Workflows aninhados
+5. **[Waiting](/logica-e-dados/flow-logic/waiting)**: Controle de tempo e aguardo
 6. **[Execute Sub-workflow](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)**: Modularização avançada
 </Admonition>
 
@@ -1763,7 +1763,7 @@ Com esses fundamentos, você está pronto para projetar workflows n8n que se ada
 - [Documentação Oficial - Merge Node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.merge/)
 - [Error Trigger Node](/integracoes/builtin-nodes/core-nodes/error-trigger)
 - [Execute Sub-workflow Node](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)
-- [Expressões JavaScript no n8n](/referencia/glossario)
+- [Expressões JavaScript no n8n](/referencia/recursos/glossario)
 - [Exemplos de Workflows](/catalogo)
 - [Integrações Brasileiras](/integracoes-br)
 - [Guia de Instalação](/hosting-n8n/instalacao)

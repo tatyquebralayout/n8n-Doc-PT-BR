@@ -1,160 +1,127 @@
 ---
 sidebar_position: 1
 title: Introdução
-description: Entenda os diferentes tipos de nodes e integrações disponíveis no n8n.
-keywords: [n8n, nodes, integrações, overview, builtin, trigger, app, community]
+description: Conecte o n8n com centenas de aplicações e serviços
+keywords: [n8n, integrações, conectores, nodes, apps, serviços]
 ---
 
 # <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
 
-O poder do n8n está em sua capacidade de conectar centenas de aplicações e serviços. Esta seção é o seu guia para entender e utilizar todo o potencial das integrações.
+As integrações são o que torna o n8n tão poderoso. Com centenas de conectores disponíveis, você pode conectar praticamente qualquer aplicação ou serviço para criar automações complexas e eficientes.
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que são Nodes?
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
-**Nodes** são os blocos fundamentais do n8n. Cada node representa uma ação específica que pode ser executada em um workflow:
+### Nodes de Aplicações
+- **Communication**: Email, chat, mensagens e comunicação
+- **E-commerce**: Lojas virtuais e plataformas de vendas
+- **Marketing**: Ferramentas de marketing e automação
+- **Productivity**: Produtividade e colaboração
 
--  **Processamento de dados**
--  **Chamadas de API**
--  **Gatilhos para iniciar workflows**
--  **Conexões com aplicações externas**
+### Nodes Built-in
+- **Core Nodes**: Funcionalidades fundamentais do n8n
+- **HTTP Requests**: Conecte com APIs REST
+- **Data Processing**: Processamento e transformação de dados
+- **Logic Control**: Controle de fluxo e lógica
+- **Utilities**: Ferramentas e utilitários
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Categorias de Nodes
+### Nodes da Comunidade
+- **Instalação**: Como instalar nodes customizados
+- **Populares**: Nodes mais utilizados pela comunidade
+- **Desenvolvimento**: Como criar seus próprios nodes
 
-###  **Core Nodes (Nativos)**
-Nodes internos essenciais que vêm instalados por padrão.
+### Credenciais
+- **API Keys**: Autenticação com chaves de API
+- **OAuth**: Autorização com OAuth 2.0
+- **Basic Auth**: Autenticação básica
 
-**Exemplos principais:**
--  **HTTP Request** - Chamadas para APIs REST
--  **IF** - Lógica condicional
--  **Set** - Manipulação de dados
--  **Function** - Código JavaScript customizado
+### Triggers
+- **App Triggers**: Triggers de aplicações específicas
+- **Event-based**: Triggers baseados em eventos
+- **Time-based**: Triggers baseados em tempo
 
- **[ Ver Core Nodes →](./builtin-nodes/http-requests/http-request)**
+## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
----
+### O que são Nodes?
+Nodes são blocos de funcionalidade que permitem conectar com serviços externos:
 
-###  **Trigger Nodes (Gatilhos)**
-Nodes especiais que **iniciam** workflows automaticamente.
+- **Trigger Nodes**: Iniciam workflows (verde)
+- **Action Nodes**: Executam operações (azul)
+- **Logic Nodes**: Controlam fluxo (amarelo)
+- **Data Nodes**: Processam informações (roxo)
 
-**Tipos de gatilhos:**
--  **Manual Trigger** - Execução manual
--  **Webhook Trigger** - Resposta a webhooks
--  **Schedule Trigger** - Execução agendada
--  **Email Trigger** - Baseado em emails
+### Tipos de Integração
+- **REST APIs**: Conecte com APIs REST
+- **Webhooks**: Receba dados de aplicações externas
+- **OAuth**: Autorização segura com serviços
+- **Custom**: Integrações personalizadas
 
- **[ Ver Trigger Nodes →](./trigger-nodes/time-based/manual-trigger)**
+### Credenciais
+As credenciais permitem autenticação segura:
 
----
+- **API Keys**: Para serviços que usam chaves
+- **OAuth 2.0**: Para serviços que suportam OAuth
+- **Basic Auth**: Para autenticação simples
+- **Custom**: Para métodos específicos
 
-###  **Integrações com Apps**
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Categorias de Integração
 
-**Categorias principais:**
--  ** Produtividade** - Google Sheets, Notion, Airtable
--  ** Comunicação** - Slack, Teams, Discord 
--  ** Email** - Gmail, Outlook, SendGrid
--  ** E-commerce** - Shopify, WooCommerce, Stripe
--  ** Marketing** - HubSpot, Mailchimp, Facebook
+### Comunicação
+- **Email**: Gmail, Outlook, SMTP
+- **Chat**: Slack, Discord, Teams
+- **Mensagens**: WhatsApp, Telegram, SMS
+- **Vídeo**: Zoom, Google Meet
 
- **[ Ver Integrações →](./app-nodes/productivity/google-sheets)**
+### Produtividade
+- **Documentos**: Google Docs, Microsoft Office
+- **Planilhas**: Google Sheets, Excel
+- **Projetos**: Trello, Asana, Jira
+- **Armazenamento**: Google Drive, Dropbox
 
----
+### E-commerce
+- **Lojas**: Shopify, WooCommerce, Magento
+- **Pagamentos**: PayPal, Stripe, Mercado Pago
+- **Logística**: Correios, transportadoras
+- **Marketplaces**: Amazon, Mercado Livre
 
-###  **Nodes da Comunidade**
-Integrações criadas pela comunidade global do n8n.
+### Marketing
+- **Email Marketing**: Mailchimp, SendGrid
+- **CRM**: Salesforce, HubSpot, Pipedrive
+- **Redes Sociais**: Facebook, Instagram, LinkedIn
+- **Analytics**: Google Analytics, Facebook Pixel
 
-**Características:**
--  **Instalação via npm**
--  **Código open-source** 
--  **Constantemente atualizados**
--  **Cobertura de serviços especializados**
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
- **[ Ver Community Nodes →](./community-nodes/)**
+1. **Explore [App Nodes](./app-nodes/)** para conectar com aplicações populares
+2. **Aprenda sobre [Built-in Nodes](./builtin-nodes/)** para funcionalidades básicas
+3. **Configure [Credenciais](./credential-nodes/)** para autenticação segura
 
----
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
-###  **Autenticação e Credenciais**
-Sistemas seguros para gerenciar credenciais.
+### Segurança
+- **Use credenciais seguras** para cada integração
+- **Rotacione chaves de API** regularmente
+- **Monitore logs** de acesso
+- **Configure permissões** adequadas
 
-**Métodos disponíveis:**
--  **OAuth2** - Autenticação moderna
--  **API Keys** - Chaves de API
--  **Basic Auth** - Usuário e senha
--  **Bearer Token** - Tokens de acesso
+### Performance
+- **Limite chamadas de API** para evitar rate limits
+- **Cache dados** quando apropriado
+- **Use webhooks** em vez de polling quando possível
+- **Monitore tempo de resposta** das integrações
 
- **[ Ver Credenciais →](./credential-nodes/oauth)**
+### Manutenção
+- **Teste integrações** regularmente
+- **Mantenha credenciais** atualizadas
+- **Documente configurações** importantes
+- **Monitore mudanças** nas APIs
 
----
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-###  **Desenvolvimento de Nodes**
-Aprenda a criar seus próprios nodes customizados.
-
-**Processo completo:**
-1.  **Estruturação** - Anatomia de um node
-2.  **Desenvolvimento** - Código TypeScript
-3.  **Publicação** - NPM e comunidade
-4.  **Manutenção** - Updates e melhorias
-
- **[ Ver Tutorial →](./criar-nodes/tutorial-desenvolvimento)**
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Foco Brasileiro**
-
-Além dos nodes globais, temos integrações específicas para o mercado brasileiro:
-
-###  **Financeiro**
--  **PIX** - Sistema de pagamentos instantâneos
--  **Bancos brasileiros** - Integração com APIs bancárias
-
-###  **Governo e Receita**
--  **CNPJ/CPF** - Consultas à Receita Federal
--  **CNAE** - Classificação de atividades
--  **Simples Nacional** - Regime tributário
-
-###  **Localização**
--  **ViaCEP** - Consulta de CEPs
--  **IBGE** - Dados geográficos
--  **Correios** - Rastreamento e frete
-
- **[ Ver Integrações BR →](../integracoes-br/financeiro/pix)**
-
-## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Como Começar?**
-
-###  1. **Para Iniciantes**
-```
-Core Nodes → Trigger Nodes → Integrações básicas
-```
-
-###  2. **Para Desenvolvedores**
-```
-HTTP Request → Function Node → Custom Nodes
-```
-
-###  3. **Para Empresas**
-```
-App Integrations → Credenciais → Community Nodes
-```
-
-## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Estatísticas do Ecossistema**
-
-| Categoria | Quantidade | Exemplos |
-|-----------|------------|----------|
-| **Core Nodes** | 20+ | IF, Set, HTTP Request |
-| **App Integrations** | 400+ | Google, Slack, Notion |
-| **Community Nodes** | 200+ | APIs especializadas |
-| **Trigger Types** | 15+ | Webhook, Schedule, Email |
-
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Dicas de Navegação**
-
--  **Use a busca** para encontrar nodes específicos
--  **Explore por categoria** quando estiver aprendendo
--  **Comece pelos populares** para casos comuns
--  **Foque no seu caso de uso** para ser mais eficiente
-
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Precisa de Ajuda?**
-
--  **[Documentação oficial](https://docs.n8n.io/integrations/)** - Catálogo completo
--  **[Comunidade n8n](https://community.n8n.io)** - Fórum de discussões
--  **[GitHub](https://github.com/n8n-io/n8n)** - Issues e contribuições
+- **[Integrações Brasileiras](../integracoes-br/)** - Serviços específicos do Brasil
+- **[Criar Nodes](./criar-nodes/)** - Desenvolva integrações customizadas
+- **[Webhooks](./webhooks)** - Conecte com aplicações via webhooks
+- **[API](../../api/)** - Automação via API do n8n
 
 ---
 
-** Explore as categorias acima para descobrir todos os nodes disponíveis!**
+**<ion-icon name="git-network-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Conecte tudo e automatize qualquer coisa!**
