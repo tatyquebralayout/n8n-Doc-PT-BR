@@ -100,7 +100,7 @@ Democratizar a automação no Brasil através de documentação clara, acessíve
 - **Pull Requests**: Para contribuições de código
 
 ### Código de Conduta
-Siga nosso [Código de Conduta](../01-entendendo-o-projeto/codigo-conduta) em todas as interações.
+Siga nosso [Código de Conduta](../01-entendendo-o-projeto/codigo-conduta.mdx) em todas as interações.
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Agradecimentos
 
