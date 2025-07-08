@@ -132,7 +132,7 @@ graph TD
 1. **[Load Balancing](./load-balancing)** - Configure balanceamento de carga básico
 2. **[Clustering](./clustering)** - Implemente múltiplas instâncias
 3. **[Performance](./performance)** - Otimize para máxima eficiência
-4. **[Monitoramento](../monitoring)** - Configure alertas e métricas
+4. **[Monitoramento](../seguranca/monitoring)** - Configure alertas e métricas
 
 ###  Pré-requisitos
 
