@@ -87,28 +87,28 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Lógica de Fluxo',
           items: [
-            'logica-e-dados/flow-logic/error-handling',
-            'logica-e-dados/flow-logic/looping',
-            'logica-e-dados/flow-logic/merging',
-            'logica-e-dados/flow-logic/splitting',
-            'logica-e-dados/flow-logic/subworkflows',
-            'logica-e-dados/flow-logic/waiting',
+            'logica-e-dados/01-flow-logic/error-handling',
+            'logica-e-dados/01-flow-logic/looping',
+            'logica-e-dados/01-flow-logic/merging',
+            'logica-e-dados/01-flow-logic/splitting',
+            'logica-e-dados/01-flow-logic/subworkflows',
+            'logica-e-dados/01-flow-logic/waiting',
           ],
         },
         {
           type: 'category',
           label: 'Dados',
           items: [
-            'logica-e-dados/data/binary-data',
-            'logica-e-dados/data/data-flow',
-            'logica-e-dados/data/data-mapping',
+            'logica-e-dados/02-data/binary-data',
+            'logica-e-dados/02-data/data-flow',
+            'logica-e-dados/02-data/data-mapping',
+            'logica-e-dados/02-data/data-structure',
+            'logica-e-dados/02-data/data-mocking',
+            'logica-e-dados/02-data/data-pinning-editing-filtering',
+            'logica-e-dados/02-data/schema-preview',
             'logica-e-dados/data/data-mapping-avancado',
             'logica-e-dados/data/transformacoes-dados',
             'logica-e-dados/data/agregacoes-estatisticas',
-            'logica-e-dados/data/data-mocking',
-            'logica-e-dados/data/data-pinning-editing-filtering',
-            'logica-e-dados/data/data-structure',
-            'logica-e-dados/data/schema-preview',
           ],
         },
       ],
@@ -216,6 +216,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Financeiro',
           items: [
+            'integracoes-br/financeiro/index',
             'integracoes-br/financeiro/pix',
             'integracoes-br/financeiro/pix-avancado',
             'integracoes-br/financeiro/nfe-integracao',
@@ -224,12 +225,18 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Governo',
-          items: ['integracoes-br/governo/cnpj-receita'],
+          items: [
+            'integracoes-br/governo/index',
+            'integracoes-br/governo/cnpj-receita'
+          ],
         },
         {
           type: 'category',
           label: 'Localização',
-          items: ['integracoes-br/localizacao/viacep'],
+          items: [
+            'integracoes-br/localizacao/index',
+            'integracoes-br/localizacao/viacep'
+          ],
         },
       ],
     },
@@ -241,22 +248,46 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Instalação',
-          items: ['hosting-n8n/instalacao/desktop', 'hosting-n8n/instalacao/npm', 'hosting-n8n/instalacao/docker', 'hosting-n8n/instalacao/cloud'],
+          items: [
+            'hosting-n8n/instalacao/index',
+            'hosting-n8n/instalacao/desktop', 
+            'hosting-n8n/instalacao/npm', 
+            'hosting-n8n/instalacao/docker', 
+            'hosting-n8n/instalacao/cloud',
+            'hosting-n8n/instalacao/aws-brasil'
+          ],
         },
         {
           type: 'category',
           label: 'Configuração',
-          items: ['hosting-n8n/configuracao/variaveis-ambiente', 'hosting-n8n/configuracao/database', 'hosting-n8n/configuracao/queues', 'hosting-n8n/configuracao/ssl-https'],
+          items: [
+            'hosting-n8n/configuracao/index',
+            'hosting-n8n/configuracao/variaveis-ambiente', 
+            'hosting-n8n/configuracao/database', 
+            'hosting-n8n/configuracao/queues', 
+            'hosting-n8n/configuracao/ssl-https'
+          ],
         },
         {
           type: 'category',
           label: 'Segurança',
-          items: ['hosting-n8n/seguranca/autenticacao', 'hosting-n8n/seguranca/usuarios-permissoes', 'hosting-n8n/seguranca/backup-recovery', 'hosting-n8n/seguranca/monitoring'],
+          items: [
+            'hosting-n8n/seguranca/index',
+            'hosting-n8n/seguranca/autenticacao', 
+            'hosting-n8n/seguranca/usuarios-permissoes', 
+            'hosting-n8n/seguranca/backup-recovery', 
+            'hosting-n8n/seguranca/monitoring'
+          ],
         },
         {
           type: 'category',
           label: 'Escalonamento',
-          items: ['hosting-n8n/escalonamento/clustering', 'hosting-n8n/escalonamento/load-balancing', 'hosting-n8n/escalonamento/performance'],
+          items: [
+            'hosting-n8n/escalonamento/index',
+            'hosting-n8n/escalonamento/clustering', 
+            'hosting-n8n/escalonamento/load-balancing', 
+            'hosting-n8n/escalonamento/performance'
+          ],
         },
       ],
     },
@@ -268,12 +299,19 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Preparação',
-          items: ['embed/preparacao/prerequisitos'],
+          items: [
+            'embed/preparacao/index',
+            'embed/preparacao/prerequisitos'
+          ],
         },
         {
           type: 'category',
           label: 'Implementação',
-          items: ['embed/implementacao/configuracao', 'embed/implementacao/implantacao'],
+          items: [
+            'embed/implementacao/index',
+            'embed/implementacao/configuracao', 
+            'embed/implementacao/implantacao'
+          ],
         },
         {
           type: 'category',
@@ -327,17 +365,27 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Conceitos',
-          items: ['api/conceitos/index', 'api/conceitos/autenticacao', 'api/conceitos/paginacao'],
+          items: [
+            'api/conceitos/index', 
+            'api/conceitos/autenticacao', 
+            'api/conceitos/paginacao'
+          ],
         },
         {
           type: 'category',
           label: 'Ferramentas',
-          items: ['api/ferramentas/index', 'api/ferramentas/playground'],
+          items: [
+            'api/ferramentas/index', 
+            'api/ferramentas/playground'
+          ],
         },
         {
           type: 'category',
           label: 'Referência',
-          items: ['api/referencia/index', 'api/referencia/referencia-api'],
+          items: [
+            'api/referencia/index', 
+            'api/referencia/referencia-api'
+          ],
         },
       ],
     },
@@ -349,12 +397,21 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Guias',
-          items: ['referencia/guias/migration-guide', 'referencia/guias/performance-guide', 'referencia/guias/troubleshooting'],
+          items: [
+            'referencia/guias/index',
+            'referencia/guias/migration-guide', 
+            'referencia/guias/performance-guide', 
+            'referencia/guias/troubleshooting'
+          ],
         },
         {
           type: 'category',
           label: 'Recursos',
-          items: ['referencia/recursos/glossario', 'referencia/recursos/apis-brasileiras'],
+          items: [
+            'referencia/recursos/index',
+            'referencia/recursos/glossario', 
+            'referencia/recursos/apis-brasileiras'
+          ],
         },
         {
           type: 'category',
