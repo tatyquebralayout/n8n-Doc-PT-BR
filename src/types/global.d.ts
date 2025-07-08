@@ -1,15 +1,15 @@
 // Declarações de tipos globais para componentes customizados
 
-declare namespace JSX {
-  interface IntrinsicElements {
-    'ion-icon': {
-      name?: string;
-      src?: string;
-      size?: 'small' | 'large' | string;
-      style?: React.CSSProperties;
-      className?: string;
-      color?: string;
-      'aria-hidden'?: boolean | 'true' | 'false';
-    };
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'ion-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        name: string;
+        size?: string;
+        color?: string;
+        className?: string;
+        style?: React.CSSProperties;
+      };
+    }
   }
 } 

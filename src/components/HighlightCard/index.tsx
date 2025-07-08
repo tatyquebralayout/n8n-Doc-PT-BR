@@ -1,64 +1,61 @@
 import React from 'react';
+import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import LoadingSkeleton from '@site/src/components/LoadingSkeleton';
-import LocalIcon from '@site/src/components/LocalIcon';
 
 interface HighlightCardProps {
-  loading?: boolean;
+  title: string;
+  description: string;
   icon?: string;
-  category?: string;
-  title?: string;
-  description?: string;
-  link: string;
-  details?: React.ReactNode;
   buttonText?: string;
+  buttonLink?: string;
+  variant?: 'primary' | 'secondary' | 'accent';
+  className?: string;
 }
 
 const HighlightCard: React.FC<HighlightCardProps> = ({
-  loading = false,
-  icon,
-  category,
   title,
   description,
-  link,
-  details,
-  buttonText = "Leia mais"
+  icon,
+  buttonText,
+  buttonLink,
+  variant = 'primary',
+  className,
 }) => {
+  const cardClass = clsx(
+    styles.highlightCard,
+    styles[`highlightCard--${variant}`],
+    className
+  );
+
+  const content = (
+    <>
+      <div className={styles.highlightCardContent}>
+        {icon && <ion-icon name={icon} style={{fontSize: 48, color: 'var(--ifm-color-primary)'}} className={styles.icon} aria-hidden="true" />}
+        <h3 className={styles.highlightCardTitle}>{title}</h3>
+        <p className={styles.highlightCardDescription}>{description}</p>
+      </div>
+      {buttonText && (
+        <div className={styles.highlightCardFooter}>
+          <span className={styles.highlightCardButton}>
+            {buttonText} <ion-icon name="arrow-forward-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+          </span>
+        </div>
+      )}
+    </>
+  );
+
+  if (buttonLink) {
+    return (
+      <Link to={buttonLink} className={cardClass}>
+        {content}
+      </Link>
+    );
+  }
+
   return (
-    <div
-      className={styles.highlightCard}
-      tabIndex={0}
-      role="link"
-      aria-label={`Acessar destaque: ${title}`}
-      onClick={() => link && window.open(link, '_self')}
-      onKeyDown={e => {
-        if ((e.key === 'Enter' || e.key === ' ') && link) {
-          e.preventDefault();
-          window.open(link, '_self');
-        }
-      }}
-    >
-      <div className={styles.cardHeader}>
-        {loading ? (
-          <LoadingSkeleton variant="circle" width={48} height={48} />
-        ) : (
-          icon && <LocalIcon name={icon} size={48} className={styles.icon} aria-hidden="true" />
-        )}
-        {loading ? (
-          <LoadingSkeleton variant="line" width={100} height={18} />
-        ) : (
-          <span className={styles.category}>{category}</span>
-        )}
-      </div>
-      <h3 className={styles.title}>{loading ? <LoadingSkeleton variant="line" width="70%" height={28} /> : title}</h3>
-      <p className={styles.description}>{loading ? <LoadingSkeleton variant="line" width="90%" height={18} /> : description}</p>
-      <div className={styles.details}>{loading ? <LoadingSkeleton variant="line" width="60%" height={16} /> : details}</div>
-      <div className={styles.cardFooter}>
-        <Link to={link} className={styles.readMoreLink}>
-          {buttonText} <LocalIcon name="arrow-forward-outline" size={20} />
-        </Link>
-      </div>
+    <div className={cardClass}>
+      {content}
     </div>
   );
 };

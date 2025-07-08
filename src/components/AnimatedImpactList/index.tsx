@@ -1,39 +1,42 @@
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
+import clsx from 'clsx';
 import styles from './styles.module.css';
-import LocalIcon from '@site/src/components/LocalIcon';
 
-interface AnimatedImpactListProps {
-  items: string[];
+interface ImpactItem {
+  text: string;
+  delay?: number;
 }
 
-const AnimatedImpactList: React.FC<AnimatedImpactListProps> = ({ items }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+interface AnimatedImpactListProps {
+  title: string;
+  items: ImpactItem[];
+  className?: string;
+}
 
+const AnimatedImpactList: React.FC<AnimatedImpactListProps> = ({
+  title,
+  items,
+  className,
+}) => {
   return (
-    <div ref={ref} className={`${styles['animated-impact__container']} ${inView ? styles.inView : ''}`}>
+    <div className={clsx(styles['animated-impact'], className)}>
       <h3 className={styles['animated-impact__title']}>
-        <LocalIcon name="sparkles-outline" size={24} className={styles['animated-impact__title-icon']} />
-        Sua contribuição transforma! Veja como:
+        <ion-icon name="sparkles-outline" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} className={styles['animated-impact__title-icon']} />
+        {title}
       </h3>
+      
       <ul className={styles['animated-impact__list']}>
         {items.map((item, index) => (
-          <li
+          <li 
             key={index}
             className={styles['animated-impact__item']}
-            style={{ transitionDelay: `${index * 150}ms` }}
+            style={{ animationDelay: `${item.delay || index * 0.1}s` }}
           >
-            <LocalIcon name="checkmark-circle-outline" size={20} className={styles['animated-impact__item-icon']} />
-            <span dangerouslySetInnerHTML={{ __html: item }} />
+            <ion-icon name="checkmark-circle-outline" style={{fontSize: 20, color: 'var(--ifm-color-success)'}} className={styles['animated-impact__item-icon']} />
+            <span>{item.text}</span>
           </li>
         ))}
       </ul>
-      <p className={styles['animated-impact__footer']}>
-        Cada linha que você melhora, cada exemplo que você adiciona e cada dúvida que você esclarece tem um efeito multiplicador. <strong>Participe e ajude a construir a melhor e mais completa documentação do n8n para a comunidade brasileira!</strong>
-      </p>
     </div>
   );
 };

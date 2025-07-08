@@ -1,71 +1,77 @@
 import React from 'react';
 import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import LocalIcon from '@site/src/components/LocalIcon';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
-type FeatureItem = {
+interface FeatureItem {
   title: string;
+  description: string;
   icon: string;
-  description: React.JSX.Element;
-};
+  link: string;
+}
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Automação Simplificada',
-    icon: 'flash-outline',
-    description: (
-      <>
-        O n8n torna a automação de workflows acessível para todos.
-        Conecte suas ferramentas favoritas sem precisar escrever código.
-      </>
-    ),
-  },
-  {
-    title: 'Foque no que Importa',
+    title: 'Primeiros Passos',
+    description: 'Aprenda os conceitos básicos do n8n e crie seu primeiro workflow de automação.',
     icon: 'rocket-outline',
-    description: (
-      <>
-        Deixe o n8n cuidar das tarefas repetitivas enquanto você
-        foca no crescimento do seu negócio e na criatividade.
-      </>
-    ),
+    link: '/primeiros-passos',
   },
   {
-    title: 'Documentação Moderna',
-    icon: 'book-outline',
-    description: (
-      <>
-        Esta documentação foi criada com Docusaurus e React,
-        oferecendo uma experiência de aprendizado moderna e interativa.
-      </>
-    ),
+    title: 'Integrações',
+    description: 'Explore centenas de integrações prontas para conectar suas aplicações favoritas.',
+    icon: 'extension-puzzle-outline',
+    link: '/integracoes',
+  },
+  {
+    title: 'Lógica e Dados',
+    description: 'Domine o fluxo de dados, transformações e lógica condicional nos workflows.',
+    icon: 'git-branch-outline',
+    link: '/logica-e-dados',
+  },
+  {
+    title: 'Hosting e Deploy',
+    description: 'Configure e implante o n8n em diferentes ambientes de produção.',
+    icon: 'cloud-upload-outline',
+    link: '/hosting-n8n',
+  },
+  {
+    title: 'IA Avançada',
+    description: 'Integre inteligência artificial e machine learning nos seus workflows.',
+    icon: 'sparkles-outline',
+    link: '/advanced-ai',
+  },
+  {
+    title: 'Comunidade',
+    description: 'Conecte-se com outros usuários, compartilhe experiências e contribua.',
+    icon: 'people-outline',
+    link: '/comunidade',
   },
 ];
 
-function Feature({title, icon, description}: FeatureItem) {
+function Feature({title, description, icon, link}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <LocalIcon 
-          name={icon} 
-          size={48} 
-          className={styles['homepage-features__svg']} 
-        />
-      </div>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">
-          {title}
-        </Heading>
-        <p>{description}</p>
+        <Link to={link} className={styles.featureLink}>
+          <div className={styles.featureIcon}>
+            <ion-icon name={icon} style={{fontSize: 48, color: 'var(--ifm-color-primary)'}} />
+          </div>
+          <div className="text--center padding-horiz--md">
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </div>
+        </Link>
       </div>
     </div>
   );
 }
 
-export default function HomepageFeatures(): React.JSX.Element {
+export default function HomepageFeatures(): JSX.Element {
+  const {siteConfig} = useDocusaurusContext();
   return (
-    <section className={styles['homepage-features']}>
+    <section className={styles.features}>
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (

@@ -25,6 +25,11 @@ const repoCache = new Map<string, RepoData>();
 
 const octokit = new Octokit();
 
+function isIonicon(name: string) {
+  // Considera Ionicon se termina com -outline, -sharp, -filled, ou começa com logo-
+  return /(-outline|-sharp|-filled)$/.test(name) || name.startsWith('logo-') || name.startsWith('cloud-') || name.startsWith('server-') || name.startsWith('play-') || name.startsWith('analytics-') || name.startsWith('add-') || name.startsWith('book-') || name.startsWith('star-') || name.startsWith('git-') || name.startsWith('eye-');
+}
+
 const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github', loading = false }) => {
   const [data, setData] = useState<RepoData | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -142,7 +147,9 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github', load
     >
       <div className={styles['repo-card__header']}>
         <div className={styles['repo-card__icon']}>
-          <LocalIcon name={icon} size={32} />
+          {isIonicon(icon)
+            ? <ion-icon name={icon} style={{fontSize: 32, color: 'var(--ifm-color-primary)'}} />
+            : <LocalIcon name={icon} size={32} />}
         </div>
         <div className={styles['repo-card__title-container']}>
           <h3 className={styles['repo-card__title']}>{data.name}</h3>
@@ -151,21 +158,29 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github', load
       </div>
       <div className={styles['repo-card__stats']}>
         <div className={styles['repo-card__stat']}>
-          <LocalIcon name="star-outline" size={16} />
+          {isIonicon('star-outline')
+            ? <ion-icon name="star-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+            : <LocalIcon name="star-outline" size={16} />}
           <span>{data.stars.toLocaleString('pt-BR')}</span>
         </div>
         <div className={styles['repo-card__stat']}>
-          <LocalIcon name="git-branch-outline" size={16} />
+          {isIonicon('git-branch-outline')
+            ? <ion-icon name="git-branch-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+            : <LocalIcon name="git-branch-outline" size={16} />}
           <span>{data.forks.toLocaleString('pt-BR')}</span>
         </div>
         <div className={styles['repo-card__stat']}>
-          <LocalIcon name="eye-outline" size={16} />
+          {isIonicon('eye-outline')
+            ? <ion-icon name="eye-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+            : <LocalIcon name="eye-outline" size={16} />}
           <span>{data.watchers.toLocaleString('pt-BR')}</span>
         </div>
       </div>
       <div className={styles['repo-card__footer']}>
         <a href={data.url} className={styles['repo-card__button']} target="_blank" rel="noopener noreferrer">
-          <LocalIcon name="logo-github" size={20} />
+          {isIonicon('logo-github')
+            ? <ion-icon name="logo-github" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+            : <LocalIcon name="logo-github" size={20} />}
         </a>
       </div>
     </div>

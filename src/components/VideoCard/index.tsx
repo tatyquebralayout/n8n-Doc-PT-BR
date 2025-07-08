@@ -1,47 +1,55 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
+import clsx from 'clsx';
 import styles from './styles.module.css';
-import LocalIcon from '@site/src/components/LocalIcon';
 
 interface VideoCardProps {
-  videoId: string;
   title: string;
-  channel: string;
-  channelUrl: string;
+  description: string;
+  thumbnail: string;
+  videoUrl: string;
+  duration?: string;
+  className?: string;
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({ videoId, title, channel, channelUrl }) => {
+const VideoCard: React.FC<VideoCardProps> = ({
+  title,
+  description,
+  thumbnail,
+  videoUrl,
+  duration,
+  className,
+}) => {
   return (
-    <div
-      className={styles['video-card']}
-      tabIndex={0}
-      role="link"
-      aria-label={`Assistir vídeo: ${title}`}
-      onClick={() => window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank', 'noopener noreferrer')}
-      onKeyDown={e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank', 'noopener noreferrer');
-        }
-      }}
-    >
-      <Link to={`https://www.youtube.com/watch?v=${videoId}`} className={styles['video-card__container']}>
+    <div className={clsx(styles.videoCard, className)}>
+      <div className={styles.thumbnailContainer}>
         <img 
-          src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`} 
+          src={thumbnail} 
           alt={title} 
-          className={styles['video-card__thumbnail']}
+          className={styles.thumbnail}
         />
-        <div className={styles['video-card__play-icon']}>
-          <LocalIcon name="play-circle-outline" size={48} aria-hidden="true" />
+        <div className={styles.playOverlay}>
+          <ion-icon name="play-circle-outline" style={{fontSize: 48, color: 'white'}} aria-hidden="true" />
         </div>
-      </Link>
-      <div className={styles['video-card__info']}>
-        <Link to={`https://www.youtube.com/watch?v=${videoId}`} className={styles['video-card__title-link']}>
-          <h3 className={styles['video-card__title']}>{title}</h3>
-        </Link>
-        <a href={channelUrl} target="_blank" rel="noopener noreferrer" className={styles['video-card__channel-link']}>
-          <LocalIcon name="logo-youtube" size={24} aria-hidden="true" />
-          <span>{channel}</span>
+        {duration && (
+          <div className={styles.duration}>
+            {duration}
+          </div>
+        )}
+      </div>
+      <div className={styles.content}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
+        <div className={styles.meta}>
+          <ion-icon name="logo-youtube" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} aria-hidden="true" />
+          <span>YouTube</span>
+        </div>
+        <a 
+          href={videoUrl} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={styles.watchButton}
+        >
+          Assistir Vídeo
         </a>
       </div>
     </div>

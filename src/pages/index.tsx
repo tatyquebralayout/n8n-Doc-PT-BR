@@ -25,20 +25,18 @@ function HomepageHeader() {
           </div>
           <div className={styles.heroTextContent}>
             <Heading as="h1" className={styles.heroTitle}>
-              <svg width="20" height="20" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" style={{verticalAlign: 'middle'}}>
-                <path d="M315.27 33L96 304h128l-31.51 173.23a2.36 2.36 0 002.33 2.77h0a2.36 2.36 0 001.89-.95L416 208H288l31.66-173.25a2.45 2.45 0 00-2.44-2.75h0a2.42 2.42 0 00-1.95 1z" stroke="#ea4b71" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
+              <ion-icon name="compass-outline" style={{fontSize: 20, color: '#ea4b71', marginRight: 6, verticalAlign: 'middle'}} />
               {siteConfig.title}
             </Heading>
             <p className={styles.heroSubtitle}>
-              <LocalIcon name="globe-outline" size={20} />
+              <ion-icon name="globe-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
               {siteConfig.tagline}
             </p>
             <div className={styles.buttons}>
               <Link
                 className={styles.getStartedButton}
                 to="/intro">
-                <LocalIcon name="play-circle-outline" size={20} />
+                <ion-icon name="play-circle-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 Comece a Explorar - 5min
               </Link>
             </div>
@@ -68,7 +66,7 @@ export default function Home(): React.ReactElement {
               {/* Primeiros Passos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <LocalIcon name="school-outline" size={20} />
+                  <ion-icon name="school-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Primeiros Passos</h4>
@@ -84,7 +82,7 @@ export default function Home(): React.ReactElement {
               {/* Guias Avançados */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <LocalIcon name="bulb-outline" size={20} />
+                  <ion-icon name="bulb-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Guias Avançados</h4>
@@ -101,7 +99,7 @@ export default function Home(): React.ReactElement {
               {/* Referência da API */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <LocalIcon name="code-slash-outline" size={20} />
+                  <ion-icon name="code-slash-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Referência da API</h4>
@@ -118,7 +116,7 @@ export default function Home(): React.ReactElement {
               {/* Deployment */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <LocalIcon name="cloud-upload-outline" size={20} />
+                  <ion-icon name="cloud-upload-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Deployment</h4>
@@ -135,7 +133,7 @@ export default function Home(): React.ReactElement {
               {/* Nós (Nodes) */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <LocalIcon name="extension-puzzle-outline" size={20} />
+                  <ion-icon name="extension-puzzle-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Nós (Nodes)</h4>
@@ -150,7 +148,7 @@ export default function Home(): React.ReactElement {
               {/* Exemplos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <LocalIcon name="flask-outline" size={20} />
+                  <ion-icon name="flask-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Exemplos</h4>
@@ -166,7 +164,7 @@ export default function Home(): React.ReactElement {
               {/* Recursos Técnicos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <LocalIcon name="library-outline" size={20} />
+                  <ion-icon name="library-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Recursos Técnicos</h4>
@@ -183,7 +181,7 @@ export default function Home(): React.ReactElement {
               {/* Contribuição para Documentação em Português */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <LocalIcon name="heart-outline" size={20} />
+                  <ion-icon name="heart-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Contribua para a Doc em Português</h4>
@@ -200,7 +198,7 @@ export default function Home(): React.ReactElement {
               {/* Links Úteis */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <LocalIcon name="link-outline" size={20} />
+                  <ion-icon name="link-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Links Úteis</h4>
@@ -217,7 +215,7 @@ export default function Home(): React.ReactElement {
               {/* Cursos e Aprendizado */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <LocalIcon name="school-outline" size={20} />
+                  <ion-icon name="school-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Cursos e Aprendizado</h4>
@@ -239,7 +237,7 @@ export default function Home(): React.ReactElement {
         <div className="container">
           <div className={styles.communityContent}>
             <h2 className={styles.communityTitle}>
-              <LocalIcon name="globe-outline" size={32} color="var(--ifm-color-primary)" />
+              <ion-icon name="globe-outline" style={{fontSize: 32, color: 'var(--ifm-color-primary)'}} />
               Ecossistema n8n Brasil
             </h2>
             <p className={styles.communitySubtitle}>A comunidade é o coração do nosso projeto. Participe!</p>
@@ -247,7 +245,7 @@ export default function Home(): React.ReactElement {
             <div className={styles.communityGrid}>
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <LocalIcon name="logo-github" size={24} />
+                  <ion-icon name="logo-github" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
                   <h3>Repositório GitHub</h3>
                 </div>
                 <p>Este é um projeto de código aberto. Colabore com código, documentação ou sugestões.</p>
@@ -257,43 +255,43 @@ export default function Home(): React.ReactElement {
                   rel="noopener noreferrer" 
                   className={styles.communityLink}
                 >
-                  <LocalIcon name="star-outline" size={16} />
+                  <ion-icon name="star-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
                   Dar uma estrela
                 </a>
               </div>
               
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <LocalIcon name="chatbubbles-outline" size={24} />
+                  <ion-icon name="chatbubbles-outline" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
                   <h3>Discord</h3>
                 </div>
                 <p>Participe gratuitamente das discussões e tire dúvidas com a comunidade brasileira no Discord.</p>
                 <div className={styles.communityLinkDisabled}>
-                  <LocalIcon name="time-outline" size={16} />
+                  <ion-icon name="time-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
                   Em breve
                 </div>
               </div>
 
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <LocalIcon name="logo-youtube" size={24} />
+                  <ion-icon name="logo-youtube" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
                   <h3>YouTube</h3>
                 </div>
                 <p>Canal dedicado a esta documentação em português, com conteúdo didático, entrevistas com profissionais da área de automação e estudos de casos reais.</p>
                 <div className={styles.communityLinkDisabled}>
-                  <LocalIcon name="time-outline" size={16} />
+                  <ion-icon name="time-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
                   Em breve
                 </div>
               </div>
 
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <LocalIcon name="newspaper-outline" size={24} />
+                  <ion-icon name="newspaper-outline" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
                   <h3>Newsletter</h3>
                 </div>
                 <p>Receba atualizações sobre n8n, automação e novidades da documentação brasileira através da nossa newsletter na Substack.</p>
                 <div className={styles.communityLinkDisabled}>
-                  <LocalIcon name="time-outline" size={16} />
+                  <ion-icon name="time-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
                   Em breve
                 </div>
               </div>
@@ -307,20 +305,20 @@ export default function Home(): React.ReactElement {
           <div className={styles.ctaGrid}>
             <div className={styles.ctaCard}>
               <div className={styles.ctaIcon}>
-                <LocalIcon name="extension-puzzle-outline" size={24} color="var(--ifm-color-primary)" />
+                <ion-icon name="extension-puzzle-outline" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
               </div>
               <div className={styles.ctaText}>
                 <h4>Quer Criar Seus Próprios Nodes?</h4>
                 <p>Tenha mentoria, torne-se expert e desenvolva integrações customizadas para o n8n. Aprenda com a comunidade e construa soluções únicas.</p>
               </div>
               <Link to="/integracoes/criar-nodes" className="button button--outline button--primary">
-                <LocalIcon name="arrow-forward-outline" size={16} />
+                <ion-icon name="arrow-forward-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
                 Saiba mais
               </Link>
             </div>
             <div className={styles.ctaCard}>
               <div className={styles.ctaIcon}>
-                <LocalIcon name="chatbubble-ellipses-outline" size={24} color="var(--ifm-color-primary)" />
+                <ion-icon name="chatbubble-ellipses-outline" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
               </div>
               <div className={styles.ctaText}>
                 <h4>Tem uma Dúvida?</h4>
@@ -332,7 +330,7 @@ export default function Home(): React.ReactElement {
                 rel="noopener noreferrer"
                 className="button button--outline button--primary"
               >
-                <LocalIcon name="arrow-forward-outline" size={16} />
+                <ion-icon name="arrow-forward-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
                 Abrir discussão
               </a>
             </div>

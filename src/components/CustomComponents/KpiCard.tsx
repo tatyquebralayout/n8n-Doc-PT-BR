@@ -1,20 +1,47 @@
 import React from 'react';
-import IonicIcon from '../IonicIcon';
+import clsx from 'clsx';
+import styles from './styles.module.css';
 
 interface KpiCardProps {
   title: string;
-  icon: string;
-  metric: string;
-  caption: string;
+  value: string | number;
+  icon?: string;
+  trend?: {
+    value: number;
+    isPositive: boolean;
+  };
+  className?: string;
 }
 
-const KpiCard: React.FC<KpiCardProps> = ({ title, icon, metric, caption }) => {
+const KpiCard: React.FC<KpiCardProps> = ({
+  title,
+  value,
+  icon,
+  trend,
+  className,
+}) => {
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-      <LocalIcon name={icon} size={36} color="#10b981" />
-      <h3 className="text-xl font-semibold mt-4 mb-2">{title}</h3>
-      <p className="text-4xl font-bold text-blue-600 dark:text-blue-400">{metric}</p>
-      <p className="text-gray-600 dark:text-gray-400 mt-2">{caption}</p>
+    <div className={clsx(styles.kpiCard, className)}>
+      <div className={styles.kpiCardHeader}>
+        {icon && <ion-icon name={icon} style={{fontSize: 36, color: '#10b981'}} />}
+        <h3 className={styles.kpiCardTitle}>{title}</h3>
+      </div>
+      
+      <div className={styles.kpiCardValue}>
+        {value}
+      </div>
+      
+      {trend && (
+        <div className={styles.kpiCardTrend}>
+          <span className={clsx(
+            styles.trendValue,
+            trend.isPositive ? styles.trendPositive : styles.trendNegative
+          )}>
+            {trend.isPositive ? '+' : ''}{trend.value}%
+          </span>
+          <span className={styles.trendLabel}>vs mês anterior</span>
+        </div>
+      )}
     </div>
   );
 };
