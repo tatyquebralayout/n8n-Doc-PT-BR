@@ -122,6 +122,7 @@ const config: Config = {
           position: 'left',
           className: 'navbar-documentation-dropdown',
           items: [
+            { label: 'Guia de Instalação do n8n', to: '/tutorial-basico/guia-instalacao' },
             { label: 'Tutorial Básico', to: '/tutorial-basico/instalacao' },
             { label: 'Guias Avançados', to: '/usando-n8n' },
             { label: 'Lógica e Dados', to: '/logica-e-dados' },
