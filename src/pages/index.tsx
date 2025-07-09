@@ -9,6 +9,7 @@ import LocalIcon from '@site/src/components/LocalIcon';
 import styles from './index.module.css';
 
 const HomepageFeatures = React.lazy(() => import('@site/src/components/HomepageFeatures'));
+const ProgressGoal = React.lazy(() => import('@site/src/components/ProgressGoal'));
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -55,6 +56,15 @@ export default function Home(): React.ReactElement {
       description="Documentação completa do n8n em português brasileiro - Hub de conhecimento para a comunidade brasileira de automação.">
       <HomepageHeader />
       <main>
+        <Suspense fallback={<div>Carregando recursos...</div>}>
+          <ProgressGoal
+            currentProgress={7}
+            targetProgress={100}
+            targetDate="08/08/2025"
+            title="Meta de Documentação"
+            description="Nossa meta é ter 100% da documentação do n8n traduzida e adaptada para o português brasileiro em 1 mês."
+          />
+        </Suspense>
         <Suspense fallback={<div>Carregando recursos...</div>}>
           <HomepageFeatures />
         </Suspense>
