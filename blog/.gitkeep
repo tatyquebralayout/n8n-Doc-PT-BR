@@ -1,0 +1,2 @@
+# Esta pasta é necessária para evitar warnings do Docusaurus
+# O blog está desabilitado na configuração, mas o Docusaurus ainda procura pela pasta 
