@@ -8,12 +8,12 @@ const config: Config = {
   favicon: 'img/favicon-br.svg',
 
   // Set the production url of your site here
-  url: 'https://tatyquebralayout.github.io',
+  url: 'https://n8n-brasil.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/n8n-Doc-pt-BR/',
+  baseUrl: '/n8n-Doc-PT-BR/',
 
-  organizationName: 'tatyquebralayout',
-  projectName: 'n8n-Doc-pt-BR',
+  organizationName: 'n8n-brasil',
+  projectName: 'n8n-Doc-PT-BR',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -35,7 +35,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/tatyquebralayout/n8n-Doc-pt-BR/tree/main/',
+          editUrl: 'https://github.com/n8n-brasil/n8n-Doc-PT-BR/tree/main/',
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
           routeBasePath: '/',
@@ -293,7 +293,7 @@ const config: Config = {
     announcementBar: {
       id: 'support_us',
       content:
-        '🎉 <strong>n8n Brasil</strong> - Documentação completa em português! <a target="_blank" rel="noopener noreferrer" href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR">Contribua no GitHub</a>',
+        '🎉 <strong>n8n Brasil</strong> - Documentação completa em português! <a target="_blank" rel="noopener noreferrer" href="https://github.com/n8n-brasil/n8n-Doc-PT-BR">Contribua no GitHub</a>',
       backgroundColor: '#fafbfc',
       textColor: '#091E42',
       isCloseable: false,

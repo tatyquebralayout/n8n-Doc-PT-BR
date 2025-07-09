@@ -7,14 +7,14 @@
 > Documentação NÃO‑OFICIAL do n8n.
 > _Este projeto não possui vínculo com o time oficial do n8n e serve como complemento, referência e apoio aos usuários do Brasil._
 
-[![Deploy Status](https://github.com/n8nDocPt-Br/n8n-Doc-pt-BR/workflows/Deploy%20Docusaurus%20to%20GitHub%20Pages/badge.svg)](https://github.com/n8nDocPt-Br/n8n-Doc-pt-BR/actions)
-[![Sync Release Notes](https://github.com/n8nDocPt-Br/n8n-Doc-pt-BR/workflows/Sync%20n8n%20Release%20Notes/badge.svg)](https://github.com/n8nDocPt-Br/n8n-Doc-pt-BR/actions)
-[![Sync Releases](https://github.com/n8nDocPt-Br/n8n-Doc-pt-BR/workflows/Sync%20n8n%20Official%20Releases/badge.svg)](https://github.com/n8nDocPt-Br/n8n-Doc-pt-BR/actions)
+[![Deploy Status](https://github.com/n8n-brasil/n8n-Doc-PT-BR/workflows/Deploy%20Docusaurus%20to%20GitHub%20Pages/badge.svg)](https://github.com/n8n-brasil/n8n-Doc-PT-BR/actions)
+[![Sync Release Notes](https://github.com/n8n-brasil/n8n-Doc-PT-BR/workflows/Sync%20n8n%20Release%20Notes/badge.svg)](https://github.com/n8n-brasil/n8n-Doc-PT-BR/actions)
+[![Sync Releases](https://github.com/n8n-brasil/n8n-Doc-PT-BR/workflows/Sync%20n8n%20Official%20Releases/badge.svg)](https://github.com/n8n-brasil/n8n-Doc-PT-BR/actions)
 
-[![GitHub stars](https://img.shields.io/github/stars/n8nDocPt-Br/n8n-Doc-pt-BR?style=social)](https://github.com/n8nDocPt-Br/n8n-Doc-pt-BR/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/n8nDocPt-Br/n8n-Doc-pt-BR?style=social)](https://github.com/n8nDocPt-Br/n8n-Doc-pt-BR/network)
-[![GitHub issues](https://img.shields.io/github/issues/n8nDocPt-Br/n8n-Doc-pt-BR)](https://github.com/n8nDocPt-Br/n8n-Doc-pt-BR/issues)
-[![GitHub license](https://img.shields.io/github/license/n8nDocPt-Br/n8n-Doc-pt-BR)](https://github.com/n8nDocPt-Br/n8n-Doc-pt-BR/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/n8n-brasil/n8n-Doc-PT-BR?style=social)](https://github.com/n8n-brasil/n8n-Doc-PT-BR/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/n8n-brasil/n8n-Doc-PT-BR?style=social)](https://github.com/n8n-brasil/n8n-Doc-PT-BR/network)
+[![GitHub issues](https://img.shields.io/github/issues/n8n-brasil/n8n-Doc-PT-BR)](https://github.com/n8n-brasil/n8n-Doc-PT-BR/issues)
+[![GitHub license](https://img.shields.io/github/license/n8n-brasil/n8n-Doc-PT-BR)](https://github.com/n8n-brasil/n8n-Doc-PT-BR/blob/main/LICENSE)
 
 Documentação completa do n8n em português brasileiro - Hub de conhecimento para a comunidade brasileira de automação
 
@@ -64,7 +64,7 @@ A documentação está organizada nas seguintes seções principais:
 ## Onde acessar
 
 - **Documentação online:** 
-[https://tatyquebralayout.github.io/n8n-Doc-pt-BR/](https://tatyquebralayout.github.io/n8n-Doc-pt-BR/)
+[https://n8n-brasil.github.io/n8n-Doc-PT-BR/](https://n8n-brasil.github.io/n8n-Doc-PT-BR/)
 
 ---
 
