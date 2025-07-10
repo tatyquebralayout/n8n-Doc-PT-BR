@@ -42,7 +42,23 @@ const config: Config = {
           sidebarCollapsed: false,
           breadcrumbs: true,
         },
-        blog: false, // Disable blog
+        blog: {
+          blogTitle: 'Blog n8n Brasil',
+          blogDescription: 'Artigos, tutoriais e novidades da comunidade n8n no Brasil',
+          blogSidebarTitle: 'Posts Recentes',
+          blogSidebarCount: 5,
+          postsPerPage: 10,
+          showReadingTime: true,
+          readingTime: ({content, frontMatter, defaultReadingTime}) =>
+            defaultReadingTime({content, locale: 'pt-BR', options: {wordsPerMinute: 265}}),
+          feedOptions: {
+            type: 'rss',
+            title: 'Blog n8n Brasil',
+            description: 'Artigos, tutoriais e novidades da comunidade n8n no Brasil',
+            copyright: 'Copyright © 2024 n8n Brasil',
+            language: 'pt-BR',
+          },
+        },
         pages: {
           remarkPlugins: [],
         },
@@ -164,6 +180,12 @@ const config: Config = {
           label: 'Cursos',
           to: '/cursos',
           position: 'left',
+        },
+        {
+          label: 'Blog',
+          to: '/blog',
+          position: 'left',
+          className: 'navbar-blog-link',
         },
         // Dropdown "Contribuir" - Agrupa opções de contribuição
         {
