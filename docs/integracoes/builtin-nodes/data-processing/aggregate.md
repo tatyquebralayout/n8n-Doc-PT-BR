@@ -5,7 +5,7 @@ description: Agrupe e resuma dados em workflows n8n
 keywords: [n8n, aggregate, agrupar, resumir, dados, estatísticas, agregação]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Aggregate Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Aggregate Node
 
 O **Aggregate Node** permite **agrupar e resumir dados** de forma eficiente, criando estatísticas e relatórios a partir de grandes conjuntos de dados. É essencial para análise de dados e geração de insights.
 

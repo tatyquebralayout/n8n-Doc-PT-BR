@@ -6,7 +6,7 @@ keywords: [n8n, comunidade, participar, contribuir, brasil]
 ---
 import HighlightCard from '@site/src/components/HighlightCard';
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Como Participar
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Participar
 
 A comunidade n8n Brasil é um ecossistema aberto e colaborativo. Existem várias maneiras de participar, aprender e contribuir.
 

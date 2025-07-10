@@ -6,7 +6,7 @@ keywords: [n8n, queues, filas, redis, bull, processamento, escalabilidade]
 ---
 
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração de Filas
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração de Filas
 
 Este documento detalha como **configurar sistema de filas** para processamento escalável no n8n, incluindo setup do Redis, configuração de workers, gerenciamento de jobs, tratamento de falhas, monitoramento de performance, e estratégias de distribuição de carga que permitem processar grandes volumes de workflows simultaneamente sem degradar a performance do sistema principal.
 
@@ -58,15 +58,15 @@ Este documento detalha como **configurar sistema de filas** para processamento e
 #### **Ubuntu/Debian**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Redis
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar Redis
 sudo apt update
 sudo apt install redis-server
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Iniciar serviço
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Iniciar serviço
 sudo systemctl start redis-server
 sudo systemctl enable redis-server
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar status
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar status
 sudo systemctl status redis-server
 redis-cli ping
 ```
@@ -74,14 +74,14 @@ redis-cli ping
 #### **CentOS/RHEL**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Redis
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar Redis
 sudo yum install redis
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Iniciar serviço
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Iniciar serviço
 sudo systemctl start redis
 sudo systemctl enable redis
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar status
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar status
 sudo systemctl status redis
 redis-cli ping
 ```
@@ -89,7 +89,7 @@ redis-cli ping
 #### **Docker**
 
 ```bash
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar Redis com Docker
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Executar Redis com Docker
 docker run -d \
   --name redis-n8n \
   -p 6379:6379 \
@@ -102,29 +102,29 @@ docker run -d \
 #### **redis.conf - Otimizações**
 
 ```bash
-# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/redis/redis.conf
+# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> /etc/redis/redis.conf
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Memória
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Memória
 maxmemory 512mb
 maxmemory-policy allkeys-lru
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Persistência
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Persistência
 save 900 1
 save 300 10
 save 60 10000
 appendonly yes
 appendfsync everysec
 
-# <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Performance
+# <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance
 tcp-keepalive 300
 timeout 0
 tcp-backlog 511
 
-# <ion-icon name="document-text-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logs
+# <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Logs
 loglevel notice
 logfile /var/log/redis/redis-server.log
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Segurança
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
 requirepass senha_redis_segura
 bind 127.0.0.1
 ```
@@ -132,30 +132,30 @@ bind 127.0.0.1
 #### **Configuração de Segurança**
 
 ```bash
-# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar usuário dedicado
+# <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar usuário dedicado
 sudo adduser --system --group --no-create-home redis
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar permissões
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar permissões
 sudo chown redis:redis /var/lib/redis
 sudo chmod 750 /var/lib/redis
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar firewall
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar firewall
 sudo ufw allow from 192.168.1.0/24 to any port 6379
 ```
 
 ### Variáveis de Ambiente
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração básica Redis
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração básica Redis
 REDIS_URL=redis://localhost:6379
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Com autenticação
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Com autenticação
 REDIS_URL=redis://:senha_redis@localhost:6379
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Com SSL/TLS
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Com SSL/TLS
 REDIS_URL=rediss://:senha_redis@localhost:6380
 
-# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações avançadas
+# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações avançadas
 REDIS_PREFIX=n8n
 REDIS_DB=0
 REDIS_TIMEOUT=30000
@@ -168,18 +168,18 @@ REDIS_TIMEOUT=30000
 ### Variáveis de Ambiente
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração de filas
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração de filas
 REDIS_URL=redis://localhost:6379
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Modo de execução
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Modo de execução
 EXECUTIONS_PROCESS=main
 EXECUTIONS_MODE=regular
 
-# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações de workers
+# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de workers
 EXECUTIONS_TIMEOUT=300000  # 5 minutos
 EXECUTIONS_TIMEOUT_MAX=3600000  # 1 hora
 
-# <ion-icon name="bug-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Retry e falhas
+# <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Retry e falhas
 EXECUTIONS_RETRY_ON_ERROR=true
 EXECUTIONS_RETRY_ON_FAILURE=true
 EXECUTIONS_RETRY_ATTEMPTS=3
@@ -284,28 +284,28 @@ networks:
 #### **Worker Principal (Main)**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração para worker principal
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração para worker principal
 EXECUTIONS_PROCESS=main
 EXECUTIONS_MODE=regular
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Este worker processa:
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Execuções manuais
-# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Webhooks
-# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Interface de usuário
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Gerenciamento de workflows
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Este worker processa:
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - Execuções manuais
+# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - Webhooks
+# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - Interface de usuário
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - Gerenciamento de workflows
 ```
 
 #### **Workers de Execução**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração para workers de execução
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração para workers de execução
 EXECUTIONS_PROCESS=worker
 EXECUTIONS_MODE=regular
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Este worker processa apenas:
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Execuções de workflows
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Jobs da fila
-# <ion-icon name="bug-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Retry de falhas
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Este worker processa apenas:
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - Execuções de workflows
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - Jobs da fila
+# <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - Retry de falhas
 ```
 
 ### Múltiplos Workers
@@ -454,7 +454,7 @@ networks:
 #### **Configuração de Retry**
 
 ```bash
-# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações de retry
+# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de retry
 EXECUTIONS_RETRY_ON_ERROR=true
 EXECUTIONS_RETRY_ON_FAILURE=true
 EXECUTIONS_RETRY_ATTEMPTS=3
@@ -482,22 +482,22 @@ const retryStrategies = {
 #### **Comandos de Monitoramento**
 
 ```bash
-# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Status do Redis
+# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Status do Redis
 redis-cli info
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Estatísticas de memória
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estatísticas de memória
 redis-cli info memory
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Estatísticas de comandos
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estatísticas de comandos
 redis-cli info stats
 
-# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Lista de chaves
+# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Lista de chaves
 redis-cli keys "*"
 
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Monitorar comandos em tempo real
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitorar comandos em tempo real
 redis-cli monitor
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar jobs na fila
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar jobs na fila
 redis-cli llen n8n:queue:jobs
 redis-cli llen n8n:queue:webhooks
 ```
@@ -506,13 +506,13 @@ redis-cli llen n8n:queue:webhooks
 
 ```bash
 #!/bin/bash
-# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> monitor-redis.sh
+# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> monitor-redis.sh
 
 REDIS_HOST="localhost"
 REDIS_PORT="6379"
 REDIS_PASSWORD="senha_redis"
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Métricas básicas
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métricas básicas
 echo "=== Status Redis ==="
 redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD info server | grep uptime_in_seconds
 
@@ -532,13 +532,13 @@ echo "Jobs falharam: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWOR
 
 ```bash
 #!/bin/bash
-# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> redis-alerts.sh
+# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> redis-alerts.sh
 
 REDIS_HOST="localhost"
 REDIS_PORT="6379"
 REDIS_PASSWORD="senha_redis"
 
-# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar se Redis está respondendo
+# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar se Redis está respondendo
 if ! redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD ping > /dev/null 2>&1; then
     echo "ALERTA: Redis não está respondendo!"
     # Enviar notificação
@@ -548,7 +548,7 @@ if ! redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD ping > /dev/null
     exit 1
 fi
 
-# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar fila muito grande
+# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar fila muito grande
 QUEUE_SIZE=$(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD llen n8n:queue:jobs)
 if [ $QUEUE_SIZE -gt 1000 ]; then
     echo "ALERTA: Fila muito grande ($QUEUE_SIZE jobs)"
@@ -568,8 +568,8 @@ fi
 #### **Redis Sentinel**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Sentinel
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> sentinel.conf
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Sentinel
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> sentinel.conf
 port 26379
 sentinel monitor mymaster 127.0.0.1 6379 2
 sentinel down-after-milliseconds mymaster 5000
@@ -580,7 +580,7 @@ sentinel parallel-syncs mymaster 1
 #### **Redis Cluster**
 
 ```bash
-# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar cluster Redis
+# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar cluster Redis
 redis-cli --cluster create \
   127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 \
   127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 \
@@ -592,20 +592,20 @@ redis-cli --cluster create \
 #### **AWS ElastiCache**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração ElastiCache
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração ElastiCache
 REDIS_URL=redis://seu-cluster.xyz.cache.amazonaws.com:6379
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Com autenticação
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Com autenticação
 REDIS_URL=redis://:senha@seu-cluster.xyz.cache.amazonaws.com:6379
 ```
 
 #### **Google Cloud Memorystore**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Memorystore
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Memorystore
 REDIS_URL=redis://10.0.0.1:6379
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Com autenticação
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Com autenticação
 REDIS_URL=redis://:senha@10.0.0.1:6379
 ```
 
@@ -618,48 +618,48 @@ REDIS_URL=redis://:senha@10.0.0.1:6379
 #### **Redis não conecta**
 
 ```bash
-# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar se Redis está rodando
+# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar se Redis está rodando
 sudo systemctl status redis-server
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar porta
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar porta
 netstat -tlnp | grep 6379
 
-# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Testar conexão
+# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testar conexão
 redis-cli ping
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar logs
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar logs
 sudo tail -f /var/log/redis/redis-server.log
 ```
 
 #### **Jobs não processam**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar se workers estão rodando
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar se workers estão rodando
 docker ps | grep n8n
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar logs dos workers
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar logs dos workers
 docker logs n8n-worker-1
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar fila
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar fila
 redis-cli llen n8n:queue:jobs
 
-# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar configurações
+# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar configurações
 docker exec n8n-worker-1 env | grep EXECUTIONS
 ```
 
 #### **Performance lenta**
 
 ```bash
-# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar uso de memória Redis
+# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar uso de memória Redis
 redis-cli info memory
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar comandos lentos
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar comandos lentos
 redis-cli slowlog get 10
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar estatísticas
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar estatísticas
 redis-cli info stats
 
-# <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Limpar cache se necessário
+# <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Limpar cache se necessário
 redis-cli flushdb
 ```
 
@@ -669,7 +669,7 @@ redis-cli flushdb
 
 ```bash
 #!/bin/bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> diagnose-queues.sh
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> diagnose-queues.sh
 
 echo "=== Diagnóstico de Filas n8n ==="
 echo

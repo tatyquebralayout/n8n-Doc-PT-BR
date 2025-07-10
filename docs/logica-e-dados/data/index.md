@@ -5,7 +5,7 @@ description: Processe, transforme e analise dados em workflows n8n
 keywords: [n8n, dados, processamento, transformação, análise, workflows]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 O processamento de dados é fundamental para workflows eficazes no n8n. Nesta seção, você aprenderá a manipular, transformar e analisar dados de diferentes fontes para criar automações inteligentes e informadas.
 

@@ -6,7 +6,7 @@ keywords: [n8n, nfe, nota fiscal, sefaz, automação, fiscal, contabilidade]
 ---
 
 
-# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Integração com NFe
+# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com NFe
 
 Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas (NFe) integrando com a SEFAZ e sistemas contábeis brasileiros.
 

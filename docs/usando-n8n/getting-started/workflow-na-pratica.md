@@ -4,7 +4,7 @@ title: Workflow na Prática
 sidebar_label: Workflow na Prática
 ---
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Workflow na Prática
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Workflow na Prática
 
 Este tutorial mostra como criar um workflow real no n8n, integrando diferentes serviços para resolver um problema do dia a dia. Vamos criar um fluxo que envia uma notificação no Discord sempre que uma nova issue for criada em um repositório do GitHub.
 

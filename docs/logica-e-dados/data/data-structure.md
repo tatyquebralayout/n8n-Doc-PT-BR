@@ -5,7 +5,7 @@ description: Entenda como os dados são estruturados no n8n
 keywords: [n8n, dados, estrutura, json, binary, array, objetos]
 ---
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Estrutura de Dados
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura de Dados
 
 No n8n, todos os dados passados entre nodes são um array de objetos. Eles seguem a seguinte estrutura:
 

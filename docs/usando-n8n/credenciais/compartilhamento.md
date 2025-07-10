@@ -6,7 +6,7 @@ keywords: [n8n, credenciais, compartilhamento, equipe, colaboração, segurança
 ---
 
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Compartilhamento de Credenciais
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Compartilhamento de Credenciais
 
 Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o controle de acesso e a segurança dos dados.
 

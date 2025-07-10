@@ -5,7 +5,7 @@ description: Iniciar workflows manualmente para testes e execuções pontuais
 keywords: [n8n, manual, trigger, execução, teste, workflow]
 ---
 
-# <ion-icon name="document-text-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Manual Trigger
+# <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Manual Trigger
 
 O **Manual Trigger** é o trigger mais simples do n8n. Ele permite **executar workflows manualmente** clicando em um botão, sendo perfeito para testes, execuções pontuais e fluxos que não precisam ser automatizados.
 

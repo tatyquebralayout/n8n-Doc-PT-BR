@@ -6,7 +6,7 @@ keywords: [n8n, contribuir, projeto oficial, open source, código, global, n8n G
 ---
 
 
-# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visão Geral – Contribuição ao Projeto Oficial do n8n
+# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral – Contribuição ao Projeto Oficial do n8n
 
 Contribuir com o repositório oficial do **n8n** significa colaborar diretamente com uma ferramenta de automação utilizada globalmente. É uma oportunidade para participar da evolução do projeto open source, fortalecer sua prática técnica e impactar milhares de pessoas desenvolvedoras.
 

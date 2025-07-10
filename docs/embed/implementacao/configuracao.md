@@ -6,7 +6,7 @@ keywords: [n8n, embed, configuração, parâmetros, customização, iframe, SSO,
 ---
 
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração do Embed
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração do Embed
 
 Este guia ensina como **configurar o n8n embarcado** em sua aplicação, cobrindo parâmetros essenciais, permissões, customização visual, integração com autenticação e exemplos práticos para diferentes cenários empresariais.
 

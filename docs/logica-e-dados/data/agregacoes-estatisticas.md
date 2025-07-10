@@ -6,7 +6,7 @@ keywords: [n8n, agregações, estatísticas, cálculos, análise de dados, métr
 ---
 
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Agregações e Estatísticas
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Agregações e Estatísticas
 
 Aprenda técnicas avançadas para calcular estatísticas, criar agregações e gerar análises de dados que forneçam insights valiosos para seus workflows.
 

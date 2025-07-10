@@ -5,7 +5,7 @@ description: Terceiro capítulo - manipulação e transformação de dados no n8
 keywords: [n8n, curso, dados, transformação, manipulação]
 ---
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Capítulo 3 - Trabalhando com Dados
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Capítulo 3 - Trabalhando com Dados
 
 Este capítulo aborda **manipulação e transformação de dados** no n8n, ensinando como trabalhar com diferentes formatos de dados, usar expressions para transformar informações, filtrar e mapear dados entre nodes, e aplicar funções JavaScript básicas para processar informações de forma eficiente em seus workflows automatizados.
 

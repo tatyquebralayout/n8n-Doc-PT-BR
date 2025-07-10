@@ -6,7 +6,7 @@ keywords: [n8n, cursos, vídeo, youtube, tutorial, iniciante, avançado, oficial
 ---
 
 
-# <ion-icon name="videocam-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visão Geral - Cursos em Vídeo
+# <ion-icon name="videocam-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral - Cursos em Vídeo
 
 Esta seção serve como um **guia em português para os cursos em vídeo oficiais do n8n**, disponíveis no YouTube.
 

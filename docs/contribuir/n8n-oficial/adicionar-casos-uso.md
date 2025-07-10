@@ -6,7 +6,7 @@ keywords: [n8n, casos de uso, exemplos, contribuir, automação, workflow, templ
 ---
 
 
-# <ion-icon name="bulb-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Como Estruturar e Adicionar Casos de Uso
+# <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Estruturar e Adicionar Casos de Uso
 
 Compartilhar um caso de uso bem documentado é uma forma poderosa de contribuir para a comunidade. Um bom **template de workflow** ou **artigo técnico** inspira outras pessoas e oferece aprendizado prático.
 

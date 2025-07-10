@@ -4,7 +4,7 @@ title: Introdução
 sidebar_label: Visão Geral
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Esta seção concentra **toda a documentação de referência** para n8n em português, servindo como seu guia definitivo para consultas rápidas, troubleshooting, e recursos avançados.
 

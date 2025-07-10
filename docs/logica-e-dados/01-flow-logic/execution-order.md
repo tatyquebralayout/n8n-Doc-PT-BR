@@ -5,7 +5,7 @@ description: Entenda como o n8n determina a ordem de execução dos nodes
 keywords: [n8n, execução, ordem, sequência, workflow, nodes]
 ---
 
-# <ion-icon name="play-forward-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ordem de Execução
+# <ion-icon name="play-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ordem de Execução
 
 O n8n determina a ordem de execução dos nodes baseado nas conexões que você cria no workflow. Entender como isso funciona é fundamental para criar workflows eficientes e previsíveis.
 

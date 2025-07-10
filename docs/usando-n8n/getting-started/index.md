@@ -5,7 +5,7 @@ description: Aprenda a usar o n8n de forma eficaz - workflows, interface e execu
 keywords: [n8n, usando, workflows, interface, execuções, automação]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo à seção "Usando n8n"! Aqui você aprenderá como aproveitar ao máximo a plataforma, desde conceitos básicos até técnicas avançadas de automação.
 

@@ -5,7 +5,7 @@ description: Aprenda a criar, editar e gerenciar credenciais no n8n de forma seg
 keywords: [n8n, credenciais, autenticação, segurança, gerenciamento]
 ---
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerenciar Credenciais
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciar Credenciais
 
 Bem-vindo à seção de gerenciamento de credenciais do n8n! Aqui você aprenderá como criar, editar e gerenciar credenciais de forma segura para conectar suas aplicações e serviços.
 

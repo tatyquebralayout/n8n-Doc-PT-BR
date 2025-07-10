@@ -6,7 +6,7 @@ keywords: [n8n, comunidade, fórum, contribuir, ajuda, suporte]
 ---
 
 
-# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Contribuir com a Comunidade Global n8n
+# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Contribuir com a Comunidade Global n8n
 
 A comunidade é um dos pilares do n8n. Contribuir ativamente é uma forma valiosa de ganhar experiência, ajudar outros usuários e fortalecer o ecossistema. A principal plataforma para interação é o fórum oficial.
 

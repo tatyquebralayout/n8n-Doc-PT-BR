@@ -5,7 +5,7 @@ description: Segundo capítulo - criando integrações customizadas e trabalhand
 keywords: [n8n, curso, intermediário, apis, integrações, custom]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Capítulo 2 - APIs e Integrações Personalizadas
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Capítulo 2 - APIs e Integrações Personalizadas
 
 Este capítulo ensina como trabalhar com **APIs complexas e criar integrações personalizadas**, cobrindo autenticação OAuth avançada, construção de nodes customizados, manipulação de diferentes formatos de API, tratamento de rate limiting, e desenvolvimento de conectores para serviços que não possuem integração nativa no n8n.
 

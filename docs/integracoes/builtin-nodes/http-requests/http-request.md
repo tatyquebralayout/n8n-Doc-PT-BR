@@ -5,7 +5,7 @@ description: Fazer chamadas HTTP para APIs e serviços externos
 keywords: [n8n, http, request, api, rest, webhook]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> HTTP Request Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> HTTP Request Node
 
 O **HTTP Request Node** permite fazer **chamadas HTTP** para qualquer API ou serviço web. É o node mais versátil para integrar com sistemas externos que não possuem nodes dedicados.
 

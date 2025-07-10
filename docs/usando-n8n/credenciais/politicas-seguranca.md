@@ -5,7 +5,7 @@ description: Estabeleça políticas de segurança robustas para gerenciar creden
 keywords: [n8n, políticas de segurança, credenciais, compliance, LGPD, auditoria, criptografia]
 ---
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Políticas de Segurança
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Políticas de Segurança
 
 Estabelecer políticas de segurança robustas é fundamental para proteger credenciais e dados sensíveis no n8n. Neste guia, você aprenderá a criar e implementar políticas de segurança abrangentes.
 

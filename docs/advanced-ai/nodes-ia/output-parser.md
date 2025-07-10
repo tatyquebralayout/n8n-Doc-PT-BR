@@ -8,11 +8,11 @@ description: Como usar o node Output Parser para estruturar respostas de IA
 keywords: [n8n, output, parser, estruturação, dados]
 ---
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Output Parser
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Output Parser
 
 Este documento descreve o **Analisador de Saída (Output Parser)**, usado para estruturar e validar os dados retornados por um modelo de IA.
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Node Output Parser
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node Output Parser
 
 Este documento ensina como **usar o Output Parser** para estruturar respostas de IA, incluindo extração de dados estruturados, formatação de JSON, validação de outputs, transformação de texto livre em campos organizados, e técnicas que garantem consistência e usabilidade das respostas geradas por modelos de linguagem em workflows automatizados que requerem dados padronizados.
 

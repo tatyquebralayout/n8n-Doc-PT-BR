@@ -5,7 +5,7 @@ description: Perguntas frequentes sobre n8n - respostas rápidas para dúvidas c
 keywords: [n8n, faq, perguntas frequentes, dúvidas, troubleshooting]
 ---
 
-# <ion-icon name="help-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> FAQ - Perguntas Frequentes
+# <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> FAQ - Perguntas Frequentes
 
 Encontre respostas rápidas para as perguntas mais comuns sobre o n8n. Se sua dúvida não estiver aqui, consulte nossa [comunidade](../../comunidade) ou [GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR).
 

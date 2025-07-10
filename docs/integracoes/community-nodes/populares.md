@@ -5,7 +5,7 @@ description: Catálogo dos nodes da comunidade mais utilizados e recomendados
 keywords: [n8n, community nodes, populares, catálogo, recomendações]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Community Nodes Populares
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Community Nodes Populares
 
 Este documento cataloga os **community nodes mais populares e úteis** disponíveis para n8n, incluindo análise de downloads, avaliações da comunidade, casos de uso específicos, compatibilidade com versões, e recomendações baseadas em diferentes necessidades de automação, ajudando você a escolher as melhores extensões para seus projetos sem perder tempo testando opções inadequadas.
 

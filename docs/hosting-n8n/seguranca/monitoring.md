@@ -6,7 +6,7 @@ keywords: [n8n, monitoramento, alertas, observabilidade, métricas]
 ---
 
 
-# <ion-icon name="warning-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Monitoramento e Alertas
+# <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Alertas
 
 Este documento explica como **implementar monitoramento abrangente** do n8n, abordando métricas de performance, logs estruturados, alertas proativos, dashboards de observabilidade, integração com ferramentas de APM, e sistemas de notificação que detectam problemas antes que afetem usuários finais, garantindo visibilidade completa sobre saúde e performance das automações em produção.
 
@@ -28,23 +28,23 @@ Este documento explica como **implementar monitoramento abrangente** do n8n, abo
 
 ```bash
 #!/bin/bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> system-metrics.sh
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> system-metrics.sh
 
 echo "=== Métricas do Sistema ==="
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> CPU
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> CPU
 CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)
 echo "CPU Usage: ${CPU_USAGE}%"
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Memória
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Memória
 MEMORY_USAGE=$(free | grep Mem | awk '{printf("%.2f", $3/$2 * 100.0)}')
 echo "Memory Usage: ${MEMORY_USAGE}%"
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Disco
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Disco
 DISK_USAGE=$(df / | tail -1 | awk '{print $5}' | cut -d'%' -f1)
 echo "Disk Usage: ${DISK_USAGE}%"
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Load Average
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Load Average
 LOAD_AVG=$(uptime | awk -F'load average:' '{print $2}' | awk '{print $1}' | cut -d',' -f1)
 echo "Load Average: $LOAD_AVG"
 ```
@@ -53,19 +53,19 @@ echo "Load Average: $LOAD_AVG"
 
 ```bash
 #!/bin/bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> network-metrics.sh
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> network-metrics.sh
 
 echo "=== Métricas de Rede ==="
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conexões ativas
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conexões ativas
 ACTIVE_CONNECTIONS=$(netstat -an | grep ESTABLISHED | wc -l)
 echo "Active Connections: $ACTIVE_CONNECTIONS"
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conexões n8n
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conexões n8n
 N8N_CONNECTIONS=$(netstat -an | grep :5678 | grep ESTABLISHED | wc -l)
 echo "n8n Connections: $N8N_CONNECTIONS"
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Tráfego de rede
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tráfego de rede
 NETWORK_IN=$(cat /proc/net/dev | grep eth0 | awk '{print $2}')
 NETWORK_OUT=$(cat /proc/net/dev | grep eth0 | awk '{print $10}')
 echo "Network In: $NETWORK_IN bytes"
@@ -78,14 +78,14 @@ echo "Network Out: $NETWORK_OUT bytes"
 
 ```bash
 #!/bin/bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> n8n-metrics.sh
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> n8n-metrics.sh
 
 N8N_URL="http://localhost:5678"
 API_KEY="sua_api_key"
 
 echo "=== Métricas n8n ==="
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Status da aplicação
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Status da aplicação
 if curl -f -s "$N8N_URL/healthz" > /dev/null; then
     echo "n8n Status: ✅ Online"
 else
@@ -93,23 +93,23 @@ else
     exit 1
 fi
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Número de workflows
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Número de workflows
 WORKFLOW_COUNT=$(curl -s -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" | jq '. | length')
 echo "Total Workflows: $WORKFLOW_COUNT"
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Workflows ativos
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Workflows ativos
 ACTIVE_WORKFLOWS=$(curl -s -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" | jq '[.[] | select(.active == true)] | length')
 echo "Active Workflows: $ACTIVE_WORKFLOWS"
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Execuções nas últimas 24h
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Execuções nas últimas 24h
 EXECUTIONS_24H=$(curl -s -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/executions?limit=1000" | \
   jq '[.[] | select(.startedAt > "'$(date -d '24 hours ago' -Iseconds)'")] | length')
 echo "Executions (24h): $EXECUTIONS_24H"
 
-# <ion-icon name="bug-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Taxa de erro
+# <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Taxa de erro
 ERROR_RATE=$(curl -s -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/executions?limit=1000" | \
   jq '[.[] | select(.startedAt > "'$(date -d '1 hour ago' -Iseconds)'")] | 
@@ -123,28 +123,28 @@ echo "Error Rate (1h): ${ERROR_RATE}%"
 
 ```bash
 #!/bin/bash
-# <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> performance-metrics.sh
+# <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> performance-metrics.sh
 
 echo "=== Métricas de Performance ==="
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Tempo de resposta da API
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tempo de resposta da API
 API_RESPONSE_TIME=$(curl -o /dev/null -s -w "%{time_total}" \
   http://localhost:5678/api/v1/workflows)
 echo "API Response Time: ${API_RESPONSE_TIME}s"
 
-# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Tempo de resposta da UI
+# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tempo de resposta da UI
 UI_RESPONSE_TIME=$(curl -o /dev/null -s -w "%{time_total}" \
   http://localhost:5678/)
 echo "UI Response Time: ${UI_RESPONSE_TIME}s"
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Uso de memória do Node.js
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Uso de memória do Node.js
 NODE_MEMORY=$(docker exec n8n node -e "
 const mem = process.memoryUsage();
 console.log(Math.round(mem.rss / 1024 / 1024));
 " 2>/dev/null || echo "N/A")
 echo "Node.js Memory: ${NODE_MEMORY}MB"
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Uso de CPU do Node.js
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Uso de CPU do Node.js
 NODE_CPU=$(docker stats --no-stream --format "{{.CPUPerc}}" n8n 2>/dev/null || echo "N/A")
 echo "Node.js CPU: $NODE_CPU"
 ```
@@ -159,9 +159,9 @@ echo "Node.js CPU: $NODE_CPU"
 
 ```bash
 #!/bin/bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> n8n-monitoring.sh
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> n8n-monitoring.sh
 
-# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações
+# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações
 WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 EMAIL_ALERTS="admin@empresa.com"
 ALERT_THRESHOLD_CPU=80
@@ -170,7 +170,7 @@ ALERT_THRESHOLD_DISK=90
 ALERT_THRESHOLD_ERROR_RATE=5
 ALERT_THRESHOLD_RESPONSE_TIME=5
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Função para enviar alerta
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Função para enviar alerta
 send_alert() {
     local message="$1"
     local severity="$2"
@@ -187,30 +187,30 @@ send_alert() {
     echo "$(date): $severity - $message" >> /var/log/n8n/alerts.log
 }
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar CPU
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar CPU
 CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)
 if (( $(echo "$CPU_USAGE > $ALERT_THRESHOLD_CPU" | bc -l) )); then
     send_alert "CPU usage is ${CPU_USAGE}%" "⚠️"
 fi
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar memória
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar memória
 MEMORY_USAGE=$(free | grep Mem | awk '{printf("%.0f", $3/$2 * 100.0)}')
 if [ $MEMORY_USAGE -gt $ALERT_THRESHOLD_MEMORY ]; then
     send_alert "Memory usage is ${MEMORY_USAGE}%" "⚠️"
 fi
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar disco
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar disco
 DISK_USAGE=$(df / | tail -1 | awk '{print $5}' | cut -d'%' -f1)
 if [ $DISK_USAGE -gt $ALERT_THRESHOLD_DISK ]; then
     send_alert "Disk usage is ${DISK_USAGE}%" "🚨"
 fi
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar n8n
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar n8n
 if ! curl -f -s http://localhost:5678/healthz > /dev/null; then
     send_alert "n8n is not responding" "🚨"
 fi
 
-# <ion-icon name="bug-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar taxa de erro
+# <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar taxa de erro
 ERROR_RATE=$(curl -s -H "X-N8N-API-KEY: $API_KEY" \
   "http://localhost:5678/api/v1/executions?limit=1000" | \
   jq '[.[] | select(.startedAt > "'$(date -d '10 minutes ago' -Iseconds)'")] | 
@@ -222,7 +222,7 @@ if (( $(echo "$ERROR_RATE > $ALERT_THRESHOLD_ERROR_RATE" | bc -l) )); then
     send_alert "Error rate is ${ERROR_RATE}%" "🚨"
 fi
 
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar tempo de resposta
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar tempo de resposta
 RESPONSE_TIME=$(curl -o /dev/null -s -w "%{time_total}" \
   http://localhost:5678/api/v1/workflows)
 
@@ -237,15 +237,15 @@ fi
 
 ```bash
 #!/bin/bash
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> time-based-alerts.sh
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> time-based-alerts.sh
 
-# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações
+# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações
 CURRENT_HOUR=$(date +%H)
 CURRENT_DAY=$(date +%u)  # 1=Monday, 7=Sunday
 BUSINESS_HOURS_START=9
 BUSINESS_HOURS_END=18
 
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar se está em horário comercial
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar se está em horário comercial
 if [ $CURRENT_DAY -ge 1 ] && [ $CURRENT_DAY -le 5 ]; then
     if [ $CURRENT_HOUR -ge $BUSINESS_HOURS_START ] && [ $CURRENT_HOUR -lt $BUSINESS_HOURS_END ]; then
         # Em horário comercial - alertas mais rigorosos
@@ -277,7 +277,7 @@ echo "Current thresholds - CPU: ${ALERT_THRESHOLD_CPU}%, Memory: ${ALERT_THRESHO
 #### **Configuração do Grafana**
 
 ```yaml
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose.yml para Grafana
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> docker-compose.yml para Grafana
 version: '3.8'
 
 services:
@@ -308,7 +308,7 @@ volumes:
 #### **Configuração Prometheus**
 
 ```yaml
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> prometheus/prometheus.yml
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> prometheus/prometheus.yml
 global:
   scrape_interval: 15s
 
@@ -387,7 +387,7 @@ scrape_configs:
 #### **Configuração Datadog**
 
 ```yaml
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> datadog-agent.yaml
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> datadog-agent.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -453,7 +453,7 @@ function trackAPIPerformance(endpoint, duration, statusCode) {
 #### **Configuração n8n**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração de logs estruturados
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração de logs estruturados
 N8N_LOG_LEVEL=info
 N8N_LOG_FORMAT=json
 N8N_LOG_FILE=/var/log/n8n/n8n.log
@@ -485,7 +485,7 @@ N8N_LOG_MAX_FILES=10
 #### **ELK Stack Configuration**
 
 ```yaml
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose-elk.yml
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> docker-compose-elk.yml
 version: '3.8'
 
 services:
@@ -524,7 +524,7 @@ volumes:
 #### **Logstash Pipeline**
 
 ```ruby
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> logstash/pipeline/n8n.conf
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> logstash/pipeline/n8n.conf
 input {
   beats {
     port => 5044

@@ -6,7 +6,7 @@ keywords: [n8n, pix, pagamentos, recebimentos, automação, banco central, qr co
 ---
 
 
-# <ion-icon name="card-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> PIX Avançado
+# <ion-icon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> PIX Avançado
 
 Aprenda a implementar integrações avançadas com PIX para automatizar pagamentos, recebimentos e gestão financeira no contexto brasileiro.
 

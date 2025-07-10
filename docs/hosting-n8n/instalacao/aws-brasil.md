@@ -5,7 +5,7 @@ description: Como configurar n8n na AWS Brasil com foco na região de São Paulo
 keywords: [n8n, aws, brasil, são paulo, us-east-1, ec2, rds, vpc, compliance]
 ---
 
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> AWS Brasil
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> AWS Brasil
 
 Este guia detalha como **configurar n8n na AWS Brasil**, focando na região us-east-1 (São Paulo), configurações de compliance brasileiro, otimização de custos, e implementação de alta disponibilidade seguindo as melhores práticas para o mercado brasileiro.
 
@@ -25,7 +25,7 @@ A região de São Paulo oferece:
 ### Componentes da Infraestrutura
 
 ```yaml
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose.yml para AWS Brasil
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> docker-compose.yml para AWS Brasil
 version: '3.8'
 services:
   n8n:
@@ -105,7 +105,7 @@ networks:
 **Para Desenvolvimento:**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> t3.medium (2 vCPU, 4GB RAM)
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> t3.medium (2 vCPU, 4GB RAM)
 Instance Type: t3.medium
 vCPU: 2
 RAM: 4GB
@@ -116,7 +116,7 @@ Custo: ~R$ 150/mês
 **Para Produção:**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> t3.large (2 vCPU, 8GB RAM)
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> t3.large (2 vCPU, 8GB RAM)
 Instance Type: t3.large
 vCPU: 2
 RAM: 8GB
@@ -127,7 +127,7 @@ Custo: ~R$ 300/mês
 **Para Alta Performance:**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> c6i.large (2 vCPU, 4GB RAM, otimizado para CPU)
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> c6i.large (2 vCPU, 4GB RAM, otimizado para CPU)
 Instance Type: c6i.large
 vCPU: 2
 RAM: 4GB
@@ -140,7 +140,7 @@ Custo: ~R$ 400/mês
 **Configuração Recomendada:**
 
 ```bash
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> db.t3.micro (para desenvolvimento)
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> db.t3.micro (para desenvolvimento)
 Engine: PostgreSQL 15
 Instance: db.t3.micro
 Storage: 20GB gp3
@@ -148,7 +148,7 @@ Multi-AZ: false
 Backup: 7 dias
 Custo: ~R$ 80/mês
 
-# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> db.t3.small (para produção)
+# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> db.t3.small (para produção)
 Engine: PostgreSQL 15
 Instance: db.t3.small
 Storage: 50GB gp3
@@ -162,13 +162,13 @@ Custo: ~R$ 200/mês
 **Configuração de Rede:**
 
 ```bash
-# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> VPC Configuration
+# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> VPC Configuration
 CIDR Block: 10.0.0.0/16
 Availability Zones: us-east-1a, us-east-1b
 Public Subnets: 10.0.1.0/24, 10.0.2.0/24
 Private Subnets: 10.0.10.0/24, 10.0.11.0/24
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Security Groups
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Security Groups
 n8n-sg:
   - Port 80 (HTTP) - 0.0.0.0/0
   - Port 443 (HTTPS) - 0.0.0.0/0
@@ -185,7 +185,7 @@ rds-sg:
 **1. Reserved Instances:**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Economia de até 72% com reserva de 3 anos
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Economia de até 72% com reserva de 3 anos
 t3.large - On-Demand: R$ 300/mês
 t3.large - Reserved (3 anos): R$ 84/mês
 Economia: R$ 216/mês (72%)
@@ -194,7 +194,7 @@ Economia: R$ 216/mês (72%)
 **2. Spot Instances (Desenvolvimento):**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Economia de até 90% para workloads não críticos
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Economia de até 90% para workloads não críticos
 t3.large - On-Demand: R$ 300/mês
 t3.large - Spot: R$ 30/mês
 Economia: R$ 270/mês (90%)
@@ -203,7 +203,7 @@ Economia: R$ 270/mês (90%)
 **3. S3 Intelligent Tiering:**
 
 ```bash
-# <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup automático com otimização de custo
+# <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup automático com otimização de custo
 Standard: R$ 0,023/GB/mês
 IA: R$ 0,0125/GB/mês
 Archive: R$ 0,004/GB/mês
@@ -216,7 +216,7 @@ Archive: R$ 0,004/GB/mês
 **Configurações de Privacidade:**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Variáveis de ambiente para LGPD
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Variáveis de ambiente para LGPD
 N8N_ENCRYPTION_KEY=chave-criptografia-forte
 N8N_USER_MANAGEMENT_DISABLED=false
 N8N_BASIC_AUTH_ACTIVE=true
@@ -229,7 +229,7 @@ EXECUTIONS_DATA_MAX_AGE=30
 **Auditoria e Logs:**
 
 ```bash
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> CloudTrail para auditoria
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> CloudTrail para auditoria
 - Log de todas as ações administrativas
 - Retenção de logs por 90 dias (mínimo LGPD)
 - Alertas para acesso não autorizado
@@ -241,7 +241,7 @@ EXECUTIONS_DATA_MAX_AGE=30
 **Requisitos de Armazenamento:**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração de logs para Marco Civil
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração de logs para Marco Civil
 - Logs de acesso por 6 meses
 - Logs de aplicação por 1 ano
 - Backup em múltiplas regiões
@@ -253,12 +253,12 @@ EXECUTIONS_DATA_MAX_AGE=30
 ### Terraform para AWS Brasil
 
 ```hcl
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> main.tf
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> main.tf
 provider "aws" {
   region = "us-east-1"
 }
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> VPC
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> VPC
 resource "aws_vpc" "n8n_vpc" {
   cidr_block = "10.0.0.0/16"
   
@@ -269,7 +269,7 @@ resource "aws_vpc" "n8n_vpc" {
   }
 }
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> EC2 Instance
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> EC2 Instance
 resource "aws_instance" "n8n_server" {
   ami           = "ami-0c02fb55956c7d316" # Amazon Linux 2
   instance_type = "t3.large"
@@ -296,7 +296,7 @@ resource "aws_instance" "n8n_server" {
   }
 }
 
-# <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> RDS PostgreSQL
+# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> RDS PostgreSQL
 resource "aws_db_instance" "n8n_database" {
   identifier = "n8n-db"
   
@@ -331,19 +331,19 @@ resource "aws_db_instance" "n8n_database" {
 **Métricas Essenciais:**
 
 ```bash
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Métricas EC2
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métricas EC2
 - CPU Utilization > 80%
 - Memory Utilization > 85%
 - Disk Space > 90%
 - Network In/Out
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Métricas RDS
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métricas RDS
 - CPU Utilization > 70%
 - Free Storage Space < 10GB
 - Database Connections > 80%
 - Read/Write IOPS
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Métricas Application
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métricas Application
 - HTTP 5xx Errors > 1%
 - Response Time > 2s
 - Active Workflows
@@ -353,7 +353,7 @@ resource "aws_db_instance" "n8n_database" {
 **Alertas em Português:**
 
 ```bash
-# <ion-icon name="warning-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> SNS Topic para alertas
+# <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> SNS Topic para alertas
 Subject: "Alerta n8n - CPU alta"
 Message: "A instância n8n está com CPU em 85%. Verifique imediatamente."
 ```
@@ -365,17 +365,17 @@ Message: "A instância n8n está com CPU em 85%. Verifique imediatamente."
 **1. Alto Latência:**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar região
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar região
 aws ec2 describe-regions --region-names us-east-1
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Testar conectividade
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testar conectividade
 ping seu-endpoint.us-east-1.rds.amazonaws.com
 ```
 
 **2. Custos Elevados:**
 
 ```bash
-# <ion-icon name="school-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar uso de recursos
+# <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar uso de recursos
 aws ce get-cost-and-usage \
   --time-period Start=2024-01-01,End=2024-01-31 \
   --granularity MONTHLY \
@@ -385,7 +385,7 @@ aws ce get-cost-and-usage \
 **3. Problemas de Backup:**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar snapshots RDS
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar snapshots RDS
 aws rds describe-db-snapshots \
   --db-instance-identifier n8n-db
 ```

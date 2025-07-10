@@ -5,7 +5,7 @@ description: Aprenda sobre lógica de fluxo e manipulação de dados no n8n
 keywords: [n8n, lógica, dados, workflow, automação, fluxo]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Esta seção aborda os conceitos fundamentais de lógica de fluxo e manipulação de dados no n8n, essenciais para criar workflows robustos e eficientes.
 

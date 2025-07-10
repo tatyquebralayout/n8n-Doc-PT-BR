@@ -5,7 +5,7 @@ description: Conecte o n8n com centenas de aplicações e serviços
 keywords: [n8n, integrações, conectores, nodes, apps, serviços]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 As integrações são o que torna o n8n tão poderoso. Com centenas de conectores disponíveis, você pode conectar praticamente qualquer aplicação ou serviço para criar automações complexas e eficientes.
 

@@ -6,7 +6,7 @@ keywords: [n8n, embed, implantação, deployment, produção, iframe, SSO, segur
 ---
 
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Implantação do Embed
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implantação do Embed
 
 Este guia explica como **implantar o n8n embarcado** em ambiente de produção, cobrindo segurança, autenticação, performance, monitoramento, exemplos de deployment e troubleshooting para garantir integração robusta e segura com sua aplicação.
 

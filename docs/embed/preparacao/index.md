@@ -5,7 +5,7 @@ description: Visão geral dos pré-requisitos e preparação necessária para in
 ---
 
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Preparação do Embed
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Preparação do Embed
 
 Selecione abaixo o tópico desejado para acessar guias completos de pré-requisitos e preparação para integrar o n8n embarcado em sua aplicação:
 

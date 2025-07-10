@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 import CodeBlock from '@theme/CodeBlock';
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Splitting de Workflows: Criando Lógica Condicional no n8n
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Splitting de Workflows: Criando Lógica Condicional no n8n
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender nesta página
 
@@ -1197,7 +1197,7 @@ return $input.item;
 <Tabs>
 <TabItem value="problema1" label="Workflow Para na Condição" default>
 
-### ❌ Problema: "Workflow Para na Condição"
+### ❌ Problema: Workflow Para na Condição
 
 <Admonition type="warning" title="Sintomas">
 O workflow executa até o node de splitting e não continua.
@@ -1242,7 +1242,7 @@ Saiba mais sobre [expressões JavaScript](/referencia/recursos/glossario) e [tip
 </TabItem>
 <TabItem value="problema2" label="Caminho Errado">
 
-### ❌ Problema: "Caminho Errado Sendo Executado"
+### ❌ Problema: Caminho Errado Sendo Executado
 
 <Admonition type="warning" title="Sintomas">
 Os dados seguem por um caminho diferente do esperado.
@@ -1277,7 +1277,7 @@ graph TD
 
 Para mais informações sobre [tratamento de erros](/logica-e-dados/flow-logic/error-handling).
 
-### ❌ Problema: "Erro em Ramificação Específica"
+### ❌ Problema: Erro em Ramificação Específica
 
 <Admonition type="danger" title="Sintomas">
 Uma ramificação falha mas o workflow continua nas outras.
@@ -1311,7 +1311,7 @@ graph TD
 </TabItem>
 <TabItem value="problema3" label="Multiple Output Branches">
 
-### ❌ Problema: "Multiple Output Branches"
+### ❌ Problema: Multiple Output Branches
 
 <Admonition type="warning" title="Sintomas">
 Switch node criando saídas inesperadas.

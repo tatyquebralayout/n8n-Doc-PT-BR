@@ -7,7 +7,7 @@ keywords: [n8n, cloud, saas, hospedado, instalação]
 ---
 
 
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> n8n Cloud
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> n8n Cloud
 
 O **n8n Cloud** é o serviço oficial hospedado pelos criadores do n8n, oferecendo uma experiência completa e gerenciada para executar seus workflows.
 

@@ -5,7 +5,7 @@ description: Como instalar e gerenciar nodes da comunidade no n8n
 keywords: [n8n, community nodes, instalação, npm, comunidade]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalação de Community Nodes
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação de Community Nodes
 
 Este documento detalha como **instalar e gerenciar nodes da comunidade** no n8n, incluindo busca no marketplace oficial, instalação via npm, configuração de dependências, resolução de conflitos, atualizações seguras, e troubleshooting de problemas comuns, permitindo expandir significativamente as capacidades do n8n com integrações desenvolvidas pela comunidade global.
 

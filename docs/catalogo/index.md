@@ -5,7 +5,7 @@ description: Explore todas as integrações disponíveis no n8n organizadas por 
 keywords: [n8n, integrações, nodes, automação, categorias]
 ---
 
-# <ion-icon name="apps-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Catálogo de Integrações
+# <ion-icon name="apps-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Catálogo de Integrações
 
 Bem-vindo ao **Catálogo de Integrações** do n8n Brasil!
 
@@ -31,7 +31,7 @@ import IntegrationSearch from '@site/src/components/IntegrationSearch';
 
 <div className="category-card">
 
-### <ion-icon name="sparkles-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> IA e Machine Learning
+### <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> IA e Machine Learning
 Integrações para inteligência artificial e processamento de dados avançado.
 
 - **OpenAI** - GPT, DALL-E, Whisper
@@ -46,7 +46,7 @@ Integrações para inteligência artificial e processamento de dados avançado.
 
 <div className="category-card">
 
-### <ion-icon name="chatbubbles-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Comunicação e Chat
+### <ion-icon name="chatbubbles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Comunicação e Chat
 Ferramentas para comunicação, mensagens e chatbots.
 
 - **Slack** - Mensagens, canais, webhooks
@@ -61,7 +61,7 @@ Ferramentas para comunicação, mensagens e chatbots.
 
 <div className="category-card">
 
-### <ion-icon name="analytics-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Análise de Dados e BI
+### <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Análise de Dados e BI
 Ferramentas para análise, visualização e business intelligence.
 
 - **Google Analytics** - Métricas web
@@ -76,7 +76,7 @@ Ferramentas para análise, visualização e business intelligence.
 
 <div className="category-card">
 
-### <ion-icon name="cart-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> E-commerce e Vendas
+### <ion-icon name="cart-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> E-commerce e Vendas
 Plataformas de e-commerce e ferramentas de vendas.
 
 - **Shopify** - Loja online completa
@@ -91,7 +91,7 @@ Plataformas de e-commerce e ferramentas de vendas.
 
 <div className="category-card">
 
-### <ion-icon name="mail-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Marketing e Email
+### <ion-icon name="mail-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Marketing e Email
 Ferramentas de marketing digital e email marketing.
 
 - **Mailchimp** - Email marketing
@@ -106,7 +106,7 @@ Ferramentas de marketing digital e email marketing.
 
 <div className="category-card">
 
-### <ion-icon name="cloud-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Cloud e Infraestrutura
+### <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cloud e Infraestrutura
 Serviços de cloud computing e infraestrutura.
 
 - **AWS** - Amazon Web Services
@@ -121,7 +121,7 @@ Serviços de cloud computing e infraestrutura.
 
 <div className="category-card">
 
-### <ion-icon name="server-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Bancos de Dados
+### <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Bancos de Dados
 Sistemas de gerenciamento de banco de dados.
 
 - **PostgreSQL** - Banco relacional
@@ -136,7 +136,7 @@ Sistemas de gerenciamento de banco de dados.
 
 <div className="category-card">
 
-### <ion-icon name="people-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Produtividade e Colaboração
+### <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Produtividade e Colaboração
 Ferramentas para aumentar produtividade e colaboração.
 
 - **Notion** - Workspace colaborativo
@@ -151,7 +151,7 @@ Ferramentas para aumentar produtividade e colaboração.
 
 <div className="category-card">
 
-### <ion-icon name="folder-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Armazenamento e Arquivos
+### <ion-icon name="folder-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Armazenamento e Arquivos
 Serviços de armazenamento em nuvem e gestão de arquivos.
 
 - **Google Drive** - Armazenamento Google
@@ -166,7 +166,7 @@ Serviços de armazenamento em nuvem e gestão de arquivos.
 
 <div className="category-card">
 
-### <ion-icon name="musical-notes-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Mídia e Conteúdo
+### <ion-icon name="musical-notes-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Mídia e Conteúdo
 Ferramentas para criação e gestão de conteúdo.
 
 - **YouTube** - Vídeos e canais
@@ -181,7 +181,7 @@ Ferramentas para criação e gestão de conteúdo.
 
 <div className="category-card">
 
-### <ion-icon name="card-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Financeiro e Pagamentos
+### <ion-icon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Financeiro e Pagamentos
 Sistemas financeiros e processamento de pagamentos.
 
 - **Stripe** - Processamento de pagamentos
@@ -196,7 +196,7 @@ Sistemas financeiros e processamento de pagamentos.
 
 <div className="category-card">
 
-### <ion-icon name="flag-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Serviços Brasileiros
+### <ion-icon name="flag-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Serviços Brasileiros
 Integrações específicas para o mercado brasileiro.
 
 - **PIX** - Pagamentos instantâneos
@@ -211,7 +211,7 @@ Integrações específicas para o mercado brasileiro.
 
 <div className="category-card">
 
-### <ion-icon name="construct-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Desenvolvimento e DevOps
+### <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Desenvolvimento e DevOps
 Ferramentas para desenvolvedores e operações.
 
 - **GitHub** - Controle de versão
@@ -226,7 +226,7 @@ Ferramentas para desenvolvedores e operações.
 
 <div className="category-card">
 
-### <ion-icon name="trending-up-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Monitoramento e Analytics
+### <ion-icon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Analytics
 Ferramentas de monitoramento e observabilidade.
 
 - **Grafana** - Visualização de dados
@@ -245,7 +245,7 @@ Ferramentas de monitoramento e observabilidade.
 
 ## <ion-icon name="star-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integrações em Destaque
 
-### <ion-icon name="trophy-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Top 5 Mais Populares
+### <ion-icon name="trophy-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Top 5 Mais Populares
 
 | Integração | Usuários | Descrição |
 |------------|----------|-----------|
@@ -259,19 +259,19 @@ Ferramentas de monitoramento e observabilidade.
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Usar as Integrações
 
-### <ion-icon name="settings-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 1. Configurar Credenciais
+### <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1. Configurar Credenciais
 
 1. Acesse **Settings > Credentials**
 2. Adicione as credenciais da integração
 3. Configure autenticação (API keys, OAuth, etc.)
 
-### <ion-icon name="add-circle-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 2. Adicionar ao Workflow
+### <ion-icon name="add-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2. Adicionar ao Workflow
 
 1. Arraste o node da integração
 2. Configure os parâmetros necessários
 3. Teste a conexão
 
-### <ion-icon name="build-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 3. Personalizar e Automatizar
+### <ion-icon name="build-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3. Personalizar e Automatizar
 
 1. Conecte com outros nodes
 2. Configure triggers e ações

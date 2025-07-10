@@ -5,7 +5,7 @@ description: Integrações para inteligência artificial e processamento de dado
 keywords: [n8n, ia, machine learning, openai, gpt, claude, langchain]
 ---
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> IA e Machine Learning
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> IA e Machine Learning
 
 Explore as integrações de inteligência artificial e machine learning disponíveis no n8n. Estas integrações permitem automatizar processos complexos usando IA, processamento de linguagem natural e análise de dados avançada.
 
@@ -17,7 +17,7 @@ Comece com integrações simples como **OpenAI GPT-3.5** para entender o conceit
 
 ## <ion-icon name="star-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integrações Principais
 
-### <ion-icon name="logo-openai" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> OpenAI
+### <ion-icon name="logo-openai" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> OpenAI
 A integração mais popular para IA generativa.
 
 | Serviço | Descrição | Casos de Uso |
@@ -35,7 +35,7 @@ A integração mais popular para IA generativa.
 - Tradução automática
 - Resumo de documentos
 
-### <ion-icon name="chatbubble-ellipses-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Anthropic Claude
+### <ion-icon name="chatbubble-ellipses-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Anthropic Claude
 Assistente IA focado em segurança e precisão.
 
 | Modelo | Descrição | Melhor Para |
@@ -50,7 +50,7 @@ Assistente IA focado em segurança e precisão.
 - Pesquisa e síntese
 - Assistente de produtividade
 
-### <ion-icon name="logo-google" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Google AI
+### <ion-icon name="logo-google" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Google AI
 Serviços de IA do Google Cloud.
 
 | Serviço | Descrição | Aplicação |
@@ -67,7 +67,7 @@ Serviços de IA do Google Cloud.
 - Automação de atendimento
 - Análise de vídeos
 
-### <ion-icon name="logo-microsoft" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Azure AI
+### <ion-icon name="logo-microsoft" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Azure AI
 Serviços cognitivos da Microsoft.
 
 | Serviço | Descrição | Funcionalidade |
@@ -88,7 +88,7 @@ Serviços cognitivos da Microsoft.
 
 ## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Frameworks e Ferramentas
 
-### <ion-icon name="layers-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> LangChain
+### <ion-icon name="layers-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> LangChain
 Framework para desenvolvimento de aplicações com LLMs.
 
 | Componente | Descrição | Uso |
@@ -99,7 +99,7 @@ Framework para desenvolvimento de aplicações com LLMs.
 | **Tools** | Ferramentas customizadas | Integração com APIs |
 | **Vector Stores** | Armazenamento de embeddings | Busca semântica |
 
-### <ion-icon name="cube-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Hugging Face
+### <ion-icon name="cube-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Hugging Face
 Plataforma de modelos de machine learning.
 
 | Recurso | Descrição | Aplicação |
@@ -109,7 +109,7 @@ Plataforma de modelos de machine learning.
 | **Spaces** | Aplicações de IA | Deploy de modelos |
 | **Inference API** | APIs de inferência | Predições em tempo real |
 
-### <ion-icon name="search-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Pinecone
+### <ion-icon name="search-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pinecone
 Banco de dados vetorial para aplicações de IA.
 
 | Funcionalidade | Descrição | Benefício |
@@ -122,7 +122,7 @@ Banco de dados vetorial para aplicações de IA.
 
 ## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Práticos
 
-### <ion-icon name="chatbubble-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 1. Chatbot Inteligente
+### <ion-icon name="chatbubble-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1. Chatbot Inteligente
 
 ```mermaid
 graph LR
@@ -137,7 +137,7 @@ graph LR
 2. Processa com GPT para gerar resposta
 3. Envia resposta para o canal
 
-### <ion-icon name="document-text-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 2. Análise de Documentos
+### <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2. Análise de Documentos
 
 ```mermaid
 graph LR
@@ -153,7 +153,7 @@ graph LR
 3. Análise com Claude
 4. Armazenamento do resumo
 
-### <ion-icon name="create-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 3. Geração de Conteúdo
+### <ion-icon name="create-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3. Geração de Conteúdo
 
 ```mermaid
 graph LR
@@ -173,7 +173,7 @@ graph LR
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração
 
-### <ion-icon name="key-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Credenciais Necessárias
+### <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Credenciais Necessárias
 
 #### OpenAI
 ```json
@@ -198,7 +198,7 @@ graph LR
 }
 ```
 
-### <ion-icon name="environment-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Variáveis de Ambiente
+### <ion-icon name="environment-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Variáveis de Ambiente
 ```bash
 # OpenAI
 OPENAI_API_KEY=sk-...
@@ -215,7 +215,7 @@ GOOGLE_APPLICATION_CREDENTIALS=path/to/key.json
 
 ## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Considerações Importantes
 
-### <ion-icon name="card-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Custos
+### <ion-icon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Custos
 
 | Serviço | Custo | Observação |
 |---------|-------|------------|
@@ -223,7 +223,7 @@ GOOGLE_APPLICATION_CREDENTIALS=path/to/key.json
 | **Claude 3 Opus** | ~$0.015/1K tokens | Boa relação custo-benefício |
 | **Google AI** | Variável | Depende do serviço |
 
-### <ion-icon name="speedometer-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Rate Limits
+### <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Rate Limits
 
 | Serviço | Limite | Período |
 |---------|--------|---------|
@@ -231,7 +231,7 @@ GOOGLE_APPLICATION_CREDENTIALS=path/to/key.json
 | **Anthropic** | 500 requests/min | Claude |
 | **Google AI** | Depende do serviço | Variável |
 
-### <ion-icon name="shield-checkmark-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Segurança
+### <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
 
 :::warning **Atenção**
 - Nunca exponha API keys no código
@@ -244,21 +244,21 @@ GOOGLE_APPLICATION_CREDENTIALS=path/to/key.json
 
 ## <ion-icon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Melhores Práticas
 
-### <ion-icon name="create-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 1. Otimização de Prompts
+### <ion-icon name="create-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1. Otimização de Prompts
 
 - Seja específico e claro
 - Use few-shot examples
 - Defina formato de saída
 - Implemente validação
 
-### <ion-icon name="brain-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 2. Gerenciamento de Contexto
+### <ion-icon name="brain-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2. Gerenciamento de Contexto
 
 - Use memory para conversas
 - Implemente token counting
 - Limpe contexto antigo
 - Cache respostas comuns
 
-### <ion-icon name="alert-circle-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 3. Tratamento de Erros
+### <ion-icon name="alert-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3. Tratamento de Erros
 
 - Implemente retry logic
 - Fallback para modelos alternativos

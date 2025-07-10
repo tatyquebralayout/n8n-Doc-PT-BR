@@ -5,7 +5,7 @@ description: Execute código JavaScript customizado em seus workflows n8n
 keywords: [n8n, code, javascript, custom, script, programação]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Code Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Code Node
 
 O **Code Node** é um dos nodes mais poderosos do n8n, permitindo executar **código JavaScript customizado** diretamente em seus workflows. Com ele, você pode implementar lógica complexa, transformações de dados avançadas e integrações personalizadas.
 

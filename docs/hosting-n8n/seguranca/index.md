@@ -6,7 +6,7 @@ keywords: [n8n, segurança, autenticação, permissões, backup, monitoramento, 
 ---
 
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Segurança
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
 
 Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todos os aspectos essenciais para proteger sua instalação n8n em ambiente de produção, desde autenticação básica até estratégias avançadas de disaster recovery.
 

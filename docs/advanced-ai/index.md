@@ -5,7 +5,7 @@ description: Explore recursos avançados de inteligência artificial no n8n
 keywords: [n8n, IA, inteligência artificial, AI, langchain, openai, workflow]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo à seção de Inteligência Artificial Avançada do n8n! Aqui você encontrará recursos para integrar e utilizar IA em seus workflows de automação.
 

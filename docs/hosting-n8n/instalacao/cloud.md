@@ -6,7 +6,7 @@ keywords: [n8n, cloud, nuvem, aws, azure, gcp, instalação]
 ---
 
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalação na Nuvem
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação na Nuvem
 
 Este guia detalha como **instalar n8n em provedores de nuvem**, incluindo n8n Cloud oficial e deployment em AWS, Azure, Google Cloud e outros provedores.
 
@@ -182,7 +182,7 @@ Crie ambientes separados para desenvolvimento e produção:
 #### **EC2 com Docker**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar instância EC2
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar instância EC2
 aws ec2 run-instances \
   --image-id ami-0c55b159cbfafe1f0 \
   --instance-type t3.medium \
@@ -190,14 +190,14 @@ aws ec2 run-instances \
   --security-group-ids sg-xxxxxxxxx \
   --subnet-id subnet-xxxxxxxxx
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
 ssh -i sua-key.pem ubuntu@seu-ip
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Docker
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar Docker
 sudo apt update
 sudo apt install docker.io docker-compose
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar n8n
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Executar n8n
 docker run -d \
   --name n8n \
   -p 80:5678 \
@@ -208,7 +208,7 @@ docker run -d \
 #### **ECS (Elastic Container Service)**
 
 ```yaml
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> task-definition.json
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> task-definition.json
 {
   "family": "n8n",
   "networkMode": "awsvpc",
@@ -246,17 +246,17 @@ docker run -d \
 #### **Compute Engine**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar instância
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar instância
 gcloud compute instances create n8n-instance \
   --zone=us-central1-a \
   --machine-type=e2-medium \
   --image-family=ubuntu-2004-lts \
   --image-project=ubuntu-os-cloud
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
 gcloud compute ssh n8n-instance --zone=us-central1-a
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar e executar n8n
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar e executar n8n
 sudo apt update
 sudo apt install docker.io docker-compose
 sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
@@ -265,7 +265,7 @@ sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
 #### **Cloud Run**
 
 ```yaml
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> cloudbuild.yaml
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> cloudbuild.yaml
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['run', '-d', '--name', 'n8n', '-p', '8080:5678', 'n8nio/n8n']
@@ -276,7 +276,7 @@ steps:
 #### **Azure VM**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar VM
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar VM
 az vm create \
   --resource-group n8n-rg \
   --name n8n-vm \
@@ -284,10 +284,10 @@ az vm create \
   --size Standard_B2s \
   --admin-username azureuser
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
 ssh azureuser@seu-ip
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar e executar n8n
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar e executar n8n
 sudo apt update
 sudo apt install docker.io docker-compose
 sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
@@ -296,7 +296,7 @@ sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
 #### **Azure Container Instances**
 
 ```bash
-# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar container
+# <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar container
 az container create \
   --resource-group n8n-rg \
   --name n8n-container \
@@ -312,7 +312,7 @@ az container create \
 ### **Load Balancer**
 
 ```yaml
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> AWS Application Load Balancer
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> AWS Application Load Balancer
 apiVersion: v1
 kind: Service
 metadata:
@@ -329,7 +329,7 @@ spec:
 ### **Auto Scaling**
 
 ```yaml
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Kubernetes HPA
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Kubernetes HPA
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -353,7 +353,7 @@ spec:
 ### **Monitoramento**
 
 ```yaml
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Prometheus monitoring
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Prometheus monitoring
 apiVersion: v1
 kind: ConfigMap
 metadata:

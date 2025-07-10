@@ -6,7 +6,7 @@ keywords: [n8n, embed, workflows, gerenciamento, controle, permissões]
 ---
 
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerenciar Workflows Embarcados
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciar Workflows Embarcados
 
 Este documento detalha como **gerenciar workflows em n8n embarcado**, incluindo controle de acesso granular, versionamento integrado, backup automático, sincronização com sistemas externos, auditoria de mudanças, e estratégias de governança que garantem controle total sobre automações criadas dentro do ambiente embarcado mantendo compliance e segurança empresarial.
 
@@ -29,13 +29,13 @@ O n8n oferece uma API REST completa para gerenciar workflows programaticamente:
 #### **Workflows**
 
 ```bash
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Listar todos os workflows
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Listar todos os workflows
 GET /api/v1/workflows
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Obter workflow específico
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Obter workflow específico
 GET /api/v1/workflows/{id}
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar novo workflow
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar novo workflow
 POST /api/v1/workflows
 Content-Type: application/json
 
@@ -46,13 +46,13 @@ Content-Type: application/json
   "connections": {...}
 }
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Atualizar workflow
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Atualizar workflow
 PUT /api/v1/workflows/{id}
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Excluir workflow
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Excluir workflow
 DELETE /api/v1/workflows/{id}
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ativar/desativar workflow
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ativar/desativar workflow
 PATCH /api/v1/workflows/{id}
 {
   "active": true
@@ -62,10 +62,10 @@ PATCH /api/v1/workflows/{id}
 #### **Execuções**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Listar execuções
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Listar execuções
 GET /api/v1/executions
 
-# <ion-icon name="document-text-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar workflow manualmente
+# <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Executar workflow manualmente
 POST /api/v1/workflows/{id}/trigger
 Content-Type: application/json
 
@@ -76,10 +76,10 @@ Content-Type: application/json
   }
 }
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Obter detalhes da execução
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Obter detalhes da execução
 GET /api/v1/executions/{id}
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Parar execução em andamento
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Parar execução em andamento
 POST /api/v1/executions/{id}/stop
 ```
 
@@ -88,7 +88,7 @@ POST /api/v1/executions/{id}/stop
 #### **API Key (Recomendado)**
 
 ```bash
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerar API Key
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerar API Key
 curl -X POST "https://seu-n8n.com/api/v1/auth/api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -96,7 +96,7 @@ curl -X POST "https://seu-n8n.com/api/v1/auth/api-key" \
     "scopes": ["workflow:read", "workflow:write", "execution:read"]
   }'
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Usar API Key
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Usar API Key
 curl -H "X-N8N-API-KEY: sua_api_key" \
   https://seu-n8n.com/api/v1/workflows
 ```
@@ -104,7 +104,7 @@ curl -H "X-N8N-API-KEY: sua_api_key" \
 #### **OAuth 2.0**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar OAuth 2.0
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar OAuth 2.0
 {
   "client_id": "seu_client_id",
   "client_secret": "seu_client_secret",
@@ -174,7 +174,7 @@ const roles = {
 #### **SAML/SSO**
 
 ```yaml
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração SAML
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração SAML
 N8N_SAML_ENABLED=true
 N8N_SAML_ISSUER=https://seu-identity-provider.com
 N8N_SAML_ENTRY_POINT=https://seu-identity-provider.com/sso
@@ -184,7 +184,7 @@ N8N_SAML_CERT=/path/to/certificate.pem
 #### **LDAP/Active Directory**
 
 ```yaml
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração LDAP
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração LDAP
 N8N_LDAP_ENABLED=true
 N8N_LDAP_SERVER_URL=ldap://ldap.empresa.com:389
 N8N_LDAP_BIND_DN=cn=admin,dc=empresa,dc=com
@@ -228,16 +228,16 @@ O n8n mantém histórico completo de versões automaticamente:
 #### **API de Versionamento**
 
 ```bash
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Listar versões de um workflow
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Listar versões de um workflow
 GET /api/v1/workflows/{id}/versions
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Obter versão específica
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Obter versão específica
 GET /api/v1/workflows/{id}/versions/{version}
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Restaurar versão anterior
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Restaurar versão anterior
 POST /api/v1/workflows/{id}/versions/{version}/restore
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Comparar versões
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Comparar versões
 GET /api/v1/workflows/{id}/versions/compare?from=3&to=5
 ```
 
@@ -258,7 +258,7 @@ GET /api/v1/workflows/{id}/versions/compare?from=3&to=5
 #### **Changelog Automático**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerar changelog entre versões
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerar changelog entre versões
 curl -X GET "https://seu-n8n.com/api/v1/workflows/{id}/changelog?from=1&to=5" \
   -H "X-N8N-API-KEY: sua_api_key"
 ```
@@ -288,16 +288,16 @@ const auditEvents = {
 #### **API de Auditoria**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Obter logs de atividade
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Obter logs de atividade
 GET /api/v1/audit-logs?start=2024-01-01&end=2024-01-31
 
-# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Filtrar por usuário
+# <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Filtrar por usuário
 GET /api/v1/audit-logs?user=usuario@empresa.com
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Filtrar por tipo de evento
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Filtrar por tipo de evento
 GET /api/v1/audit-logs?event=workflow.updated
 
-# <ion-icon name="cloud-download-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Exportar logs
+# <ion-icon name="cloud-download-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exportar logs
 GET /api/v1/audit-logs/export?format=csv
 ```
 
@@ -330,7 +330,7 @@ GET /api/v1/audit-logs/export?format=csv
 #### **Integração com Sistemas de Monitoramento**
 
 ```bash
-# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Webhook para alertas
+# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Webhook para alertas
 POST /webhook/security-alerts
 {
   "event": "workflow.deleted",
@@ -351,32 +351,32 @@ POST /webhook/security-alerts
 
 ```bash
 #!/bin/bash
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-workflows.sh
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> backup-workflows.sh
 
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_DIR="/backups/n8n"
 API_KEY="sua_api_key"
 N8N_URL="https://seu-n8n.com"
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar diretório de backup
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar diretório de backup
 mkdir -p $BACKUP_DIR
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup de workflows
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup de workflows
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" \
   | jq '.' > "$BACKUP_DIR/workflows_$DATE.json"
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup de credenciais
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup de credenciais
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/credentials" \
   | jq '.' > "$BACKUP_DIR/credentials_$DATE.json"
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Comprimir backup
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Comprimir backup
 tar -czf "$BACKUP_DIR/n8n_backup_$DATE.tar.gz" \
   "$BACKUP_DIR/workflows_$DATE.json" \
   "$BACKUP_DIR/credentials_$DATE.json"
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Manter apenas últimos 30 backups
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Manter apenas últimos 30 backups
 find $BACKUP_DIR -name "n8n_backup_*.tar.gz" -mtime +30 -delete
 
 echo "Backup criado: $BACKUP_DIR/n8n_backup_$DATE.tar.gz"
@@ -385,11 +385,11 @@ echo "Backup criado: $BACKUP_DIR/n8n_backup_$DATE.tar.gz"
 #### **Cron Job para Backup**
 
 ```bash
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup diário às 2h da manhã
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup diário às 2h da manhã
 0 2 * * * /path/to/backup-workflows.sh
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup semanal completo
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup semanal completo
 0 2 * * 0 /path/to/backup-workflows-full.sh
 ```
 
@@ -399,16 +399,16 @@ echo "Backup criado: $BACKUP_DIR/n8n_backup_$DATE.tar.gz"
 
 ```bash
 #!/bin/bash
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> restore-workflows.sh
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> restore-workflows.sh
 
 BACKUP_FILE="$1"
 API_KEY="sua_api_key"
 N8N_URL="https://seu-n8n.com"
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Extrair backup
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Extrair backup
 tar -xzf $BACKUP_FILE
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Restaurar workflows
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Restaurar workflows
 jq -c '.[]' workflows_*.json | while read workflow; do
   curl -X POST \
     -H "X-N8N-API-KEY: $API_KEY" \
@@ -456,22 +456,22 @@ echo "Workflows restaurados com sucesso"
 
 ```bash
 #!/bin/bash
-# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> sync-with-git.sh
+# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> sync-with-git.sh
 
 WORKFLOW_DIR="/tmp/n8n-workflows"
 GIT_REPO="https://github.com/empresa/n8n-workflows.git"
 API_KEY="sua_api_key"
 N8N_URL="https://seu-n8n.com"
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Clonar repositório
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Clonar repositório
 git clone $GIT_REPO $WORKFLOW_DIR
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Baixar workflows atuais
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Baixar workflows atuais
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" \
   | jq '.' > "$WORKFLOW_DIR/workflows.json"
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Commit e push
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Commit e push
 cd $WORKFLOW_DIR
 git add .
 git commit -m "Sync workflows $(date)"

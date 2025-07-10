@@ -5,7 +5,7 @@ description: Divida dados em lotes para processamento eficiente em workflows n8n
 keywords: [n8n, split, batches, lotes, processamento, dados, performance]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Split In Batches Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Split In Batches Node
 
 O **Split In Batches Node** é essencial para processar grandes volumes de dados de forma eficiente, dividindo-os em lotes menores que podem ser processados sequencialmente ou em paralelo.
 

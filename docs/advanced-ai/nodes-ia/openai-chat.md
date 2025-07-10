@@ -5,7 +5,7 @@ description: Como usar o node OpenAI Chat para conversação e processamento de 
 keywords: [n8n, openai, chat, gpt, conversação, texto]
 ---
 
-# <ion-icon name="mail-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> OpenAI Chat Model
+# <ion-icon name="mail-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> OpenAI Chat Model
 
 Este documento descreve como usar o node **OpenAI Chat Model** para interagir com os modelos de linguagem da OpenAI, como o GPT.
 

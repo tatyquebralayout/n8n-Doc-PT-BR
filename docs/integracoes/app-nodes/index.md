@@ -5,7 +5,7 @@ description: Integrações com aplicações populares e serviços externos
 keywords: [n8n, app nodes, integrações, aplicações, serviços, conectores]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Os app nodes permitem conectar o n8n com centenas de aplicações e serviços populares. Desde ferramentas de produtividade até plataformas de e-commerce, você pode automatizar praticamente qualquer integração.
 

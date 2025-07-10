@@ -5,7 +5,7 @@ description: Explore a interface do n8n - navegação, componentes e funcionalid
 keywords: [n8n, interface, navegação, editor, componentes, ui]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 A interface do n8n foi projetada para ser intuitiva e poderosa. Nesta seção, você aprenderá a navegar e aproveitar todos os recursos disponíveis no editor visual.
 

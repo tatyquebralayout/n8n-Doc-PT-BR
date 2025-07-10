@@ -6,7 +6,7 @@ keywords: [n8n, execuções, visualizar, status, histórico, resultados]
 ---
 
 
-# <ion-icon name="color-palette-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visualizar Execuções
+# <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visualizar Execuções
 
 Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu em cada execução dos seus workflows.
 

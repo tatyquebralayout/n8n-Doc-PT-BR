@@ -5,7 +5,7 @@ description: Exemplos práticos de uso de IA no n8n
 keywords: [n8n, ia, exemplos, casos de uso, práticos]
 ---
 
-# <ion-icon name="bulb-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visão Geral - Exemplos e Casos de Uso
+# <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral - Exemplos e Casos de Uso
 
 Esta seção apresenta exemplos práticos e casos de uso para demonstrar o poder da IA no n8n.
 

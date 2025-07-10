@@ -6,7 +6,7 @@ keywords: [n8n, autenticação, segurança, acesso, login, usuarios]
 ---
 
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Autenticação e Acesso
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Autenticação e Acesso
 
 Este documento detalha como **configurar autenticação segura** no n8n, abordando métodos de login, integração com LDAP/Active Directory, SSO empresarial, autenticação de dois fatores, controle de sessão, e políticas de segurança que protegem o acesso à plataforma garantindo que apenas usuários autorizados possam criar, modificar ou executar workflows sensíveis em ambiente corporativo.
 
@@ -27,7 +27,7 @@ Este documento detalha como **configurar autenticação segura** no n8n, abordan
 #### **Configuração Básica**
 
 ```bash
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Variáveis de ambiente para autenticação básica
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Variáveis de ambiente para autenticação básica
 N8N_BASIC_AUTH_ACTIVE=true
 N8N_BASIC_AUTH_USER=admin
 N8N_BASIC_AUTH_PASSWORD=senha_segura_complexa
@@ -50,7 +50,7 @@ services:
 #### **Política de Senhas**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar política de senhas forte
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar política de senhas forte
 N8N_PASSWORD_POLICY_MIN_LENGTH=12
 N8N_PASSWORD_POLICY_REQUIRE_UPPERCASE=true
 N8N_PASSWORD_POLICY_REQUIRE_LOWERCASE=true
@@ -63,11 +63,11 @@ N8N_PASSWORD_POLICY_REQUIRE_SPECIAL_CHARS=true
 #### **Configuração 2FA**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ativar 2FA globalmente
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ativar 2FA globalmente
 N8N_2FA_ENABLED=true
 N8N_2FA_REQUIRED=true
 
-# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações de 2FA
+# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de 2FA
 N8N_2FA_ISSUER=n8n
 N8N_2FA_ALGORITHM=SHA1
 N8N_2FA_DIGITS=6
@@ -103,7 +103,7 @@ N8N_2FA_PERIOD=30
 #### **SAML 2.0**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração SAML
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração SAML
 N8N_SAML_ENABLED=true
 N8N_SAML_ISSUER=https://seu-identity-provider.com
 N8N_SAML_ENTRY_POINT=https://seu-identity-provider.com/sso
@@ -115,7 +115,7 @@ N8N_SAML_SIGNATURE_ALGORITHM=SHA256
 #### **OAuth 2.0**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração OAuth 2.0
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração OAuth 2.0
 N8N_OAUTH2_ENABLED=true
 N8N_OAUTH2_CLIENT_ID=seu_client_id
 N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
@@ -128,7 +128,7 @@ N8N_OAUTH2_SCOPE=openid profile email
 #### **OpenID Connect**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração OpenID Connect
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração OpenID Connect
 N8N_OIDC_ENABLED=true
 N8N_OIDC_ISSUER=https://accounts.google.com
 N8N_OIDC_CLIENT_ID=seu_client_id
@@ -141,7 +141,7 @@ N8N_OIDC_SCOPE=openid profile email
 #### **Configuração LDAP**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração LDAP
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração LDAP
 N8N_LDAP_ENABLED=true
 N8N_LDAP_SERVER_URL=ldap://ldap.empresa.com:389
 N8N_LDAP_BIND_DN=cn=admin,dc=empresa,dc=com
@@ -156,7 +156,7 @@ N8N_LDAP_NAME_ATTRIBUTE=cn
 #### **Configuração Active Directory**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Active Directory
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Active Directory
 N8N_LDAP_ENABLED=true
 N8N_LDAP_SERVER_URL=ldap://dc.empresa.com:389
 N8N_LDAP_BIND_DN=cn=admin,dc=empresa,dc=com
@@ -178,7 +178,7 @@ N8N_LDAP_GROUP_FILTER=(memberOf=cn=n8n-users,ou=groups,dc=empresa,dc=com)
 #### **Timeout de Sessão**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar timeout de sessão
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar timeout de sessão
 N8N_SESSION_TIMEOUT=3600  # 1 hora em segundos
 N8N_SESSION_SECRET=chave_secreta_muito_longa_e_complexa
 N8N_SESSION_COOKIE_SECURE=true
@@ -189,7 +189,7 @@ N8N_SESSION_COOKIE_SAMESITE=strict
 #### **Limite de Tentativas de Login**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar limite de tentativas
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar limite de tentativas
 N8N_MAX_LOGIN_ATTEMPTS=5
 N8N_LOGIN_ATTEMPT_TIMEOUT=900  # 15 minutos
 N8N_ACCOUNT_LOCKOUT_DURATION=1800  # 30 minutos
@@ -198,7 +198,7 @@ N8N_ACCOUNT_LOCKOUT_DURATION=1800  # 30 minutos
 #### **Configuração de Cookies**
 
 ```bash
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações de segurança de cookies
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de segurança de cookies
 N8N_COOKIE_SECURE=true
 N8N_COOKIE_HTTPONLY=true
 N8N_COOKIE_SAMESITE=strict
@@ -211,7 +211,7 @@ N8N_COOKIE_PATH=/
 #### **Whitelist de IPs**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Permitir apenas IPs específicos
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Permitir apenas IPs específicos
 N8N_ALLOWED_IPS=192.168.1.0/24,10.0.0.0/8,203.0.113.0/24
 N8N_BLOCKED_IPS=203.0.113.100,192.168.1.100
 ```
@@ -219,7 +219,7 @@ N8N_BLOCKED_IPS=203.0.113.100,192.168.1.100
 #### **Configuração Nginx**
 
 ```nginx
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Restrição por IP no Nginx
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Restrição por IP no Nginx
 location / {
     allow 192.168.1.0/24;
     allow 10.0.0.0/8;
@@ -238,7 +238,7 @@ location / {
 #### **Configuração de Janelas de Tempo**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar horários de acesso
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar horários de acesso
 N8N_ACCESS_HOURS_START=09:00
 N8N_ACCESS_HOURS_END=18:00
 N8N_ACCESS_TIMEZONE=America/Sao_Paulo
@@ -249,7 +249,7 @@ N8N_ACCESS_DAYS=monday,tuesday,wednesday,thursday,friday
 
 ```bash
 #!/bin/bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> check-access-hours.sh
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> check-access-hours.sh
 
 CURRENT_TIME=$(date +%H:%M)
 CURRENT_DAY=$(date +%A | tr '[:upper:]' '[:lower:]')
@@ -257,13 +257,13 @@ ALLOWED_START="09:00"
 ALLOWED_END="18:00"
 ALLOWED_DAYS="monday,tuesday,wednesday,thursday,friday"
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar se é dia permitido
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar se é dia permitido
 if [[ ! $ALLOWED_DAYS =~ $CURRENT_DAY ]]; then
     echo "Acesso negado: Fora dos dias permitidos"
     exit 1
 fi
 
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar se está no horário permitido
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar se está no horário permitido
 if [[ "$CURRENT_TIME" < "$ALLOWED_START" || "$CURRENT_TIME" > "$ALLOWED_END" ]]; then
     echo "Acesso negado: Fora do horário permitido"
     exit 1
@@ -282,7 +282,7 @@ exit 0
 #### **Configuração Google OAuth**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração para Google Workspace
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração para Google Workspace
 N8N_OAUTH2_ENABLED=true
 N8N_OAUTH2_CLIENT_ID=seu_google_client_id
 N8N_OAUTH2_CLIENT_SECRET=seu_google_client_secret
@@ -295,7 +295,7 @@ N8N_OAUTH2_SCOPE=openid profile email
 #### **Configuração Google SAML**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração SAML com Google
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração SAML com Google
 N8N_SAML_ENABLED=true
 N8N_SAML_ISSUER=https://accounts.google.com/o/saml2?idpid=seu_idp_id
 N8N_SAML_ENTRY_POINT=https://accounts.google.com/o/saml2/idp?idpid=seu_idp_id
@@ -307,7 +307,7 @@ N8N_SAML_CERT=/path/to/google_cert.pem
 #### **Configuração Azure AD**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Azure AD
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Azure AD
 N8N_OAUTH2_ENABLED=true
 N8N_OAUTH2_CLIENT_ID=seu_azure_client_id
 N8N_OAUTH2_CLIENT_SECRET=seu_azure_client_secret
@@ -320,7 +320,7 @@ N8N_OAUTH2_SCOPE=openid profile email User.Read
 #### **Configuração Azure AD SAML**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração SAML com Azure AD
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração SAML com Azure AD
 N8N_SAML_ENABLED=true
 N8N_SAML_ISSUER=https://sts.windows.net/seu_tenant_id/
 N8N_SAML_ENTRY_POINT=https://login.microsoftonline.com/seu_tenant_id/saml2
@@ -332,7 +332,7 @@ N8N_SAML_CERT=/path/to/azure_cert.pem
 #### **Configuração GitHub OAuth**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração GitHub Enterprise
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração GitHub Enterprise
 N8N_OAUTH2_ENABLED=true
 N8N_OAUTH2_CLIENT_ID=seu_github_client_id
 N8N_OAUTH2_CLIENT_SECRET=seu_github_client_secret
@@ -351,7 +351,7 @@ N8N_OAUTH2_SCOPE=read:user user:email
 #### **Configuração de Logs**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar logs de autenticação
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar logs de autenticação
 N8N_LOG_LEVEL=info
 N8N_LOG_FORMAT=json
 N8N_AUTH_LOG_ENABLED=true
@@ -383,7 +383,7 @@ const authEvents = {
 #### **Configuração de Alertas**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar alertas de segurança
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar alertas de segurança
 N8N_SECURITY_ALERTS_ENABLED=true
 N8N_SECURITY_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
 N8N_SECURITY_EMAIL_ALERTS=true
@@ -426,7 +426,7 @@ const securityAlerts = {
 #### **Configuração Nginx com Autenticação**
 
 ```nginx
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Nginx com autenticação
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Nginx com autenticação
 server {
     listen 443 ssl http2;
     server_name seudominio.com;
@@ -481,7 +481,7 @@ server {
 #### **Configuração Completa de Headers**
 
 ```nginx
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Headers de segurança completos
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Headers de segurança completos
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
 add_header X-Frame-Options DENY always;
 add_header X-Content-Type-Options nosniff always;

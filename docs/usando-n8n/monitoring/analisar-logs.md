@@ -5,7 +5,7 @@ description: Aprenda a analisar logs do n8n para debugging, monitoramento e otim
 keywords: [n8n, logs, análise, debugging, monitoramento, troubleshooting, performance]
 ---
 
-# <ion-icon name="document-text-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Analisar Logs
+# <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Analisar Logs
 
 Os logs são fundamentais para entender o comportamento do n8n e resolver problemas. Neste guia, você aprenderá a analisar logs de execução, sistema e aplicação para debugging e otimização.
 

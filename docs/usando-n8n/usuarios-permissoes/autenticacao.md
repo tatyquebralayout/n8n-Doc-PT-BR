@@ -5,7 +5,7 @@ description: Configure métodos de autenticação seguros para o n8n, incluindo 
 keywords: [n8n, autenticação, 2FA, OAuth, segurança, login, usuários]
 ---
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Autenticação
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Autenticação
 
 A autenticação é fundamental para proteger seu ambiente n8n. Neste guia, você aprenderá a configurar métodos de autenticação seguros, incluindo autenticação de dois fatores (2FA) e integração com provedores externos.
 

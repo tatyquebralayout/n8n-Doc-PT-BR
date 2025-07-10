@@ -5,7 +5,7 @@ description: Crie seu primeiro workflow em 5 minutos
 keywords: [n8n, primeiro workflow, tutorial, webhook, http request]
 ---
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Seu Primeiro Workflow
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Seu Primeiro Workflow
 
 Vamos criar um workflow simples que recebe dados via webhook e os envia para uma API externa. Este tutorial levará apenas **5 minutos**!
 
@@ -138,7 +138,7 @@ Response Body:
 ### 2. Testar com cURL
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Teste básico
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Teste básico
 curl -X POST \
 http://localhost:5678/webhook/meu-primeiro-webhook \
 -H "Content-Type: application/json" \

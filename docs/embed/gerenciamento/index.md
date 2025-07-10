@@ -5,7 +5,7 @@ description: Visão geral das opções de gerenciamento para n8n embarcado, incl
 ---
 
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerenciamento do n8n Embarcado
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciamento do n8n Embarcado
 
 Selecione abaixo o tópico desejado para acessar guias completos de gerenciamento, controle de acesso, personalização visual e integração com sistemas existentes:
 

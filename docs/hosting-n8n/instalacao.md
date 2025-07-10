@@ -6,7 +6,7 @@ keywords: [n8n, hosting, hospedagem, produção, instalação, configuração, e
 ---
 
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abrange todos os aspectos essenciais para implantar, configurar, escalar e proteger sua instalação n8n em ambiente empresarial.
 
@@ -272,10 +272,10 @@ Independente do método escolhido, certifique-se de ter:
 Para testar rapidamente o n8n:
 
 ```bash
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Usando Docker (mais rápido)
+# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Usando Docker (mais rápido)
 docker run -it --rm -p 5678:5678 n8nio/n8n
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Usando NPM (mais direto)
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Usando NPM (mais direto)
 npx n8n
 ```
 

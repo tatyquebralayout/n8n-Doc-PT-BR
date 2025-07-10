@@ -6,7 +6,7 @@ keywords: [n8n, data mapping, transformação, expressões, funções, manipula�
 ---
 
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Data Mapping Avançado
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Data Mapping Avançado
 
 Aprenda técnicas avançadas de mapeamento e transformação de dados para criar workflows mais poderosos e eficientes no n8n.
 

@@ -5,7 +5,7 @@ description: Resumo dos tópicos do curso oficial de iniciante do n8n no YouTube
 keywords: [n8n, curso, vídeo, iniciante, youtube, tutorial]
 ---
 
-# <ion-icon name="videocam-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Curso em Vídeo - Iniciante
+# <ion-icon name="videocam-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Curso em Vídeo - Iniciante
 
 Este curso em vídeo oficial do n8n, disponível no YouTube, cobre todos os fundamentos necessários para você começar a criar suas próprias automações.
 

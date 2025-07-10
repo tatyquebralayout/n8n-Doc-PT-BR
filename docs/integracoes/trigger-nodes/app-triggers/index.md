@@ -5,7 +5,7 @@ description: Triggers específicos de aplicativos para automações baseadas em 
 keywords: [n8n, triggers, aplicativos, eventos, automação]
 ---
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Triggers de Aplicativos
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Triggers de Aplicativos
 
 Esta seção aborda **triggers específicos de aplicativos** que iniciam workflows baseados em eventos externos, incluindo webhooks de plataformas, notificações push, mudanças em bases de dados, eventos de APIs, e triggers personalizados que conectam aplicativos externos com automações n8n, permitindo resposta imediata a mudanças e eventos em sistemas integrados.
 

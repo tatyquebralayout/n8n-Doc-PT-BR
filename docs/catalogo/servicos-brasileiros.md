@@ -5,7 +5,7 @@ description: Integrações específicas para o mercado brasileiro
 keywords: [n8n, brasil, pix, nfe, receita federal, correios, viacep]
 ---
 
-# <ion-icon name="flag-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Serviços Brasileiros
+# <ion-icon name="flag-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Serviços Brasileiros
 
 Explore as integrações específicas para o mercado brasileiro. Estas integrações permitem automatizar processos que envolvem serviços governamentais, financeiros e de localização do Brasil.
 
@@ -17,7 +17,7 @@ Comece com integrações simples como **ViaCEP** para validação de endereços,
 
 ## <ion-icon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integrações Financeiras
 
-### <ion-icon name="wallet-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> PIX - Pagamentos Instantâneos
+### <ion-icon name="wallet-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> PIX - Pagamentos Instantâneos
 Sistema de pagamentos instantâneos do Banco Central.
 
 | Serviço | Descrição | Casos de Uso |
@@ -35,7 +35,7 @@ Sistema de pagamentos instantâneos do Banco Central.
 - Monitoramento de pagamentos
 - Relatórios financeiros
 
-### <ion-icon name="document-text-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> NFe - Nota Fiscal Eletrônica
+### <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> NFe - Nota Fiscal Eletrônica
 Sistema de emissão de notas fiscais eletrônicas.
 
 | Serviço | Descrição | Funcionalidade |
@@ -53,7 +53,7 @@ Sistema de emissão de notas fiscais eletrônicas.
 - Compliance fiscal
 - Auditoria fiscal
 
-### <ion-icon name="receipt-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Boletos Bancários
+### <ion-icon name="receipt-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boletos Bancários
 Sistema de cobrança bancária.
 
 | Serviço | Descrição | Aplicação |
@@ -73,7 +73,7 @@ Sistema de cobrança bancária.
 
 ## <ion-icon name="business-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Serviços Governamentais
 
-### <ion-icon name="library-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Receita Federal
+### <ion-icon name="library-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Receita Federal
 Consultas e validações de documentos.
 
 | Serviço | Descrição | Uso |
@@ -91,7 +91,7 @@ Consultas e validações de documentos.
 - Relatórios empresariais
 - Análise de mercado
 
-### <ion-icon name="trending-up-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Banco Central
+### <ion-icon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Banco Central
 APIs oficiais do Banco Central.
 
 | Serviço | Descrição | Dados |
@@ -108,7 +108,7 @@ APIs oficiais do Banco Central.
 - Compliance bancário
 - Monitoramento de indicadores
 
-### <ion-icon name="car-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Correios
+### <ion-icon name="car-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Correios
 Serviços postais e de rastreamento.
 
 | Serviço | Descrição | Funcionalidade |
@@ -130,7 +130,7 @@ Serviços postais e de rastreamento.
 
 ## <ion-icon name="location-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Localização e Geografia
 
-### <ion-icon name="map-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> ViaCEP
+### <ion-icon name="map-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> ViaCEP
 API gratuita para consulta de CEPs.
 
 | Funcionalidade | Descrição | Aplicação |
@@ -147,7 +147,7 @@ API gratuita para consulta de CEPs.
 - Logística
 - CRM
 
-### <ion-icon name="navigate-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Google Maps Brasil
+### <ion-icon name="navigate-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Google Maps Brasil
 Serviços de localização adaptados ao Brasil.
 
 | Serviço | Descrição | Funcionalidade |
@@ -169,7 +169,7 @@ Serviços de localização adaptados ao Brasil.
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Compliance
 
-### <ion-icon name="shield-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Serasa
+### <ion-icon name="shield-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Serasa
 Consultas de crédito e informações comerciais.
 
 | Serviço | Descrição | Dados |
@@ -187,7 +187,7 @@ Consultas de crédito e informações comerciais.
 - Compliance
 - Relatórios comerciais
 
-### <ion-icon name="checkmark-circle-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> SPC Brasil
+### <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> SPC Brasil
 Sistema de proteção ao crédito.
 
 | Serviço | Descrição | Funcionalidade |
@@ -207,7 +207,7 @@ Sistema de proteção ao crédito.
 
 ## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Práticos
 
-### <ion-icon name="cart-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 1. E-commerce Completo
+### <ion-icon name="cart-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1. E-commerce Completo
 
 ```mermaid
 graph LR
@@ -226,7 +226,7 @@ graph LR
 5. Envia para correios
 6. Notifica cliente
 
-### <ion-icon name="sync-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 2. Conciliação Bancária
+### <ion-icon name="sync-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2. Conciliação Bancária
 
 ```mermaid
 graph LR
@@ -243,7 +243,7 @@ graph LR
 4. Atualiza sistema
 5. Gera relatório
 
-### <ion-icon name="search-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 3. Due Diligence Automatizada
+### <ion-icon name="search-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3. Due Diligence Automatizada
 
 ```mermaid
 graph LR
@@ -264,7 +264,7 @@ graph LR
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração
 
-### <ion-icon name="key-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Credenciais Necessárias
+### <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Credenciais Necessárias
 
 #### PIX API
 ```json
@@ -291,7 +291,7 @@ graph LR
 }
 ```
 
-### <ion-icon name="environment-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Variáveis de Ambiente
+### <ion-icon name="environment-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Variáveis de Ambiente
 ```bash
 # PIX
 PIX_CLIENT_ID=...
@@ -310,7 +310,7 @@ RECEITA_SENHA=...
 
 ## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Considerações Importantes
 
-### <ion-icon name="document-text-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Compliance Legal
+### <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Compliance Legal
 
 | Legislação | Aplicação | Requisitos |
 |------------|-----------|------------|
@@ -319,7 +319,7 @@ RECEITA_SENHA=...
 | **Normas BC** | PIX | Segurança, compliance |
 | **Legislação Fiscal** | NFe | Validação, armazenamento |
 
-### <ion-icon name="speedometer-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Rate Limits
+### <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Rate Limits
 
 | Serviço | Limite | Período |
 |---------|--------|---------|
@@ -328,7 +328,7 @@ RECEITA_SENHA=...
 | **ViaCEP** | 10 requests/seg | Por segundo |
 | **Correios** | 50 requests/min | Por minuto |
 
-### <ion-icon name="shield-checkmark-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Segurança
+### <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
 
 :::warning **Atenção**
 - Use certificados digitais válidos
@@ -341,21 +341,21 @@ RECEITA_SENHA=...
 
 ## <ion-icon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Melhores Práticas
 
-### <ion-icon name="checkmark-circle-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 1. Validação de Dados
+### <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1. Validação de Dados
 
 - Sempre valide CNPJ/CPF
 - Verifique endereços via CEP
 - Implemente validação de PIX
 - Confirme dados antes de emitir NFe
 
-### <ion-icon name="alert-circle-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 2. Tratamento de Erros
+### <ion-icon name="alert-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2. Tratamento de Erros
 
 - Implemente retry logic
 - Log de erros detalhado
 - Fallback para processos manuais
 - Monitoramento de falhas
 
-### <ion-icon name="speedometer-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 3. Performance
+### <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3. Performance
 
 - Cache consultas frequentes
 - Implemente rate limiting

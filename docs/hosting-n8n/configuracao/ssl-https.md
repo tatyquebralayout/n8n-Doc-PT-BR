@@ -6,7 +6,7 @@ keywords: [n8n, ssl, https, segurança, certificados, nginx]
 ---
 
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração SSL/HTTPS
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração SSL/HTTPS
 
 Este documento ensina como **configurar SSL/HTTPS** para n8n em produção, abordando obtenção de certificados SSL, configuração de reverse proxy com nginx, renovação automática via Let's Encrypt, implementação de security headers, e melhores práticas de segurança que garantem comunicação criptografada e protegem workflows e credenciais contra interceptação e ataques man-in-the-middle.
 
@@ -54,45 +54,45 @@ Este documento ensina como **configurar SSL/HTTPS** para n8n em produção, abor
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Obtenção de Certificados
 
-### Let's Encrypt (Gratuito)
+### Lets Encrypt (Gratuito)
 
 #### **Instalação do Certbot**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ubuntu/Debian
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ubuntu/Debian
 sudo apt update
 sudo apt install certbot python3-certbot-nginx
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> CentOS/RHEL
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> CentOS/RHEL
 sudo yum install certbot python3-certbot-nginx
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar instalação
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar instalação
 certbot --version
 ```
 
 #### **Gerar Certificado**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerar certificado para domínio
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerar certificado para domínio
 sudo certbot --nginx -d seudominio.com
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerar certificado para múltiplos domínios
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerar certificado para múltiplos domínios
 sudo certbot --nginx -d seudominio.com -d www.seudominio.com
 
-# <ion-icon name="card-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerar certificado wildcard (requer DNS challenge)
+# <ion-icon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerar certificado wildcard (requer DNS challenge)
 sudo certbot certonly --manual --preferred-challenges=dns -d *.seudominio.com
 ```
 
 #### **Renovação Automática**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Testar renovação
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testar renovação
 sudo certbot renew --dry-run
 
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab para renovação automática
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab para renovação automática
 sudo crontab -e
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar linha:
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Adicionar linha:
 0 12 * * * /usr/bin/certbot renew --quiet
 ```
 
@@ -101,31 +101,31 @@ sudo crontab -e
 #### **Comprar Certificado**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Comprar de provedores como:
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - DigiCert
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - GlobalSign
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Comodo
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Sectigo
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Comprar de provedores como:
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - DigiCert
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - GlobalSign
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - Comodo
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - Sectigo
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Após compra, você receberá:
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - certificate.crt (certificado público)
-# <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - private.key (chave privada)
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - ca_bundle.crt (cadeia de certificados)
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Após compra, você receberá:
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - certificate.crt (certificado público)
+# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - private.key (chave privada)
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - ca_bundle.crt (cadeia de certificados)
 ```
 
 #### **Instalar Certificado Comercial**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar diretório para certificados
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar diretório para certificados
 sudo mkdir -p /etc/ssl/certs/n8n
 sudo mkdir -p /etc/ssl/private/n8n
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Copiar certificados
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Copiar certificados
 sudo cp certificate.crt /etc/ssl/certs/n8n/
 sudo cp private.key /etc/ssl/private/n8n/
 sudo cp ca_bundle.crt /etc/ssl/certs/n8n/
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar permissões
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar permissões
 sudo chmod 644 /etc/ssl/certs/n8n/certificate.crt
 sudo chmod 644 /etc/ssl/certs/n8n/ca_bundle.crt
 sudo chmod 600 /etc/ssl/private/n8n/private.key
@@ -140,14 +140,14 @@ sudo chmod 600 /etc/ssl/private/n8n/private.key
 #### **Instalar Nginx**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ubuntu/Debian
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ubuntu/Debian
 sudo apt update
 sudo apt install nginx
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> CentOS/RHEL
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> CentOS/RHEL
 sudo yum install nginx
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Iniciar e habilitar
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Iniciar e habilitar
 sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
@@ -155,16 +155,16 @@ sudo systemctl enable nginx
 #### **Configuração Básica**
 
 ```nginx
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/nginx/sites-available/n8n
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> /etc/nginx/sites-available/n8n
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Redirecionar HTTP para HTTPS
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Redirecionar HTTP para HTTPS
 server {
     listen 80;
     server_name seudominio.com www.seudominio.com;
     return 301 https://$server_name$request_uri;
 }
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração HTTPS
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração HTTPS
 server {
     listen 443 ssl http2;
     server_name seudominio.com www.seudominio.com;
@@ -229,7 +229,7 @@ server {
 #### **Otimizações de Performance**
 
 ```nginx
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/nginx/nginx.conf
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> /etc/nginx/nginx.conf
 
 http {
     # Configurações básicas
@@ -268,7 +268,7 @@ http {
 #### **Configuração com Rate Limiting**
 
 ```nginx
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/nginx/sites-available/n8n
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> /etc/nginx/sites-available/n8n
 
 server {
     listen 443 ssl http2;
@@ -398,7 +398,7 @@ networks:
 ### Nginx Configuration para Docker
 
 ```nginx
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> nginx.conf
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> nginx.conf
 
 events {
     worker_connections 1024;
@@ -490,34 +490,34 @@ http {
 ### Headers Essenciais
 
 ```nginx
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Security Headers para n8n
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Security Headers para n8n
 
-# <ion-icon name="repeat-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Força HTTPS
+# <ion-icon name="repeat-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Força HTTPS
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Previne clickjacking
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Previne clickjacking
 add_header X-Frame-Options DENY always;
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Previne MIME type sniffing
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Previne MIME type sniffing
 add_header X-Content-Type-Options nosniff always;
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Proteção XSS
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Proteção XSS
 add_header X-XSS-Protection "1; mode=block" always;
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Política de referrer
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Política de referrer
 add_header Referrer-Policy "strict-origin-when-cross-origin" always;
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Content Security Policy
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Content Security Policy
 add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none';" always;
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Permissions Policy
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Permissions Policy
 add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 ```
 
 ### Configuração Completa
 
 ```nginx
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração completa de segurança
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração completa de segurança
 
 server {
     listen 443 ssl http2;
@@ -573,12 +573,12 @@ server {
 
 ```bash
 #!/bin/bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> renew-ssl.sh
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> renew-ssl.sh
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Renovar certificados Let's Encrypt
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Renovar certificados Lets Encrypt
 certbot renew --quiet
 
-# <ion-icon name="repeat-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Recarregar Nginx se certificados foram renovados
+# <ion-icon name="repeat-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recarregar Nginx se certificados foram renovados
 if [ $? -eq 0 ]; then
     echo "Certificados renovados com sucesso"
     systemctl reload nginx
@@ -591,13 +591,13 @@ fi
 ### Cron Job
 
 ```bash
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
 sudo crontab -e
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Renovar certificados duas vezes por dia
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Renovar certificados duas vezes por dia
 0 6,18 * * * /path/to/renew-ssl.sh
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar certificados semanalmente
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar certificados semanalmente
 0 12 * * 0 /usr/bin/certbot renew --dry-run
 ```
 
@@ -605,12 +605,12 @@ sudo crontab -e
 
 ```bash
 #!/bin/bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> check-ssl.sh
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> check-ssl.sh
 
 DOMAIN="seudominio.com"
 DAYS_THRESHOLD=30
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar expiração do certificado
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar expiração do certificado
 EXPIRY_DATE=$(echo | openssl s_client -servername $DOMAIN -connect $DOMAIN:443 2>/dev/null | openssl x509 -noout -enddate | cut -d= -f2)
 EXPIRY_EPOCH=$(date -d "$EXPIRY_DATE" +%s)
 CURRENT_EPOCH=$(date +%s)
@@ -634,41 +634,41 @@ fi
 #### **Verificar Certificado**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar certificado
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar certificado
 openssl s_client -connect seudominio.com:443 -servername seudominio.com
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar cadeia de certificados
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar cadeia de certificados
 openssl s_client -connect seudominio.com:443 -servername seudominio.com -showcerts
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar configuração SSL
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar configuração SSL
 nmap --script ssl-enum-ciphers -p 443 seudominio.com
 ```
 
 #### **Testes Online**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ferramentas online para testar SSL:
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - https://www.ssllabs.com/ssltest/
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - https://observatory.mozilla.org/
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - https://securityheaders.com/
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - https://csp-evaluator.withgoogle.com/
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ferramentas online para testar SSL:
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - https://www.ssllabs.com/ssltest/
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - https://observatory.mozilla.org/
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - https://securityheaders.com/
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> - https://csp-evaluator.withgoogle.com/
 ```
 
 ### Testes de Performance
 
 ```bash
-# <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Testar performance HTTPS
+# <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testar performance HTTPS
 curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 
-# <ion-icon name="repeat-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> curl-format.txt:
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> time_namelookup:  %{time_namelookup}\n
-# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> time_connect:  %{time_connect}\n
-# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> time_appconnect:  %{time_appconnect}\n
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> time_pretransfer:  %{time_pretransfer}\n
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> time_redirect:  %{time_redirect}\n
-# <ion-icon name="play-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> time_starttransfer:  %{time_starttransfer}\n
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> ----------\n
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> time_total:  %{time_total}\n
+# <ion-icon name="repeat-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> curl-format.txt:
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> time_namelookup:  %{time_namelookup}\n
+# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> time_connect:  %{time_connect}\n
+# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> time_appconnect:  %{time_appconnect}\n
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> time_pretransfer:  %{time_pretransfer}\n
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> time_redirect:  %{time_redirect}\n
+# <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> time_starttransfer:  %{time_starttransfer}\n
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> ----------\n
+# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> time_total:  %{time_total}\n
 ```
 
 ---

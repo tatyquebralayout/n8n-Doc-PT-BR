@@ -5,7 +5,7 @@ description: Introdução aos nodes de IA disponíveis no n8n
 keywords: [n8n, ia, nodes, inteligência artificial, overview]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visão Geral - Nodes de IA
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral - Nodes de IA
 
 Esta seção oferece uma visão geral sobre os **principais nodes de IA** disponíveis no n8n.
 

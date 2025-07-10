@@ -6,7 +6,7 @@ keywords: [n8n, escalonamento, clustering, load balancing, performance, alta dis
 ---
 
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Escalonamento
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalonamento
 
 Esta seção contém guias completos para **escalar n8n em produção** com alta disponibilidade, performance otimizada e tolerância a falhas. Aprenda a implementar clustering, balanceamento de carga, otimização de performance e arquiteturas distribuídas para operações empresariais críticas.
 

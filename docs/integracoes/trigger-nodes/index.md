@@ -5,7 +5,7 @@ description: Nodes de trigger para iniciar workflows automaticamente
 keywords: [n8n, trigger nodes, gatilhos, webhooks, agendamento, eventos]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Os trigger nodes são o ponto de partida de qualquer workflow automatizado. Eles permitem que seus workflows sejam iniciados automaticamente baseados em eventos, horários ou ações específicas.
 

@@ -5,7 +5,7 @@ description: Programa completo de treinamento em segurança para equipes que tra
 keywords: [n8n, treinamento, segurança, credenciais, conscientização, phishing, boas práticas]
 ---
 
-# <ion-icon name="school-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Treinamento de Segurança
+# <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Treinamento de Segurança
 
 O treinamento em segurança é fundamental para proteger credenciais e dados sensíveis no n8n. Neste guia, você encontrará um programa completo de conscientização e capacitação em segurança.
 

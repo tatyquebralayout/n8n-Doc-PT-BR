@@ -5,7 +5,7 @@ description: Visão geral das opções de configuração do n8n para ambientes d
 ---
 
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração do n8n
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração do n8n
 
 Selecione abaixo o tópico desejado para acessar guias completos de configuração, exemplos práticos e checklists de produção:
 

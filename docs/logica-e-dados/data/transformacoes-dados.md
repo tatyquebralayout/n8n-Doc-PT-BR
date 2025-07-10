@@ -5,7 +5,7 @@ description: Como transformar dados no n8n para diferentes formatos e estruturas
 keywords: [n8n, transformar, dados, estrutura, formatos, nodes]
 ---
 
-# <ion-icon name="swap-horizontal-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Transformando Dados
+# <ion-icon name="swap-horizontal-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Transformando Dados
 
 O n8n usa uma [estrutura de dados predefinida](./data-structure.md) que permite que todos os nodes processem dados de entrada corretamente. Seus dados de entrada podem ter uma estrutura diferente, caso em que você precisará transformá-los para permitir que cada item seja processado individualmente.
 

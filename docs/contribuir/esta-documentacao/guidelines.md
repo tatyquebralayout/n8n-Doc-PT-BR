@@ -4,7 +4,7 @@ description: Diretrizes e padrões para contribuir com a documentação do n8n B
 sidebar_label: Diretrizes
 ---
 
-# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Diretrizes de Contribuição
+# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Diretrizes de Contribuição
 
 Bem-vindo às diretrizes de contribuição para a documentação do n8n Brasil! Este documento estabelece os padrões e processos para contribuir com o projeto.
 

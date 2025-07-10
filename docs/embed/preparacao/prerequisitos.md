@@ -6,7 +6,7 @@ keywords: [n8n, embed, pré-requisitos, integração, aplicação, iframe, CORS,
 ---
 
 
-# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Pré-requisitos para Embed
+# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos para Embed
 
 Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em aplicações externas, garantindo integração segura, estável e escalável.
 

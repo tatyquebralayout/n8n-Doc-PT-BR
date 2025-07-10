@@ -5,7 +5,7 @@ description: Aprenda a controlar o fluxo de dados e lógica em workflows n8n
 keywords: [n8n, lógica, fluxo, controle, workflows, automação]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 A lógica de fluxo é o que transforma workflows simples em automações inteligentes e poderosas. Nesta seção, você aprenderá a controlar como os dados fluem através de seus workflows e tomar decisões baseadas em condições.
 

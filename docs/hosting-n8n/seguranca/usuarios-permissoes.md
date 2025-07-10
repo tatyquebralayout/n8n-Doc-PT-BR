@@ -6,7 +6,7 @@ keywords: [n8n, usuários, permissões, rbac, controle acesso, roles]
 ---
 
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Usuários e Permissões
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Usuários e Permissões
 
 Este documento detalha **gerenciamento de usuários e permissões** no n8n, incluindo criação de roles customizados, controle granular de acesso, permissões por workflow, segregação de ambientes, auditoria de ações, e implementação de RBAC (Role-Based Access Control) que garante princípio de menor privilégio e conformidade com políticas de segurança empresarial em organizações de grande porte.
 
@@ -323,7 +323,7 @@ const environments = {
 #### **Configuração de Auditoria**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar logs de auditoria
+# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar logs de auditoria
 N8N_AUDIT_ENABLED=true
 N8N_AUDIT_LOG_LEVEL=info
 N8N_AUDIT_LOG_FILE=/var/log/n8n/audit.log

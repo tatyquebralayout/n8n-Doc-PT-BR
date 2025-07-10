@@ -5,7 +5,7 @@ description: Nodes nativos e built-in do n8n para funcionalidades fundamentais
 keywords: [n8n, builtin nodes, nodes nativos, funcionalidades básicas, core nodes]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Os nodes built-in são os blocos fundamentais do n8n, fornecendo funcionalidades essenciais que você pode usar em qualquer workflow. Eles são nativos da plataforma e não requerem instalação adicional.
 

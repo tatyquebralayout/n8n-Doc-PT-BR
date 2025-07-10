@@ -6,7 +6,7 @@ keywords: [n8n, usuários, criar, editar, gerenciar, equipe, colaboração]
 ---
 
 
-# <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar e Editar Usuários
+# <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar e Editar Usuários
 
 Aprenda como adicionar novos membros à sua equipe, configurar suas permissões e gerenciar o acesso ao n8n de forma segura.
 

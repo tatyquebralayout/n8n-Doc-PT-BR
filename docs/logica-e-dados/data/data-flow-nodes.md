@@ -5,7 +5,7 @@ description: Entenda como os dados fluem dentro dos nodes do n8n
 keywords: [n8n, dados, fluxo, nodes, processamento, itens]
 ---
 
-# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Fluxo de Dados Dentro dos Nodes
+# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Fluxo de Dados Dentro dos Nodes
 
 O n8n processa dados como uma série de itens. Cada item é um objeto que contém os dados que você está trabalhando. Entender como esses itens fluem através dos nodes é fundamental para criar workflows eficientes.
 

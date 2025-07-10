@@ -4,7 +4,7 @@ description: Aprenda a desenvolver e publicar nodes customizados para o n8n
 sidebar_label: Introdução
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar Nodes Customizados
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar Nodes Customizados
 
 Bem-vindo à seção de desenvolvimento de nodes customizados para o n8n! Aqui você aprenderá como criar suas próprias integrações e estender a funcionalidade da plataforma.
 

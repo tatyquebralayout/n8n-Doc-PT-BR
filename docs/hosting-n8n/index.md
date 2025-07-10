@@ -5,7 +5,7 @@ description: Configure e gerencie sua instância n8n em produção
 keywords: [n8n, hosting, produção, configuração, deployment, servidor]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 O n8n pode ser hospedado de várias formas, desde instalações locais até ambientes de produção escaláveis. Esta seção abrange tudo o que você precisa saber para configurar e manter uma instância n8n robusta e segura.
 

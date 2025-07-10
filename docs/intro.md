@@ -6,7 +6,7 @@ keywords: [n8n, automação, workflow, introdução, guia, open source]
 ---
 
 
-## <ion-icon name="play-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução ao n8n
+## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução ao n8n
 
 Esta é a documentação em português do n8n, plataforma open-source que permite construir automações inteligentes e workflows avançados, com flexibilidade e controle total.
 

@@ -5,7 +5,7 @@ description: Use expressões JavaScript inline em outros nodes do n8n
 keywords: [n8n, expression, javascript, inline, expressões, variáveis]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Expression Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expression Node
 
 O **Expression Node** não é um node tradicional, mas sim um **sistema de expressões** que permite usar código JavaScript inline em outros nodes do n8n. É fundamental para acessar dados dinâmicos e criar valores calculados.
 

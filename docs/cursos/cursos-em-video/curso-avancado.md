@@ -5,7 +5,7 @@ description: Resumo dos tópicos do curso oficial avançado do n8n no YouTube.
 keywords: [n8n, curso, vídeo, avançado, youtube, tutorial]
 ---
 
-# <ion-icon name="videocam-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Curso em Vídeo - Avançado
+# <ion-icon name="videocam-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Curso em Vídeo - Avançado
 
 Este curso em vídeo oficial do n8n, disponível no YouTube, é para usuários que já dominam o básico e querem aprofundar em tópicos técnicos e recursos empresariais.
 

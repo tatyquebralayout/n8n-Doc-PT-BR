@@ -5,7 +5,7 @@ description: Primeiros passos para contribuir com a documentação n8n Brasil
 keywords: [n8n, contribuir, documentação, primeiros passos, github, pull request]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo à seção de primeiros passos para contribuir! Aqui você encontrará tudo o que precisa saber para começar a contribuir com a documentação n8n Brasil, desde configuração do ambiente até sua primeira contribuição aprovada.
 

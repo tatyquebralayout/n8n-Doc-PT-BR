@@ -5,7 +5,7 @@ description: Segundo capítulo - criando seu primeiro workflow no n8n
 keywords: [n8n, curso, básico, primeiro workflow, prática]
 ---
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Capítulo 2 - Primeiro Workflow
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Capítulo 2 - Primeiro Workflow
 
 Este capítulo guia você na criação do seu **primeiro workflow completo** no n8n, cobrindo desde a configuração inicial até a execução bem-sucedida, incluindo conceitos de nodes, conexões, triggers, e debugging básico, proporcionando experiência prática hands-on que consolida o aprendizado teórico do capítulo anterior.
 

@@ -5,7 +5,7 @@ description: Aprenda a conectar diferentes aplicações e serviços no n8n usand
 keywords: [n8n, conectar aplicações, integrações, credenciais, nodes, APIs]
 ---
 
-# <ion-icon name="link-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conectar Aplicações
+# <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conectar Aplicações
 
 Conectar aplicações é o coração do n8n. Neste guia, você aprenderá como integrar diferentes serviços e sistemas para criar workflows poderosos e automatizados.
 

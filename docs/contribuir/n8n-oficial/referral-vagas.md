@@ -6,7 +6,7 @@ keywords: [n8n, carreira, vagas, referral, indicação, recompensa]
 ---
 
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Programa de Indicação de Candidatos (Referral)
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Programa de Indicação de Candidatos (Referral)
 
 Conhece alguém que seria perfeito para uma das vagas abertas na n8n? Você pode indicá-lo e, se a pessoa for contratada e passar pelo período de experiência, **você recebe uma recompensa de €1.000**.
 

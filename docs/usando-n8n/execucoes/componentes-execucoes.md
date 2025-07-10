@@ -4,7 +4,7 @@ title: Componentes de Execução
 sidebar_label: Componentes de Execução
 ---
 
-# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Componentes de Execução
+# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Componentes de Execução
 
 Uma execução no n8n é o processo de um workflow rodando. Cada execução é composta por vários componentes que fornecem informações detalhadas sobre o que aconteceu.
 

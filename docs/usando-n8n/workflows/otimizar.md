@@ -5,7 +5,7 @@ description: Aprenda técnicas avançadas para otimizar performance, eficiência
 keywords: [n8n, otimizar workflows, performance, eficiência, boas práticas, troubleshooting]
 ---
 
-# <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Otimizar Workflows
+# <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Otimizar Workflows
 
 Otimizar workflows é essencial para garantir performance, confiabilidade e eficiência. Neste guia, você aprenderá técnicas avançadas para tornar seus workflows mais rápidos, estáveis e escaláveis.
 

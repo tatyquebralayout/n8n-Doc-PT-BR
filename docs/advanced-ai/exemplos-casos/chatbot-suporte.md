@@ -5,7 +5,7 @@ description: Como criar chatbot inteligente para atendimento ao cliente
 keywords: [n8n, chatbot, suporte, atendimento, ia, cliente]
 ---
 
-# <ion-icon name="mail-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Chatbot de Suporte
+# <ion-icon name="mail-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Chatbot de Suporte
 
 Este documento ensina como **criar chatbot inteligente** para atendimento ao cliente, abordando treinamento com base de conhecimento, integração com sistemas de tickets, escalação automática para humanos, processamento de múltiplos idiomas, análise de sentimento, e implementação completa que reduz carga de atendimento enquanto mantém qualidade superior na resolução de problemas dos clientes brasileiros.
 

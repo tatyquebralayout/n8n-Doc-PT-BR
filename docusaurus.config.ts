@@ -160,10 +160,19 @@ const config: Config = {
             { label: 'Como Participar', to: '/comunidade/como-participar' },
           ],
         },
+        // Dropdown "Cursos" - Agrupa cursos em vídeo e texto
         {
+          type: 'dropdown',
           label: 'Cursos',
-          to: '/cursos',
           position: 'left',
+          className: 'navbar-courses-dropdown',
+          items: [
+            { label: 'Visão Geral', to: '/cursos' },
+            { label: 'Cursos em Vídeo', to: '/cursos/cursos-em-video' },
+            { label: 'Cursos em Texto', to: '/cursos/cursos-em-texto' },
+            { label: 'Nível 1 - Básico', to: '/cursos/cursos-em-texto/nivel-um' },
+            { label: 'Nível 2 - Avançado', to: '/cursos/cursos-em-texto/nivel-dois' },
+          ],
         },
 
         // Dropdown "Contribuir" - Agrupa opções de contribuição

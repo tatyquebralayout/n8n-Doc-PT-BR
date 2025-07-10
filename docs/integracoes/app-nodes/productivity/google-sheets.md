@@ -5,7 +5,7 @@ description: Integração completa do n8n com Google Sheets para automação de 
 keywords: [n8n, google sheets, planilhas, automação, integração]
 ---
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Google Sheets
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Google Sheets
 
 A integração do Google Sheets é uma das mais populares do n8n, permitindo automatizar completamente suas planilhas e dados.
 
@@ -184,7 +184,7 @@ Google Sheets → CRM API → Slack Notification
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
-### Erro: "Invalid credentials"
+### Erro: Invalid credentials
 
 ```bash
 Verificar Client ID e Secret
@@ -192,7 +192,7 @@ Reautorizar no OAuth2
 Confirmar APIs habilitadas
 ```
 
-### Erro: "Permission denied"
+### Erro: Permission denied
 
 ```bash
 Verificar permissões da planilha
@@ -200,7 +200,7 @@ Confirmar email do service account
 Testar com editor permissions
 ```
 
-### Erro: "Quota exceeded"
+### Erro: Quota exceeded
 
 ```bash
 Implementar rate limiting

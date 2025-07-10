@@ -6,7 +6,7 @@ keywords: [n8n, creators, conteúdo, blog, templates, comunidade]
 ---
 
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Programa para Criadores de Conteúdo (Creators)
+# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Programa para Criadores de Conteúdo (Creators)
 
 Se você tem paixão por ensinar e criar, pode se tornar um criador de conteúdo (Creator) no ecossistema n8n. Isso envolve desde a criação de templates de workflows até a escrita de tutoriais para o blog oficial.
 

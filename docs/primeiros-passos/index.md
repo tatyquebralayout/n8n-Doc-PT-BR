@@ -5,7 +5,7 @@ description: Comece sua jornada com o n8n - conceitos básicos, instalação e p
 keywords: [n8n, primeiros passos, introdução, instalação, conceitos básicos, workflow]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo ao n8n! Esta seção é o ponto de partida perfeito para sua jornada de automação. Aqui você encontrará tudo o que precisa para começar a usar o n8n de forma eficaz.
 

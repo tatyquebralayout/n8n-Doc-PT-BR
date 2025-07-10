@@ -5,7 +5,7 @@ description: Receba dados de aplicações externas através de webhooks HTTP
 keywords: [n8n, webhook, http, api, integração, trigger]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Webhook Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Webhook Node
 
 O **Webhook** é um dos nodes mais importantes do n8n, permitindo que seu workflow seja **acionado por aplicações externas** através de requisições HTTP. É perfeito para integrar sistemas que precisam notificar o n8n quando algo acontece.
 
@@ -303,7 +303,7 @@ body: $request.body
 ### **Webhook não dispara**
 
 ```bash
-# <ion-icon name="color-palette-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verifique se a URL está correta
+# <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verifique se a URL está correta
 curl -X POST https://sua-instancia.n8n.io/webhook/seu-path \
 -H "Content-Type: application/json" \
 -d '{"test": "data"}'

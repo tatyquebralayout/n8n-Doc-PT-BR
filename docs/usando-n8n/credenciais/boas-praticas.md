@@ -6,7 +6,7 @@ keywords: [n8n, credenciais, segurança, boas práticas, criptografia, auditoria
 ---
 
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Boas Práticas de Segurança
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas de Segurança
 
 Aprenda as melhores práticas para manter suas credenciais seguras e proteger seus workflows no n8n.
 
@@ -158,7 +158,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 **Informações essenciais:**
 
 ```markdown
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Google Sheets - Marketing
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Google Sheets - Marketing
 - **Criado por**: João Silva
 - **Data de criação**: 2024-01-15
 - **Propósito**: Relatórios de marketing

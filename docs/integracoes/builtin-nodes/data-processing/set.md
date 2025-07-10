@@ -5,7 +5,7 @@ description: Definir, modificar e manipular dados em workflows
 keywords: [n8n, set, data, manipulação, workflow]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Set Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Set Node
 
 O **Set Node** é fundamental para **manipular dados** em workflows n8n. Ele permite definir, modificar, adicionar ou remover campos de dados que fluem entre os nodes.
 

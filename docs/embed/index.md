@@ -6,7 +6,7 @@ keywords: [n8n, embed, integração, iframe, white-label, workflow]
 ---
 
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo à seção de Embed do n8n! Aqui você aprenderá como integrar o n8n em suas aplicações através do sistema de embed, permitindo oferecer automação como parte de sua plataforma.
 

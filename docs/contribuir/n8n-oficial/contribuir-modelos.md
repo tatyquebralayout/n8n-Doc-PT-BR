@@ -6,7 +6,7 @@ keywords: [n8n, modelos, templates, contribuir, workflows, creator hub]
 ---
 
 
-# <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Contribuir com Modelos e Templates
+# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Contribuir com Modelos e Templates
 
 Uma maneira fantástica de contribuir com o ecossistema n8n é criando e compartilhando workflows que podem ser usados por outros usuários como templates. Se você construiu uma automação útil, ela pode ser um excelente ponto de partida para milhares de pessoas.
 

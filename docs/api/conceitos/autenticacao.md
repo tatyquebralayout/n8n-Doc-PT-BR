@@ -5,7 +5,7 @@ description: Como implementar autenticação segura na API do n8n
 keywords: [n8n, api, autenticação, security, tokens, bearer]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Autenticação na API
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Autenticação na API
 
 Este documento explica como **implementar autenticação segura** na API do n8n, abordando geração de API keys, configuração de bearer tokens, implementação de JWT, controle de permissões por usuário, rate limiting, e melhores práticas de segurança que protegem endpoints críticos e garantem acesso controlado a recursos sensíveis em implementações empresariais com múltiplos usuários e níveis de acesso.
 

@@ -6,7 +6,7 @@ keywords: [n8n, cursos, tutorial, vídeo, texto, aprender, oficial, documentaç�
 ---
 
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Bem-vindo à nossa central de aprendizado n8n! Esta seção oferece um **guia em português para os cursos oficiais** criados pela equipe do n8n.
 

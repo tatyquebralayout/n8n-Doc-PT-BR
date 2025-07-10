@@ -5,7 +5,7 @@ description: Como usar o node ReAct Agent para reasoning e action
 keywords: [n8n, react, agent, reasoning, action]
 ---
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> ReAct Agent
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> ReAct Agent
 
 Este documento descreve o **Agente ReAct (ReAct Agent)**, um tipo de agente de IA que utiliza um loop de "Raciocínio e Ação" para resolver problemas.
 

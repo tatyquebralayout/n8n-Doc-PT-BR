@@ -6,7 +6,7 @@ keywords: [n8n, contribuir, código, documentação, open source, pull request, 
 ---
 
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Guia para Contribuir com Código para o n8n
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Guia para Contribuir com Código para o n8n
 
 Contribuir para o código-fonte do n8n é uma das formas mais impactantes de ajudar o projeto. Este guia detalha o processo, desde a configuração do ambiente até a submissão do seu Pull Request (PR), seguindo as diretrizes oficiais do n8n.
 
@@ -95,7 +95,7 @@ pnpm dev
 4. **TESTE SUAS ALTERAÇÕES!**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Roda todos os testes do projeto
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Roda todos os testes do projeto
 pnpm test
 ```
 

@@ -5,7 +5,7 @@ description: Nodes fundamentais do n8n para programação e manipulação de dad
 keywords: [n8n, core, nodes, fundamentais, programação, javascript, dados]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Core Nodes
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Core Nodes
 
 Os **Core Nodes** são os blocos de construção fundamentais do n8n, oferecendo capacidades de programação e manipulação de dados essenciais para qualquer workflow.
 

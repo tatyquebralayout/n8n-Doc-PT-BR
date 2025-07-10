@@ -5,7 +5,7 @@ description: Execute funções JavaScript simples e rápidas em seus workflows n
 keywords: [n8n, function, javascript, simples, rápido, operações]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Function Node
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Function Node
 
 O **Function Node** é uma versão simplificada do Code Node, ideal para **operações rápidas e simples** em JavaScript. Ele executa uma função para cada item de entrada, oferecendo performance superior para tarefas básicas.
 

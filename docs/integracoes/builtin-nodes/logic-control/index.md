@@ -7,7 +7,7 @@ keywords: [n8n, lógica, controle, condicional, fluxo, if, switch, merge, loop, 
 
 import Admonition from '@theme/Admonition';
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Nodes de Lógica e Controle
+# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nodes de Lógica e Controle
 
 Os nodes de lógica e controle do n8n permitem criar **workflows inteligentes, adaptativos e robustos**. Com eles, você implementa decisões condicionais, múltiplos caminhos, loops, tratamento de erros e junção de dados, tornando suas automações muito mais poderosas.
 

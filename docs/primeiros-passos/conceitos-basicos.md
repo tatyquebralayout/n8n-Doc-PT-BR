@@ -5,7 +5,7 @@ description: Conceitos fundamentais do n8n que você precisa conhecer
 keywords: [n8n, conceitos, workflows, nodes, automação]
 ---
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Conceitos Básicos do n8n
+# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Básicos do n8n
 
 Antes de começar a criar seus workflows, é importante entender os conceitos fundamentais do n8n.
 

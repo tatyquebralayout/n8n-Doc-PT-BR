@@ -5,7 +5,7 @@ description: Configure roles e permissões granulares para controlar acesso a wo
 keywords: [n8n, roles, permissões, controle de acesso, segurança, usuários, workflows]
 ---
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Roles e Permissões
+# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Roles e Permissões
 
 O sistema de roles e permissões do n8n permite controlar com precisão o que cada usuário pode fazer. Neste guia, você aprenderá a configurar permissões granulares para workflows, credenciais e recursos.
 
