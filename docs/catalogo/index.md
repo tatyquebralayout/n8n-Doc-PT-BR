@@ -1,180 +1,332 @@
 ---
 sidebar_position: 1
-title: Catálogo de Templates
-description: Templates e workflows prontos para usar
-keywords: [n8n, templates, workflows, catálogo, automação]
+title: Catálogo de Integrações
+description: Explore todas as integrações disponíveis no n8n organizadas por categoria
+keywords: [n8n, integrações, nodes, automação, categorias]
 ---
-import HighlightCard from '@site/src/components/HighlightCard';
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Catálogo de Templates
+# <ion-icon name="apps-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Catálogo de Integrações
 
-Bem-vindo ao **Catálogo de Templates** da comunidade n8n Brasil!
+Bem-vindo ao **Catálogo de Integrações** do n8n Brasil!
 
-Aqui você encontra workflows prontos para usar, testados pela comunidade e documentados em português. Cada template pode ser facilmente importado e customizado para suas necessidades específicas.
+Aqui você encontra todas as integrações disponíveis no n8n, organizadas por categoria para facilitar sua busca. Cada integração permite conectar o n8n com diferentes serviços, APIs e ferramentas.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Destaques da Semana**
+:::tip **Dica Pro**
+Comece com integrações simples como **HTTP Request** e **Webhook** para entender o conceito, depois evolua para integrações mais complexas.
+:::
 
-### Mais Populares
+---
 
-<div className="template-grid">
-<div className="template-card featured">
-<div className="template-header">
-<h3>WhatsApp + Google Sheets</h3>
-<span className="template-badge">Novo</span>
-</div>
-<p>Automatize o envio de mensagens personalizadas via WhatsApp usando dados do Google Sheets.</p>
-<div className="template-stats">
-<span>1.2k downloads</span>
-<span>4.8 (124 avaliações)</span>
-</div>
-<div className="template-tags">
-<span>Comunicação</span>
-<span>Planilhas</span>
-<span>Marketing</span>
-</div>
-</div>
+## <ion-icon name="search-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Buscar Integrações
 
-<div className="template-card">
-<div className="template-header">
-<h3>Monitor PIX + Slack</h3>
-<span className="template-badge">Atualizado</span>
-</div>
-<p>Monitore transações PIX em tempo real e notifique sua equipe no Slack automaticamente.</p>
-<div className="template-stats">
-<span>856 downloads</span>
-<span>4.9 (89 avaliações)</span>
-</div>
-<div className="template-tags">
-<span>Financeiro</span>
-<span>Notificações</span>
-<span>Brasil</span>
-</div>
-</div>
+import IntegrationSearch from '@site/src/components/IntegrationSearch';
+
+<IntegrationSearch />
+
+---
+
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Categorias de Integrações
+
+<div className="categories-grid">
+
+<div className="category-card">
+
+### <ion-icon name="sparkles-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> IA e Machine Learning
+Integrações para inteligência artificial e processamento de dados avançado.
+
+- **OpenAI** - GPT, DALL-E, Whisper
+- **Google AI** - Vertex AI, Gemini
+- **Azure AI** - Cognitive Services
+- **Anthropic** - Claude
+- **Hugging Face** - Modelos customizados
+- **LangChain** - Frameworks de IA
+- **Pinecone** - Vector databases
+
 </div>
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Categorias**
+<div className="category-card">
 
-<h3 className="category-subtitle"> Comunicação e Notificações</h3>
-Templates para automatizar comunicação com clientes, equipes e stakeholders.
+### <ion-icon name="chatbubbles-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Comunicação e Chat
+Ferramentas para comunicação, mensagens e chatbots.
 
-- **Email Marketing Avançado** - Sequências automáticas com Gmail + Sheets
-- **WhatsApp Business** - Chatbots e mensagens personalizadas
-- **Central de Notificações** - Slack + Teams + Discord integrados
-- **Relatórios Automáticos** - Dashboards enviados por email
+- **Slack** - Mensagens, canais, webhooks
+- **Discord** - Servidores, bots, notificações
+- **Microsoft Teams** - Chat, reuniões, arquivos
+- **Telegram** - Bots, mensagens, grupos
+- **WhatsApp Business** - API oficial
+- **Email** - Gmail, Outlook, SMTP
+- **SMS** - Twilio, AWS SNS
 
-<h3 className="category-subtitle"> E-commerce e Vendas</h3>
-Automações para lojas virtuais e processos de vendas.
-
-- **Lead Scoring** - Qualificação automática de leads
-- **Gestão de Pedidos** - Shopify + Correios + Contabilidade
-- **Conciliação Financeira** - PIX + Cartões + Boletos
-- **Análise de Vendas** - Relatórios automatizados
-
-<h3 className="category-subtitle"> Gestão e Produtividade</h3>
-Templates para otimizar processos internos e aumentar produtividade.
-
-- **Agendamento Inteligente** - Calendário + CRM + Notificações
-- **Onboarding Funcionários** - Processo completo automatizado
-- **Gestão de Projetos** - Trello + Slack + Timetracking
-- **Backup Automático** - Dados corporativos seguros
-
-<h3 className="category-subtitle"> Específicos do Brasil</h3>
-Templates usando APIs e serviços brasileiros.
-
-- **Consultas Governo** - Receita Federal + CNPJ + CPF
-- **Logística CEP** - ViaCEP + Correios + Fretes
-- **Integração Bancária** - Open Banking + PIX + Boletos
-- **Compliance Fiscal** - SPED + NFe + Simples Nacional
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Como Usar os Templates**
-
-### **1. Navegar e Descobrir**
-
-- Use os **filtros** para encontrar templates por categoria
-- Verifique as **avaliações** e **downloads** da comunidade
-- Leia a **documentação** completa de cada template
-
-### **2. Importar e Configurar**
-
-- Faça o **download** do arquivo JSON
-- **Importe** no seu n8n
-- Configure as **credenciais** necessárias
-- Personalize conforme suas necessidades
-
-### **3. Personalizar e Expandir**
-
-- Adapte os **parâmetros** para seu caso
-- Adicione **nodes** específicos
-- Teste em ambiente de **desenvolvimento**
-- Documente suas **modificações**
-
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Filtros Rápidos**
-
-<div className="filter-buttons">
-<button className="filter-btn active">Todos</button>
-<button className="filter-btn">Mais Populares</button>
-<button className="filter-btn">Mais Recentes</button>
-<button className="filter-btn">Brasileiros</button>
-<button className="filter-btn">Iniciantes</button>
-<button className="filter-btn">Avançados</button>
 </div>
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Contribuir com Templates**
+<div className="category-card">
 
-Tem um workflow útil? Compartilhe com a comunidade!
+### <ion-icon name="analytics-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Análise de Dados e BI
+Ferramentas para análise, visualização e business intelligence.
 
-### Como Submeter
+- **Google Analytics** - Métricas web
+- **Tableau** - Dashboards e relatórios
+- **Power BI** - Análise de dados
+- **Looker** - Business intelligence
+- **Mixpanel** - Analytics de produto
+- **Amplitude** - Análise comportamental
+- **Segment** - Customer data platform
 
-1. **Documente** seu workflow completamente
-2. **Teste** em diferentes cenários
-3. **Prepare** arquivo JSON limpo
-4. **Envie** via GitHub ou Discord
+</div>
 
-### Critérios de Qualidade
+<div className="category-card">
 
-- **Funcionalidade** comprovada
-- **Documentação** clara em português
-- **Configuração** simplificada
-- **Casos de uso** bem definidos
+### <ion-icon name="cart-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> E-commerce e Vendas
+Plataformas de e-commerce e ferramentas de vendas.
 
-### Benefícios para Contribuidores
+- **Shopify** - Loja online completa
+- **WooCommerce** - E-commerce WordPress
+- **Magento** - Plataforma enterprise
+- **PrestaShop** - E-commerce open source
+- **Salesforce** - CRM e vendas
+- **HubSpot** - Marketing e vendas
+- **Pipedrive** - CRM de vendas
 
-- **Reconhecimento** na comunidade
-- **Feedback** de usuários reais
-- **Melhoria** dos próprios skills
-- **Networking** com outros automadores
+</div>
 
-## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Estatísticas da Comunidade**
+<div className="category-card">
+
+### <ion-icon name="mail-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Marketing e Email
+Ferramentas de marketing digital e email marketing.
+
+- **Mailchimp** - Email marketing
+- **ConvertKit** - Marketing para criadores
+- **ActiveCampaign** - Automação de marketing
+- **Klaviyo** - E-commerce marketing
+- **SendGrid** - Email transacional
+- **Mailgun** - API de email
+- **Constant Contact** - Email marketing
+
+</div>
+
+<div className="category-card">
+
+### <ion-icon name="cloud-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Cloud e Infraestrutura
+Serviços de cloud computing e infraestrutura.
+
+- **AWS** - Amazon Web Services
+- **Google Cloud** - GCP services
+- **Microsoft Azure** - Cloud Microsoft
+- **DigitalOcean** - Cloud hosting
+- **Heroku** - Platform as a Service
+- **Vercel** - Deploy e hosting
+- **Netlify** - Sites estáticos
+
+</div>
+
+<div className="category-card">
+
+### <ion-icon name="server-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Bancos de Dados
+Sistemas de gerenciamento de banco de dados.
+
+- **PostgreSQL** - Banco relacional
+- **MySQL** - Banco de dados open source
+- **MongoDB** - Banco NoSQL
+- **Redis** - Cache e sessões
+- **Supabase** - Backend as a Service
+- **Firebase** - Google BaaS
+- **PlanetScale** - MySQL serverless
+
+</div>
+
+<div className="category-card">
+
+### <ion-icon name="people-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Produtividade e Colaboração
+Ferramentas para aumentar produtividade e colaboração.
+
+- **Notion** - Workspace colaborativo
+- **Airtable** - Banco de dados visual
+- **Trello** - Gestão de projetos
+- **Asana** - Gestão de tarefas
+- **Monday.com** - Work OS
+- **ClickUp** - All-in-one workspace
+- **Basecamp** - Gestão de projetos
+
+</div>
+
+<div className="category-card">
+
+### <ion-icon name="folder-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Armazenamento e Arquivos
+Serviços de armazenamento em nuvem e gestão de arquivos.
+
+- **Google Drive** - Armazenamento Google
+- **Dropbox** - Sincronização de arquivos
+- **OneDrive** - Microsoft cloud storage
+- **Box** - Enterprise file sharing
+- **AWS S3** - Object storage
+- **Google Cloud Storage** - Cloud storage
+- **FTP/SFTP** - Transferência de arquivos
+
+</div>
+
+<div className="category-card">
+
+### <ion-icon name="musical-notes-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Mídia e Conteúdo
+Ferramentas para criação e gestão de conteúdo.
+
+- **YouTube** - Vídeos e canais
+- **Spotify** - Música e podcasts
+- **Instagram** - Redes sociais
+- **TikTok** - Vídeos curtos
+- **Pinterest** - Descoberta visual
+- **Canva** - Design gráfico
+- **Figma** - Design colaborativo
+
+</div>
+
+<div className="category-card">
+
+### <ion-icon name="card-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Financeiro e Pagamentos
+Sistemas financeiros e processamento de pagamentos.
+
+- **Stripe** - Processamento de pagamentos
+- **PayPal** - Pagamentos online
+- **Square** - Pagamentos móveis
+- **Plaid** - Conectividade bancária
+- **QuickBooks** - Contabilidade
+- **Xero** - Software contábil
+- **Mercado Pago** - Pagamentos Brasil
+
+</div>
+
+<div className="category-card">
+
+### <ion-icon name="flag-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Serviços Brasileiros
+Integrações específicas para o mercado brasileiro.
+
+- **PIX** - Pagamentos instantâneos
+- **NFe** - Nota fiscal eletrônica
+- **Receita Federal** - Consultas CNPJ/CPF
+- **Correios** - Rastreamento e fretes
+- **ViaCEP** - Consulta de CEPs
+- **Serasa** - Consultas de crédito
+- **Banco Central** - APIs oficiais
+
+</div>
+
+<div className="category-card">
+
+### <ion-icon name="construct-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Desenvolvimento e DevOps
+Ferramentas para desenvolvedores e operações.
+
+- **GitHub** - Controle de versão
+- **GitLab** - DevOps platform
+- **Bitbucket** - Git hosting
+- **Docker** - Containerização
+- **Kubernetes** - Orquestração
+- **Jenkins** - CI/CD
+- **Jira** - Gestão de projetos
+
+</div>
+
+<div className="category-card">
+
+### <ion-icon name="trending-up-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Monitoramento e Analytics
+Ferramentas de monitoramento e observabilidade.
+
+- **Grafana** - Visualização de dados
+- **Prometheus** - Monitoramento
+- **Datadog** - Observabilidade
+- **New Relic** - APM e monitoramento
+- **Sentry** - Error tracking
+- **LogRocket** - Session replay
+- **Hotjar** - Analytics de comportamento
+
+</div>
+
+</div>
+
+---
+
+## <ion-icon name="star-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integrações em Destaque
+
+### <ion-icon name="trophy-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Top 5 Mais Populares
+
+| Integração | Usuários | Descrição |
+|------------|----------|-----------|
+| **Slack** | 15.2k | Comunicação em equipe |
+| **Gmail** | 12.8k | Email e automação |
+| **Google Sheets** | 11.5k | Planilhas e dados |
+| **HTTP Request** | 10.9k | Requisições customizadas |
+| **Webhook** | 9.7k | Triggers externos |
+
+---
+
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Usar as Integrações
+
+### <ion-icon name="settings-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 1. Configurar Credenciais
+
+1. Acesse **Settings > Credentials**
+2. Adicione as credenciais da integração
+3. Configure autenticação (API keys, OAuth, etc.)
+
+### <ion-icon name="add-circle-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 2. Adicionar ao Workflow
+
+1. Arraste o node da integração
+2. Configure os parâmetros necessários
+3. Teste a conexão
+
+### <ion-icon name="build-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> 3. Personalizar e Automatizar
+
+1. Conecte com outros nodes
+2. Configure triggers e ações
+3. Implemente lógica de negócio
+
+---
+
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dicas de Uso
+
+:::tip **Dica Pro**
+Comece com integrações simples como **HTTP Request** e **Webhook** para entender o conceito, depois evolua para integrações mais complexas.
+:::
+
+:::info **Segurança**
+Sempre use variáveis de ambiente para armazenar credenciais sensíveis. Nunca exponha API keys no código.
+:::
+
+:::warning **Limites**
+Verifique os limites de rate limiting e quotas de cada integração para evitar interrupções nos workflows.
+:::
+
+---
+
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estatísticas
 
 <div className="stats-grid">
 <div className="stat-card">
-<div className="stat-number">127</div>
-<div className="stat-label">Templates Ativos</div>
+<div className="stat-number">400+</div>
+<div className="stat-label">Integrações Disponíveis</div>
 </div>
 <div className="stat-card">
-<div className="stat-number">15.4k</div>
-<div className="stat-label">Downloads Totais</div>
+<div className="stat-number">25</div>
+<div className="stat-label">Categorias</div>
 </div>
 <div className="stat-card">
-<div className="stat-number">4.7</div>
-<div className="stat-label">Avaliação Média</div>
+<div className="stat-number">50+</div>
+<div className="stat-label">Integrações Brasileiras</div>
 </div>
 <div className="stat-card">
-<div className="stat-number">89</div>
-<div className="stat-label">Contribuidores</div>
+<div className="stat-number">15k+</div>
+<div className="stat-label">Usuários Ativos</div>
 </div>
 </div>
-
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
-
-:::tip **Dica Pro**
-Comece com templates **simples** e vá evoluindo para casos mais complexos. A comunidade está sempre disponível para ajudar!
-:::
-
-:::info **Novidades**
-Novos templates são adicionados **semanalmente**. Ative as notificações para não perder nenhuma novidade!
-:::
 
 ---
 
-**Pronto para automatizar?** Escolha um template e comece agora mesmo!
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+
+1. **Explore as categorias** que mais interessam ao seu caso de uso
+2. **Configure credenciais** para as integrações escolhidas
+3. **Crie workflows** conectando diferentes integrações
+4. **Compartilhe experiências** com a comunidade
+
+---
+
+> <ion-icon name="quote-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **Pronto para integrar?** Escolha uma categoria e comece a automatizar!
+>
+> Para mais detalhes sobre cada integração, visite a [documentação oficial do n8n](https://docs.n8n.io/integrations/).

@@ -1,0 +1,8 @@
+{
+  "label": "Catálogo de Integrações",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Explore todas as integrações disponíveis no n8n organizadas por categoria. Encontre a integração perfeita para automatizar seus processos."
+  }
+} 
