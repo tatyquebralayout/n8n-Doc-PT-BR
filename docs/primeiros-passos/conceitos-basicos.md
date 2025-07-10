@@ -34,6 +34,8 @@ Iniciam a execução do workflow:
 - **Schedule**: Executa em horários específicos
 - **Manual Trigger**: Execução manual
 
+**Para aprender mais:** [Trigger Nodes](../integracoes/trigger-nodes)
+
 #### Regular Nodes
 
 Executam tarefas específicas:
@@ -42,6 +44,8 @@ Executam tarefas específicas:
 - **Set**: Manipula dados
 - **IF**: Lógica condicional
 
+**Para aprender mais:** [Built-in Nodes](../integracoes/builtin-nodes)
+
 #### Output Nodes
 
 Enviam dados para destinos externos:
@@ -49,6 +53,8 @@ Enviam dados para destinos externos:
 - **Email**: Envia emails
 - **Database**: Salva em banco de dados
 - **File**: Salva arquivos
+
+**Para aprender mais:** [App Nodes](../integracoes/app-nodes)
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Fluxo de Dados
 
@@ -68,6 +74,8 @@ Enviam dados para destinos externos:
 "timestamp": "2025-01-15T10:30:00Z"
 }
 ```
+
+**Para aprender mais:** [Processamento de Dados](../logica-e-dados/data/)
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões
 
@@ -89,6 +97,8 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 {{ new Date($json.data).toLocaleDateString('pt-BR') }}
 ```
 
+**Para aprender mais:** [Expressões JavaScript](../logica-e-dados/expressoes)
+
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conexões
 
 ### Como Conectar Nodes
@@ -102,6 +112,8 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 - **Main**: Fluxo principal de dados
 - **Error**: Tratamento de erros
 - **Optional**: Conexões opcionais
+
+**Para aprender mais:** [Conexões entre Nodes](../logica-e-dados/conexoes)
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Credenciais
 
@@ -134,6 +146,8 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 - **Waiting**: Aguardando entrada
 - **Running**: Em execução
 
+**Para aprender mais:** [Execução de Workflows](../logica-e-dados/execucao)
+
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Debugging
 
 ### Ferramentas de Debug
@@ -149,6 +163,8 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 2. **Verifique os dados** em cada node
 3. **Use console.log** em expressões JavaScript
 4. **Teste credenciais** separadamente
+
+**Para aprender mais:** [Debugging](../logica-e-dados/01-flow-logic/debugging)
 
 ## <ion-icon name="pin-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Data Pinning
 

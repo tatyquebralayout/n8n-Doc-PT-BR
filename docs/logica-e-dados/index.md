@@ -19,6 +19,13 @@ Esta seção aborda os conceitos fundamentais de lógica de fluxo e manipulaçã
 - **Splitting**: Dividir dados para processamento paralelo
 - **Subworkflows**: Organizar workflows em módulos reutilizáveis
 - **Waiting**: Pausar execução por tempo ou condições
+- **Debugging**: Técnicas e ferramentas de debugging
+
+### Expressões e Conexões
+
+- **Expressões JavaScript**: Manipulação dinâmica de dados
+- **Conexões entre Nodes**: Fluxo de dados e lógica
+- **Execução de Workflows**: Modos e estados de execução
 
 ### Dados (Data)
 
