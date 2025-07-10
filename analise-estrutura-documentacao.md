@@ -36,7 +36,7 @@ A documentação brasileira do n8n está bem estruturada e segue uma didática l
 ### **2. Seções de Workflows Faltantes**
 
 #### **Arquivos que precisam ser criados:**
-- ❌ `docs/usando-n8n/workflows/history.md` - Histórico de workflows
+- ❌ `docs/usando-n8n/workflows/historico.md` - Histórico de workflows
 - ❌ `docs/usando-n8n/workflows/settings.md` - Configurações de workflow
 - ❌ `docs/usando-n8n/workflows/sharing.md` - Compartilhamento de workflows
 - ❌ `docs/usando-n8n/workflows/export-import.md` - Exportação/importação
