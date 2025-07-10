@@ -15,7 +15,7 @@ Bem-vindo à seção de gerenciamento de workflows do n8n! Aqui você aprenderá
 
 - **[Criar e Editar Workflows](./criar-editar)**: Fundamentos de criação e edição
 - **[Organizar Workflows](./organizar)**: Estruturar e categorizar seus projetos
-- **[Histórico de Workflows](./history)**: Auditoria e análise de execuções
+- **[Histórico de Workflows](./historico)**: Auditoria e análise de execuções
 - **[Configurações de Workflow](./configuracoes)**: Personalizar comportamento e performance
 - **[Compartilhamento de Workflows](./compartilhamento)**: Colaborar e distribuir automações
 - **[Exportação e Importação](./export-import)**: Mover workflows entre ambientes
@@ -52,7 +52,7 @@ Um workflow típico contém:
 
 1. **Comece com [Criar e Editar Workflows](./criar-editar)** para aprender os fundamentos
 2. **Aprenda sobre [Organização](./organizar)** para manter projetos organizados
-3. **Explore [Histórico de Workflows](./history)** para auditoria e análise
+3. **Explore [Histórico de Workflows](./historico)** para auditoria e análise
 4. **Configure [Configurações](./configuracoes)** para otimizar performance
 5. **Compartilhe [Workflows](./compartilhamento)** com sua equipe
 6. **Organize com [Tags](./tags)** para melhor estruturação

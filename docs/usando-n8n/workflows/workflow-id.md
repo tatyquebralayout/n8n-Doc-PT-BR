@@ -677,4 +677,4 @@ graph TD
 
 ---
 
-**Próximo**: [Histórico de Workflows](./history) - Acesse e analise o histórico de execuções 
+**Próximo**: [Histórico de Workflows](./historico) - Acesse e analise o histórico de execuções 
