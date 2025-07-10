@@ -274,6 +274,19 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: 'Projeto concebido por',
+          items: [
+            {
+              label: '@tatyquebralayout',
+              href: 'https://github.com/tatyquebralayout',
+            },
+            {
+              label: '@CJBiohacker',
+              href: 'https://github.com/CJBiohacker',
+            },
+          ],
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} n8n Brasil. Built with Docusaurus.`,
     },
