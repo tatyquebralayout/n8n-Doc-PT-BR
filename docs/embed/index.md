@@ -85,7 +85,7 @@ O embed é ideal para:
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Primeiros Passos](/primeiros-passos/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](/primeiros-passos/guia-instalacao)** - Conceitos fundamentais
 - **[Hosting n8n](../hosting-n8n/instalacao)** - Configuração de instância
 - **[API](../api)** - Integração programática
 

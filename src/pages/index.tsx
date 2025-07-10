@@ -299,7 +299,7 @@ export default function Home(): React.ReactElement {
                   <h4>Primeiros Passos</h4>
                   <p>Aprenda os conceitos fundamentais do n8n passo a passo.</p>
                   <ul>
-                    <li><Link to="/primeiros-passos/instalacao">Instalação</Link></li>
+                    <li><Link to="/primeiros-passos/guia-instalacao">Instalação</Link></li>
                     <li><Link to="/primeiros-passos/conceitos-basicos">Conceitos Básicos</Link></li>
                     <li><Link to="/primeiros-passos/primeiro-workflow">Primeiro Workflow</Link></li>
                   </ul>

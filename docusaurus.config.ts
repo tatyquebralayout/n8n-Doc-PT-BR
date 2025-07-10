@@ -124,7 +124,7 @@ const config: Config = {
           className: 'navbar-documentation-dropdown',
           items: [
             { label: 'Guia de Instalação do n8n', to: '/primeiros-passos/guia-instalacao' },
-            { label: 'Primeiros Passos', to: '/primeiros-passos/instalacao' },
+            { label: 'Primeiros Passos', to: '/primeiros-passos/guia-instalacao' },
             { label: 'Guias Avançados', to: '/usando-n8n' },
             { label: 'Lógica e Dados', to: '/logica-e-dados' },
             { label: 'IA Avançada', to: '/advanced-ai' },
@@ -209,7 +209,7 @@ const config: Config = {
           items: [
             {
               label: 'Primeiros Passos',
-              to: '/primeiros-passos/instalacao',
+              to: '/primeiros-passos/guia-instalacao',
             },
             {
               label: 'Usando n8n',

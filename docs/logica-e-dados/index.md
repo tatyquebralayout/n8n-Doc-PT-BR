@@ -95,7 +95,7 @@ Ao construir sua lógica, você usará os **[Core Nodes](../integracoes/builtin-
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Primeiros Passos](/primeiros-passos/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](/primeiros-passos/guia-instalacao)** - Conceitos fundamentais
 - **[Usando n8n](../usando-n8n)** - Guias práticos
 - **[Integrações](../integracoes)** - Conectar com aplicações externas
 - **[Core Nodes](../integracoes/builtin-nodes/core-nodes/)** - Nodes fundamentais para lógica

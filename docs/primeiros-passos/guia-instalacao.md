@@ -122,8 +122,7 @@ O n8n utiliza o modelo **fair-code**:
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos passos
 
 1. **[n8n Cloud](./instalacao-cloud)** – preços, isolamento e SLA.
-2. **[Self‑hosted](./instalacao-self-hosted)** – guias Docker, escalabilidade e boas práticas DevOps.
-3. **[npm local](./instalacao-npm)** – fluxo de desenvolvimento, debug e upgrade.
+2. **[Self-hosted (Auto-hospedado)](./instalacao-self-hosted)** – guias Docker, escalabilidade e boas práticas DevOps.
 
 <div style={{fontSize: '1.2em', fontWeight: 'bold', margin: '2rem 0', padding: '1rem', borderLeft: '4px solid #ea4b71', backgroundColor: '#f8f9fa'}}>
 

@@ -94,7 +94,7 @@ Ao final, você terá autonomia para criar sua própria automação, seja um ale
 Escolha uma das opções abaixo para começar:
 
 :::tip **Recomendado para iniciantes**
-Comece com o **[Primeiros Passos](./primeiros-passos/instalacao)** para aprender os conceitos fundamentais.
+Comece com o **[Primeiros Passos](./primeiros-passos/guia-instalacao)** para aprender os conceitos fundamentais.
 :::
 
 :::info **Para desenvolvedores**
@@ -115,7 +115,7 @@ Esta documentação está organizada nas seguintes seções:
 
 Aprenda os conceitos fundamentais do n8n passo a passo.
 
-- **[Instalação](./primeiros-passos/instalacao)** - Guia completo de instalação
+- **[Instalação](./primeiros-passos/guia-instalacao)** - Guia completo de instalação
 - **[Conceitos Básicos](./primeiros-passos/conceitos-basicos)** - Fundamentos do n8n
 - **[Primeiro Workflow](./primeiros-passos/primeiro-workflow)** - Criar primeiro fluxo
 

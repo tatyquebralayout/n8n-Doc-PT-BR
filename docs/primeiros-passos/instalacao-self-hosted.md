@@ -25,6 +25,20 @@ Self-hosted significa que você instala e gerencia o n8n em sua própria infraes
 
 ---
 
+## <ion-icon name="swap-horizontal-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Migração para o Cloud
+
+:::info **Migração Sem Interrupção**
+<ion-icon name="information-circle-outline" style={{ fontSize: '16px', color: '#3b82f6' }}></ion-icon> Já tem uma instância self-hosted? O n8n oferece ferramentas para migrar workflows e dados para o Cloud sem interrupção dos seus processos.
+
+**Benefícios da migração:**
+- **Zero downtime** - Migração sem parar workflows
+- **Backup automático** - Seus dados ficam seguros
+- **Suporte gerenciado** - Infraestrutura cuidada pelo n8n
+- **Escalabilidade automática** - Recursos ajustados conforme necessidade
+:::
+
+---
+
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métodos de Instalação
 
 ### Docker (Recomendado)
@@ -382,7 +396,6 @@ Agora que você tem o n8n self-hosted configurado:
 ### **Outros Métodos de Instalação**
 
 - **[n8n Cloud](./instalacao-cloud)** - Serviço hospedado oficial
-- **[Instalação Local via npm](./instalacao-npm)** - Para desenvolvimento
 
 ---
 
