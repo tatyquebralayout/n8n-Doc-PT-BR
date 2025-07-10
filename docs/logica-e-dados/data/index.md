@@ -15,6 +15,10 @@ O processamento de dados é fundamental para workflows eficazes no n8n. Nesta se
 
 - **Transformações de Dados**: Modifique e estruture dados
 - **Dados Binários e Arquivos**: Trabalhe com imagens, documentos e arquivos
+- **Criação de Dados de Teste**: Gere dados sintéticos para desenvolvimento
+- **Visualização de Schema**: Entenda a estrutura dos dados
+- **Filtros de Dados**: Filtre e processe dados eficientemente
+- **Edição de Dados**: Modifique e transforme dados
 - **Integração de APIs**: Conecte e processe dados de APIs
 - **Agregações Estatísticas**: Calcule métricas e estatísticas
 - **Otimização de Performance**: Melhore velocidade e eficiência
@@ -86,9 +90,13 @@ Como os dados se movem através dos workflows:
 
 1. **Aprenda [Transformações de Dados](./transformacoes-dados)** para manipular dados
 2. **Explore [Dados Binários e Arquivos](./binary-data)** para trabalhar com arquivos
-3. **Use [Integração de APIs](./integracao-apis)** para conectar fontes externas
-4. **Calcule [Agregações Estatísticas](./agregacoes-estatisticas)** para análise
-5. **Experimente [Data Pinning](./data-pinning)** para desenvolvimento
+3. **Gere [Dados de Teste](./data-mocking)** para desenvolvimento
+4. **Visualize [Schemas](./schema-preview)** para entender estruturas
+5. **Filtre [Dados](./data-filtering)** para processamento eficiente
+6. **Edite [Dados](./data-editing)** para transformações
+7. **Use [Integração de APIs](./integracao-apis)** para conectar fontes externas
+8. **Calcule [Agregações Estatísticas](./agregacoes-estatisticas)** para análise
+9. **Experimente [Data Pinning](./data-pinning)** para desenvolvimento
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
