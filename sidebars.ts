@@ -15,7 +15,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'primeiros-passos/guia-instalacao',
         'primeiros-passos/instalacao-cloud',
-        'primeiros-passos/instalacao-self-hosted.mdx',
+        'primeiros-passos/instalacao-self-hosted',
         'primeiros-passos/conceitos-basicos',
         'primeiros-passos/primeiro-workflow'
       ],
