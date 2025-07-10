@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 /**
  * IonicIcon - Componente padronizado para uso de Ionicons na documentação.
@@ -32,6 +32,9 @@ const IonicIcon: React.FC<IonicIconProps> = ({
   className = '',
   style = {},
 }) => {
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   if (!name) {
     // Fallback visual para evitar quebra geral
     return <span style={{display: 'inline-block', width: size, height: size}} aria-hidden="true" />;
@@ -48,6 +51,35 @@ const IonicIcon: React.FC<IonicIconProps> = ({
   // Usar SVG local em vez de ion-icon
   const iconPath = `/static/svg/${name}.svg`;
   
+  const handleLoad = () => {
+    setIsLoading(false);
+    setHasError(false);
+  };
+
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    console.warn(`IonicIcon: Erro ao carregar ícone '${name}' de '${iconPath}'`);
+    setIsLoading(false);
+    setHasError(true);
+  };
+
+  // Se houve erro, mostrar um fallback simples
+  if (hasError) {
+    return (
+      <span 
+        style={{
+          display: 'inline-block',
+          width: iconSize,
+          height: iconSize,
+          backgroundColor: color || 'currentColor',
+          borderRadius: '50%',
+          opacity: 0.3,
+        }}
+        aria-hidden="true"
+        title={`Ícone ${name} não encontrado`}
+      />
+    );
+  }
+
   return (
     <img
       src={iconPath}
@@ -58,16 +90,14 @@ const IonicIcon: React.FC<IonicIconProps> = ({
         color: color || 'currentColor',
         display: 'inline-block',
         verticalAlign: 'middle',
+        opacity: isLoading ? 0.5 : 1,
+        transition: 'opacity 0.2s ease',
         ...style,
       }}
       className={`ionicon ${className}`}
       aria-hidden="true"
-      onError={(e) => {
-        // Fallback em caso de erro ao carregar o ícone
-        console.warn(`IonicIcon: Erro ao carregar ícone '${name}'`);
-        const target = e.target as HTMLImageElement;
-        target.style.display = 'none';
-      }}
+      onLoad={handleLoad}
+      onError={handleError}
     />
   );
 };
