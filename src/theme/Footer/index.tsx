@@ -145,6 +145,30 @@ function Footer(): React.JSX.Element | null {
               )}
             </div>
           ))}
+          
+          {/* Nova seção para pedido de estrela no GitHub */}
+          <div className="col footer__col">
+            <div className="footer__title">⭐ Apoie o Projeto</div>
+            <div className={styles.starSection}>
+              <p className={styles.starText}>
+                Ajude-nos a crescer! Dê uma estrela no GitHub e ajude outras pessoas desenvolvedoras brasileiras a descobrir esta documentação.
+              </p>
+              <a
+                href="https://github.com/n8n-brasil/n8n-Doc-PT-BR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.starButton}
+              >
+                <svg className={styles.starIcon} viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                Dar Estrela no GitHub
+              </a>
+              <p className={styles.starSubtext}>
+                Sua estrela nos motiva a continuar melhorando! 🚀
+              </p>
+            </div>
+          </div>
         </div>
                  {copyright && (
            <div className="footer__bottom text--center">
