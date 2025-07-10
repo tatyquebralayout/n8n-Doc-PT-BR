@@ -1,5 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-  <path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" fill="none"/>
-  <path d="M256 96l-80 80 80 80 80-80-80-80z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" fill="none"/>
-  <path d="M256 176l-40 40 40 40 40-40-40-40z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm0 352c-79.4 0-144-64.6-144-144s64.6-144 144-144 144 64.6 144 144-64.6 144-144 144z" fill="currentColor"/>
+  <path d="M336 176L176 240l64 160 160-64-64-160zm-80 160l-32-80 80-32 32 80-80 32z" fill="currentColor"/>
 </svg> 

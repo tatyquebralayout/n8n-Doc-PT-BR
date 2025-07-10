@@ -1,1 +1,3 @@
- 
+<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+  <path d="M464 256A208 208 0 11256 48a208 208 0 01208 208z M256 304a48 48 0 100 96 48 48 0 000-96z M256 128c-13.3 0-24 10.7-24 24v112c0 13.3 10.7 24 24 24s24-10.7 24-24V152c0-13.3-10.7-24-24-24z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+</svg> 

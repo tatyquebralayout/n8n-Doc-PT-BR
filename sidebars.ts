@@ -87,12 +87,12 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Lógica de Fluxo',
           items: [
-            'logica-e-dados/flow-logic/error-handling',
-            'logica-e-dados/flow-logic/looping',
-            'logica-e-dados/flow-logic/merging',
-            'logica-e-dados/flow-logic/splitting',
-            'logica-e-dados/flow-logic/subworkflows',
-            'logica-e-dados/flow-logic/waiting',
+            'logica-e-dados/01-flow-logic/error-handling',
+            'logica-e-dados/01-flow-logic/looping',
+            'logica-e-dados/01-flow-logic/merging',
+            'logica-e-dados/01-flow-logic/splitting',
+            'logica-e-dados/01-flow-logic/subworkflows',
+            'logica-e-dados/01-flow-logic/waiting',
           ],
         },
         {

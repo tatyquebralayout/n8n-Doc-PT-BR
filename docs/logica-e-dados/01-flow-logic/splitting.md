@@ -41,7 +41,7 @@ No n8n, um [workflow](/primeiros-passos/primeiro-workflow) percorre naturalmente
 <Admonition type="warning" title="⚠️ Importante: Não confunda com Split Out">
 **Splitting** ≠ **Split Out**
 
-- **Split Out**: Quebra uma lista em itens individuais para [processamento em loop](/logica-e-dados/flow-logic/looping)
+- **Split Out**: Quebra uma lista em itens individuais para [processamento em loop](/logica-e-dados/01-flow-logic/looping)
 - **Splitting condicional**: Mantém o item intacto e decide *qual* caminho ele seguirá
 
 ```mermaid
@@ -142,7 +142,7 @@ graph TD
 |--------|---------------|------------|------------------|
 | **[IF](/integracoes/builtin-nodes/logic-control)** | Decisão binária | `true`, `false` | Combine condições com **AND/OR**; ative **Always Output Data** se for fazer [merge](/logica-e-dados/flow-logic/merging) depois |
 | **[Switch](/integracoes/builtin-nodes/logic-control)** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** ([lógica JavaScript](/referencia/recursos/glossario)) |
-| **[Merge](/logica-e-dados/flow-logic/merging)** | Reunir ramificações | — | Estratégias *Wait → All* ou *Merge By Key* garantem dados completos |
+| **[Merge](/logica-e-dados/01-flow-logic/merging)** | Reunir ramificações | — | Estratégias *Wait → All* ou *Merge By Key* garantem dados completos |
 
 </TabItem>
 <TabItem value="if" label="Node IF">
