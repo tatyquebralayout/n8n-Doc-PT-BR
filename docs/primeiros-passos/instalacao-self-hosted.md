@@ -16,11 +16,11 @@ O **n8n self-hosted** oferece controle total sobre sua infraestrutura, permitind
 
 ## <IonicIcon name="chevron-forward-outline" size={24} color="#ea4b71" /> Visão Geral
 
-### **O que é Self-hosted?**
+### **<IonicIcon name="information-circle-outline" size={20} color="#ea4b71" /> O que é Self-hosted?**
 
 Self-hosted significa que você instala e gerencia o n8n em sua própria infraestrutura – seja um servidor local, VPS, cloud ou Kubernetes.
 
-### **Principais Vantagens**
+### **<IonicIcon name="star-outline" size={20} color="#ea4b71" /> Principais Vantagens**
 
 - **Controle total** - Sua infraestrutura, suas regras
 - **Integração corporativa** - VPNs, LDAP, redes privadas
@@ -28,7 +28,7 @@ Self-hosted significa que você instala e gerencia o n8n em sua própria infraes
 - **Personalização** - Plugins customizados e extensões
 - **Custo controlado** - Sem cobrança por execução
 
-### **Requisitos do Sistema**
+### **<IonicIcon name="hardware-chip-outline" size={20} color="#ea4b71" /> Requisitos do Sistema**
 
 - **Node.js**: Versão 20.19 a 24.x (para instalação NPM)
 - **Docker**: Versão 20.10+ (recomendado)
@@ -51,7 +51,7 @@ Docker é a forma recomendada para instalar o n8n em produção pelos seguintes 
 - **Facilidade de backup**: Todo o ambiente pode ser versionado e replicado
 - **Escalabilidade**: Fácil de escalar horizontalmente com múltiplas instâncias
 
-#### **Instalação Básica**
+#### **<IonicIcon name="rocket-outline" size={18} color="#2496ed" /> Instalação Básica**
 
 1. **Criar volume para persistência de dados:**
 
@@ -73,7 +73,7 @@ docker run -it --rm \
 
 Abra seu navegador e acesse: `http://localhost:5678`
 
-#### **Configuração Avançada**
+#### **<IonicIcon name="settings-outline" size={18} color="#2496ed" /> Configuração Avançada**
 
 Para produção, configure variáveis de ambiente essenciais:
 
@@ -89,11 +89,11 @@ docker run -it --rm \
   docker.n8n.io/n8nio/n8n
 ```
 
-### **Docker Compose (Produção Avançada)**
+### **<IonicIcon name="layers-outline" size={20} color="#2496ed" /> Docker Compose (Produção Avançada)**
 
 Para ambientes de produção com banco de dados PostgreSQL e Redis:
 
-#### **Arquivo docker-compose.yml**
+#### **<IonicIcon name="document-text-outline" size={20} color="#2496ed" /> Arquivo docker-compose.yml**
 
 <details>
 <summary><IonicIcon name="code-outline" size={16} color="#2496ed" /> <strong>Ver configuração completa</strong></summary>
@@ -153,7 +153,7 @@ volumes:
 
 </details>
 
-#### **Executar os Serviços**
+#### **<IonicIcon name="play-circle-outline" size={20} color="#2496ed" /> Executar os Serviços**
 
 <details>
 <summary><IonicIcon name="play-outline" size={16} color="#2496ed" /> <strong>Ver comandos</strong></summary>
@@ -177,7 +177,7 @@ docker-compose logs -f n8n
 
 Para instalação direta via npm:
 
-#### **Teste Rápido**
+#### **<IonicIcon name="flash-outline" size={18} color="#cb3837" /> Teste Rápido**
 
 Execute sem instalar para testar o n8n:
 
@@ -185,7 +185,7 @@ Execute sem instalar para testar o n8n:
 npx n8n
 ```
 
-#### **Instalação Global**
+#### **<IonicIcon name="globe-outline" size={18} color="#cb3837" /> Instalação Global**
 
 1. **Instalar o n8n:**
 
@@ -210,7 +210,7 @@ n8n start
 
 ## <IonicIcon name="settings-outline" size={24} color="#ea4b71" /> Configuração
 
-### **Variáveis de Ambiente**
+### **<IonicIcon name="list-outline" size={20} color="#ea4b71" /> Variáveis de Ambiente**
 
 As variáveis de ambiente permitem personalizar as configurações do n8n quando executado em modo self-hosted. Você pode alterar configurações de servidor, banco de dados, segurança e performance através dessas variáveis. Configure-as antes de iniciar o n8n para evitar reconfigurações desnecessárias.
 
@@ -268,9 +268,9 @@ N8N_SAMESITE_COOKIE=strict
 
 </details>
 
-### **Configuração de SSL/HTTPS**
+### **<IonicIcon name="lock-closed-outline" size={20} color="#ea4b71" /> Configuração de SSL/HTTPS**
 
-#### **Com Nginx**
+#### **<IonicIcon name="server-outline" size={18} color="#ea4b71" /> Com Nginx**
 
 Crie um arquivo de configuração do Nginx:
 
@@ -303,7 +303,7 @@ server {
 }
 ```
 
-#### **Com Certbot (Lets Encrypt)**
+#### **<IonicIcon name="shield-checkmark-outline" size={18} color="#ea4b71" /> Com Certbot (Lets Encrypt)**
 
 ```bash
 # Instalar Certbot
@@ -321,7 +321,7 @@ sudo crontab -e
 
 ## <IonicIcon name="chevron-forward-outline" size={24} color="#ea4b71" /> Escalabilidade
 
-### **Configuração de Filas**
+### **<IonicIcon name="speedometer-outline" size={20} color="#ea4b71" /> Configuração de Filas**
 
 Para alta performance, configure Redis:
 
@@ -335,7 +335,7 @@ EXECUTIONS_PROCESS=main
 EXECUTIONS_MODE=regular
 ```
 
-### **Load Balancing**
+### **<IonicIcon name="git-branch-outline" size={20} color="#ea4b71" /> Load Balancing**
 
 Para múltiplas instâncias:
 
@@ -360,7 +360,7 @@ server {
 }
 ```
 
-### **Kubernetes**
+### **<IonicIcon name="cube-outline" size={20} color="#ea4b71" /> Kubernetes**
 
 ```yaml
 apiVersion: apps/v1
@@ -397,9 +397,9 @@ spec:
 
 ## <IonicIcon name="shield-checkmark-outline" size={24} color="#ea4b71" /> Segurança
 
-### **Autenticação**
+### **<IonicIcon name="key-outline" size={20} color="#ea4b71" /> Autenticação**
 
-#### **Basic Auth**
+#### **<IonicIcon name="person-outline" size={18} color="#ea4b71" /> Basic Auth**
 
 ```bash
 N8N_BASIC_AUTH_ACTIVE=true
@@ -407,7 +407,7 @@ N8N_BASIC_AUTH_USER=admin
 N8N_BASIC_AUTH_PASSWORD=senha_segura
 ```
 
-#### **OAuth2**
+#### **<IonicIcon name="lock-open-outline" size={18} color="#ea4b71" /> OAuth2**
 
 ```bash
 N8N_OAUTH2_ACTIVE=true
@@ -417,7 +417,7 @@ N8N_OAUTH2_AUTHORIZATION_URL=https://auth.provider.com/oauth/authorize
 N8N_OAUTH2_TOKEN_URL=https://auth.provider.com/oauth/token
 ```
 
-### **Firewall**
+### **<IonicIcon name="shield-outline" size={20} color="#ea4b71" /> Firewall**
 
 ```bash
 # Permitir apenas HTTPS
@@ -433,7 +433,7 @@ sudo ufw allow from 192.168.1.0/24 to any port 5678
 
 ## <IonicIcon name="chevron-forward-outline" size={24} color="#ea4b71" /> Backup e Recuperação
 
-### **Script de Backup Automático**
+### **<IonicIcon name="save-outline" size={20} color="#ea4b71" /> Script de Backup Automático**
 
 Crie um arquivo `backup-n8n.sh`:
 
@@ -455,7 +455,7 @@ find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
 find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 ```
 
-### **Agendar Backup**
+### **<IonicIcon name="time-outline" size={20} color="#ea4b71" /> Agendar Backup**
 
 ```bash
 # Adicionar ao crontab para backup diário às 2h
@@ -466,7 +466,7 @@ find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 
 ## <IonicIcon name="eye-outline" size={24} color="#ea4b71" /> Monitoramento
 
-### **Logs**
+### **<IonicIcon name="document-text-outline" size={20} color="#ea4b71" /> Logs**
 
 ```bash
 # Logs detalhados
@@ -479,7 +479,7 @@ docker logs -f n8n_container
 logrotate /etc/logrotate.d/n8n
 ```
 
-### **Health Check**
+### **<IonicIcon name="heart-outline" size={20} color="#ea4b71" /> Health Check**
 
 Crie um script `health-check.sh`:
 
@@ -499,7 +499,7 @@ fi
 
 ## <IonicIcon name="refresh-outline" size={24} color="#ea4b71" /> Atualizações
 
-### **Docker**
+### **<IonicIcon name="cube-outline" size={20} color="#ea4b71" /> Docker**
 
 ```bash
 # Baixar nova imagem
@@ -513,7 +513,7 @@ docker rm n8n_container
 docker run --name n8n_container [suas_opções] docker.n8n.io/n8nio/n8n
 ```
 
-### **NPM**
+### **<IonicIcon name="extension-puzzle-outline" size={20} color="#ea4b71" /> NPM**
 
 ```bash
 # Atualizar para última versão
@@ -526,7 +526,7 @@ npm install -g n8n@1.81.0
 npm install -g n8n@next
 ```
 
-### **Reverter Atualização**
+### **<IonicIcon name="arrow-undo-outline" size={20} color="#ea4b71" /> Reverter Atualização**
 
 ```bash
 # Instalar versão anterior
@@ -540,9 +540,9 @@ n8n db:revert
 
 ## <IonicIcon name="help-circle-outline" size={24} color="#ea4b71" /> Troubleshooting
 
-### **Problemas Comuns**
+### **<IonicIcon name="warning-outline" size={20} color="#ea4b71" /> Problemas Comuns**
 
-#### **Porta em Uso**
+#### **<IonicIcon name="close-circle-outline" size={18} color="#ea4b71" /> Porta em Uso**
 
 ```bash
 # Verificar porta
@@ -552,7 +552,7 @@ netstat -tulpn | grep 5678
 sudo kill -9 <PID>
 ```
 
-#### **Permissões**
+#### **<IonicIcon name="key-outline" size={18} color="#ea4b71" /> Permissões**
 
 ```bash
 # Corrigir permissões
@@ -560,7 +560,7 @@ sudo chown -R $USER:$USER ~/.n8n
 chmod 755 ~/.n8n
 ```
 
-#### **Memória**
+#### **<IonicIcon name="hardware-chip-outline" size={18} color="#ea4b71" /> Memória**
 
 ```bash
 # Verificar uso de memória
@@ -570,7 +570,7 @@ docker stats n8n_container
 docker run --memory=2g [outras_opções] docker.n8n.io/n8nio/n8n
 ```
 
-### **Windows**
+### **<IonicIcon name="desktop-outline" size={20} color="#ea4b71" /> Windows**
 
 Se você está enfrentando problemas no Windows:
 
@@ -603,7 +603,7 @@ Agora que você tem o n8n self-hosted configurado:
 2. **[Criar Primeiro Workflow](./primeiro-workflow)** - Aprenda a construir workflows
 3. **[Conceitos Básicos](./conceitos-basicos)** - Entenda os fundamentos
 
-### **Outros Métodos de Instalação**
+### **<IonicIcon name="ellipsis-horizontal-outline" size={20} color="#ea4b71" /> Outros Métodos de Instalação**
 
 - **[n8n Cloud](./instalacao-cloud)** - Serviço hospedado oficial
 
