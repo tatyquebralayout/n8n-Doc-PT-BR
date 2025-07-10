@@ -46,7 +46,7 @@ const IonicIcon: React.FC<IonicIconProps> = ({
   }
 
   // Usar SVG local em vez de ion-icon
-  const iconPath = `/svg/${name}.svg`;
+  const iconPath = `/static/svg/${name}.svg`;
   
   return (
     <img
