@@ -15,6 +15,7 @@ Bem-vindo à seção de gerenciamento de workflows do n8n! Aqui você aprenderá
 
 - **Criar e Editar Workflows**: Fundamentos de criação e edição
 - **Organizar Workflows**: Estruturar e categorizar seus projetos
+- **Histórico de Workflows**: Auditoria e análise de execuções
 - **Versionamento**: Controle de versões e histórico
 
 ### Otimização e Performance
@@ -47,7 +48,8 @@ Um workflow típico contém:
 
 1. **Comece com [Criar e Editar Workflows](./criar-editar)** para aprender os fundamentos
 2. **Aprenda sobre [Organização](./organizar)** para manter projetos organizados
-3. **Explore [Otimização](./otimizar)** para melhorar performance
+3. **Explore [Histórico de Workflows](./historico)** para auditoria e análise
+4. **Otimize [Performance](./otimizar)** para melhorar eficiência
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 

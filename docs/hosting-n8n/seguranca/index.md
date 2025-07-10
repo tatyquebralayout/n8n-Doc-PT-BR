@@ -141,6 +141,19 @@ Monitore a saúde e performance do seu n8n:
 
 **[→ Ver Monitoramento e Alertas](./monitoring)**
 
+### [Privacidade e Segurança](./privacy-security)
+
+Garanta conformidade com LGPD e proteção de dados pessoais:
+
+- **Conformidade LGPD** e princípios de proteção de dados
+- **Mapeamento de dados pessoais** e finalidades de processamento
+- **Direitos dos titulares** (acesso, correção, exclusão)
+- **Criptografia avançada** em repouso e em trânsito
+- **Logs de auditoria** para compliance
+- **Monitoramento de segurança** e alertas proativos
+
+**[→ Ver Privacidade e Segurança](./privacy-security)**
+
 ---
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação por Fase

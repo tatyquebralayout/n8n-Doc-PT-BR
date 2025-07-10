@@ -14,6 +14,7 @@ O processamento de dados é fundamental para workflows eficazes no n8n. Nesta se
 ### Processamento de Dados
 
 - **Transformações de Dados**: Modifique e estruture dados
+- **Dados Binários e Arquivos**: Trabalhe com imagens, documentos e arquivos
 - **Integração de APIs**: Conecte e processe dados de APIs
 - **Agregações Estatísticas**: Calcule métricas e estatísticas
 - **Otimização de Performance**: Melhore velocidade e eficiência
@@ -84,9 +85,10 @@ Como os dados se movem através dos workflows:
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 1. **Aprenda [Transformações de Dados](./transformacoes-dados)** para manipular dados
-2. **Explore [Integração de APIs](./integracao-apis)** para conectar fontes externas
-3. **Use [Agregações Estatísticas](./agregacoes-estatisticas)** para análise
-4. **Experimente [Data Pinning](./data-pinning)** para desenvolvimento
+2. **Explore [Dados Binários e Arquivos](./binary-data)** para trabalhar com arquivos
+3. **Use [Integração de APIs](./integracao-apis)** para conectar fontes externas
+4. **Calcule [Agregações Estatísticas](./agregacoes-estatisticas)** para análise
+5. **Experimente [Data Pinning](./data-pinning)** para desenvolvimento
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 

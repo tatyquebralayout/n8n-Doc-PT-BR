@@ -56,6 +56,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'usando-n8n/workflows/index',
             'usando-n8n/workflows/criar-editar',
+            'usando-n8n/workflows/historico',
           ],
         },
         {
@@ -100,6 +101,7 @@ const sidebars: SidebarsConfig = {
             'logica-e-dados/data/index',
             'logica-e-dados/data/data-mapping-avancado',
             'logica-e-dados/data/transformacoes-dados',
+            'logica-e-dados/data/binary-data',
             'logica-e-dados/data/agregacoes-estatisticas',
             'logica-e-dados/data/integracao-apis',
             'logica-e-dados/data/otimizacao-performance',
@@ -263,15 +265,16 @@ const sidebars: SidebarsConfig = {
             'hosting-n8n/configuracao/ssl-https'
           ],
         },
-        {
+                {
           type: 'category',
           label: 'Segurança',
           items: [
             'hosting-n8n/seguranca/index',
-            'hosting-n8n/seguranca/autenticacao', 
-            'hosting-n8n/seguranca/usuarios-permissoes', 
-            'hosting-n8n/seguranca/backup-recovery', 
-            'hosting-n8n/seguranca/monitoring'
+            'hosting-n8n/seguranca/autenticacao',
+            'hosting-n8n/seguranca/usuarios-permissoes',
+            'hosting-n8n/seguranca/backup-recovery',
+            'hosting-n8n/seguranca/monitoring',
+            'hosting-n8n/seguranca/privacy-security'
           ],
         },
         {
