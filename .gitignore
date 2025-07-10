@@ -103,6 +103,9 @@ translations-temp/
 *.po
 *.pot
 
+# Arquivos de análise e desenvolvimento
+analise-estrutura-documentacao.md
+
 # Arquivos de backup do Git
 *.patch
 *.diff
