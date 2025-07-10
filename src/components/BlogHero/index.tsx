@@ -33,15 +33,15 @@ export default function BlogHero({
             <div className={styles.heroStats}>
               <div className={styles.statItem}>
                 <span className={styles.statNumber}>{stats.posts}</span>
-                <span className={styles.statLabel}>Artigos</span>
+                <span className={styles.statLabel}>Notícias</span>
               </div>
               <div className={styles.statItem}>
                 <span className={styles.statNumber}>{stats.authors}</span>
-                <span className={styles.statLabel}>Autores</span>
+                <span className={styles.statLabel}>Contribuidores</span>
               </div>
               <div className={styles.statItem}>
                 <span className={styles.statNumber}>{stats.tags}</span>
-                <span className={styles.statLabel}>Tags</span>
+                <span className={styles.statLabel}>Categorias</span>
               </div>
             </div>
           )}
@@ -49,7 +49,7 @@ export default function BlogHero({
         
         <div className={styles.heroVisual}>
           <div className={styles.heroIcon}>
-            <IonicIcon name="newspaper-outline" />
+            <IonicIcon name="megaphone-outline" />
           </div>
           <div className={styles.heroDecoration}>
             <div className={styles.decorationCircle}></div>
