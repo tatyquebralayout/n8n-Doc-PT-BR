@@ -7,6 +7,9 @@ import ArticleCard from '@site/src/components/ArticleCard';
 import RepoCard from '@site/src/components/RepoCard';
 import GuidanceCard from '@site/src/components/GuidanceCard';
 import CommunityStats from '@site/src/components/CommunityStats';
+import BlogHero from '@site/src/components/BlogHero';
+import BlogCard from '@site/src/components/BlogCard';
+import BlogGrid from '@site/src/components/BlogGrid';
 
 export default {
   // Re-use the default mapping
@@ -19,6 +22,9 @@ export default {
   RepoCard,
   GuidanceCard,
   CommunityStats,
+  BlogHero,
+  BlogCard,
+  BlogGrid,
   
   // Native HTML elements with uppercase (MDX v3 requirement)
   Details: (props) => <details {...props} />,
