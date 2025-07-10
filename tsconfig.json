@@ -2,7 +2,12 @@
   // Inherit base settings from Docusaurus
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "typeRoots": [
+      "./@types",
+      "./node_modules/@types"
+    ],
+    "types": []
   },
   "include": [
     "src",
@@ -10,6 +15,7 @@
     "release-notes",
     "docusaurus.config.ts",
     "sidebars.ts",
-    "sidebars-release-notes.ts"
+    "sidebars-release-notes.ts",
+    "@types"
   ]
 } 

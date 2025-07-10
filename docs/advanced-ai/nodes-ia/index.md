@@ -21,4 +21,4 @@ Os nodes de IA são blocos de construção especializados que permitem integrar 
 
 ---
 
-**Navegue pelos nodes no menu ao lado para descobrir como cada um pode turbinar seus workflows!** 
+**Navegue pelos nodes no menu ao lado para descobrir como cada um pode turbinar seus workflows!**

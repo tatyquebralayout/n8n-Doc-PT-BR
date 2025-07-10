@@ -17,10 +17,11 @@ Todos os cursos aqui são **baseados na documentação oficial do n8n** e adapta
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Funciona
 
 :::tip  **Nosso Formato**
--  **Resumos em Português:** Cada capítulo aqui é um resumo do conteúdo oficial.
--  **Links para o Original:** Sempre forneceremos o link para o curso completo em inglês.
--  **Adaptação Brasileira:** Adicionamos notas e dicas relevantes para o contexto local.
--  **Conteúdo Oficial:** Baseado na documentação oficial do n8n.
+
+- **Resumos em Português:** Cada capítulo aqui é um resumo do conteúdo oficial.
+- **Links para o Original:** Sempre forneceremos o link para o curso completo em inglês.
+- **Adaptação Brasileira:** Adicionamos notas e dicas relevantes para o contexto local.
+- **Conteúdo Oficial:** Baseado na documentação oficial do n8n.
 :::
 
 ---
@@ -29,27 +30,27 @@ Todos os cursos aqui são **baseados na documentação oficial do n8n** e adapta
 
 O n8n oferece **cursos completos em formato de vídeo** no YouTube, ideais para quem prefere aprendizado visual e interativo.
 
-###  Curso de Iniciante (Beginner Course)
+### Curso de Iniciante (Beginner Course)
 
-** [Playlist Oficial ↗](https://www.youtube.com/watch?v=I_7_b0I1I3Y&list=PL8p-62yr-wG4s4s_lq4a4M0S-s_k4iS3q)**
+**[Playlist Oficial ↗](https://www.youtube.com/watch?v=I_7_b0I1I3Y&list=PL8p-62yr-wG4s4s_lq4a4M0S-s_k4iS3q)**
 
--  **Foco:** Fundamentos do n8n
--  **Ideal para:** Quem está começando do zero
--  **Duração:** Múltiplos episódios
--  **Idioma:** Inglês (legendas disponíveis)
+- **Foco:** Fundamentos do n8n
+- **Ideal para:** Quem está começando do zero
+- **Duração:** Múltiplos episódios
+- **Idioma:** Inglês (legendas disponíveis)
 
-** [Explore o Curso de Iniciante](cursos-em-video/curso-iniciante)**
+**[Explore o Curso de Iniciante](cursos-em-video/curso-iniciante)**
 
-###  Curso Avançado (Advanced Course)
+### Curso Avançado (Advanced Course)
 
-** [Playlist Oficial ↗](https://www.youtube.com/watch?v=g1GkX1BH89E&list=PL8p-62yr-wG4a2c5a_z9sDq_aV2T-tOkb)**
+**[Playlist Oficial ↗](https://www.youtube.com/watch?v=g1GkX1BH89E&list=PL8p-62yr-wG4a2c5a_z9sDq_aV2T-tOkb)**
 
--  **Foco:** Tópicos técnicos e recursos empresariais
--  **Ideal para:** Desenvolvedores e usuários experientes
--  **Duração:** Conteúdo aprofundado
--  **Idioma:** Inglês (legendas disponíveis)
+- **Foco:** Tópicos técnicos e recursos empresariais
+- **Ideal para:** Desenvolvedores e usuários experientes
+- **Duração:** Conteúdo aprofundado
+- **Idioma:** Inglês (legendas disponíveis)
 
-** [Explore o Curso Avançado](cursos-em-video/curso-avancado)**
+**[Explore o Curso Avançado](cursos-em-video/curso-avancado)**
 
 ---
 
@@ -57,43 +58,46 @@ O n8n oferece **cursos completos em formato de vídeo** no YouTube, ideais para 
 
 Para quem prefere **ler e seguir no próprio ritmo**, a documentação oficial do n8n oferece cursos baseados em texto com projetos práticos.
 
-###  Nível 1 (Level One)
+### Nível 1 (Level One)
 
-** [Documentação Oficial ↗](https://docs.n8n.io/courses/level-one/)**
+**[Documentação Oficial ↗](https://docs.n8n.io/courses/level-one/)**
 
--  **Foco:** Construir um workflow de automação de marketing do mundo real
--  **Ideal para:** Iniciantes que querem experiência prática
--  **Projeto:** Automação de marketing e vendas
--  **Duração:** 5 capítulos progressivos
+- **Foco:** Construir um workflow de automação de marketing do mundo real
+- **Ideal para:** Iniciantes que querem experiência prática
+- **Projeto:** Automação de marketing e vendas
+- **Duração:** 5 capítulos progressivos
 
-** [Explore o Nível 1](cursos-em-texto/nivel-um/capitulo-1)**
+**[Explore o Nível 1](cursos-em-texto/nivel-um/capitulo-1)**
 
-###  Nível 2 (Level Two)
+### Nível 2 (Level Two)
 
-** [Documentação Oficial ↗](https://docs.n8n.io/courses/level-two/)**
+**[Documentação Oficial ↗](https://docs.n8n.io/courses/level-two/)**
 
--  **Foco:** Estrutura de dados, tratamento de erros e workflows empresariais
--  **Ideal para:** Usuários que completaram o Nível 1
--  **Projeto:** Automação de processo de suporte ao cliente
--  **Duração:** 3 capítulos avançados
+- **Foco:** Estrutura de dados, tratamento de erros e workflows empresariais
+- **Ideal para:** Usuários que completaram o Nível 1
+- **Projeto:** Automação de processo de suporte ao cliente
+- **Duração:** 3 capítulos avançados
 
-** [Explore o Nível 2](cursos-em-texto/nivel-dois/capitulo-1)**
+**[Explore o Nível 2](cursos-em-texto/nivel-dois/capitulo-1)**
 
 ---
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Escolher seu Curso
 
-###  Para Iniciantes
+### Para Iniciantes
+
 1. **Comece com o [Curso de Iniciante em Vídeo](cursos-em-video/curso-iniciante)** para uma introdução visual
 2. **Continue com o [Nível 1 em Texto](cursos-em-texto/nivel-um/capitulo-1)** para aprofundar
 3. **Pratique com os [Guias da Comunidade](../../comunidade/automacao-iniciantes)**
 
-###  Para Desenvolvedores
+### Para Desenvolvedores
+
 1. **Complete o [Nível 1](cursos-em-texto/nivel-um/capitulo-1)** para fundamentos sólidos
 2. **Avance para o [Nível 2](cursos-em-texto/nivel-dois/capitulo-1)** para técnicas avançadas
 3. **Explore o [Curso Avançado em Vídeo](cursos-em-video/curso-avancado)** para recursos empresariais
 
-###  Para Empresas
+### Para Empresas
+
 1. **Foque no [Nível 2](cursos-em-texto/nivel-dois/capitulo-1)** para workflows empresariais
 2. **Consulte [Hosting n8n](../../hosting-n8n)** para deployment
 3. **Explore [IA Avançada](../../advanced-ai)** para automações inteligentes
@@ -106,4 +110,4 @@ Para quem prefere **ler e seguir no próprio ritmo**, a documentação oficial d
 Estes cursos são mantidos por **voluntários apaixonados por automação**. Contribua você também!
 :::
 
-** [Saiba como contribuir](../../contribuir/esta-documentacao)** 
+**[Saiba como contribuir](../../contribuir/esta-documentacao)**

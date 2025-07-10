@@ -21,6 +21,7 @@ Bem-vindo às notas de release oficiais do n8n! Aqui você encontra todas as atu
 ## 🔍 Como navegar
 
 Cada release contém:
+
 - **Novos recursos**: Funcionalidades adicionadas
 - **Melhorias**: Otimizações e aprimoramentos
 - **Correções de bugs**: Problemas resolvidos

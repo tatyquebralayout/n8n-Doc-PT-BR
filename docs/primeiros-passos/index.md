@@ -12,28 +12,33 @@ Bem-vindo ao n8n! Esta seção é o ponto de partida perfeito para sua jornada d
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Conceitos Fundamentais
+
 - **Conceitos Básicos**: Entenda os fundamentos do n8n e automação
 - **Primeiro Workflow**: Crie sua primeira automação passo a passo
 - **Conectar Aplicações**: Aprenda a integrar diferentes serviços
 
 ### Instalação e Configuração
+
 - **Guia de Instalação**: Instale o n8n em diferentes ambientes
 - **Instalação Cloud**: Configure o n8n na nuvem
 - **Instalação NPM**: Use o Node Package Manager
 - **Instalação Self-Hosted**: Configure seu próprio servidor
 
 ### Recursos de Apoio
+
 - **FAQ**: Perguntas frequentes e soluções rápidas
 - **Troubleshooting**: Resolução de problemas comuns
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por onde começar?
 
 ### Para iniciantes absolutos
+
 1. **Leia os [Conceitos Básicos](./conceitos-basicos)** para entender o que é o n8n
 2. **Siga o [Guia de Instalação](./guia-instalacao)** para configurar seu ambiente
 3. **Crie seu [Primeiro Workflow](./primeiro-workflow)** para ver o n8n em ação
 
 ### Para quem já conhece automação
+
 1. **Pule direto para [Conectar Aplicações](./conectar-aplicacoes)**
 2. **Explore as [Integrações](../../integracoes)** disponíveis
 3. **Experimente com [Lógica e Dados](../../logica-e-dados)**
@@ -41,6 +46,7 @@ Bem-vindo ao n8n! Esta seção é o ponto de partida perfeito para sua jornada d
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### O que é o n8n?
+
 O n8n é uma plataforma de automação de workflow que permite conectar diferentes aplicações e serviços através de uma interface visual intuitiva. Com ele, você pode:
 
 - **Automatizar tarefas repetitivas** sem escrever código
@@ -49,6 +55,7 @@ O n8n é uma plataforma de automação de workflow que permite conectar diferent
 - **Criar workflows complexos** com lógica condicional
 
 ### Por que usar o n8n?
+
 - **Interface visual**: Construa workflows arrastando e soltando
 - **Open source**: Totalmente gratuito e personalizável
 - **Self-hosted**: Mantenha seus dados seguros

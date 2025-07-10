@@ -12,17 +12,17 @@ Este documento explica como **configurar variáveis de ambiente** para n8n em di
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Variáveis essenciais para produção
--  Configurações de segurança
--  Otimização de performance
--  Separação de ambientes
--  Gerenciamento de credenciais
+- Variáveis essenciais para produção
+- Configurações de segurança
+- Otimização de performance
+- Separação de ambientes
+- Gerenciamento de credenciais
 
 ---
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Básica
 
-###  Variáveis Essenciais
+### Variáveis Essenciais
 
 ```bash
 # <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações básicas
@@ -38,7 +38,7 @@ WEBHOOK_URL=https://seu-dominio.com/
 GENERIC_TIMEZONE=America/Sao_Paulo
 ```
 
-###  Banco de Dados
+### Banco de Dados
 
 ```bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> PostgreSQL (Recomendado)
@@ -58,7 +58,7 @@ DB_MYSQLDB_USER=n8n
 DB_MYSQLDB_PASSWORD=senha_segura
 ```
 
-###  Segurança
+### Segurança
 
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Chave de criptografia (32 caracteres)
@@ -77,9 +77,10 @@ N8N_USER_MANAGEMENT_DISABLED=false
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de Segurança
 
-###  Autenticação
+### Autenticação
 
 #### **Basic Auth**
+
 ```bash
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ativar autenticação básica
 N8N_BASIC_AUTH_ACTIVE=true
@@ -92,6 +93,7 @@ N8N_BASIC_AUTH_PASSWORD=senha1,senha2,senha3
 ```
 
 #### **OAuth2**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar OAuth2
 N8N_OAUTH2_ACTIVE=true
@@ -101,7 +103,7 @@ N8N_OAUTH2_AUTHORIZATION_URL=https://auth.provider.com/oauth/authorize
 N8N_OAUTH2_TOKEN_URL=https://auth.provider.com/oauth/token
 ```
 
-###  Criptografia
+### Criptografia
 
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Chave de criptografia obrigatória
@@ -113,7 +115,7 @@ openssl rand -hex 16
 node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"
 ```
 
-###  Privacidade de Dados
+### Privacidade de Dados
 
 ```bash
 # <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações LGPD
@@ -131,7 +133,7 @@ EXECUTIONS_DATA_PRUNE_TIMEOUT=3600  # 1 hora
 
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance e Escalabilidade
 
-###  Redis para Filas
+### Redis para Filas
 
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar Redis para processamento distribuído
@@ -146,7 +148,7 @@ EXECUTIONS_TIMEOUT=300000  # 5 minutos
 EXECUTIONS_TIMEOUT_MAX=3600000  # 1 hora
 ```
 
-###  Recursos do Sistema
+### Recursos do Sistema
 
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Limites de memória
@@ -157,7 +159,7 @@ N8N_TIMEOUT=30000  # 30 segundos
 N8N_TIMEOUT_MAX=300000  # 5 minutos
 ```
 
-###  Logs e Monitoramento
+### Logs e Monitoramento
 
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Nível de logs
@@ -174,7 +176,7 @@ N8N_METRICS=true
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Separação de Ambientes
 
-###  Desenvolvimento
+### Desenvolvimento
 
 ```bash
 # <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> .env.development
@@ -195,7 +197,7 @@ N8N_LOG_FORMAT=simple
 N8N_BASIC_AUTH_ACTIVE=false
 ```
 
-###  Staging
+### Staging
 
 ```bash
 # <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> .env.staging
@@ -220,7 +222,7 @@ N8N_BASIC_AUTH_PASSWORD=senha_staging
 N8N_LOG_LEVEL=info
 ```
 
-###  Produção
+### Produção
 
 ```bash
 # <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> .env.production
@@ -260,7 +262,7 @@ N8N_LOG_FORMAT=json
 
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Docker e Containerização
 
-###  Docker Compose
+### Docker Compose
 
 ```yaml
 version: '3.8'
@@ -332,7 +334,7 @@ volumes:
   redis_data:
 ```
 
-###  Kubernetes
+### Kubernetes
 
 ```yaml
 apiVersion: apps/v1
@@ -397,7 +399,7 @@ spec:
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciamento de Credenciais
 
-###  Variáveis Sensíveis
+### Variáveis Sensíveis
 
 ```bash
 # <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Nunca commite estas variáveis no código!
@@ -407,7 +409,7 @@ N8N_BASIC_AUTH_PASSWORD=senha_admin
 REDIS_PASSWORD=senha_redis
 ```
 
-###  Arquivo .env
+### Arquivo .env
 
 ```bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> .env (não commitar no git)
@@ -417,9 +419,10 @@ N8N_BASIC_AUTH_PASSWORD=senha_admin
 REDIS_PASSWORD=senha_redis
 ```
 
-###  Secrets Management
+### Secrets Management
 
 #### **Docker Secrets**
+
 ```yaml
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose.yml
 services:
@@ -440,6 +443,7 @@ secrets:
 ```
 
 #### **Kubernetes Secrets**
+
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -456,7 +460,7 @@ data:
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Debugging
 
-###  Logs
+### Logs
 
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Níveis de log
@@ -470,7 +474,7 @@ N8N_LOG_FORMAT=simple  # Formato simples
 N8N_LOG_FORMAT=json    # Formato JSON (recomendado)
 ```
 
-###  Métricas
+### Métricas
 
 ```bash
 # <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ativar métricas
@@ -483,7 +487,7 @@ N8N_METRICS_ENDPOINT=/metrics
 N8N_METRICS_PREFIX=n8n_
 ```
 
-###  Health Checks
+### Health Checks
 
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Endpoint de health check
@@ -498,7 +502,7 @@ N8N_HEALTH_CHECK_INTERVAL=30000
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
-###  Segurança
+### Segurança
 
 - [ ] `N8N_ENCRYPTION_KEY` configurada (32 caracteres)
 - [ ] `N8N_BASIC_AUTH_ACTIVE=true` ou OAuth2 configurado
@@ -507,7 +511,7 @@ N8N_HEALTH_CHECK_INTERVAL=30000
 - [ ] Firewall configurado
 - [ ] SSL/HTTPS configurado
 
-###  Performance
+### Performance
 
 - [ ] `REDIS_URL` configurado para filas
 - [ ] `EXECUTIONS_PROCESS=main` configurado
@@ -515,7 +519,7 @@ N8N_HEALTH_CHECK_INTERVAL=30000
 - [ ] Timeouts adequados configurados
 - [ ] Recursos do sistema adequados
 
-###  Configuração
+### Configuração
 
 - [ ] `GENERIC_TIMEZONE=America/Sao_Paulo`
 - [ ] `WEBHOOK_URL` configurado corretamente

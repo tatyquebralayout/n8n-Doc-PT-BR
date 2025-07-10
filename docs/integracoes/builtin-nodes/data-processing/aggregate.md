@@ -14,6 +14,7 @@ O **Aggregate Node** permite **agrupar e resumir dados** de forma eficiente, cri
 **Aggregate = "Agrupar e Resumir Dados"**
 
 O Aggregate Node é uma **AÇÃO** que:
+
 - **Agrupa** dados por campos específicos
 - **Calcula** estatísticas (soma, média, contagem, etc.)
 - **Resume** grandes volumes de dados
@@ -24,11 +25,13 @@ O Aggregate Node é uma **AÇÃO** que:
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
 
 ### **1. Group By**
+
 ```
 Campo(s) para agrupar os dados (ex: categoria, data, região)
 ```
 
 ### **2. Aggregation Functions**
+
 ```
 Sum - Soma de valores
 Average - Média aritmética
@@ -40,6 +43,7 @@ Last - Último valor
 ```
 
 ### **3. Fields to Aggregate**
+
 ```
 Campos numéricos para aplicar as funções de agregação
 ```
@@ -49,6 +53,7 @@ Campos numéricos para aplicar as funções de agregação
 ### **Exemplo 1: Vendas por Categoria**
 
 **Entrada:**
+
 ```json
 [
   {"categoria": "Eletrônicos", "valor": 1500, "quantidade": 3},
@@ -60,6 +65,7 @@ Campos numéricos para aplicar as funções de agregação
 ```
 
 **Configuração:**
+
 ```
 Group By: categoria
 Fields to Aggregate:
@@ -70,6 +76,7 @@ Fields to Aggregate:
 ```
 
 **Saída:**
+
 ```json
 [
   {
@@ -99,6 +106,7 @@ Fields to Aggregate:
 ### **Exemplo 2: Vendas por Mês e Região**
 
 **Entrada:**
+
 ```json
 [
   {"mes": "2024-01", "regiao": "SP", "vendas": 5000, "clientes": 50},
@@ -109,6 +117,7 @@ Fields to Aggregate:
 ```
 
 **Configuração:**
+
 ```
 Group By: mes, regiao
 Fields to Aggregate:
@@ -118,6 +127,7 @@ Fields to Aggregate:
 ```
 
 **Saída:**
+
 ```json
 [
   {
@@ -154,6 +164,7 @@ Fields to Aggregate:
 ### **Exemplo 3: Análise de Produtos**
 
 **Entrada:**
+
 ```json
 [
   {"produto": "Notebook", "preco": 3000, "estoque": 10, "categoria": "Eletrônicos"},
@@ -164,6 +175,7 @@ Fields to Aggregate:
 ```
 
 **Configuração:**
+
 ```
 Group By: categoria
 Fields to Aggregate:
@@ -173,6 +185,7 @@ Fields to Aggregate:
 ```
 
 **Saída:**
+
 ```json
 [
   {
@@ -215,6 +228,7 @@ Fields to Aggregate:
 ### **Exemplos de Uso**
 
 **Soma de Vendas:**
+
 ```
 Field: vendas
 Function: Sum
@@ -222,6 +236,7 @@ Result: Total de vendas do grupo
 ```
 
 **Média de Preços:**
+
 ```
 Field: preco
 Function: Average
@@ -229,6 +244,7 @@ Result: Preço médio do grupo
 ```
 
 **Contagem de Pedidos:**
+
 ```
 Field: pedido_id
 Function: Count
@@ -236,6 +252,7 @@ Result: Número de pedidos no grupo
 ```
 
 **Faixa de Preços:**
+
 ```
 Field: preco
 Functions: Min, Max
@@ -247,6 +264,7 @@ Result: Preço mínimo e máximo do grupo
 ### **1. Relatório de Vendas Diárias**
 
 **Entrada (vendas do mês):**
+
 ```json
 [
   {"data": "2024-01-01", "vendas": 1000, "clientes": 10},
@@ -257,6 +275,7 @@ Result: Preço mínimo e máximo do grupo
 ```
 
 **Configuração:**
+
 ```
 Group By: data
 Fields to Aggregate:
@@ -266,6 +285,7 @@ Fields to Aggregate:
 ```
 
 **Saída (resumo diário):**
+
 ```json
 [
   {
@@ -286,6 +306,7 @@ Fields to Aggregate:
 ### **2. Análise de Performance por Vendedor**
 
 **Entrada:**
+
 ```json
 [
   {"vendedor": "João", "vendas": 5000, "comissao": 500, "mes": "2024-01"},
@@ -296,6 +317,7 @@ Fields to Aggregate:
 ```
 
 **Configuração:**
+
 ```
 Group By: vendedor
 Fields to Aggregate:
@@ -305,6 +327,7 @@ Fields to Aggregate:
 ```
 
 **Saída:**
+
 ```json
 [
   {
@@ -329,6 +352,7 @@ Fields to Aggregate:
 ### **3. Análise de Produtos por Categoria e Fornecedor**
 
 **Entrada:**
+
 ```json
 [
   {"categoria": "Eletrônicos", "fornecedor": "TechCorp", "preco": 1000, "estoque": 50},
@@ -339,6 +363,7 @@ Fields to Aggregate:
 ```
 
 **Configuração:**
+
 ```
 Group By: categoria, fornecedor
 Fields to Aggregate:
@@ -347,6 +372,7 @@ Fields to Aggregate:
 ```
 
 **Saída:**
+
 ```json
 [
   {
@@ -387,12 +413,14 @@ Fields to Aggregate:
 ### **Escolhendo Campos para Agrupar**
 
 **Campos Ideais para Agrupamento:**
+
 - ✅ **Categorias** (categoria, tipo, status)
 - ✅ **Datas** (ano, mês, dia)
 - ✅ **Regiões** (estado, cidade, país)
 - ✅ **IDs** (vendedor_id, cliente_id)
 
 **Campos a Evitar:**
+
 - ❌ **Valores únicos** (IDs de transação)
 - ❌ **Campos com muitos valores distintos**
 - ❌ **Campos numéricos contínuos**
@@ -400,6 +428,7 @@ Fields to Aggregate:
 ### **Campos para Agregação**
 
 **Campos Numéricos Ideais:**
+
 - ✅ **Valores monetários** (vendas, preços, comissões)
 - ✅ **Quantidades** (estoque, quantidade, contadores)
 - ✅ **Métricas** (pontuação, rating, performance)
@@ -407,6 +436,7 @@ Fields to Aggregate:
 ### **Exemplo de Configuração Otimizada**
 
 **Entrada (vendas):**
+
 ```json
 [
   {"categoria": "Eletrônicos", "vendedor": "João", "vendas": 1000, "quantidade": 5},
@@ -416,6 +446,7 @@ Fields to Aggregate:
 ```
 
 **Configuração Otimizada:**
+
 ```
 Group By: categoria, vendedor
 Fields to Aggregate:
@@ -428,11 +459,13 @@ Fields to Aggregate:
 ### **Dados Faltantes**
 
 **Configuração para Ignorar Nulos:**
+
 ```
 Skip Empty Values: true
 ```
 
 **Exemplo:**
+
 ```json
 // Entrada com valores nulos
 [
@@ -451,18 +484,21 @@ Skip Empty Values: true
 ### **Valores Zero vs Nulos**
 
 **Configuração:**
+
 ```
 Include Zero Values: true
 Skip Empty Values: true
 ```
 
 **Resultado:**
+
 - **Zero (0)**: Incluído nas agregações
 - **Null/Undefined**: Ignorado nas agregações
 
 ### **Formatação de Resultados**
 
 **Usando Code Node após Aggregate:**
+
 ```javascript
 const items = $input.all();
 const returnData = [];
@@ -493,6 +529,7 @@ Schedule Trigger → HTTP Request (buscar vendas) → Aggregate → Email (relat
 ```
 
 **Configuração Aggregate:**
+
 ```
 Group By: mes, categoria
 Fields to Aggregate:
@@ -508,6 +545,7 @@ Webhook (novos dados) → Aggregate → HTTP Request (atualizar dashboard)
 ```
 
 **Configuração Aggregate:**
+
 ```
 Group By: vendedor, mes
 Fields to Aggregate:
@@ -523,6 +561,7 @@ Manual Trigger → CSV Parser → Aggregate → Set (formatação) → HTTP Requ
 ```
 
 **Configuração Aggregate:**
+
 ```
 Group By: categoria, fornecedor
 Fields to Aggregate:
@@ -533,18 +572,21 @@ Fields to Aggregate:
 ## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações e Considerações**
 
 ### **Limitações Técnicas**
+
 - **Memória**: Grandes conjuntos de dados podem consumir muita memória
 - **Performance**: Agrupamentos complexos podem ser lentos
 - **Campos**: Apenas campos existentes podem ser agrupados
 - **Tipos**: Apenas campos numéricos podem ser agregados
 
 ### **Considerações de Design**
+
 - **Campos de agrupamento**: Escolha campos com valores discretos
 - **Funções de agregação**: Use funções apropriadas para cada tipo de dado
 - **Performance**: Teste com conjuntos de dados reais
 - **Resultados**: Valide se os resultados fazem sentido
 
 ### **Boas Práticas**
+
 ```javascript
 // ✅ Bom: Campos de agrupamento apropriados
 Group By: categoria, mes, vendedor
@@ -585,7 +627,8 @@ Certifique-se de que os campos numéricos estão no formato correto antes da agr
 ---
 
 **Links úteis:**
+
 - [Documentação oficial do Aggregate](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.aggregate/)
 - [Set Node](./set) - Para manipulação de dados
 - [Split In Batches](./split-in-batches) - Para processamento em lotes
-- [Code Node](../core-nodes/code) - Para lógica customizada 
+- [Code Node](../core-nodes/code) - Para lógica customizada

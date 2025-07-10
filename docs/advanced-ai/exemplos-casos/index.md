@@ -26,4 +26,4 @@ Cada documento nesta seção é um **projeto completo** que aborda um desafio es
 
 ---
 
-**Explore os casos de uso no menu ao lado para ver o poder da IA em ação com o n8n!** 
+**Explore os casos de uso no menu ao lado para ver o poder da IA em ação com o n8n!**

@@ -14,16 +14,17 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ## <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Acessando Gerenciamento de Usuários
 
-###  Menu de Usuários
+### Menu de Usuários
 
 1. **Acesse o menu lateral** → Clique em **"Usuários"**
 2. **Visualize todos os usuários** ativos
 3. **Filtre por role** ou status
 4. **Pesquise** usuários específicos
 
-###  Permissões Necessárias
+### Permissões Necessárias
 
 **Para gerenciar usuários, você precisa:**
+
 - **Role de Admin** ou **Owner**
 - **Acesso** ao painel administrativo
 - **Permissão** para criar/editar usuários
@@ -32,7 +33,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ## <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Criando Novos Usuários
 
-###  Passo a Passo
+### Passo a Passo
 
 1. **Clique em "+ Adicionar Usuário"**
 2. **Preencha os campos obrigatórios:**
@@ -45,7 +46,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
    - **Tags** para organização
 4. **Clique em "Criar Usuário"**
 
-###  Convite por Email
+### Convite por Email
 
 **Para convites automáticos:**
 
@@ -64,7 +65,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ## <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Editando Usuários Existentes
 
-###  Ações Disponíveis
+### Ações Disponíveis
 
 **Para cada usuário, você pode:**
 
@@ -74,7 +75,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 - **Excluir**: Remover permanentemente
 - **Auditar**: Ver histórico de atividades
 
-###  Alterando Roles
+### Alterando Roles
 
 **Mudanças de role:**
 
@@ -88,7 +89,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Configurações de Autenticação
 
-###  Métodos de Login
+### Métodos de Login
 
 **Opções disponíveis:**
 
@@ -97,7 +98,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 - **2FA**: Autenticação de dois fatores
 - **LDAP**: Integração com diretório ativo
 
-###  Configurando 2FA
+### Configurando 2FA
 
 **Para ativar 2FA:**
 
@@ -111,7 +112,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ## <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Organizando Usuários
 
-###  Grupos de Usuários
+### Grupos de Usuários
 
 **Crie grupos para facilitar gerenciamento:**
 
@@ -120,7 +121,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 - **Desenvolvedores**: Acesso completo a workflows
 - **Viewers**: Apenas visualização
 
-###  Tags e Categorização
+### Tags e Categorização
 
 **Use tags para organização:**
 
@@ -133,7 +134,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Auditoria e Monitoramento
 
-###  Logs de Atividade
+### Logs de Atividade
 
 **Monitore estas atividades:**
 
@@ -143,7 +144,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 - **Alterações**: Modificações em configurações
 - **Acessos a dados**: Visualização de informações sensíveis
 
-###  Alertas de Segurança
+### Alertas de Segurança
 
 **Configure notificações para:**
 
@@ -170,7 +171,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Gerenciando Saídas
 
-###  Suspensão Temporária
+### Suspensão Temporária
 
 **Para suspender um usuário:**
 
@@ -180,7 +181,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 4. **Adicione motivo** (opcional)
 5. **Confirme** a suspensão
 
-###  Exclusão Permanente
+### Exclusão Permanente
 
 **Para excluir um usuário:**
 
@@ -194,7 +195,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 8 | Boas Práticas
 
-###  Segurança
+### Segurança
 
 - ✅ **Use roles mínimos** necessários
 - ✅ **Ative 2FA** para todos os usuários
@@ -203,7 +204,7 @@ Aprenda como adicionar novos membros à sua equipe, configurar suas permissões 
 - ❌ **Não compartilhe** contas entre usuários
 - ❌ **Evite** roles com privilégios excessivos
 
-###  Documentação
+### Documentação
 
 **Mantenha registros de:**
 
@@ -234,4 +235,4 @@ Sempre revogue acessos de usuários que deixam a empresa imediatamente. Não esp
 
 :::info **Recurso Adicional**
 Considere integrar com sistemas de gerenciamento de identidade (IAM) para automação de provisionamento de usuários.
-::: 
+:::

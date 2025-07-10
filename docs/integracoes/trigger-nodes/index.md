@@ -12,16 +12,19 @@ Os trigger nodes são o ponto de partida de qualquer workflow automatizado. Eles
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### App Triggers
+
 - **Aplicações específicas**: Triggers de serviços como Gmail, Slack, GitHub
 - **Eventos em tempo real**: Resposta a mudanças em aplicações
 - **Integração nativa**: Triggers otimizados para cada serviço
 
 ### Event-based Triggers
+
 - **Webhook Trigger**: Receba dados via HTTP
 - **Email Trigger**: Processe emails automaticamente
 - **File Trigger**: Monitore mudanças em arquivos
 
 ### Time-based Triggers
+
 - **Manual Trigger**: Execução manual
 - **Schedule Trigger**: Execução agendada
 - **Cron Trigger**: Execução baseada em expressões cron
@@ -29,6 +32,7 @@ Os trigger nodes são o ponto de partida de qualquer workflow automatizado. Eles
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### O que são Trigger Nodes?
+
 Trigger nodes são nodes especiais que:
 
 - **Iniciam workflows** automaticamente
@@ -37,12 +41,14 @@ Trigger nodes são nodes especiais que:
 - **Disparam execuções** baseadas em condições
 
 ### Tipos de Triggers
+
 - **Event-driven**: Baseados em eventos externos
 - **Time-based**: Baseados em horários
 - **Manual**: Iniciados pelo usuário
 - **Conditional**: Baseados em condições
 
 ### Fluxo de Dados
+
 1. **Trigger**: Evento ou condição ativa o trigger
 2. **Data**: Dados são capturados pelo trigger
 3. **Processing**: Workflow processa os dados
@@ -51,6 +57,7 @@ Trigger nodes são nodes especiais que:
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Categorias de Triggers
 
 ### App Triggers
+
 Triggers específicos de aplicações:
 
 - **Email**: Novos emails, respostas, anexos
@@ -59,6 +66,7 @@ Triggers específicos de aplicações:
 - **E-commerce**: Novos pedidos, mudanças de estoque
 
 ### Event-based Triggers
+
 Triggers baseados em eventos:
 
 - **Webhooks**: Receba dados de qualquer aplicação
@@ -67,6 +75,7 @@ Triggers baseados em eventos:
 - **API Events**: Eventos de APIs externas
 
 ### Time-based Triggers
+
 Triggers baseados em tempo:
 
 - **Schedule**: Execução em horários específicos
@@ -83,18 +92,21 @@ Triggers baseados em tempo:
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
 ### Configuração
+
 - **Escolha o trigger apropriado** para seu caso de uso
 - **Configure webhooks** de forma segura
 - **Teste triggers** antes de usar em produção
 - **Monitore execuções** regularmente
 
 ### Performance
+
 - **Evite polling** quando webhooks estão disponíveis
 - **Configure rate limits** adequadamente
 - **Otimize horários** de execução
 - **Monitore uso de recursos**
 
 ### Segurança
+
 - **Valide dados** de entrada
 - **Use HTTPS** para webhooks
 - **Configure autenticação** adequada
@@ -103,18 +115,21 @@ Triggers baseados em tempo:
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Comuns
 
 ### Automação de Negócios
+
 - **Novos leads**: Processe leads automaticamente
 - **Pedidos**: Processe pedidos em tempo real
 - **Notificações**: Envie alertas baseados em eventos
 - **Relatórios**: Gere relatórios agendados
 
 ### Integração de Sistemas
+
 - **Sincronização**: Sincronize dados entre sistemas
 - **Backup**: Backup automático de dados
 - **Monitoramento**: Monitore sistemas e serviços
 - **Deploy**: Deploy automático baseado em eventos
 
 ### Produtividade
+
 - **Lembretes**: Lembretes e notificações
 - **Agendamento**: Agendamento automático
 - **Processamento**: Processamento de dados em lote

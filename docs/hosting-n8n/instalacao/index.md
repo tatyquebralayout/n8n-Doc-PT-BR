@@ -13,4 +13,4 @@ Escolha uma das opções de instalação no menu lateral para ver instruções d
 - Docker
 - Cloud
 
-Se precisar de uma visão geral, consulte o Guia de Instalação ou navegue pelas opções no sidebar à esquerda. 
+Se precisar de uma visão geral, consulte o Guia de Instalação ou navegue pelas opções no sidebar à esquerda.

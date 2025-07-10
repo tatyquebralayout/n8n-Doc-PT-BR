@@ -12,19 +12,20 @@ Este documento detalha como **personalizar completamente a aparência do n8n emb
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Personalização de tema e cores
--  Branding e logos
--  CSS customizado
--  Domínio customizado
--  Integração visual
+- Personalização de tema e cores
+- Branding e logos
+- CSS customizado
+- Domínio customizado
+- Integração visual
 
 ---
 
 ## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Personalização de Tema
 
-###  Configuração Básica
+### Configuração Básica
 
 #### **Variáveis de Ambiente para Tema**
+
 ```bash
 # <ion-icon name="color-palette-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações básicas de tema
 N8N_THEME_PRIMARY_COLOR=#ea4b71
@@ -42,6 +43,7 @@ N8N_THEME_SHADOW=0 4px 6px -1px rgba(0, 0, 0, 0.1)
 ```
 
 #### **Configuração via Docker**
+
 ```yaml
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose.yml
 version: '3.8'
@@ -63,9 +65,10 @@ services:
       - "5678:5678"
 ```
 
-###  Esquemas de Cores
+### Esquemas de Cores
 
 #### **Tema Escuro**
+
 ```css
 /* dark-theme.css */
 :root {
@@ -94,6 +97,7 @@ body[data-theme="dark"] .n8n-card {
 ```
 
 #### **Tema Corporativo**
+
 ```css
 /* corporate-theme.css */
 :root {
@@ -135,9 +139,10 @@ body[data-theme="dark"] .n8n-card {
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Branding e Logos
 
-###  Configuração de Logo
+### Configuração de Logo
 
 #### **Logo Principal**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar logo principal
 N8N_THEME_LOGO_URL=https://sua-empresa.com/logo.png
@@ -150,6 +155,7 @@ N8N_THEME_LOGO_DARK_URL=https://sua-empresa.com/logo-white.png
 ```
 
 #### **Favicon e Ícones**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar favicon
 N8N_THEME_FAVICON_URL=https://sua-empresa.com/favicon.ico
@@ -161,6 +167,7 @@ N8N_THEME_ICON_512=https://sua-empresa.com/icon-512.png
 ```
 
 #### **CSS para Logo Customizado**
+
 ```css
 /* custom-logo.css */
 .n8n-header-logo {
@@ -186,9 +193,10 @@ body[data-theme="dark"] .n8n-header-logo {
 }
 ```
 
-###  Texto e Marca
+### Texto e Marca
 
 #### **Configuração de Texto**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Textos customizados
 N8N_THEME_APP_NAME="Sua Empresa - Automação"
@@ -198,6 +206,7 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 ```
 
 #### **CSS para Textos Customizados**
+
 ```css
 /* custom-text.css */
 .n8n-app-name {
@@ -227,9 +236,10 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> CSS Customizado
 
-###  Estilos Avançados
+### Estilos Avançados
 
 #### **Layout Customizado**
+
 ```css
 /* custom-layout.css */
 /* Header customizado */
@@ -296,6 +306,7 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 ```
 
 #### **Componentes Específicos**
+
 ```css
 /* custom-components.css */
 /* Nodes customizados */
@@ -358,9 +369,10 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 }
 ```
 
-###  Responsividade
+### Responsividade
 
 #### **CSS Responsivo**
+
 ```css
 /* responsive.css */
 /* Mobile (até 768px) */
@@ -417,9 +429,10 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Domínio Customizado
 
-###  Configuração de Domínio
+### Configuração de Domínio
 
 #### **Proxy Reverso com Nginx**
+
 ```nginx
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/nginx/sites-available/n8n-custom
 server {
@@ -483,6 +496,7 @@ server {
 ```
 
 #### **Configuração com Docker**
+
 ```yaml
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose.yml com domínio customizado
 version: '3.8'
@@ -525,9 +539,10 @@ networks:
     driver: bridge
 ```
 
-###  SSL e Segurança
+### SSL e Segurança
 
 #### **Certificado Let's Encrypt**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> setup-ssl.sh
@@ -549,6 +564,7 @@ sudo crontab -e
 ```
 
 #### **Headers de Segurança**
+
 ```nginx
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> security-headers.conf
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Content Security Policy
@@ -574,9 +590,10 @@ add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 
 ## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração Visual
 
-###  Integração com Aplicação Principal
+### Integração com Aplicação Principal
 
 #### **CSS para Integração**
+
 ```css
 /* integration.css */
 /* Remover elementos do n8n que não são necessários */
@@ -621,6 +638,7 @@ add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 ```
 
 #### **JavaScript para Integração**
+
 ```javascript
 // integration.js
 class N8NIntegration {
@@ -790,9 +808,10 @@ new N8NIntegration();
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
-###  Design System
+### Design System
 
 #### **Guia de Cores**
+
 ```css
 /* design-system.css */
 :root {
@@ -837,6 +856,7 @@ new N8NIntegration();
 ```
 
 #### **Tipografia**
+
 ```css
 /* typography.css */
 :root {
@@ -883,9 +903,10 @@ new N8NIntegration();
 }
 ```
 
-###  Acessibilidade
+### Acessibilidade
 
 #### **WCAG Compliance**
+
 ```css
 /* accessibility.css */
 /* Contraste adequado */

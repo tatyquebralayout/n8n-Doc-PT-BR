@@ -27,4 +27,4 @@ Aqui você terá acesso à documentação exata de cada endpoint, incluindo:
 
 ---
 
-**Navegue pela referência no menu ao lado para encontrar os detalhes de cada endpoint que você precisa para sua integração.** 
+**Navegue pela referência no menu ao lado para encontrar os detalhes de cada endpoint que você precisa para sua integração.**

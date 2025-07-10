@@ -20,6 +20,7 @@ Conectar aplicações é o coração do n8n. Neste guia, você aprenderá como i
 ## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### O que são Nodes?
+
 Nodes são os blocos de construção dos workflows no n8n. Cada node representa uma ação ou integração específica:
 
 - **Trigger Nodes**: Iniciam workflows (webhooks, agendamento, etc.)
@@ -27,6 +28,7 @@ Nodes são os blocos de construção dos workflows no n8n. Cada node representa 
 - **Logic Nodes**: Controlam o fluxo (condições, loops, etc.)
 
 ### O que são Credenciais?
+
 Credenciais são informações de autenticação necessárias para conectar com serviços externos:
 
 - **API Keys**: Chaves de acesso para APIs
@@ -59,15 +61,18 @@ O n8n oferece centenas de tipos de credenciais pré-configurados:
 ### 3. Configure as Informações
 
 **Para OAuth 2.0:**
+
 - Siga o fluxo de autorização
 - Conceda permissões necessárias
 - O n8n gerencia tokens automaticamente
 
 **Para API Key:**
+
 - Cole sua chave de API
 - Configure headers adicionais se necessário
 
 **Para Basic Auth:**
+
 - Digite usuário e senha
 - Use variáveis de ambiente para produção
 
@@ -84,24 +89,28 @@ Sempre teste suas credenciais antes de usar em workflows:
 ### Integrações com Apps Populares
 
 #### Comunicação
+
 - **Slack**: Enviar mensagens, criar canais, gerenciar usuários
 - **Discord**: Webhooks, mensagens, gerenciamento de servidor
 - **Telegram**: Bots, mensagens, grupos
 - **Email (Gmail, Outlook)**: Enviar/receber emails, gerenciar caixa de entrada
 
 #### Produtividade
+
 - **Google Sheets**: Ler/escrever dados, fórmulas, formatação
 - **Notion**: Páginas, bancos de dados, integração com workspace
 - **Trello**: Cartões, listas, boards, membros
 - **Asana**: Tarefas, projetos, equipes
 
 #### E-commerce
+
 - **Shopify**: Produtos, pedidos, clientes, inventário
 - **WooCommerce**: Loja online, produtos, vendas
 - **Mercado Livre**: Listagens, vendas, mensagens
 - **PagSeguro**: Pagamentos, transações, webhooks
 
 #### Marketing
+
 - **Mailchimp**: Campanhas, listas, automações
 - **HubSpot**: CRM, marketing, vendas
 - **ActiveCampaign**: Automação de marketing, CRM
@@ -110,11 +119,13 @@ Sempre teste suas credenciais antes de usar em workflows:
 ### Integrações com APIs Brasileiras
 
 #### Governo
+
 - **Receita Federal**: Consulta CNPJ, validação de documentos
 - **Correios**: Rastreamento, cálculo de frete
 - **Banco Central**: Taxas de câmbio, indicadores econômicos
 
 #### Serviços Locais
+
 - **ViaCEP**: Consulta de CEPs
 - **Serpro**: Validação de CPF/CNPJ
 - **Bancos brasileiros**: APIs de pagamento e transferência
@@ -222,16 +233,19 @@ return processados;
 ### Problemas Comuns
 
 **Erro de Autenticação:**
+
 - Verifique se as credenciais estão corretas
 - Confirme se não expiraram
 - Teste a conexão manualmente
 
 **Rate Limiting:**
+
 - Implemente delays entre requisições
 - Use paginação quando disponível
 - Configure retry com backoff
 
 **Dados Inconsistentes:**
+
 - Valide formato dos dados
 - Use nodes de transformação
 - Implemente tratamento de erros
@@ -260,4 +274,4 @@ return processados;
 
 ---
 
-**<ion-icon name="link-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para conectar suas aplicações? Comece explorando as [integrações disponíveis](../../integracoes)!** 
+**<ion-icon name="link-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para conectar suas aplicações? Comece explorando as [integrações disponíveis](../../integracoes)!**

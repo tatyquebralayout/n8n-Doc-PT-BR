@@ -12,35 +12,44 @@ Bem-vindo à documentação da API REST do n8n! Aqui você encontrará tudo o qu
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Conceitos
+
 - **Visão Geral**: Introdução aos conceitos da API
 - **Autenticação**: Métodos de autenticação e segurança
 - **Paginação**: Como navegar por grandes volumes de dados
 
 ### Ferramentas
+
 - **Visão Geral das Ferramentas**: Recursos disponíveis
 - **Playground**: Teste a API de forma interativa
 
 ### Referência
+
 - **Visão Geral da Referência**: Documentação completa
 - **Referência da API**: Endpoints e parâmetros detalhados
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### API REST
+
 O n8n oferece uma API REST completa que permite:
+
 - Gerenciar workflows programaticamente
 - Executar workflows via API
 - Acessar dados e metadados
 - Configurar integrações remotamente
 
 ### Autenticação
+
 A API suporta múltiplos métodos de autenticação:
+
 - API Keys para acesso programático
 - OAuth 2.0 para aplicações de terceiros
 - Autenticação básica para desenvolvimento
 
 ### Webhooks
+
 Integre o n8n com sistemas externos através de webhooks:
+
 - Receba dados de aplicações externas
 - Dispare workflows baseados em eventos
 - Sincronize dados em tempo real
@@ -48,17 +57,20 @@ Integre o n8n com sistemas externos através de webhooks:
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Endpoints Principais
 
 ### Workflows
+
 - `GET /workflows` - Listar workflows
 - `POST /workflows` - Criar workflow
 - `PUT /workflows/{id}` - Atualizar workflow
 - `DELETE /workflows/{id}` - Excluir workflow
 
 ### Execuções
+
 - `GET /executions` - Listar execuções
 - `POST /workflows/{id}/trigger` - Executar workflow
 - `GET /executions/{id}` - Obter detalhes da execução
 
 ### Credenciais
+
 - `GET /credentials` - Listar credenciais
 - `POST /credentials` - Criar credencial
 - `PUT /credentials/{id}` - Atualizar credencial
@@ -73,4 +85,4 @@ Integre o n8n com sistemas externos através de webhooks:
 
 - **[Primeiros Passos](/primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Usando n8n](../usando-n8n)** - Guias práticos
-- **[Integrações](../integracoes)** - Conectar com aplicações externas 
+- **[Integrações](../integracoes)** - Conectar com aplicações externas

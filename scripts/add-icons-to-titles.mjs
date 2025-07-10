@@ -299,7 +299,7 @@ function getIconForTitle(title, isH1 = true) {
   }
   
   // Depois, buscar por palavras-chave temáticas
-  for (const [theme, config] of Object.entries(thematicMapping)) {
+  for (const [_theme, config] of Object.entries(thematicMapping)) {
     for (const keyword of config.keywords) {
       if (normalized.includes(keyword.toLowerCase())) {
         return config.icon;

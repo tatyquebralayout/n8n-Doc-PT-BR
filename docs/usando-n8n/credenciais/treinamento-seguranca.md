@@ -22,6 +22,7 @@ O treinamento em segurança é fundamental para proteger credenciais e dados sen
 ### 1. Estrutura do Programa
 
 **Módulos Principais**:
+
 ```json
 {
   "programa": {
@@ -72,21 +73,25 @@ O treinamento em segurança é fundamental para proteger credenciais e dados sen
 ### 2. Cronograma de Implementação
 
 **Fase 1 - Preparação (Semana 1-2)**:
+
 - Desenvolvimento de materiais
 - Configuração de plataforma
 - Comunicação inicial
 
 **Fase 2 - Lançamento (Semana 3-4)**:
+
 - Módulo 1: Fundamentos
 - Avaliação inicial
 - Feedback e ajustes
 
 **Fase 3 - Desenvolvimento (Semana 5-10)**:
+
 - Módulos 2-4
 - Simulações práticas
 - Avaliações contínuas
 
 **Fase 4 - Consolidação (Semana 11-12)**:
+
 - Avaliação final
 - Certificação
 - Plano de manutenção
@@ -96,6 +101,7 @@ O treinamento em segurança é fundamental para proteger credenciais e dados sen
 ### 1. Fundamentos de Segurança
 
 **Conceitos Básicos**:
+
 ```markdown
 # Módulo 1: Fundamentos de Segurança
 
@@ -132,6 +138,7 @@ O treinamento em segurança é fundamental para proteger credenciais e dados sen
 ### 2. Gestão de Credenciais
 
 **Políticas e Práticas**:
+
 ```markdown
 # Módulo 2: Gestão de Credenciais
 
@@ -191,6 +198,7 @@ O treinamento em segurança é fundamental para proteger credenciais e dados sen
 ### 3. Phishing e Engenharia Social
 
 **Identificação e Prevenção**:
+
 ```markdown
 # Módulo 3: Phishing e Engenharia Social
 
@@ -210,15 +218,17 @@ O treinamento em segurança é fundamental para proteger credenciais e dados sen
 
 **Exemplos de Phishing**:
 ```
+
 ❌ SUSPEITO:
-De: support@n8n-secure.com
+De: <support@n8n-secure.com>
 Assunto: Sua conta será suspensa em 24h
-Link: http://n8n-secure.xyz/login
+Link: <http://n8n-secure.xyz/login>
 
 ✅ LEGÍTIMO:
-De: support@n8n.io
+De: <support@n8n.io>
 Assunto: Atualização de segurança
-Link: https://n8n.io/security-update
+Link: <https://n8n.io/security-update>
+
 ```
 
 ### 3.2 Técnicas de Engenharia Social
@@ -256,6 +266,7 @@ Link: https://n8n.io/security-update
 ### 4. Incidentes de Segurança
 
 **Reconhecimento e Resposta**:
+
 ```markdown
 # Módulo 4: Incidentes de Segurança
 
@@ -314,6 +325,7 @@ Link: https://n8n.io/security-update
 ### 1. Simulação de Phishing
 
 **Configuração da Simulação**:
+
 ```javascript
 // Script para simulação de phishing
 class PhishingSimulation {
@@ -424,6 +436,7 @@ class PhishingSimulation {
 ### 2. Exercícios Práticos
 
 **Cenários de Treinamento**:
+
 ```json
 {
   "exercicios": [
@@ -460,6 +473,7 @@ class PhishingSimulation {
 ### 1. Avaliações de Conhecimento
 
 **Questionários de Avaliação**:
+
 ```javascript
 // Sistema de avaliação de conhecimento
 class SecurityAssessment {
@@ -564,6 +578,7 @@ class SecurityAssessment {
 ### 2. Métricas de Performance
 
 **Indicadores de Sucesso**:
+
 ```json
 {
   "metricas": {
@@ -596,6 +611,7 @@ class SecurityAssessment {
 ### 1. Implementação do Programa
 
 **Recomendações**:
+
 - **Começar pequeno**: Implementar com grupo piloto
 - **Feedback contínuo**: Coletar feedback e ajustar
 - **Gamificação**: Usar elementos de jogo para engajamento
@@ -605,6 +621,7 @@ class SecurityAssessment {
 ### 2. Manutenção
 
 **Atividades Contínuas**:
+
 - **Atualizações**: Manter conteúdo atualizado
 - **Novos módulos**: Adicionar conforme necessário
 - **Refresher**: Treinamentos de reciclagem
@@ -613,6 +630,7 @@ class SecurityAssessment {
 ### 3. Engajamento
 
 **Estratégias**:
+
 - **Liderança**: Envolver líderes no programa
 - **Reconhecimento**: Certificados e reconhecimento
 - **Competição**: Rankings e desafios
@@ -623,6 +641,7 @@ class SecurityAssessment {
 ### Exemplo 1: Programa Corporativo
 
 **Implementação Completa**:
+
 ```json
 {
   "programaCorporativo": {
@@ -682,6 +701,7 @@ class SecurityAssessment {
 ### Exemplo 2: Treinamento para Startups
 
 **Programa Simplificado**:
+
 ```json
 {
   "programaStartup": {
@@ -725,6 +745,7 @@ class SecurityAssessment {
 ### Exemplo 3: Certificação de Segurança
 
 **Programa de Certificação**:
+
 ```javascript
 // Sistema de certificação
 class SecurityCertification {
@@ -831,18 +852,21 @@ class SecurityCertification {
 ### Problemas Comuns
 
 **Baixa participação**:
+
 - Comunicar benefícios claramente
 - Envolver líderes no programa
 - Tornar treinamento obrigatório
 - Oferecer incentivos
 
 **Baixo engajamento**:
+
 - Usar formatos interativos
 - Conectar com trabalho diário
 - Implementar gamificação
 - Coletar feedback regular
 
 **Dificuldade de implementação**:
+
 - Começar com módulo piloto
 - Usar ferramentas existentes
 - Terceirizar se necessário
@@ -851,6 +875,7 @@ class SecurityCertification {
 ### Debugging
 
 **Ferramentas úteis**:
+
 ```bash
 # Análise de participação
 SELECT user_id, module_name, completion_date 
@@ -882,4 +907,4 @@ ORDER BY avg_score DESC;
 
 ---
 
-**<ion-icon name="school-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para treinar? Comece desenvolvendo seu programa de conscientização em segurança!** 
+**<ion-icon name="school-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para treinar? Comece desenvolvendo seu programa de conscientização em segurança!**

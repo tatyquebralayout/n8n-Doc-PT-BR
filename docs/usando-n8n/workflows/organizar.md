@@ -14,11 +14,13 @@ Organizar workflows de forma eficiente é essencial para manter produtividade e 
 ### 1. Sistema de Nomenclatura
 
 #### Padrão Recomendado
+
 ```
 [Departamento/Projeto] - [Funcionalidade] - [Frequência/Ação]
 ```
 
 #### Exemplos Práticos
+
 ```
 ✅ Marketing - Relatório Diário de Vendas - Automático
 ✅ Financeiro - Sincronização CRM - Manual
@@ -29,6 +31,7 @@ Organizar workflows de forma eficiente é essencial para manter produtividade e 
 ```
 
 #### Estrutura Detalhada
+
 ```yaml
 # Formato: [Contexto] - [Ação] - [Detalhes]
 Nome: "E-commerce - Processamento de Pedidos - Novos Clientes"
@@ -39,6 +42,7 @@ Tags: ["e-commerce", "pedidos", "clientes", "automático"]
 ### 2. Sistema de Tags
 
 #### Categorias Principais
+
 - **Departamento**: `marketing`, `financeiro`, `rh`, `ti`, `vendas`
 - **Tipo**: `automático`, `manual`, `agendado`, `webhook`
 - **Prioridade**: `alta`, `media`, `baixa`, `critica`
@@ -46,6 +50,7 @@ Tags: ["e-commerce", "pedidos", "clientes", "automático"]
 - **Integração**: `crm`, `erp`, `email`, `api`, `database`
 
 #### Exemplo de Aplicação
+
 ```json
 {
   "workflow": "Marketing - Campanha Black Friday - Automático",
@@ -63,6 +68,7 @@ Tags: ["e-commerce", "pedidos", "clientes", "automático"]
 ### 3. Estrutura de Pastas (Conceitual)
 
 #### Organização por Domínio
+
 ```
 📁 E-commerce
 ├── 📁 Pedidos
@@ -94,6 +100,7 @@ Tags: ["e-commerce", "pedidos", "clientes", "automático"]
 ### 1. Versionamento Inteligente
 
 #### Convenção de Versões
+
 ```yaml
 # Formato: v[Major].[Minor].[Patch]-[Status]
 Versões:
@@ -104,6 +111,7 @@ Versões:
 ```
 
 #### Histórico de Mudanças
+
 ```markdown
 ## Changelog - v1.2.0
 ### Adicionado
@@ -121,6 +129,7 @@ Versões:
 ### 2. Documentação Integrada
 
 #### Template de Documentação
+
 ```markdown
 # Workflow: [Nome do Workflow]
 
@@ -161,6 +170,7 @@ Descrição clara do objetivo do workflow.
 ### 3. Monitoramento e Manutenção
 
 #### Checklist de Manutenção
+
 ```yaml
 Manutenção Semanal:
   - [ ] Verificar execuções com erro
@@ -186,6 +196,7 @@ Manutenção Trimestral:
 ### 1. Templates Reutilizáveis
 
 #### Template de Workflow Padrão
+
 ```json
 {
   "name": "Template - [Nome]",
@@ -220,6 +231,7 @@ Manutenção Trimestral:
 ### 2. Scripts de Automação
 
 #### Script de Limpeza
+
 ```javascript
 // Script para identificar workflows órfãos
 const orphanedWorkflows = workflows.filter(wf => {
@@ -238,6 +250,7 @@ const backupWorkflows = workflows.filter(wf => {
 ### 3. Dashboards de Monitoramento
 
 #### Métricas Importantes
+
 ```yaml
 Métricas de Organização:
   - Total de workflows ativos
@@ -251,24 +264,28 @@ Métricas de Organização:
 ## Boas Práticas
 
 ### 1. Consistência
+
 - **Use sempre** o mesmo padrão de nomenclatura
 - **Mantenha** tags atualizadas
 - **Documente** todas as mudanças
 - **Padronize** configurações comuns
 
 ### 2. Simplicidade
+
 - **Evite** workflows muito complexos
 - **Divida** workflows grandes em menores
 - **Use** nomes descritivos e claros
 - **Mantenha** foco em uma funcionalidade por workflow
 
 ### 3. Manutenibilidade
+
 - **Revise** workflows regularmente
 - **Atualize** documentação
 - **Teste** mudanças antes de aplicar
 - **Monitore** performance
 
 ### 4. Segurança
+
 - **Use** credenciais seguras
 - **Limite** acesso por permissões
 - **Audite** workflows críticos
@@ -277,6 +294,7 @@ Métricas de Organização:
 ## Exemplos Práticos
 
 ### Exemplo 1: Workflow de E-commerce
+
 ```yaml
 Nome: "E-commerce - Processamento de Pedidos - Automático"
 Tags: ["e-commerce", "pedidos", "automático", "alta", "ativo"]
@@ -287,6 +305,7 @@ Frequência: "Real-time (webhook)"
 ```
 
 ### Exemplo 2: Workflow de Marketing
+
 ```yaml
 Nome: "Marketing - Campanha Email - Black Friday"
 Tags: ["marketing", "email", "campanha", "temporario", "alta"]
@@ -297,6 +316,7 @@ Frequência: "Agendado (diário às 10h)"
 ```
 
 ### Exemplo 3: Workflow de TI
+
 ```yaml
 Nome: "TI - Backup de Dados - Automático"
 Tags: ["ti", "backup", "automático", "critica", "ativo"]
@@ -311,34 +331,43 @@ Frequência: "Agendado (diário às 02h)"
 ### Problemas Comuns
 
 #### 1. Workflows Desorganizados
+
 **Sintomas:**
+
 - Nomes inconsistentes
 - Falta de tags
 - Documentação desatualizada
 
 **Solução:**
+
 - Implementar padrão de nomenclatura
 - Adicionar tags sistematicamente
 - Criar documentação padrão
 
 #### 2. Workflows Órfãos
+
 **Sintomas:**
+
 - Workflows não executados há muito tempo
 - Falta de responsável
 - Documentação desatualizada
 
 **Solução:**
+
 - Revisar periodicamente
 - Arquivar ou remover workflows obsoletos
 - Atualizar responsáveis
 
 #### 3. Performance Degradada
+
 **Sintomas:**
+
 - Workflows lentos
 - Erros frequentes
 - Alto uso de recursos
 
 **Solução:**
+
 - Otimizar configurações
 - Dividir workflows complexos
 - Implementar cache e rate limiting
@@ -346,18 +375,21 @@ Frequência: "Agendado (diário às 02h)"
 ## Ferramentas e Recursos
 
 ### Scripts Úteis
+
 - **Backup Automático**: Script para backup de workflows
 - **Limpeza**: Script para identificar workflows órfãos
 - **Relatórios**: Script para gerar relatórios de uso
 - **Migração**: Script para migrar workflows entre ambientes
 
 ### Templates Disponíveis
+
 - **E-commerce**: Templates para workflows de e-commerce
 - **Marketing**: Templates para automação de marketing
 - **Financeiro**: Templates para processos financeiros
 - **TI**: Templates para operações de TI
 
 ### Documentação
+
 - **Guia de Nomenclatura**: Padrões detalhados
 - **Template de Documentação**: Modelo para documentar workflows
 - **Checklist de Manutenção**: Lista de verificação
@@ -366,6 +398,7 @@ Frequência: "Agendado (diário às 02h)"
 ---
 
 **Próximos Passos:**
+
 - [Execução de Workflows](../execucoes/index.md)
 - [Monitoramento de Workflows](../monitoring/index.md)
-- [Backup e Recuperação](../../hosting-n8n/seguranca/backup-recovery.md) 
+- [Backup e Recuperação](../../hosting-n8n/seguranca/backup-recovery.md)

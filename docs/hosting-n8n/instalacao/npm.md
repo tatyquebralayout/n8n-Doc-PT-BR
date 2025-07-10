@@ -13,6 +13,7 @@ Este guia detalha como **instalar n8n via npm** para máximo controle e customiz
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Quando Usar NPM?
 
 ### **Cenários Ideais:**
+
 - 🧪 **Desenvolvimento** - Criar e testar nodes customizados
 - 🔬 **Experimentos** - Testar integrações rapidamente
 - 📚 **Aprendizado** - Estudar o n8n sem configurações complexas
@@ -20,6 +21,7 @@ Este guia detalha como **instalar n8n via npm** para máximo controle e customiz
 - 🔧 **Debug** - Investigar problemas localmente
 
 ### **Limitações:**
+
 - ⚠️ **Sem HTTPS** - Webhooks externos podem não funcionar
 - 🔒 **Segurança básica** - Não recomendado para produção
 - 📊 **Performance limitada** - Sem otimizações de produção
@@ -30,6 +32,7 @@ Este guia detalha como **instalar n8n via npm** para máximo controle e customiz
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
 ### **Node.js e npm**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar versões
 node --version  # Deve ser ≥ 20.19 ≤ 24.x
@@ -48,6 +51,7 @@ brew install node
 ```
 
 ### **Requisitos do Sistema**
+
 - **RAM**: Mínimo 2GB, recomendado 4GB+
 - **Disco**: 1GB livre para instalação
 - **Rede**: Conexão para download de dependências
@@ -58,6 +62,7 @@ brew install node
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação Rápida
 
 ### **1. Instalação Global (Recomendado)**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar n8n globalmente
 npm install n8n -g
@@ -67,6 +72,7 @@ n8n --version
 ```
 
 ### **2. Primeira Execução**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Iniciar n8n
 n8n
@@ -76,6 +82,7 @@ n8n start
 ```
 
 ### **3. Acessar Interface**
+
 Abra seu navegador e acesse: `http://localhost:5678`
 
 ---
@@ -83,6 +90,7 @@ Abra seu navegador e acesse: `http://localhost:5678`
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Avançada
 
 ### **Variáveis de Ambiente**
+
 ```bash
 # <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações básicas
 export N8N_PORT=5678
@@ -99,7 +107,9 @@ n8n start
 ```
 
 ### **Arquivo .env**
+
 Crie um arquivo `.env` no diretório onde executa o n8n:
+
 ```bash
 # <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> .env
 N8N_PORT=5678
@@ -111,7 +121,9 @@ N8N_USER_MANAGEMENT_DISABLED=false
 ```
 
 ### **Configuração de Túnel (Webhooks)**
+
 Para receber webhooks externos:
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar ngrok
 npm install -g ngrok
@@ -128,6 +140,7 @@ n8n start --tunnel
 ## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Desenvolvimento
 
 ### **Instalação para Desenvolvimento**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Clonar repositório
 git clone https://github.com/n8n-io/n8n.git
@@ -141,6 +154,7 @@ npm run dev
 ```
 
 ### **Criar Nodes Customizados**
+
 ```bash
 # <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar estrutura de node
 mkdir my-custom-node
@@ -158,6 +172,7 @@ touch src/MyNode.ts
 ```
 
 ### **Exemplo de Node Customizado**
+
 ```typescript
 // src/MyNode.ts
 import { IExecuteFunctions } from 'n8n-core';
@@ -216,6 +231,7 @@ export class MyNode implements INodeType {
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Debug e Troubleshooting
 
 ### **Logs Detalhados**
+
 ```bash
 # <ion-icon name="bug-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logs de debug
 N8N_LOG_LEVEL=debug n8n start
@@ -230,6 +246,7 @@ N8N_LOG_LEVEL=debug n8n start > n8n.log 2>&1
 ### **Problemas Comuns**
 
 #### **Porta já em uso**
+
 ```bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar processo usando a porta
 netstat -tulpn | grep 5678
@@ -240,6 +257,7 @@ N8N_PORT=5679 n8n start
 ```
 
 #### **Permissões (Linux/Mac)**
+
 ```bash
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Corrigir permissões
 sudo chown -R $(whoami) ~/.n8n
@@ -247,12 +265,14 @@ chmod -R 755 ~/.n8n
 ```
 
 #### **Erro de memória**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Aumentar limite de memória
 NODE_OPTIONS="--max-old-space-size=4096" n8n start
 ```
 
 #### **Problemas de rede**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar conectividade
 curl -I http://localhost:5678
@@ -266,6 +286,7 @@ curl -X POST http://localhost:5678/webhook/test
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Atualizações
 
 ### **Atualizar n8n**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar versão atual
 n8n --version
@@ -278,6 +299,7 @@ npm install -g n8n@1.100.0
 ```
 
 ### **Gerenciar Versões**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Listar versões instaladas
 npm list -g n8n
@@ -294,6 +316,7 @@ npm install -g n8n@1.98.0
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura de Arquivos
 
 ### **Diretórios Importantes**
+
 ```bash
 # <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Dados do n8n
 ~/.n8n/
@@ -312,6 +335,7 @@ npm install -g n8n@1.98.0
 ```
 
 ### **Backup Manual**
+
 ```bash
 # <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup dos dados
 tar -czf n8n-backup-$(date +%Y%m%d).tar.gz ~/.n8n/
@@ -331,6 +355,7 @@ Agora que você tem o n8n rodando localmente:
 3. **[Desenvolver Nodes Customizados](../../integracoes/criar-nodes/tutorial-desenvolvimento)** - Crie suas próprias integrações
 
 ### **Outros Métodos de Instalação**
+
 - **[Docker](./docker)** - Containerização para produção
 - **[Cloud](./cloud)** - Serviço hospedado oficial
 - **[Desktop](./desktop)** - Aplicação desktop
@@ -351,7 +376,8 @@ Lembre-se: a instalação npm é para **desenvolvimento e testes**. Para produç
 
 ---
 
-** Links úteis:**
--  [Documentação oficial n8n](https://docs.n8n.io/)
--  [Repositório n8n no GitHub](https://github.com/n8n-io/n8n)
--  [Pacote n8n no npm](https://www.npmjs.com/package/n8n)
+**Links úteis:**
+
+- [Documentação oficial n8n](https://docs.n8n.io/)
+- [Repositório n8n no GitHub](https://github.com/n8n-io/n8n)
+- [Pacote n8n no npm](https://www.npmjs.com/package/n8n)

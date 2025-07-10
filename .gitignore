@@ -41,3 +41,9 @@ Thumbs.db
 # Coverage
 coverage/
 
+# Scripts de automação e desenvolvimento
+scripts/
+
+# Documentação oficial n8n (apenas para referência local)
+n8n-docs/
+

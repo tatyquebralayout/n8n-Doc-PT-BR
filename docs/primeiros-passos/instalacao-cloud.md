@@ -28,18 +28,21 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Planos e Preços
 
 ### **Free Trial**
+
 - **Duração**: 14 dias
 - **Execuções**: 1.000 execuções
 - **Usuários**: Até 5 usuários
 - **Recursos**: Todos os recursos incluídos
 
 ### **Starter Plan**
+
 - **Preço**: $20/mês por usuário
 - **Execuções**: 10.000 execuções/mês
 - **Usuários**: Ilimitados
 - **Suporte**: Email
 
 ### **Professional Plan**
+
 - **Preço**: $50/mês por usuário
 - **Execuções**: 50.000 execuções/mês
 - **Usuários**: Ilimitados
@@ -47,6 +50,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 - **Recursos**: Ambientes, RBAC avançado
 
 ### **Enterprise Plan**
+
 - **Preço**: Sob consulta
 - **Execuções**: Ilimitadas
 - **Recursos**: SAML, SSO, SLA garantido
@@ -119,17 +123,20 @@ Crie ambientes separados para desenvolvimento e produção:
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Compliance
 
 ### **Certificações**
+
 - **SOC 2 Type II** - Controles de segurança
 - **GDPR** - Conformidade com dados europeus
 - **ISO 27001** - Gestão de segurança da informação
 
 ### **Recursos de Segurança**
+
 - **Criptografia em trânsito** - TLS 1.3
 - **Criptografia em repouso** - AES-256
 - **Backups automáticos** - Diários e redundantes
 - **Monitoramento 24/7** - Detecção de anomalias
 
 ### **Controles de Acesso**
+
 - **RBAC** - Controle granular de permissões
 - **2FA** - Autenticação de dois fatores
 - **Audit logs** - Registro completo de atividades
@@ -140,12 +147,14 @@ Crie ambientes separados para desenvolvimento e produção:
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Analytics
 
 ### **Dashboard de Execuções**
+
 - **Taxa de sucesso** por workflow
 - **Tempo de execução** médio
 - **Erros mais comuns** e soluções
 - **Uso de recursos** e otimizações
 
 ### **Alertas e Notificações**
+
 - **Falhas críticas** em tempo real
 - **Limite de execuções** próximo
 - **Performance degradada**
@@ -156,12 +165,14 @@ Crie ambientes separados para desenvolvimento e produção:
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Suporte e Recursos
 
 ### **Canais de Suporte**
+
 - **Documentação oficial** - Guias detalhados
 - **Community Forum** - Troca de experiências
 - **Discord** - Suporte em tempo real
 - **Email** - Suporte técnico direto
 
 ### **Recursos Adicionais**
+
 - **Templates prontos** - Workflows pré-configurados
 - **Webinars** - Treinamentos semanais
 - **Best practices** - Guias de otimização
@@ -190,4 +201,4 @@ Comece com o **Free Trial** para experimentar todos os recursos. Você pode migr
 
 :::info **Migração de Self-hosted**
 Já tem uma instância self-hosted? O n8n oferece ferramentas para migrar workflows e dados para o Cloud sem interrupção.
-::: 
+:::

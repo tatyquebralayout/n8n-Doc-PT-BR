@@ -8,4 +8,4 @@ sidebar_label: Troubleshooting
 
 Este guia ajuda a diagnosticar e resolver problemas comuns e avançados ao usar o n8n.
 
-** Em construção:** Este guia incluirá uma base de conhecimento searchable com soluções step-by-step.
+**Em construção:** Este guia incluirá uma base de conhecimento searchable com soluções step-by-step.

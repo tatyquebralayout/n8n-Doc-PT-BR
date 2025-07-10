@@ -11,7 +11,7 @@ Selecione abaixo o tópico desejado para acessar guias completos de pré-requisi
 
 ---
 
-- [ Pré-requisitos para Embed](./prerequisitos)
+- [Pré-requisitos para Embed](./prerequisitos)
   <br/><span style={{ color: '#6b7280' }}>Infraestrutura recomendada, domínios permitidos, CORS, segurança, planejamento de recursos e checklist completo.</span>
 
 ---
@@ -22,4 +22,4 @@ Revise todos os pré-requisitos antes de começar a implementação. Isso garant
 
 :::info **Recurso Adicional**
 Consulte a seção de [Hosting n8n](../../hosting-n8n/instalacao) para detalhes sobre configuração de instância e infraestrutura.
-::: 
+:::

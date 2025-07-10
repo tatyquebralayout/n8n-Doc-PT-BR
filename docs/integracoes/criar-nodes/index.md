@@ -11,12 +11,15 @@ Bem-vindo à seção de desenvolvimento de nodes customizados para o n8n! Aqui v
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### 📚 [Estrutura de um Node](./estrutura-node)
+
 Entenda os componentes fundamentais de um node n8n e como eles se relacionam.
 
 ### 🛠️ [Tutorial de Desenvolvimento](./tutorial-desenvolvimento)
+
 Guia passo a passo para criar seu primeiro node customizado, desde a configuração do ambiente até o teste.
 
 ### 📦 [Publicar no NPM](./publicar-npm)
+
 Aprenda como publicar seu node no NPM para que outros desenvolvedores possam utilizá-lo.
 
 ## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que criar nodes customizados?
@@ -43,4 +46,4 @@ Antes de começar, certifique-se de ter:
 
 ---
 
-**💡 Dica**: Se você é novo no desenvolvimento de nodes, recomendamos seguir a ordem dos tópicos acima para uma experiência de aprendizado mais fluida. 
+**💡 Dica**: Se você é novo no desenvolvimento de nodes, recomendamos seguir a ordem dos tópicos acima para uma experiência de aprendizado mais fluida.

@@ -13,7 +13,9 @@ As credenciais são fundamentais para conectar o n8n com sistemas externos de fo
 ## Conceitos Fundamentais
 
 ### O que são Credenciais
+
 Credenciais no n8n são informações de autenticação armazenadas de forma segura que permitem:
+
 - **Conectar** com APIs externas
 - **Autenticar** em serviços de terceiros
 - **Acessar** bancos de dados
@@ -22,6 +24,7 @@ Credenciais no n8n são informações de autenticação armazenadas de forma seg
 ### Tipos de Credenciais
 
 #### 1. API Keys
+
 ```json
 {
   "type": "apiKey",
@@ -32,6 +35,7 @@ Credenciais no n8n são informações de autenticação armazenadas de forma seg
 ```
 
 #### 2. OAuth 2.0
+
 ```json
 {
   "type": "oauth2",
@@ -43,6 +47,7 @@ Credenciais no n8n são informações de autenticação armazenadas de forma seg
 ```
 
 #### 3. Basic Authentication
+
 ```json
 {
   "type": "basicAuth",
@@ -53,6 +58,7 @@ Credenciais no n8n são informações de autenticação armazenadas de forma seg
 ```
 
 #### 4. Custom Headers
+
 ```json
 {
   "type": "customHeaders",
@@ -76,6 +82,7 @@ Credenciais no n8n são informações de autenticação armazenadas de forma seg
 ### Passo 2: Selecionar Tipo de Credencial
 
 #### Categorias Disponíveis
+
 - **Communication**: Email, Slack, Discord, WhatsApp
 - **Productivity**: Google Workspace, Microsoft 365, Notion
 - **E-commerce**: Shopify, WooCommerce, Stripe
@@ -87,6 +94,7 @@ Credenciais no n8n são informações de autenticação armazenadas de forma seg
 ### Passo 3: Configurar Credenciais
 
 #### Exemplo: Configuração de Email (Gmail)
+
 ```json
 {
   "name": "Gmail - Marketing",
@@ -110,6 +118,7 @@ Credenciais no n8n são informações de autenticação armazenadas de forma seg
 ```
 
 #### Exemplo: Configuração de API (Stripe)
+
 ```json
 {
   "name": "Stripe - Produção",
@@ -128,6 +137,7 @@ Credenciais no n8n são informações de autenticação armazenadas de forma seg
 ### 1. Variáveis de Ambiente
 
 #### Configuração Segura
+
 ```bash
 # .env file
 STRIPE_API_KEY=sk_live_...
@@ -136,6 +146,7 @@ DATABASE_URL=postgresql://user:pass@host:port/db
 ```
 
 #### Uso no n8n
+
 ```json
 {
   "credentials": {
@@ -148,6 +159,7 @@ DATABASE_URL=postgresql://user:pass@host:port/db
 ### 2. Configuração de Proxy
 
 #### Para Ambientes Corporativos
+
 ```json
 {
   "proxy": {
@@ -164,6 +176,7 @@ DATABASE_URL=postgresql://user:pass@host:port/db
 ### 3. Configuração de Timeout
 
 #### Para APIs Lentas
+
 ```json
 {
   "timeout": {
@@ -182,6 +195,7 @@ DATABASE_URL=postgresql://user:pass@host:port/db
 ### 1. Nomenclatura Segura
 
 #### Padrão Recomendado
+
 ```yaml
 # Formato: [Serviço] - [Ambiente] - [Propósito]
 Nome: "Stripe - Produção - Pagamentos"
@@ -190,6 +204,7 @@ Nome: "Database - Desenvolvimento - Testes"
 ```
 
 #### Evitar
+
 ```yaml
 ❌ "API Key"
 ❌ "Password"
@@ -200,6 +215,7 @@ Nome: "Database - Desenvolvimento - Testes"
 ### 2. Descrições Detalhadas
 
 #### Template de Descrição
+
 ```markdown
 ## Propósito
 Credencial para [funcionalidade específica]
@@ -220,6 +236,7 @@ Credencial para [funcionalidade específica]
 ### 3. Rotação de Credenciais
 
 #### Cronograma de Rotação
+
 ```yaml
 Rotação Mensal:
   - API Keys de desenvolvimento
@@ -237,6 +254,7 @@ Rotação Semestral:
 ### 4. Monitoramento de Uso
 
 #### Alertas de Segurança
+
 ```json
 {
   "monitoring": {
@@ -261,6 +279,7 @@ Rotação Semestral:
 ### 1. Organização por Projeto
 
 #### Estrutura Recomendada
+
 ```
 📁 Credenciais
 ├── 📁 E-commerce
@@ -284,6 +303,7 @@ Rotação Semestral:
 ### 2. Versionamento de Credenciais
 
 #### Controle de Versões
+
 ```yaml
 Versão Atual:
   - ID: cred_001
@@ -301,6 +321,7 @@ Versão Anterior:
 ### 3. Backup e Recuperação
 
 #### Estratégia de Backup
+
 ```json
 {
   "backup": {
@@ -318,34 +339,43 @@ Versão Anterior:
 ### Problemas Comuns
 
 #### 1. Credenciais Expiradas
+
 **Sintomas:**
+
 - Erro 401 (Unauthorized)
 - Erro 403 (Forbidden)
 - Mensagens de token expirado
 
 **Solução:**
+
 - Verificar data de expiração
 - Renovar credenciais
 - Atualizar configurações
 
 #### 2. Rate Limiting
+
 **Sintomas:**
+
 - Erro 429 (Too Many Requests)
 - Execuções falhando intermitentemente
 - Performance degradada
 
 **Solução:**
+
 - Implementar delays entre requests
 - Usar múltiplas credenciais
 - Otimizar frequência de execução
 
 #### 3. Configuração Incorreta
+
 **Sintomas:**
+
 - Erro de conexão
 - Timeout
 - Dados incorretos
 
 **Solução:**
+
 - Validar configurações
 - Testar conectividade
 - Verificar permissões
@@ -353,6 +383,7 @@ Versão Anterior:
 ### Ferramentas de Diagnóstico
 
 #### 1. Teste de Conectividade
+
 ```javascript
 // Script para testar credenciais
 async function testCredential(credentialId) {
@@ -366,6 +397,7 @@ async function testCredential(credentialId) {
 ```
 
 #### 2. Validação de Permissões
+
 ```json
 {
   "validation": {
@@ -381,6 +413,7 @@ async function testCredential(credentialId) {
 ### 1. Google Services
 
 #### Gmail
+
 ```json
 {
   "type": "gmail",
@@ -397,6 +430,7 @@ async function testCredential(credentialId) {
 ```
 
 #### Google Sheets
+
 ```json
 {
   "type": "googleSheets",
@@ -411,6 +445,7 @@ async function testCredential(credentialId) {
 ### 2. Database Connections
 
 #### PostgreSQL
+
 ```json
 {
   "type": "postgres",
@@ -428,6 +463,7 @@ async function testCredential(credentialId) {
 ```
 
 #### MySQL
+
 ```json
 {
   "type": "mysql",
@@ -447,6 +483,7 @@ async function testCredential(credentialId) {
 ### 3. Cloud Services
 
 #### AWS
+
 ```json
 {
   "type": "aws",
@@ -460,6 +497,7 @@ async function testCredential(credentialId) {
 ```
 
 #### Azure
+
 ```json
 {
   "type": "azure",
@@ -475,16 +513,19 @@ async function testCredential(credentialId) {
 ## Recursos Adicionais
 
 ### Documentação Oficial
+
 - [Credentials Overview](https://docs.n8n.io/credentials/)
 - [Security Best Practices](https://docs.n8n.io/security/)
 - [API Reference](https://docs.n8n.io/api/)
 
 ### Ferramentas de Segurança
+
 - [Credential Scanner](https://github.com/n8n-io/n8n/tree/master/packages/cli/src/commands)
 - [Security Audit](https://docs.n8n.io/security/audit/)
 - [Encryption Guide](https://docs.n8n.io/security/encryption/)
 
 ### Comunidade
+
 - [Security Discussions](https://community.n8n.io/c/security/)
 - [Best Practices](https://community.n8n.io/c/best-practices/)
 - [Troubleshooting](https://community.n8n.io/c/troubleshooting/)
@@ -492,6 +533,7 @@ async function testCredential(credentialId) {
 ---
 
 **Próximos Passos:**
+
 - [Boas Práticas de Credenciais](boas-praticas.md)
 - [Compartilhamento de Credenciais](compartilhamento.md)
-- [Segurança e Autenticação](../../hosting-n8n/seguranca/autenticacao.md) 
+- [Segurança e Autenticação](../../hosting-n8n/seguranca/autenticacao.md)

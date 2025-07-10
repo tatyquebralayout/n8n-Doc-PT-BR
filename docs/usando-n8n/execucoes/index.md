@@ -12,7 +12,9 @@ As execuções são o coração do n8n, onde workflows ganham vida e processam d
 ## Conceitos Fundamentais
 
 ### O que é uma Execução
+
 Uma execução no n8n é uma instância específica de um workflow que:
+
 - **Processa dados** reais através dos nodes
 - **Executa ações** em sistemas externos
 - **Gera logs** detalhados de cada etapa
@@ -21,6 +23,7 @@ Uma execução no n8n é uma instância específica de um workflow que:
 ### Tipos de Execução
 
 #### 1. Execução Manual
+
 ```json
 {
   "type": "manual",
@@ -34,6 +37,7 @@ Uma execução no n8n é uma instância específica de um workflow que:
 ```
 
 #### 2. Execução Agendada
+
 ```json
 {
   "type": "scheduled",
@@ -47,6 +51,7 @@ Uma execução no n8n é uma instância específica de um workflow que:
 ```
 
 #### 3. Execução por Webhook
+
 ```json
 {
   "type": "webhook",
@@ -66,6 +71,7 @@ Uma execução no n8n é uma instância específica de um workflow que:
 ```
 
 #### 4. Execução por Evento
+
 ```json
 {
   "type": "event",
@@ -82,9 +88,11 @@ Uma execução no n8n é uma instância específica de um workflow que:
 ## Componentes da Execução
 
 ### 1. Trigger Node
+
 O ponto de entrada da execução:
 
 #### Configurações do Trigger
+
 ```json
 {
   "trigger": {
@@ -100,6 +108,7 @@ O ponto de entrada da execução:
 ```
 
 #### Dados de Entrada
+
 ```json
 {
   "inputData": {
@@ -114,9 +123,11 @@ O ponto de entrada da execução:
 ```
 
 ### 2. Nodes de Processamento
+
 Cada node processa e transforma os dados:
 
 #### Exemplo de Processamento
+
 ```json
 {
   "node": {
@@ -144,9 +155,11 @@ Cada node processa e transforma os dados:
 ```
 
 ### 3. Nodes de Ação
+
 Executam operações em sistemas externos:
 
 #### Exemplo de Ação
+
 ```json
 {
   "node": {
@@ -176,6 +189,7 @@ Executam operações em sistemas externos:
 ### 1. Dashboard de Execuções
 
 #### Métricas Principais
+
 ```yaml
 Execuções Hoje:
   - Total: 150
@@ -196,6 +210,7 @@ Performance:
 ```
 
 #### Filtros e Busca
+
 ```json
 {
   "filters": {
@@ -216,6 +231,7 @@ Performance:
 ### 2. Logs Detalhados
 
 #### Estrutura do Log
+
 ```json
 {
   "executionId": "exec_12345",
@@ -246,6 +262,7 @@ Performance:
 ```
 
 #### Níveis de Log
+
 ```yaml
 Debug:
   - Dados detalhados de cada node
@@ -271,6 +288,7 @@ Error:
 ### 3. Alertas e Notificações
 
 #### Configuração de Alertas
+
 ```json
 {
   "alerts": {
@@ -301,6 +319,7 @@ Error:
 ### 1. Execução em Lote (Batch Processing)
 
 #### Configuração de Batch
+
 ```json
 {
   "batch": {
@@ -316,6 +335,7 @@ Error:
 ```
 
 #### Processamento Paralelo
+
 ```json
 {
   "parallel": {
@@ -329,6 +349,7 @@ Error:
 ### 2. Execução Condicional
 
 #### Baseada em Dados
+
 ```javascript
 // Code Node para decisão condicional
 const shouldExecute = items.some(item => {
@@ -344,6 +365,7 @@ if (shouldExecute) {
 ```
 
 #### Baseada em Tempo
+
 ```javascript
 // Verificar horário de execução
 const now = new Date();
@@ -359,6 +381,7 @@ if (hour >= 9 && hour <= 18) {
 ### 3. Execução com Retry
 
 #### Configuração de Retry
+
 ```json
 {
   "retry": {
@@ -376,6 +399,7 @@ if (hour >= 9 && hour <= 18) {
 ```
 
 #### Retry Inteligente
+
 ```javascript
 // Code Node para retry customizado
 const maxAttempts = 3;
@@ -397,12 +421,15 @@ return items;
 ### Problemas Comuns
 
 #### 1. Execuções Falhando
+
 **Sintomas:**
+
 - Status "error" nas execuções
 - Logs com mensagens de erro
 - Workflows não completando
 
 **Diagnóstico:**
+
 ```javascript
 // Code Node para debug
 console.log('Input data:', JSON.stringify(items, null, 2));
@@ -413,18 +440,22 @@ return items;
 ```
 
 **Soluções:**
+
 - Verificar credenciais
 - Validar dados de entrada
 - Implementar tratamento de erros
 - Ajustar timeouts
 
 #### 2. Execuções Lentas
+
 **Sintomas:**
+
 - Tempo de execução alto
 - Timeouts frequentes
 - Performance degradada
 
 **Otimizações:**
+
 ```json
 {
   "optimization": {
@@ -437,12 +468,15 @@ return items;
 ```
 
 #### 3. Execuções Duplicadas
+
 **Sintomas:**
+
 - Múltiplas execuções simultâneas
 - Dados duplicados
 - Processamento redundante
 
 **Prevenção:**
+
 ```javascript
 // Code Node para deduplicação
 const processedIds = new Set();
@@ -462,6 +496,7 @@ return uniqueItems;
 ### Ferramentas de Debug
 
 #### 1. Execution Inspector
+
 ```json
 {
   "inspector": {
@@ -474,6 +509,7 @@ return uniqueItems;
 ```
 
 #### 2. Debug Mode
+
 ```json
 {
   "debug": {
@@ -486,6 +522,7 @@ return uniqueItems;
 ```
 
 #### 3. Performance Profiling
+
 ```json
 {
   "profiling": {
@@ -500,6 +537,7 @@ return uniqueItems;
 ## Configurações de Execução
 
 ### 1. Configurações Globais
+
 ```json
 {
   "execution": {
@@ -516,6 +554,7 @@ return uniqueItems;
 ```
 
 ### 2. Configurações por Workflow
+
 ```json
 {
   "workflow": {
@@ -537,6 +576,7 @@ return uniqueItems;
 ```
 
 ### 3. Configurações de Ambiente
+
 ```bash
 # Variáveis de ambiente para execução
 N8N_EXECUTION_TIMEOUT=300000
@@ -549,16 +589,19 @@ N8N_EXECUTION_PRUNE_DATA_MAX_AGE=168
 ## Recursos Adicionais
 
 ### Documentação Oficial
+
 - [Executions Overview](https://docs.n8n.io/workflows/executions/)
 - [Execution Data](https://docs.n8n.io/workflows/executions/execution-data/)
 - [Error Handling](https://docs.n8n.io/workflows/error-handling/)
 
 ### Ferramentas de Monitoramento
+
 - [n8n Monitoring](https://docs.n8n.io/hosting/monitoring/)
 - [Performance Tuning](https://docs.n8n.io/hosting/performance/)
 - [Logging Configuration](https://docs.n8n.io/hosting/logging/)
 
 ### Comunidade
+
 - [Execution Discussions](https://community.n8n.io/c/executions/)
 - [Performance Tips](https://community.n8n.io/c/performance/)
 - [Troubleshooting](https://community.n8n.io/c/troubleshooting/)
@@ -566,6 +609,7 @@ N8N_EXECUTION_PRUNE_DATA_MAX_AGE=168
 ---
 
 **Próximos Passos:**
+
 - [Componentes de Execuções](componentes-execucoes.md)
 - [Monitoramento de Workflows](../monitoring/index.md)
 - [Tratamento de Erros](../../logica-e-dados/01-flow-logic/error-handling.md)

@@ -11,20 +11,20 @@ Selecione abaixo o tópico desejado para acessar guias completos de configuraç�
 
 ---
 
-- [ Variáveis de Ambiente](./variaveis-ambiente)
+- [Variáveis de Ambiente](./variaveis-ambiente)
   <br/><span style={{ color: '#6b7280' }}>Configuração de variáveis essenciais, segurança, performance, separação de ambientes e exemplos para Docker/Kubernetes.</span>
 
-- [ Banco de Dados](./database)
+- [Banco de Dados](./database)
   <br/><span style={{ color: '#6b7280' }}>Guia para PostgreSQL (recomendado) e MySQL, otimizações, backup, replicação, cloud e monitoramento.</span>
 
-- [ Filas e Redis](./queues)
+- [Filas e Redis](./queues)
   <br/><span style={{ color: '#6b7280' }}>Processamento distribuído, configuração de Redis, workers, escalabilidade, monitoramento e troubleshooting.</span>
 
-- [ SSL/HTTPS](./ssl-https)
+- [SSL/HTTPS](./ssl-https)
   <br/><span style={{ color: '#6b7280' }}>Configuração de HTTPS seguro, certificados, Nginx, security headers, renovação automática e checklist de segurança.</span>
 
 ---
 
 :::tip Dica
 Siga sempre os checklists de produção e utilize exemplos práticos para garantir ambientes seguros, performáticos e fáceis de manter.
-::: 
+:::

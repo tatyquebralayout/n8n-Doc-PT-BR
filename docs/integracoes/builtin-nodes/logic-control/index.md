@@ -107,6 +107,7 @@ graph TD
 ## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Looping: Repetição e Processamento em Lote
 
 Implemente loops para processar arrays, repetir ações e criar automações dinâmicas:
+
 - [Guia de Looping →](../../../logica-e-dados/01-flow-logic/looping)
 
 ---
@@ -114,6 +115,7 @@ Implemente loops para processar arrays, repetir ações e criar automações din
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
 
 Garanta workflows resilientes com nodes de tratamento de erro, retry automático e notificações:
+
 - [Guia de Tratamento de Erros →](../../../logica-e-dados/01-flow-logic/error-handling)
 
 ---
@@ -136,6 +138,7 @@ Garanta workflows resilientes com nodes de tratamento de erro, retry automático
 - Workflows paralelos com Merge
 
 Veja exemplos completos em:
+
 - [Splitting: Casos de uso e exemplos práticos →](../../../logica-e-dados/01-flow-logic/splitting#casos-de-uso-comuns)
 - [Catálogo de Workflows](/catalogo)
 
@@ -145,4 +148,4 @@ Veja exemplos completos em:
 - [Documentação oficial n8n](https://docs.n8n.io/)
 - [Exemplos de Workflows](https://n8n.io/workflows)
 - [Fórum da Comunidade](https://community.n8n.io/)
-</Admonition> 
+</Admonition>

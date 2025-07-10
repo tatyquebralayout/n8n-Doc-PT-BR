@@ -14,7 +14,7 @@ Aqui você encontra workflows prontos para usar, testados pela comunidade e docu
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Destaques da Semana**
 
-###  Mais Populares
+### Mais Populares
 
 <div className="template-grid">
 <div className="template-card featured">
@@ -57,49 +57,52 @@ Aqui você encontra workflows prontos para usar, testados pela comunidade e docu
 <h3 className="category-subtitle"> Comunicação e Notificações</h3>
 Templates para automatizar comunicação com clientes, equipes e stakeholders.
 
--  **Email Marketing Avançado** - Sequências automáticas com Gmail + Sheets
--  **WhatsApp Business** - Chatbots e mensagens personalizadas
--  **Central de Notificações** - Slack + Teams + Discord integrados
--  **Relatórios Automáticos** - Dashboards enviados por email
+- **Email Marketing Avançado** - Sequências automáticas com Gmail + Sheets
+- **WhatsApp Business** - Chatbots e mensagens personalizadas
+- **Central de Notificações** - Slack + Teams + Discord integrados
+- **Relatórios Automáticos** - Dashboards enviados por email
 
 <h3 className="category-subtitle"> E-commerce e Vendas</h3>
 Automações para lojas virtuais e processos de vendas.
 
--  **Lead Scoring** - Qualificação automática de leads
--  **Gestão de Pedidos** - Shopify + Correios + Contabilidade
--  **Conciliação Financeira** - PIX + Cartões + Boletos
--  **Análise de Vendas** - Relatórios automatizados
+- **Lead Scoring** - Qualificação automática de leads
+- **Gestão de Pedidos** - Shopify + Correios + Contabilidade
+- **Conciliação Financeira** - PIX + Cartões + Boletos
+- **Análise de Vendas** - Relatórios automatizados
 
 <h3 className="category-subtitle"> Gestão e Produtividade</h3>
 Templates para otimizar processos internos e aumentar produtividade.
 
--  **Agendamento Inteligente** - Calendário + CRM + Notificações
--  **Onboarding Funcionários** - Processo completo automatizado
--  **Gestão de Projetos** - Trello + Slack + Timetracking
--  **Backup Automático** - Dados corporativos seguros
+- **Agendamento Inteligente** - Calendário + CRM + Notificações
+- **Onboarding Funcionários** - Processo completo automatizado
+- **Gestão de Projetos** - Trello + Slack + Timetracking
+- **Backup Automático** - Dados corporativos seguros
 
 <h3 className="category-subtitle"> Específicos do Brasil</h3>
 Templates usando APIs e serviços brasileiros.
 
--  **Consultas Governo** - Receita Federal + CNPJ + CPF
--  **Logística CEP** - ViaCEP + Correios + Fretes
--  **Integração Bancária** - Open Banking + PIX + Boletos
--  **Compliance Fiscal** - SPED + NFe + Simples Nacional
+- **Consultas Governo** - Receita Federal + CNPJ + CPF
+- **Logística CEP** - ViaCEP + Correios + Fretes
+- **Integração Bancária** - Open Banking + PIX + Boletos
+- **Compliance Fiscal** - SPED + NFe + Simples Nacional
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Como Usar os Templates**
 
 ### **1. Navegar e Descobrir**
+
 - Use os **filtros** para encontrar templates por categoria
 - Verifique as **avaliações** e **downloads** da comunidade
 - Leia a **documentação** completa de cada template
 
 ### **2. Importar e Configurar**
+
 - Faça o **download** do arquivo JSON
 - **Importe** no seu n8n
 - Configure as **credenciais** necessárias
 - Personalize conforme suas necessidades
 
 ### **3. Personalizar e Expandir**
+
 - Adapte os **parâmetros** para seu caso
 - Adicione **nodes** específicos
 - Teste em ambiente de **desenvolvimento**
@@ -121,18 +124,21 @@ Templates usando APIs e serviços brasileiros.
 Tem um workflow útil? Compartilhe com a comunidade!
 
 ### Como Submeter
+
 1. **Documente** seu workflow completamente
 2. **Teste** em diferentes cenários
 3. **Prepare** arquivo JSON limpo
 4. **Envie** via GitHub ou Discord
 
 ### Critérios de Qualidade
+
 - **Funcionalidade** comprovada
 - **Documentação** clara em português
 - **Configuração** simplificada
 - **Casos de uso** bem definidos
 
 ### Benefícios para Contribuidores
+
 - **Reconhecimento** na comunidade
 - **Feedback** de usuários reais
 - **Melhoria** dos próprios skills
@@ -171,4 +177,4 @@ Novos templates são adicionados **semanalmente**. Ative as notificações para 
 
 ---
 
-**Pronto para automatizar?** Escolha um template e comece agora mesmo! 
+**Pronto para automatizar?** Escolha um template e comece agora mesmo!

@@ -12,27 +12,28 @@ Este guia mostrará como instalar e executar o n8n usando Docker, a forma mais r
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Como configurar n8n com Docker
--  Variáveis de ambiente essenciais
--  Configuração de volumes e persistência
--  Configuração de rede e segurança
--  Monitoramento e logs
--  Backup e recuperação
+- Como configurar n8n com Docker
+- Variáveis de ambiente essenciais
+- Configuração de volumes e persistência
+- Configuração de rede e segurança
+- Monitoramento e logs
+- Backup e recuperação
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
 Antes de começar, certifique-se de ter:
 
--  **Docker** instalado (versão 20.10 ou superior)
--  **Docker Compose** instalado (versão 1.28 ou superior)
--  **Pelo menos 2GB de RAM** disponível
--  **Porta 5678** disponível (ou outra de sua escolha)
+- **Docker** instalado (versão 20.10 ou superior)
+- **Docker Compose** instalado (versão 1.28 ou superior)
+- **Pelo menos 2GB de RAM** disponível
+- **Porta 5678** disponível (ou outra de sua escolha)
 
 ---
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação Rápida
 
 ### **Teste Básico (Desenvolvimento)**
+
 ```bash
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar n8n com Docker
 docker run -it --rm \
@@ -48,6 +49,7 @@ Este comando é apenas para testes rápidos. Para produção, use Docker Compose
 :::
 
 ### **Instalação com Persistência**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar volume para persistência
 docker volume create n8n_data
@@ -65,6 +67,7 @@ n8nio/n8n
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Docker Compose (Recomendado)
 
 ### **Configuração Básica**
+
 Crie um arquivo `docker-compose.yml`:
 
 ```yaml
@@ -89,6 +92,7 @@ volumes:
 ```
 
 ### **Configuração Completa com Banco de Dados**
+
 ```yaml
 version: '3.8'
 
@@ -140,6 +144,7 @@ volumes:
 ```
 
 ### **Executar com Docker Compose**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Iniciar serviços
 docker-compose up -d
@@ -156,6 +161,7 @@ docker-compose down
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Avançada
 
 ### **Variáveis de Ambiente Essenciais**
+
 ```bash
 # <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações básicas
 N8N_PORT=5678
@@ -184,6 +190,7 @@ EXECUTIONS_MODE=regular
 ```
 
 ### **Configuração de SSL/HTTPS com Nginx**
+
 ```yaml
 version: '3.8'
 
@@ -256,6 +263,7 @@ networks:
 ```
 
 ### **Configuração Nginx**
+
 ```nginx
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> nginx.conf
 events {
@@ -296,6 +304,7 @@ http {
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalabilidade
 
 ### **Configuração de Filas com Redis**
+
 ```yaml
 services:
   n8n:
@@ -314,6 +323,7 @@ services:
 ```
 
 ### **Load Balancing com Múltiplas Instâncias**
+
 ```yaml
 version: '3.8'
 
@@ -357,6 +367,7 @@ services:
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
 
 ### **Autenticação Básica**
+
 ```yaml
 services:
   n8n:
@@ -367,6 +378,7 @@ services:
 ```
 
 ### **Configuração de Rede**
+
 ```yaml
 services:
   n8n:
@@ -394,6 +406,7 @@ networks:
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup e Recuperação
 
 ### **Backup Automático**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-n8n.sh
@@ -413,6 +426,7 @@ find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 ```
 
 ### **Cron Job para Backup**
+
 ```bash
 # <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
 0 2 * * * /path/to/backup-n8n.sh
@@ -423,6 +437,7 @@ find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 ## <ion-icon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento
 
 ### **Logs**
+
 ```bash
 # <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ver logs em tempo real
 docker-compose logs -f n8n
@@ -435,6 +450,7 @@ docker-compose logs n8n | grep ERROR
 ```
 
 ### **Health Checks**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> health-check.sh
@@ -463,6 +479,7 @@ fi
 ### **Problemas Comuns**
 
 #### **Container não inicia**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar logs
 docker-compose logs n8n
@@ -475,6 +492,7 @@ docker-compose restart n8n
 ```
 
 #### **Problemas de conectividade**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar rede
 docker network ls
@@ -485,6 +503,7 @@ docker exec n8n ping postgres
 ```
 
 #### **Problemas de volume**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar volumes
 docker volume ls
@@ -507,6 +526,7 @@ Agora que você tem o n8n rodando com Docker:
 3. **[Escalonamento](../escalonamento/clustering)** - Preparar para crescimento
 
 ### **Outros Métodos de Instalação**
+
 - **[NPM](./npm)** - Instalação via NPM
 - **[Cloud](./cloud)** - Deploy em cloud providers
 - **[Desktop](./desktop)** - Aplicação desktop
@@ -523,7 +543,8 @@ Mantenha sempre backups regulares dos volumes e do banco de dados. Em caso de fa
 
 ---
 
-** Links úteis:**
--  [Documentação oficial Docker n8n](https://docs.n8n.io/hosting/installation/docker/)
--  [Imagem oficial no Docker Hub](https://hub.docker.com/r/n8nio/n8n)
--  [Repositório n8n no GitHub](https://github.com/n8n-io/n8n)
+**Links úteis:**
+
+- [Documentação oficial Docker n8n](https://docs.n8n.io/hosting/installation/docker/)
+- [Imagem oficial no Docker Hub](https://hub.docker.com/r/n8nio/n8n)
+- [Repositório n8n no GitHub](https://github.com/n8n-io/n8n)

@@ -388,7 +388,6 @@ class ContentGapAnalyzer {
     // Agrupar por prioridade
     const criticalGaps = this.gaps.filter(g => g.priority === 'critical');
     const highGaps = this.gaps.filter(g => g.priority === 'high');
-    const mediumGaps = this.gaps.filter(g => g.priority === 'medium');
     
     // Recomendações críticas
     if (criticalGaps.length > 0) {
@@ -464,7 +463,7 @@ class ContentGapAnalyzer {
       console.log(`   ${emoji} **${section.section}** (${section.gaps.length} lacunas)`);
       console.log(`      ${section.description}`);
       
-      section.gaps.slice(0, 3).forEach(gap => {
+      section.gaps.slice(0, 3).forEach((gap, _index) => {
         const type = gap.type === 'missing' ? '❌ Faltante' : 
                     gap.type === 'incomplete' ? '⚠️ Incompleto' : '🇧🇷 BR Específico';
         console.log(`      • ${type}: ${gap.page || gap.integration}`);
@@ -606,7 +605,7 @@ Esta seção foi identificada como **${section.priority}** na análise automáti
 async function main() {
   try {
     const analyzer = new ContentGapAnalyzer();
-    const results = await analyzer.analyzeGaps();
+    await analyzer.analyzeGaps();
     
     // Criar issues se solicitado
     if (process.argv.includes('--create-issues')) {

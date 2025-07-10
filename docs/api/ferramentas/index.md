@@ -24,4 +24,4 @@ Esta seção apresenta as ferramentas disponíveis para interagir com a API do n
 
 ---
 
-**Explore as ferramentas no menu ao lado para acelerar seu desenvolvimento e dominar a API do n8n.** 
+**Explore as ferramentas no menu ao lado para acelerar seu desenvolvimento e dominar a API do n8n.**

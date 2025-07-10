@@ -5,4 +5,4 @@ title: Financeiro
 
 # <ion-icon name="card-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Financeiro
 
-Escolha um serviço financeiro no menu lateral para ver detalhes. 
+Escolha um serviço financeiro no menu lateral para ver detalhes.

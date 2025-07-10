@@ -11,17 +11,18 @@ Este guia detalha como **configurar n8n na AWS Brasil**, focando na região us-e
 
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Região AWS Brasil
 
-###  us-east-1 (São Paulo)
+### us-east-1 (São Paulo)
 
 A região de São Paulo oferece:
--  **Baixa latência** para usuários brasileiros
--  **Compliance LGPD** com data residency
--  **Cobrança em BRL** (sem conversão de moeda)
--  **Suporte local** em português
+
+- **Baixa latência** para usuários brasileiros
+- **Compliance LGPD** com data residency
+- **Cobrança em BRL** (sem conversão de moeda)
+- **Suporte local** em português
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquitetura Recomendada
 
-###  Componentes da Infraestrutura
+### Componentes da Infraestrutura
 
 ```yaml
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose.yml para AWS Brasil
@@ -99,9 +100,10 @@ networks:
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração de Recursos AWS
 
-###  EC2 Instance Types
+### EC2 Instance Types
 
 **Para Desenvolvimento:**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> t3.medium (2 vCPU, 4GB RAM)
 Instance Type: t3.medium
@@ -112,6 +114,7 @@ Custo: ~R$ 150/mês
 ```
 
 **Para Produção:**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> t3.large (2 vCPU, 8GB RAM)
 Instance Type: t3.large
@@ -122,6 +125,7 @@ Custo: ~R$ 300/mês
 ```
 
 **Para Alta Performance:**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> c6i.large (2 vCPU, 4GB RAM, otimizado para CPU)
 Instance Type: c6i.large
@@ -131,9 +135,10 @@ Storage: 100GB gp3
 Custo: ~R$ 400/mês
 ```
 
-###  RDS PostgreSQL
+### RDS PostgreSQL
 
 **Configuração Recomendada:**
+
 ```bash
 # <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> db.t3.micro (para desenvolvimento)
 Engine: PostgreSQL 15
@@ -152,9 +157,10 @@ Backup: 30 dias
 Custo: ~R$ 200/mês
 ```
 
-###  VPC e Segurança
+### VPC e Segurança
 
 **Configuração de Rede:**
+
 ```bash
 # <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> VPC Configuration
 CIDR Block: 10.0.0.0/16
@@ -174,9 +180,10 @@ rds-sg:
 
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Otimização de Custos
 
-###  Estratégias de Economia
+### Estratégias de Economia
 
 **1. Reserved Instances:**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Economia de até 72% com reserva de 3 anos
 t3.large - On-Demand: R$ 300/mês
@@ -185,6 +192,7 @@ Economia: R$ 216/mês (72%)
 ```
 
 **2. Spot Instances (Desenvolvimento):**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Economia de até 90% para workloads não críticos
 t3.large - On-Demand: R$ 300/mês
@@ -193,6 +201,7 @@ Economia: R$ 270/mês (90%)
 ```
 
 **3. S3 Intelligent Tiering:**
+
 ```bash
 # <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup automático com otimização de custo
 Standard: R$ 0,023/GB/mês
@@ -202,9 +211,10 @@ Archive: R$ 0,004/GB/mês
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Compliance Brasileiro
 
-###  LGPD (Lei Geral de Proteção de Dados)
+### LGPD (Lei Geral de Proteção de Dados)
 
 **Configurações de Privacidade:**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Variáveis de ambiente para LGPD
 N8N_ENCRYPTION_KEY=chave-criptografia-forte
@@ -217,6 +227,7 @@ EXECUTIONS_DATA_MAX_AGE=30
 ```
 
 **Auditoria e Logs:**
+
 ```bash
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> CloudTrail para auditoria
 - Log de todas as ações administrativas
@@ -225,9 +236,10 @@ EXECUTIONS_DATA_MAX_AGE=30
 - Backup criptografado dos logs
 ```
 
-###  Marco Civil da Internet
+### Marco Civil da Internet
 
 **Requisitos de Armazenamento:**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração de logs para Marco Civil
 - Logs de acesso por 6 meses
@@ -238,7 +250,7 @@ EXECUTIONS_DATA_MAX_AGE=30
 
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Deployment Automatizado
 
-###  Terraform para AWS Brasil
+### Terraform para AWS Brasil
 
 ```hcl
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> main.tf
@@ -314,9 +326,10 @@ resource "aws_db_instance" "n8n_database" {
 
 ## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Alertas
 
-###  CloudWatch
+### CloudWatch
 
 **Métricas Essenciais:**
+
 ```bash
 # <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Métricas EC2
 - CPU Utilization > 80%
@@ -338,6 +351,7 @@ resource "aws_db_instance" "n8n_database" {
 ```
 
 **Alertas em Português:**
+
 ```bash
 # <ion-icon name="warning-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> SNS Topic para alertas
 Subject: "Alerta n8n - CPU alta"
@@ -346,9 +360,10 @@ Message: "A instância n8n está com CPU em 85%. Verifique imediatamente."
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
-###  Problemas Comuns
+### Problemas Comuns
 
 **1. Alto Latência:**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar região
 aws ec2 describe-regions --region-names us-east-1
@@ -358,6 +373,7 @@ ping seu-endpoint.us-east-1.rds.amazonaws.com
 ```
 
 **2. Custos Elevados:**
+
 ```bash
 # <ion-icon name="school-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar uso de recursos
 aws ce get-cost-and-usage \
@@ -367,6 +383,7 @@ aws ce get-cost-and-usage \
 ```
 
 **3. Problemas de Backup:**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar snapshots RDS
 aws rds describe-db-snapshots \
@@ -375,7 +392,7 @@ aws rds describe-db-snapshots \
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dicas para o Brasil
 
-###  Otimizações Específicas
+### Otimizações Específicas
 
 1. **Fuso Horário:** Sempre use `America/Sao_Paulo`
 2. **Moeda:** Configure alertas de custo em BRL
@@ -383,16 +400,17 @@ aws rds describe-db-snapshots \
 4. **Compliance:** Implemente logs para LGPD desde o início
 5. **Backup:** Use múltiplas regiões para disaster recovery
 
-###  Recursos Úteis
+### Recursos Úteis
 
--  **[AWS Brasil](https://aws.amazon.com/pt/)** - Portal oficial
--  **[AWS Training](https://aws.amazon.com/pt/training/)** - Cursos gratuitos
--  **[AWS User Groups Brasil](https://aws.amazon.com/pt/events/aws-user-groups/)** - Comunidade local
--  **[AWS Pricing Calculator](https://calculator.aws/)** - Calculadora de custos
+- **[AWS Brasil](https://aws.amazon.com/pt/)** - Portal oficial
+- **[AWS Training](https://aws.amazon.com/pt/training/)** - Cursos gratuitos
+- **[AWS User Groups Brasil](https://aws.amazon.com/pt/events/aws-user-groups/)** - Comunidade local
+- **[AWS Pricing Calculator](https://calculator.aws/)** - Calculadora de custos
 
 ---
 
-** Próximos passos:**
+**Próximos passos:**
+
 1. **[Google Cloud Brasil](./gcp-brasil)** - Configuração no GCP
 2. **[Azure Brasil](./azure-brasil)** - Configuração no Azure
-3. **[Compliance LGPD](../compliance/lgpd)** - Configurações de privacidade 
+3. **[Compliance LGPD](../compliance/lgpd)** - Configurações de privacidade

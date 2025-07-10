@@ -14,6 +14,7 @@ O **Expression Node** não é um node tradicional, mas sim um **sistema de expre
 **Expression = "Código JavaScript Inline"**
 
 As expressões permitem:
+
 - **Acessar** dados de outros nodes
 - **Calcular** valores dinamicamente
 - **Transformar** dados em tempo real
@@ -24,11 +25,13 @@ As expressões permitem:
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Sintaxe Básica**
 
 ### **1. Estrutura das Expressões**
+
 ```javascript
 {{ expressão JavaScript }}
 ```
 
 ### **2. Exemplos Simples**
+
 ```javascript
 {{ $json.nome }}                    // Acessar campo 'nome'
 {{ $json.preco * 1.1 }}            // Calcular com 10% de acréscimo
@@ -39,6 +42,7 @@ As expressões permitem:
 ## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Variáveis Disponíveis**
 
 ### **Acesso a Dados**
+
 ```javascript
 // Dados do item atual
 $json                    // Dados JSON do item atual
@@ -58,6 +62,7 @@ $index                   // Índice do item (1, 2, 3...)
 ```
 
 ### **Exemplos de Uso**
+
 ```javascript
 // Acessar dados do item atual
 {{ $json.email }}
@@ -76,12 +81,14 @@ $index                   // Índice do item (1, 2, 3...)
 ### **1. HTTP Request - URL Dinâmica**
 
 **Configuração:**
+
 ```
 Method: GET
 URL: {{ 'https://api.exemplo.com/usuarios/' + $json.id }}
 ```
 
 **Exemplo com dados:**
+
 ```json
 // Dados de entrada
 {
@@ -96,6 +103,7 @@ https://api.exemplo.com/usuarios/123
 ### **2. Email - Assunto Dinâmico**
 
 **Configuração:**
+
 ```
 To: {{ $json.email }}
 Subject: {{ 'Pedido #' + $json.numero_pedido + ' - ' + $json.status }}
@@ -112,6 +120,7 @@ Body: |
 ### **3. Set Node - Campos Calculados**
 
 **Configuração:**
+
 ```
 Campo: nome_completo
 Valor: {{ $json.primeiro_nome + ' ' + $json.ultimo_nome }}
@@ -126,11 +135,13 @@ Valor: {{ $json.valor > 1000 ? 'premium' : 'standard' }}
 ### **4. IF Node - Condições Dinâmicas**
 
 **Configuração:**
+
 ```
 Condição: {{ $json.valor > 500 && $json.ativo }}
 ```
 
 **Exemplo com múltiplas condições:**
+
 ```javascript
 {{ 
   $json.valor > 1000 ? 'alta' : 
@@ -142,11 +153,13 @@ Condição: {{ $json.valor > 500 && $json.ativo }}
 ### **5. Schedule Trigger - Horário Dinâmico**
 
 **Configuração:**
+
 ```
 Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 ```
 
 **Exemplo:**
+
 ```json
 // Dados de entrada
 {
@@ -365,12 +378,14 @@ processado_em: {{ new Date().toISOString() }}
 ## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações e Considerações**
 
 ### **Limitações das Expressões:**
+
 - **Escopo limitado**: Apenas uma linha de código
 - **Sem loops**: Não podem conter loops complexos
 - **Sem funções**: Não podem definir funções
 - **Performance**: Expressões complexas podem impactar performance
 
 ### **Boas Práticas:**
+
 ```javascript
 // ✅ Bom: Expressão simples e clara
 {{ $json.nome + ' ' + $json.sobrenome }}
@@ -386,6 +401,7 @@ processado_em: {{ new Date().toISOString() }}
 ```
 
 ### **Debugging:**
+
 ```javascript
 // Usar console.log para debug (aparece nos logs do n8n)
 {{ console.log('Dados:', $json) || $json.nome }}
@@ -423,7 +439,8 @@ Evite usar `eval()` ou código dinâmico em expressões. Sempre valide dados de 
 ---
 
 **Links úteis:**
+
 - [Documentação oficial das Expressões](https://docs.n8n.io/code-examples/expressions/)
 - [JavaScript MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Code Node](./code) - Para lógica complexa
-- [Function Node](./function) - Para funções simples 
+- [Function Node](./function) - Para funções simples

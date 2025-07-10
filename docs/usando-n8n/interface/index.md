@@ -12,11 +12,13 @@ A interface do n8n foi projetada para ser intuitiva e poderosa. Nesta seção, v
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Navegação e Interface
+
 - **Navegação do Editor**: Explore a interface principal do n8n
 - **Componentes Visuais**: Entenda os elementos da interface
 - **Atalhos e Dicas**: Acelere seu trabalho com atalhos
 
 ### Funcionalidades Avançadas
+
 - **Personalização**: Adapte a interface às suas necessidades
 - **Temas e Aparência**: Configure o visual do editor
 - **Responsividade**: Use o n8n em diferentes dispositivos
@@ -24,6 +26,7 @@ A interface do n8n foi projetada para ser intuitiva e poderosa. Nesta seção, v
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Componentes Principais
 
 ### Editor de Workflow
+
 O coração da interface do n8n, onde você constrói suas automações:
 
 - **Canvas**: Área principal onde você arrasta e conecta nodes
@@ -32,6 +35,7 @@ O coração da interface do n8n, onde você constrói suas automações:
 - **Properties Panel**: Configurações detalhadas dos nodes selecionados
 
 ### Menu Principal
+
 Acesso rápido às principais funcionalidades:
 
 - **Workflows**: Gerencie todos os seus workflows
@@ -40,6 +44,7 @@ Acesso rápido às principais funcionalidades:
 - **Settings**: Personalize sua experiência
 
 ### Área de Trabalho
+
 Organize e visualize seus projetos:
 
 - **Tabs**: Trabalhe com múltiplos workflows simultaneamente
@@ -50,6 +55,7 @@ Organize e visualize seus projetos:
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos da Interface
 
 ### Nodes
+
 Os blocos fundamentais de qualquer workflow:
 
 - **Trigger Nodes**: Iniciam workflows (verde)
@@ -58,6 +64,7 @@ Os blocos fundamentais de qualquer workflow:
 - **Data Nodes**: Processam informações (roxo)
 
 ### Connections
+
 As linhas que conectam nodes e definem o fluxo:
 
 - **Data Flow**: Como os dados passam entre nodes
@@ -65,6 +72,7 @@ As linhas que conectam nodes e definem o fluxo:
 - **Conditional Flow**: Fluxos baseados em condições
 
 ### Canvas
+
 A área de trabalho principal:
 
 - **Drag & Drop**: Arraste nodes para o canvas
@@ -81,6 +89,7 @@ A área de trabalho principal:
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dicas de Produtividade
 
 ### Atalhos Úteis
+
 - `Ctrl/Cmd + S`: Salvar workflow
 - `Ctrl/Cmd + Z`: Desfazer
 - `Ctrl/Cmd + Y`: Refazer
@@ -88,6 +97,7 @@ A área de trabalho principal:
 - `Delete`: Remover node selecionado
 
 ### Boas Práticas
+
 - **Organize nodes** em grupos lógicos
 - **Use comentários** para documentar workflows complexos
 - **Aproveite o minimap** para navegar em workflows grandes

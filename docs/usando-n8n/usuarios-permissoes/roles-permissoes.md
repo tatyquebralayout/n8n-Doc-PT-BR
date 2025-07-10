@@ -22,24 +22,28 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 ### 1. Roles Padrão
 
 **Owner (Proprietário)**:
+
 - Acesso total ao sistema
 - Pode gerenciar todos os usuários
 - Pode modificar configurações globais
 - Pode acessar todos os workflows e credenciais
 
 **Admin (Administrador)**:
+
 - Pode gerenciar usuários
 - Pode criar e editar workflows
 - Pode gerenciar credenciais
 - Pode configurar execuções
 
 **Member (Membro)**:
+
 - Pode executar workflows
 - Pode visualizar workflows compartilhados
 - Acesso limitado a credenciais
 - Pode criar workflows pessoais
 
 **Viewer (Visualizador)**:
+
 - Apenas visualização de workflows
 - Não pode executar ou modificar
 - Acesso somente leitura
@@ -47,18 +51,21 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 ### 2. Roles Customizados
 
 **Desenvolvedor**:
+
 - Pode criar e editar workflows
 - Acesso a credenciais de desenvolvimento
 - Pode executar workflows de teste
 - Não pode acessar dados de produção
 
 **Analista**:
+
 - Pode visualizar execuções
 - Pode exportar dados
 - Acesso a workflows de relatórios
 - Não pode modificar workflows
 
 **Operador**:
+
 - Pode executar workflows específicos
 - Pode monitorar execuções
 - Acesso limitado a credenciais
@@ -69,26 +76,31 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 ### 1. Permissões de Workflow
 
 **Criar**:
+
 - Pode criar novos workflows
 - Pode importar workflows
 - Pode duplicar workflows existentes
 
 **Editar**:
+
 - Pode modificar workflows
 - Pode adicionar/remover nodes
 - Pode alterar configurações
 
 **Executar**:
+
 - Pode iniciar workflows manualmente
 - Pode agendar execuções
 - Pode parar execuções em andamento
 
 **Visualizar**:
+
 - Pode ver estrutura do workflow
 - Pode acessar logs de execução
 - Pode exportar workflows
 
 **Excluir**:
+
 - Pode remover workflows
 - Pode arquivar workflows
 - Pode limpar histórico
@@ -96,26 +108,31 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 ### 2. Permissões de Credenciais
 
 **Criar**:
+
 - Pode adicionar novas credenciais
 - Pode importar credenciais
 - Pode configurar tipos de autenticação
 
 **Editar**:
+
 - Pode modificar credenciais existentes
 - Pode atualizar senhas/chaves
 - Pode alterar configurações
 
 **Usar**:
+
 - Pode usar credenciais em workflows
 - Pode testar conexões
 - Pode validar autenticação
 
 **Visualizar**:
+
 - Pode ver tipos de credenciais
 - Pode ver configurações (sem senhas)
 - Pode ver histórico de uso
 
 **Excluir**:
+
 - Pode remover credenciais
 - Pode revogar acesso
 - Pode limpar histórico
@@ -123,16 +140,19 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 ### 3. Permissões de Sistema
 
 **Usuários**:
+
 - Pode gerenciar usuários
 - Pode criar/editar roles
 - Pode configurar autenticação
 
 **Configurações**:
+
 - Pode alterar configurações globais
 - Pode configurar integrações
 - Pode gerenciar backups
 
 **Monitoramento**:
+
 - Pode acessar logs do sistema
 - Pode configurar alertas
 - Pode visualizar métricas
@@ -142,6 +162,7 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 ### 1. Configuração por Usuário
 
 **Interface do n8n**:
+
 1. Acesse **Settings** → **Users**
 2. Selecione o usuário
 3. Clique em **Edit**
@@ -149,6 +170,7 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 5. Salve as alterações
 
 **Configuração via API**:
+
 ```bash
 # Atualizar role do usuário
 curl -X PUT "https://your-n8n.com/api/v1/users/123" \
@@ -167,6 +189,7 @@ curl -X PUT "https://your-n8n.com/api/v1/users/123" \
 ### 2. Configuração por Workflow
 
 **Permissões granulares**:
+
 ```json
 {
   "workflowId": "workflow-123",
@@ -188,6 +211,7 @@ curl -X PUT "https://your-n8n.com/api/v1/users/123" \
 ### 3. Configuração por Credencial
 
 **Controle de acesso**:
+
 ```json
 {
   "credentialId": "credential-456",
@@ -210,6 +234,7 @@ curl -X PUT "https://your-n8n.com/api/v1/users/123" \
 ### 1. Princípio do Menor Privilégio
 
 **Recomendações**:
+
 - **Conceda apenas** permissões necessárias
 - **Revise regularmente** permissões concedidas
 - **Remova permissões** quando não mais necessárias
@@ -218,6 +243,7 @@ curl -X PUT "https://your-n8n.com/api/v1/users/123" \
 ### 2. Estrutura de Roles
 
 **Hierarquia recomendada**:
+
 ```
 Owner (1 usuário)
 ├── Admin (2-3 usuários)
@@ -230,6 +256,7 @@ Owner (1 usuário)
 ### 3. Segurança
 
 **Medidas de segurança**:
+
 - **Auditoria regular** de permissões
 - **Logs detalhados** de ações
 - **Notificações** de mudanças críticas
@@ -319,6 +346,7 @@ Owner (1 usuário)
 ### 1. Logs de Auditoria
 
 **Eventos monitorados**:
+
 - **Criação/edição** de workflows
 - **Execução** de workflows
 - **Acesso** a credenciais
@@ -326,6 +354,7 @@ Owner (1 usuário)
 - **Logins** e logout
 
 **Configuração de logs**:
+
 ```bash
 # Habilitar logs de auditoria
 N8N_AUDIT_LOGS_ENABLED=true
@@ -336,6 +365,7 @@ N8N_AUDIT_LOGS_RETENTION=90 # dias
 ### 2. Alertas de Segurança
 
 **Alertas configurar**:
+
 - **Tentativas de acesso** não autorizado
 - **Mudanças** em permissões críticas
 - **Execução** de workflows sensíveis
@@ -344,6 +374,7 @@ N8N_AUDIT_LOGS_RETENTION=90 # dias
 ### 3. Relatórios
 
 **Relatórios úteis**:
+
 - **Usuários ativos** e suas permissões
 - **Workflows** por usuário/role
 - **Credenciais** utilizadas
@@ -354,18 +385,21 @@ N8N_AUDIT_LOGS_RETENTION=90 # dias
 ### Problemas Comuns
 
 **Usuário não consegue acessar**:
+
 - Verifique role atribuído
 - Confirme permissões específicas
 - Teste com usuário admin
 - Verifique logs de acesso
 
 **Permissões não aplicadas**:
+
 - Reinicie o n8n após mudanças
 - Verifique cache de sessão
 - Confirme configuração correta
 - Teste em navegador privado
 
 **Workflow não executa**:
+
 - Verifique permissões de execução
 - Confirme acesso a credenciais
 - Verifique agendamento
@@ -374,6 +408,7 @@ N8N_AUDIT_LOGS_RETENTION=90 # dias
 ### Debugging
 
 **Ferramentas úteis**:
+
 ```bash
 # Verificar permissões do usuário
 curl -X GET "https://your-n8n.com/api/v1/users/me" \
@@ -405,4 +440,4 @@ tail -f /var/log/n8n/audit.log
 
 ---
 
-**<ion-icon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para controlar? Comece configurando roles apropriados para sua equipe!** 
+**<ion-icon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para controlar? Comece configurando roles apropriados para sua equipe!**

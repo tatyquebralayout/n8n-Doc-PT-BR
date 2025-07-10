@@ -6,7 +6,7 @@ keywords: [n8n, automação, workflow, introdução, guia, open source]
 ---
 
 
-# <ion-icon name="play-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução ao n8n
+## <ion-icon name="play-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Introdução ao n8n
 
 Esta é a documentação em português do n8n, plataforma open-source que permite construir automações inteligentes e workflows avançados, com flexibilidade e controle total.
 
@@ -70,16 +70,19 @@ Ao final, você terá autonomia para criar sua própria automação, seja um ale
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que escolher o n8n
 
 ### Para  pessoas desenvolvedoras
+
 - **API REST robusta**, triggers avançados e execução de código customizado
 - **Webhooks nativos** e integração com sistemas existentes
 - **Versionamento** e deploy automatizado de workflows
 
 ### Para equipes e empresas
+
 - **Redução de custos operacionais** e infraestrutura flexível
 - **Integração entre sistemas legados** e novas tecnologias
 - **Automação de processos complexos** com monitoramento
 
 ### Para iniciantes
+
 - **GUI intuitiva**, templates prontos e comunidade ativa em português
 - **Documentação abrangente** e exemplos práticos
 - **Curva de aprendizado suave** sem necessidade de programação avançada
@@ -109,6 +112,7 @@ Consulte **[Hosting n8n](../../hosting-n8n)** para configuração em produção.
 Esta documentação está organizada nas seguintes seções:
 
 ### Primeiros Passos
+
 Aprenda os conceitos fundamentais do n8n passo a passo.
 
 - **[Instalação](./primeiros-passos/instalacao)** - Guia completo de instalação
@@ -116,6 +120,7 @@ Aprenda os conceitos fundamentais do n8n passo a passo.
 - **[Primeiro Workflow](./primeiros-passos/primeiro-workflow)** - Criar primeiro fluxo
 
 ### Guias Avançados
+
 Explore recursos avançados e casos de uso complexos.
 
 - **[Usando n8n](../../usando-n8n)** - Guias práticos para usar a interface
@@ -129,6 +134,7 @@ Explore recursos avançados e casos de uso complexos.
 - **[Embed](../../embed)** - Implementação e gerenciamento
 
 ### Referência da API
+
 Documentação completa da API REST do n8n.
 
 - **[API](../../api)** - Documentação completa da API
@@ -137,6 +143,7 @@ Documentação completa da API REST do n8n.
   - [Referência](../../api/referencia) - Documentação técnica
 
 ### Deployment
+
 Guias para implantação em diferentes ambientes.
 
 - **[Hosting n8n](../../hosting-n8n)** - Guias para implantação
@@ -146,6 +153,7 @@ Guias para implantação em diferentes ambientes.
   - [Escalonamento](../../hosting-n8n/escalonamento) - Clustering, load balancing
 
 ### Nós (Nodes)
+
 Documentação detalhada de todos os nós disponíveis.
 
 - **[Integrações](../../integracoes)** - Todos os nós disponíveis
@@ -158,6 +166,7 @@ Documentação detalhada de todos os nós disponíveis.
 - **[Integrações Brasileiras](../../integracoes-br)** - PIX, CNPJ, ViaCEP
 
 ### Exemplos
+
 Workflows práticos e casos de uso reais.
 
 - **[Comunidade](../../comunidade)** - Artigos e casos de uso
@@ -173,6 +182,7 @@ Workflows práticos e casos de uso reais.
   - [Histórico](../../referencia/historico) - Changelog
 
 ### Recursos Adicionais
+
 - **[Como Contribuir](../../contribuir)** - Guias para contribuição
 - **[Release Notes](../../release-notes/index)** - Notas de versão
 - **[Catálogo](../../catalogo)** - Índice de recursos
@@ -184,10 +194,11 @@ Workflows práticos e casos de uso reais.
 Este material é produzido **pela comunidade brasileira**, sem vínculo direto com o time oficial do n8n. O objetivo é **ampliar o acesso e contextualizar o uso** dessa ferramenta global no Brasil, seguindo as diretrizes do projeto oficial e incentivando contribuições locais.
 
 ### Como contribuir
+
 - **[Editar esta página](../../contribuir/esta-documentacao/entendendo-o-projeto/como-contribuir)**
 - **[Reportar um problema](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/issues)**
 - **[Participar da discussão](https://discord.gg/n8nbrasil)**
 
 ---
 
-> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Pronto para criar?** Vamos construir seu primeiro workflow juntos!</span> 
+> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Pronto para criar?** Vamos construir seu primeiro workflow juntos!</span>

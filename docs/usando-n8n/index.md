@@ -12,13 +12,16 @@ Bem-vindo aos guias avançados do n8n! Esta seção contém tutoriais práticos 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Getting Started
+
 - **Quickstart Rápido**: Comece rapidamente com workflows básicos
 - **Workflow na Prática**: Aprenda criando workflows reais
 
 ### Interface
+
 - **Navegação e Editor UI**: Domine a interface do n8n
 
 ### Execuções
+
 - **Componentes de Execuções**: Entenda como os workflows são executados
 
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
@@ -31,4 +34,4 @@ Bem-vindo aos guias avançados do n8n! Esta seção contém tutoriais práticos 
 
 - **[Primeiros Passos](/primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Lógica e Dados](../logica-e-dados)** - Manipulação avançada de dados
-- **[IA Avançada](../advanced-ai)** - Integração com inteligência artificial 
+- **[IA Avançada](../advanced-ai)** - Integração com inteligência artificial

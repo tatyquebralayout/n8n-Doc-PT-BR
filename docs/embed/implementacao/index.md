@@ -11,14 +11,14 @@ Selecione abaixo o tópico desejado para acessar guias completos de configuraç�
 
 ---
 
-- [ Configuração do Embed](./configuracao)
+- [Configuração do Embed](./configuracao)
   <br/><span style={{ color: '#6b7280' }}>Parâmetros essenciais, permissões, customização visual, integração com autenticação e exemplos práticos.</span>
 
-- [ Implantação do Embed](./implantacao)
+- [Implantação do Embed](./implantacao)
   <br/><span style={{ color: '#6b7280' }}>Checklist de segurança, SSO, performance, monitoramento, exemplos de deployment e troubleshooting.</span>
 
 ---
 
 :::tip **Dica Pro**
 Sempre valide a configuração em ambiente de homologação antes de liberar para produção. Restrinja domínios e revise permissões para máxima segurança.
-::: 
+:::

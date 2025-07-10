@@ -12,34 +12,37 @@ Este documento explica como **implementar clustering** para alta disponibilidade
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Arquiteturas de cluster para n8n
--  Configuração de múltiplas instâncias
--  Balanceamento de carga inteligente
--  Failover automático
--  Monitoramento de cluster
+- Arquiteturas de cluster para n8n
+- Configuração de múltiplas instâncias
+- Balanceamento de carga inteligente
+- Failover automático
+- Monitoramento de cluster
 
 ---
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que usar Clustering?
 
-###  Benefícios do Clustering
+### Benefícios do Clustering
 
 **Sem Clustering (Instância Única):**
+
 - ❌ **Ponto único de falha** - Se o servidor cair, tudo para
 - ❌ **Limitação de recursos** - Apenas um servidor disponível
 - ❌ **Sem escalabilidade** - Não pode distribuir carga
 - ❌ **Downtime durante manutenção** - Atualizações param o serviço
 
 **Com Clustering (Múltiplas Instâncias):**
+
 - ✅ **Alta disponibilidade** - Falhas não afetam o serviço
 - ✅ **Escalabilidade horizontal** - Adicione servidores conforme necessário
 - ✅ **Balanceamento de carga** - Distribui requisições automaticamente
 - ✅ **Zero downtime** - Manutenção sem interrupção
 - ✅ **Performance melhorada** - Múltiplos servidores processando
 
-###  Quando Usar Clustering
+### Quando Usar Clustering
 
 **Use clustering quando:**
+
 - Precisa de **99.9%+ de disponibilidade**
 - Tem **muitos usuários simultâneos**
 - Processa **workflows críticos de negócio**
@@ -50,7 +53,7 @@ Este documento explica como **implementar clustering** para alta disponibilidade
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquiteturas de Cluster
 
-###  Topologia Básica
+### Topologia Básica
 
 ```mermaid
 graph TD
@@ -74,7 +77,7 @@ graph TD
     style F fill:#e1f5fe
 ```
 
-###  Arquitetura Avançada
+### Arquitetura Avançada
 
 ```mermaid
 graph TD
@@ -120,9 +123,10 @@ graph TD
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração de Múltiplas Instâncias
 
-###  Configuração Base
+### Configuração Base
 
 #### **Instância Principal (Main)**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração para instância principal
 EXECUTIONS_PROCESS=main
@@ -136,6 +140,7 @@ EXECUTIONS_MODE=regular
 ```
 
 #### **Instâncias de Execução**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração para instâncias de execução
 EXECUTIONS_PROCESS=worker
@@ -147,7 +152,7 @@ EXECUTIONS_MODE=regular
 # <ion-icon name="bug-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Retry de falhas
 ```
 
-###  Docker Compose com Cluster
+### Docker Compose com Cluster
 
 ```yaml
 version: '3.8'
@@ -267,9 +272,10 @@ networks:
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Balanceamento de Carga
 
-###  Configuração Nginx
+### Configuração Nginx
 
 #### **nginx.conf para Cluster**
+
 ```nginx
 events {
     worker_connections 1024;
@@ -372,9 +378,10 @@ http {
 }
 ```
 
-###  HAProxy (Alternativa)
+### HAProxy (Alternativa)
 
 #### **haproxy.cfg**
+
 ```bash
 global
     log /dev/log local0
@@ -432,9 +439,10 @@ backend n8n_backend
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Failover Automático
 
-###  Health Checks
+### Health Checks
 
 #### **Endpoint de Health Check**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar endpoint de health check
 N8N_HEALTH_CHECK_ENDPOINT=/healthz
@@ -443,6 +451,7 @@ N8N_HEALTH_CHECK_INTERVAL=30000
 ```
 
 #### **Script de Health Check**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> health-check.sh
@@ -461,9 +470,10 @@ else
 fi
 ```
 
-###  Monitoramento de Failover
+### Monitoramento de Failover
 
 #### **Script de Monitoramento**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> monitor-cluster.sh
@@ -494,9 +504,10 @@ done
 
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Kubernetes Deployment
 
-###  Deployment Completo
+### Deployment Completo
 
 #### **n8n-deployment.yaml**
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -648,6 +659,7 @@ spec:
 ```
 
 #### **n8n-service.yaml**
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -666,6 +678,7 @@ spec:
 ```
 
 #### **n8n-ingress.yaml**
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -698,9 +711,10 @@ spec:
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento de Cluster
 
-###  Métricas Essenciais
+### Métricas Essenciais
 
 #### **Script de Monitoramento**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> monitor-cluster-metrics.sh
@@ -742,9 +756,10 @@ echo "Jobs processados: $(redis-cli get n8n:stats:processed || echo '0')"
 echo "Jobs falharam: $(redis-cli get n8n:stats:failed || echo '0')"
 ```
 
-###  Alertas Automáticos
+### Alertas Automáticos
 
 #### **Configuração de Alertas**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="warning-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> cluster-alerts.sh
@@ -784,9 +799,10 @@ fi
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
-###  Problemas Comuns
+### Problemas Comuns
 
 #### **Instância não inicia**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar logs
 docker logs n8n-main
@@ -802,6 +818,7 @@ docker exec n8n-main nc -zv redis 6379
 ```
 
 #### **Load balancer não distribui carga**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar configuração nginx
 nginx -t
@@ -816,6 +833,7 @@ tail -f /var/log/nginx/error.log
 ```
 
 #### **Falhas de failover**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar health checks
 for node in n8n-main n8n-worker-1 n8n-worker-2; do
@@ -832,7 +850,7 @@ docker network inspect n8n_network
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
-###  Configuração
+### Configuração
 
 - [ ] Múltiplas instâncias configuradas
 - [ ] Load balancer configurado
@@ -840,7 +858,7 @@ docker network inspect n8n_network
 - [ ] Failover automático testado
 - [ ] Banco de dados compartilhado configurado
 
-###  Performance
+### Performance
 
 - [ ] Balanceamento de carga funcionando
 - [ ] Timeouts configurados adequadamente
@@ -848,7 +866,7 @@ docker network inspect n8n_network
 - [ ] Monitoramento ativo
 - [ ] Alertas configurados
 
-###  Monitoramento
+### Monitoramento
 
 - [ ] Métricas sendo coletadas
 - [ ] Logs centralizados
@@ -856,7 +874,7 @@ docker network inspect n8n_network
 - [ ] Dashboard de monitoramento
 - [ ] Backup de configurações
 
-###  Segurança
+### Segurança
 
 - [ ] SSL/TLS configurado
 - [ ] Acesso restrito por IP

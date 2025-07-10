@@ -5,21 +5,25 @@ Este script automatiza a criação de **4 projetos GitHub completos** com coluna
 ## 📋 **O que será criado:**
 
 ### **1. 📝 Documentação Core**
+
 - **Objetivo:** Gerenciar criação e tradução do conteúdo principal
 - **Colunas:** Backlog → Em Progresso → Revisão → Concluído
 - **Issues iniciais:** Tutorial de instalação, Catálogo de integrações BR
 
 ### **2. 🎨 Design System & UX**  
+
 - **Objetivo:** Padronização visual e experiência do usuário
 - **Colunas:** Design Tokens → Componentes → Responsividade → Finalizado
 - **Issues iniciais:** ✅ Sistema de cores (concluído), ✅ Ícones (concluído), Sistema de busca
 
 ### **3. 🌎 Localização & Brasil**
+
 - **Objetivo:** Adaptação para realidade brasileira
 - **Colunas:** APIs Brasileiras → Casos de Uso BR → Compliance → Completo  
 - **Issues iniciais:** Integração PIX, Guia LGPD
 
 ### **4. 🚀 Infraestrutura & Deploy**
+
 - **Objetivo:** Melhorias técnicas e pipeline
 - **Colunas:** CI/CD → SEO & Analytics → Bugs & Fixes → Deployed
 - **Issues iniciais:** Pipeline automático, SEO para Brasil
@@ -31,22 +35,27 @@ Este script automatiza a criação de **4 projetos GitHub completos** com coluna
 ### **1. Configurar Token GitHub**
 
 **Windows (PowerShell):**
+
 ```powershell
 $env:GITHUB_TOKEN="ghp_seu_token_aqui"
 ```
 
 **macOS/Linux:**
+
 ```bash
 export GITHUB_TOKEN="ghp_seu_token_aqui"
 ```
 
 ### **2. Executar Automação**
+
 ```bash
 npm run setup-projects
 ```
 
 ### **3. Verificar Resultado**
+
 O script irá:
+
 - ✅ Criar 4 projetos completos
 - ✅ Adicionar colunas organizadas
 - ✅ Criar 8+ issues iniciais
@@ -125,15 +134,19 @@ Para modificar os projetos, edite o arquivo `scripts/setup-github-projects.js`:
 ## 🔧 **Troubleshooting:**
 
 ### **❌ Erro: "GITHUB_TOKEN não encontrado"**
+
 **Solução:** Configure a variável de ambiente conforme instruções acima
 
 ### **❌ Erro: "403 Forbidden"**
+
 **Solução:** Verifique se o token tem as permissões corretas (`repo`, `project`)
 
 ### **❌ Erro: "404 Not Found"**
+
 **Solução:** Verifique se `REPO_OWNER` e `REPO_NAME` estão corretos
 
 ### **❌ Rate limiting**
+
 **Solução:** O script já tem pausas automáticas, mas você pode aumentar o delay
 
 ---
@@ -146,4 +159,4 @@ Para modificar os projetos, edite o arquivo `scripts/setup-github-projects.js`:
 
 ---
 
-**🎯 Com essa automação, você terá um sistema completo de gerenciamento de projetos configurado em menos de 2 minutos!** 🚀 
+**🎯 Com essa automação, você terá um sistema completo de gerenciamento de projetos configurado em menos de 2 minutos!** 🚀

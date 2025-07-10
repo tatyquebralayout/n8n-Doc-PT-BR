@@ -7,7 +7,7 @@ keywords: [n8n, instalação, cloud, self-hosted, npm, docker, guia]
 ---
 
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Guia de Instalação do **n8n** – Visão Panorâmica
+<ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Guia de Instalação do **n8n** – Visão Panorâmica
 
 Bem-vindo(a) à **documentação brasileira** do n8n! Nesta seção você descobrirá **sobre o que** vamos falar – os três métodos oficiais de instalação do n8n –, entenderá **por que** cada abordagem existe e aprenderá **como** escolher a que melhor se encaixa no seu cenário. Nas próximas páginas, cada método será detalhado passo a passo, com exemplos práticos e recomendações de melhores práticas.
 
@@ -29,7 +29,7 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Métodos Oficiais de Instalação
 
-###  a) n8n Cloud
+### a) n8n Cloud
 
 * **O que é?** Serviço totalmente hospedado, gerenciado e escalável pelos criadores do n8n.
 * **Ideal para** times que buscam *time‑to‑value* imediato, suporte oficial e zero sobrecarga operacional.
@@ -41,7 +41,7 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
   * Plano pago (com *free trial*). Cobrança por usuário e/ou execuções.
   * Customizações de sistema operacional ou banco de dados não estão sob seu controle.
 
-###  b) Self‑hosted (Auto‑hospedado)
+### b) Self‑hosted (Auto‑hospedado)
 
 * **O que é?** Você instala o n8n em sua própria infraestrutura – VPS, bare‑metal ou Kubernetes.
 * **Sabores disponíveis**
@@ -56,7 +56,7 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
   * PostgreSQL + Redis para escalar com filas.
   * Know‑how DevOps: TLS, backups e observabilidade.
 
-###  c) Instalação Local via **npm** (Node.js)
+### c) Instalação Local via **npm** (Node.js)
 
 * **Objetivo**: ambiente sandbox para desenvolvimento, testes rápidos ou demonstrações offline.
 * **Requisitos mínimos**
@@ -92,4 +92,4 @@ Ter opções flexíveis permite que o projeto evolua de protótipo a produção 
 
 :::tip **Dica Pro**
 Não tem certeza de qual método escolher? Comece com **npm local** para experimentar rapidamente, depois migre para **n8n Cloud** ou **Self-hosted** conforme suas necessidades evoluem.
-::: 
+:::

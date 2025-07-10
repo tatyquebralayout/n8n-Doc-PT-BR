@@ -12,17 +12,20 @@ O processamento de dados é fundamental para workflows eficazes no n8n. Nesta se
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Processamento de Dados
+
 - **Transformações de Dados**: Modifique e estruture dados
 - **Integração de APIs**: Conecte e processe dados de APIs
 - **Agregações Estatísticas**: Calcule métricas e estatísticas
 - **Otimização de Performance**: Melhore velocidade e eficiência
 
 ### Análise e Visualização
+
 - **Visualização de Dados**: Crie gráficos e dashboards
 - **Relatórios Automatizados**: Gere relatórios dinâmicos
 - **Métricas e KPIs**: Monitore indicadores importantes
 
 ### Padrões Avançados
+
 - **Data Mapping Avançado**: Mapeamento complexo de dados
 - **Validação e Limpeza**: Garanta qualidade dos dados
 - **Cache e Armazenamento**: Otimize acesso a dados
@@ -30,6 +33,7 @@ O processamento de dados é fundamental para workflows eficazes no n8n. Nesta se
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### Tipos de Dados
+
 O n8n trabalha com diversos tipos de dados:
 
 - **JSON**: Estrutura de dados principal
@@ -40,6 +44,7 @@ O n8n trabalha com diversos tipos de dados:
 - **Objects**: Estruturas complexas
 
 ### Fluxo de Dados
+
 Como os dados se movem através dos workflows:
 
 - **Input**: Dados recebidos de fontes externas
@@ -48,6 +53,7 @@ Como os dados se movem através dos workflows:
 - **Output**: Dados enviados para destinos
 
 ### Operações Comuns
+
 - **Filtering**: Filtrar dados por critérios
 - **Sorting**: Ordenar dados
 - **Grouping**: Agrupar dados similares
@@ -57,17 +63,20 @@ Como os dados se movem através dos workflows:
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões de Processamento
 
 ### ETL (Extract, Transform, Load)
+
 - **Extract**: Extrair dados de fontes
 - **Transform**: Processar e modificar dados
 - **Load**: Carregar dados em destinos
 
 ### Data Pipeline
+
 - **Source**: Origem dos dados
 - **Processing**: Etapas de transformação
 - **Destination**: Destino final dos dados
 - **Monitoring**: Acompanhamento do processo
 
 ### Batch vs Stream
+
 - **Batch Processing**: Processamento em lotes
 - **Stream Processing**: Processamento em tempo real
 - **Hybrid**: Combinação de ambos os métodos
@@ -81,18 +90,21 @@ Como os dados se movem através dos workflows:
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
 ### Qualidade de Dados
+
 - **Valide dados** antes do processamento
 - **Trate valores nulos** adequadamente
 - **Padronize formatos** de dados
 - **Documente transformações** importantes
 
 ### Performance
+
 - **Processe dados em lotes** quando possível
 - **Use filtros** para reduzir volume
 - **Cache dados** frequentemente acessados
 - **Monitore uso de memória** e CPU
 
 ### Manutenção
+
 - **Version controle** suas transformações
 - **Teste com dados reais** antes de produção
 - **Mantenha logs** de processamento

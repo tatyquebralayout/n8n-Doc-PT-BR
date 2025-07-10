@@ -14,7 +14,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ## <ion-icon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Tipos de PIX
 
-###  PIX por Chave
+### PIX por Chave
 
 **Integração com chaves PIX:**
 
@@ -30,7 +30,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-###  PIX por QR Code
+### PIX por QR Code
 
 **QR Code estático e dinâmico:**
 
@@ -57,7 +57,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Workflows de Pagamento
 
-###  Criar Cobrança PIX
+### Criar Cobrança PIX
 
 **Exemplo: Workflow de cobrança automática:**
 
@@ -87,7 +87,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 ]
 ```
 
-###  Monitorar Pagamentos
+### Monitorar Pagamentos
 
 **Workflow de monitoramento:**
 
@@ -113,7 +113,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | APIs de Bancos Brasileiros
 
-###  Open Banking
+### Open Banking
 
 **Integração com Open Banking:**
 
@@ -137,7 +137,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-###  APIs Específicas
+### APIs Específicas
 
 **Exemplos de APIs bancárias:**
 
@@ -152,7 +152,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Segurança e Compliance
 
-###  LGPD e Segurança
+### LGPD e Segurança
 
 **Requisitos de segurança:**
 
@@ -178,7 +178,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-###  Validações
+### Validações
 
 **Validações obrigatórias:**
 
@@ -213,7 +213,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Casos de Uso Empresariais
 
-###  E-commerce
+### E-commerce
 
 **Automação para lojas online:**
 
@@ -250,7 +250,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-###  B2B
+### B2B
 
 **Pagamentos entre empresas:**
 
@@ -286,7 +286,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Relatórios e Analytics
 
-###  Métricas de PIX
+### Métricas de PIX
 
 **KPIs importantes:**
 
@@ -309,7 +309,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 })($json.transacoes_pix) }}
 ```
 
-###  Análise Temporal
+### Análise Temporal
 
 **Padrões de pagamento:**
 
@@ -359,4 +359,4 @@ Sempre teste integrações PIX em ambiente de sandbox antes de usar em produçã
 
 :::info **Recurso Adicional**
 Considere usar serviços como Mercado Pago, PagSeguro ou Stone para simplificar integrações PIX complexas.
-::: 
+:::

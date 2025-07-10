@@ -14,7 +14,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Estatísticas Básicas
 
-###  Métricas de Tendência Central
+### Métricas de Tendência Central
 
 **Calcular médias, medianas e modas:**
 
@@ -46,7 +46,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas.map(v => v.valor)) }}
 ```
 
-###  Medidas de Dispersão
+### Medidas de Dispersão
 
 **Calcular variância e desvio padrão:**
 
@@ -71,7 +71,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ## <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Agregações por Grupo
 
-###  Agrupar por Categoria
+### Agrupar por Categoria
 
 **Exemplo: Análise de vendas por categoria:**
 
@@ -100,7 +100,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas) }}
 ```
 
-###  Agregações Temporais
+### Agregações Temporais
 
 **Análise por período:**
 
@@ -134,7 +134,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Análises de Distribuição
 
-###  Distribuição de Frequências
+### Distribuição de Frequências
 
 **Criar histogramas e distribuições:**
 
@@ -156,7 +156,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas.map(v => v.valor)) }}
 ```
 
-###  Percentis e Quartis
+### Percentis e Quartis
 
 **Calcular percentis para análise:**
 
@@ -183,7 +183,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Análises de Tendência
 
-###  Crescimento e Decrescimento
+### Crescimento e Decrescimento
 
 **Calcular taxas de crescimento:**
 
@@ -218,7 +218,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas) }}
 ```
 
-###  Sazonalidade
+### Sazonalidade
 
 **Identificar padrões sazonais:**
 
@@ -245,7 +245,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Análises de Clientes
 
-###  Segmentação RFM
+### Segmentação RFM
 
 **Análise RFM (Recency, Frequency, Monetary):**
 
@@ -276,7 +276,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.clientes) }}
 ```
 
-###  Ranking e Top Performers
+### Ranking e Top Performers
 
 **Identificar melhores clientes:**
 
@@ -300,7 +300,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Métricas de Performance
 
-###  KPIs de Negócio
+### KPIs de Negócio
 
 **Calcular indicadores-chave:**
 
@@ -322,7 +322,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas) }}
 ```
 
-###  Análise de Churn
+### Análise de Churn
 
 **Calcular taxa de abandono:**
 
@@ -356,7 +356,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Relatórios Automatizados
 
-###  Resumo Executivo
+### Resumo Executivo
 
 **Gerar relatório resumido:**
 
@@ -420,4 +420,4 @@ Sempre valide os dados antes de calcular estatísticas. Dados inconsistentes pod
 
 :::info **Recurso Adicional**
 Use o Google Sheets node para exportar análises e criar dashboards interativos com os dados processados.
-::: 
+:::

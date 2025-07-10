@@ -12,34 +12,37 @@ Este documento detalha como **configurar sistema de filas** para processamento e
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Configuração do Redis para filas
--  Setup de workers distribuídos
--  Gerenciamento de jobs e falhas
--  Monitoramento de performance
--  Estratégias de escalabilidade
+- Configuração do Redis para filas
+- Setup de workers distribuídos
+- Gerenciamento de jobs e falhas
+- Monitoramento de performance
+- Estratégias de escalabilidade
 
 ---
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que usar Filas?
 
-###  Benefícios das Filas
+### Benefícios das Filas
 
 **Sem Filas (Processamento Síncrono):**
+
 - ❌ **Bloqueio** - Um workflow trava todos os outros
 - ❌ **Timeout** - Execuções longas causam timeouts
 - ❌ **Recursos limitados** - Apenas uma execução por vez
 - ❌ **Sem escalabilidade** - Não pode distribuir carga
 
 **Com Filas (Processamento Assíncrono):**
+
 - ✅ **Paralelismo** - Múltiplas execuções simultâneas
 - ✅ **Resiliência** - Falhas não afetam outras execuções
 - ✅ **Escalabilidade** - Adicione workers conforme necessário
 - ✅ **Performance** - Melhor utilização de recursos
 - ✅ **Monitoramento** - Visibilidade completa do processamento
 
-###  Quando Usar Filas
+### Quando Usar Filas
 
 **Use filas quando:**
+
 - Processa **muitos workflows** simultaneamente
 - Tem **execuções longas** (>30 segundos)
 - Precisa de **alta disponibilidade**
@@ -50,9 +53,10 @@ Este documento detalha como **configurar sistema de filas** para processamento e
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Redis
 
-###  Instalação Rápida
+### Instalação Rápida
 
 #### **Ubuntu/Debian**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Redis
 sudo apt update
@@ -68,6 +72,7 @@ redis-cli ping
 ```
 
 #### **CentOS/RHEL**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar Redis
 sudo yum install redis
@@ -82,6 +87,7 @@ redis-cli ping
 ```
 
 #### **Docker**
+
 ```bash
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar Redis com Docker
 docker run -d \
@@ -91,9 +97,10 @@ docker run -d \
   redis:7-alpine redis-server --appendonly yes
 ```
 
-###  Configuração Avançada
+### Configuração Avançada
 
 #### **redis.conf - Otimizações**
+
 ```bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/redis/redis.conf
 
@@ -123,6 +130,7 @@ bind 127.0.0.1
 ```
 
 #### **Configuração de Segurança**
+
 ```bash
 # <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar usuário dedicado
 sudo adduser --system --group --no-create-home redis
@@ -135,7 +143,7 @@ sudo chmod 750 /var/lib/redis
 sudo ufw allow from 192.168.1.0/24 to any port 6379
 ```
 
-###  Variáveis de Ambiente
+### Variáveis de Ambiente
 
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração básica Redis
@@ -157,7 +165,7 @@ REDIS_TIMEOUT=30000
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração n8n
 
-###  Variáveis de Ambiente
+### Variáveis de Ambiente
 
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração de filas
@@ -178,7 +186,7 @@ EXECUTIONS_RETRY_ATTEMPTS=3
 EXECUTIONS_RETRY_DELAY=5000  # 5 segundos
 ```
 
-###  Docker Compose
+### Docker Compose
 
 ```yaml
 version: '3.8'
@@ -271,9 +279,10 @@ networks:
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Workers Distribuídos
 
-###  Configuração de Workers
+### Configuração de Workers
 
 #### **Worker Principal (Main)**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração para worker principal
 EXECUTIONS_PROCESS=main
@@ -287,6 +296,7 @@ EXECUTIONS_MODE=regular
 ```
 
 #### **Workers de Execução**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração para workers de execução
 EXECUTIONS_PROCESS=worker
@@ -298,9 +308,10 @@ EXECUTIONS_MODE=regular
 # <ion-icon name="bug-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - Retry de falhas
 ```
 
-###  Múltiplos Workers
+### Múltiplos Workers
 
 #### **Docker Compose com Workers**
+
 ```yaml
 version: '3.8'
 
@@ -400,9 +411,10 @@ networks:
 
 ## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciamento de Jobs
 
-###  Tipos de Jobs
+### Tipos de Jobs
 
 #### **Execuções de Workflow**
+
 ```javascript
 // Job de execução de workflow
 {
@@ -420,6 +432,7 @@ networks:
 ```
 
 #### **Webhooks**
+
 ```javascript
 // Job de webhook
 {
@@ -436,9 +449,10 @@ networks:
 }
 ```
 
-###  Retry e Falhas
+### Retry e Falhas
 
 #### **Configuração de Retry**
+
 ```bash
 # <ion-icon name="key-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações de retry
 EXECUTIONS_RETRY_ON_ERROR=true
@@ -449,6 +463,7 @@ EXECUTIONS_RETRY_BACKOFF=exponential  # exponential, linear
 ```
 
 #### **Tratamento de Falhas**
+
 ```javascript
 // Estratégias de retry
 const retryStrategies = {
@@ -462,9 +477,10 @@ const retryStrategies = {
 
 ## <ion-icon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento
 
-###  Métricas Redis
+### Métricas Redis
 
 #### **Comandos de Monitoramento**
+
 ```bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Status do Redis
 redis-cli info
@@ -487,6 +503,7 @@ redis-cli llen n8n:queue:webhooks
 ```
 
 #### **Script de Monitoramento**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> monitor-redis.sh
@@ -509,9 +526,10 @@ echo "Jobs processados: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASS
 echo "Jobs falharam: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD get n8n:stats:failed)"
 ```
 
-###  Alertas
+### Alertas
 
 #### **Script de Alertas**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> redis-alerts.sh
@@ -545,9 +563,10 @@ fi
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalabilidade
 
-###  Cluster Redis
+### Cluster Redis
 
 #### **Redis Sentinel**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Sentinel
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> sentinel.conf
@@ -559,6 +578,7 @@ sentinel parallel-syncs mymaster 1
 ```
 
 #### **Redis Cluster**
+
 ```bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar cluster Redis
 redis-cli --cluster create \
@@ -567,9 +587,10 @@ redis-cli --cluster create \
   --cluster-replicas 1
 ```
 
-###  Cloud Redis
+### Cloud Redis
 
 #### **AWS ElastiCache**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração ElastiCache
 REDIS_URL=redis://seu-cluster.xyz.cache.amazonaws.com:6379
@@ -579,6 +600,7 @@ REDIS_URL=redis://:senha@seu-cluster.xyz.cache.amazonaws.com:6379
 ```
 
 #### **Google Cloud Memorystore**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Memorystore
 REDIS_URL=redis://10.0.0.1:6379
@@ -591,9 +613,10 @@ REDIS_URL=redis://:senha@10.0.0.1:6379
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
-###  Problemas Comuns
+### Problemas Comuns
 
 #### **Redis não conecta**
+
 ```bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar se Redis está rodando
 sudo systemctl status redis-server
@@ -609,6 +632,7 @@ sudo tail -f /var/log/redis/redis-server.log
 ```
 
 #### **Jobs não processam**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar se workers estão rodando
 docker ps | grep n8n
@@ -624,6 +648,7 @@ docker exec n8n-worker-1 env | grep EXECUTIONS
 ```
 
 #### **Performance lenta**
+
 ```bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar uso de memória Redis
 redis-cli info memory
@@ -638,9 +663,10 @@ redis-cli info stats
 redis-cli flushdb
 ```
 
-###  Scripts de Diagnóstico
+### Scripts de Diagnóstico
 
 #### **Diagnóstico Completo**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> diagnose-queues.sh
@@ -684,7 +710,7 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
-###  Configuração
+### Configuração
 
 - [ ] Redis instalado e configurado
 - [ ] Autenticação Redis configurada
@@ -692,7 +718,7 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 - [ ] Conexão Redis testada
 - [ ] Workers configurados corretamente
 
-###  Performance
+### Performance
 
 - [ ] Configurações de memória otimizadas
 - [ ] Persistência Redis configurada
@@ -700,7 +726,7 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 - [ ] Timeouts configurados
 - [ ] Retry policies definidas
 
-###  Monitoramento
+### Monitoramento
 
 - [ ] Scripts de monitoramento configurados
 - [ ] Alertas configurados
@@ -708,7 +734,7 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 - [ ] Logs estruturados
 - [ ] Dashboard de monitoramento
 
-###  Segurança
+### Segurança
 
 - [ ] Senha Redis configurada
 - [ ] Acesso restrito por IP

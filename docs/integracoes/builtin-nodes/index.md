@@ -12,6 +12,7 @@ Os nodes built-in são os blocos fundamentais do n8n, fornecendo funcionalidades
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Core Nodes
+
 - **Code**: Execute código JavaScript customizado
 - **Debug Helper**: Depure e analise dados
 - **Edit Fields Set**: Manipule campos de dados
@@ -20,20 +21,24 @@ Os nodes built-in são os blocos fundamentais do n8n, fornecendo funcionalidades
 - **Workflow Trigger**: Inicie workflows manualmente
 
 ### HTTP Requests
+
 - **HTTP Request**: Faça chamadas para APIs REST
 - **Webhook**: Receba dados via webhooks
 
 ### Data Processing
+
 - **Set**: Configure e manipule dados
 - **Transform**: Transforme dados entre formatos
 
 ### Logic Control
+
 - **IF**: Lógica condicional
 - **Switch**: Múltiplas condições
 - **Merge**: Combine dados de diferentes fontes
 - **Split**: Divida dados para processamento paralelo
 
 ### Utilities
+
 - **Wait**: Pause execução por tempo
 - **Date & Time**: Manipule datas e horários
 - **Expression**: Use expressões para cálculos
@@ -41,6 +46,7 @@ Os nodes built-in são os blocos fundamentais do n8n, fornecendo funcionalidades
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### O que são Built-in Nodes?
+
 Nodes built-in são funcionalidades nativas do n8n que:
 
 - **Não requerem instalação** adicional
@@ -50,6 +56,7 @@ Nodes built-in são funcionalidades nativas do n8n que:
 - **Compatíveis** com todas as versões
 
 ### Categorias de Nodes
+
 - **Core**: Funcionalidades fundamentais
 - **HTTP**: Comunicação com APIs
 - **Data**: Processamento de dados
@@ -57,6 +64,7 @@ Nodes built-in são funcionalidades nativas do n8n que:
 - **Utilities**: Ferramentas auxiliares
 
 ### Vantagens dos Built-in Nodes
+
 - **Confiabilidade**: Testados e estáveis
 - **Performance**: Otimizados para o n8n
 - **Suporte**: Suporte oficial garantido
@@ -66,18 +74,21 @@ Nodes built-in são funcionalidades nativas do n8n que:
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões de Uso
 
 ### Fluxo de Dados
+
 1. **Trigger**: Inicie o workflow
 2. **Process**: Use nodes built-in para processar dados
 3. **Transform**: Manipule dados conforme necessário
 4. **Output**: Envie dados para destinos
 
 ### Combinações Comuns
+
 - **HTTP Request + Set**: Busque dados e configure campos
 - **IF + Merge**: Tome decisões e combine resultados
 - **Code + Debug**: Processe dados e analise resultados
 - **Split + Merge**: Processe dados em paralelo
 
 ### Boas Práticas
+
 - **Use nodes apropriados** para cada tarefa
 - **Mantenha workflows simples** e legíveis
 - **Documente lógica complexa** com comentários

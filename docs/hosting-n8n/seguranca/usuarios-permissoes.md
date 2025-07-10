@@ -12,19 +12,20 @@ Este documento detalha **gerenciamento de usuários e permissões** no n8n, incl
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Sistema RBAC (Role-Based Access Control)
--  Controle granular de permissões
--  Auditoria e monitoramento
--  Segregação de ambientes
--  Templates de roles organizacionais
+- Sistema RBAC (Role-Based Access Control)
+- Controle granular de permissões
+- Auditoria e monitoramento
+- Segregação de ambientes
+- Templates de roles organizacionais
 
 ---
 
 ## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sistema RBAC
 
-###  Roles Padrão
+### Roles Padrão
 
 #### **Owner (Proprietário)**
+
 ```javascript
 // Role com acesso total ao sistema
 const ownerRole = {
@@ -42,6 +43,7 @@ const ownerRole = {
 ```
 
 #### **Admin (Administrador)**
+
 ```javascript
 // Role para administração do sistema
 const adminRole = {
@@ -59,6 +61,7 @@ const adminRole = {
 ```
 
 #### **Editor (Editor)**
+
 ```javascript
 // Role para criação e edição de workflows
 const editorRole = {
@@ -73,6 +76,7 @@ const editorRole = {
 ```
 
 #### **Viewer (Visualizador)**
+
 ```javascript
 // Role para apenas visualização
 const viewerRole = {
@@ -85,9 +89,10 @@ const viewerRole = {
 };
 ```
 
-###  Roles Customizados
+### Roles Customizados
 
 #### **Criar Role Customizado**
+
 ```javascript
 // Exemplo: Role para equipe de marketing
 const marketingRole = {
@@ -133,9 +138,10 @@ const financeRole = {
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Controle Granular de Acesso
 
-###  Permissões por Workflow
+### Permissões por Workflow
 
 #### **Configuração de Permissões**
+
 ```javascript
 // Configurar permissões específicas por workflow
 {
@@ -159,6 +165,7 @@ const financeRole = {
 ```
 
 #### **Permissões por Tag**
+
 ```javascript
 // Configurar permissões baseadas em tags
 {
@@ -187,9 +194,10 @@ const financeRole = {
 }
 ```
 
-###  Permissões por Credencial
+### Permissões por Credencial
 
 #### **Controle de Acesso a Credenciais**
+
 ```javascript
 // Configurar acesso a credenciais
 {
@@ -212,6 +220,7 @@ const financeRole = {
 ```
 
 #### **Credenciais Sensíveis**
+
 ```javascript
 // Configuração para credenciais sensíveis
 {
@@ -237,9 +246,10 @@ const financeRole = {
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segregação de Ambientes
 
-###  Ambientes Separados
+### Ambientes Separados
 
 #### **Configuração de Ambientes**
+
 ```javascript
 // Configuração para múltiplos ambientes
 const environments = {
@@ -280,6 +290,7 @@ const environments = {
 ```
 
 #### **Isolamento de Dados**
+
 ```javascript
 // Configuração de isolamento
 {
@@ -307,9 +318,10 @@ const environments = {
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Auditoria e Monitoramento
 
-###  Logs de Auditoria
+### Logs de Auditoria
 
 #### **Configuração de Auditoria**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar logs de auditoria
 N8N_AUDIT_ENABLED=true
@@ -320,6 +332,7 @@ N8N_AUDIT_MASK_SENSITIVE_DATA=true
 ```
 
 #### **Eventos Auditados**
+
 ```javascript
 // Eventos que são registrados na auditoria
 const auditEvents = {
@@ -360,9 +373,10 @@ const auditEvents = {
 };
 ```
 
-###  Alertas de Segurança
+### Alertas de Segurança
 
 #### **Configuração de Alertas**
+
 ```javascript
 // Configurar alertas de segurança
 {
@@ -393,6 +407,7 @@ const auditEvents = {
 ```
 
 #### **Notificações**
+
 ```javascript
 // Configuração de notificações
 {
@@ -423,9 +438,10 @@ const auditEvents = {
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Templates de Roles Organizacionais
 
-###  Startup (10-50 funcionários)
+### Startup (10-50 funcionários)
 
 #### **Roles Essenciais**
+
 ```javascript
 // Configuração para startup
 const startupRoles = {
@@ -458,9 +474,10 @@ const startupRoles = {
 };
 ```
 
-###  Empresa Média (50-500 funcionários)
+### Empresa Média (50-500 funcionários)
 
 #### **Roles Departamentais**
+
 ```javascript
 // Configuração para empresa média
 const mediumCompanyRoles = {
@@ -541,9 +558,10 @@ const mediumCompanyRoles = {
 };
 ```
 
-###  Empresa Grande (500+ funcionários)
+### Empresa Grande (500+ funcionários)
 
 #### **Roles Corporativos**
+
 ```javascript
 // Configuração para empresa grande
 const largeCompanyRoles = {
@@ -645,7 +663,7 @@ const largeCompanyRoles = {
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Implementação
 
-###  Configuração Inicial
+### Configuração Inicial
 
 - [ ] Roles padrão configuradas
 - [ ] Roles customizados criados
@@ -653,7 +671,7 @@ const largeCompanyRoles = {
 - [ ] Permissões granulares definidas
 - [ ] Restrições de acesso configuradas
 
-###  Segurança
+### Segurança
 
 - [ ] Princípio do menor privilégio aplicado
 - [ ] Auditoria ativada
@@ -661,7 +679,7 @@ const largeCompanyRoles = {
 - [ ] Logs de acesso ativados
 - [ ] Backup de configurações
 
-###  Monitoramento
+### Monitoramento
 
 - [ ] Métricas de acesso coletadas
 - [ ] Relatórios de auditoria gerados
@@ -669,7 +687,7 @@ const largeCompanyRoles = {
 - [ ] Dashboard de monitoramento
 - [ ] Revisão regular de permissões
 
-###  Documentação
+### Documentação
 
 - [ ] Política de acesso documentada
 - [ ] Procedimentos de onboarding
@@ -703,7 +721,8 @@ Considere implementar um sistema de aprovação para mudanças de permissões cr
 
 ---
 
-** Links úteis:**
--  [Documentação oficial n8n](https://docs.n8n.io/)
--  [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
--  [Segurança n8n](https://docs.n8n.io/hosting/security/)
+**Links úteis:**
+
+- [Documentação oficial n8n](https://docs.n8n.io/)
+- [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
+- [Segurança n8n](https://docs.n8n.io/hosting/security/)

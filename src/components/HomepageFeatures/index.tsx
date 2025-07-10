@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 interface FeatureItem {
@@ -69,7 +68,6 @@ function Feature({title, description, icon, link}: FeatureItem) {
 }
 
 export default function HomepageFeatures(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <section className={styles.features}>
       <div className="container">

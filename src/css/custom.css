@@ -135,7 +135,11 @@ ion-icon {
 
 /* Ajusta o tamanho do logo na barra de navegação */
 .navbar__logo img {
-  height: 50px;
+  height: 40px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  padding: 2px 0;
 }
 
 /* Estilos para os dropdowns do menu */
@@ -426,11 +430,13 @@ h6 {
 }
 
 /* Ajuste responsivo para títulos */
-@media (max-width: 768px) {
+@media (max-width: 996px) {
   h1 { font-size: var(--font-size-3xl); } /* 22px */
   h2 { font-size: var(--font-size-2xl); } /* 20px */
   h3 { font-size: var(--font-size-xl); } /* 18px */
   h4 { font-size: var(--font-size-lg); } /* 16px */
+  h5 { font-size: var(--font-size-base); } /* 14px */
+  h6 { font-size: var(--font-size-sm); } /* 12px */
 }
 
 /* --- Elementos de Markdown --- */
@@ -709,9 +715,10 @@ a.tag:hover {
   letter-spacing: -0.02em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 996px) {
   .text-hero {
     font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
   }
 }
 
@@ -755,49 +762,17 @@ ion-icon .ionicon-stroke-width {
   color: var(--ifm-color-primary);
 }
 
-/* ==========================================================================
-  Estilos de Hierarquia na Barra Lateral (Multinível)
-========================================================================== */
-
-/* Nível 1: Categorias Principais (Sessões) - e.g., "Usando n8n" */
-.menu__list .theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link:not(.menu__link--active) {
-  color: var(--ifm-heading-color); /* Cinza mais escuro */
-  font-weight: 600; /* Semibold */
-}
-
-/* Nível 2: Sub-categorias - e.g., "Getting Started" */
-.menu__list .theme-doc-sidebar-item-category-level-2 > .menu__list-item-collapsible > .menu__link:not(.menu__link--active) {
-  color: var(--ifm-font-color-base); /* Cinza escuro padrão do corpo */
-  font-weight: 500; /* Medium */
-}
-
-/* Nível 2: Assuntos diretos sob a Sessão Principal */
-.menu__list .theme-doc-sidebar-item-link-level-2 > .menu__link:not(.menu__link--active) {
-  color: var(--ifm-font-color-secondary); /* Cinza secundário */
-  font-weight: 400; /* Normal */
-}
-
-/* Nível 3 e além: Sub-sub-categorias e Assuntos (links finais) */
-.menu__list .theme-doc-sidebar-item-category-level-3 > .menu__list-item-collapsible > .menu__link:not(.menu__link--active),
-.menu__list .theme-doc-sidebar-item-link-level-3 > .menu__link:not(.menu__link--active),
-.menu__list .theme-doc-sidebar-item-category-level-4 > .menu__list-item-collapsible > .menu__link:not(.menu__link--active),
-.menu__list .theme-doc-sidebar-item-link-level-4 > .menu__link:not(.menu__link--active) {
-  color: var(--ifm-font-color-secondary); /* Cinza secundário (mais claro) */
-  font-weight: 400; /* Normal */
-}
-
-/* Efeito de hover geral para todos os links da barra lateral, para dar feedback */
-.menu__list .menu__link:not(.menu__link--active):hover {
-  color: var(--ifm-color-primary); /* Cor rosa no hover */
-}
-
-/* ==========================================================================
+/* 
+==========================================================================
   Otimização da Animação da Barra Lateral
-========================================================================== */
+==========================================================================
+*/
 
 /* Garante uma transição suave da altura para os sub-menus, evitando "saltos" */
 .menu__list {
   transition: height var(--ifm-transition-fast) ease-in-out;
   will-change: height;
 }
+
+
 

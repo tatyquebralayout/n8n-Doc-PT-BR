@@ -15,4 +15,4 @@ Este documento descreve como usar o node **OpenAI Chat Model** para interagir co
 
 Este documento detalha como **usar o node OpenAI Chat** para implementar conversação inteligente, abordando configuração de API keys, otimização de prompts, controle de temperatura e tokens, implementação de memória conversacional, processamento de respostas, e casos de uso práticos que criam chatbots sofisticados, assistentes virtuais, e sistemas de processamento de linguagem natural para atendimento e automação empresarial.
 
-** Em construção:** Este conteúdo incluirá templates de prompts otimizados para contexto brasileiro e casos de uso empresariais.
+**Em construção:** Este conteúdo incluirá templates de prompts otimizados para contexto brasileiro e casos de uso empresariais.

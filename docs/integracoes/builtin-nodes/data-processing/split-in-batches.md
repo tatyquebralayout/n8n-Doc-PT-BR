@@ -14,6 +14,7 @@ O **Split In Batches Node** é essencial para processar grandes volumes de dados
 **Split In Batches = "Dividir Dados em Lotes"**
 
 O Split In Batches Node é uma **AÇÃO** que:
+
 - **Divide** grandes conjuntos de dados em lotes menores
 - **Permite** processamento eficiente de grandes volumes
 - **Evita** timeouts e problemas de memória
@@ -24,11 +25,13 @@ O Split In Batches Node é uma **AÇÃO** que:
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
 
 ### **1. Batch Size**
+
 ```
 Número de itens por lote (ex: 100, 500, 1000)
 ```
 
 ### **2. Options**
+
 ```
 Wait Between Batches - Aguardar entre lotes
 Batch Size - Tamanho do lote
@@ -36,6 +39,7 @@ Reset - Reiniciar contador de lotes
 ```
 
 ### **3. Wait Between Batches**
+
 ```
 Delay (ms) - Tempo de espera entre lotes
 ```
@@ -45,6 +49,7 @@ Delay (ms) - Tempo de espera entre lotes
 ### **Exemplo 1: Processar Lista de Emails**
 
 **Entrada (1000 emails):**
+
 ```json
 [
   {"email": "joao@email.com", "nome": "João"},
@@ -54,12 +59,14 @@ Delay (ms) - Tempo de espera entre lotes
 ```
 
 **Configuração:**
+
 ```
 Batch Size: 100
 Wait Between Batches: 1000ms (1 segundo)
 ```
 
 **Resultado:**
+
 - **Lote 1**: Emails 1-100
 - **Lote 2**: Emails 101-200
 - **Lote 3**: Emails 201-300
@@ -69,17 +76,20 @@ Wait Between Batches: 1000ms (1 segundo)
 ### **Exemplo 2: Enviar Notificações em Lotes**
 
 **Workflow:**
+
 ```
 Manual Trigger → Split In Batches → HTTP Request → Email
 ```
 
 **Configuração Split In Batches:**
+
 ```
 Batch Size: 50
 Wait Between Batches: 2000ms
 ```
 
 **Configuração HTTP Request (por lote):**
+
 ```
 Method: POST
 URL: https://api.notificacao.com/batch
@@ -89,6 +99,7 @@ Body: {{ JSON.stringify($json) }}
 ### **Exemplo 3: Processar Produtos de E-commerce**
 
 **Entrada (5000 produtos):**
+
 ```json
 [
   {"id": 1, "nome": "Produto 1", "preco": 100},
@@ -98,12 +109,14 @@ Body: {{ JSON.stringify($json) }}
 ```
 
 **Configuração:**
+
 ```
 Batch Size: 200
 Wait Between Batches: 500ms
 ```
 
 **Processamento por lote:**
+
 - Atualizar preços
 - Sincronizar estoque
 - Enviar para API externa
@@ -159,16 +172,19 @@ Wait Between Batches: 2000ms
 ### **Wait Between Batches**
 
 **Delay Fixo:**
+
 ```
 Wait Between Batches: 1000ms
 ```
 
 **Delay Dinâmico (usando expressão):**
+
 ```
 Wait Between Batches: {{ $json.batch_number * 1000 }}ms
 ```
 
 **Delay Baseado em Rate Limiting:**
+
 ```
 Wait Between Batches: {{ Math.ceil(60000 / 100) }}ms  // 100 req/min
 ```
@@ -176,16 +192,19 @@ Wait Between Batches: {{ Math.ceil(60000 / 100) }}ms  // 100 req/min
 ### **Batch Size Dinâmico**
 
 **Baseado no tipo de dados:**
+
 ```
 Batch Size: {{ $json.tipo === 'email' ? 100 : 500 }}
 ```
 
 **Baseado na API:**
+
 ```
 Batch Size: {{ $json.api_limit || 100 }}
 ```
 
 **Baseado na performance:**
+
 ```
 Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
 ```
@@ -230,12 +249,14 @@ Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
 ### **Erro em um Lote**
 
 **Configuração de Retry:**
+
 ```
 Max Tries: 3
 Wait Between Tries: 5000ms
 ```
 
 **Tratamento de Erro:**
+
 ```javascript
 // No node seguinte, verificar se houve erro
 if ($json.error) {
@@ -250,11 +271,13 @@ if ($json.error) {
 ### **Recuperação de Falhas**
 
 **Workflow com Error Handling:**
+
 ```
 Split In Batches → HTTP Request → Error Trigger → Log Error → Continue
 ```
 
 **Configuração Error Trigger:**
+
 ```
 Continue on Fail: true
 ```
@@ -268,6 +291,7 @@ Manual Trigger → Split In Batches (100) → Email Node → Wait (2s) → Conti
 ```
 
 **Configurações:**
+
 - **Split In Batches**: 100 emails por lote
 - **Wait**: 2 segundos entre lotes
 - **Email Node**: Template personalizado
@@ -279,6 +303,7 @@ Schedule Trigger → HTTP Request (buscar produtos) → Split In Batches (500) �
 ```
 
 **Configurações:**
+
 - **Split In Batches**: 500 produtos por lote
 - **Wait**: 1 segundo entre lotes
 - **HTTP Request**: API de atualização
@@ -290,6 +315,7 @@ Webhook (upload arquivo) → CSV Parser → Split In Batches (1000) → Process 
 ```
 
 **Configurações:**
+
 - **Split In Batches**: 1000 linhas por lote
 - **Wait**: 500ms entre lotes
 - **Process Data**: Transformação de dados
@@ -297,18 +323,21 @@ Webhook (upload arquivo) → CSV Parser → Split In Batches (1000) → Process 
 ## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações e Considerações**
 
 ### **Limitações Técnicas**
+
 - **Memória**: Cada lote é mantido em memória
 - **Timeout**: Workflows têm timeout total
 - **Rate Limiting**: APIs externas podem ter limites
 - **Concorrência**: Processamento sequencial por padrão
 
 ### **Considerações de Design**
+
 - **Tamanho do lote**: Balance entre performance e memória
 - **Delays**: Evitar sobrecarregar sistemas externos
 - **Error handling**: Tratar falhas em lotes individuais
 - **Monitoramento**: Acompanhar progresso dos lotes
 
 ### **Boas Práticas**
+
 ```javascript
 // ✅ Bom: Tamanho de lote apropriado
 Batch Size: 100  // Para APIs com rate limiting
@@ -349,7 +378,8 @@ Sempre configure delays adequados para evitar exceder limites de APIs externas.
 ---
 
 **Links úteis:**
+
 - [Documentação oficial do Split In Batches](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.splitinbatches/)
 - [Set Node](./set) - Para manipulação de dados
 - [Aggregate Node](./aggregate) - Para agregações
-- [Code Node](../core-nodes/code) - Para lógica customizada 
+- [Code Node](../core-nodes/code) - Para lógica customizada

@@ -14,6 +14,7 @@ O **Function Node** é uma versão simplificada do Code Node, ideal para **opera
 **Function Node = "Função Simples por Item"**
 
 O Function Node é uma **AÇÃO** que:
+
 - **Executa** uma função para cada item individual
 - **Processa** dados de entrada de forma isolada
 - **Retorna** dados transformados item por item
@@ -24,6 +25,7 @@ O Function Node é uma **AÇÃO** que:
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
 
 ### **1. Function Code**
+
 ```javascript
 // Estrutura básica
 return {
@@ -34,6 +36,7 @@ return {
 ```
 
 ### **2. Variáveis Disponíveis**
+
 ```javascript
 // Dados do item atual
 $json              // Dados JSON do item
@@ -53,6 +56,7 @@ $node              // Informações do node atual
 ### **Exemplo 1: Transformação Simples de Dados**
 
 **Entrada:**
+
 ```json
 {
   "nome": "João Silva",
@@ -62,6 +66,7 @@ $node              // Informações do node atual
 ```
 
 **Função:**
+
 ```javascript
 return {
   json: {
@@ -74,6 +79,7 @@ return {
 ```
 
 **Saída:**
+
 ```json
 {
   "nome_completo": "João Silva",
@@ -86,6 +92,7 @@ return {
 ### **Exemplo 2: Validação de Dados**
 
 **Função:**
+
 ```javascript
 // Validar email
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -114,6 +121,7 @@ return {
 ### **Exemplo 3: Formatação de Dados**
 
 **Função:**
+
 ```javascript
 // Formatar telefone
 const telefone = $json.telefone || '';
@@ -141,6 +149,7 @@ return {
 ### **Exemplo 4: Cálculos Matemáticos**
 
 **Função:**
+
 ```javascript
 // Calcular desconto
 const preco = parseFloat($json.preco) || 0;
@@ -177,6 +186,7 @@ return {
 ### **Exemplo 5: Manipulação de Texto**
 
 **Função:**
+
 ```javascript
 // Capitalizar nome
 const nome = $json.nome || '';
@@ -215,6 +225,7 @@ return {
 ### **Exemplo 6: Condicionais e Lógica**
 
 **Função:**
+
 ```javascript
 // Determinar categoria por idade
 let categoria;
@@ -257,6 +268,7 @@ return {
 ### **Manipulação de Arrays**
 
 **Função:**
+
 ```javascript
 // Filtrar e mapear arrays
 const produtos = $json.produtos || [];
@@ -288,6 +300,7 @@ return {
 ### **Manipulação de Objetos**
 
 **Função:**
+
 ```javascript
 // Mesclar objetos
 const dadosBasicos = {
@@ -318,6 +331,7 @@ return {
 ### **Validações Complexas**
 
 **Função:**
+
 ```javascript
 // Validar CPF
 function validarCPF(cpf) {
@@ -395,6 +409,7 @@ return {
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Performance vs Code Node**
 
 ### **Quando usar Function Node:**
+
 - ✅ Operações simples por item
 - ✅ Transformações básicas de dados
 - ✅ Validações rápidas
@@ -402,6 +417,7 @@ return {
 - ✅ Cálculos matemáticos simples
 
 ### **Quando usar Code Node:**
+
 - ✅ Lógica complexa envolvendo múltiplos itens
 - ✅ Agregações e estatísticas
 - ✅ Integração com APIs externas
@@ -435,12 +451,14 @@ return returnData;
 ## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações e Considerações**
 
 ### **Limitações do Function Node:**
+
 - **Escopo isolado**: Cada item é processado independentemente
 - **Sem acesso a outros itens**: Não pode referenciar dados de outros itens
 - **Sem loops**: Não pode iterar sobre múltiplos itens
 - **Sem async/await**: Não suporta operações assíncronas
 
 ### **Boas Práticas:**
+
 ```javascript
 // ✅ Bom: Código simples e direto
 return {
@@ -460,6 +478,7 @@ return {
 ```
 
 ### **Tratamento de Erros:**
+
 ```javascript
 // Tratamento básico de erros
 try {
@@ -508,6 +527,7 @@ Lembre-se: o Function Node não pode acessar outros itens ou executar operaçõe
 ---
 
 **Links úteis:**
+
 - [Documentação oficial do Function Node](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.function/)
 - [JavaScript MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- [Code Node](./code) - Para lógica mais complexa 
+- [Code Node](./code) - Para lógica mais complexa

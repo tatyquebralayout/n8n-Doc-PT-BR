@@ -13,6 +13,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### 🔐 **Autenticação e Controle de Acesso**
+
 - **Métodos de autenticação** seguros e robustos
 - **Integração com sistemas empresariais** (LDAP, Active Directory, SSO)
 - **Autenticação de dois fatores** (2FA) para proteção adicional
@@ -20,6 +21,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 - **Restrições de IP** e acesso geográfico
 
 ### 👥 **Gerenciamento de Usuários e Permissões**
+
 - **Sistema RBAC** (Role-Based Access Control) completo
 - **Permissões granulares** por workflow e credencial
 - **Segregação de ambientes** (dev, staging, prod)
@@ -27,6 +29,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 - **Auditoria completa** de atividades e mudanças
 
 ### 💾 **Backup e Recuperação**
+
 - **Estratégia 3-2-1** para proteção máxima de dados
 - **Scripts automatizados** para backup contínuo
 - **Backup na nuvem** (AWS S3, Google Cloud Storage)
@@ -34,6 +37,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 - **Testes de restauração** automatizados
 
 ### 📊 **Monitoramento e Observabilidade**
+
 - **Métricas essenciais** de sistema e aplicação
 - **Sistema de alertas** proativos e inteligentes
 - **Dashboards** de monitoramento em tempo real
@@ -44,7 +48,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
-###  Princípio do Menor Privilégio
+### Princípio do Menor Privilégio
 
 **Dê apenas as permissões necessárias** para cada usuário realizar suas funções específicas. Isso minimiza o risco de acesso não autorizado e limita o impacto de comprometimentos.
 
@@ -62,7 +66,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 }
 ```
 
-###  Defesa em Profundidade
+### Defesa em Profundidade
 
 **Múltiplas camadas de segurança** que protegem contra diferentes tipos de ameaças:
 
@@ -72,7 +76,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 4. **Monitoramento contínuo** (logs, alertas)
 5. **Backup e recuperação** (disaster recovery)
 
-###  Zero Trust
+### Zero Trust
 
 **Nunca confie, sempre verifique** - cada acesso deve ser autenticado e autorizado, independentemente da origem:
 
@@ -85,7 +89,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tópicos de Segurança
 
-###  [Autenticação e Acesso](./autenticacao)
+### [Autenticação e Acesso](./autenticacao)
 
 Configure métodos de autenticação seguros e controle de acesso robusto:
 
@@ -98,7 +102,7 @@ Configure métodos de autenticação seguros e controle de acesso robusto:
 
 **[→ Ver Autenticação e Acesso](./autenticacao)**
 
-###  [Usuários e Permissões](./usuarios-permissoes)
+### [Usuários e Permissões](./usuarios-permissoes)
 
 Implemente controle granular de acesso com sistema RBAC:
 
@@ -111,7 +115,7 @@ Implemente controle granular de acesso com sistema RBAC:
 
 **[→ Ver Usuários e Permissões](./usuarios-permissoes)**
 
-###  [Backup e Recovery](./backup-recovery)
+### [Backup e Recovery](./backup-recovery)
 
 Proteja seus dados com estratégias robustas de backup:
 
@@ -124,7 +128,7 @@ Proteja seus dados com estratégias robustas de backup:
 
 **[→ Ver Backup e Recovery](./backup-recovery)**
 
-###  [Monitoramento e Alertas](./monitoring)
+### [Monitoramento e Alertas](./monitoring)
 
 Monitore a saúde e performance do seu n8n:
 
@@ -141,7 +145,7 @@ Monitore a saúde e performance do seu n8n:
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação por Fase
 
-###  Fase 1: Fundamentos (Semana 1-2)
+### Fase 1: Fundamentos (Semana 1-2)
 
 **Configuração básica de segurança:**
 
@@ -151,7 +155,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Logs de acesso ativados
 - [ ] Backup básico configurado
 
-###  Fase 2: Controle de Acesso (Semana 3-4)
+### Fase 2: Controle de Acesso (Semana 3-4)
 
 **Implementação de RBAC e permissões:**
 
@@ -161,7 +165,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Auditoria de acesso ativada
 - [ ] 2FA implementado para admins
 
-###  Fase 3: Backup e Recuperação (Semana 5-6)
+### Fase 3: Backup e Recuperação (Semana 5-6)
 
 **Estratégia robusta de proteção de dados:**
 
@@ -171,7 +175,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Testes de backup realizados
 - [ ] Plano de DR documentado
 
-###  Fase 4: Monitoramento (Semana 7-8)
+### Fase 4: Monitoramento (Semana 7-8)
 
 **Observabilidade e alertas:**
 
@@ -185,7 +189,7 @@ Monitore a saúde e performance do seu n8n:
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Segurança
 
-###  Autenticação
+### Autenticação
 
 - [ ] HTTPS configurado e funcionando
 - [ ] Autenticação básica ativada
@@ -194,7 +198,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Timeout de sessão configurado
 - [ ] Restrições de IP implementadas (se necessário)
 
-###  Controle de Acesso
+### Controle de Acesso
 
 - [ ] Sistema RBAC implementado
 - [ ] Roles e permissões definidos
@@ -203,7 +207,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Revisão regular de permissões
 - [ ] Procedimentos de onboarding/offboarding
 
-###  Proteção de Dados
+### Proteção de Dados
 
 - [ ] Estratégia de backup 3-2-1 implementada
 - [ ] Backup automatizado funcionando
@@ -212,7 +216,7 @@ Monitore a saúde e performance do seu n8n:
 - [ ] Criptografia em repouso ativada
 - [ ] Retenção de dados definida
 
-###  Monitoramento
+### Monitoramento
 
 - [ ] Métricas essenciais coletadas
 - [ ] Sistema de alertas configurado
@@ -225,7 +229,7 @@ Monitore a saúde e performance do seu n8n:
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cenários de Risco
 
-###  Riscos de Segurança
+### Riscos de Segurança
 
 | Risco | Impacto | Mitigação |
 |-------|---------|-----------|
@@ -235,7 +239,7 @@ Monitore a saúde e performance do seu n8n:
 | **Downtime** | Alto | Monitoramento, alertas, redundância |
 | **Conformidade** | Médio | Logs, auditoria, políticas documentadas |
 
-###  Medidas de Proteção
+### Medidas de Proteção
 
 - **Detecção precoce** através de monitoramento contínuo
 - **Resposta rápida** com alertas automatizados
@@ -258,26 +262,26 @@ Agora que você entende os fundamentos de segurança:
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
 
-###  Documentação Oficial
+### Documentação Oficial
 
--  [Documentação n8n](https://docs.n8n.io/)
--  [Segurança n8n](https://docs.n8n.io/hosting/security/)
--  [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
--  [Backup e Restore](https://docs.n8n.io/hosting/backup-restore/)
+- [Documentação n8n](https://docs.n8n.io/)
+- [Segurança n8n](https://docs.n8n.io/hosting/security/)
+- [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
+- [Backup e Restore](https://docs.n8n.io/hosting/backup-restore/)
 
-###  Ferramentas Recomendadas
+### Ferramentas Recomendadas
 
--  **Grafana** - Dashboards de monitoramento
--  **Prometheus** - Coleta de métricas
--  **ELK Stack** - Centralização de logs
--  **AWS S3** - Backup na nuvem
--  **Google Cloud Storage** - Backup na nuvem
+- **Grafana** - Dashboards de monitoramento
+- **Prometheus** - Coleta de métricas
+- **ELK Stack** - Centralização de logs
+- **AWS S3** - Backup na nuvem
+- **Google Cloud Storage** - Backup na nuvem
 
-###  Comunidade
+### Comunidade
 
--  [Discord n8n](https://discord.gg/n8n)
--  [GitHub n8n](https://github.com/n8n-io/n8n)
--  [Stack Overflow](https://stackoverflow.com/questions/tagged/n8n)
+- [Discord n8n](https://discord.gg/n8n)
+- [GitHub n8n](https://github.com/n8n-io/n8n)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/n8n)
 
 ---
 
@@ -291,4 +295,4 @@ A segurança é um processo contínuo. Revise regularmente suas configurações,
 
 :::info **Recurso Adicional**
 Considere realizar auditorias de segurança trimestrais e testes de penetração anuais para manter sua instalação n8n segura.
-::: 
+:::

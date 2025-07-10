@@ -13,9 +13,11 @@ Este guia detalha como **instalar n8n em provedores de nuvem**, incluindo n8n Cl
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Opções de Cloud
 
 ### **n8n Cloud (Oficial)**
+
 Serviço totalmente gerenciado pelos criadores do n8n.
 
 ### **Self-hosted em Cloud**
+
 Deploy em sua própria infraestrutura na nuvem.
 
 ---
@@ -23,9 +25,11 @@ Deploy em sua própria infraestrutura na nuvem.
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> n8n Cloud (Oficial)
 
 ### **O que é o n8n Cloud?**
+
 O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda a complexidade de infraestrutura, permitindo que você foque exclusivamente na criação e execução de seus workflows.
 
 ### **Principais Características:**
+
 - ✅ **Zero configuração** - Comece em segundos
 - ✅ **Escalabilidade automática** - Cresce com suas necessidades
 - ✅ **Backups automáticos** - Seus dados sempre seguros
@@ -37,18 +41,21 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Planos e Preços
 
 ### **Free Trial**
+
 - **Duração**: 14 dias
 - **Execuções**: 1.000 execuções
 - **Usuários**: Até 5 usuários
 - **Recursos**: Todos os recursos incluídos
 
 ### **Starter Plan**
+
 - **Preço**: $20/mês por usuário
 - **Execuções**: 10.000 execuções/mês
 - **Usuários**: Ilimitados
 - **Suporte**: Email
 
 ### **Professional Plan**
+
 - **Preço**: $50/mês por usuário
 - **Execuções**: 50.000 execuções/mês
 - **Usuários**: Ilimitados
@@ -56,6 +63,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 - **Recursos**: Ambientes, RBAC avançado
 
 ### **Enterprise Plan**
+
 - **Preço**: Sob consulta
 - **Execuções**: Ilimitadas
 - **Recursos**: SAML, SSO, SLA garantido
@@ -66,6 +74,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 ## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Começar
 
 ### **1. Criar Conta**
+
 1. Acesse [cloud.n8n.io](https://cloud.n8n.io)
 2. Clique em **"Start Free Trial"**
 3. Preencha seus dados:
@@ -75,6 +84,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 4. Confirme seu email
 
 ### **2. Configuração Inicial**
+
 Após o login, você será direcionado para o dashboard:
 
 1. **Escolha seu workspace** (ou crie um novo)
@@ -83,6 +93,7 @@ Após o login, você será direcionado para o dashboard:
 4. **Configure notificações** (opcional)
 
 ### **3. Primeiro Workflow**
+
 1. Clique em **"Create Workflow"**
 2. Escolha um template ou comece do zero
 3. Configure seu primeiro trigger
@@ -93,6 +104,7 @@ Após o login, você será direcionado para o dashboard:
 ## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações Avançadas
 
 ### **Domínio Personalizado**
+
 Configure um domínio próprio para sua instância:
 
 1. Vá em **Settings > Workspace**
@@ -102,6 +114,7 @@ Configure um domínio próprio para sua instância:
 5. Aguarde a verificação (pode levar até 24h)
 
 ### **Integração com SSO**
+
 Para planos Professional e Enterprise:
 
 1. **Settings > Authentication**
@@ -110,6 +123,7 @@ Para planos Professional e Enterprise:
 4. Configure mapeamento de usuários
 
 ### **Ambientes**
+
 Crie ambientes separados para desenvolvimento e produção:
 
 1. **Settings > Environments**
@@ -122,17 +136,20 @@ Crie ambientes separados para desenvolvimento e produção:
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Compliance
 
 ### **Certificações**
+
 - **SOC 2 Type II** - Controles de segurança
 - **GDPR** - Conformidade com dados europeus
 - **ISO 27001** - Gestão de segurança da informação
 
 ### **Recursos de Segurança**
+
 - **Criptografia em trânsito** - TLS 1.3
 - **Criptografia em repouso** - AES-256
 - **Backups automáticos** - Diários e redundantes
 - **Monitoramento 24/7** - Detecção de anomalias
 
 ### **Controles de Acesso**
+
 - **RBAC** - Controle granular de permissões
 - **2FA** - Autenticação de dois fatores
 - **Audit logs** - Registro completo de atividades
@@ -143,12 +160,14 @@ Crie ambientes separados para desenvolvimento e produção:
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Analytics
 
 ### **Dashboard de Execuções**
+
 - **Taxa de sucesso** por workflow
 - **Tempo de execução** médio
 - **Erros mais comuns** e soluções
 - **Uso de recursos** e otimizações
 
 ### **Alertas e Notificações**
+
 - **Falhas críticas** em tempo real
 - **Limite de execuções** próximo
 - **Performance degradada**
@@ -161,6 +180,7 @@ Crie ambientes separados para desenvolvimento e produção:
 ### **AWS (Amazon Web Services)**
 
 #### **EC2 com Docker**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar instância EC2
 aws ec2 run-instances \
@@ -186,6 +206,7 @@ docker run -d \
 ```
 
 #### **ECS (Elastic Container Service)**
+
 ```yaml
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> task-definition.json
 {
@@ -223,6 +244,7 @@ docker run -d \
 ### **Google Cloud Platform (GCP)**
 
 #### **Compute Engine**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar instância
 gcloud compute instances create n8n-instance \
@@ -241,6 +263,7 @@ sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
 ```
 
 #### **Cloud Run**
+
 ```yaml
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> cloudbuild.yaml
 steps:
@@ -251,6 +274,7 @@ steps:
 ### **Microsoft Azure**
 
 #### **Azure VM**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar VM
 az vm create \
@@ -270,6 +294,7 @@ sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
 ```
 
 #### **Azure Container Instances**
+
 ```bash
 # <ion-icon name="person-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar container
 az container create \
@@ -285,6 +310,7 @@ az container create \
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Avançada
 
 ### **Load Balancer**
+
 ```yaml
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> AWS Application Load Balancer
 apiVersion: v1
@@ -301,6 +327,7 @@ spec:
 ```
 
 ### **Auto Scaling**
+
 ```yaml
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Kubernetes HPA
 apiVersion: autoscaling/v2
@@ -324,6 +351,7 @@ spec:
 ```
 
 ### **Monitoramento**
+
 ```yaml
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Prometheus monitoring
 apiVersion: v1
@@ -345,12 +373,14 @@ data:
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Suporte e Recursos
 
 ### **Canais de Suporte**
+
 - **Documentação oficial** - Guias detalhados
 - **Community Forum** - Troca de experiências
 - **Discord** - Suporte em tempo real
 - **Email** - Suporte técnico direto
 
 ### **Recursos Adicionais**
+
 - **Templates prontos** - Workflows pré-configurados
 - **Webinars** - Treinamentos semanais
 - **Best practices** - Guias de otimização
@@ -367,6 +397,7 @@ Agora que você conhece as opções de cloud:
 3. **[Integrações](../../integracoes/)** - Conecte suas aplicações
 
 ### **Outros Métodos de Instalação**
+
 - **[Docker](./docker)** - Containerização para produção
 - **[NPM](./npm)** - Instalação local para desenvolvimento
 - **[Desktop](./desktop)** - Aplicação desktop
@@ -387,7 +418,8 @@ Para **self-hosted** em cloud, considere custos de infraestrutura, manutenção 
 
 ---
 
-** Links úteis:**
--  [n8n Cloud](https://cloud.n8n.io)
--  [Documentação oficial](https://docs.n8n.io/)
--  [Repositório n8n](https://github.com/n8n-io/n8n)
+**Links úteis:**
+
+- [n8n Cloud](https://cloud.n8n.io)
+- [Documentação oficial](https://docs.n8n.io/)
+- [Repositório n8n](https://github.com/n8n-io/n8n)

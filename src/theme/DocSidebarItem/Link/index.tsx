@@ -14,7 +14,6 @@ export default function DocSidebarItemLink({
   onItemClick,
   activePath,
   level,
-  index,
   ...props
 }: Props): ReactNode {
   const {href, label, className, autoAddBaseUrl} = item;

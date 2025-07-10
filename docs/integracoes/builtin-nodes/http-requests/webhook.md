@@ -13,20 +13,23 @@ O **Webhook** é um dos nodes mais importantes do n8n, permitindo que seu workfl
 
 Um **webhook** é uma forma de receber dados de outros sistemas **em tempo real**. Ao invés de ficar consultando um serviço constantemente (polling), o webhook permite que o próprio serviço **notifique** o n8n quando algo relevante acontece.
 
-###  **Analogia Simples**
--  **Polling** = Ficar tocando a campainha para ver se alguém está em casa
--  **Webhook** = Deixar sua campainha ligada para que as pessoas toquem quando chegarem
+### **Analogia Simples**
+
+- **Polling** = Ficar tocando a campainha para ver se alguém está em casa
+- **Webhook** = Deixar sua campainha ligada para que as pessoas toquem quando chegarem
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configuração Básica**
 
-###  1. **Adicionando o Node**
-1.  Arraste o **Webhook** node para seu workflow
-2.  Configure as opções principais
-3.  O n8n irá gerar automaticamente uma **URL única**
+### 1. **Adicionando o Node**
 
-###  2. **Configurações Principais**
+1. Arraste o **Webhook** node para seu workflow
+2. Configure as opções principais
+3. O n8n irá gerar automaticamente uma **URL única**
 
-####  **HTTP Method**
+### 2. **Configurações Principais**
+
+#### **HTTP Method**
+
 Escolha o método HTTP que o webhook irá aceitar:
 
 ```http
@@ -37,7 +40,8 @@ PATCH - Para atualizações parciais
 DELETE - Para exclusões
 ```
 
-####  **Path**
+#### **Path**
+
 Defina um caminho personalizado para seu webhook:
 
 ```
@@ -45,12 +49,13 @@ Padrão: /webhook/uuid-automatico
 Custom: /webhook/meu-sistema
 ```
 
-####  **Authentication**
+#### **Authentication**
+
 Configure segurança para seu webhook:
 
--  **None** - Sem autenticação (cuidado!)
--  **Basic Auth** - Usuário e senha
--  **Header Auth** - Token no cabeçalho
+- **None** - Sem autenticação (cuidado!)
+- **Basic Auth** - Usuário e senha
+- **Header Auth** - Token no cabeçalho
 
 ## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Fluxo de Trabalho**
 
@@ -65,7 +70,7 @@ E --> A
 
 ## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos Práticos**
 
-###  **Exemplo 1: E-commerce - Nova Compra**
+### **Exemplo 1: E-commerce - Nova Compra**
 
 **Cenário:** Sua loja online precisa processar pedidos automaticamente.
 
@@ -89,14 +94,15 @@ E --> A
 ```
 
 **Ações do Workflow:**
-1.  Validar dados do pedido
-2.  Enviar email de confirmação
-3.  Criar ordem no estoque
-4.  Processar pagamento
+
+1. Validar dados do pedido
+2. Enviar email de confirmação
+3. Criar ordem no estoque
+4. Processar pagamento
 
 ---
 
-###  **Exemplo 2: Suporte - Novo Ticket**
+### **Exemplo 2: Suporte - Novo Ticket**
 
 **Cenário:** Sistema de helpdesk cria tickets automaticamente.
 
@@ -115,14 +121,15 @@ E --> A
 ```
 
 **Ações do Workflow:**
-1.  Classificar prioridade
-2.  Atribuir ao técnico
-3.  Notificar no Slack
-4.  Atualizar dashboard
+
+1. Classificar prioridade
+2. Atribuir ao técnico
+3. Notificar no Slack
+4. Atualizar dashboard
 
 ---
 
-###  **Exemplo 3: Marketing - Lead Qualificado**
+### **Exemplo 3: Marketing - Lead Qualificado**
 
 **Cenário:** Landing page captura leads importantes.
 
@@ -141,14 +148,16 @@ E --> A
 ```
 
 **Ações do Workflow:**
-1.  Adicionar ao CRM
-2.  Marcar como hot lead
-3.  Enviar sequência de emails
-4.  Agendar follow-up
+
+1. Adicionar ao CRM
+2. Marcar como hot lead
+3. Enviar sequência de emails
+4. Agendar follow-up
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Segurança**
 
-###  **Validação de Origem**
+### **Validação de Origem**
+
 ```javascript
 // Exemplo de validação por IP
 const allowedIPs = ['192.168.1.100', '10.0.0.50'];
@@ -159,7 +168,8 @@ throw new Error('IP não autorizado');
 }
 ```
 
-###  **Verificação de Assinatura**
+### **Verificação de Assinatura**
+
 ```javascript
 // Exemplo de validação com HMAC
 const crypto = require('crypto');
@@ -203,7 +213,8 @@ O webhook automaticamente captura informações importantes:
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Tratamento de Erros**
 
-###  **Resposta de Erro Personalizada**
+### **Resposta de Erro Personalizada**
+
 ```javascript
 // No node de resposta
 if (!$json.customer || !$json.customer.email) {
@@ -217,15 +228,18 @@ code: "MISSING_EMAIL"
 }
 ```
 
-###  **Retry Logic**
+### **Retry Logic**
+
 Configure no sistema que envia o webhook:
--  **Timeout:** 30 segundos
--  **Retry:** 3 tentativas
--  **Backoff:** Exponencial (1s, 2s, 4s)
+
+- **Timeout:** 30 segundos
+- **Retry:** 3 tentativas
+- **Backoff:** Exponencial (1s, 2s, 4s)
 
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Dicas de Performance**
 
-###  **1. Response Rápido**
+### **1. Response Rápido**
+
 ```javascript
 // Processe depois, responda agora
 $response.status(200).json({
@@ -236,22 +250,27 @@ id: $json.order_id
 // Continue processamento...
 ```
 
-###  **2. Processamento Assíncrono**
+### **2. Processamento Assíncrono**
+
 Use **subworkflows** para processos longos:
+
 ```
 Webhook → Validação → Resposta Rápida
 ↘ Subworkflow → Processamento Lento
 ```
 
-###  **3. Batching**
+### **3. Batching**
+
 Para múltiplos webhooks similares:
+
 ```
 Webhook → Queue → Batch Processing (a cada 100 items)
 ```
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Debugging**
 
-###  **Logs Úteis**
+### **Logs Úteis**
+
 ```javascript
 // Log completo da requisição
 console.log('Webhook recebido:', {
@@ -263,10 +282,11 @@ body: $request.body
 });
 ```
 
-###  **Ferramentas de Teste**
--  **Postman** - Para testes manuais
--  **ngrok** - Para expor webhooks locais
--  **Webhook.site** - Para inspecionar payloads
+### **Ferramentas de Teste**
+
+- **Postman** - Para testes manuais
+- **ngrok** - Para expor webhooks locais
+- **Webhook.site** - Para inspecionar payloads
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Integrações Populares**
 
@@ -280,7 +300,8 @@ body: $request.body
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Problemas Comuns**
 
-###  **Webhook não dispara**
+### **Webhook não dispara**
+
 ```bash
 # <ion-icon name="color-palette-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verifique se a URL está correta
 curl -X POST https://sua-instancia.n8n.io/webhook/seu-path \
@@ -288,12 +309,14 @@ curl -X POST https://sua-instancia.n8n.io/webhook/seu-path \
 -d '{"test": "data"}'
 ```
 
-###  **Timeout nos webhooks**
--  Configure timeout adequado (30s+)
--  Use processamento assíncrono
--  Implemente retry logic
+### **Timeout nos webhooks**
 
-###  **Headers ausentes**
+- Configure timeout adequado (30s+)
+- Use processamento assíncrono
+- Implemente retry logic
+
+### **Headers ausentes**
+
 ```javascript
 // Sempre verifique se existem
 const userAgent = $request.headers['user-agent'] || 'Desconhecido';
@@ -304,11 +327,11 @@ const contentType = $request.headers['content-type'] || 'text/plain';
 
 Depois de dominar webhooks, explore:
 
-1.  **[HTTP Request Node](./http-request)** - Para fazer chamadas HTTP
-2.  **[Set Node](../data-processing/set)** - Para manipular dados
-3.  **[Manual Trigger](../../trigger-nodes/time-based/manual-trigger)** - Para testes manuais
-4.  **[Webhook Trigger](../../trigger-nodes/event-based/webhook-trigger)** - Versão trigger do webhook
+1. **[HTTP Request Node](./http-request)** - Para fazer chamadas HTTP
+2. **[Set Node](../data-processing/set)** - Para manipular dados
+3. **[Manual Trigger](../../trigger-nodes/time-based/manual-trigger)** - Para testes manuais
+4. **[Webhook Trigger](../../trigger-nodes/event-based/webhook-trigger)** - Versão trigger do webhook
 
 ---
 
-** O Webhook é a porta de entrada para integrar qualquer sistema com o n8n!**
+**O Webhook é a porta de entrada para integrar qualquer sistema com o n8n!**

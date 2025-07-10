@@ -12,32 +12,38 @@ Bem-vindo à seção "Usando n8n"! Aqui você aprenderá como aproveitar ao máx
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Primeiros Passos
+
 - **Quickstart Rápido**: Comece rapidamente com um exemplo prático
 - **Workflow na Prática**: Aprenda criando um workflow real
 - **Interface e Navegação**: Domine a interface do n8n
 
 ### Trabalhando com Workflows
+
 - **Criar e Editar**: Construa workflows do zero
 - **Organizar**: Mantenha seus workflows organizados
 - **Otimizar**: Melhore performance e eficiência
 
 ### Gerenciamento e Monitoramento
+
 - **Execuções**: Monitore e analise execuções
 - **Credenciais**: Gerencie conexões de forma segura
 - **Usuários e Permissões**: Configure acesso e controle
 
 ### Interface e Usabilidade
+
 - **Navegação**: Explore a interface do editor
 - **Componentes**: Entenda os elementos visuais
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por onde começar?
 
 ### Para novos usuários
+
 1. **Siga o [Quickstart Rápido](./quickstart-rapido)** para uma introdução prática
 2. **Crie um [Workflow na Prática](./workflow-na-pratica)** para aprender fazendo
 3. **Explore a [Interface](./interface/)** para entender a navegação
 
 ### Para usuários experientes
+
 1. **Aprenda a [Organizar Workflows](../workflows/organizar)** eficientemente
 2. **Otimize performance** com nossas [dicas de otimização](../workflows/otimizar)
 3. **Configure [Monitoramento](../monitoring/)** avançado
@@ -45,6 +51,7 @@ Bem-vindo à seção "Usando n8n"! Aqui você aprenderá como aproveitar ao máx
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### Workflows
+
 Um workflow no n8n é uma sequência de operações que automatiza um processo. Cada workflow é composto por:
 
 - **Nodes**: Blocos de funcionalidade que executam ações específicas
@@ -53,6 +60,7 @@ Um workflow no n8n é uma sequência de operações que automatiza um processo. 
 - **Actions**: Nodes que executam operações
 
 ### Execuções
+
 Cada vez que um workflow é executado, o n8n cria uma execução que:
 
 - Processa os dados através dos nodes
@@ -61,6 +69,7 @@ Cada vez que um workflow é executado, o n8n cria uma execução que:
 - Armazena histórico para análise
 
 ### Credenciais
+
 As credenciais permitem que o n8n se conecte a serviços externos:
 
 - **API Keys**: Para autenticação com APIs

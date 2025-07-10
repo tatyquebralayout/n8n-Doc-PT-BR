@@ -14,7 +14,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Configuração da NFe
 
-###  Certificado Digital
+### Certificado Digital
 
 **Configuração do certificado A1:**
 
@@ -37,7 +37,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-###  Dados da Empresa
+### Dados da Empresa
 
 **Informações obrigatórias:**
 
@@ -66,7 +66,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ## <ion-icon name="folder-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Estrutura da NFe
 
-###  Cabeçalho da Nota
+### Cabeçalho da Nota
 
 **Dados básicos da NFe:**
 
@@ -90,7 +90,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-###  Dados do Destinatário
+### Dados do Destinatário
 
 **Informações do cliente:**
 
@@ -121,7 +121,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Itens da Nota
 
-###  Produtos e Serviços
+### Produtos e Serviços
 
 **Estrutura dos itens:**
 
@@ -163,7 +163,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-###  Cálculos Fiscais
+### Cálculos Fiscais
 
 **Automatizar cálculos:**
 
@@ -202,7 +202,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Envio para SEFAZ
 
-###  Autorização
+### Autorização
 
 **Workflow de autorização:**
 
@@ -248,7 +248,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-###  Tratamento de Respostas
+### Tratamento de Respostas
 
 **Processar retornos da SEFAZ:**
 
@@ -303,7 +303,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Geração de DANFE
 
-###  Template do DANFE
+### Template do DANFE
 
 **Estrutura do documento:**
 
@@ -345,7 +345,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-###  Envio Automático
+### Envio Automático
 
 **Workflow de envio:**
 
@@ -391,7 +391,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Integração com Sistemas
 
-###  ERP e CRM
+### ERP e CRM
 
 **Sincronização com sistemas:**
 
@@ -430,7 +430,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 }
 ```
 
-###  Contabilidade
+### Contabilidade
 
 **Integração contábil:**
 
@@ -465,7 +465,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Relatórios Fiscais
 
-###  Relatórios Obrigatórios
+### Relatórios Obrigatórios
 
 **Relatórios para SEFAZ:**
 
@@ -497,7 +497,7 @@ Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas
 })($json.nfes) }}
 ```
 
-###  Arquivos SPED
+### Arquivos SPED
 
 **Geração de SPED:**
 
@@ -573,4 +573,4 @@ Sempre teste integrações NFe em ambiente de homologação antes de usar em pro
 
 :::info **Recurso Adicional**
 Considere usar serviços como NFe.io, API NFe ou sistemas ERP que já possuem integração com SEFAZ para simplificar o processo.
-::: 
+:::

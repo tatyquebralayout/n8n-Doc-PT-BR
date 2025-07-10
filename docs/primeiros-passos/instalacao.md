@@ -13,7 +13,7 @@ Esta página detalha os métodos de instalação **self-hosted** do n8n, incluin
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Opções de Instalação
 
-###  Docker (Recomendado)
+### Docker (Recomendado)
 
 A forma mais rápida e fácil de começar:
 
@@ -25,9 +25,9 @@ docker run -it --rm \
 n8nio/n8n
 ```
 
- Acesse http://localhost:5678 no seu navegador.
+ Acesse <http://localhost:5678> no seu navegador.
 
-###  NPM
+### NPM
 
 Para instalação via npm (requer Node.js 18+):
 
@@ -39,7 +39,7 @@ npm install n8n -g
 n8n start
 ```
 
-###  NPX (Sem instalação)
+### NPX (Sem instalação)
 
 Para testar sem instalar:
 
@@ -60,6 +60,7 @@ Na primeira execução, você deve criar uma conta de administrador para protege
 :::
 
 1. Preencha os dados do administrador:
+
 - **Nome**: Seu nome completo
 - **Email**: Seu endereço de email
 - **Senha**: Uma senha segura
@@ -165,6 +166,7 @@ Agora que o n8n está instalado e funcionando:
 ### Problemas Comuns
 
 #### Porta já em uso
+
 ```bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar qual processo está usando a porta 5678
 netstat -tulpn | grep 5678
@@ -174,12 +176,14 @@ N8N_PORT=5679 n8n start
 ```
 
 #### Problemas de permissão (Linux/Mac)
+
 ```bash
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Dar permissões corretas
 sudo chown -R $(whoami) ~/.n8n
 ```
 
 #### Erro de memória
+
 ```bash
 # <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Aumentar limite de memória do Node.js
 NODE_OPTIONS="--max-old-space-size=4096" n8n start
@@ -199,6 +203,7 @@ docker logs container_id
 
 :::tip Precisa de ajuda?
 Se encontrar problemas, consulte:
+
 - [FAQ](../faq)
 - [Comunidade Discord](https://discord.gg/n8n)
 - [GitHub Issues](https://github.com/n8n-io/n8n/issues)
@@ -206,4 +211,4 @@ Se encontrar problemas, consulte:
 
 ---
 
-**Instalação concluída!** Vamos para os [Conceitos Básicos](./conceitos-basicos) para entender como o n8n funciona. 
+**Instalação concluída!** Vamos para os [Conceitos Básicos](./conceitos-basicos) para entender como o n8n funciona.

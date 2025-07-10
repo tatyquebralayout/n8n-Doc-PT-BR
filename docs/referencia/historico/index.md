@@ -12,11 +12,13 @@ Esta seção mantém o histórico completo de mudanças na documentação n8n Br
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Histórico de Mudanças
+
 - **Changelog**: Registro detalhado de todas as mudanças
 - **Versões**: Histórico de releases e versões
 - **Roadmap**: Planejamento futuro do projeto
 
 ### Documentação Oficial
+
 - **n8n Oficial**: Mudanças na documentação oficial
 - **Nossa Documentação**: Evolução da documentação brasileira
 - **Comunidade**: Contribuições da comunidade
@@ -24,6 +26,7 @@ Esta seção mantém o histórico completo de mudanças na documentação n8n Br
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### Versionamento
+
 A documentação segue o padrão de versionamento semântico:
 
 - **Major**: Mudanças incompatíveis (X.0.0)
@@ -31,6 +34,7 @@ A documentação segue o padrão de versionamento semântico:
 - **Patch**: Correções e melhorias (0.0.X)
 
 ### Tipos de Mudanças
+
 - **Adicionado**: Novas funcionalidades ou conteúdo
 - **Alterado**: Modificações em conteúdo existente
 - **Depreciado**: Funcionalidades que serão removidas
@@ -39,6 +43,7 @@ A documentação segue o padrão de versionamento semântico:
 - **Segurança**: Atualizações de segurança
 
 ### Categorias de Conteúdo
+
 - **Tutoriais**: Guias práticos e exemplos
 - **Referência**: Documentação técnica
 - **Integrações**: Conectores e APIs
@@ -48,6 +53,7 @@ A documentação segue o padrão de versionamento semântico:
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura do Histórico
 
 ### Changelog Principal
+
 Registro cronológico de todas as mudanças:
 
 - **Data**: Quando a mudança foi feita
@@ -57,6 +63,7 @@ Registro cronológico de todas as mudanças:
 - **Autor**: Quem fez a mudança
 
 ### Releases
+
 Agrupamento de mudanças por versão:
 
 - **Release Notes**: Notas detalhadas de cada versão
@@ -64,6 +71,7 @@ Agrupamento de mudanças por versão:
 - **Migration Guide**: Guias de migração quando necessário
 
 ### Roadmap
+
 Planejamento futuro do projeto:
 
 - **Próximas Versões**: Funcionalidades planejadas
@@ -79,32 +87,39 @@ Planejamento futuro do projeto:
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Acompanhar Mudanças
 
 ### RSS Feed
+
 Inscreva-se no feed RSS para receber atualizações automaticamente.
 
 ### GitHub
+
 - **Watch**: Receba notificações de mudanças
 - **Issues**: Reporte problemas ou sugestões
 - **Discussions**: Participe de discussões
 
 ### Newsletter
+
 Inscreva-se na newsletter da comunidade para receber resumos mensais.
 
 ### Discord
+
 Participe do canal #documentacao no Discord para discussões em tempo real.
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Contribuir com o Histórico
 
 ### Reportar Mudanças
+
 - **Issues**: Abra issues para reportar problemas
 - **Pull Requests**: Envie contribuições via PR
 - **Discussions**: Participe de discussões sobre mudanças
 
 ### Sugerir Melhorias
+
 - **Feature Requests**: Sugira novas funcionalidades
 - **Documentation**: Melhore documentação existente
 - **Translations**: Ajude com traduções
 
 ### Manter Atualizado
+
 - **Sync**: Mantenha sincronização com documentação oficial
 - **Review**: Revise mudanças antes de publicar
 - **Test**: Teste mudanças antes de aplicar

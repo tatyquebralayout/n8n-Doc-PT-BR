@@ -12,19 +12,20 @@ Este documento detalha como **otimizar performance do n8n** para máxima eficiê
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Configuração de workers otimizada
--  Ajuste de timeouts e limites
--  Otimização de banco de dados
--  Gerenciamento de memória
--  Monitoramento de performance
+- Configuração de workers otimizada
+- Ajuste de timeouts e limites
+- Otimização de banco de dados
+- Gerenciamento de memória
+- Monitoramento de performance
 
 ---
 
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que Otimizar Performance?
 
-###  Impacto da Performance
+### Impacto da Performance
 
 **Performance Baixa:**
+
 - ❌ **Workflows lentos** - Execuções demoram muito
 - ❌ **Timeout de execuções** - Falhas por tempo limite
 - ❌ **Recursos desperdiçados** - CPU e memória mal utilizados
@@ -32,15 +33,17 @@ Este documento detalha como **otimizar performance do n8n** para máxima eficiê
 - ❌ **Custos altos** - Mais servidores necessários
 
 **Performance Otimizada:**
+
 - ✅ **Execuções rápidas** - Workflows executam em segundos
 - ✅ **Alta disponibilidade** - Sistema sempre responsivo
 - ✅ **Recursos eficientes** - Melhor utilização de hardware
 - ✅ **Experiência fluida** - Interface rápida e responsiva
 - ✅ **Custos reduzidos** - Menos servidores necessários
 
-###  Quando Otimizar
+### Quando Otimizar
 
 **Otimize performance quando:**
+
 - Workflows demoram **mais de 30 segundos**
 - Sistema fica **lento com muitos usuários**
 - **Timeouts frequentes** nas execuções
@@ -51,9 +54,10 @@ Este documento detalha como **otimizar performance do n8n** para máxima eficiê
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração de Workers
 
-###  Otimização de Workers
+### Otimização de Workers
 
 #### **Configuração Base**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração otimizada para workers
 EXECUTIONS_PROCESS=worker
@@ -67,6 +71,7 @@ EXECUTIONS_DATA_SAVE_ON_SUCCESS=all
 ```
 
 #### **Configuração Avançada**
+
 ```bash
 # <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações avançadas de performance
 EXECUTIONS_DATA_PRUNE=true
@@ -80,9 +85,10 @@ EXECUTIONS_RETRY_ATTEMPTS=3
 EXECUTIONS_RETRY_DELAY=5000  # 5 segundos
 ```
 
-###  Múltiplos Workers
+### Múltiplos Workers
 
 #### **Docker Compose com Workers Otimizados**
+
 ```yaml
 version: '3.8'
 
@@ -232,9 +238,10 @@ networks:
 
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Otimização de Timeouts
 
-###  Configuração de Timeouts
+### Configuração de Timeouts
 
 #### **Timeouts por Tipo de Operação**
+
 ```bash
 # <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Timeouts para operações simples (30 segundos)
 EXECUTIONS_TIMEOUT=30000
@@ -253,6 +260,7 @@ DB_TIMEOUT=30000
 ```
 
 #### **Configuração Avançada de Timeouts**
+
 ```bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações específicas por tipo de workflow
 EXECUTIONS_TIMEOUT_SIMPLE=30000    # Operações simples
@@ -266,9 +274,10 @@ EXECUTIONS_RETRY_BACKOFF_FACTOR=2
 EXECUTIONS_RETRY_MAX_DELAY=300000
 ```
 
-###  Estratégias de Timeout
+### Estratégias de Timeout
 
 #### **Timeout Adaptativo**
+
 ```javascript
 // Estratégia de timeout baseada no tipo de operação
 const timeoutStrategies = {
@@ -289,9 +298,10 @@ function getTimeoutForOperation(type) {
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Otimização de Banco de Dados
 
-###  PostgreSQL Otimizado
+### PostgreSQL Otimizado
 
 #### **postgresql.conf - Otimizações**
+
 ```bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/postgresql/15/main/postgresql.conf
 
@@ -333,6 +343,7 @@ autovacuum_analyze_threshold = 50
 ```
 
 #### **Índices Otimizados**
+
 ```sql
 -- Índices para melhorar performance
 CREATE INDEX CONCURRENTLY idx_executions_created_at ON executions(created_at);
@@ -349,9 +360,10 @@ CREATE INDEX CONCURRENTLY idx_webhook_entity ON webhook_entity(webhook_id);
 CREATE INDEX CONCURRENTLY idx_webhook_entity_path ON webhook_entity(path);
 ```
 
-###  Manutenção de Banco
+### Manutenção de Banco
 
 #### **Script de Manutenção**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> database-maintenance.sh
@@ -394,9 +406,10 @@ echo "Manutenção concluída!"
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciamento de Memória
 
-###  Configuração de Memória
+### Configuração de Memória
 
 #### **Limites de Memória Node.js**
+
 ```bash
 # <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar limites de memória para Node.js
 NODE_OPTIONS="--max-old-space-size=4096 --max-semi-space-size=512"
@@ -406,6 +419,7 @@ docker run -e NODE_OPTIONS="--max-old-space-size=4096" n8nio/n8n
 ```
 
 #### **Configuração de Memória Redis**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Redis otimizada
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> redis.conf
@@ -421,9 +435,10 @@ appendonly yes
 appendfsync everysec
 ```
 
-###  Monitoramento de Memória
+### Monitoramento de Memória
 
 #### **Script de Monitoramento de Memória**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> memory-monitor.sh
@@ -473,9 +488,10 @@ done
 
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento de Performance
 
-###  Métricas de Performance
+### Métricas de Performance
 
 #### **Script de Métricas**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> performance-metrics.sh
@@ -526,9 +542,10 @@ echo "Jobs processados: $(redis-cli get n8n:stats:processed || echo '0')"
 echo "Jobs falharam: $(redis-cli get n8n:stats:failed || echo '0')"
 ```
 
-###  Alertas de Performance
+### Alertas de Performance
 
 #### **Configuração de Alertas**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> performance-alerts.sh
@@ -590,9 +607,10 @@ fi
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Técnicas Avançadas de Tuning
 
-###  Otimização de Workflows
+### Otimização de Workflows
 
 #### **Boas Práticas de Performance**
+
 ```javascript
 // 1. Usar batch processing para grandes volumes
 const batchSize = 100;
@@ -632,9 +650,10 @@ async function retryWithBackoff(fn, maxRetries = 3) {
 }
 ```
 
-###  Otimização de Rede
+### Otimização de Rede
 
 #### **Configuração de Rede**
+
 ```bash
 # <ion-icon name="grid-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Otimizações de rede para Linux
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/sysctl.conf
@@ -661,9 +680,10 @@ net.netfilter.nf_conntrack_tcp_timeout_established = 86400
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
-###  Problemas Comuns
+### Problemas Comuns
 
 #### **Performance lenta**
+
 ```bash
 # <ion-icon name="school-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar uso de recursos
 docker stats --no-stream
@@ -680,6 +700,7 @@ LIMIT 10;"
 ```
 
 #### **Memory leaks**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar uso de memória
 docker exec n8n-main node -e "
@@ -693,6 +714,7 @@ docker exec n8n-main node --trace-gc -e "console.log('GC test')"
 ```
 
 #### **Timeouts frequentes**
+
 ```bash
 # <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar configurações de timeout
 docker exec n8n-main env | grep -E "(TIMEOUT|EXECUTIONS)"
@@ -708,7 +730,7 @@ docker logs n8n-main | grep -i timeout
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
-###  Configuração
+### Configuração
 
 - [ ] Workers configurados adequadamente
 - [ ] Timeouts otimizados
@@ -716,7 +738,7 @@ docker logs n8n-main | grep -i timeout
 - [ ] Redis configurado
 - [ ] Memória configurada
 
-###  Performance
+### Performance
 
 - [ ] Métricas sendo coletadas
 - [ ] Alertas configurados
@@ -724,7 +746,7 @@ docker logs n8n-main | grep -i timeout
 - [ ] Logs estruturados
 - [ ] Backup de configurações
 
-###  Monitoramento
+### Monitoramento
 
 - [ ] Dashboard de performance
 - [ ] Alertas funcionando
@@ -732,7 +754,7 @@ docker logs n8n-main | grep -i timeout
 - [ ] Métricas históricas
 - [ ] Relatórios automáticos
 
-###  Manutenção
+### Manutenção
 
 - [ ] Scripts de manutenção
 - [ ] Limpeza automática

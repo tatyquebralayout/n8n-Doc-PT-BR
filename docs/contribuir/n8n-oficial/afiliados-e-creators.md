@@ -17,6 +17,7 @@ Esta é uma forma de construir sua marca pessoal, compartilhar seu conhecimento 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Duas Formas Principais de Criar Conteúdo
 
 ### **1. Criar Templates de Workflows**
+
 Como detalhado na nossa página de [Contribuição com Modelos (Templates)](./contribuir-modelos), você pode submeter seus workflows para a galeria oficial através do **n8n Creator Hub**.
 
 **[Visite o n8n Creator Hub](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f)**
@@ -24,6 +25,7 @@ Como detalhado na nossa página de [Contribuição com Modelos (Templates)](./co
 Isso permite que outros usuários descubram e utilizem suas automações como ponto de partida.
 
 ### **2. Escrever para o Blog do n8n**
+
 Você também pode escrever um artigo para o [blog oficial do n8n](https://n8n.io/blog/). Os temas podem variar desde tutoriais de workflows, peças de opinião sobre automação, ou guias para resolver problemas em nichos específicos.
 
 #### **Como Submeter um Artigo**

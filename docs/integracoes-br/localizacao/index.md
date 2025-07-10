@@ -5,4 +5,4 @@ title: Localização
 
 # <ion-icon name="location-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Localização
 
-Escolha um serviço de localização no menu lateral para ver detalhes. 
+Escolha um serviço de localização no menu lateral para ver detalhes.

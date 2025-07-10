@@ -11,40 +11,45 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você pode fazer
 
--  **Ler dados** de planilhas existentes
--  **Criar novas linhas** automaticamente
--  **Atualizar células** específicas
--  **Deletar dados** quando necessário
--  **Criar novas planilhas** programaticamente
--  **Gerenciar permissões** de acesso
+- **Ler dados** de planilhas existentes
+- **Criar novas linhas** automaticamente
+- **Atualizar células** específicas
+- **Deletar dados** quando necessário
+- **Criar novas planilhas** programaticamente
+- **Gerenciar permissões** de acesso
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
-###  1. Conta Google
--  Conta Google ativa
--  Acesso ao Google Sheets
+### 1. Conta Google
 
-###  2. Credenciais OAuth2
--  Criar projeto no Google Cloud Console
--  Ativar Google Sheets API
--  Configurar OAuth2 credentials
+- Conta Google ativa
+- Acesso ao Google Sheets
+
+### 2. Credenciais OAuth2
+
+- Criar projeto no Google Cloud Console
+- Ativar Google Sheets API
+- Configurar OAuth2 credentials
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Rápida
 
-###  1. Criar Credencial
-1.  **Vá em:** Credentials → Add new
-2.  **Escolha:** Google OAuth2 API
-3.  **Configure:** Client ID e Client Secret
-4.  **Autorize:** Sua conta Google
+### 1. Criar Credencial
 
-###  2. Adicionar Node
-1.  **Busque:** "Google Sheets" no menu de nodes
-2.  **Arrastar:** Para o canvas
-3.  **Conectar:** Sua credencial OAuth2
+1. **Vá em:** Credentials → Add new
+2. **Escolha:** Google OAuth2 API
+3. **Configure:** Client ID e Client Secret
+4. **Autorize:** Sua conta Google
+
+### 2. Adicionar Node
+
+1. **Busque:** "Google Sheets" no menu de nodes
+2. **Arrastar:** Para o canvas
+3. **Conectar:** Sua credencial OAuth2
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Operações Disponíveis
 
-###  Read (Ler Dados)
+### Read (Ler Dados)
+
 ```json
 {
 "operation": "read",
@@ -54,7 +59,8 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 }
 ```
 
-###  Append (Adicionar Linha)
+### Append (Adicionar Linha)
+
 ```json
 {
 "operation": "append",
@@ -66,7 +72,8 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 }
 ```
 
-###  Update (Atualizar Dados)
+### Update (Atualizar Dados)
+
 ```json
 {
 "operation": "update",
@@ -77,7 +84,8 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 }
 ```
 
-###  Clear (Limpar Dados)
+### Clear (Limpar Dados)
+
 ```json
 {
 "operation": "clear",
@@ -89,50 +97,62 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 
 ## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Populares
 
-###  Lead Capture
+### Lead Capture
+
 ```
 Webhook → Validação → Google Sheets (Append)
 ```
+
 **Cenário:** Formulário no site salva leads automaticamente
 
-###  Relatórios Automáticos
+### Relatórios Automáticos
+
 ```
 Schedule → API Call → Transform → Google Sheets
 ```
+
 **Cenário:** Relatórios diários de vendas
 
-###  E-commerce Sync
+### E-commerce Sync
+
 ```
 Shopify Webhook → Google Sheets → Email Notification
 ```
+
 **Cenário:** Novos pedidos salvos em planilha
 
-###  CRM Integration
+### CRM Integration
+
 ```
 Google Sheets → CRM API → Slack Notification
 ```
+
 **Cenário:** Sincronizar dados entre sistemas
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dicas e Truques
 
-###  Performance
--  **Use ranges específicos** em vez de ler planilha inteira
--  **Batch operations** para múltiplas linhas
--  **Cache data** quando possível
+### Performance
 
-###  Segurança
--  **Permissions mínimas** nas credenciais OAuth2
--  **Validate data** antes de escrever
--  **Use service accounts** para produção
+- **Use ranges específicos** em vez de ler planilha inteira
+- **Batch operations** para múltiplas linhas
+- **Cache data** quando possível
 
-###  Responsividade
--  **Error handling** para conexões lentas
--  **Retry logic** para operações falhadas
--  **Timeout settings** apropriados
+### Segurança
+
+- **Permissions mínimas** nas credenciais OAuth2
+- **Validate data** antes de escrever
+- **Use service accounts** para produção
+
+### Responsividade
+
+- **Error handling** para conexões lentas
+- **Retry logic** para operações falhadas
+- **Timeout settings** apropriados
 
 ## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações Avançadas
 
-###  Service Account (Recomendado para Produção)
+### Service Account (Recomendado para Produção)
+
 ```json
 {
 "type": "service_account",
@@ -143,7 +163,8 @@ Google Sheets → CRM API → Slack Notification
 }
 ```
 
-###  Batch Updates
+### Batch Updates
+
 ```json
 {
 "operation": "batchUpdate",
@@ -163,21 +184,24 @@ Google Sheets → CRM API → Slack Notification
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
-###  Erro: "Invalid credentials"
+### Erro: "Invalid credentials"
+
 ```bash
 Verificar Client ID e Secret
 Reautorizar no OAuth2
 Confirmar APIs habilitadas
 ```
 
-###  Erro: "Permission denied"
+### Erro: "Permission denied"
+
 ```bash
 Verificar permissões da planilha
 Confirmar email do service account
 Testar com editor permissions
 ```
 
-###  Erro: "Quota exceeded"
+### Erro: "Quota exceeded"
+
 ```bash
 Implementar rate limiting
 Usar batch operations
@@ -186,10 +210,10 @@ Considerar service account
 
 ## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Links Úteis
 
--  **[Google Sheets API](https://developers.google.com/sheets/api)** - Documentação oficial
--  **[Google Cloud Console](https://console.cloud.google.com)** - Gerenciar credenciais
--  **[n8n Google Sheets docs](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/)** - Documentação específica
+- **[Google Sheets API](https://developers.google.com/sheets/api)** - Documentação oficial
+- **[Google Cloud Console](https://console.cloud.google.com)** - Gerenciar credenciais
+- **[n8n Google Sheets docs](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googlesheets/)** - Documentação específica
 
 ---
 
-** Próximos passos:** Configure suas credenciais OAuth2 e comece a automatizar suas planilhas!
+**Próximos passos:** Configure suas credenciais OAuth2 e comece a automatizar suas planilhas!

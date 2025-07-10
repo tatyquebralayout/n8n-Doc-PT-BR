@@ -12,9 +12,6 @@ import CodeBlock from '@theme/CodeBlock';
 
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Splitting de Workflows: Criando Lógica Condicional no n8n
 
-
-
-
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender nesta página
 
 <Admonition type="info" title="📚 Objetivos de Aprendizado">
@@ -67,6 +64,7 @@ graph TD
     style H fill:#e8f5e8
     style I fill:#e8f5e8
 ```
+
 </Admonition>
 
 ### Por que e quando usar Splitting?
@@ -97,6 +95,7 @@ graph LR
 ```
 
 **Limitações:**
+
 - Todos os itens seguem o mesmo caminho
 - Não há personalização baseada em dados
 - Lógica rígida e inflexível
@@ -124,6 +123,7 @@ graph TD
 ```
 
 **Vantagens:**
+
 - Lógica adaptativa baseada em dados
 - Múltiplos caminhos de processamento
 - Automação inteligente e personalizada
@@ -147,7 +147,7 @@ graph TD
 </TabItem>
 <TabItem value="if" label="Node IF">
 
-###  Node IF: Decisões Simples (Sim/Não)
+### Node IF: Decisões Simples (Sim/Não)
 
 **Quando usar**: Para condições binárias simples onde você precisa de apenas dois caminhos.
 
@@ -172,6 +172,7 @@ graph TD
 ```
 
 **Configurações Críticas:**
+
 - **Always Output Data**: Garante que mesmo ramos "vazios" produzam dados
 - **Combine Conditions**: Use AND/OR para lógicas complexas
 - **Data Type**: Certifique-se de comparar tipos compatíveis - veja [transformações de dados](/logica-e-dados/data/transformacoes-dados)
@@ -339,7 +340,7 @@ if (valor_pedido > 1000) {
 </TabItem>
 <TabItem value="switch" label="Node Switch">
 
-###  Node Switch: Decisões Múltiplas
+### Node Switch: Decisões Múltiplas
 
 **Quando usar**: Para múltiplas condições onde você precisa de vários caminhos diferentes.
 
@@ -375,6 +376,7 @@ graph TD
 ```
 
 **Modos de Operação:**
+
 - **Rules**: Comparação direta (mais simples)
 - **Expression**: [Lógica JavaScript](/referencia/recursos/glossario) (mais flexível)
 
@@ -406,7 +408,7 @@ switch (origem_lead) {
 </TabItem>
 <TabItem value="merge" label="Node Merge">
 
-###  Node Merge: Reunindo Ramificações
+### Node Merge: Reunindo Ramificações
 
 **Quando usar**: Quando diferentes caminhos precisam convergir para uma ação final comum.
 
@@ -432,6 +434,7 @@ graph TD
 ```
 
 **Estratégias de Merge:**
+
 - **Wait → All**: Aguarda todos os ramos terminarem
 - **Merge By Key**: Combina dados baseado em chaves específicas
 - **Append**: Adiciona dados sequencialmente
@@ -443,7 +446,7 @@ Saiba mais sobre [manipulação de dados](/logica-e-dados/data/data-mapping-avan
 
 ## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação Prática: Exemplo Completo
 
-###  Cenário: Sistema de Aprovação de Despesas
+### Cenário: Sistema de Aprovação de Despesas
 
 Vamos criar um workflow que automatiza a aprovação de despesas corporativas com base em valor e categoria:
 
@@ -491,7 +494,7 @@ graph TD
 <Tabs>
 <TabItem value="passo1" label="1. Webhook/Trigger" default>
 
-####  1. Webhook/Trigger – Receber Dados
+#### 1. Webhook/Trigger – Receber Dados
 
 **Objetivo**: O usuário envia um ticket de despesa, disparando o workflow.
 
@@ -510,7 +513,7 @@ graph TD
 </TabItem>
 <TabItem value="passo2" label="2. Extrair Dados">
 
-####  2. Set/Function – Extrair Dados Essenciais
+#### 2. Set/Function – Extrair Dados Essenciais
 
 **Objetivo**: Extrair `priority`, `supportPlan`, `description`, `valor`, `categoria`.
 
@@ -531,7 +534,7 @@ return dados;`}
 </TabItem>
 <TabItem value="passo3" label="3. IF Categoria">
 
-####  3. IF Categoria – Verificar se é Viagem
+#### 3. IF Categoria – Verificar se é Viagem
 
 ```mermaid
 graph LR
@@ -546,6 +549,7 @@ graph LR
 ```
 
 **Configuração do IF Node "Verificar Categoria"**:
+
 - **Condition**: `{{ $json.categoria === "viagem" }}`
 - **Always Output Data**: ✅ Ativado
 - **true** → Caminho RH
@@ -554,7 +558,7 @@ graph LR
 </TabItem>
 <TabItem value="passo4" label="4. Switch Valor">
 
-####  4. Switch Valor – Análise por Valor
+#### 4. Switch Valor – Análise por Valor
 
 ```mermaid
 graph TD
@@ -571,6 +575,7 @@ graph TD
 ```
 
 **Configuração do Switch Node "Análise por Valor"**:
+
 - **Rule 1**: `{{ $json.valor <= 500 }}` → **Aprovação Automática**
 - **Rule 2**: `{{ $json.valor > 500 && $json.valor <= 2000 }}` → **Supervisor**
 - **Rule 3**: `{{ $json.valor > 2000 }}` → **Diretoria**
@@ -578,7 +583,7 @@ graph TD
 </TabItem>
 <TabItem value="passo5" label="5. Ações Finais">
 
-####  5. Ações Finais – Processar Cada Caminho
+#### 5. Ações Finais – Processar Cada Caminho
 
 <Tabs>
 <TabItem value="rh" label="Caminho RH" default>
@@ -693,16 +698,18 @@ graph LR
 </TabItem>
 <TabItem value="passo6" label="6. Merge (Opcional)">
 
-####  6. [Merge](/logica-e-dados/flow-logic/merging) – Reunir Resultados
+#### 6. [Merge](/logica-e-dados/flow-logic/merging) – Reunir Resultados
 
 **Objetivo**: Se etapas posteriores exigirem o conjunto completo de itens, configure *Wait → All*.
 
 **Configurações importantes**:
+
 - **Mode**: Wait
 - **Strategy**: All
 - **Timeout**: 30 minutos (para aprovações)
 
 **Ações finais após merge**:
+
 - Atualizar CRM
 - Logar métricas
 - Enviar notificação final
@@ -713,7 +720,7 @@ graph LR
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Lógica de Execução e Controle
 
-###  Entendendo a Ordem de Execução
+### Entendendo a Ordem de Execução
 
 <Tabs>
 <TabItem value="ordem" label="Ordem de Execução" default>
@@ -751,7 +758,7 @@ graph TD
 </TabItem>
 <TabItem value="always-output" label="Always Output Data">
 
-###  Always Output Data
+### Always Output Data
 
 **Função**: Garante que mesmo um ramo "vazio" produza um item, evitando falhas na junção.
 
@@ -762,11 +769,13 @@ graph TD
 - Alguns ramos podem não ter dados
 
 ❌ **Não use quando:**
+
 - Quer que ramos vazios parem a execução
 - Dados vazios causariam problemas downstream
 </Admonition>
 
 **Exemplo prático**:
+
 ```javascript
 // Sem Always Output Data
 if (condicao_raramente_verdadeira) {
@@ -782,7 +791,7 @@ if (condicao_raramente_verdadeira) {
 }
 ```
 
-###  Sintaxe JavaScript em Expressões
+### Sintaxe JavaScript em Expressões
 
 <Admonition type="tip" title="💡 Boas Práticas para Expressões">
 **Sintaxe Recomendada:**
@@ -801,6 +810,7 @@ if (condicao_raramente_verdadeira) {
 
 // ✅ Verificação de existência
 {{ $json.valor !== undefined && $json.valor > 1000 }}
+
 ```
 
 **Evite:**
@@ -814,12 +824,13 @@ if (condicao_raramente_verdadeira) {
 // ❌ Sem verificações de segurança
 {{ $json.nested.deep.property }}
 ```
+
 </Admonition>
 
 </TabItem>
 <TabItem value="paralelismo" label="Paralelismo">
 
-###  Paralelismo e Performance
+### Paralelismo e Performance
 
 **Em instâncias self-hosted**: Habilite [filas Redis/RabbitMQ](/hosting-n8n/configuracao/queues) para processar ramos em paralelo.
 
@@ -850,12 +861,13 @@ graph TD
 ```
 
 **Configuração para alta performance**:
+
 - **Queue Mode**: Ativado
 - **Concurrent Executions**: 10-50 (baseado na capacidade)
 - **Timeout**: Configurado por tipo de processo
 - **Retry Policy**: Configurada para falhas temporárias
 
-###  Performance em Produção
+### Performance em Produção
 
 <Admonition type="tip" title="Configurações Otimizadas para Produção">
 **Processamento Distribuído:**
@@ -864,17 +876,19 @@ graph TD
 - **Worker Scaling**: Ajuste conforme demanda
 
 **Estratégia de Timeout:**
+
 - **Timeout Strategy**: 30s operações simples, 5min complexas
 - **Connection Timeout**: 10s para APIs externas
 - **Retry Backoff**: Exponencial com jitter
 
 **Monitoramento:**
+
 - **Métricas de Performance**: Latência, throughput, taxa de erro
 - **Alertas**: Para timeouts e falhas de execução
 - **Logs Estruturados**: Para debugging e análise
 </Admonition>
 
-###  Monitoramento de Splitting
+### Monitoramento de Splitting
 
 <Admonition type="info" title="Métricas Essenciais para Workflows com Splitting">
 **Eficiência de Roteamento:**
@@ -883,11 +897,13 @@ graph TD
 - **Condition Accuracy**: Taxa de acerto das condições
 
 **Performance por Ramo:**
+
 - **Branch Performance**: Tempo médio por ramo de execução
 - **Bottleneck Detection**: Identificação de gargalos específicos
 - **Parallel Efficiency**: Eficácia do processamento paralelo
 
 **Qualidade e Confiabilidade:**
+
 - **Error Rate**: Falhas por tipo de condição
 - **Retry Success Rate**: Taxa de sucesso nas reexecuções
 - **Data Quality**: Integridade dos dados em cada ramo
@@ -925,7 +941,7 @@ graph TD
 <Tabs>
 <TabItem value="sequencial" label="Splitting Sequencial" default>
 
-###  Splitting Sequencial (Cascata)
+### Splitting Sequencial (Cascata)
 
 Para lógicas mais complexas, você pode encadear múltiplos splits - veja mais sobre [subworkflows](/logica-e-dados/flow-logic/subworkflows):
 
@@ -933,6 +949,7 @@ Para lógicas mais complexas, você pode encadear múltiplos splits - veja mais 
 <TabItem value="visao-geral" label="Visão Geral" default>
 
 **Conceito Simplificado:**
+
 ```mermaid
 graph TD
     A[Entrada] --> B[Switch 1]
@@ -948,6 +965,7 @@ graph TD
 ```
 
 **Estrutura em Cascata:**
+
 - **Nível 1**: Categorização inicial
 - **Nível 2**: Refinamento por prioridade
 - **Nível 3**: Decisão final por contexto
@@ -958,6 +976,7 @@ graph TD
 **Sistema de Suporte Técnico - Passo a Passo:**
 
 **1. Primeiro Split - Categoria:**
+
 ```mermaid
 graph LR
     A[Ticket] --> B{Tipo}
@@ -973,6 +992,7 @@ graph LR
 ```
 
 **2. Segundo Split - Criticidade:**
+
 ```mermaid
 graph LR
     A[Cada Ramo] --> B{Criticidade}
@@ -988,6 +1008,7 @@ graph LR
 ```
 
 **3. Terceiro Split - Cliente:**
+
 ```mermaid
 graph LR
     A[Cada Prioridade] --> B{Cliente}
@@ -1020,6 +1041,7 @@ graph TD
 ```
 
 **Resultado Final:**
+
 - **Software** → **Alta Criticidade** → **Cliente VIP** = **Especialista com SLA de 1 hora**
 
 </TabItem>
@@ -1037,7 +1059,7 @@ graph TD
 </TabItem>
 <TabItem value="paralelo" label="Splitting Paralelo">
 
-###  Splitting Paralelo
+### Splitting Paralelo
 
 Quando você precisa executar múltiplas verificações simultaneamente:
 
@@ -1073,13 +1095,14 @@ graph TD
 </TabItem>
 <TabItem value="merge" label="Splitting com Merge">
 
-###  Splitting com [Merge](/logica-e-dados/flow-logic/merging)
+### Splitting com [Merge](/logica-e-dados/flow-logic/merging)
 
 Após dividir o fluxo, você pode reunir os caminhos usando um **[Merge node](/logica-e-dados/flow-logic/merging)**:
 
 **Quando usar**: Quando diferentes caminhos precisam convergir para uma ação final comum.
 
 **Modos de Merge Disponíveis:**
+
 - **Append**: Concatena todos os dados de entrada
 - **Keep Key Matches**: Mantém apenas itens com chaves correspondentes  
 - **Remove Key Matches**: Remove itens duplicados por chave
@@ -1109,8 +1132,8 @@ graph TD
 <CodeBlock language="javascript" title="Exemplo: Processar pedido">
 {`// Exemplo: Processar pedido
 Pedido → IF (Cliente VIP?)
-           ├── TRUE → Desconto VIP → 
-           └── FALSE → Desconto Padrão → 
+           ├── TRUE → Desconto VIP →
+           └── FALSE → Desconto Padrão →
                                         ↘
                                      Merge → Processar Pagamento`}
 </CodeBlock>
@@ -1120,7 +1143,7 @@ Pedido → IF (Cliente VIP?)
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Debugging: Ferramentas e Técnicas
 
-###  Debugging de Condições
+### Debugging de Condições
 
 <Admonition type="tip" title="🔍 Técnicas de Debug para Splitting">
 **1. Adicione um [Edit Fields (Set)](/integracoes/builtin-nodes/core-nodes/edit-fields-set) antes do split:**
@@ -1134,11 +1157,13 @@ Pedido → IF (Cliente VIP?)
 ```
 
 **2. Use [Expression Editor](/referencia/recursos/glossario) para testar condições:**
+
 - Teste expressões isoladamente
 - Verifique tipos de dados
 - Confirme valores antes de aplicar no workflow
 
 **3. Ative logging no [Code node](/integracoes/builtin-nodes/core-nodes/code):**
+
 ```javascript
 // Log detalhado para debug
 console.log('Splitting Debug:', {
@@ -1150,16 +1175,19 @@ console.log('Splitting Debug:', {
 
 return $input.item;
 ```
+
 </Admonition>
 
-###  Ferramentas de Debugging
+### Ferramentas de Debugging
 
 **Ferramentas Built-in:**
+
 - **Execution History**: Visualize dados em cada node
 - **[Debug Helper](/integracoes/builtin-nodes/core-nodes/debug-helper)**: Insira breakpoints visuais
 - **Data Pinning**: Congele dados para testes consistentes
 
 **Ferramentas Externas:**
+
 - **Webhook.site**: Para inspecionar payloads HTTP
 - **Postman**: Para testes manuais de APIs
 - **Browser DevTools**: Para debugging de expressões JavaScript
@@ -1169,7 +1197,7 @@ return $input.item;
 <Tabs>
 <TabItem value="problema1" label="Workflow Para na Condição" default>
 
-###  ❌ Problema: "Workflow Para na Condição"
+### ❌ Problema: "Workflow Para na Condição"
 
 <Admonition type="warning" title="Sintomas">
 O workflow executa até o node de splitting e não continua.
@@ -1186,6 +1214,7 @@ graph TD
 ```
 
 **Diagnóstico**:
+
 1. Verifique se a condição está retornando o valor esperado
 2. Teste a expressão no **Expression Editor**
 3. Confirme se há dados na entrada do node
@@ -1213,7 +1242,7 @@ Saiba mais sobre [expressões JavaScript](/referencia/recursos/glossario) e [tip
 </TabItem>
 <TabItem value="problema2" label="Caminho Errado">
 
-###  ❌ Problema: "Caminho Errado Sendo Executado"
+### ❌ Problema: "Caminho Errado Sendo Executado"
 
 <Admonition type="warning" title="Sintomas">
 Os dados seguem por um caminho diferente do esperado.
@@ -1241,13 +1270,14 @@ graph TD
 </CodeBlock>
 
 **Soluções comuns**:
+
 - Converta tipos: `{{ parseInt($json.valor) > 1000 }}`
 - Trate valores nulos: `{{ ($json.valor || 0) > 1000 }}`
 - Use trim para strings: `{{ $json.categoria.trim() === "Viagem" }}`
 
 Para mais informações sobre [tratamento de erros](/logica-e-dados/flow-logic/error-handling).
 
-###  ❌ Problema: "Erro em Ramificação Específica"
+### ❌ Problema: "Erro em Ramificação Específica"
 
 <Admonition type="danger" title="Sintomas">
 Uma ramificação falha mas o workflow continua nas outras.
@@ -1273,6 +1303,7 @@ graph TD
 ```
 
 **Solução**: Use [**Error Trigger**](/integracoes/builtin-nodes/core-nodes/error-trigger) para capturar erros em ramificações:
+
 - **Error Trigger** captura falhas de qualquer node do workflow
 - Configure **Error Workflow** específico para tratar falhas de splitting
 - Use **Continue On Fail** em nodes críticos para não quebrar outras ramificações
@@ -1280,7 +1311,7 @@ graph TD
 </TabItem>
 <TabItem value="problema3" label="Multiple Output Branches">
 
-###  ❌ Problema: "Multiple Output Branches"
+### ❌ Problema: "Multiple Output Branches"
 
 <Admonition type="warning" title="Sintomas">
 Switch node criando saídas inesperadas.
@@ -1301,10 +1332,12 @@ graph TD
 ```
 
 **Solução**: Configure adequadamente o **Mode**:
+
 - **"Rules"**: Para múltiplas regras independentes
 - **"Expression"**: Para lógica JavaScript personalizada
 
 **Configurações Importantes:**
+
 - **Send data to all matching outputs**: Controla se dados vão para todos os outputs que atendem as condições
 - **Fallback Output**: Define comportamento para dados que não atendem nenhuma regra
 
@@ -1316,7 +1349,7 @@ graph TD
 <Tabs>
 <TabItem value="ecommerce" label="E-commerce" default>
 
-###  1. E-commerce: Processamento de Pedidos
+### 1. E-commerce: Processamento de Pedidos
 
 ```mermaid
 graph TD
@@ -1351,7 +1384,7 @@ Para integrar com APIs de pagamento brasileiras, consulte nossa seção sobre [i
 </TabItem>
 <TabItem value="marketing" label="Marketing">
 
-###  2. Marketing: Segmentação de Leads
+### 2. Marketing: Segmentação de Leads
 
 ```mermaid
 graph TD
@@ -1380,7 +1413,7 @@ graph TD
 </TabItem>
 <TabItem value="suporte" label="Suporte">
 
-###  3. Suporte: Triagem de Tickets
+### 3. Suporte: Triagem de Tickets
 
 ```mermaid
 graph TD
@@ -1416,7 +1449,7 @@ Para automatizar respostas, considere usar [Slack](/integracoes/app-nodes/commun
 <Tabs>
 <TabItem value="boas-praticas" label="✅ Boas Práticas" default>
 
-###  Boas Práticas Essenciais
+### Boas Práticas Essenciais
 
 <Admonition type="tip" title="🎯 Práticas Recomendadas">
 **Nomenclatura e Documentação:**
@@ -1425,11 +1458,13 @@ Para automatizar respostas, considere usar [Slack](/integracoes/app-nodes/commun
 - **Use comentários** para explicar lógicas complexas
 
 **Estrutura e Organização:**
+
 - **Evite aninhar IF dentro de IF**: prefira **Switch** quando houver >2 caminhos
 - **Split Out antes de splitting** quando precisar percorrer cada linha de uma lista separadamente
 - **Centralize regras de negócio** em nodes dedicados para facilitar manutenção
 
 **Testes e Validação:**
+
 - **Teste cenários extremos** (valores nulos, caminhos sem saída) antes de mover para produção
 - **Valide tipos de dados** antes de fazer comparações
 - **Configure timeouts** apropriados para cada tipo de processo
@@ -1452,7 +1487,7 @@ graph TD
 </TabItem>
 <TabItem value="armadilhas" label="❌ Armadilhas Comuns">
 
-###  Armadilhas a Evitar
+### Armadilhas a Evitar
 
 <Admonition type="danger" title="🚨 Cuidados Importantes">
 **Problemas de Estrutura:**
@@ -1461,11 +1496,13 @@ graph TD
 - **Não ignore o Always Output Data**: Pode quebrar merges
 
 **Problemas de Dados:**
+
 - **Não compare tipos diferentes**: `"100" !== 100`
 - **Não assuma dados sempre existem**: Trate valores nulos/undefined
 - **Não ignore case sensitivity**: `"VIAGEM" !== "viagem"`
 
 **Problemas de Performance:**
+
 - **Não crie nodes desnecessários**: Use Switch ao invés de múltiplos IFs
 - **Não deixe execuções infinitas**: Configure timeouts
 - **Não ignore recursos de paralelismo**: Use filas quando apropriado
@@ -1488,9 +1525,10 @@ graph TD
 </TabItem>
 <TabItem value="performance" label="Performance">
 
-###  Otimização de Performance
+### Otimização de Performance
 
 **Estratégias de Otimização:**
+
 - **Minimize nodes desnecessários**: Use Switch ao invés de múltiplos IFs sequenciais
 - **Cache resultados**: Para condições computacionalmente caras
 - **Use paralelismo**: Configure [filas Redis/RabbitMQ](/hosting-n8n/configuracao/queues) para alta concorrência
@@ -1515,6 +1553,7 @@ graph LR
 - **Paralelismo**: Automático até o limite do plano
 
 **Self-hosted:**
+
 - **Timeout**: 30s para operações simples, 5min para complexas
 - **Retry Policy**: 3 tentativas com backoff exponencial
 - **Memory Limit**: Ajuste baseado no volume de dados
@@ -1522,12 +1561,13 @@ graph LR
 - **Worker Scaling**: Múltiplos workers para processamento distribuído
 </Admonition>
 
-###  Migração de IF Múltiplos para Switch
+### Migração de IF Múltiplos para Switch
 
 <Admonition type="tip" title="Refatoração para Melhor Performance">
 **Cenário Comum**: Workflows com múltiplos IFs aninhados que se tornaram difíceis de manter.
 
 **Antes: Múltiplos IFs Aninhados**
+
 ```javascript
 // ❌ Estrutura complexa e difícil de manter
 IF (categoria === "software") {
@@ -1544,6 +1584,7 @@ IF (categoria === "software") {
 ```
 
 **Depois: Um Switch Organizado**
+
 ```javascript
 // ✅ Estrutura clara e eficiente
 SWITCH (categoria + "_" + prioridade + "_" + cliente) {
@@ -1559,6 +1600,7 @@ SWITCH (categoria + "_" + prioridade + "_" + cliente) {
 ```
 
 **Benefícios da Migração:**
+
 - **Manutenibilidade**: Código mais limpo e fácil de entender
 - **Performance**: Menos overhead de processamento
 - **Escalabilidade**: Fácil adição de novos casos
@@ -1592,9 +1634,10 @@ graph TD
 </TabItem>
 <TabItem value="manutencao" label="🔧 Manutenibilidade">
 
-###  Facilitar Manutenção
+### Facilitar Manutenção
 
 **Nomenclatura Consistente:**
+
 ```mermaid
 graph LR
     A[❌ Nome Genérico: IF] --> B[✅ Nome Descritivo: IF Cliente VIP]
@@ -1604,11 +1647,13 @@ graph LR
 ```
 
 **Documentação Estruturada:**
+
 - **Description**: Explique o propósito do nó
 - **Notes**: Adicione contexto de negócio
 - **Version Control**: Documente mudanças importantes
 
 **Modularização:**
+
 ```mermaid
 graph TD
     A[Regras Centralizadas] --> B[Node de Configuração]
@@ -1626,7 +1671,7 @@ graph TD
 
 ## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Sub-workflows
 
-###  Splitting + Execute Sub-workflow
+### Splitting + Execute Sub-workflow
 
 Para lógicas complexas, combine splitting com [**Execute Sub-workflow**](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow):
 
@@ -1657,12 +1702,14 @@ graph TD
 ```
 
 **Vantagens:**
+
 - **Modularidade**: Cada sub-workflow é independente e reutilizável
 - **Manutenção**: Easier debugging e atualizações
 - **Performance**: Sub-workflows podem rodar em paralelo
 - **Organização**: Separa lógica complexa em componentes menores
 
 **Configuração:**
+
 1. **Workflow Principal**: Contém o splitting logic
 2. **Sub-workflows**: Cada um com lógica específica de categoria
 3. **Error Handling**: Cada sub-workflow pode ter seu próprio tratamento de erro
@@ -1689,7 +1736,7 @@ graph TD
 6. **[Execute Sub-workflow](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)**: Modularização avançada
 </Admonition>
 
-###  Exercício Prático
+### Exercício Prático
 
 <Admonition type="tip" title="Desafio">
 **Crie um workflow de aprovação de férias que:**
@@ -1710,23 +1757,26 @@ graph TD
 - **Não confunda** com Split Out (que quebra listas em itens individuais)
 
 **Implementação Prática:**
+
 - Combine ramificações com **Merge** quando necessário, mantendo integridade dos dados
 - Ative **Always Output Data** em ramos críticos para evitar execuções "mortas"
 - Configure **timeouts** e **retry policies** apropriados
 
 **Boas Práticas:**
+
 - **Nomeie nós claramente** para facilitar manutenção
 - **Documente regras complexas** no Description
 - **Teste cenários extremos** antes de produção
 - **Use paralelismo** para alta performance
 
 **Ordem de Execução:**
+
 - O n8n executa ramos em **paralelo** por padrão
 - Use **Merge** se precisar aguardar todos os ramos
 - Configure **filas Redis/RabbitMQ** para processamento distribuído
 </Admonition>
 
-###  Fluxo de Aprendizado Recomendado
+### Fluxo de Aprendizado Recomendado
 
 ```mermaid
 graph TD

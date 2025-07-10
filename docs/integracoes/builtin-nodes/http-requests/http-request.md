@@ -14,16 +14,18 @@ O **HTTP Request Node** permite fazer **chamadas HTTP** para qualquer API ou ser
 **HTTP Request = "Fazer Chamada para API"**
 
 Este node é uma **AÇÃO** que:
--  **Envia** requisições HTTP (GET, POST, PUT, DELETE)
--  **Recebe** respostas de APIs
--  **Autentica** com diferentes métodos
--  **Processa** dados de entrada e saída
 
-> ** Diferença do Webhook:** HTTP Request FAZ chamadas. Webhook RECEBE chamadas.
+- **Envia** requisições HTTP (GET, POST, PUT, DELETE)
+- **Recebe** respostas de APIs
+- **Autentica** com diferentes métodos
+- **Processa** dados de entrada e saída
+
+> **Diferença do Webhook:** HTTP Request FAZ chamadas. Webhook RECEBE chamadas.
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
 
-###  **1. Request Method**
+### **1. Request Method**
+
 ```
 GET - Buscar dados (não modifica)
 POST - Criar novos dados
@@ -32,21 +34,24 @@ PATCH - Atualizar dados parciais
 DELETE - Remover dados
 ```
 
-###  **2. URL**
+### **2. URL**
+
 ```
 https://api.exemplo.com/v1/usuarios
 https://jsonplaceholder.typicode.com/posts
 https://api.github.com/users/{{$json.username}}
 ```
 
-###  **3. Authentication**
--  **None** - Sem autenticação
--  **Basic Auth** - Usuário/senha
--  **Header Auth** - Token no cabeçalho
--  **OAuth2** - Fluxo OAuth completo
--  **Custom** - Autenticação personalizada
+### **3. Authentication**
 
-###  **4. Headers**
+- **None** - Sem autenticação
+- **Basic Auth** - Usuário/senha
+- **Header Auth** - Token no cabeçalho
+- **OAuth2** - Fluxo OAuth completo
+- **Custom** - Autenticação personalizada
+
+### **4. Headers**
+
 ```
 Content-Type: application/json
 Authorization: Bearer {{$json.token}}
@@ -58,12 +63,14 @@ User-Agent: n8n-workflow/1.0
 ### **Exemplo 1: Consultar CEP (ViaCEP)**
 
 **Configuração:**
+
 ```
 Method: GET
 URL: https://viacep.com.br/ws/{{$json.cep}}/json/
 ```
 
 **Entrada:**
+
 ```json
 {
 "cep": "01310-100"
@@ -71,6 +78,7 @@ URL: https://viacep.com.br/ws/{{$json.cep}}/json/
 ```
 
 **Saída:**
+
 ```json
 {
 "cep": "01310-100",
@@ -91,6 +99,7 @@ URL: https://viacep.com.br/ws/{{$json.cep}}/json/
 ### **Exemplo 2: Criar Usuário em API**
 
 **Configuração:**
+
 ```
 Method: POST
 URL: https://jsonplaceholder.typicode.com/users
@@ -99,6 +108,7 @@ Content-Type: application/json
 ```
 
 **Body (JSON):**
+
 ```json
 {
 "name": "{{$json.nome}}",
@@ -112,6 +122,7 @@ Content-Type: application/json
 ```
 
 **Entrada:**
+
 ```json
 {
 "nome": "João Silva",
@@ -126,6 +137,7 @@ Content-Type: application/json
 ### **Exemplo 3: Atualizar Status no Slack**
 
 **Configuração:**
+
 ```
 Method: POST
 URL: https://slack.com/api/users.profile.set
@@ -135,6 +147,7 @@ Content-Type: application/json
 ```
 
 **Body:**
+
 ```json
 {
 "profile": {
@@ -147,24 +160,28 @@ Content-Type: application/json
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Autenticação**
 
 ### **1. API Key no Header**
+
 ```
 Header: X-API-Key
 Value: sua-chave-api-aqui
 ```
 
 ### **2. Bearer Token**
+
 ```
 Header: Authorization 
 Value: Bearer {{$json.access_token}}
 ```
 
 ### **3. Basic Auth**
+
 ```
 Username: seu-usuario
 Password: sua-senha
 ```
 
 ### **4. OAuth2**
+
 ```
 Grant Type: Authorization Code
 Auth URL: https://api.exemplo.com/oauth/authorize
@@ -176,6 +193,7 @@ Client Secret: {{$credentials.oauth.clientSecret}}
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Processamento de Dados**
 
 ### **Query Parameters**
+
 ```
 URL: https://api.exemplo.com/search
 Parameters:
@@ -185,6 +203,7 @@ offset: {{$json.page * 10}}
 ```
 
 ### **Form Data**
+
 ```
 Content-Type: application/x-www-form-urlencoded
 
@@ -192,6 +211,7 @@ name={{$json.nome}}&email={{$json.email}}
 ```
 
 ### **Multipart (Upload de Arquivo)**
+
 ```
 Content-Type: multipart/form-data
 
@@ -202,6 +222,7 @@ description: {{$json.descricao}}
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Tratamento de Respostas**
 
 ### **Status Codes**
+
 ```javascript
 // Verificar sucesso
 if ($response.statusCode >= 200 && $response.statusCode < 300) {
@@ -212,6 +233,7 @@ if ($response.statusCode >= 200 && $response.statusCode < 300) {
 ```
 
 ### **Extrair Dados**
+
 ```javascript
 // Response JSON
 const dados = $response.body;
@@ -224,6 +246,7 @@ const nextPage = $response.headers['link'];
 ```
 
 ### **Paginação**
+
 ```javascript
 // Próxima página
 const nextUrl = $response.body.pagination.next_url;
@@ -235,12 +258,14 @@ if (nextUrl) {
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Tratamento de Erros**
 
 ### **Retry Logic**
+
 ```
 Retry on Fail: 3 tentativas
 Wait Between Tries: 1000ms (1 segundo)
 ```
 
 ### **Error Handling**
+
 ```javascript
 // Capturar erro específico
 try {
@@ -261,22 +286,26 @@ throw error;
 ## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **APIs Brasileiras Populares**
 
 ### **ViaCEP**
+
 ```
 GET https://viacep.com.br/ws/{cep}/json/
 ```
 
 ### **CNPJ (ReceitaWS)**
+
 ```
 GET https://receitaws.com.br/v1/cnpj/{{$json.cnpj}}
 ```
 
 ### **Banco Central (PIX)**
+
 ```
 POST https://api.bcb.gov.br/pix/v1/cobv/
 Headers: Authorization: Bearer {{$json.token}}
 ```
 
 ### **Correios (Rastreamento)**
+
 ```
 GET https://api.correios.com.br/sro/v1/objetos/{{$json.codigo}}
 ```
@@ -284,22 +313,26 @@ GET https://api.correios.com.br/sro/v1/objetos/{{$json.codigo}}
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Dicas de Performance**
 
 ### **1. Reutilizar Conexões**
+
 ```
 Keep Alive: true
 Connection: keep-alive
 ```
 
 ### **2. Timeout Adequado**
+
 ```
 Timeout: 30000ms (30 segundos)
 ```
 
 ### **3. Compression**
+
 ```
 Accept-Encoding: gzip, deflate
 ```
 
 ### **4. Rate Limiting**
+
 ```javascript
 // Aguardar entre requests
 await new Promise(resolve => setTimeout(resolve, 100));
@@ -308,6 +341,7 @@ await new Promise(resolve => setTimeout(resolve, 100));
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Debugging**
 
 ### **1. Log Completo**
+
 ```javascript
 console.log('Request:', {
 method: 'POST',
@@ -324,29 +358,35 @@ body: $response.body
 ```
 
 ### **2. Webhook.site**
+
 Use para testar payloads:
+
 ```
 URL: https://webhook.site/seu-uuid
 ```
 
 ### **3. Postman/Insomnia**
+
 Teste a API primeiro antes de usar no n8n.
 
 ## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Casos de Uso Comuns**
 
 ### **1. Integração CRM**
+
 ```
 POST /api/leads
 Criar leads de formulários
 ```
 
 ### **2. Notificações**
+
 ```
 POST /api/notifications 
 Enviar alertas personalizados
 ```
 
 ### **3. Sincronização de Dados**
+
 ```
 GET /api/customers
 PUT /api/customers/{{id}}
@@ -354,6 +394,7 @@ Manter dados atualizados
 ```
 
 ### **4. Webhooks Personalizados**
+
 ```
 POST https://meu-sistema.com/webhook
 Notificar sistemas internos
@@ -367,4 +408,4 @@ Notificar sistemas internos
 
 ---
 
-** HTTP Request = Sua ponte para qualquer API do mundo!** 
+**HTTP Request = Sua ponte para qualquer API do mundo!**

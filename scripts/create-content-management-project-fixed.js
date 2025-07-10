@@ -1,7 +1,5 @@
 const { createRequire } = require('module');
 const require = createRequire(import.meta.url);
-const fs = require('fs');
-const path = require('path');
 
 // Função para importar dinamicamente o Octokit
 async function getOctokit() {

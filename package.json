@@ -10,8 +10,9 @@
     "start:clean": "npm run kill-port && docusaurus start --port 3000",
     "start:alt": "docusaurus start --port 3001",
     "start:smart": "node scripts/start-dev.js",
-    "kill-port": "npx kill-port 3000 3001 3002",
+    "kill-port": "npx kill-port 3000 3001 3002 4000",
     "dev": "npm run kill-port && docusaurus start --port 3000",
+    "docs:dev": "docusaurus start --port 3000",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -40,7 +41,10 @@
     "content-clean": "node scripts/create-content-management-project.js --clean-labels --close-existing",
     "analyze-gaps": "node scripts/analyze-content-gaps.js",
     "analyze-gaps-issues": "node scripts/analyze-content-gaps.js --create-issues",
-    "analyze-gaps-report": "node scripts/analyze-content-gaps.js --save-report"
+    "analyze-gaps-report": "node scripts/analyze-content-gaps.js --save-report",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0"
   },
   "keywords": [
     "n8n",
@@ -68,7 +72,7 @@
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
     "clsx": "^2.1.1",
-    "dotenv": "^17.0.1",
+    "dotenv": "^17.2.0",
     "framer-motion": "^12.23.0",
     "graphql": "^16.11.0",
     "graphql-request": "^7.2.0",
@@ -84,10 +88,14 @@
     "@docusaurus/tsconfig": "^3.8.1",
     "@octokit/rest": "^22.0.0",
     "@types/react": "^19.1.8",
+    "@typescript-eslint/eslint-plugin": "^8.36.0",
+    "@typescript-eslint/parser": "^8.36.0",
     "@vitalets/google-translate-api": "^9.2.1",
     "axios": "^1.10.0",
     "eslint": "^9.30.1",
+    "eslint-plugin-react": "^7.37.5",
     "kill-port": "^2.0.1",
+    "markdownlint-cli2": "^0.18.1",
     "typescript": "^5.8.3"
   },
   "browserslist": {

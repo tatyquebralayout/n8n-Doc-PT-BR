@@ -22,11 +22,13 @@ A autenticação é fundamental para proteger seu ambiente n8n. Neste guia, voc�
 ### 1. Autenticação Local
 
 **Usuário e Senha**:
+
 - Método padrão do n8n
 - Senhas criptografadas no banco de dados
 - Suporte a políticas de senha
 
 **Configuração**:
+
 ```bash
 # Variáveis de ambiente
 N8N_BASIC_AUTH_ACTIVE=true
@@ -37,11 +39,13 @@ N8N_BASIC_AUTH_PASSWORD=senha-segura
 ### 2. Autenticação de Dois Fatores (2FA)
 
 **TOTP (Time-based One-Time Password)**:
+
 - Códigos temporários via app (Google Authenticator, Authy)
 - Validação em tempo real
 - Backup codes para recuperação
 
 **Configuração**:
+
 1. Acesse **Settings** → **Users**
 2. Selecione o usuário
 3. Clique em **Enable 2FA**
@@ -51,12 +55,14 @@ N8N_BASIC_AUTH_PASSWORD=senha-segura
 ### 3. OAuth 2.0
 
 **Provedores Suportados**:
+
 - **Google**: Gmail, Google Workspace
 - **Microsoft**: Azure AD, Office 365
 - **GitHub**: Para desenvolvedores
 - **SAML**: Para empresas
 
 **Configuração Google OAuth**:
+
 ```bash
 # Variáveis de ambiente
 N8N_GOOGLE_CLIENT_ID=your-client-id
@@ -69,6 +75,7 @@ N8N_GOOGLE_CALLBACK_URL=https://your-domain.com/callback
 ### 1. Políticas de Senha
 
 **Configurações recomendadas**:
+
 ```json
 {
   "minLength": 12,
@@ -84,6 +91,7 @@ N8N_GOOGLE_CALLBACK_URL=https://your-domain.com/callback
 ### 2. Sessões e Timeouts
 
 **Configuração de sessão**:
+
 ```bash
 # Tempo de sessão (em segundos)
 N8N_SESSION_LIFETIME=86400 # 24 horas
@@ -98,6 +106,7 @@ N8N_SESSION_EXTEND_ON_ACTIVITY=true
 ### 3. Rate Limiting
 
 **Proteção contra ataques**:
+
 ```bash
 # Tentativas de login
 N8N_LOGIN_ATTEMPTS_LIMIT=5
@@ -119,6 +128,7 @@ N8N_IP_WHITELIST=192.168.1.0/24,10.0.0.0/8
 4. **Configurar URIs de redirecionamento**
 
 **Variáveis de ambiente**:
+
 ```bash
 N8N_GOOGLE_CLIENT_ID=your-client-id
 N8N_GOOGLE_CLIENT_SECRET=your-client-secret
@@ -136,6 +146,7 @@ N8N_GOOGLE_SCOPES=email profile
 4. **Configurar redirect URIs**
 
 **Variáveis de ambiente**:
+
 ```bash
 N8N_MICROSOFT_CLIENT_ID=your-client-id
 N8N_MICROSOFT_CLIENT_SECRET=your-client-secret
@@ -160,6 +171,7 @@ N8N_SAML_CERT=path/to/certificate.pem
 ### 1. Segurança de Produção
 
 **Recomendações**:
+
 - **Use HTTPS** em todos os ambientes
 - **Configure 2FA** para todos os usuários
 - **Implemente políticas** de senha forte
@@ -169,6 +181,7 @@ N8N_SAML_CERT=path/to/certificate.pem
 ### 2. Gerenciamento de Usuários
 
 **Processos recomendados**:
+
 - **Onboarding**: Criação padronizada de contas
 - **Offboarding**: Desativação imediata
 - **Auditoria**: Revisão regular de acessos
@@ -177,6 +190,7 @@ N8N_SAML_CERT=path/to/certificate.pem
 ### 3. Monitoramento
 
 **Alertas configurar**:
+
 - **Tentativas de login** falhadas
 - **Logins de IPs** desconhecidos
 - **Alterações** em configurações de segurança
@@ -189,6 +203,7 @@ N8N_SAML_CERT=path/to/certificate.pem
 **Passo a passo**:
 
 1. **Google Cloud Console**:
+
    ```bash
    # Criar projeto
    gcloud projects create n8n-auth-project
@@ -203,6 +218,7 @@ N8N_SAML_CERT=path/to/certificate.pem
    - URIs de redirecionamento: `https://your-domain.com/callback`
 
 3. **Configurar n8n**:
+
    ```bash
    N8N_GOOGLE_CLIENT_ID=your-client-id
    N8N_GOOGLE_CLIENT_SECRET=your-client-secret
@@ -251,18 +267,21 @@ const isAllowedIP = (ip) => ipWhitelist.some(range => ipInRange(ip, range));
 ### Problemas Comuns
 
 **Erro de login**:
+
 - Verifique credenciais
 - Confirme se a conta está ativa
 - Verifique políticas de senha
 - Teste conectividade com provedor
 
 **2FA não funciona**:
+
 - Sincronize relógio do dispositivo
 - Use backup codes se necessário
 - Reconfigure 2FA se necessário
 - Verifique app autenticador
 
 **OAuth falha**:
+
 - Confirme URIs de redirecionamento
 - Verifique client ID/secret
 - Teste conectividade com provedor
@@ -271,6 +290,7 @@ const isAllowedIP = (ip) => ipWhitelist.some(range => ipInRange(ip, range));
 ### Debugging
 
 **Logs úteis**:
+
 ```bash
 # Logs de autenticação
 tail -f /var/log/n8n/auth.log
@@ -283,6 +303,7 @@ grep "error" /var/log/n8n/error.log
 ```
 
 **Ferramentas de diagnóstico**:
+
 1. **Teste de conectividade** com provedores
 2. **Validação de certificados** SSL/TLS
 3. **Verificação de timezone** para 2FA
@@ -306,4 +327,4 @@ grep "error" /var/log/n8n/error.log
 
 ---
 
-**<ion-icon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para proteger? Comece configurando 2FA para seus usuários!** 
+**<ion-icon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para proteger? Comece configurando 2FA para seus usuários!**

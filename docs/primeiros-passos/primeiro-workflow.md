@@ -12,33 +12,36 @@ Vamos criar um workflow simples que recebe dados via webhook e os envia para uma
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que vamos construir
 
 Um workflow que:
-1.  **Recebe** dados via webhook
-2.  **Transforma** os dados
-3.  **Envia** para uma API externa
-4.  **Retorna** uma resposta
+
+1. **Recebe** dados via webhook
+2. **Transforma** os dados
+3. **Envia** para uma API externa
+4. **Retorna** uma resposta
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
 
--  n8n instalado e rodando
--  Acesso ao editor visual
--  Conhecimento básico dos [conceitos](./conceitos-basicos)
+- n8n instalado e rodando
+- Acesso ao editor visual
+- Conhecimento básico dos [conceitos](./conceitos-basicos)
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Passo a Passo
 
-###  1. Criar Novo Workflow
+### 1. Criar Novo Workflow
 
-1.  Acesse o n8n em `http://localhost:5678`
-2.  Clique em **"Add Workflow"**
-3.  Nomeie como **"Meu Primeiro Workflow"**
+1. Acesse o n8n em `http://localhost:5678`
+2. Clique em **"Add Workflow"**
+3. Nomeie como **"Meu Primeiro Workflow"**
 
-###  2. Adicionar Webhook Trigger
+### 2. Adicionar Webhook Trigger
 
-####  Adicionar o Node
-1.  Clique em **"Add first step"**
-2.  Busque por **"Webhook"**
-3.  Selecione **"Webhook"** da lista
+#### Adicionar o Node
 
-####  Configurar o Webhook
+1. Clique em **"Add first step"**
+2. Busque por **"Webhook"**
+3. Selecione **"Webhook"** da lista
+
+#### Configurar o Webhook
+
 ```javascript
 // Configurações básicas
 HTTP Method: POST
@@ -51,14 +54,16 @@ O n8n gerará automaticamente uma URL única para seu webhook. Algo como:
 `http://localhost:5678/webhook/meu-primeiro-webhook`
 :::
 
-###  3. Adicionar Node de Transformação
+### 3. Adicionar Node de Transformação
 
-####  Adicionar Set Node
-1.  Clique no **"+"** após o Webhook
-2.  Busque por **"Set"**
-3.  Selecione **"Set"** para manipular dados
+#### Adicionar Set Node
 
-####  Configurar Transformação
+1. Clique no **"+"** após o Webhook
+2. Busque por **"Set"**
+3. Selecione **"Set"** para manipular dados
+
+#### Configurar Transformação
+
 ```javascript
 // Adicione estas transformações
 Key: processedAt
@@ -71,14 +76,16 @@ Key: messageCount
 Value: {{ Object.keys($json).length }}
 ```
 
-###  4. Adicionar HTTP Request
+### 4. Adicionar HTTP Request
 
-####  Adicionar o Node
-1.  Clique no **"+"** após o Set
-2.  Busque por **"HTTP Request"**
-3.  Selecione **"HTTP Request"**
+#### Adicionar o Node
 
-####  Configurar Request
+1. Clique no **"+"** após o Set
+2. Busque por **"HTTP Request"**
+3. Selecione **"HTTP Request"**
+
+#### Configurar Request
+
 ```javascript
 // Configurações da requisição
 Method: POST
@@ -98,14 +105,16 @@ Body (JSON):
 Usamos `httpbin.org` para teste. É um serviço que ecoa os dados recebidos, perfeito para testar workflows!
 :::
 
-###  5. Adicionar Resposta
+### 5. Adicionar Resposta
 
-####  Adicionar Respond to Webhook
-1.  Clique no **"+"** após o HTTP Request
-2.  Busque por **"Respond to Webhook"**
-3.  Selecione o node
+#### Adicionar Respond to Webhook
 
-####  Configurar Resposta
+1. Clique no **"+"** após o HTTP Request
+2. Busque por **"Respond to Webhook"**
+3. Selecione o node
+
+#### Configurar Resposta
+
 ```javascript
 // Configuração da resposta
 Response Code: 200
@@ -120,12 +129,14 @@ Response Body:
 
 ## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testando o Workflow
 
-###  1. Salvar e Ativar
-1.  Clique em **"Save"** (Ctrl+S)
-2.  Clique na **toggle** para ativar o workflow
-3.  Anote a URL do webhook gerada
+### 1. Salvar e Ativar
 
-###  2. Testar com cURL
+1. Clique em **"Save"** (Ctrl+S)
+2. Clique na **toggle** para ativar o workflow
+3. Anote a URL do webhook gerada
+
+### 2. Testar com cURL
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Teste básico
 curl -X POST \
@@ -138,8 +149,10 @@ http://localhost:5678/webhook/meu-primeiro-webhook \
 }'
 ```
 
-###  3. Verificar Resultado
+### 3. Verificar Resultado
+
 Você deve receber uma resposta similar a:
+
 ```json
 {
 "status": "success",
@@ -157,32 +170,37 @@ Você deve receber uma resposta similar a:
 
 ## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visualizar Execuções
 
-###  Acessar o Log
-1.  Na interface do n8n, vá para **"Executions"**
-2.  Clique na execução mais recente
-3.  Visualize os dados em cada node
+### Acessar o Log
 
-###  Debug de Dados
--  **Node Webhook**: Dados originais recebidos
--  **Node Set**: Dados transformados
--  **Node HTTP Request**: Resposta da API externa
--  **Node Respond**: Resposta final enviada
+1. Na interface do n8n, vá para **"Executions"**
+2. Clique na execução mais recente
+3. Visualize os dados em cada node
+
+### Debug de Dados
+
+- **Node Webhook**: Dados originais recebidos
+- **Node Set**: Dados transformados
+- **Node HTTP Request**: Resposta da API externa
+- **Node Respond**: Resposta final enviada
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Melhorias Possíveis
 
-###  1. Validação de Dados
+### 1. Validação de Dados
+
 ```javascript
 // No node Set, adicione validação
 Key: isValid
 Value: {{ $json.nome && $json.email ? 'valid' : 'invalid' }}
 ```
 
-###  2. Tratamento de Erro
-1.  Adicione um node **"IF"** após o Set
-2.  Configure condição: `{{ $json.isValid === 'valid' }}`
-3.  Roteie dados inválidos para tratamento diferente
+### 2. Tratamento de Erro
 
-###  3. Logging
+1. Adicione um node **"IF"** após o Set
+2. Configure condição: `{{ $json.isValid === 'valid' }}`
+3. Roteie dados inválidos para tratamento diferente
+
+### 3. Logging
+
 ```javascript
 // Adicione log detalhado
 Key: logEntry
@@ -191,13 +209,15 @@ Value: {{ `Processado: ${$json.nome} em ${new Date().toLocaleString('pt-BR')}` }
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integrações Reais
 
-###  APIs Populares
--  **Slack**: Enviar notificações
--  **Google Sheets**: Salvar dados
--  **Email**: Enviar confirmações
--  **Database**: Persistir informações
+### APIs Populares
 
-###  Exemplos de URLs
+- **Slack**: Enviar notificações
+- **Google Sheets**: Salvar dados
+- **Email**: Enviar confirmações
+- **Database**: Persistir informações
+
+### Exemplos de URLs
+
 ```javascript
 // Slack Webhook
 https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
@@ -211,22 +231,22 @@ https://outlook.office.com/webhook/YOUR/TEAMS/WEBHOOK
 
 ## <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Sucesso
 
--  Workflow criado e nomeado
--  Webhook configurado e ativo
--  Dados sendo transformados corretamente
--  Requisição externa funcionando
--  Resposta sendo retornada
--  Execuções aparecendo no log
--  Teste com dados reais realizado
+- Workflow criado e nomeado
+- Webhook configurado e ativo
+- Dados sendo transformados corretamente
+- Requisição externa funcionando
+- Resposta sendo retornada
+- Execuções aparecendo no log
+- Teste com dados reais realizado
 
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Parabéns! Você criou seu primeiro workflow. Agora explore:
 
-1.  **[Diferentes tipos de triggers](../integracoes/trigger-nodes/time-based/manual-trigger)**
-2.  **[Mais integrações](../integracoes/)**
-3.  **[Expressões avançadas](../logica-e-dados/data/data-mapping-avancado)**
-4.  **[Deploy em produção](../hosting-n8n/instalacao)**
+1. **[Diferentes tipos de triggers](../integracoes/trigger-nodes/time-based/manual-trigger)**
+2. **[Mais integrações](../integracoes/)**
+3. **[Expressões avançadas](../logica-e-dados/data/data-mapping-avancado)**
+4. **[Deploy em produção](../hosting-n8n/instalacao)**
 
 :::success Sucesso!
 Você acabou de criar um workflow funcional que pode receber, processar e responder dados automaticamente. Este é o primeiro passo para automações mais complexas!
@@ -234,4 +254,4 @@ Você acabou de criar um workflow funcional que pode receber, processar e respon
 
 ---
 
-**Anterior:** [Conceitos Básicos](./conceitos-basicos) ← | → **Próximo:** [Integrações](../integracoes/webhooks) 
+**Anterior:** [Conceitos Básicos](./conceitos-basicos) ← | → **Próximo:** [Integrações](../integracoes/webhooks)

@@ -12,34 +12,37 @@ Este documento explica como **implementar balanceamento de carga** para n8n em a
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Configuração de nginx como load balancer
--  Estratégias de distribuição de carga
--  Health checks e failover
--  Monitoramento de performance
--  Configurações de segurança
+- Configuração de nginx como load balancer
+- Estratégias de distribuição de carga
+- Health checks e failover
+- Monitoramento de performance
+- Configurações de segurança
 
 ---
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que usar Load Balancing?
 
-###  Benefícios do Load Balancing
+### Benefícios do Load Balancing
 
 **Sem Load Balancing (Instância Única):**
+
 - ❌ **Ponto único de falha** - Se o servidor cair, tudo para
 - ❌ **Limitação de performance** - Apenas um servidor processando
 - ❌ **Sem escalabilidade** - Não pode adicionar servidores
 - ❌ **Downtime durante manutenção** - Atualizações param o serviço
 
 **Com Load Balancing (Múltiplas Instâncias):**
+
 - ✅ **Alta disponibilidade** - Falhas não afetam o serviço
 - ✅ **Performance melhorada** - Múltiplos servidores processando
 - ✅ **Escalabilidade horizontal** - Adicione servidores conforme necessário
 - ✅ **Zero downtime** - Manutenção sem interrupção
 - ✅ **Distribuição inteligente** - Carga distribuída automaticamente
 
-###  Quando Usar Load Balancing
+### Quando Usar Load Balancing
 
 **Use load balancing quando:**
+
 - Tem **muitos usuários simultâneos**
 - Precisa de **alta disponibilidade**
 - Quer **escalabilidade automática**
@@ -50,9 +53,10 @@ Este documento explica como **implementar balanceamento de carga** para n8n em a
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estratégias de Distribuição
 
-###  Algoritmos de Balanceamento
+### Algoritmos de Balanceamento
 
 #### **Round Robin (Padrão)**
+
 ```nginx
 upstream n8n_backend {
     server n8n-1:5678;
@@ -62,6 +66,7 @@ upstream n8n_backend {
 ```
 
 #### **Least Connections**
+
 ```nginx
 upstream n8n_backend {
     least_conn;
@@ -72,6 +77,7 @@ upstream n8n_backend {
 ```
 
 #### **IP Hash (Sticky Sessions)**
+
 ```nginx
 upstream n8n_backend {
     ip_hash;
@@ -82,6 +88,7 @@ upstream n8n_backend {
 ```
 
 #### **Weighted Round Robin**
+
 ```nginx
 upstream n8n_backend {
     server n8n-1:5678 weight=3;
@@ -90,9 +97,10 @@ upstream n8n_backend {
 }
 ```
 
-###  Configuração por Tipo de Tráfego
+### Configuração por Tipo de Tráfego
 
 #### **Distribuição Inteligente**
+
 ```nginx
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Upstream para diferentes tipos de tráfego
 upstream n8n_api {
@@ -121,9 +129,10 @@ upstream n8n_ui {
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Nginx
 
-###  Configuração Básica
+### Configuração Básica
 
 #### **nginx.conf Principal**
+
 ```nginx
 events {
     worker_connections 1024;
@@ -177,6 +186,7 @@ http {
 ```
 
 #### **Configuração do Site**
+
 ```nginx
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/nginx/sites-available/n8n
 
@@ -277,9 +287,10 @@ server {
 }
 ```
 
-###  Configuração Avançada
+### Configuração Avançada
 
 #### **Load Balancing com Health Checks**
+
 ```nginx
 upstream n8n_backend {
     least_conn;
@@ -304,6 +315,7 @@ location /healthz {
 ```
 
 #### **Configuração com Sticky Sessions**
+
 ```nginx
 # <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Para webhooks que precisam de sessão consistente
 upstream n8n_webhooks {
@@ -326,9 +338,10 @@ upstream n8n_api {
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> HAProxy (Alternativa)
 
-###  Configuração HAProxy
+### Configuração HAProxy
 
 #### **haproxy.cfg**
+
 ```bash
 global
     log /dev/log local0
@@ -439,9 +452,10 @@ backend n8n_health
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Health Checks e Failover
 
-###  Configuração de Health Checks
+### Configuração de Health Checks
 
 #### **Endpoint de Health Check**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar endpoint de health check no n8n
 N8N_HEALTH_CHECK_ENDPOINT=/healthz
@@ -450,6 +464,7 @@ N8N_HEALTH_CHECK_INTERVAL=30000
 ```
 
 #### **Script de Health Check Avançado**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> advanced-health-check.sh
@@ -468,9 +483,10 @@ else
 fi
 ```
 
-###  Monitoramento de Failover
+### Monitoramento de Failover
 
 #### **Script de Monitoramento**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> monitor-load-balancer.sh
@@ -513,9 +529,10 @@ done
 
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento de Performance
 
-###  Métricas Essenciais
+### Métricas Essenciais
 
 #### **Script de Métricas**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> load-balancer-metrics.sh
@@ -557,9 +574,10 @@ echo "6. Performance do Nginx:"
 curl -s http://localhost/nginx_status
 ```
 
-###  Alertas Automáticos
+### Alertas Automáticos
 
 #### **Configuração de Alertas**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="warning-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> load-balancer-alerts.sh
@@ -590,9 +608,10 @@ fi
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de Segurança
 
-###  Rate Limiting
+### Rate Limiting
 
 #### **Configuração Avançada de Rate Limiting**
+
 ```nginx
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Rate limiting por tipo de endpoint
 limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
@@ -617,9 +636,10 @@ location /admin/ {
 }
 ```
 
-###  Headers de Segurança
+### Headers de Segurança
 
 #### **Security Headers Avançados**
+
 ```nginx
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Headers de segurança
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
@@ -635,9 +655,10 @@ add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
 
-###  Problemas Comuns
+### Problemas Comuns
 
 #### **Load balancer não distribui carga**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar configuração nginx
 nginx -t
@@ -654,6 +675,7 @@ tail -f /var/log/nginx/access.log
 ```
 
 #### **Rate limiting muito restritivo**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar logs de rate limiting
 grep "limiting requests" /var/log/nginx/error.log
@@ -663,6 +685,7 @@ grep "limiting requests" /var/log/nginx/error.log
 ```
 
 #### **SSL/TLS não funciona**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar certificados
 openssl x509 -in /etc/letsencrypt/live/seudominio.com/fullchain.pem -text -noout
@@ -678,7 +701,7 @@ openssl s_client -connect seudominio.com:443 -servername seudominio.com
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
-###  Configuração
+### Configuração
 
 - [ ] Load balancer configurado
 - [ ] Múltiplos backends configurados
@@ -686,7 +709,7 @@ openssl s_client -connect seudominio.com:443 -servername seudominio.com
 - [ ] Failover automático testado
 - [ ] SSL/TLS configurado
 
-###  Performance
+### Performance
 
 - [ ] Rate limiting aplicado
 - [ ] Gzip compression ativado
@@ -694,7 +717,7 @@ openssl s_client -connect seudominio.com:443 -servername seudominio.com
 - [ ] Timeouts adequados
 - [ ] Monitoramento ativo
 
-###  Monitoramento
+### Monitoramento
 
 - [ ] Métricas sendo coletadas
 - [ ] Logs centralizados
@@ -702,7 +725,7 @@ openssl s_client -connect seudominio.com:443 -servername seudominio.com
 - [ ] Dashboard de monitoramento
 - [ ] Backup de configurações
 
-###  Segurança
+### Segurança
 
 - [ ] Security headers configurados
 - [ ] Rate limiting aplicado

@@ -14,14 +14,14 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Por que Compartilhar Credenciais?
 
-###  Benefícios
+### Benefícios
 
 - **Colaboração em equipe**: Múltiplos usuários podem usar as mesmas integrações
 - **Centralização**: Uma única fonte de verdade para credenciais
 - **Controle de acesso**: Gerenciar quem pode usar quais credenciais
 - **Auditoria**: Rastrear quem usou cada credencial
 
-###  Considerações de Segurança
+### Considerações de Segurança
 
 - **Princípio do menor privilégio**: Compartilhe apenas o necessário
 - **Monitoramento**: Acompanhe o uso das credenciais
@@ -32,7 +32,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Configurando Compartilhamento
 
-###  Passo a Passo
+### Passo a Passo
 
 1. **Acesse a credencial** que deseja compartilhar
 2. **Clique em "Compartilhar"** ou "Configurações"
@@ -44,7 +44,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 5. **Configure notificações** (opcional)
 6. **Salve as configurações**
 
-###  Tipos de Permissão
+### Tipos de Permissão
 
 | Permissão | Pode Usar | Pode Editar | Pode Compartilhar | Pode Excluir |
 |-----------|-----------|-------------|-------------------|--------------|
@@ -56,41 +56,47 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Cenários de Uso
 
-###  Equipe de Marketing
+### Equipe de Marketing
 
 **Credenciais compartilhadas:**
+
 - Google Analytics
 - Facebook Ads
 - Mailchimp
 - HubSpot
 
 **Estratégia:**
+
 - Uma credencial por plataforma
 - Acesso de leitura para todos
 - Apenas líderes com acesso de escrita
 
-###  Equipe Financeira
+### Equipe Financeira
 
 **Credenciais compartilhadas:**
+
 - Stripe
 - PayPal
 - QuickBooks
 - Banco de dados contábil
 
 **Estratégia:**
+
 - Credenciais separadas por ambiente
 - Acesso restrito a membros da equipe
 - Auditoria rigorosa de uso
 
-###  Equipe de Desenvolvimento
+### Equipe de Desenvolvimento
 
 **Credenciais compartilhadas:**
+
 - GitHub
 - AWS/Google Cloud
 - Slack
 - Jira
 
 **Estratégia:**
+
 - Credenciais por projeto
 - Rotação regular de tokens
 - Monitoramento de uso
@@ -99,7 +105,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Boas Práticas de Segurança
 
-###  Controle de Acesso
+### Controle de Acesso
 
 - ✅ **Audite regularmente** quem tem acesso
 - ✅ **Remova acessos** de usuários que saíram
@@ -108,14 +114,14 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 - ❌ **Não compartilhe** credenciais pessoais
 - ❌ **Evite** credenciais com privilégios excessivos
 
-###  Rotação e Renovação
+### Rotação e Renovação
 
 - **Tokens OAuth**: Renove a cada 90 dias
 - **API Keys**: Rotacione a cada 6 meses
 - **Senhas**: Mude a cada 3 meses
 - **Certificados**: Renove antes da expiração
 
-###  Monitoramento
+### Monitoramento
 
 - **Logs de acesso**: Monitore quem usa cada credencial
 - **Alertas**: Configure notificações para uso suspeito
@@ -126,7 +132,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Configurações Avançadas
 
-###  Expiração Automática
+### Expiração Automática
 
 Configure credenciais para expirar automaticamente:
 
@@ -138,7 +144,7 @@ Configure credenciais para expirar automaticamente:
 }
 ```
 
-###  Restrições de IP
+### Restrições de IP
 
 Limite o acesso por endereço IP:
 
@@ -154,7 +160,7 @@ Limite o acesso por endereço IP:
 }
 ```
 
-###  Horários de Acesso
+### Horários de Acesso
 
 Defina janelas de tempo para uso:
 
@@ -173,19 +179,22 @@ Defina janelas de tempo para uso:
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Troubleshooting
 
-###  Problemas Comuns
+### Problemas Comuns
 
 **"Credencial não encontrada"**
+
 - Verifique se a credencial foi compartilhada
 - Confirme se você tem permissão de leitura
 - Tente recarregar a página
 
 **"Acesso negado"**
+
 - Solicite permissão ao administrador
 - Verifique se a credencial não expirou
 - Confirme se está no IP permitido
 
 **"Token expirado"**
+
 - Renove o token OAuth
 - Verifique se o refresh token ainda é válido
 - Entre em contato com o administrador
@@ -208,4 +217,4 @@ Crie uma política de credenciais para sua organização. Documente regras clara
 
 :::warning **Importante**
 Nunca compartilhe credenciais por email, chat ou outros canais não seguros. Use sempre o sistema de compartilhamento do n8n.
-::: 
+:::

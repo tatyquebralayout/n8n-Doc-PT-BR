@@ -131,10 +131,10 @@ async function createProjectV2() {
             }
           `;
           
-          const itemData = await client.request(addItemMutation, {
-            projectId: project.id,
-            contentId: issue.id
-          });
+                  await client.request(addItemMutation, {
+          projectId: project.id,
+          contentId: issue.id
+        });
           
           console.log(`  ✅ Adicionada: #${issue.number} - ${issue.title}`);
           addedIssues++;
@@ -151,24 +151,24 @@ async function createProjectV2() {
     // 5. Criar campos customizados (opcional)
     console.log('\n🏷️ Configurando campos customizados...');
     
-    // Campo de Prioridade
-    try {
-      const createFieldMutation = `
-        mutation CreateProjectV2Field($projectId: ID!, $dataType: ProjectV2CustomFieldType!, $name: String!, $options: [ProjectV2SingleSelectFieldOptionInput!]) {
-          createProjectV2Field(input: {
-            projectId: $projectId
-            dataType: $dataType
-            name: $name
-            singleSelectOptions: $options
-          }) {
-            projectV2Field {
-              id
-              name
-            }
+    const createFieldMutation = `
+      mutation CreateProjectV2Field($projectId: ID!, $dataType: ProjectV2CustomFieldType!, $name: String!, $options: [ProjectV2SingleSelectFieldOptionInput!]) {
+        createProjectV2Field(input: {
+          projectId: $projectId
+          dataType: $dataType
+          name: $name
+          singleSelectOptions: $options
+        }) {
+          projectV2Field {
+            id
+            name
           }
         }
-      `;
-      
+      }
+    `;
+    
+    // Campo de Prioridade
+    try {
       const priorityOptions = [
         { name: "🔴 Alta", color: "RED" },
         { name: "🟡 Média", color: "YELLOW" },
@@ -256,7 +256,7 @@ async function installDependencies() {
     console.log('📦 Instalando graphql-request...');
     const { exec } = require('child_process');
     return new Promise((resolve) => {
-      exec('npm install graphql-request', (error, stdout, stderr) => {
+      exec('npm install graphql-request', (error, _stdout, _stderr) => {
         if (error) {
           console.log('❌ Erro ao instalar dependência:', error.message);
           resolve(false);

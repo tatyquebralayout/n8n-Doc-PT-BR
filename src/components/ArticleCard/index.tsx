@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import IonicIcon from '../IonicIcon';
 import styles from './styles.module.css';
 
 interface ArticleCardProps {
@@ -8,7 +9,6 @@ interface ArticleCardProps {
   description: string;
   author: string;
   date: string;
-  readTime?: string;
   views?: number;
   tags?: string[];
   link: string;
@@ -20,7 +20,6 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   description,
   author,
   date,
-  readTime,
   views,
   tags,
   link,
@@ -34,18 +33,18 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
         
         <div className={styles.articleCardMeta}>
           <div className={styles.articleCardAuthor}>
-            <ion-icon name="person-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+            <IonicIcon name="person-outline" size={16} color="var(--ifm-color-primary)" />
             <span>{author}</span>
           </div>
           
           <div className={styles.articleCardDate}>
-            <ion-icon name="time-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+            <IonicIcon name="time-outline" size={16} color="var(--ifm-color-primary)" />
             <span>{date}</span>
           </div>
           
           {views && (
             <div className={styles.articleCardViews}>
-              <ion-icon name="eye-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+              <IonicIcon name="eye-outline" size={16} color="var(--ifm-color-primary)" />
               <span>{views}</span>
             </div>
           )}

@@ -9,4 +9,4 @@ keywords: [n8n, curso, intermediário, projeto empresarial, automação]
 
 Este capítulo final aplica todos os conceitos avançados em um **projeto empresarial completo**, desenvolvendo uma solução de automação robusta que inclui múltiplas integrações, tratamento de grandes volumes de dados, monitoramento, logging, deployment em produção, e manutenção, simulando um ambiente corporeal real com todos os seus desafios.
 
-** Em construção:** Este capítulo apresentará um projeto end-to-end com documentação completa e best practices.
+**Em construção:** Este capítulo apresentará um projeto end-to-end com documentação completa e best practices.

@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import LocalIcon from '@site/src/components/LocalIcon';
+import IonicIcon from '@site/src/components/IonicIcon';
 
 import styles from './index.module.css';
 
@@ -26,18 +26,18 @@ function HomepageHeader() {
           </div>
           <div className={styles.heroTextContent}>
             <Heading as="h1" className={styles.heroTitle}>
-              <ion-icon name="compass-outline" style={{fontSize: 20, color: '#ea4b71', marginRight: 6, verticalAlign: 'middle'}} />
+              <IonicIcon name="compass-outline" size={20} color="#ea4b71" />
               {siteConfig.title}
             </Heading>
             <p className={styles.heroSubtitle}>
-              <ion-icon name="globe-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+              <IonicIcon name="globe-outline" size={20} color="var(--ifm-color-primary)" />
               {siteConfig.tagline}
             </p>
             <div className={styles.buttons}>
               <Link
                 className={styles.getStartedButton}
                 to="/intro">
-                <ion-icon name="play-circle-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                <IonicIcon name="play-circle-outline" size={20} color="var(--ifm-color-primary)" />
                 Comece a Explorar - 5min
               </Link>
             </div>
@@ -49,7 +49,6 @@ function HomepageHeader() {
 }
 
 export default function Home(): React.ReactElement {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
       title={`Página Inicial`}
@@ -76,7 +75,7 @@ export default function Home(): React.ReactElement {
               {/* Primeiros Passos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <ion-icon name="school-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="school-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Primeiros Passos</h4>
@@ -92,7 +91,7 @@ export default function Home(): React.ReactElement {
               {/* Guias Avançados */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <ion-icon name="bulb-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="bulb-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Guias Avançados</h4>
@@ -109,7 +108,7 @@ export default function Home(): React.ReactElement {
               {/* Referência da API */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <ion-icon name="code-slash-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="code-slash-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Referência da API</h4>
@@ -126,7 +125,7 @@ export default function Home(): React.ReactElement {
               {/* Deployment */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <ion-icon name="cloud-upload-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="cloud-upload-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Deployment</h4>
@@ -143,7 +142,7 @@ export default function Home(): React.ReactElement {
               {/* Nós (Nodes) */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <ion-icon name="extension-puzzle-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="extension-puzzle-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Nós (Nodes)</h4>
@@ -158,7 +157,7 @@ export default function Home(): React.ReactElement {
               {/* Exemplos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <ion-icon name="flask-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="flask-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Exemplos</h4>
@@ -174,7 +173,7 @@ export default function Home(): React.ReactElement {
               {/* Recursos Técnicos */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <ion-icon name="library-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="library-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Recursos Técnicos</h4>
@@ -191,7 +190,7 @@ export default function Home(): React.ReactElement {
               {/* Contribuição para Documentação em Português */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <ion-icon name="heart-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="heart-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Contribua para a Doc em Português</h4>
@@ -208,7 +207,7 @@ export default function Home(): React.ReactElement {
               {/* Links Úteis */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <ion-icon name="link-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="link-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Links Úteis</h4>
@@ -225,7 +224,7 @@ export default function Home(): React.ReactElement {
               {/* Cursos e Aprendizado */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <ion-icon name="school-outline" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="school-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
                   <h4>Cursos e Aprendizado</h4>
@@ -247,7 +246,7 @@ export default function Home(): React.ReactElement {
         <div className="container">
           <div className={styles.communityContent}>
             <h2 className={styles.communityTitle}>
-              <ion-icon name="globe-outline" style={{fontSize: 32, color: 'var(--ifm-color-primary)'}} />
+              <IonicIcon name="globe-outline" size={32} color="var(--ifm-color-primary)" />
               Ecossistema n8n Brasil
             </h2>
             <p className={styles.communitySubtitle}>A comunidade é o coração do nosso projeto. Participe!</p>
@@ -255,7 +254,7 @@ export default function Home(): React.ReactElement {
             <div className={styles.communityGrid}>
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <ion-icon name="logo-github" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="logo-github" size={24} color="var(--ifm-color-primary)" />
                   <h3>Repositório GitHub</h3>
                 </div>
                 <p>Este é um projeto de código aberto. Colabore com código, documentação ou sugestões.</p>
@@ -265,43 +264,43 @@ export default function Home(): React.ReactElement {
                   rel="noopener noreferrer" 
                   className={styles.communityLink}
                 >
-                  <ion-icon name="star-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="star-outline" size={16} color="var(--ifm-color-primary)" />
                   Dar uma estrela
                 </a>
               </div>
               
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <ion-icon name="chatbubbles-outline" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="chatbubbles-outline" size={24} color="var(--ifm-color-primary)" />
                   <h3>Discord</h3>
                 </div>
                 <p>Participe gratuitamente das discussões e tire dúvidas com a comunidade brasileira no Discord.</p>
                 <div className={styles.communityLinkDisabled}>
-                  <ion-icon name="time-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="time-outline" size={16} color="var(--ifm-color-primary)" />
                   Em breve
                 </div>
               </div>
 
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <ion-icon name="logo-youtube" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="logo-youtube" size={24} color="var(--ifm-color-primary)" />
                   <h3>YouTube</h3>
                 </div>
                 <p>Canal dedicado a esta documentação em português, com conteúdo didático, entrevistas com profissionais da área de automação e estudos de casos reais.</p>
                 <div className={styles.communityLinkDisabled}>
-                  <ion-icon name="time-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="time-outline" size={16} color="var(--ifm-color-primary)" />
                   Em breve
                 </div>
               </div>
 
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
-                  <ion-icon name="newspaper-outline" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="newspaper-outline" size={24} color="var(--ifm-color-primary)" />
                   <h3>Newsletter</h3>
                 </div>
                 <p>Receba atualizações sobre n8n, automação e novidades da documentação brasileira através da nossa newsletter na Substack.</p>
                 <div className={styles.communityLinkDisabled}>
-                  <ion-icon name="time-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+                  <IonicIcon name="time-outline" size={16} color="var(--ifm-color-primary)" />
                   Em breve
                 </div>
               </div>
@@ -315,20 +314,20 @@ export default function Home(): React.ReactElement {
           <div className={styles.ctaGrid}>
             <div className={styles.ctaCard}>
               <div className={styles.ctaIcon}>
-                <ion-icon name="extension-puzzle-outline" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
+                <IonicIcon name="extension-puzzle-outline" size={24} color="var(--ifm-color-primary)" />
               </div>
               <div className={styles.ctaText}>
                 <h4>Quer Criar Seus Próprios Nodes?</h4>
                 <p>Tenha mentoria, torne-se expert e desenvolva integrações customizadas para o n8n. Aprenda com a comunidade e construa soluções únicas.</p>
               </div>
               <Link to="/integracoes/criar-nodes" className="button button--outline button--primary">
-                <ion-icon name="arrow-forward-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+                <IonicIcon name="arrow-forward-outline" size={16} color="var(--ifm-color-primary)" />
                 Saiba mais
               </Link>
             </div>
             <div className={styles.ctaCard}>
               <div className={styles.ctaIcon}>
-                <ion-icon name="chatbubble-ellipses-outline" style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />
+                <IonicIcon name="chatbubble-ellipses-outline" size={24} color="var(--ifm-color-primary)" />
               </div>
               <div className={styles.ctaText}>
                 <h4>Tem uma Dúvida?</h4>
@@ -340,7 +339,7 @@ export default function Home(): React.ReactElement {
                 rel="noopener noreferrer"
                 className="button button--outline button--primary"
               >
-                <ion-icon name="arrow-forward-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
+                <IonicIcon name="arrow-forward-outline" size={16} color="var(--ifm-color-primary)" />
                 Abrir discussão
               </a>
             </div>

@@ -11,7 +11,9 @@ O tratamento de erros é fundamental para criar workflows robustos e confiáveis
 ## Conceitos Fundamentais
 
 ### Por que Tratar Erros
+
 Tratar erros adequadamente garante:
+
 - **Confiabilidade**: Workflows que continuam funcionando mesmo com falhas
 - **Observabilidade**: Visibilidade sobre problemas e suas causas
 - **Recuperação**: Capacidade de se recuperar automaticamente
@@ -20,6 +22,7 @@ Tratar erros adequadamente garante:
 ### Tipos de Erros
 
 #### 1. Erros de Conectividade
+
 ```json
 {
   "error": {
@@ -33,6 +36,7 @@ Tratar erros adequadamente garante:
 ```
 
 #### 2. Erros de Autenticação
+
 ```json
 {
   "error": {
@@ -46,6 +50,7 @@ Tratar erros adequadamente garante:
 ```
 
 #### 3. Erros de Dados
+
 ```json
 {
   "error": {
@@ -59,6 +64,7 @@ Tratar erros adequadamente garante:
 ```
 
 #### 4. Erros de Rate Limiting
+
 ```json
 {
   "error": {
@@ -76,6 +82,7 @@ Tratar erros adequadamente garante:
 ### 1. Try-Catch Pattern
 
 #### Implementação com IF Node
+
 ```json
 {
   "node": {
@@ -96,6 +103,7 @@ Tratar erros adequadamente garante:
 ```
 
 #### Implementação com Code Node
+
 ```javascript
 // Code Node para tratamento de erros
 try {
@@ -116,6 +124,7 @@ try {
 ### 2. Retry Logic
 
 #### Configuração de Retry
+
 ```json
 {
   "retry": {
@@ -133,6 +142,7 @@ try {
 ```
 
 #### Retry Customizado
+
 ```javascript
 // Code Node para retry inteligente
 const maxAttempts = 3;
@@ -156,6 +166,7 @@ return items;
 ### 3. Circuit Breaker Pattern
 
 #### Implementação
+
 ```javascript
 // Code Node para Circuit Breaker
 const circuitBreaker = {
@@ -206,6 +217,7 @@ try {
 ### 1. Error Trigger Node
 
 #### Configuração
+
 ```json
 {
   "node": {
@@ -221,6 +233,7 @@ try {
 ```
 
 #### Uso no Workflow
+
 ```mermaid
 graph TD
     A[Main Node] -->|Error| B[Error Trigger]
@@ -233,6 +246,7 @@ graph TD
 ### 2. Set Node para Error Handling
 
 #### Configuração de Error Context
+
 ```json
 {
   "node": {
@@ -267,6 +281,7 @@ graph TD
 ### 3. HTTP Request para Error Reporting
 
 #### Configuração de Webhook de Erro
+
 ```json
 {
   "node": {
@@ -308,6 +323,7 @@ graph TD
 ### 1. Erros de Rede
 
 #### Detecção e Retry
+
 ```javascript
 // Code Node para tratamento de erros de rede
 const isNetworkError = (error) => {
@@ -346,6 +362,7 @@ try {
 ### 2. Erros de Rate Limiting
 
 #### Implementação de Rate Limiting
+
 ```javascript
 // Code Node para tratamento de rate limiting
 const handleRateLimit = async (error) => {
@@ -374,6 +391,7 @@ try {
 ### 3. Erros de Validação
 
 #### Validação de Dados
+
 ```javascript
 // Code Node para validação e tratamento de erros
 const validateData = (data) => {
@@ -424,6 +442,7 @@ return {
 ### 1. Logging de Erros
 
 #### Estrutura de Log
+
 ```json
 {
   "log": {
@@ -450,6 +469,7 @@ return {
 ### 2. Alertas Automáticos
 
 #### Configuração de Alertas
+
 ```json
 {
   "alerts": {
@@ -477,6 +497,7 @@ return {
 ### 3. Dashboard de Erros
 
 #### Métricas Importantes
+
 ```yaml
 Error Rate:
   - Total Errors: 25
@@ -502,6 +523,7 @@ Top Error Sources:
 ### 1. Design de Workflows
 
 #### Estrutura Recomendada
+
 ```mermaid
 graph TD
     A[Trigger] --> B[Validation]
@@ -517,6 +539,7 @@ graph TD
 ### 2. Nomenclatura e Organização
 
 #### Convenções
+
 ```yaml
 Error Nodes:
   - "Error Handler - [Tipo]"
@@ -533,6 +556,7 @@ Error Workflows:
 ### 3. Documentação
 
 #### Template de Documentação
+
 ```markdown
 # Error Handling Strategy
 
@@ -612,16 +636,19 @@ const syncData = async (source, destination) => {
 ## Recursos Adicionais
 
 ### Documentação Oficial
+
 - [Error Handling](https://docs.n8n.io/workflows/error-handling/)
 - [Retry Logic](https://docs.n8n.io/workflows/retry-logic/)
 - [Error Nodes](https://docs.n8n.io/integrations/builtin/cluster-nodes/)
 
 ### Ferramentas de Debug
+
 - [Execution Inspector](https://docs.n8n.io/workflows/executions/)
 - [Error Logging](https://docs.n8n.io/hosting/logging/)
 - [Performance Monitoring](https://docs.n8n.io/hosting/monitoring/)
 
 ### Comunidade
+
 - [Error Handling Discussions](https://community.n8n.io/c/error-handling/)
 - [Best Practices](https://community.n8n.io/c/best-practices/)
 - [Troubleshooting](https://community.n8n.io/c/troubleshooting/)
@@ -629,6 +656,7 @@ const syncData = async (source, destination) => {
 ---
 
 **Próximos Passos:**
+
 - [Looping e Iteração](looping.md)
 - [Merging e Agregação](merging.md)
 - [Subworkflows](subworkflows.md)

@@ -12,19 +12,20 @@ Este documento explica como **implementar monitoramento abrangente** do n8n, abo
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Métricas essenciais de monitoramento
--  Configuração de alertas
--  Dashboards de observabilidade
--  Integração com ferramentas APM
--  Logs estruturados
+- Métricas essenciais de monitoramento
+- Configuração de alertas
+- Dashboards de observabilidade
+- Integração com ferramentas APM
+- Logs estruturados
 
 ---
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métricas Essenciais
 
-###  Métricas de Sistema
+### Métricas de Sistema
 
 #### **CPU e Memória**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> system-metrics.sh
@@ -49,6 +50,7 @@ echo "Load Average: $LOAD_AVG"
 ```
 
 #### **Métricas de Rede**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> network-metrics.sh
@@ -70,9 +72,10 @@ echo "Network In: $NETWORK_IN bytes"
 echo "Network Out: $NETWORK_OUT bytes"
 ```
 
-###  Métricas de Aplicação
+### Métricas de Aplicação
 
 #### **Métricas n8n**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> n8n-metrics.sh
@@ -117,6 +120,7 @@ echo "Error Rate (1h): ${ERROR_RATE}%"
 ```
 
 #### **Métricas de Performance**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> performance-metrics.sh
@@ -149,9 +153,10 @@ echo "Node.js CPU: $NODE_CPU"
 
 ## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sistema de Alertas
 
-###  Configuração de Alertas
+### Configuração de Alertas
 
 #### **Script de Monitoramento**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> n8n-monitoring.sh
@@ -226,9 +231,10 @@ if (( $(echo "$RESPONSE_TIME > $ALERT_THRESHOLD_RESPONSE_TIME" | bc -l) )); then
 fi
 ```
 
-###  Alertas Baseados em Tempo
+### Alertas Baseados em Tempo
 
 #### **Alertas de Horário**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> time-based-alerts.sh
@@ -266,9 +272,10 @@ echo "Current thresholds - CPU: ${ALERT_THRESHOLD_CPU}%, Memory: ${ALERT_THRESHO
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dashboards de Observabilidade
 
-###  Grafana Dashboard
+### Grafana Dashboard
 
 #### **Configuração do Grafana**
+
 ```yaml
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose.yml para Grafana
 version: '3.8'
@@ -299,6 +306,7 @@ volumes:
 ```
 
 #### **Configuração Prometheus**
+
 ```yaml
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> prometheus/prometheus.yml
 global:
@@ -321,6 +329,7 @@ scrape_configs:
 ```
 
 #### **Dashboard n8n**
+
 ```json
 {
   "dashboard": {
@@ -373,9 +382,10 @@ scrape_configs:
 }
 ```
 
-###  Datadog Integration
+### Datadog Integration
 
 #### **Configuração Datadog**
+
 ```yaml
 # <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> datadog-agent.yaml
 apiVersion: v1
@@ -401,6 +411,7 @@ data:
 ```
 
 #### **Custom Metrics**
+
 ```javascript
 // n8n-datadog-metrics.js
 const { StatsD } = require('hot-shots');
@@ -437,9 +448,10 @@ function trackAPIPerformance(endpoint, duration, statusCode) {
 
 ## <ion-icon name="folder-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Logs Estruturados
 
-###  Configuração de Logs
+### Configuração de Logs
 
 #### **Configuração n8n**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração de logs estruturados
 N8N_LOG_LEVEL=info
@@ -450,6 +462,7 @@ N8N_LOG_MAX_FILES=10
 ```
 
 #### **Formato JSON de Logs**
+
 ```json
 {
   "timestamp": "2024-01-15T10:30:00.000Z",
@@ -467,9 +480,10 @@ N8N_LOG_MAX_FILES=10
 }
 ```
 
-###  Centralização de Logs
+### Centralização de Logs
 
 #### **ELK Stack Configuration**
+
 ```yaml
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> docker-compose-elk.yml
 version: '3.8'
@@ -508,6 +522,7 @@ volumes:
 ```
 
 #### **Logstash Pipeline**
+
 ```ruby
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> logstash/pipeline/n8n.conf
 input {
@@ -548,9 +563,10 @@ output {
 
 ## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Ferramentas APM
 
-###  New Relic
+### New Relic
 
 #### **Configuração New Relic**
+
 ```javascript
 // newrelic.js
 'use strict';
@@ -581,9 +597,10 @@ exports.config = {
 };
 ```
 
-###  AppDynamics
+### AppDynamics
 
 #### **Configuração AppDynamics**
+
 ```javascript
 // appdynamics.js
 const appd = require('appdynamics');
@@ -609,7 +626,7 @@ appd.endBT();
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Monitoramento
 
-###  Métricas
+### Métricas
 
 - [ ] Métricas de sistema configuradas
 - [ ] Métricas de aplicação implementadas
@@ -617,7 +634,7 @@ appd.endBT();
 - [ ] Coleta automática configurada
 - [ ] Retenção de dados definida
 
-###  Alertas
+### Alertas
 
 - [ ] Alertas críticos configurados
 - [ ] Alertas de warning configurados
@@ -625,7 +642,7 @@ appd.endBT();
 - [ ] Canais de notificação configurados
 - [ ] Testes de alertas realizados
 
-###  Dashboards
+### Dashboards
 
 - [ ] Dashboard principal criado
 - [ ] Dashboards específicos por equipe
@@ -633,7 +650,7 @@ appd.endBT();
 - [ ] Histórico de dados
 - [ ] Exportação de relatórios
 
-###  Logs
+### Logs
 
 - [ ] Logs estruturados configurados
 - [ ] Centralização de logs implementada
@@ -667,7 +684,8 @@ Considere implementar SLOs (Service Level Objectives) e SLIs (Service Level Indi
 
 ---
 
-** Links úteis:**
--  [Documentação oficial n8n](https://docs.n8n.io/)
--  [Monitoramento n8n](https://docs.n8n.io/hosting/monitoring/)
--  [Segurança n8n](https://docs.n8n.io/hosting/security/)
+**Links úteis:**
+
+- [Documentação oficial n8n](https://docs.n8n.io/)
+- [Monitoramento n8n](https://docs.n8n.io/hosting/monitoring/)
+- [Segurança n8n](https://docs.n8n.io/hosting/security/)

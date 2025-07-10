@@ -12,19 +12,20 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Escolha entre PostgreSQL e MySQL
--  Configuração de conexões
--  Otimização de performance
--  Backup e recovery
--  Estratégias de escalabilidade
+- Escolha entre PostgreSQL e MySQL
+- Configuração de conexões
+- Otimização de performance
+- Backup e recovery
+- Estratégias de escalabilidade
 
 ---
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escolha do Banco de Dados
 
-###  PostgreSQL (Recomendado)
+### PostgreSQL (Recomendado)
 
 **Vantagens:**
+
 - ✅ **Melhor performance** para workloads complexos
 - ✅ **Suporte completo** a JSON e arrays
 - ✅ **Transações ACID** robustas
@@ -33,33 +34,38 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 - ✅ **Escalabilidade** horizontal e vertical
 
 **Recomendado para:**
+
 - Produção empresarial
 - Workflows complexos
 - Alto volume de dados
 - Requisitos de compliance
 
-###  MySQL (Alternativa)
+### MySQL (Alternativa)
 
 **Vantagens:**
+
 - ✅ **Fácil configuração** e manutenção
 - ✅ **Ampla adoção** na comunidade
 - ✅ **Boa performance** para workloads simples
 - ✅ **Recursos de replicação** nativos
 
 **Recomendado para:**
+
 - Ambientes de desenvolvimento
 - Workflows simples
 - Equipes com experiência em MySQL
 - Infraestrutura existente MySQL
 
-###  SQLite (Desenvolvimento)
+### SQLite (Desenvolvimento)
 
 **Vantagens:**
+
 - ✅ **Zero configuração** - arquivo único
 - ✅ **Portátil** - funciona em qualquer lugar
 - ✅ **Ideal para desenvolvimento** e testes
 
 **Limitações:**
+
 - ❌ **Não recomendado** para produção
 - ❌ **Concorrência limitada** - um escritor por vez
 - ❌ **Sem recursos** de rede
@@ -68,9 +74,10 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração PostgreSQL
 
-###  Instalação Rápida
+### Instalação Rápida
 
 #### **Ubuntu/Debian**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar PostgreSQL
 sudo apt update
@@ -86,6 +93,7 @@ sudo -u postgres createdb n8n
 ```
 
 #### **CentOS/RHEL**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar PostgreSQL
 sudo yum install postgresql-server postgresql-contrib
@@ -103,6 +111,7 @@ sudo -u postgres createdb n8n
 ```
 
 #### **Docker**
+
 ```bash
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar PostgreSQL com Docker
 docker run -d \
@@ -115,9 +124,10 @@ docker run -d \
   postgres:15
 ```
 
-###  Configuração Avançada
+### Configuração Avançada
 
 #### **postgresql.conf - Otimizações**
+
 ```bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/postgresql/15/main/postgresql.conf
 
@@ -147,6 +157,7 @@ wal_buffers = 16MB
 ```
 
 #### **pg_hba.conf - Segurança**
+
 ```bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/postgresql/15/main/pg_hba.conf
 
@@ -160,7 +171,7 @@ host    n8n             n8n             ::1/128                 md5
 host    n8n             n8n             192.168.1.0/24          md5
 ```
 
-###  Variáveis de Ambiente
+### Variáveis de Ambiente
 
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração PostgreSQL
@@ -183,9 +194,10 @@ DB_POSTGRESDB_SSL_KEY=/path/to/client-key.key
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração MySQL
 
-###  Instalação Rápida
+### Instalação Rápida
 
 #### **Ubuntu/Debian**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar MySQL
 sudo apt update
@@ -208,6 +220,7 @@ EXIT;
 ```
 
 #### **Docker**
+
 ```bash
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar MySQL com Docker
 docker run -d \
@@ -221,9 +234,10 @@ docker run -d \
   mysql:8.0
 ```
 
-###  Configuração Avançada
+### Configuração Avançada
 
 #### **my.cnf - Otimizações**
+
 ```ini
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/mysql/mysql.conf.d/mysqld.cnf
 
@@ -250,7 +264,7 @@ innodb_flush_method = O_DIRECT
 innodb_file_per_table = 1
 ```
 
-###  Variáveis de Ambiente
+### Variáveis de Ambiente
 
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração MySQL
@@ -273,9 +287,10 @@ DB_MYSQLDB_SSL_KEY=/path/to/client-key.key
 
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Otimização de Performance
 
-###  PostgreSQL
+### PostgreSQL
 
 #### **Índices Recomendados**
+
 ```sql
 -- Índices para melhorar performance
 CREATE INDEX idx_executions_workflow_id ON executions(workflow_id);
@@ -288,6 +303,7 @@ CREATE INDEX idx_workflows_name ON workflows USING gin(to_tsvector('portuguese',
 ```
 
 #### **Configurações de Performance**
+
 ```sql
 -- Configurar estatísticas
 ALTER DATABASE n8n SET default_statistics_target = 100;
@@ -298,9 +314,10 @@ ALTER DATABASE n8n SET effective_io_concurrency = 200;
 VACUUM ANALYZE;
 ```
 
-###  MySQL
+### MySQL
 
 #### **Índices Recomendados**
+
 ```sql
 -- Índices para melhorar performance
 CREATE INDEX idx_executions_workflow_id ON executions(workflow_id);
@@ -313,6 +330,7 @@ CREATE FULLTEXT INDEX idx_workflows_name ON workflows(name);
 ```
 
 #### **Configurações de Performance**
+
 ```sql
 -- Configurar engine
 ALTER TABLE executions ENGINE=InnoDB;
@@ -327,9 +345,10 @@ OPTIMIZE TABLE workflows;
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup e Recovery
 
-###  Backup Automático
+### Backup Automático
 
 #### **PostgreSQL - Script de Backup**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-postgres.sh
@@ -356,6 +375,7 @@ echo "Backup criado: $BACKUP_FILE.gz"
 ```
 
 #### **MySQL - Script de Backup**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-mysql.sh
@@ -381,9 +401,10 @@ find $BACKUP_DIR -name "*.sql.gz" -mtime +7 -delete
 echo "Backup criado: $BACKUP_FILE.gz"
 ```
 
-###  Restauração
+### Restauração
 
 #### **PostgreSQL - Restaurar Backup**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Descomprimir backup
 gunzip n8n_20241201_120000.sql.gz
@@ -393,6 +414,7 @@ psql -h localhost -U n8n -d n8n < n8n_20241201_120000.sql
 ```
 
 #### **MySQL - Restaurar Backup**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Descomprimir backup
 gunzip n8n_20241201_120000.sql.gz
@@ -401,7 +423,7 @@ gunzip n8n_20241201_120000.sql.gz
 mysql -h localhost -u n8n -p n8n < n8n_20241201_120000.sql
 ```
 
-###  Cron Jobs
+### Cron Jobs
 
 ```bash
 # <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
@@ -416,9 +438,10 @@ mysql -h localhost -u n8n -p n8n < n8n_20241201_120000.sql
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalabilidade
 
-###  Replicação
+### Replicação
 
 #### **PostgreSQL - Replicação Master-Slave**
+
 ```bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Master (postgresql.conf)
 wal_level = replica
@@ -432,6 +455,7 @@ restore_command = 'cp /var/lib/postgresql/wal/%f %p'
 ```
 
 #### **MySQL - Replicação Master-Slave**
+
 ```sql
 -- Master
 GRANT REPLICATION SLAVE ON *.* TO 'replicator'@'%' IDENTIFIED BY 'senha';
@@ -445,9 +469,10 @@ CHANGE MASTER TO
   MASTER_LOG_POS=154;
 ```
 
-###  Cloud Databases
+### Cloud Databases
 
 #### **AWS RDS PostgreSQL**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração RDS
 DB_TYPE=postgresdb
@@ -460,6 +485,7 @@ DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED=false
 ```
 
 #### **Google Cloud SQL**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Cloud SQL
 DB_TYPE=postgresdb
@@ -474,7 +500,7 @@ DB_POSTGRESDB_PASSWORD=senha_segura
 
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Docker Compose
 
-###  PostgreSQL Completo
+### PostgreSQL Completo
 
 ```yaml
 version: '3.8'
@@ -540,7 +566,7 @@ networks:
 
 ## <ion-icon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento
 
-###  Métricas PostgreSQL
+### Métricas PostgreSQL
 
 ```sql
 -- Queries lentas
@@ -560,7 +586,7 @@ FROM pg_stat_activity
 WHERE state = 'active';
 ```
 
-###  Métricas MySQL
+### Métricas MySQL
 
 ```sql
 -- Status do servidor
@@ -579,7 +605,7 @@ LIMIT 10;
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
-###  Configuração
+### Configuração
 
 - [ ] PostgreSQL 15+ ou MySQL 8.0+ instalado
 - [ ] Usuário dedicado criado para n8n
@@ -587,7 +613,7 @@ LIMIT 10;
 - [ ] Variáveis de ambiente configuradas
 - [ ] Conexão testada e funcionando
 
-###  Performance
+### Performance
 
 - [ ] Índices criados nas tabelas principais
 - [ ] Configurações de memória otimizadas
@@ -595,7 +621,7 @@ LIMIT 10;
 - [ ] Estatísticas atualizadas regularmente
 - [ ] Vacuum/Analyze configurado
 
-###  Backup
+### Backup
 
 - [ ] Script de backup automático configurado
 - [ ] Backup testado e funcionando
@@ -603,7 +629,7 @@ LIMIT 10;
 - [ ] Backup em localização segura
 - [ ] Procedimento de restauração documentado
 
-###  Segurança
+### Segurança
 
 - [ ] Senha forte configurada
 - [ ] Acesso restrito por IP (se aplicável)

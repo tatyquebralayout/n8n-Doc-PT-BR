@@ -13,13 +13,16 @@ Criar workflows eficientes no n8n requer compreensão dos conceitos fundamentais
 ## Conceitos Fundamentais
 
 ### O que é um Workflow
+
 Um workflow no n8n é uma sequência automatizada de operações que:
+
 - **Processa dados** de uma ou múltiplas fontes
 - **Aplica lógica** condicional e transformações
 - **Executa ações** em sistemas externos
 - **Retorna resultados** ou continua o processamento
 
 ### Estrutura Básica
+
 ```mermaid
 graph LR
     A[Trigger] --> B[Processamento]
@@ -31,15 +34,18 @@ graph LR
 ## Criando seu Primeiro Workflow
 
 ### Passo 1: Escolher o Trigger
+
 O trigger determina **quando** e **como** o workflow será executado:
 
 #### Triggers Comuns
+
 - **Manual Trigger**: Execução manual via interface
 - **Schedule Trigger**: Execução em intervalos programados
 - **Webhook**: Execução via requisição HTTP
 - **App Triggers**: Eventos de aplicações externas
 
 #### Exemplo: Schedule Trigger
+
 ```json
 {
   "rule": {
@@ -58,15 +64,18 @@ O trigger determina **quando** e **como** o workflow será executado:
 ```
 
 ### Passo 2: Adicionar Nodes de Processamento
+
 Nodes processam e transformam os dados:
 
 #### Tipos de Processamento
+
 - **Data Transformation**: Modificar estrutura dos dados
 - **Data Filtering**: Filtrar registros específicos
 - **Data Enrichment**: Adicionar informações externas
 - **Data Validation**: Validar integridade dos dados
 
 #### Exemplo: Set Node
+
 ```json
 {
   "values": {
@@ -85,9 +94,11 @@ Nodes processam e transformam os dados:
 ```
 
 ### Passo 3: Implementar Lógica Condicional
+
 Use nodes de controle de fluxo para criar caminhos condicionais:
 
 #### IF Node
+
 ```json
 {
   "conditions": {
@@ -103,6 +114,7 @@ Use nodes de controle de fluxo para criar caminhos condicionais:
 ```
 
 #### Switch Node
+
 ```json
 {
   "rules": {
@@ -125,9 +137,11 @@ Use nodes de controle de fluxo para criar caminhos condicionais:
 ```
 
 ### Passo 4: Executar Ações Finais
+
 Nodes de ação realizam operações em sistemas externos:
 
 #### Exemplos de Ações
+
 - **Send Email**: Enviar notificações
 - **HTTP Request**: Chamar APIs externas
 - **Database Operations**: Salvar/atualizar dados
@@ -138,6 +152,7 @@ Nodes de ação realizam operações em sistemas externos:
 ### Organização de Workflows
 
 #### 1. Nomenclatura Consistente
+
 ```yaml
 # Boas práticas de nomenclatura
 Workflow: "Processamento de Pedidos - E-commerce"
@@ -149,6 +164,7 @@ Nodes:
 ```
 
 #### 2. Estrutura Modular
+
 Divida workflows complexos em módulos menores:
 
 ```mermaid
@@ -160,6 +176,7 @@ graph TD
 ```
 
 #### 3. Comentários e Documentação
+
 Use comentários para explicar lógica complexa:
 
 ```json
@@ -171,14 +188,18 @@ Use comentários para explicar lógica complexa:
 ### Reutilização de Código
 
 #### 1. Templates
+
 Crie templates para workflows comuns:
+
 - **Data Processing Templates**
 - **Notification Templates**
 - **Integration Templates**
 - **Error Handling Templates**
 
 #### 2. Subworkflows
+
 Use subworkflows para lógica reutilizável:
+
 ```json
 {
   "workflowId": "subworkflow-id",
@@ -189,7 +210,9 @@ Use subworkflows para lógica reutilizável:
 ```
 
 #### 3. Code Nodes Reutilizáveis
+
 Crie funções JavaScript reutilizáveis:
+
 ```javascript
 // Função para validação de email
 function validateEmail(email) {
@@ -206,18 +229,21 @@ function formatDate(date, format = 'DD/MM/YYYY') {
 ## Melhores Práticas
 
 ### Performance
+
 1. **Batch Processing**: Processe dados em lotes
 2. **Rate Limiting**: Respeite limites de API
 3. **Caching**: Use cache para dados estáticos
 4. **Optimization**: Otimize queries e operações
 
 ### Confiabilidade
+
 1. **Error Handling**: Implemente tratamento de erros
 2. **Retry Logic**: Configure tentativas automáticas
 3. **Monitoring**: Monitore execuções
 4. **Backup**: Faça backup de workflows importantes
 
 ### Manutenibilidade
+
 1. **Version Control**: Use controle de versão
 2. **Documentation**: Documente workflows complexos
 3. **Testing**: Teste workflows regularmente
@@ -226,18 +252,21 @@ function formatDate(date, format = 'DD/MM/YYYY') {
 ## Debugging e Teste
 
 ### Ferramentas de Debug
+
 1. **Execution Inspector**: Analise execuções detalhadamente
 2. **Data Preview**: Visualize dados em cada node
 3. **Error Logs**: Analise logs de erro
 4. **Performance Monitor**: Monitore performance
 
 ### Estratégias de Teste
+
 1. **Unit Testing**: Teste nodes individualmente
 2. **Integration Testing**: Teste workflows completos
 3. **Load Testing**: Teste com grandes volumes
 4. **Error Testing**: Teste cenários de erro
 
 ### Exemplo: Workflow de Teste
+
 ```mermaid
 graph LR
     A[Test Data] --> B[Process Node]
@@ -251,6 +280,7 @@ graph LR
 ### Padrões de Design
 
 #### 1. Fan-out/Fan-in
+
 ```mermaid
 graph TD
     A[Trigger] --> B[Split Data]
@@ -264,6 +294,7 @@ graph TD
 ```
 
 #### 2. Pipeline Processing
+
 ```mermaid
 graph LR
     A[Input] --> B[Stage 1]
@@ -273,6 +304,7 @@ graph LR
 ```
 
 #### 3. Event-driven Architecture
+
 ```mermaid
 graph TD
     A[Event Source] --> B[Event Router]
@@ -282,6 +314,7 @@ graph TD
 ```
 
 ### Exemplo: Workflow de E-commerce
+
 ```mermaid
 graph TD
     A[Novo Pedido] --> B[Validar Cliente]
@@ -299,6 +332,7 @@ graph TD
 ## Configurações Avançadas
 
 ### Variáveis de Ambiente
+
 ```json
 {
   "variables": {
@@ -310,6 +344,7 @@ graph TD
 ```
 
 ### Configurações de Execução
+
 ```json
 {
   "executionOrder": "v1",
@@ -320,6 +355,7 @@ graph TD
 ```
 
 ### Permissões e Segurança
+
 ```json
 {
   "permissions": {
@@ -337,12 +373,14 @@ graph TD
 ## Troubleshooting
 
 ### Problemas Comuns
+
 1. **Connection Issues**: Verificar credenciais e conectividade
 2. **Data Format Errors**: Validar formato dos dados
 3. **Rate Limit Exceeded**: Implementar delays e retry logic
 4. **Memory Issues**: Otimizar processamento de dados
 
 ### Soluções
+
 1. **Error Handling Nodes**: Implementar tratamento robusto
 2. **Retry Mechanisms**: Configurar tentativas automáticas
 3. **Monitoring**: Implementar alertas e logs
@@ -351,16 +389,19 @@ graph TD
 ## Recursos Adicionais
 
 ### Documentação Oficial
+
 - [Workflow Editor](https://docs.n8n.io/workflows/editor/)
 - [Nodes Reference](https://docs.n8n.io/integrations/)
 - [Best Practices](https://docs.n8n.io/workflows/best-practices/)
 
 ### Templates e Exemplos
+
 - [n8n Templates](https://n8n.io/templates/)
 - [Community Workflows](https://community.n8n.io/)
 - [GitHub Examples](https://github.com/n8n-io/n8n/tree/master/packages/cli/templates)
 
 ### Ferramentas de Desenvolvimento
+
 - [n8n CLI](https://docs.n8n.io/hosting/cli/)
 - [n8n API](https://docs.n8n.io/api/)
 - [n8n SDK](https://docs.n8n.io/integrations/creating-nodes/)
@@ -368,6 +409,7 @@ graph TD
 ---
 
 **Próximos Passos:**
+
 - [Organização de Workflows](organizar.md)
 - [Execução de Workflows](../execucoes/index.md)
-- [Tratamento de Erros](../../logica-e-dados/01-flow-logic/error-handling.md) 
+- [Tratamento de Erros](../../logica-e-dados/01-flow-logic/error-handling.md)

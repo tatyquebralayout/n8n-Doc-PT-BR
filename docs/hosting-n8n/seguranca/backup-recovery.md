@@ -12,24 +12,26 @@ Este documento ensina como **implementar backup e recovery** para n8n, incluindo
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Estratégias de backup 3-2-1
--  Scripts de automação
--  Recuperação point-in-time
--  Disaster recovery
--  Testes de restauração
+- Estratégias de backup 3-2-1
+- Scripts de automação
+- Recuperação point-in-time
+- Disaster recovery
+- Testes de restauração
 
 ---
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estratégia de Backup 3-2-1
 
-###  Princípio 3-2-1
+### Princípio 3-2-1
 
 #### **Definição da Estratégia**
+
 - **3 cópias** dos dados (original + 2 backups)
 - **2 tipos** de mídia diferentes (disco + nuvem)
 - **1 cópia** fora do local (backup remoto)
 
 #### **Implementação**
+
 ```bash
 # <ion-icon name="folder-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Estrutura de backup 3-2-1
 /backups/n8n/
@@ -50,9 +52,10 @@ Este documento ensina como **implementar backup e recovery** para n8n, incluindo
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup de Banco de Dados
 
-###  PostgreSQL
+### PostgreSQL
 
 #### **Script de Backup PostgreSQL**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-postgres.sh
@@ -101,6 +104,7 @@ fi
 ```
 
 #### **Backup Incremental**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-postgres-incremental.sh
@@ -121,9 +125,10 @@ pg_basebackup -h $DB_HOST -p $DB_PORT -U $DB_USER \
 echo "Backup incremental criado: $BACKUP_DIR/base_$DATE"
 ```
 
-###  MySQL
+### MySQL
 
 #### **Script de Backup MySQL**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-mysql.sh
@@ -180,9 +185,10 @@ fi
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup de Workflows e Credenciais
 
-###  Backup via API
+### Backup via API
 
 #### **Script de Backup de Workflows**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-workflows.sh
@@ -230,6 +236,7 @@ fi
 ```
 
 #### **Script de Backup de Credenciais**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-credentials.sh
@@ -276,9 +283,10 @@ else
 fi
 ```
 
-###  Backup de Volumes Docker
+### Backup de Volumes Docker
 
 #### **Script de Backup de Volumes**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-docker-volumes.sh
@@ -331,9 +339,10 @@ fi
 
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup na Nuvem
 
-###  Amazon S3
+### Amazon S3
 
 #### **Script de Backup para S3**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-to-s3.sh
@@ -389,9 +398,10 @@ aws s3api put-bucket-lifecycle-configuration \
 echo "Backup para S3 concluído"
 ```
 
-###  Google Cloud Storage
+### Google Cloud Storage
 
 #### **Script de Backup para GCS**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-to-gcs.sh
@@ -431,9 +441,10 @@ echo "Backup para GCS concluído"
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recuperação e Restauração
 
-###  Restauração PostgreSQL
+### Restauração PostgreSQL
 
 #### **Script de Restauração**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="server-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> restore-postgres.sh
@@ -495,9 +506,10 @@ else
 fi
 ```
 
-###  Restauração de Workflows
+### Restauração de Workflows
 
 #### **Script de Restauração de Workflows**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> restore-workflows.sh
@@ -553,9 +565,10 @@ echo "$(date): Restauração de workflows concluída - $BACKUP_FILE" >> /var/log
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Disaster Recovery
 
-###  Plano de Disaster Recovery
+### Plano de Disaster Recovery
 
 #### **Cenários de Recuperação**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Cenários de DR documentados
 DR_SCENARIOS=(
@@ -569,6 +582,7 @@ DR_SCENARIOS=(
 ```
 
 #### **RTO e RPO**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Objetivos de Recuperação
 RTO_PRIMARY=4      # 4 horas para recuperação
@@ -577,9 +591,10 @@ RPO_PRIMARY=1      # 1 hora de perda de dados máxima
 RPO_SECONDARY=24   # 24 horas de perda de dados máxima
 ```
 
-###  Recuperação de Infraestrutura
+### Recuperação de Infraestrutura
 
 #### **Script de Recuperação Completa**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> disaster-recovery.sh
@@ -638,9 +653,10 @@ fi
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testes de Restauração
 
-###  Script de Teste
+### Script de Teste
 
 #### **Teste Automatizado de Restauração**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> test-restore.sh
@@ -699,9 +715,10 @@ fi
 
 ## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Automação com Cron
 
-###  Configuração de Cron Jobs
+### Configuração de Cron Jobs
 
 #### **Crontab Configuração**
+
 ```bash
 # <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab (crontab -e)
 
@@ -725,6 +742,7 @@ fi
 ```
 
 #### **Script de Limpeza**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> cleanup-old-backups.sh
@@ -753,7 +771,7 @@ echo "Limpeza concluída"
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Backup
 
-###  Configuração
+### Configuração
 
 - [ ] Estratégia 3-2-1 implementada
 - [ ] Scripts de backup criados
@@ -761,7 +779,7 @@ echo "Limpeza concluída"
 - [ ] Backup na nuvem configurado
 - [ ] Retenção de backups definida
 
-###  Recuperação
+### Recuperação
 
 - [ ] Scripts de restauração criados
 - [ ] Testes de restauração realizados
@@ -769,7 +787,7 @@ echo "Limpeza concluída"
 - [ ] RTO e RPO definidos
 - [ ] Procedimentos de recuperação testados
 
-###  Monitoramento
+### Monitoramento
 
 - [ ] Logs de backup configurados
 - [ ] Alertas de falha configurados
@@ -777,7 +795,7 @@ echo "Limpeza concluída"
 - [ ] Relatórios de backup gerados
 - [ ] Verificação de integridade implementada
 
-###  Documentação
+### Documentação
 
 - [ ] Procedimentos documentados
 - [ ] Contatos de emergência definidos
@@ -811,7 +829,8 @@ Considere implementar backup contínuo (continuous backup) para sistemas crític
 
 ---
 
-** Links úteis:**
--  [Documentação oficial n8n](https://docs.n8n.io/)
--  [Backup e Restore n8n](https://docs.n8n.io/hosting/backup-restore/)
--  [Segurança n8n](https://docs.n8n.io/hosting/security/)
+**Links úteis:**
+
+- [Documentação oficial n8n](https://docs.n8n.io/)
+- [Backup e Restore n8n](https://docs.n8n.io/hosting/backup-restore/)
+- [Segurança n8n](https://docs.n8n.io/hosting/security/)

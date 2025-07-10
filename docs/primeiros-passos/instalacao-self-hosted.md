@@ -27,7 +27,7 @@ Self-hosted significa que você instala e gerencia o n8n em sua própria infraes
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métodos de Instalação
 
-###  Docker (Recomendado)
+### Docker (Recomendado)
 
 A forma mais rápida e confiável para produção:
 
@@ -50,7 +50,7 @@ docker run -it --rm \
   n8nio/n8n
 ```
 
-###  NPM (Node.js)
+### NPM (Node.js)
 
 Para instalação direta via npm:
 
@@ -65,7 +65,7 @@ GENERIC_TIMEZONE=America/Sao_Paulo \
 n8n start
 ```
 
-###  Docker Compose (Produção)
+### Docker Compose (Produção)
 
 Configuração completa com banco de dados:
 
@@ -275,6 +275,7 @@ spec:
 ### **Autenticação**
 
 #### **Basic Auth**
+
 ```bash
 N8N_BASIC_AUTH_ACTIVE=true
 N8N_BASIC_AUTH_USER=admin
@@ -282,6 +283,7 @@ N8N_BASIC_AUTH_PASSWORD=senha_segura
 ```
 
 #### **OAuth2**
+
 ```bash
 N8N_OAUTH2_ACTIVE=true
 N8N_OAUTH2_CLIENT_ID=seu_client_id
@@ -390,4 +392,4 @@ Para produção, sempre use **Docker** com **PostgreSQL** e **Redis**. Isso gara
 
 :::warning **Importante**
 Mantenha sempre backups regulares dos dados e do banco de dados. Em caso de falha, você pode restaurar rapidamente.
-::: 
+:::

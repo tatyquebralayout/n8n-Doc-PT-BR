@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Octokit } from '@octokit/rest';
 import styles from './styles.module.css';
-import LocalIcon from '@site/src/components/LocalIcon';
+import IonicIcon from '@site/src/components/IonicIcon';
 import LoadingSkeleton from '@site/src/components/LoadingSkeleton';
 
 interface RepoData {
@@ -116,7 +116,7 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github', load
   if (error && repoUrl) {
     return (
       <div className={`${styles['repo-card']} ${styles['repo-card__error']}`}>
-        <LocalIcon name="warning-outline" size={32} color="var(--ifm-color-danger)" />
+        <IonicIcon name="warning-outline" size={32} color="var(--ifm-color-danger)" />
         <h4 className={styles['repo-card__error-title']}>Erro ao Carregar</h4>
         <p className={styles['repo-card__error-message']}>{error}</p>
         <a href={repoUrl} className={styles['repo-card__button']} target="_blank" rel="noopener noreferrer">
@@ -148,8 +148,8 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github', load
       <div className={styles['repo-card__header']}>
         <div className={styles['repo-card__icon']}>
           {isIonicon(icon)
-            ? <ion-icon name={icon} style={{fontSize: 32, color: 'var(--ifm-color-primary)'}} />
-            : <LocalIcon name={icon} size={32} />}
+            ? <IonicIcon name={icon} size={32} color="var(--ifm-color-primary)" />
+            : <IonicIcon name={icon} size={32} />}
         </div>
         <div className={styles['repo-card__title-container']}>
           <h3 className={styles['repo-card__title']}>{data.name}</h3>
@@ -159,28 +159,28 @@ const RepoCard: React.FC<RepoCardProps> = ({ repoUrl, icon = 'logo-github', load
       <div className={styles['repo-card__stats']}>
         <div className={styles['repo-card__stat']}>
           {isIonicon('star-outline')
-            ? <ion-icon name="star-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
-            : <LocalIcon name="star-outline" size={16} />}
+            ? <IonicIcon name="star-outline" size={16} color="var(--ifm-color-primary)" />
+            : <IonicIcon name="star-outline" size={16} />}
           <span>{data.stars.toLocaleString('pt-BR')}</span>
         </div>
         <div className={styles['repo-card__stat']}>
           {isIonicon('git-branch-outline')
-            ? <ion-icon name="git-branch-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
-            : <LocalIcon name="git-branch-outline" size={16} />}
+            ? <IonicIcon name="git-branch-outline" size={16} color="var(--ifm-color-primary)" />
+            : <IonicIcon name="git-branch-outline" size={16} />}
           <span>{data.forks.toLocaleString('pt-BR')}</span>
         </div>
         <div className={styles['repo-card__stat']}>
           {isIonicon('eye-outline')
-            ? <ion-icon name="eye-outline" style={{fontSize: 16, color: 'var(--ifm-color-primary)'}} />
-            : <LocalIcon name="eye-outline" size={16} />}
+            ? <IonicIcon name="eye-outline" size={16} color="var(--ifm-color-primary)" />
+            : <IonicIcon name="eye-outline" size={16} />}
           <span>{data.watchers.toLocaleString('pt-BR')}</span>
         </div>
       </div>
       <div className={styles['repo-card__footer']}>
         <a href={data.url} className={styles['repo-card__button']} target="_blank" rel="noopener noreferrer">
           {isIonicon('logo-github')
-            ? <ion-icon name="logo-github" style={{fontSize: 20, color: 'var(--ifm-color-primary)'}} />
-            : <LocalIcon name="logo-github" size={20} />}
+            ? <IonicIcon name="logo-github" size={20} color="var(--ifm-color-primary)" />
+            : <IonicIcon name="logo-github" size={20} />}
         </a>
       </div>
     </div>

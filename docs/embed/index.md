@@ -18,34 +18,39 @@ Selecione abaixo o tópico desejado para acessar guias completos de integração
 
 ---
 
-- [ Preparação](./preparacao)
+- [Preparação](./preparacao)
   <br/><span style={{ color: '#6b7280' }}>Pré-requisitos técnicos, infraestrutura, domínios permitidos, CORS, segurança e checklist completo.</span>
 
-- [ Implementação](./implementacao)
+- [Implementação](./implementacao)
   <br/><span style={{ color: '#6b7280' }}>Configuração de parâmetros, implantação em produção, SSO, performance, monitoramento e troubleshooting.</span>
 
-- [ Gerenciamento](./gerenciamento)
+- [Gerenciamento](./gerenciamento)
   <br/><span style={{ color: '#6b7280' }}>Controle de workflows, white labelling, versionamento, auditoria, backup e integração com sistemas externos.</span>
 
 ---
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
-###  Sistema de Embed
-O n8n oferece um sistema de embed que permite:
--  Integrar workflows em aplicações web
--  Personalizar a interface do usuário
--  Controlar acesso e permissões
--  Oferecer automação como serviço
+### Sistema de Embed
 
-###  Casos de Uso
+O n8n oferece um sistema de embed que permite:
+
+- Integrar workflows em aplicações web
+- Personalizar a interface do usuário
+- Controlar acesso e permissões
+- Oferecer automação como serviço
+
+### Casos de Uso
+
 O embed é ideal para:
+
 - **SaaS Platforms**: Oferecer automação aos clientes
 - **Aplicações Empresariais**: Integrar workflows internos
 - **Marketplaces**: Vender automações personalizadas
 - **Dashboards**: Visualizar dados de workflows
 
-###  Benefícios
+### Benefícios
+
 - **Experiência Integrada**: n8n se torna parte da sua aplicação
 - **Controle Total**: Gerencie usuários e permissões
 - **Personalização**: Adapte a interface às suas necessidades
@@ -55,13 +60,15 @@ O embed é ideal para:
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquitetura
 
-###  Componentes Principais
+### Componentes Principais
+
 1. **n8n Instance**: Instância do n8n configurada para embed
 2. **Embed Interface**: Interface personalizada para seus usuários
 3. **Authentication System**: Sistema de autenticação integrado
 4. **Workflow Management**: Gerenciamento de workflows por usuário
 
-###  Fluxo de Integração
+### Fluxo de Integração
+
 1. **Preparação**: Configure a instância do n8n
 2. **Implementação**: Integre via iframe ou API
 3. **Gerenciamento**: Administre usuários e workflows
@@ -90,4 +97,4 @@ Comece pela seção de Preparação para garantir que todos os pré-requisitos e
 
 :::info **Recurso Adicional**
 Consulte a documentação oficial do n8n para detalhes técnicos avançados sobre o sistema de embed.
-::: 
+:::

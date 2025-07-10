@@ -12,19 +12,20 @@ Este documento ensina como **configurar SSL/HTTPS** para n8n em produção, abor
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Obtenção de certificados SSL
--  Configuração de reverse proxy
--  Renovação automática
--  Security headers
--  Melhores práticas
+- Obtenção de certificados SSL
+- Configuração de reverse proxy
+- Renovação automática
+- Security headers
+- Melhores práticas
 
 ---
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que HTTPS é Essencial?
 
-###  Benefícios do HTTPS
+### Benefícios do HTTPS
 
 **Sem HTTPS:**
+
 - ❌ **Dados expostos** - Credenciais e workflows visíveis
 - ❌ **Man-in-the-middle** - Ataques de interceptação
 - ❌ **Sem confiança** - Navegadores bloqueiam recursos
@@ -32,15 +33,17 @@ Este documento ensina como **configurar SSL/HTTPS** para n8n em produção, abor
 - ❌ **Webhooks falham** - Muitos serviços exigem HTTPS
 
 **Com HTTPS:**
+
 - ✅ **Criptografia** - Dados protegidos em trânsito
 - ✅ **Autenticação** - Confirma identidade do servidor
 - ✅ **Integridade** - Dados não podem ser alterados
 - ✅ **Confiança** - Navegadores confiam na conexão
 - ✅ **Compliance** - Atende requisitos de segurança
 
-###  Quando Usar HTTPS
+### Quando Usar HTTPS
 
 **Sempre use HTTPS em:**
+
 - **Produção** - Qualquer ambiente público
 - **Webhooks** - Para receber dados externos
 - **APIs** - Para integrações seguras
@@ -51,9 +54,10 @@ Este documento ensina como **configurar SSL/HTTPS** para n8n em produção, abor
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Obtenção de Certificados
 
-###  Let's Encrypt (Gratuito)
+### Let's Encrypt (Gratuito)
 
 #### **Instalação do Certbot**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ubuntu/Debian
 sudo apt update
@@ -67,6 +71,7 @@ certbot --version
 ```
 
 #### **Gerar Certificado**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerar certificado para domínio
 sudo certbot --nginx -d seudominio.com
@@ -79,6 +84,7 @@ sudo certbot certonly --manual --preferred-challenges=dns -d *.seudominio.com
 ```
 
 #### **Renovação Automática**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Testar renovação
 sudo certbot renew --dry-run
@@ -90,9 +96,10 @@ sudo crontab -e
 0 12 * * * /usr/bin/certbot renew --quiet
 ```
 
-###  Certificados Comerciais
+### Certificados Comerciais
 
 #### **Comprar Certificado**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Comprar de provedores como:
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - DigiCert
@@ -107,6 +114,7 @@ sudo crontab -e
 ```
 
 #### **Instalar Certificado Comercial**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Criar diretório para certificados
 sudo mkdir -p /etc/ssl/certs/n8n
@@ -127,9 +135,10 @@ sudo chmod 600 /etc/ssl/private/n8n/private.key
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Nginx
 
-###  Instalação e Configuração Básica
+### Instalação e Configuração Básica
 
 #### **Instalar Nginx**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ubuntu/Debian
 sudo apt update
@@ -144,6 +153,7 @@ sudo systemctl enable nginx
 ```
 
 #### **Configuração Básica**
+
 ```nginx
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/nginx/sites-available/n8n
 
@@ -214,9 +224,10 @@ server {
 }
 ```
 
-###  Configuração Avançada
+### Configuração Avançada
 
 #### **Otimizações de Performance**
+
 ```nginx
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/nginx/nginx.conf
 
@@ -255,6 +266,7 @@ http {
 ```
 
 #### **Configuração com Rate Limiting**
+
 ```nginx
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> /etc/nginx/sites-available/n8n
 
@@ -301,7 +313,7 @@ server {
 
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Docker e Containerização
 
-###  Docker Compose com Nginx
+### Docker Compose com Nginx
 
 ```yaml
 version: '3.8'
@@ -383,7 +395,7 @@ networks:
     driver: bridge
 ```
 
-###  Nginx Configuration para Docker
+### Nginx Configuration para Docker
 
 ```nginx
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> nginx.conf
@@ -475,7 +487,7 @@ http {
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Security Headers
 
-###  Headers Essenciais
+### Headers Essenciais
 
 ```nginx
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Security Headers para n8n
@@ -502,7 +514,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 ```
 
-###  Configuração Completa
+### Configuração Completa
 
 ```nginx
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração completa de segurança
@@ -557,7 +569,7 @@ server {
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Renovação Automática
 
-###  Script de Renovação
+### Script de Renovação
 
 ```bash
 #!/bin/bash
@@ -576,7 +588,7 @@ else
 fi
 ```
 
-###  Cron Job
+### Cron Job
 
 ```bash
 # <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
@@ -589,7 +601,7 @@ sudo crontab -e
 0 12 * * 0 /usr/bin/certbot renew --dry-run
 ```
 
-###  Monitoramento
+### Monitoramento
 
 ```bash
 #!/bin/bash
@@ -617,9 +629,10 @@ fi
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testes e Validação
 
-###  Testes de SSL
+### Testes de SSL
 
 #### **Verificar Certificado**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar certificado
 openssl s_client -connect seudominio.com:443 -servername seudominio.com
@@ -632,6 +645,7 @@ nmap --script ssl-enum-ciphers -p 443 seudominio.com
 ```
 
 #### **Testes Online**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ferramentas online para testar SSL:
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - https://www.ssllabs.com/ssltest/
@@ -640,7 +654,7 @@ nmap --script ssl-enum-ciphers -p 443 seudominio.com
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> - https://csp-evaluator.withgoogle.com/
 ```
 
-###  Testes de Performance
+### Testes de Performance
 
 ```bash
 # <ion-icon name="speedometer-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Testar performance HTTPS
@@ -661,7 +675,7 @@ curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
-###  SSL/HTTPS
+### SSL/HTTPS
 
 - [ ] Certificado SSL válido instalado
 - [ ] Redirecionamento HTTP → HTTPS configurado
@@ -669,7 +683,7 @@ curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 - [ ] Renovação automática configurada
 - [ ] Certificado testado e validado
 
-###  Nginx
+### Nginx
 
 - [ ] Nginx instalado e configurado
 - [ ] Proxy reverso funcionando
@@ -677,7 +691,7 @@ curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 - [ ] Rate limiting aplicado
 - [ ] Logs configurados
 
-###  Segurança
+### Segurança
 
 - [ ] Security headers configurados
 - [ ] Content Security Policy aplicado
@@ -685,7 +699,7 @@ curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 - [ ] Acesso restrito por IP (se necessário)
 - [ ] Monitoramento de certificados ativo
 
-###  Monitoramento
+### Monitoramento
 
 - [ ] Scripts de renovação testados
 - [ ] Alertas configurados

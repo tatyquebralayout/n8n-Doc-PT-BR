@@ -22,6 +22,7 @@ Estabelecer políticas de segurança robustas é fundamental para proteger crede
 ### 1. Requisitos de Senha
 
 **Política Mínima**:
+
 ```json
 {
   "minLength": 12,
@@ -37,6 +38,7 @@ Estabelecer políticas de segurança robustas é fundamental para proteger crede
 ```
 
 **Política Avançada**:
+
 ```json
 {
   "minLength": 16,
@@ -56,6 +58,7 @@ Estabelecer políticas de segurança robustas é fundamental para proteger crede
 ### 2. Implementação
 
 **Configuração via Variáveis de Ambiente**:
+
 ```bash
 # Políticas de senha
 N8N_PASSWORD_MIN_LENGTH=12
@@ -72,6 +75,7 @@ N8N_LOGIN_ATTEMPTS_TIMEOUT=900
 ```
 
 **Validação Customizada**:
+
 ```javascript
 // Code node para validação de senha
 function validatePassword(password) {
@@ -103,6 +107,7 @@ function validatePassword(password) {
 ### 1. Criptografia de Credenciais
 
 **Configuração de Criptografia**:
+
 ```bash
 # Chave de criptografia (32 bytes)
 N8N_ENCRYPTION_KEY=your-32-byte-encryption-key-here
@@ -115,6 +120,7 @@ N8N_ENCRYPTION_IV=your-16-byte-iv-here
 ```
 
 **Implementação de Criptografia**:
+
 ```javascript
 // Função para criptografar credenciais
 async function encryptCredential(credential) {
@@ -160,6 +166,7 @@ async function decryptCredential(encryptedData) {
 ### 2. Armazenamento Seguro
 
 **Configuração de Banco de Dados**:
+
 ```bash
 # PostgreSQL com SSL
 N8N_DB_TYPE=postgresdb
@@ -174,6 +181,7 @@ N8N_DB_POSTGRESDB_SSL_CA=/path/to/ca-certificate.crt
 ```
 
 **Backup Seguro**:
+
 ```bash
 #!/bin/bash
 # backup_credentials.sh
@@ -200,6 +208,7 @@ find $BACKUP_DIR -name "credentials_*.sql.gz.enc" -mtime +30 -delete
 ### 1. Políticas de Acesso
 
 **Princípio do Menor Privilégio**:
+
 ```json
 {
   "accessPolicies": {
@@ -229,6 +238,7 @@ find $BACKUP_DIR -name "credentials_*.sql.gz.enc" -mtime +30 -delete
 ```
 
 **Controle por Ambiente**:
+
 ```json
 {
   "environmentPolicies": {
@@ -254,6 +264,7 @@ find $BACKUP_DIR -name "credentials_*.sql.gz.enc" -mtime +30 -delete
 ### 2. Auditoria e Logging
 
 **Logs de Auditoria**:
+
 ```javascript
 // Middleware para logging de acesso a credenciais
 function logCredentialAccess(req, res, next) {
@@ -284,6 +295,7 @@ function logCredentialAccess(req, res, next) {
 ```
 
 **Relatórios de Auditoria**:
+
 ```sql
 -- Query para relatório de acesso a credenciais
 SELECT 
@@ -307,6 +319,7 @@ ORDER BY access_count DESC;
 ### 1. LGPD (Lei Geral de Proteção de Dados)
 
 **Políticas de Conformidade**:
+
 ```json
 {
   "lgpdCompliance": {
@@ -331,6 +344,7 @@ ORDER BY access_count DESC;
 ```
 
 **Implementação de Direitos LGPD**:
+
 ```javascript
 // Função para atender solicitação de acesso (LGPD)
 async function handleDataAccessRequest(userId) {
@@ -375,6 +389,7 @@ async function handleDataErasureRequest(userId) {
 ### 2. ISO 27001
 
 **Controles de Segurança**:
+
 ```json
 {
   "iso27001Controls": {
@@ -407,6 +422,7 @@ async function handleDataErasureRequest(userId) {
 ### 1. Gestão de Credenciais
 
 **Rotação Automática**:
+
 ```javascript
 // Script para rotação automática de credenciais
 async function rotateCredentials() {
@@ -433,6 +449,7 @@ setInterval(rotateCredentials, 24 * 60 * 60 * 1000);
 ```
 
 **Validação de Credenciais**:
+
 ```javascript
 // Função para validar credenciais periodicamente
 async function validateCredentials() {
@@ -460,6 +477,7 @@ async function validateCredentials() {
 ### 2. Monitoramento e Alertas
 
 **Alertas de Segurança**:
+
 ```javascript
 // Monitoramento de atividades suspeitas
 async function monitorSuspiciousActivity() {
@@ -496,6 +514,7 @@ async function monitorSuspiciousActivity() {
 ### 3. Treinamento e Conscientização
 
 **Programa de Treinamento**:
+
 ```json
 {
   "securityTraining": {
@@ -522,6 +541,7 @@ async function monitorSuspiciousActivity() {
 ### Exemplo 1: Política de Senha Corporativa
 
 **Implementação Completa**:
+
 ```javascript
 // Validador de senha corporativo
 class CorporatePasswordValidator {
@@ -613,6 +633,7 @@ class CorporatePasswordValidator {
 ### Exemplo 2: Sistema de Auditoria
 
 **Implementação de Auditoria Completa**:
+
 ```javascript
 // Sistema de auditoria de credenciais
 class CredentialAuditor {
@@ -716,6 +737,7 @@ class CredentialAuditor {
 ### Exemplo 3: Compliance LGPD
 
 **Implementação de Direitos LGPD**:
+
 ```javascript
 // Sistema de compliance LGPD
 class LGPDCompliance {
@@ -846,18 +868,21 @@ class LGPDCompliance {
 ### Problemas Comuns
 
 **Políticas não aplicadas**:
+
 - Verifique configuração de variáveis de ambiente
 - Confirme reinicialização do n8n
 - Teste validação de senha
 - Verifique logs de erro
 
 **Criptografia falha**:
+
 - Confirme chave de criptografia
 - Verifique algoritmo de criptografia
 - Teste descriptografia
 - Verifique permissões de arquivo
 
 **Auditoria não funciona**:
+
 - Verifique configuração de logs
 - Confirme permissões de banco
 - Teste escrita de logs
@@ -866,6 +891,7 @@ class LGPDCompliance {
 ### Debugging
 
 **Ferramentas úteis**:
+
 ```bash
 # Testar política de senha
 curl -X POST "https://your-n8n.com/api/v1/users" \
@@ -897,4 +923,4 @@ openssl enc -aes-256-gcm -k "test-key" -in test.txt -out test.enc
 
 ---
 
-**<ion-icon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para proteger? Comece implementando políticas de senha robustas!** 
+**<ion-icon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para proteger? Comece implementando políticas de senha robustas!**

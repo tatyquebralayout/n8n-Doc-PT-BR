@@ -12,12 +12,14 @@ As integrações são o que torna o n8n tão poderoso. Com centenas de conectore
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Nodes de Aplicações
+
 - **Communication**: Email, chat, mensagens e comunicação
 - **E-commerce**: Lojas virtuais e plataformas de vendas
 - **Marketing**: Ferramentas de marketing e automação
 - **Productivity**: Produtividade e colaboração
 
 ### Nodes Built-in
+
 - **Core Nodes**: Funcionalidades fundamentais do n8n
 - **HTTP Requests**: Conecte com APIs REST
 - **Data Processing**: Processamento e transformação de dados
@@ -25,16 +27,19 @@ As integrações são o que torna o n8n tão poderoso. Com centenas de conectore
 - **Utilities**: Ferramentas e utilitários
 
 ### Nodes da Comunidade
+
 - **Instalação**: Como instalar nodes customizados
 - **Populares**: Nodes mais utilizados pela comunidade
 - **Desenvolvimento**: Como criar seus próprios nodes
 
 ### Credenciais
+
 - **API Keys**: Autenticação com chaves de API
 - **OAuth**: Autorização com OAuth 2.0
 - **Basic Auth**: Autenticação básica
 
 ### Triggers
+
 - **App Triggers**: Triggers de aplicações específicas
 - **Event-based**: Triggers baseados em eventos
 - **Time-based**: Triggers baseados em tempo
@@ -42,6 +47,7 @@ As integrações são o que torna o n8n tão poderoso. Com centenas de conectore
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### O que são Nodes?
+
 Nodes são blocos de funcionalidade que permitem conectar com serviços externos:
 
 - **Trigger Nodes**: Iniciam workflows (verde)
@@ -50,12 +56,14 @@ Nodes são blocos de funcionalidade que permitem conectar com serviços externos
 - **Data Nodes**: Processam informações (roxo)
 
 ### Tipos de Integração
+
 - **REST APIs**: Conecte com APIs REST
 - **Webhooks**: Receba dados de aplicações externas
 - **OAuth**: Autorização segura com serviços
 - **Custom**: Integrações personalizadas
 
 ### Credenciais
+
 As credenciais permitem autenticação segura:
 
 - **API Keys**: Para serviços que usam chaves
@@ -66,24 +74,28 @@ As credenciais permitem autenticação segura:
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Categorias de Integração
 
 ### Comunicação
+
 - **Email**: Gmail, Outlook, SMTP
 - **Chat**: Slack, Discord, Teams
 - **Mensagens**: WhatsApp, Telegram, SMS
 - **Vídeo**: Zoom, Google Meet
 
 ### Produtividade
+
 - **Documentos**: Google Docs, Microsoft Office
 - **Planilhas**: Google Sheets, Excel
 - **Projetos**: Trello, Asana, Jira
 - **Armazenamento**: Google Drive, Dropbox
 
 ### E-commerce
+
 - **Lojas**: Shopify, WooCommerce, Magento
 - **Pagamentos**: PayPal, Stripe, Mercado Pago
 - **Logística**: Correios, transportadoras
 - **Marketplaces**: Amazon, Mercado Livre
 
 ### Marketing
+
 - **Email Marketing**: Mailchimp, SendGrid
 - **CRM**: Salesforce, HubSpot, Pipedrive
 - **Redes Sociais**: Facebook, Instagram, LinkedIn
@@ -98,18 +110,21 @@ As credenciais permitem autenticação segura:
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
 ### Segurança
+
 - **Use credenciais seguras** para cada integração
 - **Rotacione chaves de API** regularmente
 - **Monitore logs** de acesso
 - **Configure permissões** adequadas
 
 ### Performance
+
 - **Limite chamadas de API** para evitar rate limits
 - **Cache dados** quando apropriado
 - **Use webhooks** em vez de polling quando possível
 - **Monitore tempo de resposta** das integrações
 
 ### Manutenção
+
 - **Teste integrações** regularmente
 - **Mantenha credenciais** atualizadas
 - **Documente configurações** importantes

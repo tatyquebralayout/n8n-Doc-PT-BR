@@ -14,7 +14,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Expressões Avançadas
 
-###  Funções Matemáticas
+### Funções Matemáticas
 
 **Operações matemáticas complexas:**
 
@@ -32,7 +32,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ Math.round($json.valor * 100) / 100 }}
 ```
 
-###  Manipulação de Strings
+### Manipulação de Strings
 
 **Transformações de texto avançadas:**
 
@@ -54,7 +54,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Lógica Condicional
 
-###  Operadores Ternários
+### Operadores Ternários
 
 **Condições em uma linha:**
 
@@ -72,7 +72,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ $json.score > 90 ? 'Excelente' : $json.score > 70 ? 'Bom' : 'Regular' }}
 ```
 
-###  Validações Complexas
+### Validações Complexas
 
 **Verificações avançadas:**
 
@@ -94,7 +94,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Manipulação de Arrays
 
-###  Filtros Avançados
+### Filtros Avançados
 
 **Filtrar dados complexos:**
 
@@ -112,7 +112,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ $json.pedidos.filter(pedido => new Date(pedido.data) > new Date('2024-01-01')) }}
 ```
 
-###  Transformações de Array
+### Transformações de Array
 
 **Modificar arrays:**
 
@@ -137,7 +137,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Funções Customizadas
 
-###  Funções JavaScript
+### Funções JavaScript
 
 **Criar funções reutilizáveis:**
 
@@ -169,7 +169,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 })($json.titulo) }}
 ```
 
-###  Bibliotecas Externas
+### Bibliotecas Externas
 
 **Usar bibliotecas JavaScript:**
 
@@ -188,7 +188,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ## <ion-icon name="location-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Mapeamento de Objetos Complexos
 
-###  Objetos Aninhados
+### Objetos Aninhados
 
 **Acessar dados profundos:**
 
@@ -211,7 +211,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 })) }}
 ```
 
-###  Transformações de Estrutura
+### Transformações de Estrutura
 
 **Reorganizar dados:**
 
@@ -245,7 +245,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Manipulação de Datas
 
-###  Formatação de Datas
+### Formatação de Datas
 
 **Formatos brasileiros:**
 
@@ -268,7 +268,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ new Date($json.data).toLocaleDateString('pt-BR', { weekday: 'long' }) }}
 ```
 
-###  Cálculos de Tempo
+### Cálculos de Tempo
 
 **Operações temporais:**
 
@@ -297,7 +297,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Validação e Sanitização
 
-###  Validações de Dados
+### Validações de Dados
 
 **Verificar integridade:**
 
@@ -323,7 +323,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ /@empresa\.com\.br$/.test($json.email) }}
 ```
 
-###  Sanitização de Dados
+### Sanitização de Dados
 
 **Limpar dados:**
 
@@ -367,4 +367,4 @@ Sempre teste expressões complexas com dados reais antes de usar em produção. 
 
 :::info **Recurso Adicional**
 Use o Node.js Function node para expressões muito complexas que não cabem em um campo de mapeamento.
-::: 
+:::

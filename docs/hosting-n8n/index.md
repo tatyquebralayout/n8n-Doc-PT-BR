@@ -12,23 +12,27 @@ O n8n pode ser hospedado de várias formas, desde instalações locais até ambi
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Instalação e Configuração
+
 - **Instalação**: Guias para diferentes ambientes
 - **Configuração**: Ajuste parâmetros e variáveis
 - **Database**: Configure bancos de dados
 - **Queues**: Configure filas de processamento
 
 ### Segurança e Compliance
+
 - **Autenticação**: Configure acesso seguro
 - **Backup e Recovery**: Proteja seus dados
 - **Monitoring**: Monitore performance e saúde
 - **LGPD**: Conformidade com regulamentações brasileiras
 
 ### Escalonamento
+
 - **Clustering**: Configure múltiplas instâncias
 - **Load Balancing**: Distribua carga entre servidores
 - **Performance**: Otimize para alta demanda
 
 ### Cloud e On-Premises
+
 - **AWS Brasil**: Deploy na Amazon Web Services
 - **Azure Brasil**: Deploy no Microsoft Azure
 - **GCP Brasil**: Deploy no Google Cloud Platform
@@ -37,18 +41,21 @@ O n8n pode ser hospedado de várias formas, desde instalações locais até ambi
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### Tipos de Deploy
+
 - **Self-hosted**: Controle total sobre infraestrutura
 - **Cloud**: Escalabilidade e gerenciamento simplificado
 - **Hybrid**: Combinação de recursos locais e na nuvem
 - **Containerized**: Deploy em containers (Docker/Kubernetes)
 
 ### Componentes do Sistema
+
 - **Web Server**: Interface web do n8n
 - **Database**: Armazenamento de workflows e execuções
 - **Queue System**: Processamento assíncrono
 - **File Storage**: Armazenamento de arquivos temporários
 
 ### Requisitos de Sistema
+
 - **CPU**: Mínimo 2 cores, recomendado 4+
 - **RAM**: Mínimo 4GB, recomendado 8GB+
 - **Storage**: SSD recomendado para performance
@@ -57,6 +64,7 @@ O n8n pode ser hospedado de várias formas, desde instalações locais até ambi
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquiteturas de Deploy
 
 ### Single Instance
+
 Ideal para desenvolvimento e pequenas cargas:
 
 - **Vantagens**: Simplicidade, baixo custo
@@ -64,6 +72,7 @@ Ideal para desenvolvimento e pequenas cargas:
 - **Uso**: Desenvolvimento, testes, pequenas empresas
 
 ### Multi-Instance
+
 Para ambientes de produção com alta disponibilidade:
 
 - **Load Balancer**: Distribui carga entre instâncias
@@ -72,6 +81,7 @@ Para ambientes de produção com alta disponibilidade:
 - **Health Checks**: Monitoramento de saúde
 
 ### Microservices
+
 Para ambientes complexos e escaláveis:
 
 - **API Gateway**: Roteamento de requisições
@@ -88,24 +98,28 @@ Para ambientes complexos e escaláveis:
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
 ### Segurança
+
 - **Use HTTPS** em produção
 - **Configure autenticação** adequada
 - **Monitore logs** regularmente
 - **Mantenha atualizações** em dia
 
 ### Performance
+
 - **Use SSD** para armazenamento
 - **Configure cache** adequadamente
 - **Monitore recursos** do sistema
 - **Otimize queries** de banco de dados
 
 ### Backup
+
 - **Backup regular** de workflows
 - **Backup de banco de dados** diário
 - **Teste restauração** periodicamente
 - **Armazene backups** em local seguro
 
 ### Monitoramento
+
 - **Configure alertas** para problemas
 - **Monitore métricas** de performance
 - **Log centralizado** para análise

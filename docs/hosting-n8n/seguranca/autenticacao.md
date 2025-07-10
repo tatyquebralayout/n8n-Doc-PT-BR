@@ -12,19 +12,20 @@ Este documento detalha como **configurar autenticação segura** no n8n, abordan
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Métodos de autenticação disponíveis
--  Configuração de segurança avançada
--  Integração com sistemas externos
--  Autenticação de dois fatores
--  Controle de sessão e timeout
+- Métodos de autenticação disponíveis
+- Configuração de segurança avançada
+- Integração com sistemas externos
+- Autenticação de dois fatores
+- Controle de sessão e timeout
 
 ---
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métodos de Autenticação
 
-###  Autenticação Básica
+### Autenticação Básica
 
 #### **Configuração Básica**
+
 ```bash
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Variáveis de ambiente para autenticação básica
 N8N_BASIC_AUTH_ACTIVE=true
@@ -33,6 +34,7 @@ N8N_BASIC_AUTH_PASSWORD=senha_segura_complexa
 ```
 
 #### **Docker Compose**
+
 ```yaml
 services:
   n8n:
@@ -46,6 +48,7 @@ services:
 ```
 
 #### **Política de Senhas**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar política de senhas forte
 N8N_PASSWORD_POLICY_MIN_LENGTH=12
@@ -55,9 +58,10 @@ N8N_PASSWORD_POLICY_REQUIRE_NUMBERS=true
 N8N_PASSWORD_POLICY_REQUIRE_SPECIAL_CHARS=true
 ```
 
-###  Autenticação de Dois Fatores (2FA)
+### Autenticação de Dois Fatores (2FA)
 
 #### **Configuração 2FA**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Ativar 2FA globalmente
 N8N_2FA_ENABLED=true
@@ -71,6 +75,7 @@ N8N_2FA_PERIOD=30
 ```
 
 #### **Apps Compatíveis**
+
 - **Google Authenticator** - Mais popular
 - **Microsoft Authenticator** - Integração com Azure
 - **Authy** - Backup na nuvem
@@ -78,6 +83,7 @@ N8N_2FA_PERIOD=30
 - **Bitwarden** - Open source
 
 #### **Configuração por Usuário**
+
 ```javascript
 // Ativar 2FA para usuário específico
 {
@@ -92,9 +98,10 @@ N8N_2FA_PERIOD=30
 }
 ```
 
-###  SSO (Single Sign-On)
+### SSO (Single Sign-On)
 
 #### **SAML 2.0**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração SAML
 N8N_SAML_ENABLED=true
@@ -106,6 +113,7 @@ N8N_SAML_SIGNATURE_ALGORITHM=SHA256
 ```
 
 #### **OAuth 2.0**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração OAuth 2.0
 N8N_OAUTH2_ENABLED=true
@@ -118,6 +126,7 @@ N8N_OAUTH2_SCOPE=openid profile email
 ```
 
 #### **OpenID Connect**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração OpenID Connect
 N8N_OIDC_ENABLED=true
@@ -127,9 +136,10 @@ N8N_OIDC_CLIENT_SECRET=seu_client_secret
 N8N_OIDC_SCOPE=openid profile email
 ```
 
-###  LDAP/Active Directory
+### LDAP/Active Directory
 
 #### **Configuração LDAP**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração LDAP
 N8N_LDAP_ENABLED=true
@@ -144,6 +154,7 @@ N8N_LDAP_NAME_ATTRIBUTE=cn
 ```
 
 #### **Configuração Active Directory**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Active Directory
 N8N_LDAP_ENABLED=true
@@ -162,9 +173,10 @@ N8N_LDAP_GROUP_FILTER=(memberOf=cn=n8n-users,ou=groups,dc=empresa,dc=com)
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de Segurança
 
-###  Controle de Sessão
+### Controle de Sessão
 
 #### **Timeout de Sessão**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar timeout de sessão
 N8N_SESSION_TIMEOUT=3600  # 1 hora em segundos
@@ -175,6 +187,7 @@ N8N_SESSION_COOKIE_SAMESITE=strict
 ```
 
 #### **Limite de Tentativas de Login**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar limite de tentativas
 N8N_MAX_LOGIN_ATTEMPTS=5
@@ -183,6 +196,7 @@ N8N_ACCOUNT_LOCKOUT_DURATION=1800  # 30 minutos
 ```
 
 #### **Configuração de Cookies**
+
 ```bash
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurações de segurança de cookies
 N8N_COOKIE_SECURE=true
@@ -192,9 +206,10 @@ N8N_COOKIE_DOMAIN=.seudominio.com
 N8N_COOKIE_PATH=/
 ```
 
-###  Restrições de IP
+### Restrições de IP
 
 #### **Whitelist de IPs**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Permitir apenas IPs específicos
 N8N_ALLOWED_IPS=192.168.1.0/24,10.0.0.0/8,203.0.113.0/24
@@ -202,6 +217,7 @@ N8N_BLOCKED_IPS=203.0.113.100,192.168.1.100
 ```
 
 #### **Configuração Nginx**
+
 ```nginx
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Restrição por IP no Nginx
 location / {
@@ -217,9 +233,10 @@ location / {
 }
 ```
 
-###  Horários de Acesso
+### Horários de Acesso
 
 #### **Configuração de Janelas de Tempo**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar horários de acesso
 N8N_ACCESS_HOURS_START=09:00
@@ -229,6 +246,7 @@ N8N_ACCESS_DAYS=monday,tuesday,wednesday,thursday,friday
 ```
 
 #### **Script de Verificação**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> check-access-hours.sh
@@ -259,9 +277,10 @@ exit 0
 
 ## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Sistemas Externos
 
-###  Google Workspace
+### Google Workspace
 
 #### **Configuração Google OAuth**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração para Google Workspace
 N8N_OAUTH2_ENABLED=true
@@ -274,6 +293,7 @@ N8N_OAUTH2_SCOPE=openid profile email
 ```
 
 #### **Configuração Google SAML**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração SAML com Google
 N8N_SAML_ENABLED=true
@@ -282,9 +302,10 @@ N8N_SAML_ENTRY_POINT=https://accounts.google.com/o/saml2/idp?idpid=seu_idp_id
 N8N_SAML_CERT=/path/to/google_cert.pem
 ```
 
-###  Microsoft Azure AD
+### Microsoft Azure AD
 
 #### **Configuração Azure AD**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Azure AD
 N8N_OAUTH2_ENABLED=true
@@ -297,6 +318,7 @@ N8N_OAUTH2_SCOPE=openid profile email User.Read
 ```
 
 #### **Configuração Azure AD SAML**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração SAML com Azure AD
 N8N_SAML_ENABLED=true
@@ -305,9 +327,10 @@ N8N_SAML_ENTRY_POINT=https://login.microsoftonline.com/seu_tenant_id/saml2
 N8N_SAML_CERT=/path/to/azure_cert.pem
 ```
 
-###  GitHub Enterprise
+### GitHub Enterprise
 
 #### **Configuração GitHub OAuth**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração GitHub Enterprise
 N8N_OAUTH2_ENABLED=true
@@ -323,9 +346,10 @@ N8N_OAUTH2_SCOPE=read:user user:email
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Auditoria
 
-###  Logs de Autenticação
+### Logs de Autenticação
 
 #### **Configuração de Logs**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar logs de autenticação
 N8N_LOG_LEVEL=info
@@ -336,6 +360,7 @@ N8N_AUTH_LOG_FILE=/var/log/n8n/auth.log
 ```
 
 #### **Eventos Monitorados**
+
 ```javascript
 // Eventos de autenticação monitorados
 const authEvents = {
@@ -353,9 +378,10 @@ const authEvents = {
 };
 ```
 
-###  Alertas de Segurança
+### Alertas de Segurança
 
 #### **Configuração de Alertas**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar alertas de segurança
 N8N_SECURITY_ALERTS_ENABLED=true
@@ -366,6 +392,7 @@ N8N_SECURITY_EMAIL_TO=admin@empresa.com
 ```
 
 #### **Tipos de Alertas**
+
 ```javascript
 // Configuração de alertas
 const securityAlerts = {
@@ -394,9 +421,10 @@ const securityAlerts = {
 
 ## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Avançada
 
-###  Proxy Reverso
+### Proxy Reverso
 
 #### **Configuração Nginx com Autenticação**
+
 ```nginx
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração Nginx com autenticação
 server {
@@ -448,9 +476,10 @@ server {
 }
 ```
 
-###  Headers de Segurança
+### Headers de Segurança
 
 #### **Configuração Completa de Headers**
+
 ```nginx
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Headers de segurança completos
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
@@ -466,7 +495,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Segurança
 
-###  Autenticação
+### Autenticação
 
 - [ ] Autenticação básica configurada
 - [ ] 2FA ativado para usuários críticos
@@ -474,7 +503,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 - [ ] SSO configurado (se aplicável)
 - [ ] LDAP/AD integrado (se aplicável)
 
-###  Sessão
+### Sessão
 
 - [ ] Timeout de sessão configurado
 - [ ] Limite de tentativas de login definido
@@ -482,7 +511,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 - [ ] Sessão secreta definida
 - [ ] Logout automático implementado
 
-###  Rede
+### Rede
 
 - [ ] Restrições de IP configuradas
 - [ ] Firewall configurado
@@ -490,7 +519,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 - [ ] Acesso remoto seguro
 - [ ] Logs de acesso ativados
 
-###  Monitoramento
+### Monitoramento
 
 - [ ] Logs de autenticação ativados
 - [ ] Alertas de segurança configurados
@@ -524,7 +553,8 @@ Considere implementar um sistema de gerenciamento de identidade (IAM) para autom
 
 ---
 
-** Links úteis:**
--  [Documentação oficial n8n](https://docs.n8n.io/)
--  [Guia de Segurança n8n](https://docs.n8n.io/hosting/security/)
--  [Configuração de Usuários](https://docs.n8n.io/hosting/user-management/)
+**Links úteis:**
+
+- [Documentação oficial n8n](https://docs.n8n.io/)
+- [Guia de Segurança n8n](https://docs.n8n.io/hosting/security/)
+- [Configuração de Usuários](https://docs.n8n.io/hosting/user-management/)

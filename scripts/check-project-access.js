@@ -16,7 +16,7 @@ async function checkProjectAccess() {
     // Verificar acesso ao repositório
     console.log(`📁 Testando acesso ao repositório: ${REPO_OWNER}/${REPO_NAME}`);
     try {
-      const repo = await octokit.rest.repos.get({
+      await octokit.rest.repos.get({
         owner: REPO_OWNER,
         repo: REPO_NAME,
       });
@@ -89,5 +89,4 @@ async function checkProjectAccess() {
   }
 }
 
-main = checkProjectAccess;
-main(); 
+checkProjectAccess(); 

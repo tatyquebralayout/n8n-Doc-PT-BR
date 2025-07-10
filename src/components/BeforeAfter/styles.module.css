@@ -1,0 +1,194 @@
+/*
+ * styles.module.css - BeforeAfter
+ * Componente para comparações antes/depois
+ */
+
+.beforeAfter {
+  border: 1px solid var(--ifm-card-border-color);
+  border-radius: var(--ifm-card-border-radius);
+  background-color: var(--ifm-card-background-color);
+  box-shadow: var(--ifm-global-shadow-lw);
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--ifm-card-border-color);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ifm-heading-color);
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--ifm-card-border-color);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  color: var(--ifm-font-color-secondary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--animation-duration) var(--animation-easing);
+  border-bottom: 3px solid transparent;
+}
+
+.tab:hover {
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-50);
+}
+
+.tabActive {
+  color: var(--ifm-color-primary);
+  border-bottom-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.content {
+  padding: 2rem;
+  min-height: 300px;
+}
+
+.contentHeader {
+  margin-bottom: 1.5rem;
+}
+
+.contentTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 0.5rem 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ifm-heading-color);
+}
+
+.contentDescription {
+  margin: 0;
+  color: var(--ifm-font-color-secondary);
+  line-height: var(--line-height-normal);
+}
+
+.contentBody {
+  background-color: var(--ifm-color-emphasis-50);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.beforeContent .contentBody {
+  border-left: 4px solid var(--ifm-color-danger);
+}
+
+.afterContent .contentBody {
+  border-left: 4px solid var(--ifm-color-success);
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: var(--ifm-color-emphasis-50);
+  border-top: 1px solid var(--ifm-card-border-color);
+}
+
+.comparisonItem {
+  background-color: var(--ifm-card-background-color);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-card-border-color);
+}
+
+.comparisonLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ifm-heading-color);
+}
+
+.comparisonContent {
+  color: var(--ifm-font-color-secondary);
+  line-height: var(--line-height-normal);
+}
+
+.comparisonArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ifm-color-primary);
+  font-size: var(--font-size-2xl);
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .beforeAfter {
+  border-color: var(--ifm-card-border-color);
+  background-color: var(--ifm-card-background-color);
+}
+
+[data-theme='dark'] .contentBody {
+  background-color: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .comparison {
+  background-color: var(--ifm-background-surface-color);
+}
+
+[data-theme='dark'] .comparisonItem {
+  background-color: var(--ifm-card-background-color);
+  border-color: var(--ifm-card-border-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+  }
+  
+  .tab {
+    border-bottom: none;
+    border-right: 3px solid transparent;
+  }
+  
+  .tabActive {
+    border-right-color: var(--ifm-color-primary);
+    border-bottom-color: transparent;
+  }
+  
+  .comparison {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .comparisonArrow {
+    transform: rotate(90deg);
+  }
+  
+  .content {
+    padding: 1.5rem;
+  }
+  
+  .comparison {
+    padding: 1.5rem;
+  }
+} 

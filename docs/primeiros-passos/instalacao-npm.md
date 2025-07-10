@@ -247,6 +247,7 @@ N8N_LOG_LEVEL=debug n8n start > n8n.log 2>&1
 ### **Problemas Comuns**
 
 #### **Porta já em uso**
+
 ```bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar processo usando a porta
 netstat -tulpn | grep 5678
@@ -257,6 +258,7 @@ N8N_PORT=5679 n8n start
 ```
 
 #### **Permissões (Linux/Mac)**
+
 ```bash
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Corrigir permissões
 sudo chown -R $(whoami) ~/.n8n
@@ -264,12 +266,14 @@ chmod -R 755 ~/.n8n
 ```
 
 #### **Erro de memória**
+
 ```bash
 # <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Aumentar limite de memória
 NODE_OPTIONS="--max-old-space-size=4096" n8n start
 ```
 
 #### **Problemas de rede**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar conectividade
 curl -I http://localhost:5678
@@ -368,4 +372,4 @@ Para desenvolvimento de nodes customizados, a instalação npm é essencial. Voc
 
 :::warning **Limitações**
 Lembre-se: a instalação npm é para **desenvolvimento e testes**. Para produção, use **n8n Cloud** ou **Self-hosted** com configurações adequadas de segurança.
-::: 
+:::

@@ -14,7 +14,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Por que Segurança é Crítica?
 
-###  Riscos de Credenciais Comprometidas
+### Riscos de Credenciais Comprometidas
 
 - **Acesso não autorizado** a sistemas críticos
 - **Vazamento de dados** sensíveis
@@ -23,7 +23,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 - **Danos à reputação** da empresa
 - **Consequências legais** por violação de dados
 
-###  Benefícios da Segurança
+### Benefícios da Segurança
 
 - **Proteção de dados** confidenciais
 - **Conformidade** com regulamentações
@@ -35,7 +35,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Princípios Fundamentais
 
-###  Princípio do Menor Privilégio
+### Princípio do Menor Privilégio
 
 **Dê apenas as permissões necessárias:**
 
@@ -53,7 +53,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 }
 ```
 
-###  Defesa em Profundidade
+### Defesa em Profundidade
 
 **Múltiplas camadas de segurança:**
 
@@ -63,7 +63,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 4. **Backup** seguro de credenciais
 5. **Plano de resposta** a incidentes
 
-###  Rotação Regular
+### Rotação Regular
 
 **Cronograma recomendado:**
 
@@ -78,7 +78,7 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Criação de Credenciais Seguras
 
-###  Senhas Fortes
+### Senhas Fortes
 
 **Critérios mínimos:**
 
@@ -90,11 +90,12 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 - **Sem padrões** repetitivos
 
 **Exemplo de senha forte:**
+
 ```
 K9#mP$vL2@nX7!
 ```
 
-###  API Keys Seguras
+### API Keys Seguras
 
 **Boas práticas:**
 
@@ -105,11 +106,12 @@ K9#mP$vL2@nX7!
 - **Documente o uso** de cada chave
 
 **Exemplo de API key:**
+
 ```
 n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 ```
 
-###  Configuração OAuth
+### Configuração OAuth
 
 **Configurações seguras:**
 
@@ -127,19 +129,21 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Organização e Nomenclatura
 
-###  Convenções de Nomenclatura
+### Convenções de Nomenclatura
 
 **Estrutura recomendada:**
+
 ```
 [AMBIENTE]_[SERVIÇO]_[PROPÓSITO]_[DATA]
 ```
 
 **Exemplos:**
+
 - `PROD_GOOGLE_SHEETS_MARKETING_2024`
 - `DEV_SLACK_NOTIFICATIONS_2024`
 - `TEST_STRIPE_PAYMENTS_2024`
 
-###  Categorização por Cores
+### Categorização por Cores
 
 **Sistema de cores sugerido:**
 
@@ -149,7 +153,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - **Azul**: Integrações de terceiros
 - **Preto**: Credenciais temporárias
 
-###  Documentação
+### Documentação
 
 **Informações essenciais:**
 
@@ -167,7 +171,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Monitoramento e Auditoria
 
-###  Logs de Acesso
+### Logs de Acesso
 
 **Monitore estes eventos:**
 
@@ -179,7 +183,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - **Renovação de tokens**
 - **Acesso negado**
 
-###  Alertas Automáticos
+### Alertas Automáticos
 
 **Configure notificações para:**
 
@@ -204,7 +208,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 }
 ```
 
-###  Relatórios de Segurança
+### Relatórios de Segurança
 
 **Relatórios mensais incluem:**
 
@@ -218,19 +222,21 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Backup e Recuperação
 
-###  Estratégia de Backup
+### Estratégia de Backup
 
 **Backup 3-2-1:**
+
 - **3 cópias** dos dados
 - **2 tipos** de mídia diferentes
 - **1 cópia** fora do local
 
 **Frequência recomendada:**
+
 - **Backup diário**: Credenciais ativas
 - **Backup semanal**: Configurações completas
 - **Backup mensal**: Auditoria e logs
 
-###  Plano de Recuperação
+### Plano de Recuperação
 
 **Documente o processo:**
 
@@ -246,7 +252,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Treinamento da Equipe
 
-###  Tópicos Essenciais
+### Tópicos Essenciais
 
 **Capacite sua equipe em:**
 
@@ -256,7 +262,7 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - **Identificação** de atividades suspeitas
 - **Procedimentos** de emergência
 
-###  Cronograma de Treinamento
+### Cronograma de Treinamento
 
 - **Onboarding**: Segurança básica (1 hora)
 - **Trimestral**: Atualizações de políticas (30 min)
@@ -267,21 +273,21 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 8 | Checklist de Segurança
 
-###  Checklist Diário
+### Checklist Diário
 
 - [ ] **Verificar** logs de acesso
 - [ ] **Revisar** alertas de segurança
 - [ ] **Confirmar** backup automático
 - [ ] **Monitorar** tentativas de login
 
-###  Checklist Semanal
+### Checklist Semanal
 
 - [ ] **Auditar** credenciais criadas
 - [ ] **Verificar** usuários ativos
 - [ ] **Revisar** permissões de acesso
 - [ ] **Atualizar** documentação
 
-###  Checklist Mensal
+### Checklist Mensal
 
 - [ ] **Renovar** credenciais expirando
 - [ ] **Gerar** relatórios de segurança
@@ -310,4 +316,4 @@ Nunca compartilhe credenciais por canais não seguros. Use sempre o sistema de c
 
 :::info **Recurso Adicional**
 Considere implementar um sistema de gerenciamento de segredos (como HashiCorp Vault ou AWS Secrets Manager) para credenciais críticas.
-::: 
+:::

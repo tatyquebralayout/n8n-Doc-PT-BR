@@ -100,14 +100,7 @@ code {
   color: var(--ifm-color-primary-light);
 }
 
-.markdown table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
-  box-shadow: var(--ifm-global-shadow-lw);
-  border-radius: var(--ifm-card-border-radius);
-  overflow: hidden;
-}
+
 
 .markdown th,
 .markdown td {

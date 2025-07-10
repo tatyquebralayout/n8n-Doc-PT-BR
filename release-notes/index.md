@@ -22,4 +22,4 @@ Veja as últimas atualizações, correções e melhorias feitas em nosso projeto
 
 Acesse as notas de release oficiais do n8n, traduzidas e sincronizadas automaticamente para você.
 
-<IonicIcon name="arrow-forward-outline" size={18} /> [Ver Releases do n8n →](/release-notes/n8n-oficial) 
+<IonicIcon name="arrow-forward-outline" size={18} /> [Ver Releases do n8n →](/release-notes/n8n-oficial)

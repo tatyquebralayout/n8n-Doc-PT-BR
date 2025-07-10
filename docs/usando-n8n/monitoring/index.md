@@ -12,11 +12,13 @@ Bem-vindo à seção de monitoramento do n8n! Aqui você aprenderá como acompan
 ## O que você encontrará aqui
 
 ### Análise e Métricas
+
 - **Visualizar Execuções**: Acompanhar o status e resultados
 - **Analisar Logs**: Entender o que aconteceu em cada execução
 - **Métricas de Performance**: Medir eficiência e identificar gargalos
 
 ### Alertas e Notificações
+
 - **Configurar Alertas**: Receber notificações sobre problemas
 - **Dashboard de Status**: Visão geral da saúde dos workflows
 - **Relatórios**: Gerar insights sobre uso e performance
@@ -24,14 +26,18 @@ Bem-vindo à seção de monitoramento do n8n! Aqui você aprenderá como acompan
 ## Conceitos Fundamentais
 
 ### O que é Monitoramento?
+
 Monitoramento é o processo de acompanhar continuamente o funcionamento de seus workflows para:
+
 - **Detectar problemas** rapidamente
 - **Medir performance** e eficiência
 - **Prever falhas** antes que aconteçam
 - **Otimizar recursos** e custos
 
 ### Componentes do Monitoramento
+
 Um sistema de monitoramento eficaz inclui:
+
 - **Logs**: Registro detalhado de todas as execuções
 - **Métricas**: Dados quantitativos sobre performance
 - **Alertas**: Notificações sobre eventos importantes
@@ -47,4 +53,4 @@ Um sistema de monitoramento eficaz inclui:
 
 - **[Execuções](../execucoes/componentes-execucoes)** - Entender componentes de execução
 - **[Workflows](../workflows/criar-editar)** - Criar workflows monitoráveis
-- **[Troubleshooting](../../referencia/guias/troubleshooting)** - Resolver problemas 
+- **[Troubleshooting](../../referencia/guias/troubleshooting)** - Resolver problemas

@@ -14,16 +14,17 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Onde Encontrar Execuções
 
-###  Menu de Execuções
+### Menu de Execuções
 
 1. **Acesse o menu lateral** → Clique em **"Execuções"**
 2. **Visualize todas as execuções** recentes
 3. **Filtre por workflow** específico
 4. **Pesquise** por data, status ou conteúdo
 
-###  Histórico de Execuções
+### Histórico de Execuções
 
 **Informações disponíveis:**
+
 - **Data e hora** da execução
 - **Workflow** executado
 - **Status** (Sucesso, Erro, Em andamento)
@@ -34,33 +35,37 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Status das Execuções
 
-###  Status de Sucesso
+### Status de Sucesso
 
 **Características:**
+
 - **Cor verde** no indicador
 - **Todos os nodes** executaram com sucesso
 - **Dados processados** conforme esperado
 - **Logs limpos** sem erros
 
-###  Status de Erro
+### Status de Erro
 
 **Características:**
+
 - **Cor vermelha** no indicador
 - **Um ou mais nodes** falharam
 - **Execução interrompida** no ponto de falha
 - **Logs com detalhes** do erro
 
-###  Status de Aguardando
+### Status de Aguardando
 
 **Características:**
+
 - **Cor amarela** no indicador
 - **Workflow pausado** temporariamente
 - **Aguardando input** manual ou condição
 - **Pode ser retomado** quando necessário
 
-###  Status de Em Andamento
+### Status de Em Andamento
 
 **Características:**
+
 - **Cor azul** no indicador
 - **Execução ativa** no momento
 - **Nodes sendo processados** sequencialmente
@@ -70,7 +75,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Detalhes da Execução
 
-###  Informações Gerais
+### Informações Gerais
 
 **Ao clicar em uma execução:**
 
@@ -88,7 +93,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 }
 ```
 
-###  Fluxo de Execução
+### Fluxo de Execução
 
 **Visualização do caminho:**
 
@@ -103,7 +108,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Análise de Performance
 
-###  Métricas de Tempo
+### Métricas de Tempo
 
 **Tempos importantes:**
 
@@ -114,7 +119,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 | **Tempo de Espera** | Tempo entre nodes | 100ms |
 | **Tempo de Processamento** | Tempo ativo de processamento | 2m 15s |
 
-###  Análise de Tendências
+### Análise de Tendências
 
 **Compare execuções:**
 
@@ -127,7 +132,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ## <ion-icon name="filter-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Filtros e Busca
 
-###  Filtros Disponíveis
+### Filtros Disponíveis
 
 **Filtre execuções por:**
 
@@ -137,7 +142,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 - **Trigger**: Tipo de gatilho
 - **Duração**: Tempo de execução
 
-###  Busca Avançada
+### Busca Avançada
 
 **Pesquise por:**
 
@@ -151,7 +156,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ## <ion-icon name="cloud-download-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Exportar e Compartilhar
 
-###  Exportar Dados
+### Exportar Dados
 
 **Formatos disponíveis:**
 
@@ -160,7 +165,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 - **PDF**: Relatório formatado
 - **Logs**: Arquivo de texto com logs
 
-###  Compartilhar Execuções
+### Compartilhar Execuções
 
 **Opções de compartilhamento:**
 
@@ -173,7 +178,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Configurações de Visualização
 
-###  Personalizar Interface
+### Personalizar Interface
 
 **Configurações disponíveis:**
 
@@ -194,7 +199,7 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 }
 ```
 
-###  Ocultar Informações Sensíveis
+### Ocultar Informações Sensíveis
 
 **Proteja dados sensíveis:**
 
@@ -225,4 +230,4 @@ Mantenha logs de execuções por pelo menos 30 dias para análise de tendências
 
 :::info **Recurso Adicional**
 Use a API do n8n para integrar dados de execução com ferramentas externas de monitoramento como Grafana ou Datadog.
-::: 
+:::

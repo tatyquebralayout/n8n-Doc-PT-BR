@@ -11,10 +11,10 @@ Selecione abaixo o tópico desejado para acessar guias completos de gerenciament
 
 ---
 
-- [ Gerenciar Workflows](./gerenciar-workflows)
+- [Gerenciar Workflows](./gerenciar-workflows)
   <br/><span style={{ color: '#6b7280' }}>Controle de acesso granular, versionamento integrado, backup automático, sincronização com sistemas externos, auditoria de mudanças e estratégias de governança.</span>
 
-- [ White Labelling](./white-labelling)
+- [White Labelling](./white-labelling)
   <br/><span style={{ color: '#6b7280' }}>Personalização completa de tema, cores, logos, fontes, layout, domínio customizado e integração visual perfeita com sua aplicação principal.</span>
 
 ---
@@ -25,4 +25,4 @@ Configure primeiro o controle de acesso e permissões antes de implementar o whi
 
 :::info **Recurso Adicional**
 Considere usar ferramentas de CI/CD para automatizar o deployment de configurações de gerenciamento entre ambientes.
-::: 
+:::

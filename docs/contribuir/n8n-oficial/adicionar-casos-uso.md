@@ -26,13 +26,16 @@ Um caso de uso relevante começa com uma situação real:
 
 Construa seu workflow aplicando boas práticas:
 
-###  Clareza visual
+### Clareza visual
+
 Mantenha nodes organizados e evite layouts confusos tipo "espaguete".
 
-###  Documentação interna
+### Documentação interna
+
 Use *Sticky Notes* para explicar a lógica, configurações específicas e dicas técnicas.
 
-###  Modularidade
+### Modularidade
+
 Fluxos complexos podem ser divididos em sub‑workflows para facilitar a leitura e reutilização.
 
 ---
@@ -41,7 +44,7 @@ Fluxos complexos podem ser divididos em sub‑workflows para facilitar a leitura
 
 Transforme seu workflow em conteúdo de fácil consumo:
 
-###  Estrutura técnica recomendada
+### Estrutura técnica recomendada
 
 | Seção | Conteúdo esperado |
 |-------|-------------------|
@@ -59,22 +62,26 @@ Transforme seu workflow em conteúdo de fácil consumo:
 
 Você pode transformar esse conteúdo em:
 
-###  Template oficial
+### Template oficial
+
 Submeta via [n8n Creator Hub](https://docs.n8n.io/help-community/contributing/#contribute-a-workflow-template) seguindo as diretrizes oficiais.
 
-###  Artigo técnico
+### Artigo técnico
+
 Use o conteúdo como base para um blog ou post no fórum da comunidade.
 
 ---
 
 ## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências Oficiais do n8n
 
-###  Documentação de Contribuição
+### Documentação de Contribuição
+
 - **[Contribuir com templates](https://docs.n8n.io/help-community/contributing/#contribute-a-workflow-template)** - Guia oficial de contribuição a templates
 - **[Criar nós (nodes)](https://docs.n8n.io/integrations/creating-nodes/overview/)** - Documentação técnica para construir integrações
 - **[Como enviar nós comunitários](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/)** - Padrões para empacotar e submeter nodes
 
-###  Recursos da Comunidade
+### Recursos da Comunidade
+
 - **[n8n Community](https://community.n8n.io/)** - Fórum oficial para discussões e compartilhamento
 - **[n8n Discord](https://discord.gg/n8n)** - Comunidade ativa para troca de experiências
 - **[GitHub Discussions](https://github.com/n8n-io/n8n/discussions)** - Espaço para debates técnicos

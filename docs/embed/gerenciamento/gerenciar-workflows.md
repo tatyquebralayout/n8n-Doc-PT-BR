@@ -12,21 +12,22 @@ Este documento detalha como **gerenciar workflows em n8n embarcado**, incluindo 
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
 
--  Gerenciamento via API REST
--  Controle de acesso e permissões
--  Versionamento de workflows
--  Auditoria e logs
--  Backup e recovery
+- Gerenciamento via API REST
+- Controle de acesso e permissões
+- Versionamento de workflows
+- Auditoria e logs
+- Backup e recovery
 
 ---
 
 ## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciamento via API REST
 
-###  Endpoints Principais
+### Endpoints Principais
 
 O n8n oferece uma API REST completa para gerenciar workflows programaticamente:
 
 #### **Workflows**
+
 ```bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Listar todos os workflows
 GET /api/v1/workflows
@@ -59,6 +60,7 @@ PATCH /api/v1/workflows/{id}
 ```
 
 #### **Execuções**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Listar execuções
 GET /api/v1/executions
@@ -81,9 +83,10 @@ GET /api/v1/executions/{id}
 POST /api/v1/executions/{id}/stop
 ```
 
-###  Autenticação
+### Autenticação
 
 #### **API Key (Recomendado)**
+
 ```bash
 # <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerar API Key
 curl -X POST "https://seu-n8n.com/api/v1/auth/api-key" \
@@ -99,6 +102,7 @@ curl -H "X-N8N-API-KEY: sua_api_key" \
 ```
 
 #### **OAuth 2.0**
+
 ```bash
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configurar OAuth 2.0
 {
@@ -113,11 +117,12 @@ curl -H "X-N8N-API-KEY: sua_api_key" \
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Controle de Acesso e Permissões
 
-###  Sistema RBAC
+### Sistema RBAC
 
 O n8n implementa Role-Based Access Control (RBAC) para controle granular de acesso:
 
 #### **Roles Disponíveis**
+
 ```javascript
 // Roles padrão do n8n
 const roles = {
@@ -151,6 +156,7 @@ const roles = {
 ```
 
 #### **Permissões por Workflow**
+
 ```javascript
 // Configurar permissões específicas por workflow
 {
@@ -163,9 +169,10 @@ const roles = {
 }
 ```
 
-###  Integração com Sistemas Externos
+### Integração com Sistemas Externos
 
 #### **SAML/SSO**
+
 ```yaml
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração SAML
 N8N_SAML_ENABLED=true
@@ -175,6 +182,7 @@ N8N_SAML_CERT=/path/to/certificate.pem
 ```
 
 #### **LDAP/Active Directory**
+
 ```yaml
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Configuração LDAP
 N8N_LDAP_ENABLED=true
@@ -188,11 +196,12 @@ N8N_LDAP_BASE_DN=dc=empresa,dc=com
 
 ## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Versionamento de Workflows
 
-###  Histórico Automático
+### Histórico Automático
 
 O n8n mantém histórico completo de versões automaticamente:
 
 #### **Versões Automáticas**
+
 ```javascript
 // Cada salvamento gera uma nova versão
 {
@@ -217,6 +226,7 @@ O n8n mantém histórico completo de versões automaticamente:
 ```
 
 #### **API de Versionamento**
+
 ```bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Listar versões de um workflow
 GET /api/v1/workflows/{id}/versions
@@ -231,9 +241,10 @@ POST /api/v1/workflows/{id}/versions/{version}/restore
 GET /api/v1/workflows/{id}/versions/compare?from=3&to=5
 ```
 
-###  Documentação de Mudanças
+### Documentação de Mudanças
 
 #### **Comentários de Versão**
+
 ```javascript
 // Adicionar comentário ao salvar
 {
@@ -245,6 +256,7 @@ GET /api/v1/workflows/{id}/versions/compare?from=3&to=5
 ```
 
 #### **Changelog Automático**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Gerar changelog entre versões
 curl -X GET "https://seu-n8n.com/api/v1/workflows/{id}/changelog?from=1&to=5" \
@@ -255,9 +267,10 @@ curl -X GET "https://seu-n8n.com/api/v1/workflows/{id}/changelog?from=1&to=5" \
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Auditoria e Logs
 
-###  Logs de Atividade
+### Logs de Atividade
 
 #### **Eventos Auditados**
+
 ```javascript
 // Tipos de eventos registrados
 const auditEvents = {
@@ -273,6 +286,7 @@ const auditEvents = {
 ```
 
 #### **API de Auditoria**
+
 ```bash
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Obter logs de atividade
 GET /api/v1/audit-logs?start=2024-01-01&end=2024-01-31
@@ -287,9 +301,10 @@ GET /api/v1/audit-logs?event=workflow.updated
 GET /api/v1/audit-logs/export?format=csv
 ```
 
-###  Alertas de Segurança
+### Alertas de Segurança
 
 #### **Configuração de Alertas**
+
 ```javascript
 // Configurar alertas para atividades suspeitas
 {
@@ -313,6 +328,7 @@ GET /api/v1/audit-logs/export?format=csv
 ```
 
 #### **Integração com Sistemas de Monitoramento**
+
 ```bash
 # <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Webhook para alertas
 POST /webhook/security-alerts
@@ -329,9 +345,10 @@ POST /webhook/security-alerts
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup e Recovery
 
-###  Backup Automático
+### Backup Automático
 
 #### **Script de Backup**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> backup-workflows.sh
@@ -366,6 +383,7 @@ echo "Backup criado: $BACKUP_DIR/n8n_backup_$DATE.tar.gz"
 ```
 
 #### **Cron Job para Backup**
+
 ```bash
 # <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
 # <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Backup diário às 2h da manhã
@@ -375,9 +393,10 @@ echo "Backup criado: $BACKUP_DIR/n8n_backup_$DATE.tar.gz"
 0 2 * * 0 /path/to/backup-workflows-full.sh
 ```
 
-###  Restauração
+### Restauração
 
 #### **Restaurar Workflows**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> restore-workflows.sh
@@ -405,9 +424,10 @@ echo "Workflows restaurados com sucesso"
 
 ## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sincronização e Integração
 
-###  Webhooks
+### Webhooks
 
 #### **Sincronização com Sistemas Externos**
+
 ```javascript
 // Webhook para sincronizar workflows
 {
@@ -430,9 +450,10 @@ echo "Workflows restaurados com sucesso"
 }
 ```
 
-###  Integração com Git
+### Integração com Git
 
 #### **Sincronização com Repositório**
+
 ```bash
 #!/bin/bash
 # <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> sync-with-git.sh
@@ -463,9 +484,10 @@ echo "Workflows sincronizados com Git"
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
-###  Nomenclatura e Documentação
+### Nomenclatura e Documentação
 
 #### **Padrões de Nomenclatura**
+
 ```javascript
 // Estrutura recomendada para nomes de workflows
 const namingPatterns = {
@@ -476,6 +498,7 @@ const namingPatterns = {
 ```
 
 #### **Documentação de Workflows**
+
 ```javascript
 // Metadados para documentação
 {
@@ -491,9 +514,10 @@ const namingPatterns = {
 }
 ```
 
-###  Segurança
+### Segurança
 
 #### **Proteção de Dados Sensíveis**
+
 ```javascript
 // Configurações de segurança
 {
@@ -515,6 +539,7 @@ const namingPatterns = {
 ```
 
 #### **Monitoramento de Performance**
+
 ```javascript
 // Métricas de monitoramento
 {

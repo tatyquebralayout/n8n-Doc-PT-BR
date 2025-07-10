@@ -11,4 +11,4 @@ Este documento descreve o padrão **RAG (Retrieval-Augmented Generation)** usand
 
 Este documento explica como **implementar RAG (Retrieval-Augmented Generation)** com arquivos no n8n, abordando indexação de documentos, vector databases, busca semântica, contextualização de respostas, processamento de PDFs e documentos, e criação de sistemas que combinam conhecimento específico da empresa com capacidades de IA generativa para fornecer respostas precisas e contextualizadas.
 
-** Em construção:** Este caso de uso incluirá implementação com documentos empresariais brasileiros e compliance.
+**Em construção:** Este caso de uso incluirá implementação com documentos empresariais brasileiros e compliance.

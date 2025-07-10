@@ -24,7 +24,7 @@ Documentação completa do n8n em português brasileiro - Hub de conhecimento pa
 
 > **n8n - Automação de Workflows Segura para Times Técnicos**
 
-O n8n é uma plataforma de automação de workflows que oferece a times técnicos a flexibilidade do código com a velocidade do *no-code*. Com mais de 400 integrações, capacidades nativas de IA e uma licença *fair-code*, o n8n permite que você construa automações poderosas enquanto mantém controle total sobre seus dados e deployments.
+O n8n é uma plataforma de automação de workflows que oferece a times técnicos a flexibilidade do código com a velocidade do _no-code_. Com mais de 400 integrações, capacidades nativas de IA e uma licença _fair-code_, o n8n permite que você construa automações poderosas enquanto mantém controle total sobre seus dados e deployments.
 
 <p align="center">
 <a href="https://n8n.io" target="_blank"><img src="https://img.shields.io/badge/Site_Oficial-n8n.io-blueviolet?style=for-the-badge" alt="Site Oficial n8n.io"></a>
@@ -63,7 +63,7 @@ A documentação está organizada nas seguintes seções principais:
 
 ## Onde acessar
 
-- **Documentação online:** 
+- **Documentação online:**
 [https://n8n-brasil.github.io/n8n-Doc-PT-BR/](https://n8n-brasil.github.io/n8n-Doc-PT-BR/)
 
 ---
@@ -121,6 +121,7 @@ npm run serve
 ### Solução de Problemas
 
 **Porta 3000 em uso:**
+
 ```bash
 # Opção 1: Usar o comando inteligente
 npm run start:smart
@@ -138,4 +139,5 @@ npm run start:alt
 Desenvolvido com carinho para a comunidade n8n Brasil.
 
 > _Esta documentação é independente e não substitui a [documentação oficial do n8n](https://docs.n8n.io/)._
+>
 # 07/08/2025 03:26:47

@@ -12,11 +12,13 @@ Os **Core Nodes** são os blocos de construção fundamentais do n8n, oferecendo
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
 ### Nodes de Programação
+
 - **[Code Node](./code)** - Execute código JavaScript customizado
 - **[Function Node](./function)** - Funções simples e rápidas
 - **[Expression Node](./expression)** - Expressões JavaScript inline
 
 ### Nodes de Manipulação
+
 - **[Edit Fields (Set)](../data-processing/set)** - Definir e modificar campos
 - **[Split In Batches](../data-processing/split-in-batches)** - Dividir dados em lotes
 - **[Aggregate](../data-processing/aggregate)** - Agregar e resumir dados
@@ -24,6 +26,7 @@ Os **Core Nodes** são os blocos de construção fundamentais do n8n, oferecendo
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
 ### O que são Core Nodes?
+
 Core Nodes são nodes nativos do n8n que fornecem funcionalidades básicas de programação e manipulação de dados. Eles são essenciais para:
 
 - **Programação customizada** com JavaScript
@@ -32,6 +35,7 @@ Core Nodes são nodes nativos do n8n que fornecem funcionalidades básicas de pr
 - **Agregações** e processamento em lote
 
 ### Quando usar Core Nodes?
+
 - ✅ **Lógica customizada** não disponível em outros nodes
 - ✅ **Transformações complexas** de dados
 - ✅ **Validações avançadas** e tratamento de erros
@@ -41,6 +45,7 @@ Core Nodes são nodes nativos do n8n que fornecem funcionalidades básicas de pr
 ## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nodes de Programação
 
 ### **Code Node**
+
 O node mais poderoso para programação customizada:
 
 ```javascript
@@ -63,12 +68,14 @@ return returnData;
 ```
 
 **Use quando:**
+
 - Lógica complexa envolvendo múltiplos itens
 - Integração com APIs externas
 - Processamento em lote
 - Manipulação de arrays complexos
 
 ### **Function Node**
+
 Versão simplificada para operações rápidas:
 
 ```javascript
@@ -83,12 +90,14 @@ return {
 ```
 
 **Use quando:**
+
 - Operações simples por item
 - Transformações básicas de dados
 - Validações rápidas
 - Formatação de campos
 
 ### **Expression Node**
+
 Expressões JavaScript inline em outros nodes:
 
 ```javascript
@@ -100,6 +109,7 @@ Expressões JavaScript inline em outros nodes:
 ```
 
 **Use quando:**
+
 - Valores dinâmicos em outros nodes
 - Condições simples
 - Cálculos básicos
@@ -118,6 +128,7 @@ Expressões JavaScript inline em outros nodes:
 ### **Exemplo 1: Validação de Dados**
 
 **Function Node:**
+
 ```javascript
 // Validar dados de entrada
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -141,6 +152,7 @@ return {
 ### **Exemplo 2: Transformação de Dados**
 
 **Code Node:**
+
 ```javascript
 const items = $input.all();
 const returnData = [];
@@ -166,6 +178,7 @@ return returnData;
 ### **Exemplo 3: Integração com API Externa**
 
 **Code Node:**
+
 ```javascript
 const items = $input.all();
 const returnData = [];
@@ -219,6 +232,7 @@ return returnData;
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
 ### **Segurança**
+
 ```javascript
 // ✅ Bom: Validar entrada
 const valor = parseFloat($json.valor) || 0;
@@ -228,6 +242,7 @@ const resultado = eval($json.expressao);
 ```
 
 ### **Performance**
+
 ```javascript
 // ✅ Bom: Código otimizado
 const items = $input.all();
@@ -242,6 +257,7 @@ for (let i = 0; i < items.length; i++) {
 ```
 
 ### **Tratamento de Erros**
+
 ```javascript
 // ✅ Bom: Try-catch adequado
 try {
@@ -261,17 +277,20 @@ try {
 ## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Limitações e Considerações
 
 ### **Limitações Técnicas**
+
 - **Timeout**: 30 segundos por execução (Code/Function Nodes)
 - **Memória**: Limite de memória por execução
 - **Bibliotecas**: Apenas bibliotecas nativas do Node.js
 - **Sistema de arquivos**: Acesso limitado
 
 ### **Considerações de Performance**
+
 - **Expression**: Mais rápida para operações simples
 - **Function**: Otimizada para processamento por item
 - **Code**: Mais flexível, mas pode ser mais lento
 
 ### **Debugging**
+
 ```javascript
 // Logs aparecem na aba "Execution"
 console.log('Dados de entrada:', $json);
@@ -305,6 +324,7 @@ Sempre valide dados de entrada e evite usar `eval()` ou código dinâmico em seu
 ---
 
 **Links úteis:**
+
 - [Documentação oficial dos Core Nodes](https://docs.n8n.io/integrations/builtin/cluster-nodes/)
 - [JavaScript MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Node.js Documentation](https://nodejs.org/docs/)

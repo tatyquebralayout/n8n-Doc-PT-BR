@@ -51,6 +51,7 @@ const users = await getUsersBatch(userIds);
 ```
 
 **Vantagens**:
+
 - Reduz sobrecarga de memória
 - Melhora performance de APIs
 - Permite retry granular
@@ -68,6 +69,7 @@ const users = await getUsersBatch(userIds);
 ```
 
 **Estratégias de Cache**:
+
 - **Cache por ID**: Para dados específicos
 - **Cache por query**: Para resultados de busca
 - **Cache temporal**: Com TTL configurável
@@ -77,11 +79,13 @@ const users = await getUsersBatch(userIds);
 ### 1. Simplificar Fluxo de Dados
 
 **Antes** (complexo):
+
 ```
 Trigger → Filter → Transform → API Call → Filter → Transform → Output
 ```
 
 **Depois** (otimizado):
+
 ```
 Trigger → Transform → API Call → Output
 ```
@@ -89,11 +93,13 @@ Trigger → Transform → API Call → Output
 ### 2. Usar Nodes Específicos
 
 **Evite**:
+
 - Múltiplos Code nodes desnecessários
 - Transformações complexas em loops
 - Lógica repetitiva
 
 **Prefira**:
+
 - Nodes especializados (Set, Merge, etc.)
 - Expressões nativas do n8n
 - Reutilização de subworkflows
@@ -154,6 +160,7 @@ const results = items
 ```
 
 **Dicas**:
+
 - Ajuste batch size baseado na API
 - Use "Reset" para dados independentes
 - Configure retry para falhas
@@ -180,6 +187,7 @@ while (hasMore) {
 ### 1. Gerenciar Memória
 
 **Estratégias**:
+
 - **Limpar dados temporários** após uso
 - **Usar streaming** para grandes arquivos
 - **Implementar garbage collection** manual
@@ -194,6 +202,7 @@ largeDataset = null;
 ### 2. Otimizar Conexões
 
 **HTTP Request Node**:
+
 - **Reutilizar conexões** quando possível
 - **Configurar timeouts** adequados
 - **Usar keep-alive** para múltiplas requisições
@@ -217,6 +226,7 @@ for (const item of items) {
 ### 1. Métricas de Performance
 
 **Monitore**:
+
 - **Tempo de execução** por node
 - **Uso de memória** durante execução
 - **Taxa de sucesso** vs falhas
@@ -239,6 +249,7 @@ console.log(JSON.stringify({
 ### 3. Alertas Inteligentes
 
 **Configure alertas para**:
+
 - **Execuções lentas** (> 5 minutos)
 - **Taxa de erro alta** (> 10%)
 - **Uso de memória excessivo**
@@ -249,6 +260,7 @@ console.log(JSON.stringify({
 ### 1. Design de Workflows
 
 **Princípios**:
+
 - **Separação de responsabilidades** por workflow
 - **Reutilização** de subworkflows
 - **Documentação** clara de cada node
@@ -257,6 +269,7 @@ console.log(JSON.stringify({
 ### 2. Tratamento de Erros
 
 **Implemente**:
+
 - **Error triggers** para capturar falhas
 - **Retry logic** com backoff exponencial
 - **Fallback mechanisms** para cenários críticos
@@ -265,6 +278,7 @@ console.log(JSON.stringify({
 ### 3. Testes e Validação
 
 **Estratégias**:
+
 - **Teste com dados reais** periodicamente
 - **Valide outputs** em cada node crítico
 - **Simule cenários de falha**
@@ -277,11 +291,13 @@ console.log(JSON.stringify({
 **Cenário**: Processar 10.000 registros de vendas
 
 **Antes** (lento):
+
 ```
 Webhook → For Each → API Call → Transform → Database
 ```
 
 **Depois** (otimizado):
+
 ```
 Webhook → Split In Batches → Batch API Call → Transform → Batch Database
 ```
@@ -325,18 +341,21 @@ await Promise.all(promises);
 ### Problemas Comuns
 
 **Workflow lento**:
+
 - Verifique loops desnecessários
 - Analise chamadas de API
 - Implemente caching
 - Otimize queries de banco
 
 **Falhas de memória**:
+
 - Reduza batch sizes
 - Implemente streaming
 - Limpe dados temporários
 - Monitore uso de recursos
 
 **Timeouts**:
+
 - Aumente timeouts de nodes
 - Implemente retry logic
 - Otimize chamadas de API
@@ -367,4 +386,4 @@ await Promise.all(promises);
 
 ---
 
-**<ion-icon name="speedometer-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para otimizar? Comece analisando a performance dos seus workflows atuais!** 
+**<ion-icon name="speedometer-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para otimizar? Comece analisando a performance dos seus workflows atuais!**

@@ -5,8 +5,7 @@ description: Guias e resumos em português para os cursos em texto da documenta�
 keywords: [n8n, cursos, texto, documentação, nível 1, nível 2, oficial]
 ---
 
-
-# <ion-icon name="school-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Visão Geral - Cursos em Texto
+Visão Geral - Cursos em Texto
 
 Esta seção contém **guias e resumos em português** para os **cursos em texto oficiais** da documentação do n8n.
 
@@ -18,50 +17,50 @@ Cada nível é projetado para construir seu conhecimento de forma progressiva, c
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cursos Disponíveis
 
-###  Nível 1 (Level One)
+### Nível 1 (Level One)
 
-** [Documentação Oficial ↗](https://docs.n8n.io/courses/level-one/)**
+**[Documentação Oficial ↗](https://docs.n8n.io/courses/level-one/)**
 
--  **Foco:** Construir um workflow de automação de marketing do mundo real
--  **Ideal para:** Iniciantes que querem uma experiência prática
--  **Projeto:** Automação de marketing e vendas
--  **Duração:** 5 capítulos progressivos
+- **Foco:** Construir um workflow de automação de marketing do mundo real
+- **Ideal para:** Iniciantes que querem uma experiência prática
+- **Projeto:** Automação de marketing e vendas
+- **Duração:** 5 capítulos progressivos
 
-** [Começar o Nível 1](nivel-um/capitulo-1)**
+**[Começar o Nível 1](nivel-um/capitulo-1)**
 
-###  Nível 2 (Level Two)
+### Nível 2 (Level Two)
 
-** [Documentação Oficial ↗](https://docs.n8n.io/courses/level-two/)**
+**[Documentação Oficial ↗](https://docs.n8n.io/courses/level-two/)**
 
--  **Foco:** Estrutura de dados, tratamento de erros e um workflow empresarial complexo
--  **Ideal para:** Usuários que completaram o Nível 1 e querem aprofundar
--  **Projeto:** Automação de processo de suporte ao cliente
--  **Duração:** 3 capítulos avançados
+- **Foco:** Estrutura de dados, tratamento de erros e um workflow empresarial complexo
+- **Ideal para:** Usuários que completaram o Nível 1 e querem aprofundar
+- **Projeto:** Automação de processo de suporte ao cliente
+- **Duração:** 3 capítulos avançados
 
-** [Começar o Nível 2](nivel-dois/capitulo-1)**
+**[Começar o Nível 2](nivel-dois/capitulo-1)**
 
 ---
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Navegar
 
-###  Estrutura dos Cursos
+### Estrutura dos Cursos
 
 Cada curso oficial do n8n segue uma estrutura progressiva:
 
-1. ** Introdução:** Conceitos fundamentais e preparação
-2. ** Prática:** Hands-on com workflows reais
-3. ** Avançado:** Técnicas e otimizações
-4. ** Projeto Final:** Consolidação do aprendizado
+1. **Introdução:** Conceitos fundamentais e preparação
+2. **Prática:** Hands-on com workflows reais
+3. **Avançado:** Técnicas e otimizações
+4. **Projeto Final:** Consolidação do aprendizado
 
-###  Nossos Resumos
+### Nossos Resumos
 
 Cada capítulo aqui oferece:
 
--  **Resumo em Português** do conteúdo oficial
--  **Links diretos** para a documentação original
--  **Adaptações** para o contexto brasileiro
--  **Fidelidade** ao conteúdo oficial
+- **Resumo em Português** do conteúdo oficial
+- **Links diretos** para a documentação original
+- **Adaptações** para o contexto brasileiro
+- **Fidelidade** ao conteúdo oficial
 
 ---
 
-** Navegue pelos níveis no menu ao lado para começar seu aprendizado!** 
+**Navegue pelos níveis no menu ao lado para começar seu aprendizado!**

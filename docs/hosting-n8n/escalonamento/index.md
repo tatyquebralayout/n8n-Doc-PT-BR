@@ -12,39 +12,39 @@ Esta seção contém guias completos para **escalar n8n em produção** com alta
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai encontrar
 
-###  [Load Balancing](./load-balancing)
+### [Load Balancing](./load-balancing)
 
 **Balanceamento de carga para n8n em produção**
 
--  Configuração de nginx como load balancer
--  Estratégias de distribuição de carga
--  Health checks e failover
--  Monitoramento de performance
--  Configurações de segurança
+- Configuração de nginx como load balancer
+- Estratégias de distribuição de carga
+- Health checks e failover
+- Monitoramento de performance
+- Configurações de segurança
 
  **[Ver guia completo →](./load-balancing)**
 
-###  [Clustering](./clustering)
+### [Clustering](./clustering)
 
 **Implementação de clustering para alta disponibilidade**
 
--  Arquiteturas de cluster para n8n
--  Configuração de múltiplas instâncias
--  Balanceamento de carga inteligente
--  Failover automático
--  Monitoramento de cluster
+- Arquiteturas de cluster para n8n
+- Configuração de múltiplas instâncias
+- Balanceamento de carga inteligente
+- Failover automático
+- Monitoramento de cluster
 
  **[Ver guia completo →](./clustering)**
 
-###  [Otimização de Performance](./performance)
+### [Otimização de Performance](./performance)
 
 **Técnicas avançadas para máxima eficiência**
 
--  Configuração de workers otimizada
--  Ajuste de timeouts e limites
--  Otimização de banco de dados
--  Gerenciamento de memória
--  Monitoramento de performance
+- Configuração de workers otimizada
+- Ajuste de timeouts e limites
+- Otimização de banco de dados
+- Gerenciamento de memória
+- Monitoramento de performance
 
  **[Ver guia completo →](./performance)**
 
@@ -52,9 +52,10 @@ Esta seção contém guias completos para **escalar n8n em produção** com alta
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Por que Escalar?
 
-###  Benefícios do Escalonamento
+### Benefícios do Escalonamento
 
 **Sem Escalonamento:**
+
 - ❌ **Ponto único de falha** - Se o servidor cair, tudo para
 - ❌ **Limitação de performance** - Apenas um servidor processando
 - ❌ **Sem escalabilidade** - Não pode adicionar servidores
@@ -62,15 +63,17 @@ Esta seção contém guias completos para **escalar n8n em produção** com alta
 - ❌ **Experiência ruim** - Sistema lento com muitos usuários
 
 **Com Escalonamento:**
+
 - ✅ **Alta disponibilidade** - Falhas não afetam o serviço
 - ✅ **Performance melhorada** - Múltiplos servidores processando
 - ✅ **Escalabilidade horizontal** - Adicione servidores conforme necessário
 - ✅ **Zero downtime** - Manutenção sem interrupção
 - ✅ **Experiência fluida** - Sistema sempre responsivo
 
-###  Quando Escalar
+### Quando Escalar
 
 **Considere escalar quando:**
+
 - Tem **muitos usuários simultâneos**
 - Precisa de **99.9%+ de disponibilidade**
 - Processa **workflows críticos de negócio**
@@ -82,7 +85,7 @@ Esta seção contém guias completos para **escalar n8n em produção** com alta
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquitetura de Escalonamento
 
-###  Visão Geral da Arquitetura
+### Visão Geral da Arquitetura
 
 ```mermaid
 graph TD
@@ -106,19 +109,22 @@ graph TD
     style F fill:#e1f5fe
 ```
 
-###  Componentes Principais
+### Componentes Principais
 
 #### **Load Balancer**
+
 - **Nginx/HAProxy** - Distribui requisições entre instâncias
 - **Health Checks** - Monitora saúde das instâncias
 - **Failover** - Remove instâncias com problemas automaticamente
 
 #### **Instâncias n8n**
+
 - **Worker Principal** - Interface de usuário e gerenciamento
 - **Workers de Execução** - Processamento de workflows
 - **Configuração Compartilhada** - Banco de dados e Redis
 
 #### **Infraestrutura Compartilhada**
+
 - **Banco de Dados** - PostgreSQL com replicação
 - **Redis Cluster** - Filas e cache distribuído
 - **Monitoramento** - Métricas e alertas centralizados
@@ -127,26 +133,26 @@ graph TD
 
 ## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Guia de Implementação
 
-###  Ordem Recomendada
+### Ordem Recomendada
 
 1. **[Load Balancing](./load-balancing)** - Configure balanceamento de carga básico
 2. **[Clustering](./clustering)** - Implemente múltiplas instâncias
 3. **[Performance](./performance)** - Otimize para máxima eficiência
 4. **[Monitoramento](../seguranca/monitoring)** - Configure alertas e métricas
 
-###  Pré-requisitos
+### Pré-requisitos
 
--  **Docker** e **Docker Compose** instalados
--  **Pelo menos 4GB de RAM** disponível
--  **2+ vCPUs** para processamento
--  **Domínio** configurado com SSL
--  **Backup** configurado
+- **Docker** e **Docker Compose** instalados
+- **Pelo menos 4GB de RAM** disponível
+- **2+ vCPUs** para processamento
+- **Domínio** configurado com SSL
+- **Backup** configurado
 
 ---
 
 ## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Alertas
 
-###  Métricas Essenciais
+### Métricas Essenciais
 
 - **CPU e Memória** - Uso de recursos por instância
 - **Tempo de Execução** - Performance dos workflows
@@ -154,7 +160,7 @@ graph TD
 - **Conexões Ativas** - Carga distribuída
 - **Filas Redis** - Status do processamento
 
-###  Alertas Recomendados
+### Alertas Recomendados
 
 - **CPU > 80%** - Alta utilização de processamento
 - **Memória > 85%** - Pouca memória disponível
@@ -166,7 +172,7 @@ graph TD
 
 ## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
 
-###  Configuração
+### Configuração
 
 - [ ] Load balancer configurado
 - [ ] Múltiplas instâncias ativas
@@ -174,7 +180,7 @@ graph TD
 - [ ] Redis cluster funcionando
 - [ ] SSL/TLS configurado
 
-###  Performance
+### Performance
 
 - [ ] Workers otimizados
 - [ ] Timeouts configurados
@@ -182,7 +188,7 @@ graph TD
 - [ ] Monitoramento ativo
 - [ ] Alertas funcionando
 
-###  Segurança
+### Segurança
 
 - [ ] Acesso restrito por IP
 - [ ] Secrets gerenciados
@@ -209,4 +215,4 @@ Comece com uma configuração simples de 2-3 instâncias e escale conforme neces
 
 :::warning **Importante**
 Sempre teste o escalonamento em ambiente de desenvolvimento antes de aplicar em produção. Falhas de configuração podem causar interrupção total do serviço.
-::: 
+:::

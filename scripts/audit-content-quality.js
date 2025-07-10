@@ -310,7 +310,7 @@ class ContentAuditor {
         const priorityOrder = { high: 3, medium: 2, low: 1 };
         return priorityOrder[b.priority] - priorityOrder[a.priority];
       })
-      .forEach((rec, index) => {
+      .forEach((rec, _index) => {
         const emoji = rec.priority === 'high' ? '🔴' : rec.priority === 'medium' ? '🟡' : '🟢';
         console.log(`   ${emoji} **${rec.title}** (${rec.category})`);
         console.log(`      ${rec.description}`);

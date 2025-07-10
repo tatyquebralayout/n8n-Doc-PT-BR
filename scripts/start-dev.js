@@ -11,7 +11,7 @@ function isPortInUse(port) {
   try {
     execSync(`netstat -ano | findstr :${port}`, { stdio: 'ignore' });
     return true;
-  } catch (error) {
+  } catch (_error) {
     return false;
   }
 }

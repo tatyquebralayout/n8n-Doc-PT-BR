@@ -28,14 +28,19 @@ Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em apli
 ## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Domínios Permitidos e CORS
 
 - Defina domínios confiáveis para o embed:
+
   ```bash
   N8N_CORS_ALLOW_ORIGIN=https://app.suaempresa.com
   ```
+
 - Configure o header `Content-Security-Policy`:
+
   ```nginx
   add_header Content-Security-Policy "frame-ancestors 'self' https://app.suaempresa.com" always;
   ```
+
 - Use `X-Frame-Options: ALLOW-FROM` para restringir iframes:
+
   ```nginx
   add_header X-Frame-Options "ALLOW-FROM https://app.suaempresa.com" always;
   ```
@@ -45,9 +50,11 @@ Este guia detalha os **pré-requisitos técnicos** para incorporar o n8n em apli
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Planejamento
 
 - **Chave de criptografia** obrigatória:
+
   ```bash
   N8N_ENCRYPTION_KEY=chave-criptografia-forte
   ```
+
 - **Autenticação**: Ative SSO, OAuth2, SAML ou API Key
 - **Permissões**: Use RBAC para limitar acesso por usuário/grupo
 - **Logs e auditoria**: Ative logs de acesso e mantenha retenção mínima de 90 dias

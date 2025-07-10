@@ -14,6 +14,7 @@ O **Code Node** é um dos nodes mais poderosos do n8n, permitindo executar **có
 **Code Node = "Executar Código JavaScript"**
 
 O Code Node é uma **AÇÃO** que:
+
 - **Executa** código JavaScript customizado
 - **Processa** dados de entrada
 - **Retorna** dados transformados
@@ -24,12 +25,14 @@ O Code Node é uma **AÇÃO** que:
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
 
 ### **1. Mode**
+
 ```
 Run Once for All Items - Executa uma vez para todos os itens
 Run Once for Each Item - Executa uma vez para cada item individual
 ```
 
 ### **2. JavaScript Code**
+
 ```javascript
 // Exemplo básico
 const items = $input.all();
@@ -54,6 +57,7 @@ return returnData;
 ### **Exemplo 1: Transformar Dados de Formulário**
 
 **Entrada:**
+
 ```json
 {
   "firstName": "João",
@@ -64,6 +68,7 @@ return returnData;
 ```
 
 **Código:**
+
 ```javascript
 const items = $input.all();
 const returnData = [];
@@ -87,6 +92,7 @@ return returnData;
 ```
 
 **Saída:**
+
 ```json
 {
   "nome_completo": "João Silva",
@@ -100,6 +106,7 @@ return returnData;
 ### **Exemplo 2: Validação e Filtragem**
 
 **Código:**
+
 ```javascript
 const items = $input.all();
 const returnData = [];
@@ -135,6 +142,7 @@ return returnData;
 ### **Exemplo 3: Integração com APIs Externas**
 
 **Código:**
+
 ```javascript
 const items = $input.all();
 const returnData = [];
@@ -189,6 +197,7 @@ return returnData;
 ### **Exemplo 4: Cálculos e Agregações**
 
 **Código:**
+
 ```javascript
 const items = $input.all();
 
@@ -464,12 +473,14 @@ async function consultarCategoria(categoria) {
 ## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações e Considerações**
 
 ### **Limitações Técnicas**
+
 - **Timeout**: 30 segundos por execução
 - **Memória**: Limite de memória por execução
 - **Bibliotecas**: Apenas bibliotecas nativas do Node.js
 - **Sistema de arquivos**: Acesso limitado
 
 ### **Boas Práticas**
+
 ```javascript
 // ✅ Bom: Código limpo e bem documentado
 const items = $input.all();
@@ -499,6 +510,7 @@ return items.map(item => ({
 ```
 
 ### **Segurança**
+
 ```javascript
 // ✅ Seguro: Validar entrada
 const data = item.json;
@@ -534,6 +546,7 @@ Evite loops infinitos e operações muito pesadas. O n8n tem timeout de 30 segun
 ---
 
 **Links úteis:**
+
 - [Documentação oficial do Code Node](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.code/)
 - [JavaScript MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- [Node.js Documentation](https://nodejs.org/docs/) 
+- [Node.js Documentation](https://nodejs.org/docs/)

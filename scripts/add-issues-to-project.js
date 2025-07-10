@@ -112,7 +112,7 @@ async function addIssuesToProject() {
           }
         `;
         
-        const itemData = await client.request(addItemMutation, {
+        await client.request(addItemMutation, {
           projectId: latestProject.id,
           contentId: issue.id
         });

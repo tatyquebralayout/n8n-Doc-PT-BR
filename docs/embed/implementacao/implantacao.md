@@ -14,7 +14,7 @@ Este guia explica como **implantar o n8n embarcado** em ambiente de produção, 
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Boas Práticas
 
-###  Checklist de Segurança para Iframes
+### Checklist de Segurança para Iframes
 
 - Use `X-Frame-Options: SAMEORIGIN` ou `ALLOW-FROM` para restringir domínios
 - Implemente `Content-Security-Policy` para limitar origens do embed
@@ -23,6 +23,7 @@ Este guia explica como **implantar o n8n embarcado** em ambiente de produção, 
 - Valide permissões do usuário a cada requisição
 
 #### **Exemplo de headers Nginx**
+
 ```nginx
 add_header X-Frame-Options "ALLOW-FROM https://app.suaempresa.com" always;
 add_header Content-Security-Policy "frame-ancestors 'self' https://app.suaempresa.com" always;
@@ -33,19 +34,22 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" alway
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> SSO e Autenticação
 
-###  Passos para SSO Empresarial
+### Passos para SSO Empresarial
 
 - Configure SAML, OAuth2 ou LDAP conforme o sistema da empresa
 - Mapeie usuários e permissões automaticamente
 - Use tokens JWT ou API Key para autenticação do embed
 - Exemplo de configuração SAML:
+
 ```yaml
 N8N_SAML_ENABLED=true
 N8N_SAML_ISSUER=https://sso.suaempresa.com
 N8N_SAML_ENTRY_POINT=https://sso.suaempresa.com/sso
 N8N_SAML_CERT=/path/to/certificate.pem
 ```
+
 - Exemplo de configuração OAuth2:
+
 ```yaml
 N8N_OAUTH2_AUTH_URL=https://sso.suaempresa.com/oauth/authorize
 N8N_OAUTH2_TOKEN_URL=https://sso.suaempresa.com/oauth/token
@@ -57,7 +61,7 @@ N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
 
 ## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance e Otimização
 
-###  Recomendações
+### Recomendações
 
 - Use lazy loading para carregar o embed apenas quando necessário
 - Ative cache de assets estáticos (CSS, JS, imagens)
@@ -66,6 +70,7 @@ N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
 - Limite o número de workflows carregados por vez
 
 #### **Exemplo de cache Nginx**
+
 ```nginx
 location ~* \.(js|css|png|jpg|svg)$ {
   expires 30d;
@@ -77,12 +82,13 @@ location ~* \.(js|css|png|jpg|svg)$ {
 
 ## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Troubleshooting
 
-###  Logs e Alertas
+### Logs e Alertas
 
 - Ative logs de acesso e auditoria no backend do n8n
 - Configure alertas para falhas de autenticação e erros de integração
 - Use webhooks para notificar eventos críticos (ex: workflow.error, workflow.saved)
 - Exemplo de webhook para monitoramento:
+
 ```json
 {
   "event": "workflow.error",
@@ -93,7 +99,7 @@ location ~* \.(js|css|png|jpg|svg)$ {
 }
 ```
 
-###  Estratégias de Fallback
+### Estratégias de Fallback
 
 - Exiba mensagens de erro amigáveis no embed
 - Implemente retry automático para falhas temporárias
@@ -104,7 +110,7 @@ location ~* \.(js|css|png|jpg|svg)$ {
 
 ## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos de Deployment
 
-###  Docker Compose para Produção
+### Docker Compose para Produção
 
 ```yaml
 version: '3.8'
@@ -143,7 +149,7 @@ volumes:
   pg_data:
 ```
 
-###  Proxy Reverso com Nginx
+### Proxy Reverso com Nginx
 
 ```nginx
 server {
@@ -170,10 +176,11 @@ server {
 }
 ```
 
-###  CI/CD para Automação de Deployment
+### CI/CD para Automação de Deployment
 
 - Use GitHub Actions, GitLab CI ou outra ferramenta para automatizar build e deploy
 - Exemplo de job para deploy automático:
+
 ```yaml
 jobs:
   deploy:

@@ -1,0 +1,15 @@
+# Ignorar scripts
+scripts/
+*.js
+*.mjs
+
+# Ignorar arquivos de build
+build/
+node_modules/
+.docusaurus/
+dist/
+*.min.js
+**/*.min.js
+
+# Ignorar arquivos de configuração específicos
+check-sidebar-links.js 

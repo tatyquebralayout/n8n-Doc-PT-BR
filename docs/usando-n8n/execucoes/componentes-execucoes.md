@@ -11,6 +11,6 @@ Uma execução no n8n é o processo de um workflow rodando. Cada execução é c
 Este documento detalha **componentes e monitoramento de execuções** no n8n, explicando ciclo de vida de workflows, visualização de dados entre nodes, debug de execuções, logs detalhados, métricas de performance, e ferramentas de troubleshooting que permitem identificar problemas, otimizar performance, e garantir confiabilidade das automações em ambiente de produção empresarial.
 
 <div class="em-construcao">
-   
+
   <strong>Em construção:</strong> Este conteúdo incluirá dashboard de monitoramento e alertas.
 </div>

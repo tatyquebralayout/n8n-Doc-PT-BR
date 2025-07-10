@@ -22,12 +22,14 @@ Os logs são fundamentais para entender o comportamento do n8n e resolver proble
 ### 1. Logs de Execução
 
 **Execution Logs**:
+
 - Detalhes de cada execução de workflow
 - Status de cada node
 - Dados de entrada e saída
 - Tempo de execução por node
 
 **Estrutura**:
+
 ```json
 {
   "executionId": "exec-123",
@@ -54,12 +56,14 @@ Os logs são fundamentais para entender o comportamento do n8n e resolver proble
 ### 2. Logs de Sistema
 
 **Application Logs**:
+
 - Inicialização do n8n
 - Configurações carregadas
 - Conexões de banco de dados
 - Erros de sistema
 
 **Estrutura**:
+
 ```json
 {
   "timestamp": "2024-01-15T10:30:00Z",
@@ -76,12 +80,14 @@ Os logs são fundamentais para entender o comportamento do n8n e resolver proble
 ### 3. Logs de Segurança
 
 **Security Logs**:
+
 - Tentativas de login
 - Acesso a recursos
 - Mudanças de permissões
 - Atividades suspeitas
 
 **Estrutura**:
+
 ```json
 {
   "timestamp": "2024-01-15T10:30:00Z",
@@ -99,12 +105,14 @@ Os logs são fundamentais para entender o comportamento do n8n e resolver proble
 ### 1. Interface do n8n
 
 **Execution History**:
+
 1. Acesse o workflow
 2. Clique em **Executions**
 3. Selecione uma execução
 4. Visualize logs detalhados
 
 **Sistema**:
+
 1. Acesse **Settings** → **System**
 2. Clique em **Logs**
 3. Configure nível de log
@@ -113,6 +121,7 @@ Os logs são fundamentais para entender o comportamento do n8n e resolver proble
 ### 2. Arquivos de Log
 
 **Localização padrão**:
+
 ```bash
 # Logs de aplicação
 /var/log/n8n/app.log
@@ -128,6 +137,7 @@ Os logs são fundamentais para entender o comportamento do n8n e resolver proble
 ```
 
 **Comandos úteis**:
+
 ```bash
 # Ver logs em tempo real
 tail -f /var/log/n8n/app.log
@@ -145,6 +155,7 @@ grep -c "ERROR" /var/log/n8n/app.log
 ### 3. API do n8n
 
 **Endpoint de execuções**:
+
 ```bash
 # Listar execuções
 curl -X GET "https://your-n8n.com/api/v1/executions" \
@@ -160,6 +171,7 @@ curl -X GET "https://your-n8n.com/api/v1/executions/123" \
 ### 1. Padrões de Análise
 
 **Problemas de Performance**:
+
 ```bash
 # Buscar execuções lentas
 grep "execution_time.*>.*5000" /var/log/n8n/execution.log
@@ -172,6 +184,7 @@ grep "memory.*>.*100MB" /var/log/n8n/execution.log
 ```
 
 **Erros Comuns**:
+
 ```bash
 # Erros de autenticação
 grep "authentication.*failed" /var/log/n8n/security.log
@@ -186,6 +199,7 @@ grep "database.*error" /var/log/n8n/app.log
 ### 2. Análise Temporal
 
 **Tendências**:
+
 ```bash
 # Execuções por hora
 grep "2024-01-15.*10:" /var/log/n8n/execution.log | wc -l
@@ -201,6 +215,7 @@ grep "execution_time" /var/log/n8n/execution.log | \
 ### 3. Análise de Workflows
 
 **Workflows específicos**:
+
 ```bash
 # Logs de workflow específico
 grep "workflow-123" /var/log/n8n/execution.log
@@ -217,6 +232,7 @@ grep "execution_time" /var/log/n8n/execution.log | \
 ### 1. Ferramentas Nativas
 
 **grep e awk**:
+
 ```bash
 # Extrair tempos de execução
 grep "execution_time" /var/log/n8n/execution.log | \
@@ -232,6 +248,7 @@ grep "login_attempt" /var/log/n8n/security.log | \
 ```
 
 **jq para JSON**:
+
 ```bash
 # Parsear logs JSON
 cat /var/log/n8n/execution.log | jq '.executionId, .status, .startedAt'
@@ -246,6 +263,7 @@ cat /var/log/n8n/execution.log | jq '.nodes[] | {name: .name, duration: (.finish
 ### 2. Ferramentas Externas
 
 **ELK Stack (Elasticsearch, Logstash, Kibana)**:
+
 ```yaml
 # Configuração Logstash
 input {
@@ -272,6 +290,7 @@ output {
 ```
 
 **Grafana + Prometheus**:
+
 ```yaml
 # Métricas do n8n
 - job_name: 'n8n'
@@ -284,6 +303,7 @@ output {
 ### 3. Scripts Customizados
 
 **Análise de Performance**:
+
 ```python
 #!/usr/bin/env python3
 import json
@@ -311,6 +331,7 @@ if __name__ == "__main__":
 ### 1. Configuração de Logs
 
 **Níveis de log**:
+
 ```bash
 # Desenvolvimento
 N8N_LOG_LEVEL=debug
@@ -323,6 +344,7 @@ N8N_LOG_FILE=/var/log/n8n/app.log
 ```
 
 **Rotação de logs**:
+
 ```bash
 # Configurar logrotate
 /var/log/n8n/*.log {
@@ -339,12 +361,14 @@ N8N_LOG_FILE=/var/log/n8n/app.log
 ### 2. Monitoramento
 
 **Alertas configurar**:
+
 - **Taxa de erro** > 5%
 - **Tempo de execução** > 5 minutos
 - **Falhas consecutivas** > 3
 - **Uso de memória** > 80%
 
 **Dashboards**:
+
 - **Execuções por hora**
 - **Taxa de sucesso**
 - **Tempo médio de execução**
@@ -353,6 +377,7 @@ N8N_LOG_FILE=/var/log/n8n/app.log
 ### 3. Manutenção
 
 **Limpeza regular**:
+
 - **Arquivar logs** antigos
 - **Comprimir logs** antigos
 - **Remover logs** desnecessários
@@ -363,6 +388,7 @@ N8N_LOG_FILE=/var/log/n8n/app.log
 ### Exemplo 1: Análise de Performance
 
 **Script de análise**:
+
 ```bash
 #!/bin/bash
 # analyze_performance.sh
@@ -398,6 +424,7 @@ echo "$rate%" >> $OUTPUT_FILE
 ### Exemplo 2: Monitoramento em Tempo Real
 
 **Script de monitoramento**:
+
 ```bash
 #!/bin/bash
 # monitor_logs.sh
@@ -420,6 +447,7 @@ done
 ### Exemplo 3: Análise de Segurança
 
 **Script de análise de segurança**:
+
 ```bash
 #!/bin/bash
 # security_analysis.sh
@@ -449,18 +477,21 @@ grep "login_attempt" $SECURITY_LOG | \
 ### Problemas Comuns
 
 **Logs não aparecem**:
+
 - Verifique configuração de log
 - Confirme permissões de arquivo
 - Teste nível de log
 - Reinicie o n8n
 
 **Logs muito verbosos**:
+
 - Ajuste nível de log
 - Configure filtros
 - Use rotação de logs
 - Implemente sampling
 
 **Performance de análise**:
+
 - Use índices em ferramentas
 - Implemente cache
 - Use ferramentas especializadas
@@ -469,6 +500,7 @@ grep "login_attempt" $SECURITY_LOG | \
 ### Debugging
 
 **Ferramentas úteis**:
+
 ```bash
 # Análise rápida
 grep -E "(ERROR|WARN)" /var/log/n8n/app.log | tail -20
@@ -499,4 +531,4 @@ grep "execution_time" /var/log/n8n/execution.log | \
 
 ---
 
-**<ion-icon name="document-text-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para analisar? Comece configurando níveis de log apropriados para seu ambiente!** 
+**<ion-icon name="document-text-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para analisar? Comece configurando níveis de log apropriados para seu ambiente!**
