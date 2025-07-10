@@ -214,7 +214,7 @@ export default function Home(): React.ReactElement {
                   <h4>Links Úteis</h4>
                   <p>Recursos essenciais para acompanhar atualizações e encontrar soluções.</p>
                   <ul>
-                    <li><Link to="/release-notes">Release Notes</Link></li>
+                    <li><Link to="/release-notes/index">Release Notes</Link></li>
                     <li><Link to="/catalogo">Catálogo de Workflows</Link></li>
                     <li><Link to="/referencia/historico/changelog">Changelog</Link></li>
                     <li><Link to="/comunidade">Central da Comunidade</Link></li>

@@ -489,7 +489,7 @@ Agora que você entende o Function Node:
 1. **[Code Node](./code)** - Para lógica mais complexa
 2. **[Expression Node](./expression)** - Para expressões inline
 3. **[Set Node](../data-processing/set)** - Para manipulação básica de dados
-4. **[IF Node](../logic-control/if)** - Para lógica condicional
+4. **[IF Node](../logic-control/if.md)** - Para lógica condicional
 
 ---
 

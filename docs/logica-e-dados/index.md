@@ -52,6 +52,6 @@ O n8n oferece ferramentas poderosas para trabalhar com dados:
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Primeiros Passos](../../primeiros-passos/instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](/primeiros-passos/instalacao)** - Conceitos fundamentais
 - **[Usando n8n](../usando-n8n)** - Guias práticos
 - **[Integrações](../integracoes)** - Conectar com aplicações externas 

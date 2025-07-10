@@ -166,9 +166,9 @@ Entrada → IF Node → Saída A (condição verdadeira)
 ## Integração com Outros Nodes
 
 ### Nodes Relacionados
-- **[Switch Node](../logic-control/switch)** - Para múltiplas condições
-- **[Merge Node](../logic-control/merge)** - Para combinar fluxos
-- **[Wait Node](../logic-control/wait)** - Para pausas condicionais
+- **[Switch Node](../logic-control/switch.md)** - Para múltiplas condições
+- **[Merge Node](../logic-control/merge.md)** - Para combinar fluxos
+- **[Wait Node](../logic-control/wait.md)** - Para pausas condicionais
 
 ### Workflow Exemplo
 ```
@@ -196,6 +196,6 @@ Webhook → IF (status = active) → Processar
 
 ## Próximos Passos
 
-- **[Switch Node](../logic-control/switch)** - Para múltiplas condições
-- **[Merge Node](../logic-control/merge)** - Para combinar fluxos
+- **[Switch Node](../logic-control/switch.md)** - Para múltiplas condições
+- **[Merge Node](../logic-control/merge.md)** - Para combinar fluxos
 - **[Error Handling](../../../logica-e-dados/01-flow-logic/error-handling)** - Para tratamento de erros 

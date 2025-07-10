@@ -174,7 +174,7 @@ Workflows práticos e casos de uso reais.
 
 ### Recursos Adicionais
 - **[Como Contribuir](../../contribuir)** - Guias para contribuição
-- **[Release Notes](../../release-notes)** - Notas de versão
+- **[Release Notes](../../release-notes/index)** - Notas de versão
 - **[Catálogo](../../catalogo)** - Índice de recursos
 
 ---

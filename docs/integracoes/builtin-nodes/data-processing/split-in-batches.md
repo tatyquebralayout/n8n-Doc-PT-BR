@@ -330,7 +330,7 @@ Agora que você entende o Split In Batches Node:
 1. **[Set Node](./set)** - Para manipulação básica de dados
 2. **[Aggregate Node](./aggregate)** - Para agregações e resumos
 3. **[Code Node](../core-nodes/code)** - Para lógica customizada
-4. **[IF Node](../logic-control/if)** - Para controle de fluxo
+4. **[IF Node](../logic-control/if.md)** - Para controle de fluxo
 
 ---
 

@@ -515,7 +515,7 @@ Agora que você entende o Code Node:
 1. **[Function Node](./function)** - Para funções mais simples
 2. **[Expression Node](./expression)** - Para expressões inline
 3. **[Set Node](../data-processing/set)** - Para manipulação básica de dados
-4. **[IF Node](../logic-control/if)** - Para lógica condicional
+4. **[IF Node](../logic-control/if.md)** - Para lógica condicional
 
 ---
 
