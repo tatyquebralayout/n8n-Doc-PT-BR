@@ -1,13 +1,58 @@
-/*
- * styles.module.css - CardGrid
- * Refatorado para usar variáveis globais e BEM.
- */
-
-.card-grid {
+.cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2.5rem;
-  padding: 0 0.5rem;
-  margin-top: 2rem;
-  transition: all var(--animation-duration) var(--animation-easing);
+  width: 100%;
+}
+
+/* Configurações de colunas */
+.columns1 {
+  grid-template-columns: 1fr;
+}
+
+.columns2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.columns3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.columns4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Configurações de gap */
+.gapsmall {
+  gap: 1rem;
+}
+
+.gapmedium {
+  gap: 1.5rem;
+}
+
+.gaplarge {
+  gap: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 996px) {
+  .columns2,
+  .columns3,
+  .columns4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .columns1,
+  .columns2,
+  .columns3,
+  .columns4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .gapsmall,
+  .gapmedium,
+  .gaplarge {
+    gap: 1rem;
+  }
 } 

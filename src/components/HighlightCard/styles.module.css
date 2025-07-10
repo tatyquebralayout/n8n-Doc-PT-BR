@@ -1,109 +1,95 @@
-/*
- * styles.module.css - HighlightCard
- * Refatorado para usar variáveis globais, utilitários e BEM.
- */
-
-.highlight-card {
-  background-color: var(--ifm-card-background-color);
-  border: 1px solid var(--ifm-card-border-color);
+.highlightCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: var(--ifm-card-border-radius);
-  box-shadow: var(--ifm-card-box-shadow);
-  padding: 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: all var(--animation-duration) var(--animation-easing);
-  overflow: hidden;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: var(--ifm-global-shadow-lw);
+  transition: all var(--ifm-transition-fast) ease;
 }
 
-.highlight-card:hover {
-  border-color: var(--ifm-color-primary);
+.highlightCard:hover {
   box-shadow: var(--ifm-global-shadow-md);
   transform: translateY(-2px);
 }
 
-.cardHeader {
+.header {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary-lightest);
   color: var(--ifm-color-primary);
-  flex-shrink: 0;
-}
-
-.category {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  text-transform: uppercase;
-  color: var(--ifm-color-primary);
-  letter-spacing: var(--letter-spacing-wide);
 }
 
 .title {
-  color: var(--ifm-heading-color);
-  margin: 0 0 1rem 0;
-  font-size: var(--font-size-xl);
+  margin: 0;
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-  text-align: center;
-  line-height: var(--line-height-tight);
+  color: var(--ifm-heading-color);
 }
 
 .description {
-  color: var(--ifm-font-color-secondary);
-  margin: 0 0 1.5rem 0;
-  font-size: var(--font-size-base);
+  margin: 0 0 1rem 0;
+  color: var(--ifm-font-color-base);
   line-height: var(--line-height-normal);
-  text-align: center;
 }
 
-.details {
-  color: var(--ifm-font-color-secondary);
-  font-size: var(--font-size-sm);
-  margin-bottom: 1.5rem;
+.content {
+  color: var(--ifm-font-color-base);
 }
 
-.cardFooter {
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  background: none;
-  border: none;
-  margin-top: auto;
+/* Tipos de card */
+.info {
+  border-left: 4px solid var(--ifm-color-info);
 }
 
-.readMoreLink {
+.info .icon {
+  background: var(--ifm-color-info-lightest);
+  color: var(--ifm-color-info);
+}
+
+.success {
+  border-left: 4px solid var(--ifm-color-success);
+}
+
+.success .icon {
+  background: var(--ifm-color-success-lightest);
+  color: var(--ifm-color-success);
+}
+
+.warning {
+  border-left: 4px solid var(--ifm-color-warning);
+}
+
+.warning .icon {
+  background: var(--ifm-color-warning-lightest);
+  color: var(--ifm-color-warning);
+}
+
+.danger {
+  border-left: 4px solid var(--ifm-color-danger);
+}
+
+.danger .icon {
+  background: var(--ifm-color-danger-lightest);
+  color: var(--ifm-color-danger);
+}
+
+.default {
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+.default .icon {
+  background: var(--ifm-color-primary-lightest);
   color: var(--ifm-color-primary);
-  font-weight: var(--font-weight-semibold);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: var(--font-size-base);
-  border: 2px solid var(--ifm-color-primary);
-  border-radius: var(--ifm-card-border-radius);
-  padding: 0.75rem 1.5rem;
-  transition: all var(--animation-duration) var(--animation-easing);
-  background-color: transparent;
-}
-
-.readMoreLink:hover {
-  text-decoration: none;
-  gap: 0.75rem;
-  background-color: var(--ifm-color-primary);
-  color: var(--ifm-color-white);
-  transform: translateY(-1px);
-}
-
-[data-theme='dark'] .highlight-card {
-  background-color: var(--ifm-card-background-color);
-  border-color: var(--ifm-card-border-color);
-}
-
-[data-theme='dark'] .category {
-  color: var(--ifm-color-primary-light);
 } 

@@ -1,45 +1,93 @@
-/*
- * styles.module.css - GuidanceCard
- * Refatorado para usar variáveis globais, utilitários e BEM.
- */
-
-.guidance-card {
-  border: 1px solid var(--ifm-color-warning-dark);
-  background-color: var(--ifm-color-warning-contrast-background);
+.guidanceCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: var(--ifm-card-border-radius);
   padding: 1.5rem;
-  margin: 2rem 0;
-  transition: all var(--animation-duration) var(--animation-easing);
+  margin: 1rem 0;
+  box-shadow: var(--ifm-global-shadow-lw);
 }
 
-.guidance-card__title {
+.header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: var(--font-size-xl);
+  margin-bottom: 1rem;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ifm-heading-color);
+}
+
+.description {
   margin: 0 0 1rem 0;
-  color: var(--ifm-color-warning-darkest);
-}
-
-.guidance-card__title ion-icon {
-  /* Ícone herda cor do contexto */
-}
-
-.guidance-card__content {
-  font-size: var(--font-size-base);
+  color: var(--ifm-font-color-base);
   line-height: var(--line-height-normal);
 }
 
-.guidance-card__content ul {
-  padding-left: 20px;
-  margin: 0;
+.content {
+  color: var(--ifm-font-color-base);
 }
 
-.guidance-card__content li {
-  margin-bottom: 0.5rem;
+/* Tipos de card */
+.info {
+  border-left: 4px solid var(--ifm-color-info);
+  background: var(--ifm-color-info-lightest);
 }
 
-.guidance-card--golden {
-  border: 1px solid var(--guidance-golden-border, #FFD700);
-  box-shadow: var(--guidance-golden-shadow, 0 0 10px rgba(255, 215, 0, 0.5));
+.info .icon {
+  background: var(--ifm-color-info);
+  color: white;
+}
+
+.success {
+  border-left: 4px solid var(--ifm-color-success);
+  background: var(--ifm-color-success-lightest);
+}
+
+.success .icon {
+  background: var(--ifm-color-success);
+  color: white;
+}
+
+.warning {
+  border-left: 4px solid var(--ifm-color-warning);
+  background: var(--ifm-color-warning-lightest);
+}
+
+.warning .icon {
+  background: var(--ifm-color-warning);
+  color: white;
+}
+
+.danger {
+  border-left: 4px solid var(--ifm-color-danger);
+  background: var(--ifm-color-danger-lightest);
+}
+
+.danger .icon {
+  background: var(--ifm-color-danger);
+  color: white;
+}
+
+.tip {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: var(--ifm-color-primary-lightest);
+}
+
+.tip .icon {
+  background: var(--ifm-color-primary);
+  color: white;
 } 

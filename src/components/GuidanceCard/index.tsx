@@ -1,35 +1,50 @@
 import React from 'react';
 import clsx from 'clsx';
+import IonicIcon from '@site/src/components/IonicIcon';
 import styles from './styles.module.css';
 
 interface GuidanceCardProps {
   title: string;
   description: string;
-  iconName?: string;
-  variant?: 'info' | 'warning' | 'success' | 'error';
+  type?: 'info' | 'success' | 'warning' | 'danger' | 'tip';
+  icon?: string;
+  children?: React.ReactNode;
   className?: string;
 }
 
 const GuidanceCard: React.FC<GuidanceCardProps> = ({
   title,
   description,
-  iconName,
-  variant = 'info',
+  type = 'info',
+  icon,
+  children,
   className,
 }) => {
-  const cardClass = clsx(
-    styles.guidanceCard,
-    styles[`guidanceCard--${variant}`],
-    className
-  );
+  const getDefaultIcon = () => {
+    switch (type) {
+      case 'success':
+        return 'checkmark-circle-outline';
+      case 'warning':
+        return 'warning-outline';
+      case 'danger':
+        return 'alert-circle-outline';
+      case 'tip':
+        return 'bulb-outline';
+      default:
+        return 'information-circle-outline';
+    }
+  };
 
   return (
-    <div className={cardClass}>
-      <div className={styles.guidanceCardHeader}>
-        {iconName && <ion-icon name={iconName} style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} />}
-        <h3 className={styles.guidanceCardTitle}>{title}</h3>
+    <div className={clsx(styles.guidanceCard, styles[type], className)}>
+      <div className={styles.header}>
+        <div className={styles.icon}>
+          <IonicIcon name={icon || getDefaultIcon()} size={24} color="currentColor" />
+        </div>
+        <h3 className={styles.title}>{title}</h3>
       </div>
-      <p className={styles.guidanceCardDescription}>{description}</p>
+      <p className={styles.description}>{description}</p>
+      {children && <div className={styles.content}>{children}</div>}
     </div>
   );
 };

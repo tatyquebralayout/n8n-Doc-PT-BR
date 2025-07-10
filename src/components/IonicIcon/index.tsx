@@ -56,10 +56,18 @@ const IonicIcon: React.FC<IonicIconProps> = ({
       height={iconSize}
       style={{
         color: color || 'currentColor',
+        display: 'inline-block',
+        verticalAlign: 'middle',
         ...style,
       }}
       className={`ionicon ${className}`}
       aria-hidden="true"
+      onError={(e) => {
+        // Fallback em caso de erro ao carregar o ícone
+        console.warn(`IonicIcon: Erro ao carregar ícone '${name}'`);
+        const target = e.target as HTMLImageElement;
+        target.style.display = 'none';
+      }}
     />
   );
 };

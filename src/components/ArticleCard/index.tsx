@@ -1,62 +1,66 @@
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import IonicIcon from '../IonicIcon';
+import IonicIcon from '@site/src/components/IonicIcon';
 import styles from './styles.module.css';
 
 interface ArticleCardProps {
   title: string;
   description: string;
-  author: string;
-  date: string;
+  link: string;
+  author?: string;
+  date?: string;
   views?: number;
   tags?: string[];
-  link: string;
+  icon?: string;
   className?: string;
 }
 
 const ArticleCard: React.FC<ArticleCardProps> = ({
   title,
   description,
+  link,
   author,
   date,
   views,
-  tags,
-  link,
+  tags = [],
+  icon = 'document-outline',
   className,
 }) => {
   return (
     <Link to={link} className={clsx(styles.articleCard, className)}>
-      <div className={styles.articleCardContent}>
-        <h3 className={styles.articleCardTitle}>{title}</h3>
-        <p className={styles.articleCardDescription}>{description}</p>
-        
-        <div className={styles.articleCardMeta}>
-          <div className={styles.articleCardAuthor}>
-            <IonicIcon name="person-outline" size={16} color="var(--ifm-color-primary)" />
-            <span>{author}</span>
-          </div>
-          
-          <div className={styles.articleCardDate}>
-            <IonicIcon name="time-outline" size={16} color="var(--ifm-color-primary)" />
-            <span>{date}</span>
-          </div>
-          
-          {views && (
-            <div className={styles.articleCardViews}>
-              <IonicIcon name="eye-outline" size={16} color="var(--ifm-color-primary)" />
-              <span>{views}</span>
-            </div>
-          )}
+      <div className={styles.header}>
+        <div className={styles.icon}>
+          <IonicIcon name={icon} size={24} color="currentColor" />
         </div>
-        
-        {tags && tags.length > 0 && (
-          <div className={styles.articleCardTags}>
-            {tags.map((tag, index) => (
-              <span key={index} className={styles.articleCardTag}>
+        <div className={styles.meta}>
+          {author && <span className={styles.author}>{author}</span>}
+          {date && <span className={styles.date}>{date}</span>}
+        </div>
+      </div>
+      
+      <div className={styles.content}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
+      </div>
+      
+      <div className={styles.footer}>
+        {views && (
+          <span className={styles.views}>
+            <IonicIcon name="eye-outline" size={16} />
+            {views}
+          </span>
+        )}
+        {tags.length > 0 && (
+          <div className={styles.tags}>
+            {tags.slice(0, 2).map((tag, index) => (
+              <span key={index} className={styles.tag}>
                 {tag}
               </span>
             ))}
+            {tags.length > 2 && (
+              <span className={styles.moreTags}>+{tags.length - 2}</span>
+            )}
           </div>
         )}
       </div>

@@ -141,6 +141,27 @@ ion-icon {
   color: currentColor;
 }
 
+/* Estilos específicos para ícones SVG */
+.ionicon {
+  display: inline-block;
+  vertical-align: middle;
+  color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Garantir que os ícones SVG herdem a cor corretamente */
+.ionicon[style*="color"] {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Fallback para ícones que não carregam */
+.ionicon[src*=".svg"]:not([src*="data:"]):not([src*="http"]) {
+  min-width: 1em;
+  min-height: 1em;
+}
+
 /* Centraliza os itens do menu de navegação */
 .navbar__items--left {
   flex: 1 1 0%;

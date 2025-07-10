@@ -1,55 +1,66 @@
 import React from 'react';
 import clsx from 'clsx';
+import IonicIcon from '@site/src/components/IonicIcon';
 import styles from './styles.module.css';
 
-interface StatItem {
-  label: string;
-  value: string;
-  icon: string;
+interface CommunityStatsProps {
+  contributors?: number;
+  translations?: number;
+  languages?: number;
+  repositories?: number;
+  className?: string;
 }
 
-const stats: StatItem[] = [
-  {
-    label: 'Contribuidores',
-    value: '50+',
-    icon: 'people-outline',
-  },
-  {
-    label: 'Workflows',
-    value: '200+',
-    icon: 'git-branch-outline',
-  },
-  {
-    label: 'Integrações',
-    value: '100+',
-    icon: 'extension-puzzle-outline',
-  },
-  {
-    label: 'Downloads',
-    value: '10k+',
-    icon: 'download-outline',
-  },
-];
+const CommunityStats: React.FC<CommunityStatsProps> = ({
+  contributors = 0,
+  translations = 0,
+  languages = 0,
+  repositories = 0,
+  className,
+}) => {
+  const stats = [
+    {
+      label: 'Contribuidores',
+      value: contributors,
+      icon: 'people-outline',
+      color: 'var(--ifm-color-primary)',
+    },
+    {
+      label: 'Traduções',
+      value: translations,
+      icon: 'language-outline',
+      color: 'var(--ifm-color-success)',
+    },
+    {
+      label: 'Idiomas',
+      value: languages,
+      icon: 'globe-outline',
+      color: 'var(--ifm-color-info)',
+    },
+    {
+      label: 'Repositórios',
+      value: repositories,
+      icon: 'logo-github',
+      color: 'var(--ifm-color-warning)',
+    },
+  ];
 
-const CommunityStats: React.FC = () => {
   return (
-    <section className={styles['community-stats']}>
-      <div className="container">
-        <div className="row">
-          {stats.map((stat, index) => (
-            <div key={index} className={clsx('col col--3')}>
-              <div className={styles['community-stats__item']}>
-                <ion-icon name={stat.icon} style={{fontSize: 24, color: 'var(--ifm-color-primary)'}} className={styles['community-stats__icon']} aria-hidden="true" />
-                <div className={styles['community-stats__content']}>
-                  <div className={styles['community-stats__value']}>{stat.value}</div>
-                  <div className={styles['community-stats__label']}>{stat.label}</div>
-                </div>
-              </div>
+    <div className={clsx(styles.communityStats, className)}>
+      <div className={styles.grid}>
+        {stats.map((stat, index) => (
+          <div key={index} className={styles.statItem}>
+            <div className={styles.icon} style={{ color: stat.color }}>
+              <IonicIcon name={stat.icon} size={32} />
             </div>
-          ))}
-        </div>
+            <div className={styles.content}>
+              <div className={styles.value}>{stat.value.toLocaleString()}</div>
+              <div className={styles.label}>{stat.label}</div>
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
