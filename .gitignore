@@ -13,6 +13,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+*.log
 
 # Environment variables
 .env
@@ -26,24 +27,103 @@ lerna-debug.log*
 .idea/
 *.swp
 *.swo
+*.sublime-*
+.atom/
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Temporary files
 *.tmp
 *.temp
+*.bak
+*.backup
 
 # Package lock files (manter apenas um)
 # yarn.lock
 
 # Coverage
 coverage/
+.nyc_output/
 
-# Scripts de automação e desenvolvimento
+# TypeScript
+*.tsbuildinfo
+.tscache/
+
+# Scripts de automação e desenvolvimento (não essenciais para produção)
 scripts/
+check-sidebar-links.js
+lint-markdown.sh
 
 # Documentação oficial n8n (apenas para referência local)
 n8n-docs/
+
+# Arquivos de debug e desenvolvimento
+broken_svgs.txt
+*.debug
+*.dev
+
+# Arquivos de cache e temporários
+.cache/
+.temp/
+.tmp/
+
+# Arquivos de backup
+*.orig
+*.rej
+
+# Arquivos de configuração local
+.eslintrc.local
+.prettierrc.local
+
+# Arquivos de teste
+test-results/
+playwright-report/
+test-results.xml
+
+# Arquivos de build local
+dist/
+out/
+
+# Arquivos de análise
+bundle-analyzer-report.html
+webpack-bundle-analyzer-report.html
+
+# Arquivos de performance
+.perf/
+
+# Arquivos de documentação temporária
+docs-temp/
+docs-draft/
+
+# Arquivos de tradução temporária
+translations-temp/
+*.po
+*.pot
+
+# Arquivos de backup do Git
+*.patch
+*.diff
+
+# Arquivos de configuração local do Docusaurus
+docusaurus.config.local.ts
+sidebars.local.ts
+
+# Arquivos de dados temporários
+data/temp/
+data/cache/
+
+# Arquivos de imagens temporárias
+static/img/temp/
+static/img/cache/
+
+# Arquivos de componentes temporários
+src/components/temp/
+src/components/draft/
+
+# Arquivos de páginas temporárias
+src/pages/temp/
+src/pages/draft/
 
