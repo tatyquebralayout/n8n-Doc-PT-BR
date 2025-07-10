@@ -165,12 +165,7 @@ const config: Config = {
           to: '/cursos',
           position: 'left',
         },
-        {
-          label: 'Blog',
-          to: '/blog',
-          position: 'left',
-          className: 'navbar-blog-link',
-        },
+
         // Dropdown "Contribuir" - Agrupa opções de contribuição
         {
           type: 'dropdown',
