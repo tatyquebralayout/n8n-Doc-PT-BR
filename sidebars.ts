@@ -56,7 +56,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'usando-n8n/workflows/index',
             'usando-n8n/workflows/criar-editar',
-            'usando-n8n/workflows/history',
+            'usando-n8n/workflows/historico',
             'usando-n8n/workflows/configuracoes',
             'usando-n8n/workflows/compartilhamento',
             'usando-n8n/workflows/export-import',
