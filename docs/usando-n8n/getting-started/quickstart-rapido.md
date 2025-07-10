@@ -4,20 +4,20 @@ title: Quickstart Rápido
 sidebar_label: Quickstart Rápido
 ---
 
-# <ion-icon name="play-circle-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Quickstart Rápido
+# Quickstart Rápido
 
 Este guia rápido apresenta os conceitos essenciais do n8n em menos de 5 minutos, mostrando como criar seu primeiro workflow para automatizar uma tarefa simples.
 
-## <ion-icon name="rocket-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que é o n8n?
+## O que é o n8n?
 
 O n8n é uma plataforma de automação de workflows open source. Com ele, você pode conectar diferentes aplicações, automatizar tarefas e transformar dados sem precisar programar.
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Passo a Passo: Seu Primeiro Workflow
+## Passo a Passo: Seu Primeiro Workflow
 
 ### 1. Acesse o n8n
 
 - Se você ainda não instalou, siga o [Guia de Instalação](../../primeiros-passos/guia-instalacao).
-- Acesse a interface web do n8n (por padrão: <http://localhost:5678>).
+- Acesse a interface web do n8n (por padrão: `http://localhost:5678`).
 
 ### 2. Crie um novo workflow
 
@@ -49,7 +49,7 @@ O n8n é uma plataforma de automação de workflows open source. Com ele, você 
 - Clique em **Save**.
 - Para automações recorrentes, clique em **Activate**.
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dicas Rápidas
+## Dicas Rápidas
 
 - Use **Manual Trigger** para testar rapidamente.
 - Explore nodes populares: HTTP Request, Google Sheets, Slack, Discord, Webhook.
@@ -57,7 +57,7 @@ O n8n é uma plataforma de automação de workflows open source. Com ele, você 
 - Experimente o **Data Pinning** para fixar dados de teste.
 - Consulte a [documentação oficial do n8n](https://docs.n8n.io/getting-started/quickstart/) para mais exemplos.
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
+## Recursos Úteis
 
 - [Documentação Oficial n8n](https://docs.n8n.io/)
 - [Comunidade n8n Brasil](https://discord.gg/n8nbrasil)
@@ -66,4 +66,4 @@ O n8n é uma plataforma de automação de workflows open source. Com ele, você 
 
 ---
 
-**<ion-icon name="play-circle-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para automatizar? Crie seu primeiro workflow agora!**
+**Pronto para automatizar? Crie seu primeiro workflow agora!**

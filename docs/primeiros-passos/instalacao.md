@@ -18,24 +18,24 @@ Esta página detalha os métodos de instalação **self-hosted** do n8n, incluin
 A forma mais rápida e fácil de começar:
 
 ```bash
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar n8n com Docker
+# Executar n8n com Docker
 docker run -it --rm \
 --name n8n \
 -p 5678:5678 \
 n8nio/n8n
 ```
 
- Acesse <http://localhost:5678> no seu navegador.
+ Acesse `http://localhost:5678` no seu navegador.
 
 ### NPM
 
 Para instalação via npm (requer Node.js 18+):
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalar globalmente
+# Instalar globalmente
 npm install n8n -g
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Executar
+# Executar
 n8n start
 ```
 
@@ -47,7 +47,7 @@ Para testar sem instalar:
 npx n8n
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Inicial
+## Configuração Inicial
 
 ### 1. Primeiro Acesso
 
@@ -74,17 +74,17 @@ Na primeira execução, você deve criar uma conta de administrador para protege
 Você pode configurar o n8n usando variáveis de ambiente:
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Porta da aplicação
+# Porta da aplicação
 N8N_PORT=5678
 
-# <ion-icon name="git-network-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> URL base (importante para webhooks)
+# URL base (importante para webhooks)
 N8N_PROTOCOL=https
 N8N_HOST=seu-dominio.com
 
-# <ion-icon name="time-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Fuso horário
+# Fuso horário
 GENERIC_TIMEZONE=America/Sao_Paulo
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Banco de dados (opcional)
+# Banco de dados (opcional)
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=localhost
 DB_POSTGRESDB_PORT=5432
@@ -135,7 +135,7 @@ Execute com:
 docker-compose up -d
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificando a Instalação
+## Verificando a Instalação
 
 ### 1. Interface Web
 
@@ -148,7 +148,7 @@ Acesse `http://localhost:5678` e verifique se a interface carrega corretamente.
 3. Clique em **"Executar Workflow"**
 4. Você deve ver uma execução bem-sucedida
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## Próximos Passos
 
 Agora que o n8n está instalado e funcionando:
 
@@ -161,31 +161,31 @@ Agora que o n8n está instalado e funcionando:
 - **[n8n Cloud](./instalacao-cloud)** - Instalação via serviço hospedado
 - **[Instalação Local via npm](./instalacao-npm)** - Para desenvolvimento e testes
 
-## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Solução de Problemas
+## Solução de Problemas
 
 ### Problemas Comuns
 
 #### Porta já em uso
 
 ```bash
-# <ion-icon name="git-branch-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Verificar qual processo está usando a porta 5678
+# Verificar qual processo está usando a porta 5678
 netstat -tulpn | grep 5678
 
-# <ion-icon name="document-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Usar uma porta diferente
+# Usar uma porta diferente
 N8N_PORT=5679 n8n start
 ```
 
 #### Problemas de permissão (Linux/Mac)
 
 ```bash
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Dar permissões corretas
+# Dar permissões corretas
 sudo chown -R $(whoami) ~/.n8n
 ```
 
 #### Erro de memória
 
 ```bash
-# <ion-icon name="code-slash-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Aumentar limite de memória do Node.js
+# Aumentar limite de memória do Node.js
 NODE_OPTIONS="--max-old-space-size=4096" n8n start
 ```
 
@@ -194,10 +194,10 @@ NODE_OPTIONS="--max-old-space-size=4096" n8n start
 Para debugar problemas, verifique os logs:
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Logs mais detalhados
+# Logs mais detalhados
 N8N_LOG_LEVEL=debug n8n start
 
-# <ion-icon name="cloud-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Com Docker
+# Com Docker
 docker logs container_id
 ```
 

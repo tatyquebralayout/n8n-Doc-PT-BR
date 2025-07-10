@@ -222,12 +222,12 @@ O treinamento em segurança é fundamental para proteger credenciais e dados sen
 ❌ SUSPEITO:
 De: `support@n8n-secure.com`
 Assunto: Sua conta será suspensa em 24h
-Link: <http://n8n-secure.xyz/login>
+Link: `http://n8n-secure.xyz/login`
 
 ✅ LEGÍTIMO:
 De: `support@n8n.io`
 Assunto: Atualização de segurança
-Link: <https://n8n.io/security-update>
+Link: `https://n8n.io/security-update`
 
 ```
 
