@@ -4,7 +4,7 @@ import React from 'react';
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'ion-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+      'ion-icon': {
         name?: string;
         src?: string;
         size?: string | number;
@@ -15,6 +15,7 @@ declare global {
         md?: string;
         'aria-hidden'?: boolean | 'true' | 'false';
         'aria-label'?: string;
+        [key: string]: any;
       };
     }
     

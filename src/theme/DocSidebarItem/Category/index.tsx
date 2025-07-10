@@ -245,12 +245,18 @@ export default function DocSidebarItemCategory({
           aria-expanded={collapsible ? !collapsed : undefined}
           href={collapsible ? hrefWithSSRFallback ?? '#' : hrefWithSSRFallback}
           {...props}>
-          {compassIconCategories.includes(label) && (
-            <ion-icon name="compass-outline" style={{ fontSize: '16px', marginRight: '8px', verticalAlign: 'middle' }}></ion-icon>
-          )}
-          {label === 'Introdução ao n8n' && (
-            <ion-icon name="information-circle-outline" style={{ fontSize: '16px', marginRight: '8px', verticalAlign: 'middle' }}></ion-icon>
-          )}
+          {compassIconCategories.includes(label) && 
+            React.createElement('ion-icon', {
+              name: 'compass-outline',
+              style: { fontSize: '16px', marginRight: '8px', verticalAlign: 'middle' }
+            })
+          }
+          {label === 'Introdução ao n8n' && 
+            React.createElement('ion-icon', {
+              name: 'information-circle-outline',
+              style: { fontSize: '16px', marginRight: '8px', verticalAlign: 'middle' }
+            })
+          }
           {label}
         </Link>
         {!href && collapsible && (

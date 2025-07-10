@@ -86,6 +86,7 @@ Como os dados se movem através dos workflows:
 1. **Aprenda [Transformações de Dados](./transformacoes-dados)** para manipular dados
 2. **Explore [Integração de APIs](./integracao-apis)** para conectar fontes externas
 3. **Use [Agregações Estatísticas](./agregacoes-estatisticas)** para análise
+4. **Experimente [Data Pinning](./data-pinning)** para desenvolvimento
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 

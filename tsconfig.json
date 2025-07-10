@@ -11,6 +11,7 @@
   },
   "include": [
     "src",
+    "src/types",
     "docs",
     "release-notes",
     "docusaurus.config.ts",

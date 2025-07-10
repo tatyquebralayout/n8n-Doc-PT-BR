@@ -150,6 +150,125 @@ Expressões permitem manipular dados dinamicamente usando JavaScript.
 3. **Use console.log** em expressões JavaScript
 4. **Teste credenciais** separadamente
 
+## <ion-icon name="pin-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Data Pinning
+
+**Data Pinning** permite congelar temporariamente os dados de saída de um node durante o desenvolvimento do workflow. Isso é útil para trabalhar com dados previsíveis sem fazer requisições repetidas a serviços externos.
+
+### Quando Usar
+
+- **Desenvolvimento**: Para testar workflows com dados consistentes
+- **Debugging**: Para isolar problemas em nodes específicos
+- **Testes**: Para validar lógica sem depender de APIs externas
+
+### Como Funciona
+
+Quando você "pina" os dados de um node, o n8n usa esses dados fixos em vez de fazer uma nova requisição. Em produção, os dados pinados são ignorados e o node faz requisições normais.
+
+**Para aprender mais:** [Data Pinning](../logica-e-dados/data/data-pinning)
+
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node Settings
+
+Cada node possui configurações avançadas que controlam seu comportamento durante a execução.
+
+### Configurações Principais
+
+- **Retry On Fail**: Tenta executar novamente em caso de falha
+- **Timeout**: Define tempo limite para requisições
+- **Execute Once**: Processa apenas o primeiro item
+- **Always Output Data**: Sempre retorna dados, mesmo vazios
+
+### Controles de Erro
+
+- **Stop Workflow**: Para a execução em caso de erro
+- **Continue**: Continua para o próximo node
+- **Continue (using error output)**: Passa informações de erro adiante
+
+**Para aprender mais:** [Configurações de Nodes](../integracoes/builtin-nodes/core-nodes/)
+
+## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Error Handling
+
+O tratamento de erros é fundamental para workflows robustos e confiáveis.
+
+### Tipos de Erro
+
+- **Node Errors**: Falhas em nodes específicos
+- **Connection Errors**: Problemas de conectividade
+- **Data Errors**: Dados inválidos ou malformados
+- **Timeout Errors**: Requisições que excedem o tempo limite
+
+### Estratégias de Tratamento
+
+- **Error Trigger**: Executa workflows específicos quando há erro
+- **Retry Logic**: Tenta novamente automaticamente
+- **Fallback Paths**: Caminhos alternativos em caso de falha
+- **Error Logging**: Registra erros para análise posterior
+
+**Para aprender mais:** [Tratamento de Erros](../logica-e-dados/01-flow-logic/error-handling)
+
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Subworkflows
+
+**Subworkflows** são workflows que podem ser executados dentro de outros workflows, permitindo modularização e reutilização de código.
+
+### Benefícios
+
+- **Modularização**: Quebra workflows complexos em partes menores
+- **Reutilização**: Usa o mesmo workflow em múltiplos lugares
+- **Manutenção**: Facilita atualizações e correções
+- **Organização**: Melhora a estrutura e legibilidade
+
+### Como Funciona
+
+Um workflow principal pode chamar um subworkflow usando o node "Execute Workflow", passando dados como entrada e recebendo o resultado como saída.
+
+**Para aprender mais:** [Subworkflows](../logica-e-dados/01-flow-logic/subworkflows)
+
+## <ion-icon name="swap-horizontal-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Data Transformation
+
+A transformação de dados permite modificar, filtrar e organizar informações conforme necessário.
+
+### Operações Comuns
+
+- **Aggregate**: Agrupa itens relacionados
+- **Filter**: Remove itens que não atendem critérios
+- **Sort**: Organiza dados em ordem específica
+- **Split**: Divide itens em múltiplos
+- **Merge**: Combina dados de diferentes fontes
+
+### Nodes de Transformação
+
+- **Set**: Define ou modifica campos
+- **Remove Duplicates**: Remove itens duplicados
+- **Limit**: Limita o número de itens
+- **Code**: Transformação personalizada com JavaScript
+
+**Para aprender mais:** [Transformação de Dados](../logica-e-dados/data/transformacoes-dados)
+
+## <ion-icon name="library-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Templates
+
+**Templates** são workflows pré-construídos que você pode importar e personalizar para suas necessidades.
+
+### Tipos de Templates
+
+- **Oficiais**: Criados pela equipe n8n
+- **Comunitários**: Compartilhados pela comunidade
+- **Personalizados**: Templates que você cria e compartilha
+
+### Benefícios
+
+- **Início Rápido**: Comece com workflows funcionais
+- **Aprendizado**: Veja como outros resolvem problemas
+- **Produtividade**: Economize tempo de desenvolvimento
+- **Inspiração**: Descubra novas possibilidades
+
+### Como Usar
+
+1. **Importe** um template do marketplace
+2. **Configure** credenciais necessárias
+3. **Personalize** para suas necessidades
+4. **Teste** e ajuste conforme necessário
+
+**Para aprender mais:** [Templates](../integracoes/templates)
+
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 Agora que você entende os conceitos básicos, está pronto para:

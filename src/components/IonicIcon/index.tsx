@@ -46,20 +46,18 @@ const IonicIcon: React.FC<IonicIconProps> = ({
   }
 
   // Usar o elemento ion-icon que já está carregado via CDN
-  return (
-    <ion-icon
-      name={name}
-      style={{
-        fontSize: `${iconSize}px`,
-        color: color || 'currentColor',
-        display: 'inline-block',
-        verticalAlign: 'middle',
-        ...style,
-      }}
-      className={className}
-      aria-hidden="true"
-    />
-  );
+  return React.createElement('ion-icon', {
+    name,
+    style: {
+      fontSize: `${iconSize}px`,
+      color: color || 'currentColor',
+      display: 'inline-block',
+      verticalAlign: 'middle',
+      ...style,
+    },
+    className,
+    'aria-hidden': 'true',
+  });
 };
 
 export default IonicIcon; 

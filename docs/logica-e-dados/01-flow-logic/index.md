@@ -114,6 +114,7 @@ Ao construir sua lógica, você usará os **[Core Nodes](../../integracoes/built
 1. **Entenda [Execution Order](./execution-order)** para controlar a sequência
 2. **Aprenda [Error Handling](./error-handling)** para workflows robustos
 3. **Explore [Looping](./looping)** para processar múltiplos itens
+4. **Aprenda [Debugging](./debugging)** para resolver problemas
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
 
