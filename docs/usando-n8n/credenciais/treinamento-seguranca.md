@@ -220,12 +220,12 @@ O treinamento em segurança é fundamental para proteger credenciais e dados sen
 ```
 
 ❌ SUSPEITO:
-De: <support@n8n-secure.com>
+De: `support@n8n-secure.com`
 Assunto: Sua conta será suspensa em 24h
 Link: <http://n8n-secure.xyz/login>
 
 ✅ LEGÍTIMO:
-De: <support@n8n.io>
+De: `support@n8n.io`
 Assunto: Atualização de segurança
 Link: <https://n8n.io/security-update>
 
@@ -253,7 +253,7 @@ Link: <https://n8n.io/security-update>
 
 **Como reportar**:
 1. Não clicar em links suspeitos
-2. Encaminhar email para security@company.com
+2. Encaminhar email para `security@company.com`
 3. Documentar incidente
 4. Seguir procedimentos da empresa
 
@@ -320,7 +320,7 @@ Link: <https://n8n.io/security-update>
 3. Exercícios de comunicação
 ```
 
-## <ion-icon name="game-controller-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Simulações e Exercícios
+## Simulações e Exercícios
 
 ### 1. Simulação de Phishing
 
