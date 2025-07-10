@@ -268,6 +268,8 @@ N8N_SAMESITE_COOKIE=strict
 
 </details>
 
+<br />
+
 ### **<IonicIcon name="lock-closed-outline" size={20} color="#ea4b71" /> Configuração de SSL/HTTPS**
 
 #### **<IonicIcon name="server-outline" size={18} color="#ea4b71" /> Com Nginx**
