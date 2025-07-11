@@ -61,6 +61,35 @@ A documentação está organizada nas seguintes seções principais:
 
 ---
 
+## Estrutura da Documentação
+
+Nossa documentação está organizada de forma lógica e intuitiva:
+
+### **Seções Principais**
+- **`/intro`** - Introdução e conceitos fundamentais
+- **`/primeiros-passos`** - Guias de instalação e primeiros workflows
+- **`/usando-n8n`** - Uso prático da plataforma
+- **`/integracoes`** - Catálogo de integrações e nodes
+- **`/integracoes-br`** - Integrações específicas do Brasil
+- **`/logica-e-dados`** - Manipulação de dados e lógica de workflows
+- **`/hosting-n8n`** - Deployment e hospedagem
+- **`/embed`** - Integração do n8n em aplicações
+- **`/cursos`** - Cursos estruturados em texto e vídeo
+- **`/comunidade`** - Recursos da comunidade
+- **`/contribuir`** - Como contribuir com o projeto
+- **`/referencia`** - Guias técnicos e glossário
+- **`/privacidade-seguranca`** - LGPD e boas práticas de segurança
+- **`/advanced-ai`** - Recursos avançados de IA
+- **`/api`** - Documentação da API
+- **`/catalogo`** - Catálogo de serviços e integrações
+
+### **Sistema de Validação**
+Cada página principal possui um indicador de status de validação:
+- <ion-icon name="checkmark-circle-outline" style="color: green;"></ion-icon> **Validado** - Conteúdo revisado e testado
+- <ion-icon name="time-outline" style="color: orange;"></ion-icon> **Em Progresso** - Conteúdo em desenvolvimento
+
+---
+
 ## Onde acessar
 
 - **Documentação online:**
@@ -139,5 +168,3 @@ npm run start:alt
 Desenvolvido com carinho para a comunidade n8n Brasil.
 
 > _Esta documentação é independente e não substitui a [documentação oficial do n8n](https://docs.n8n.io/)._
->
-# 07/08/2025 03:26:47
