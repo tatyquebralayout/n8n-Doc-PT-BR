@@ -192,12 +192,12 @@ const config: Config = {
           position: 'left',
           className: 'navbar-catalog-link',
         },
-        {
-          to: '/release-notes',
-          label: 'Release Notes',
-          position: 'left',
-          className: 'navbar-release-notes-link',
-        },
+        // {
+        //   to: '/release-notes',
+        //   label: 'Release Notes',
+        //   position: 'left',
+        //   className: 'navbar-release-notes-link',
+        // },
       ],
     },
 

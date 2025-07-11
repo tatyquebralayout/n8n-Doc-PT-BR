@@ -50,8 +50,8 @@ function DocumentationProgress() {
   const [animatedProgress, setAnimatedProgress] = useState(0);
   
   // Metas da documentação
-  const totalGoals = 25;
-  const completedGoals = 8;
+  const totalGoals = 35;
+  const completedGoals = 22;
   const progressPercentage = Math.round((completedGoals / totalGoals) * 100);
   
   // Agrupamento por categorias
@@ -66,7 +66,7 @@ function DocumentationProgress() {
     ],
     "Usando n8n": [
       { name: "Interface", status: "Em progresso" },
-      { name: "Workflows", status: "Em progresso" },
+      { name: "Workflows", status: "Completo" },
       { name: "Credenciais", status: "Em progresso" },
       { name: "Execuções", status: "Em progresso" },
       { name: "Monitoramento", status: "Em progresso" },
@@ -75,6 +75,9 @@ function DocumentationProgress() {
     "Lógica e Dados": [
       { name: "Flow Logic", status: "Em progresso" },
       { name: "Data Processing", status: "Em progresso" },
+      { name: "Expressões", status: "Completo" },
+      { name: "Conexões", status: "Completo" },
+      { name: "Execução", status: "Completo" },
     ],
     "Integrações": [
       { name: "Built-in Nodes", status: "Em progresso" },
@@ -82,29 +85,30 @@ function DocumentationProgress() {
       { name: "Trigger Nodes", status: "Em progresso" },
       { name: "Community Nodes", status: "Em progresso" },
       { name: "Criar Nodes", status: "Em progresso" },
+      { name: "Templates", status: "Completo" },
     ],
     "Integrações BR": [
-      { name: "Financeiro", status: "Planejado" },
-      { name: "Governo", status: "Planejado" },
-      { name: "Localização", status: "Planejado" },
+      { name: "Financeiro", status: "Em progresso" },
+      { name: "Governo", status: "Em progresso" },
+      { name: "Localização", status: "Em progresso" },
     ],
     "Hosting e Deployment": [
-      { name: "Instalação", status: "Em progresso" },
+      { name: "Instalação", status: "Completo" },
       { name: "Configuração", status: "Em progresso" },
       { name: "Segurança", status: "Em progresso" },
-      { name: "Escalonamento", status: "Planejado" },
-      { name: "Compliance", status: "Planejado" },
+      { name: "Escalonamento", status: "Completo" },
+      { name: "Compliance", status: "Em progresso" },
     ],
     "Advanced AI": [
       { name: "Overview", status: "Em progresso" },
       { name: "Nodes", status: "Em progresso" },
-      { name: "Exemplos", status: "Planejado" },
-      { name: "Tutorial", status: "Planejado" },
+      { name: "Exemplos", status: "Em progresso" },
+      { name: "Tutorial", status: "Em progresso" },
     ],
     "Embed": [
-      { name: "Preparação", status: "Planejado" },
-      { name: "Implementação", status: "Planejado" },
-      { name: "Gerenciamento", status: "Planejado" },
+      { name: "Preparação", status: "Completo" },
+      { name: "Implementação", status: "Completo" },
+      { name: "Gerenciamento", status: "Completo" },
     ],
     "API": [
       { name: "Conceitos", status: "Em progresso" },
@@ -116,10 +120,10 @@ function DocumentationProgress() {
       { name: "Texto", status: "Em progresso" },
     ],
     "Comunidade": [
-      { name: "Central", status: "Em progresso" },
-      { name: "Estatísticas", status: "Em progresso" },
-      { name: "Casos de Uso", status: "Planejado" },
-      { name: "Vídeos", status: "Planejado" },
+      { name: "Central", status: "Completo" },
+      { name: "Estatísticas", status: "Completo" },
+      { name: "Casos de Uso", status: "Em progresso" },
+      { name: "Vídeos", status: "Em progresso" },
     ],
     "Contribuir": [
       { name: "Esta Documentação", status: "Completo" },
@@ -131,12 +135,13 @@ function DocumentationProgress() {
       { name: "Histórico", status: "Em progresso" },
     ],
     "Catálogo": [
-      { name: "Workflows", status: "Planejado" },
-      { name: "Serviços BR", status: "Planejado" },
+      { name: "Workflows", status: "Em progresso" },
+      { name: "Serviços BR", status: "Completo" },
+      { name: "IA e ML", status: "Completo" },
     ],
     "Release Notes": [
       { name: "n8n Oficial", status: "Em progresso" },
-      { name: "Nossa Doc", status: "Planejado" },
+      { name: "Nossa Doc", status: "Em progresso" },
     ],
   };
 

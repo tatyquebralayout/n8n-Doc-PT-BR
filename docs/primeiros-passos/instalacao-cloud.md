@@ -44,7 +44,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 - **Concorrência**: 5 execuções simultâneas
 
 :::warning **Expiração do Trial**
-<ion-icon name="time-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> Se você não fizer upgrade até o final do trial, sua workspace será automaticamente excluída. Você tem 90 dias para [baixar seus workflows](./instalacao-self-hosted#download-workflows) após a expiração.
+<ion-icon name="time-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> Se você não fizer upgrade até o final do trial, sua workspace será automaticamente excluída. Você tem 90 dias para [baixar seus workflows](./instalacao-self-hosted) após a expiração.
 :::
 
 ### **Starter Plan**
