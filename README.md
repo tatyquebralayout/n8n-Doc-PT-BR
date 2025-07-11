@@ -83,10 +83,24 @@ Nossa documentação está organizada de forma lógica e intuitiva:
 - **`/api`** - Documentação da API
 - **`/catalogo`** - Catálogo de serviços e integrações
 
-### **Sistema de Validação**
-Cada página principal possui um indicador de status de validação:
-- <ion-icon name="checkmark-circle-outline" style="color: green;"></ion-icon> **Validado** - Conteúdo revisado e testado
+### **Sistema de Validação de Overlaps**
+Para manter a qualidade e evitar redundâncias, implementamos um sistema automatizado de validação:
+
+- **Configuração centralizada**: `sidebars.json` define a estrutura hierárquica
+- **Detecção automática**: Script identifica conteúdo duplicado e similar
+- **Guidelines claras**: CONTRIBUTING.md com diretrizes para evitar overlaps
+- **Relatórios detalhados**: Análise completa de problemas estruturais
+
+**Comandos de validação:**
+```bash
+npm run validate-overlaps  # Executar validação completa
+npm run check-overlaps     # Comando alternativo
+```
+
+**Status de validação:**
+- <ion-icon name="checkmark-circle-outline" style="color: green;"></ion-icon> **Validado** - Conteúdo revisado e sem overlaps
 - <ion-icon name="time-outline" style="color: orange;"></ion-icon> **Em Progresso** - Conteúdo em desenvolvimento
+- <ion-icon name="alert-circle-outline" style="color: red;"></ion-icon> **Overlaps Detectados** - Requer revisão
 
 ---
 

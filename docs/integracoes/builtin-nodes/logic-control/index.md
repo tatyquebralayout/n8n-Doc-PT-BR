@@ -1,151 +1,327 @@
 ---
+title: Controle de Lógica
+description: Nodes para controlar o fluxo de execução e tomar decisões baseadas em condições no n8n
 sidebar_position: 1
-title: Nodes de Lógica e Controle
-description: Guia prático dos nodes nativos de lógica condicional, controle de fluxo, splitting, merging, looping e tratamento de erros no n8n
-keywords: [n8n, lógica, controle, condicional, fluxo, if, switch, merge, loop, erro]
+keywords: [n8n, lógica, controle, fluxo, condições, decisões, if, switch, merge]
 ---
 
-import Admonition from '@theme/Admonition';
+# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Controle de Lógica
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nodes de Lógica e Controle
+Os nodes de **Controle de Lógica** são fundamentais para criar workflows inteligentes e dinâmicos no n8n. Eles permitem que você controle o fluxo de execução, tome decisões baseadas em condições e combine dados de diferentes fontes.
 
-Os nodes de lógica e controle do n8n permitem criar **workflows inteligentes, adaptativos e robustos**. Com eles, você implementa decisões condicionais, múltiplos caminhos, loops, tratamento de erros e junção de dados, tornando suas automações muito mais poderosas.
+## Nodes Disponíveis
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai encontrar aqui
+### <ion-icon name="checkmark-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> If
 
-- **[Splitting: Ramificação Condicional](../../../logica-e-dados/01-flow-logic/splitting)**
-- **[Node IF: Decisão Binária](#node-if)**
-- **[Node Switch: Decisão Multicondicional](#node-switch)**
-- **[Node Merge: Reunindo Ramificações](#node-merge)**
-- **[Looping: Repetição e Processamento em Lote](../../../logica-e-dados/01-flow-logic/looping)**
-- **[Tratamento de Erros](../../../logica-e-dados/01-flow-logic/error-handling)**
-- **Boas práticas, debugging e troubleshooting**
-- **Casos de uso reais**
+O node **If** permite criar condições e tomar decisões baseadas em valores ou expressões, direcionando o fluxo do workflow.
 
----
+**Principais funcionalidades:**
+- Avaliar condições simples e complexas
+- Direcionar dados para diferentes caminhos
+- Usar expressões n8n para lógica avançada
+- Combinar múltiplas condições
+- Criar fluxos condicionais
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral dos Nodes
+**Casos de uso:**
+- Validar dados de entrada
+- Filtrar informações por critérios
+- Implementar regras de negócio
+- Criar fluxos de aprovação
+- Processar dados diferentes baseado em condições
 
-| Node         | Finalidade                  | Saídas         | Quando usar?                  |
-|--------------|-----------------------------|----------------|-------------------------------|
-| [IF](#node-if)      | Decisão binária (Sim/Não)      | true, false    | Separar fluxo em dois caminhos |
-| [Switch](#node-switch)  | Decisão múltipla (casos)        | 1 por regra    | Vários caminhos possíveis      |
-| [Merge](#node-merge)   | Reunir ramificações             | 1              | Consolidar dados/fluxos        |
-| [Looping](../../../logica-e-dados/01-flow-logic/looping)   | Repetição/processamento em lote | -              | Iterar sobre listas/arrays      |
+[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/if.md)
 
----
+### <ion-icon name="git-network-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Switch
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Splitting: Ramificação Condicional
+O node **Switch** permite direcionar dados para múltiplos caminhos baseado em diferentes condições, criando fluxos complexos.
 
-Crie pontos de decisão no seu workflow para que cada item siga o caminho adequado, usando **IF** e **Switch**. Veja o guia completo:
+**Principais funcionalidades:**
+- Múltiplos caminhos de saída
+- Condições independentes
+- Caminho padrão para casos não cobertos
+- Avaliação sequencial de condições
+- Fluxos paralelos de processamento
 
-- [Splitting: Como ramificar fluxos e criar lógica condicional →](../../../logica-e-dados/01-flow-logic/splitting)
+**Casos de uso:**
+- Classificar dados por tipo
+- Implementar máquinas de estado
+- Processar diferentes tipos de eventos
+- Criar workflows de roteamento
+- Implementar lógica de negócio complexa
 
----
+[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/switch.md)
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node IF: Decisão Binária {#node-if}
+### <ion-icon name="git-merge-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Merge
 
-Use o node IF para separar o fluxo em dois caminhos (Sim/Não, Verdadeiro/Falso).
+O node **Merge** permite combinar dados de múltiplas fontes em um único fluxo, unindo informações relacionadas.
 
-**Exemplo:**
-> Se o valor do pedido for maior que R$ 1000, envie para aprovação manual. Caso contrário, processe automaticamente.
+**Principais funcionalidades:**
+- Combinar dados de diferentes nodes
+- Unir informações relacionadas
+- Sincronizar fluxos paralelos
+- Agregar dados de múltiplas fontes
+- Criar estruturas de dados consolidadas
 
-```mermaid
-graph TD
-    A[Pedido Recebido] --> B{Valor > R$ 1000?}
-    B -->|Sim| C[Aprovação Manual]
-    B -->|Não| D[Processamento Automático]
+**Casos de uso:**
+- Mesclar dados de diferentes APIs
+- Combinar informações de clientes
+- Sincronizar processamento paralelo
+- Agregar resultados de múltiplas consultas
+- Consolidar dados de diferentes sistemas
+
+[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/merge.md)
+
+## Conceitos Fundamentais
+
+### Fluxo de Controle
+
+O **fluxo de controle** determina como os dados se movem através do workflow, baseado em condições e decisões.
+
+**Tipos de fluxo:**
+- **Sequencial**: Execução linha por linha
+- **Condicional**: Execução baseada em condições
+- **Paralelo**: Execução simultânea
+- **Convergente**: Múltiplos caminhos se unem
+
+### Condições e Expressões
+
+As **condições** são expressões que avaliam para verdadeiro ou falso, determinando o caminho do fluxo.
+
+**Tipos de condições:**
+- **Comparações**: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- **Lógicas**: `AND`, `OR`, `NOT`
+- **Existe**: Verificar se campo existe
+- **Vazio**: Verificar se valor está vazio
+- **Regex**: Padrões de texto
+
+### Estruturas de Decisão
+
+As **estruturas de decisão** permitem criar lógica complexa no workflow:
+
+1. **If-Then-Else**: Decisão binária
+2. **Switch-Case**: Múltiplas opções
+3. **Nested Conditions**: Condições aninhadas
+4. **Parallel Processing**: Processamento paralelo
+
+## Padrões de Controle
+
+### 1. Validação e Filtragem
+
+```
+Dados de Entrada → Validação → Dados Válidos → Processamento
+                ↓
+            Dados Inválidos → Tratamento de Erro
 ```
 
-- [Guia detalhado: Splitting e IF →](../../../logica-e-dados/01-flow-logic/splitting)
-- [Documentação oficial IF Node (EN)](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.if/)
-
----
-
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node Switch: Decisão Multicondicional {#node-switch}
-
-O node Switch permite criar múltiplos caminhos baseados em diferentes valores ou regras.
-
 **Exemplo:**
-> Classifique leads por origem: Google Ads → Marketing Pago, Redes Sociais → Social Media, Website → Vendas Inbound, Indicação → Relacionamento.
+1. **If** node valida email
+2. **If** node verifica se usuário existe
+3. **If** node confirma se dados estão completos
+4. Dados válidos seguem para processamento
 
-```mermaid
-graph TD
-    A[Lead Recebido] --> B{Origem do Lead}
-    B -->|Google Ads| C[Marketing Pago]
-    B -->|Redes Sociais| D[Social Media]
-    B -->|Website| E[Vendas Inbound]
-    B -->|Indicação| F[Relacionamento]
-    B -->|Outros| G[Triagem Geral]
+### 2. Roteamento por Tipo
+
+```
+Dados de Entrada → Switch → Tipo A → Processamento A
+                ↓        → Tipo B → Processamento B
+                          → Tipo C → Processamento C
 ```
 
-- [Guia detalhado: Splitting e Switch →](../../../logica-e-dados/01-flow-logic/splitting)
-- [Documentação oficial Switch Node (EN)](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.switch/)
-
----
-
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node Merge: Reunindo Ramificações {#node-merge}
-
-Após ramificar o fluxo, use o node Merge para reunir os caminhos e consolidar dados.
-
 **Exemplo:**
-> Após diferentes aprovações (financeiro, RH, diretoria), reúna todos os resultados para uma ação final.
+1. **Switch** node classifica por tipo de pedido
+2. Pedidos normais vão para processamento padrão
+3. Pedidos urgentes vão para processamento prioritário
+4. Pedidos especiais vão para aprovação manual
 
-```mermaid
-graph TD
-    A[Financeiro] --> D[Merge]
-    B[RH] --> D
-    C[Diretoria] --> D
-    D --> E[Processo Final]
+### 3. Processamento Paralelo
+
+```
+Dados de Entrada → Divisão → Processamento A → Merge → Resultado
+                ↓         → Processamento B ↗
 ```
 
-- [Guia detalhado: Merge →](../../../logica-e-dados/01-flow-logic/merging)
-- [Documentação oficial Merge Node (EN)](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.merge/)
+**Exemplo:**
+1. Dados são divididos em dois fluxos
+2. **HTTP Request** busca informações do cliente
+3. **HTTP Request** busca histórico de compras
+4. **Merge** node combina as informações
 
----
+### 4. Fluxo de Aprovação
 
-## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Looping: Repetição e Processamento em Lote
+```
+Solicitação → Validação → Aprovado → Processamento
+           ↓           → Rejeitado → Notificação
+```
 
-Implemente loops para processar arrays, repetir ações e criar automações dinâmicas:
+**Exemplo:**
+1. **If** node verifica se valor está dentro do limite
+2. **If** node confirma se aprovador está disponível
+3. **Switch** node direciona para diferentes níveis de aprovação
+4. **Merge** node consolida resultado final
 
-- [Guia de Looping →](../../../logica-e-dados/01-flow-logic/looping)
+## Exemplos Práticos
 
----
+### Exemplo 1: Sistema de Notificações
 
-## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
+**Cenário:** Enviar notificações diferentes baseado no tipo de evento.
 
-Garanta workflows resilientes com nodes de tratamento de erro, retry automático e notificações:
+**Workflow:**
+```
+Webhook → If (tipo_evento) → Email → Slack → Merge → Log
+       ↓                  → SMS ↗
+```
 
-- [Guia de Tratamento de Erros →](../../../logica-e-dados/01-flow-logic/error-handling)
+**Configuração:**
+- **If** node: `$json.tipo_evento === "urgente"`
+- **Switch** node: `$json.canal` (email, sms, slack)
+- **Merge** node: Combina resultados de todos os canais
 
----
+### Exemplo 2: Processamento de Pedidos
 
-## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas e Troubleshooting
+**Cenário:** Processar pedidos de forma diferente baseado no valor e tipo.
 
-- Use **Always Output Data** em IF/Switch para garantir merges corretos
-- Nomeie nodes e caminhos de forma clara
-- Teste expressões no editor antes de usar
-- Use [Debug Helper](/integracoes/builtin-nodes/core-nodes/debug-helper) e Execution History para depuração
-- Consulte [Splitting: Troubleshooting e dicas](../../../logica-e-dados/01-flow-logic/splitting#troubleshooting-problemas-comuns)
+**Workflow:**
+```
+Pedido → If (valor > 1000) → Aprovação Manual → Merge → Confirmação
+      ↓                   → Processamento Automático ↗
+```
 
----
+**Configuração:**
+- **If** node: `$json.valor > 1000`
+- **Switch** node: `$json.tipo_pedido` (normal, premium, express)
+- **Merge** node: Unifica resultado final
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos e Casos de Uso
+### Exemplo 3: Sistema de Monitoramento
 
-- E-commerce: Processamento de pedidos por tipo de pagamento
-- Marketing: Segmentação de leads
-- Aprovação de férias: múltiplas regras e sub-workflows
-- Workflows paralelos com Merge
+**Cenário:** Monitorar diferentes serviços e alertar baseado na severidade.
 
-Veja exemplos completos em:
+**Workflow:**
+```
+Monitor → Switch (serviço) → Verificação A → Merge → Análise
+       ↓                   → Verificação B ↗
+       ↓                   → Verificação C ↗
+```
 
-- [Splitting: Casos de uso e exemplos práticos →](../../../logica-e-dados/01-flow-logic/splitting#casos-de-uso-comuns)
-- [Catálogo de Workflows](/catalogo)
+**Configuração:**
+- **Switch** node: `$json.servico` (api, database, website)
+- **If** node: `$json.status === "down"`
+- **Merge** node: Consolida status de todos os serviços
 
----
+## Boas Práticas
 
-<Admonition type="info" title="Recursos Oficiais e Comunidade">
-- [Documentação oficial n8n](https://docs.n8n.io/)
-- [Exemplos de Workflows](https://n8n.io/workflows)
-- [Fórum da Comunidade](https://community.n8n.io/)
-</Admonition>
+### Estruturação de Condições
+
+1. **Use nomes descritivos** para condições
+2. **Simplifique lógica complexa** em múltiplos nodes
+3. **Documente regras de negócio** nos comentários
+4. **Teste todas as condições** com dados reais
+5. **Mantenha condições legíveis** e organizadas
+
+### Performance
+
+1. **Evite condições aninhadas** excessivas
+2. **Use Switch** para múltiplas opções
+3. **Otimize ordem das condições** (mais prováveis primeiro)
+4. **Processe em paralelo** quando possível
+5. **Monitore tempo de execução**
+
+### Manutenção
+
+1. **Use variáveis** para valores reutilizáveis
+2. **Centralize lógica comum** em nodes separados
+3. **Implemente logging** para debug
+4. **Configure alertas** para falhas
+5. **Documente fluxos complexos**
+
+## Troubleshooting
+
+### Problemas Comuns
+
+#### Condições não funcionam
+- Verifique sintaxe das expressões
+- Confirme tipos de dados
+- Use o node Debug Helper
+- Teste condições individualmente
+
+#### Fluxo inesperado
+- Verifique ordem das condições
+- Confirme valores de entrada
+- Valide lógica de decisão
+- Use logs para rastrear fluxo
+
+#### Merge não funciona
+- Verifique se todos os inputs estão conectados
+- Confirme estrutura dos dados
+- Valide configuração do merge
+- Teste com dados de exemplo
+
+### Debug
+
+1. **Use o node Debug Helper** para inspecionar dados
+2. **Configure logging detalhado**
+3. **Teste condições individualmente**
+4. **Valide dados de entrada**
+5. **Monitore fluxo de execução**
+
+## Expressões Avançadas
+
+### Operadores de Comparação
+
+```javascript
+// Comparações básicas
+$json.valor > 100
+$json.status === "ativo"
+$json.email !== ""
+
+// Comparações com arrays
+$json.tags.includes("urgente")
+$json.categorias.indexOf("tecnologia") > -1
+```
+
+### Operadores Lógicos
+
+```javascript
+// AND lógico
+$json.valor > 100 && $json.status === "ativo"
+
+// OR lógico
+$json.tipo === "urgente" || $json.prioridade === "alta"
+
+// NOT lógico
+!$json.processado
+```
+
+### Verificações de Existência
+
+```javascript
+// Verificar se campo existe
+$json.hasOwnProperty("email")
+
+// Verificar se valor não é nulo
+$json.valor != null
+
+// Verificar se array não está vazio
+$json.items.length > 0
+```
+
+### Expressões Complexas
+
+```javascript
+// Múltiplas condições
+($json.valor > 1000 && $json.cliente_tipo === "premium") || 
+($json.valor > 5000 && $json.cliente_tipo === "normal")
+
+// Validação de email
+/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email)
+
+// Verificação de data
+new Date($json.data_vencimento) > new Date()
+```
+
+## Próximos Passos
+
+- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões avançadas
+- [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index.md) - Processar dados
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
+- [Fluxo de Execução](/logica-e-dados/flow-logic/execution-order.md) - Controlar ordem
+- [Debugging](/logica-e-dados/flow-logic/debugging.md) - Depurar workflows

@@ -1,0 +1,268 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "description": "Configuração centralizada da estrutura de navegação da documentação n8n BR",
+    "lastUpdated": "2024-01-01",
+    "maintainer": "n8n Documentation BR Team"
+  },
+  "structure": {
+    "mainSections": [
+      {
+        "id": "intro",
+        "label": "Introdução",
+        "path": "intro",
+        "type": "single"
+      },
+      {
+        "id": "primeiros-passos",
+        "label": "Primeiros Passos",
+        "path": "primeiros-passos",
+        "type": "category",
+        "subsections": [
+          "guia-instalacao",
+          "instalacao-cloud", 
+          "instalacao-self-hosted",
+          "conceitos-basicos",
+          "primeiro-workflow"
+        ]
+      },
+      {
+        "id": "usando-n8n",
+        "label": "Usando n8n",
+        "path": "usando-n8n",
+        "type": "category",
+        "subsections": [
+          {
+            "id": "getting-started",
+            "label": "Getting Started",
+            "path": "usando-n8n/getting-started",
+            "items": ["quickstart-rapido", "workflow-na-pratica"]
+          },
+          {
+            "id": "interface",
+            "label": "Interface",
+            "path": "usando-n8n/interface",
+            "items": ["navegacao-editor-ui"]
+          },
+          {
+            "id": "execucoes",
+            "label": "Execuções",
+            "path": "usando-n8n/execucoes",
+            "items": ["componentes-execucoes"]
+          },
+          {
+            "id": "credenciais",
+            "label": "Credenciais",
+            "path": "usando-n8n/credenciais",
+            "items": ["index", "criar-editar", "compartilhamento", "boas-praticas"]
+          },
+          {
+            "id": "workflows",
+            "label": "Workflows",
+            "path": "usando-n8n/workflows",
+            "items": ["index", "criar-editar", "historico", "configuracoes", "compartilhamento", "export-import", "tags", "workflow-id"]
+          },
+          {
+            "id": "monitoring",
+            "label": "Monitoramento",
+            "path": "usando-n8n/monitoring",
+            "items": ["index", "visualizar-execucoes"]
+          },
+          {
+            "id": "usuarios-permissoes",
+            "label": "Usuários e Permissões",
+            "path": "usando-n8n/usuarios-permissoes",
+            "items": ["index", "criar-editar-usuarios"]
+          }
+        ]
+      },
+      {
+        "id": "logica-e-dados",
+        "label": "Lógica e Dados",
+        "path": "logica-e-dados",
+        "type": "category",
+        "subsections": [
+          {
+            "id": "flow-logic",
+            "label": "Lógica de Fluxo",
+            "path": "logica-e-dados/flow-logic",
+            "items": ["error-handling", "looping", "merging", "splitting", "subworkflows", "waiting"]
+          },
+          {
+            "id": "data",
+            "label": "Dados",
+            "path": "logica-e-dados/data",
+            "items": ["index", "data-mapping-avancado", "transformacoes-dados", "binary-data", "data-mocking", "schema-preview", "data-filtering", "data-editing", "agregacoes-estatisticas", "integracao-apis", "otimizacao-performance", "visualizacao-dados"]
+          }
+        ]
+      },
+      {
+        "id": "integracoes",
+        "label": "Integrações",
+        "path": "integracoes",
+        "type": "category",
+        "subsections": [
+          {
+            "id": "builtin-nodes",
+            "label": "Nodes Integrados",
+            "path": "integracoes/builtin-nodes",
+            "subcategories": [
+              {
+                "id": "http-requests",
+                "label": "Requisições HTTP",
+                "path": "integracoes/builtin-nodes/http-requests",
+                "items": ["http-request", "webhook"]
+              },
+              {
+                "id": "data-processing",
+                "label": "Processamento de Dados",
+                "path": "integracoes/builtin-nodes/data-processing",
+                "items": ["set"]
+              },
+              {
+                "id": "logic-control",
+                "label": "Controle de Lógica",
+                "path": "integracoes/builtin-nodes/logic-control",
+                "items": ["index"]
+              },
+              {
+                "id": "utilities",
+                "label": "Utilitários",
+                "path": "integracoes/builtin-nodes/utilities",
+                "items": ["index"]
+              }
+            ]
+          },
+          {
+            "id": "app-nodes",
+            "label": "App Nodes",
+            "path": "integracoes/app-nodes",
+            "subcategories": [
+              {
+                "id": "communication",
+                "label": "Comunicação",
+                "path": "integracoes/app-nodes/communication",
+                "items": ["gmail", "slack"]
+              },
+              {
+                "id": "productivity",
+                "label": "Produtividade",
+                "path": "integracoes/app-nodes/productivity",
+                "items": ["google-sheets", "trello"]
+              },
+              {
+                "id": "ecommerce",
+                "label": "E-commerce",
+                "path": "integracoes/app-nodes/ecommerce",
+                "items": ["index"]
+              },
+              {
+                "id": "marketing",
+                "label": "Marketing",
+                "path": "integracoes/app-nodes/marketing",
+                "items": ["index"]
+              }
+            ]
+          },
+          {
+            "id": "trigger-nodes",
+            "label": "Trigger Nodes",
+            "path": "integracoes/trigger-nodes",
+            "subcategories": [
+              {
+                "id": "time-based",
+                "label": "Baseados em Tempo",
+                "path": "integracoes/trigger-nodes/time-based",
+                "items": ["manual-trigger", "schedule-trigger"]
+              },
+              {
+                "id": "event-based",
+                "label": "Baseados em Eventos",
+                "path": "integracoes/trigger-nodes/event-based",
+                "items": ["webhook-trigger"]
+              },
+              {
+                "id": "app-triggers",
+                "label": "App Triggers",
+                "path": "integracoes/trigger-nodes/app-triggers",
+                "items": ["index"]
+              }
+            ]
+          },
+          {
+            "id": "credential-nodes",
+            "label": "Credential Nodes",
+            "path": "integracoes/credential-nodes",
+            "items": ["api-keys", "basic-auth", "oauth"]
+          },
+          {
+            "id": "community-nodes",
+            "label": "Community Nodes",
+            "path": "integracoes/community-nodes",
+            "items": ["index", "instalacao", "populares"]
+          },
+          {
+            "id": "criar-nodes",
+            "label": "Criar Nodes",
+            "path": "integracoes/criar-nodes",
+            "items": ["estrutura-node", "tutorial-desenvolvimento", "publicar-npm"]
+          }
+        ]
+      },
+      {
+        "id": "integracoes-br",
+        "label": "Integrações Brasileiras",
+        "path": "integracoes-br",
+        "type": "category",
+        "subsections": [
+          {
+            "id": "financeiro",
+            "label": "Financeiro",
+            "path": "integracoes-br/financeiro",
+            "items": ["index", "pix", "pix-avancado", "nfe-integracao"]
+          },
+          {
+            "id": "governo",
+            "label": "Governo",
+            "path": "integracoes-br/governo",
+            "items": ["index", "cnpj-receita"]
+          },
+          {
+            "id": "localizacao",
+            "label": "Localização",
+            "path": "integracoes-br/localizacao",
+            "items": ["index", "viacep"]
+          }
+        ]
+      }
+    ]
+  },
+  "overlapDetection": {
+    "keywords": [
+      "instalação",
+      "configuração",
+      "autenticação",
+      "webhook",
+      "api",
+      "workflow",
+      "dados",
+      "integração",
+      "credential",
+      "trigger"
+    ],
+    "sectionsToMonitor": [
+      "primeiros-passos",
+      "usando-n8n",
+      "integracoes",
+      "integracoes-br"
+    ]
+  },
+  "validation": {
+    "rules": [
+      "Não criar conteúdo duplicado entre seções",
+      "Verificar overlaps antes de adicionar nova documentação",
+      "Manter estrutura hierárquica consistente",
+      "Usar nomenclatura padronizada para arquivos"
+    ]
+  }
+} 

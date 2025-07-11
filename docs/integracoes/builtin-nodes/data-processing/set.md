@@ -1,310 +1,673 @@
 ---
-sidebar_position: 1
 title: Set Node
-description: Definir, modificar e manipular dados em workflows
-keywords: [n8n, set, data, manipulação, workflow]
+description: Guia completo sobre o Set Node no n8n, incluindo configuração, exemplos práticos e boas práticas para manipulação de dados
+sidebar_position: 2
+keywords: [n8n, set node, manipulação, dados, transformação, campos, valores]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Set Node
+# <ion-icon name="add-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Set Node
 
-O **Set Node** é fundamental para **manipular dados** em workflows n8n. Ele permite definir, modificar, adicionar ou remover campos de dados que fluem entre os nodes.
+O **Set Node** é um dos nodes mais versáteis do n8n para manipulação de dados. Ele permite adicionar, modificar ou remover campos dos dados que fluem através do workflow.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Conceito Principal**
+## O que é o Set Node?
 
-**Set Node = "Definir/Configurar Dados"**
+O **Set Node** permite:
 
-O Set Node é uma **AÇÃO** que:
+- **Adicionar** novos campos aos dados
+- **Modificar** valores de campos existentes
+- **Remover** campos desnecessários
+- **Renomear** campos para melhor organização
+- **Calcular** valores baseados em outros campos
+- **Formatar** dados para uso posterior
 
-- **Modifica** dados existentes
-- **Adiciona** novos campos
-- **Remove** campos desnecessários
-- **Transforma** estruturas de dados
+### Quando Usar o Set Node
 
-> **Diferença do Trigger:** Set é uma AÇÃO que processa dados. Triggers INICIAM workflows.
+- **Transformação** básica de dados
+- **Adição** de metadados (timestamps, IDs)
+- **Formatação** de campos (datas, números)
+- **Cálculos** simples (somas, médias)
+- **Limpeza** de dados (remoção de campos)
+- **Padronização** de estruturas de dados
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
+## Configuração Básica
 
-### **1. Keep Only Set**
-
-```
-Ativado = Mantém apenas os campos definidos
-Desativado = Mantém campos originais + novos
-```
-
-### **2. Modos de Operação**
-
-#### **Manual Mode** (Mais comum)
-
-Definir campos manualmente:
-
-```
-Campo: nome
-Valor: João Silva
-
-Campo: email 
-Valor: joao@email.com
-```
-
-#### **JSON Mode** (Avançado)
-
-Definir via JSON:
-
-```json
-{
-"nome": "João Silva",
-"email": "joao@email.com",
-"timestamp": "{{new Date().toISOString()}}"
-}
-```
-
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos Práticos**
-
-### **Exemplo 1: Padronizar Dados de Formulário**
-
-**Entrada:**
-
-```json
-{
-"firstName": "João",
-"lastName": "Silva", 
-"userEmail": "joao@email.com",
-"phone": "11999999999"
-}
-```
-
-**Configuração Set:**
-
-```
-nome_completo: {{$json.firstName}} {{$json.lastName}}
-email: {{$json.userEmail}}
-telefone: +55{{$json.phone}}
-status: ativo
-data_cadastro: {{new Date().toISOString()}}
-```
-
-**Saída:**
-
-```json
-{
-"nome_completo": "João Silva",
-"email": "joao@email.com", 
-"telefone": "+5511999999999",
-"status": "ativo",
-"data_cadastro": "2024-01-15T10:30:00.000Z"
-}
-```
-
----
-
-### **Exemplo 2: Preparar Dados para API**
-
-**Entrada (múltiplos campos):**
-
-```json
-{
-"customer_name": "Maria Santos",
-"customer_email": "maria@empresa.com",
-"order_total": 299.90,
-"order_items": ["Produto A", "Produto B"],
-"internal_notes": "Cliente VIP",
-"system_id": "12345"
-}
-```
-
-**Set Node (Keep Only Set = ✓):**
-
-```
-client: {{$json.customer_name}}
-email: {{$json.customer_email}}
-value: {{$json.order_total}}
-products: {{$json.order_items}}
-```
-
-**Saída (limpa para API):**
-
-```json
-{
-"client": "Maria Santos",
-"email": "maria@empresa.com",
-"value": 299.90,
-"products": ["Produto A", "Produto B"]
-}
-```
-
----
-
-### **Exemplo 3: Adicionar Metadados**
-
-**Entrada:**
-
-```json
-{
-"produto": "Notebook",
-"preco": 2500.00
-}
-```
-
-**Set Node (Keep Only Set = ✗):**
-
-```
-categoria: eletronicos
-desconto: {{$json.preco * 0.1}}
-preco_final: {{$json.preco - ($json.preco * 0.1)}}
-promocao: true
-```
-
-**Saída (dados originais + novos):**
-
-```json
-{
-"produto": "Notebook",
-"preco": 2500.00,
-"categoria": "eletronicos", 
-"desconto": 250.00,
-"preco_final": 2250.00,
-"promocao": true
-}
-```
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Expressões Úteis**
-
-### **Datas e Tempo**
+### Estrutura do Set Node
 
 ```javascript
-// Data atual
-data_atual: {{new Date().toISOString()}}
-
-// Data formatada BR
-data_br: {{new Date().toLocaleDateString('pt-BR')}}
-
-// Timestamp
-timestamp: {{Date.now()}}
-
-// Data específica
-prazo: {{new Date(Date.now() + 7*24*60*60*1000).toISOString()}}
+// Set Node - Estrutura básica
+{
+  "mode": "keepOnlySet", // ou "keepAllSet", "keepOnlySet", "keepAllExceptSet"
+  "values": {
+    "string": [
+      {
+        "name": "novo_campo",
+        "value": "valor_do_campo"
+      }
+    ],
+    "number": [
+      {
+        "name": "quantidade",
+        "value": 10
+      }
+    ],
+    "boolean": [
+      {
+        "name": "ativo",
+        "value": true
+      }
+    ]
+  }
+}
 ```
 
-### **Manipulação de Strings**
+### Modos de Operação
+
+#### 1. Keep All Set
+- **Mantém** todos os campos existentes
+- **Adiciona** novos campos especificados
+- **Modifica** campos existentes se especificados
+
+#### 2. Keep Only Set
+- **Remove** todos os campos existentes
+- **Mantém** apenas os campos especificados
+- **Adiciona** novos campos especificados
+
+#### 3. Keep All Except Set
+- **Mantém** todos os campos existentes
+- **Remove** apenas os campos especificados
+- **Adiciona** novos campos especificados
+
+## Tipos de Valores
+
+### 1. String
 
 ```javascript
-// Uppercase
-nome_maiusculo: {{$json.nome.toUpperCase()}}
+// Adicionar campo de texto
+{
+  "name": "status",
+  "value": "ativo"
+}
 
-// Lowercase 
-email_minusculo: {{$json.email.toLowerCase()}}
+// Usar expressão
+{
+  "name": "nome_completo",
+  "value": "{{ $json.nome + ' ' + $json.sobrenome }}"
+}
 
-// Primeira letra maiúscula
-nome_formatado: {{$json.nome.charAt(0).toUpperCase() + $json.nome.slice(1)}}
-
-// Remover espaços
-telefone_limpo: {{$json.telefone.replace(/\s/g, '')}}
+// Formatação de texto
+{
+  "name": "email_formatado",
+  "value": "{{ $json.email.toLowerCase() }}"
+}
 ```
 
-### **Cálculos e Números**
+### 2. Number
 
 ```javascript
-// Operações matemáticas
-total_com_imposto: {{$json.valor * 1.1}}
-percentual: {{($json.vendas / $json.meta) * 100}}
+// Adicionar número fixo
+{
+  "name": "quantidade",
+  "value": 100
+}
 
-// Arredondamento
-valor_arredondado: {{Math.round($json.valor * 100) / 100}}
+// Cálculo simples
+{
+  "name": "total",
+  "value": "{{ $json.preco * $json.quantidade }}"
+}
 
-// Formatação moeda BR
-preco_formatado: {{$json.valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}}
+// Cálculo com desconto
+{
+  "name": "valor_final",
+  "value": "{{ $json.valor * (1 - $json.desconto / 100) }}"
+}
 ```
 
-### **Arrays e Objetos**
+### 3. Boolean
 
 ```javascript
-// Tamanho do array
-total_itens: {{$json.produtos.length}}
+// Valor booleano fixo
+{
+  "name": "processado",
+  "value": true
+}
 
-// Primeiro item
-primeiro_produto: {{$json.produtos[0]}}
+// Condição booleana
+{
+  "name": "premium",
+  "value": "{{ $json.valor > 1000 }}"
+}
 
-// Juntar array
-lista_produtos: {{$json.produtos.join(', ')}}
-
-// Extrair propriedade
-ids_produtos: {{$json.produtos.map(p => p.id)}}
+// Validação
+{
+  "name": "valido",
+  "value": "{{ $json.email && $json.nome }}"
+}
 ```
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Casos de Uso Comuns**
-
-### **1. Limpeza de Dados**
-
-```
-// Remover campos desnecessários
-Keep Only Set: ✓
-Manter apenas: nome, email, telefone
-```
-
-### **2. Enriquecimento de Dados**
-
-```
-// Adicionar informações contextuais
-origem: webhook
-processado_em: {{new Date().toISOString()}}
-versao_workflow: 1.2
-```
-
-### **3. Transformação de Formato**
-
-```
-// De snake_case para camelCase
-firstName: {{$json.first_name}}
-lastName: {{$json.last_name}}
-userEmail: {{$json.user_email}}
-```
-
-### **4. Preparação para Diferentes APIs**
-
-```
-// Formato para Slack
-text: Novo pedido de {{$json.customer_name}}
-color: good
-
-// Formato para Google Sheets
-A: {{$json.customer_name}}
-B: {{$json.order_total}}
-C: {{new Date().toLocaleDateString('pt-BR')}}
-```
-
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Dicas de Performance**
-
-### **1. Use Keep Only Set quando possível**
-
-- Reduz payload de dados
-- Melhora performance
-- Evita vazamento de dados sensíveis
-
-### **2. Expressões Simples**
+### 4. Object
 
 ```javascript
-// Bom
-nome: {{$json.first_name}}
+// Objeto simples
+{
+  "name": "endereco",
+  "value": {
+    "rua": "Rua das Flores",
+    "numero": 123,
+    "cidade": "São Paulo"
+  }
+}
 
-// Evitar (muito complexo)
-dados: {{JSON.stringify($json).replace(/"/g, "'").substring(0, 100)}}
+// Objeto com expressões
+{
+  "name": "dados_completos",
+  "value": {
+    "nome": "{{ $json.nome }}",
+    "email": "{{ $json.email }}",
+    "idade": "{{ $json.idade }}",
+    "timestamp": "{{ $now.toISOString() }}"
+  }
+}
 ```
 
-### **3. Validação de Dados**
+### 5. Array
 
 ```javascript
-// Verificar se campo existe
-email: {{$json.email || 'nao-informado@email.com'}}
-telefone: {{$json.phone || 'Não informado'}}
+// Array simples
+{
+  "name": "tags",
+  "value": ["urgente", "importante", "cliente"]
+}
+
+// Array com expressões
+{
+  "name": "categorias",
+  "value": "{{ $json.tags.map(tag => tag.toUpperCase()) }}"
+}
+
+// Array filtrado
+{
+  "name": "produtos_ativos",
+  "value": "{{ $json.produtos.filter(p => p.ativo) }}"
+}
 ```
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
+## Exemplos Práticos
 
-Depois de dominar o Set Node, explore:
+### 1. Adicionar Metadados
 
-1. **[HTTP Request](../http-requests/http-request)** - Para enviar dados modificados
-2. **[Webhook](../http-requests/webhook)** - Para receber dados externos
-3. **[Manual Trigger](../../trigger-nodes/time-based/manual-trigger)** - Para testes manuais
+```javascript
+// Set Node - Adicionar metadados
+{
+  "mode": "keepAllSet",
+  "values": {
+    "string": [
+      {
+        "name": "workflow_id",
+        "value": "{{ $workflow.id }}"
+      },
+      {
+        "name": "node_name",
+        "value": "{{ $node.name }}"
+      }
+    ],
+    "number": [
+      {
+        "name": "timestamp",
+        "value": "{{ $now.toMillis() }}"
+      }
+    ],
+    "string": [
+      {
+        "name": "data_processamento",
+        "value": "{{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}"
+      }
+    ]
+  }
+}
+```
 
----
+### 2. Formatação de Dados
 
-**Set Node = Seu canivete suíço para transformação de dados!**
+```javascript
+// Set Node - Formatação de dados
+{
+  "mode": "keepAllSet",
+  "values": {
+    "string": [
+      {
+        "name": "nome_formatado",
+        "value": "{{ $json.nome.charAt(0).toUpperCase() + $json.nome.slice(1).toLowerCase() }}"
+      },
+      {
+        "name": "telefone_formatado",
+        "value": "{{ $json.telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3') }}"
+      },
+      {
+        "name": "cpf_formatado",
+        "value": "{{ $json.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}"
+      }
+    ]
+  }
+}
+```
+
+### 3. Cálculos Financeiros
+
+```javascript
+// Set Node - Cálculos financeiros
+{
+  "mode": "keepAllSet",
+  "values": {
+    "number": [
+      {
+        "name": "subtotal",
+        "value": "{{ $json.preco * $json.quantidade }}"
+      },
+      {
+        "name": "desconto_valor",
+        "value": "{{ ($json.preco * $json.quantidade) * ($json.desconto / 100) }}"
+      },
+      {
+        "name": "total",
+        "value": "{{ ($json.preco * $json.quantidade) * (1 - $json.desconto / 100) }}"
+      },
+      {
+        "name": "valor_parcela",
+        "value": "{{ (($json.preco * $json.quantidade) * (1 - $json.desconto / 100)) / $json.num_parcelas }}"
+      }
+    ]
+  }
+}
+```
+
+### 4. Validação e Classificação
+
+```javascript
+// Set Node - Validação e classificação
+{
+  "mode": "keepAllSet",
+  "values": {
+    "boolean": [
+      {
+        "name": "dados_completos",
+        "value": "{{ $json.nome && $json.email && $json.telefone }}"
+      },
+      {
+        "name": "email_valido",
+        "value": "{{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}"
+      },
+      {
+        "name": "maior_idade",
+        "value": "{{ $json.idade >= 18 }}"
+      }
+    ],
+    "string": [
+      {
+        "name": "categoria_cliente",
+        "value": "{{ $json.valor_total > 10000 ? 'Premium' : $json.valor_total > 5000 ? 'Gold' : 'Standard' }}"
+      },
+      {
+        "name": "prioridade",
+        "value": "{{ $json.urgente ? 'Alta' : $json.valor_total > 1000 ? 'Média' : 'Baixa' }}"
+      }
+    ]
+  }
+}
+```
+
+### 5. Limpeza de Dados
+
+```javascript
+// Set Node - Limpeza de dados
+{
+  "mode": "keepOnlySet",
+  "values": {
+    "string": [
+      {
+        "name": "nome",
+        "value": "{{ $json.nome.trim() }}"
+      },
+      {
+        "name": "email",
+        "value": "{{ $json.email.toLowerCase().trim() }}"
+      },
+      {
+        "name": "telefone",
+        "value": "{{ $json.telefone.replace(/\D/g, '') }}"
+      }
+    ],
+    "number": [
+      {
+        "name": "idade",
+        "value": "{{ parseInt($json.idade) || 0 }}"
+      },
+      {
+        "name": "valor",
+        "value": "{{ parseFloat($json.valor) || 0 }}"
+      }
+    ],
+    "string": [
+      {
+        "name": "data_processamento",
+        "value": "{{ $now.toISOString() }}"
+      }
+    ]
+  }
+}
+```
+
+### 6. Agregação de Dados
+
+```javascript
+// Set Node - Agregação de dados
+{
+  "mode": "keepAllSet",
+  "values": {
+    "number": [
+      {
+        "name": "total_itens",
+        "value": "{{ $json.itens.length }}"
+      },
+      {
+        "name": "valor_total",
+        "value": "{{ $json.itens.reduce((sum, item) => sum + item.valor, 0) }}"
+      },
+      {
+        "name": "media_valor",
+        "value": "{{ $json.itens.reduce((sum, item) => sum + item.valor, 0) / $json.itens.length }}"
+      }
+    ],
+    "string": [
+      {
+        "name": "categorias",
+        "value": "{{ [...new Set($json.itens.map(item => item.categoria))].join(', ') }}"
+      }
+    ]
+  }
+}
+```
+
+## Casos de Uso Avançados
+
+### 1. Transformação de Estrutura
+
+```javascript
+// Set Node - Transformar estrutura de dados
+{
+  "mode": "keepOnlySet",
+  "values": {
+    "object": [
+      {
+        "name": "cliente",
+        "value": {
+          "id": "{{ $json.id }}",
+          "nome": "{{ $json.nome }}",
+          "email": "{{ $json.email }}",
+          "telefone": "{{ $json.telefone }}"
+        }
+      },
+      {
+        "name": "pedido",
+        "value": {
+          "numero": "{{ $json.numero_pedido }}",
+          "data": "{{ $json.data_pedido }}",
+          "valor": "{{ $json.valor_total }}",
+          "status": "{{ $json.status }}"
+        }
+      },
+      {
+        "name": "metadata",
+        "value": {
+          "processado_em": "{{ $now.toISOString() }}",
+          "workflow": "{{ $workflow.name }}",
+          "versao": "1.0"
+        }
+      }
+    ]
+  }
+}
+```
+
+### 2. Condicionais Avançadas
+
+```javascript
+// Set Node - Condicionais avançadas
+{
+  "mode": "keepAllSet",
+  "values": {
+    "string": [
+      {
+        "name": "status_processamento",
+        "value": "{{ $json.erro ? 'Falha' : $json.pendente ? 'Pendente' : 'Sucesso' }}"
+      },
+      {
+        "name": "mensagem",
+        "value": "{{ $json.erro ? 'Erro: ' + $json.erro : $json.pendente ? 'Aguardando aprovação' : 'Processado com sucesso' }}"
+      }
+    ],
+    "number": [
+      {
+        "name": "prioridade",
+        "value": "{{ $json.urgente ? 1 : $json.importante ? 2 : 3 }}"
+      }
+    ],
+    "boolean": [
+      {
+        "name": "requer_aprovacao",
+        "value": "{{ $json.valor > 5000 || $json.categoria === 'financeiro' }}"
+      }
+    ]
+  }
+}
+```
+
+### 3. Manipulação de Arrays
+
+```javascript
+// Set Node - Manipulação de arrays
+{
+  "mode": "keepAllSet",
+  "values": {
+    "array": [
+      {
+        "name": "produtos_ativos",
+        "value": "{{ $json.produtos.filter(p => p.ativo) }}"
+      },
+      {
+        "name": "categorias_unicas",
+        "value": "{{ [...new Set($json.produtos.map(p => p.categoria))] }}"
+      },
+      {
+        "name": "produtos_premium",
+        "value": "{{ $json.produtos.filter(p => p.valor > 100).map(p => ({ ...p, categoria: 'Premium' })) }}"
+      }
+    ],
+    "number": [
+      {
+        "name": "total_produtos",
+        "value": "{{ $json.produtos.length }}"
+      },
+      {
+        "name": "produtos_ativos_count",
+        "value": "{{ $json.produtos.filter(p => p.ativo).length }}"
+      }
+    ]
+  }
+}
+```
+
+## Boas Práticas
+
+### 1. Nomenclatura de Campos
+
+```javascript
+// ✅ Bom: Nomes descritivos
+{
+  "name": "data_processamento",
+  "value": "{{ $now.toISOString() }}"
+}
+
+// ❌ Evitar: Nomes genéricos
+{
+  "name": "data",
+  "value": "{{ $now.toISOString() }}"
+}
+```
+
+### 2. Validação de Dados
+
+```javascript
+// ✅ Bom: Validar antes de usar
+{
+  "name": "valor_formatado",
+  "value": "{{ $json.valor ? parseFloat($json.valor).toFixed(2) : '0.00' }}"
+}
+
+// ❌ Evitar: Usar sem validação
+{
+  "name": "valor_formatado",
+  "value": "{{ parseFloat($json.valor).toFixed(2) }}"
+}
+```
+
+### 3. Organização de Campos
+
+```javascript
+// ✅ Bom: Agrupar campos relacionados
+{
+  "mode": "keepAllSet",
+  "values": {
+    "string": [
+      { "name": "nome", "value": "{{ $json.nome }}" },
+      { "name": "email", "value": "{{ $json.email }}" },
+      { "name": "telefone", "value": "{{ $json.telefone }}" }
+    ],
+    "number": [
+      { "name": "idade", "value": "{{ $json.idade }}" },
+      { "name": "valor", "value": "{{ $json.valor }}" }
+    ]
+  }
+}
+```
+
+### 4. Performance
+
+```javascript
+// ✅ Bom: Cálculos eficientes
+{
+  "name": "total",
+  "value": "{{ $json.preco * $json.quantidade }}"
+}
+
+// ❌ Evitar: Cálculos complexos em Set Node
+{
+  "name": "estatisticas",
+  "value": "{{ $json.itens.reduce((acc, item) => { /* lógica complexa */ }, {}) }}"
+}
+```
+
+## Troubleshooting
+
+### Problemas Comuns
+
+#### Campo não aparece
+- Verifique se o modo está correto
+- Confirme se o nome do campo está correto
+- Teste com valor simples primeiro
+- Verifique se há erros de sintaxe
+
+#### Valor incorreto
+- Verifique a expressão usada
+- Confirme se os campos de origem existem
+- Teste com dados de exemplo
+- Use Debug Helper para ver dados
+
+#### Performance lenta
+- Evite cálculos complexos
+- Use expressões simples
+- Limite o número de campos
+- Considere usar Code Node para lógica complexa
+
+### Debug
+
+```javascript
+// Code Node - Debug de Set Node
+const debugSetNode = (dados) => {
+  console.log('=== DEBUG SET NODE ===');
+  console.log('Dados de entrada:', dados);
+  console.log('Campos disponíveis:', Object.keys(dados));
+  console.log('Tipos de dados:', Object.entries(dados).map(([k, v]) => `${k}: ${typeof v}`));
+  console.log('========================');
+  
+  return dados;
+};
+
+// Usar antes do Set Node
+return { json: debugSetNode($json) };
+```
+
+## Integração com Outros Nodes
+
+### 1. Set Node + If Node
+
+```javascript
+// Set Node - Preparar dados para condição
+{
+  "mode": "keepAllSet",
+  "values": {
+    "boolean": [
+      {
+        "name": "cliente_valido",
+        "value": "{{ $json.nome && $json.email && $json.cpf }}"
+      }
+    ]
+  }
+}
+
+// If Node - Usar campo criado
+{
+  "condition": "{{ $json.cliente_valido }}",
+  "true": "Processar Cliente",
+  "false": "Cliente Inválido"
+}
+```
+
+### 2. Set Node + HTTP Request
+
+```javascript
+// Set Node - Preparar dados para API
+{
+  "mode": "keepOnlySet",
+  "values": {
+    "string": [
+      {
+        "name": "api_key",
+        "value": "{{ $credentials.apiKey }}"
+      },
+      {
+        "name": "endpoint",
+        "value": "{{ $json.tipo === 'cliente' ? '/clientes' : '/produtos' }}"
+      }
+    ],
+    "object": [
+      {
+        "name": "payload",
+        "value": {
+          "nome": "{{ $json.nome }}",
+          "email": "{{ $json.email }}",
+          "timestamp": "{{ $now.toISOString() }}"
+        }
+      }
+    ]
+  }
+}
+```
+
+## Próximos Passos
+
+- [Code Node](/integracoes/builtin-nodes/core-nodes/code.md) - Lógica customizada
+- [If Node](/integracoes/builtin-nodes/logic-control/if.md) - Controle de fluxo
+- [Aggregate Node](/integracoes/builtin-nodes/data-processing/aggregate.md) - Agregação de dados
+- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões avançadas
+- [Data Processing](/integracoes/builtin-nodes/data-processing/index.md) - Outros nodes de processamento

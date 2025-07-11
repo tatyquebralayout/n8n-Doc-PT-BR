@@ -3,323 +3,587 @@
 :::
 
 ---
-sidebar_position: 3
-title: Expressões JavaScript
-description: Como usar expressões JavaScript para manipular dados dinamicamente no n8n
-keywords: [n8n, expressões, javascript, dados, manipulação, variáveis]
+title: Expressões n8n
+description: Guia completo sobre expressões no n8n, incluindo sintaxe, funções, exemplos práticos e boas práticas
+sidebar_position: 1
+keywords: [n8n, expressões, javascript, sintaxe, funções, dados, dinâmicos]
 ---
 
-# <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões JavaScript
+# <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões n8n
 
-As expressões JavaScript são uma das funcionalidades mais poderosas do n8n, permitindo manipular dados dinamicamente e criar lógica complexa em seus workflows.
+As **Expressões n8n** são fórmulas JavaScript que permitem usar dados dinâmicos, fazer cálculos e manipular informações em seus workflows. Elas são fundamentais para criar automações inteligentes e flexíveis.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que são Expressões?
+## O que são Expressões?
 
-Expressões são trechos de código JavaScript que permitem:
+Expressões são trechos de código JavaScript que:
 
-- **Acessar dados** de nodes anteriores
-- **Transformar valores** dinamicamente
-- **Criar lógica condicional** complexa
-- **Formatar dados** para diferentes formatos
-- **Calcular valores** baseados em outros dados
+- **Acessam dados** de nodes anteriores
+- **Fazem cálculos** e transformações
+- **Criam condições** dinâmicas
+- **Formatam dados** para saída
+- **Validam informações** em tempo real
 
 ### Sintaxe Básica
 
-As expressões no n8n são escritas entre chaves duplas:
+As expressões no n8n usam a sintaxe `{{ }}`:
 
 ```javascript
-{{ expressão_javascript }}
+{{ expressão_javascript_aqui }}
 ```
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Variáveis Disponíveis
+## Acesso a Dados
 
-### $json
+### Dados do Item Atual
 
-Acessa os dados do item atual:
+Para acessar dados do item atual:
 
 ```javascript
-// Acessar campo simples
+// Acessar campo específico
 {{ $json.nome }}
 
 // Acessar campo aninhado
 {{ $json.endereco.cidade }}
 
 // Acessar array
-{{ $json.tags[0] }}
+{{ $json.itens[0].nome }}
+
+// Acessar propriedade dinâmica
+{{ $json['campo-dinamico'] }}
 ```
 
-### $node
+### Dados de Nodes Específicos
 
-Acessa dados de outros nodes:
+Para acessar dados de nodes anteriores:
 
 ```javascript
 // Dados do node "HTTP Request"
-{{ $node["HTTP Request"].json }}
+{{ $('HTTP Request').json.resposta }}
 
-// Campo específico de outro node
-{{ $node["Get Users"].json.email }}
+// Dados do primeiro node
+{{ $('Manual Trigger').json.entrada }}
 
-// Primeiro item de outro node
-{{ $node["Get Users"].json[0].id }}
+// Dados de múltiplos nodes
+{{ $('Node A').json.valor + $('Node B').json.valor }}
 ```
 
-### $position
+### Dados de Todos os Items
 
-Informações sobre a posição do item:
+Para trabalhar com múltiplos items:
 
 ```javascript
-// Índice do item (0-based)
-{{ $position }}
+// Todos os items
+{{ $input.all() }}
 
-// Número do item (1-based)
-{{ $position + 1 }}
+// Primeiro item
+{{ $input.first() }}
+
+// Item específico por índice
+{{ $input.item[0] }}
+
+// Último item
+{{ $input.last() }}
 ```
 
-### $now
+## Funções de Data e Hora
 
-Data e hora atual:
+### Data Atual
 
 ```javascript
-// Data atual
-{{ $now }}
-
-// Data formatada
+// Data atual em ISO
 {{ $now.toISOString() }}
 
-// Data em português
-{{ $now.toLocaleDateString('pt-BR') }}
-```
-
-### $today
-
-Data de hoje (sem hora):
-
-```javascript
-// Data de hoje
-{{ $today }}
-
 // Data formatada
-{{ $today.toLocaleDateString('pt-BR') }}
+{{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}
+
+// Timestamp Unix
+{{ $now.toMillis() }}
+
+// Data em português
+{{ $now.toFormat('dd \'de\' MMMM \'de\' yyyy') }}
 ```
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Operações Comuns
-
-### Manipulação de Strings
+### Cálculos com Datas
 
 ```javascript
-// Converter para maiúsculas
-{{ $json.nome.toUpperCase() }}
+// Adicionar dias
+{{ $now.plus({ days: 7 }).toISOString() }}
 
-// Converter para minúsculas
-{{ $json.email.toLowerCase() }}
+// Subtrair horas
+{{ $now.minus({ hours: 2 }).toISOString() }}
 
-// Substituir texto
-{{ $json.descricao.replace('antigo', 'novo') }}
+// Diferença entre datas
+{{ $now.diff($json.data_anterior, 'days') }}
 
-// Dividir string
-{{ $json.tags.split(',') }}
-
-// Juntar arrays
-{{ $json.tags.join(' - ') }}
-
-// Verificar se contém
-{{ $json.email.includes('@') }}
-```
-
-### Operações Matemáticas
-
-```javascript
-// Soma
-{{ $json.preco + $json.taxa }}
-
-// Multiplicação
-{{ $json.quantidade * $json.preco_unitario }}
-
-// Porcentagem
-{{ $json.preco * 1.1 }} // 10% de acréscimo
-
-// Arredondamento
-{{ Math.round($json.valor) }}
-
-// Mínimo e máximo
-{{ Math.min($json.valor1, $json.valor2) }}
-{{ Math.max($json.valor1, $json.valor2) }}
+// Data específica
+{{ DateTime.fromISO('2024-01-15').toFormat('dd/MM/yyyy') }}
 ```
 
 ### Formatação de Datas
 
 ```javascript
-// Data atual formatada
-{{ new Date().toLocaleDateString('pt-BR') }}
+// Formato brasileiro
+{{ $now.toFormat('dd/MM/yyyy') }}
 
-// Data específica
-{{ new Date('2024-01-15').toLocaleDateString('pt-BR') }}
+// Com dia da semana
+{{ $now.toFormat('EEEE, dd \'de\' MMMM \'de\' yyyy') }}
 
-// Data com hora
-{{ new Date().toLocaleString('pt-BR') }}
+// Hora apenas
+{{ $now.toFormat('HH:mm') }}
 
-// Timestamp
-{{ new Date().getTime() }}
-
-// Adicionar dias
-{{ new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) }}
+// Data relativa
+{{ $now.toRelative() }}
 ```
 
-### Lógica Condicional
+## Manipulação de Texto
+
+### Operações Básicas
 
 ```javascript
-// If simples
-{{ $json.status === 'ativo' ? 'Sim' : 'Não' }}
+// Concatenar strings
+{{ $json.nome + ' ' + $json.sobrenome }}
 
-// If com múltiplas condições
-{{ $json.valor > 100 ? 'Alto' : $json.valor > 50 ? 'Médio' : 'Baixo' }}
+// Converter para maiúsculo
+{{ $json.texto.toUpperCase() }}
 
-// Verificar se campo existe
-{{ $json.email ? $json.email : 'Email não informado' }}
+// Converter para minúsculo
+{{ $json.texto.toLowerCase() }}
 
-// Verificar tipo
-{{ typeof $json.idade === 'number' ? 'Número' : 'Texto' }}
+// Capitalizar primeira letra
+{{ $json.texto.charAt(0).toUpperCase() + $json.texto.slice(1) }}
 ```
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Práticos
-
-### Formatação de Dados
+### Busca e Substituição
 
 ```javascript
-// Formatar CPF
-{{ $json.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+// Verificar se contém texto
+{{ $json.texto.includes('palavra') }}
 
-// Formatar telefone
-{{ $json.telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3') }}
+// Substituir texto
+{{ $json.texto.replace('antigo', 'novo') }}
 
-// Formatar CEP
-{{ $json.cep.replace(/(\d{5})(\d{3})/, '$1-$2') }}
+// Substituir múltiplas ocorrências
+{{ $json.texto.replace(/antigo/g, 'novo') }}
+
+// Extrair parte do texto
+{{ $json.texto.substring(0, 10) }}
+
+// Dividir texto
+{{ $json.texto.split(',') }}
 ```
 
-### Validação de Dados
+### Validação de Texto
 
 ```javascript
+// Verificar se está vazio
+{{ $json.texto.length === 0 }}
+
+// Verificar se não está vazio
+{{ $json.texto && $json.texto.length > 0 }}
+
 // Validar email
 {{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}
 
-// Validar CPF (básico)
-{{ $json.cpf.length === 11 && /^\d+$/.test($json.cpf) }}
-
-// Verificar se é número
-{{ !isNaN($json.valor) && $json.valor > 0 }}
+// Validar CPF (formato básico)
+{{ /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test($json.cpf) }}
 ```
 
-### Cálculos Complexos
+## Cálculos Matemáticos
+
+### Operações Básicas
+
+```javascript
+// Soma
+{{ $json.valor1 + $json.valor2 }}
+
+// Subtração
+{{ $json.valor1 - $json.valor2 }}
+
+// Multiplicação
+{{ $json.quantidade * $json.preco }}
+
+// Divisão
+{{ $json.total / $json.quantidade }}
+
+// Módulo (resto)
+{{ $json.numero % 2 }}
+```
+
+### Funções Matemáticas
+
+```javascript
+// Arredondar
+{{ Math.round($json.valor) }}
+
+// Arredondar para cima
+{{ Math.ceil($json.valor) }}
+
+// Arredondar para baixo
+{{ Math.floor($json.valor) }}
+
+// Valor absoluto
+{{ Math.abs($json.valor) }}
+
+// Potência
+{{ Math.pow($json.base, $json.expoente) }}
+
+// Raiz quadrada
+{{ Math.sqrt($json.valor) }}
+```
+
+### Cálculos Financeiros
 
 ```javascript
 // Calcular desconto
-{{ $json.preco * (1 - $json.desconto / 100) }}
+{{ $json.valor * (1 - $json.desconto / 100) }}
 
-// Calcular juros compostos
-{{ $json.principal * Math.pow(1 + $json.taxa / 100, $json.periodo) }}
+// Calcular juros
+{{ $json.principal * (1 + $json.taxa / 100) ** $json.tempo }}
 
 // Calcular média
-{{ ($json.nota1 + $json.nota2 + $json.nota3) / 3 }}
+{{ ($json.valor1 + $json.valor2 + $json.valor3) / 3 }}
+
+// Calcular porcentagem
+{{ ($json.parte / $json.total) * 100 }}
 ```
 
-### Geração de Conteúdo
+## Arrays e Objetos
+
+### Manipulação de Arrays
 
 ```javascript
-// Gerar ID único
-{{ Date.now().toString(36) + Math.random().toString(36).substr(2) }}
+// Tamanho do array
+{{ $json.itens.length }}
 
-// Gerar slug
-{{ $json.titulo.toLowerCase().replace(/[^a-z0-9]+/g, '-') }}
+// Primeiro elemento
+{{ $json.itens[0] }}
 
-// Gerar resumo
-{{ $json.conteudo.substring(0, 150) + '...' }}
+// Último elemento
+{{ $json.itens[$json.itens.length - 1] }}
+
+// Filtrar array
+{{ $json.itens.filter(item => item.ativo) }}
+
+// Mapear array
+{{ $json.itens.map(item => item.nome) }}
+
+// Reduzir array
+{{ $json.itens.reduce((sum, item) => sum + item.valor, 0) }}
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
-
-### Tratamento de Erros
+### Manipulação de Objetos
 
 ```javascript
-// Verificar se campo existe antes de usar
-{{ $json.email ? $json.email : '' }}
+// Chaves do objeto
+{{ Object.keys($json) }}
 
-// Usar try-catch para operações complexas
-{{ (() => {
-  try {
-    return JSON.parse($json.dados);
-  } catch (e) {
-    return {};
+// Valores do objeto
+{{ Object.values($json) }}
+
+// Entradas do objeto
+{{ Object.entries($json) }}
+
+// Verificar se propriedade existe
+{{ 'campo' in $json }}
+
+// Mesclar objetos
+{{ { ...$json, novoCampo: 'valor' } }}
+```
+
+## Condições e Lógica
+
+### Operadores de Comparação
+
+```javascript
+// Igualdade
+{{ $json.valor === 100 }}
+
+// Desigualdade
+{{ $json.valor !== 100 }}
+
+// Maior que
+{{ $json.valor > 100 }}
+
+// Menor que
+{{ $json.valor < 100 }}
+
+// Maior ou igual
+{{ $json.valor >= 100 }}
+
+// Menor ou igual
+{{ $json.valor <= 100 }}
+```
+
+### Operadores Lógicos
+
+```javascript
+// E lógico
+{{ $json.ativo && $json.valor > 0 }}
+
+// OU lógico
+{{ $json.categoria === 'A' || $json.categoria === 'B' }}
+
+// NÃO lógico
+{{ !$json.inativo }}
+
+// Múltiplas condições
+{{ $json.idade >= 18 && $json.ativo && $json.saldo > 0 }}
+```
+
+### Operador Ternário
+
+```javascript
+// Condição simples
+{{ $json.valor > 100 ? 'Alto' : 'Baixo' }}
+
+// Condição aninhada
+{{ $json.valor > 100 ? 'Alto' : $json.valor > 50 ? 'Médio' : 'Baixo' }}
+
+// Com valores dinâmicos
+{{ $json.ativo ? $json.nome : 'Usuário Inativo' }}
+```
+
+## Funções Personalizadas
+
+### Funções Simples
+
+```javascript
+// Função para formatar CPF
+{{ (function(cpf) {
+  return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+})($json.cpf) }}
+
+// Função para validar email
+{{ (function(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+})($json.email) }}
+
+// Função para calcular idade
+{{ (function(dataNascimento) {
+  const hoje = new Date();
+  const nascimento = new Date(dataNascimento);
+  return hoje.getFullYear() - nascimento.getFullYear();
+})($json.data_nascimento) }}
+```
+
+### Funções com Múltiplos Parâmetros
+
+```javascript
+// Função para calcular desconto
+{{ (function(valor, desconto) {
+  return valor * (1 - desconto / 100);
+})($json.valor, $json.desconto) }}
+
+// Função para formatar endereço
+{{ (function(logradouro, numero, bairro, cidade, estado) {
+  return `${logradouro}, ${numero} - ${bairro}, ${cidade}/${estado}`;
+})($json.logradouro, $json.numero, $json.bairro, $json.cidade, $json.estado) }}
+```
+
+## Exemplos Práticos
+
+### Exemplo 1: Validação de Dados
+
+```javascript
+// Validar dados de cliente
+{
+  "cliente_valido": {{ $json.nome && $json.email && $json.cpf }},
+  "idade": {{ $now.diff($json.data_nascimento, 'years') }},
+  "maior_idade": {{ $now.diff($json.data_nascimento, 'years') >= 18 }},
+  "email_valido": {{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }},
+  "cpf_valido": {{ /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test($json.cpf) }}
+}
+```
+
+### Exemplo 2: Cálculos Financeiros
+
+```javascript
+// Calcular valores de venda
+{
+  "subtotal": {{ $json.quantidade * $json.preco_unitario }},
+  "desconto_valor": {{ ($json.quantidade * $json.preco_unitario) * ($json.desconto / 100) }},
+  "total": {{ ($json.quantidade * $json.preco_unitario) * (1 - $json.desconto / 100) }},
+  "parcelas": {{ Math.ceil(($json.quantidade * $json.preco_unitario) / $json.valor_parcela) }},
+  "valor_parcela": {{ (($json.quantidade * $json.preco_unitario) * (1 - $json.desconto / 100)) / $json.num_parcelas }}
+}
+```
+
+### Exemplo 3: Formatação de Dados
+
+```javascript
+// Formatar dados para relatório
+{
+  "nome_completo": {{ $json.nome + ' ' + $json.sobrenome }},
+  "endereco_formatado": {{ $json.logradouro + ', ' + $json.numero + ' - ' + $json.bairro + ', ' + $json.cidade + '/' + $json.estado }},
+  "telefone_formatado": {{ $json.telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3') }},
+  "data_formatada": {{ DateTime.fromISO($json.data).toFormat('dd/MM/yyyy HH:mm') }},
+  "status_formatado": {{ $json.ativo ? 'Ativo' : 'Inativo' }}
+}
+```
+
+### Exemplo 4: Lógica Condicional
+
+```javascript
+// Classificar cliente por valor
+{
+  "categoria": {{ 
+    $json.valor_total > 10000 ? 'Premium' : 
+    $json.valor_total > 5000 ? 'Gold' : 
+    $json.valor_total > 1000 ? 'Silver' : 'Bronze' 
+  }},
+  "desconto_aplicavel": {{ 
+    $json.valor_total > 10000 ? 15 : 
+    $json.valor_total > 5000 ? 10 : 
+    $json.valor_total > 1000 ? 5 : 0 
+  }},
+  "frete_gratis": {{ $json.valor_total > 100 }},
+  "prioridade": {{ $json.categoria === 'Premium' ? 'Alta' : 'Normal' }}
+}
+```
+
+## Boas Práticas
+
+### 1. Performance
+
+```javascript
+// ✅ Bom: Cache de valores calculados
+{{ (function() {
+  const valor = $json.valor;
+  const desconto = $json.desconto;
+  return {
+    subtotal: valor,
+    desconto_valor: valor * (desconto / 100),
+    total: valor * (1 - desconto / 100)
+  };
+})() }}
+
+// ❌ Evitar: Cálculos repetidos
+{{ $json.valor * (1 - $json.desconto / 100) }}
+{{ $json.valor * ($json.desconto / 100) }}
+```
+
+### 2. Legibilidade
+
+```javascript
+// ✅ Bom: Expressões claras
+{{ $json.ativo && $json.saldo > 0 ? 'Cliente Ativo' : 'Cliente Inativo' }}
+
+// ❌ Evitar: Expressões complexas
+{{ $json.ativo===true&&$json.saldo>0?'Cliente Ativo':'Cliente Inativo' }}
+```
+
+### 3. Tratamento de Erros
+
+```javascript
+// ✅ Bom: Validação de dados
+{{ $json.valor && !isNaN($json.valor) ? $json.valor * 1.1 : 0 }}
+
+// ❌ Evitar: Sem validação
+{{ $json.valor * 1.1 }}
+```
+
+### 4. Reutilização
+
+```javascript
+// ✅ Bom: Funções reutilizáveis
+{{ (function(valor, desconto) {
+  return valor * (1 - desconto / 100);
+})($json.valor, $json.desconto) }}
+
+// ❌ Evitar: Código duplicado
+{{ $json.valor * (1 - $json.desconto / 100) }}
+```
+
+## Troubleshooting
+
+### Problemas Comuns
+
+#### Expressão não funciona
+- Verifique a sintaxe JavaScript
+- Confirme se os campos existem
+- Teste com dados de exemplo
+- Use Debug Helper para inspecionar dados
+
+#### Dados não aparecem
+- Verifique se o node anterior tem dados
+- Confirme o nome dos campos
+- Teste com `{{ $json }}` para ver todos os dados
+- Verifique se há erros de sintaxe
+
+#### Performance lenta
+- Evite cálculos complexos em loops
+- Use cache para valores calculados
+- Simplifique expressões quando possível
+- Monitore tempo de execução
+
+### Debug
+
+1. **Use Debug Helper** para ver dados
+2. **Teste expressões** em partes menores
+3. **Use console.log** para debug
+4. **Verifique logs** de erro
+5. **Teste com dados simples**
+
+## Funções Úteis
+
+### Funções de String
+
+```javascript
+// Verificar se string está vazia
+{{ $json.texto && $json.texto.trim().length > 0 }}
+
+// Extrair domínio de email
+{{ $json.email.split('@')[1] }}
+
+// Capitalizar palavras
+{{ $json.texto.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') }}
+
+// Remover acentos
+{{ $json.texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '') }}
+```
+
+### Funções de Array
+
+```javascript
+// Verificar se array contém valor
+{{ $json.itens.includes('item') }}
+
+// Encontrar item em array
+{{ $json.itens.find(item => item.id === $json.id) }}
+
+// Contar itens que atendem condição
+{{ $json.itens.filter(item => item.ativo).length }}
+
+// Somar valores de array
+{{ $json.itens.reduce((sum, item) => sum + item.valor, 0) }}
+```
+
+### Funções de Data
+
+```javascript
+// Verificar se é fim de semana
+{{ [0, 6].includes($now.weekday) }}
+
+// Verificar se é feriado (exemplo)
+{{ ['2024-01-01', '2024-12-25'].includes($now.toFormat('yyyy-MM-dd')) }}
+
+// Calcular dias úteis
+{{ (function(dataInicio, dataFim) {
+  let dias = 0;
+  let data = DateTime.fromISO(dataInicio);
+  const fim = DateTime.fromISO(dataFim);
+  
+  while (data <= fim) {
+    if (data.weekday < 6) dias++;
+    data = data.plus({ days: 1 });
   }
-})() }}
+  return dias;
+})($json.data_inicio, $json.data_fim) }}
 ```
 
-### Performance
+## Próximos Passos
 
-- **Evite loops** complexos em expressões
-- **Use cache** para cálculos repetitivos
-- **Simplifique** expressões muito longas
-- **Teste** expressões antes de usar em produção
-
-### Legibilidade
-
-```javascript
-// ❌ Ruim - difícil de ler
-{{ $json.dados ? $json.dados.filter(x => x.ativo).map(x => x.nome).join(',') : '' }}
-
-// ✅ Bom - mais legível
-{{ (() => {
-  if (!$json.dados) return '';
-  const ativos = $json.dados.filter(item => item.ativo);
-  const nomes = ativos.map(item => item.nome);
-  return nomes.join(', ');
-})() }}
-```
-
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Debugging de Expressões
-
-### Console.log
-
-```javascript
-// Log simples
-{{ console.log('Dados:', $json) }}
-
-// Log com contexto
-{{ console.log('Processando usuário:', $json.nome, 'ID:', $json.id) }}
-```
-
-### Validação
-
-```javascript
-// Verificar tipo de dados
-{{ typeof $json.valor }}
-
-// Verificar estrutura
-{{ JSON.stringify($json, null, 2) }}
-
-// Verificar se é array
-{{ Array.isArray($json.items) }}
-```
-
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
-
-1. **[Data Transformation](../data/transformacoes-dados)** - Transformações avançadas de dados
-2. **[Error Handling](../01-flow-logic/error-handling)** - Tratamento de erros em expressões
-3. **[Debugging](../01-flow-logic/debugging)** - Debugging de workflows com expressões
-
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
-
-### Documentação Relacionada
-
-- **[Data Transformation](../data/transformacoes-dados)** - Manipulação de dados
-- **[Error Handling](../01-flow-logic/error-handling)** - Tratamento de erros
-- **[Debugging](../01-flow-logic/debugging)** - Técnicas de debugging
-
-### Links Externos
-
-- **[JavaScript MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)** - Referência JavaScript
-- **[n8n Expressions](https://docs.n8n.io/code-examples/expressions/)** - Documentação oficial
-- **[n8n Community](https://community.n8n.io/)** - Fórum para dúvidas
-
----
-
-**<ion-icon name="code-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Expressões JavaScript transformam dados estáticos em automações dinâmicas!** 
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request.md) - Usar expressões em requisições
+- [Code Node](/integracoes/builtin-nodes/core-nodes/code.md) - JavaScript avançado
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
+- [Data Processing](/integracoes/builtin-nodes/data-processing/index.md) - Processar dados
+- [Templates](/integracoes/templates.md) - Ver exemplos práticos 

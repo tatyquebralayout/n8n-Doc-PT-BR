@@ -1,576 +1,546 @@
 ---
-sidebar_position: 3
-title: Integração com NFe
-description: Automatizar geração, envio e gestão de Notas Fiscais Eletrônicas no n8n
-keywords: [n8n, nfe, nota fiscal, sefaz, automação, fiscal, contabilidade]
+title: NFE Integração
+description: Integração com Nota Fiscal Eletrônica (NFE) para automatizar processos fiscais no n8n
+sidebar_position: 2
+keywords: [n8n, nfe, nota fiscal, eletrônica, fiscal, brasil, sefaz]
 ---
 
+# <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> NFE Integração
 
-# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com NFe
+A **Nota Fiscal Eletrônica (NFE)** é um documento fiscal obrigatório no Brasil. Esta integração permite automatizar processos relacionados à NFE, incluindo emissão, consulta, cancelamento e relatórios fiscais.
 
-Aprenda a automatizar a geração, envio e gestão de Notas Fiscais Eletrônicas (NFe) integrando com a SEFAZ e sistemas contábeis brasileiros.
+## O que é NFE?
 
----
+A NFE é um documento fiscal eletrônico que:
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Configuração da NFe
+- **Substitui** a nota fiscal em papel
+- **É obrigatória** para a maioria das operações comerciais
+- **É validada** pela SEFAZ (Secretaria da Fazenda)
+- **Gera XML** com assinatura digital
+- **Permite consulta** online da validade
 
-### Certificado Digital
+### Benefícios da Automação
 
-**Configuração do certificado A1:**
+- **Emissão automática** de NFEs
+- **Validação** em tempo real
+- **Integração** com sistemas ERP
+- **Relatórios** fiscais automáticos
+- **Compliance** fiscal automático
 
-```javascript
-// Configuração certificado digital
+## Componentes da NFE
+
+### 1. Dados do Emitente
+
+Informações da empresa emissora:
+
+```json
 {
-  "certificado": {
-    "tipo": "A1",
-    "arquivo": "certificado.pfx",
-    "senha": "senha_certificado",
-    "validade": "2025-12-31",
-    "emissor": "SERASA",
-    "cnpj": "12.345.678/0001-90"
-  },
-  "ambiente": {
-    "producao": false,
-    "homologacao": true,
-    "sefaz": "SP" // Estado da SEFAZ
+  "cnpj": "00.000.000/0001-00",
+  "razao_social": "EMPRESA EXEMPLO LTDA",
+  "nome_fantasia": "EMPRESA EXEMPLO",
+  "ie": "123.456.789",
+  "endereco": {
+    "logradouro": "Rua Exemplo",
+    "numero": "123",
+    "bairro": "Centro",
+    "municipio": "São Paulo",
+    "uf": "SP",
+    "cep": "01001-000"
   }
 }
 ```
 
-### Dados da Empresa
+### 2. Dados do Destinatário
 
-**Informações obrigatórias:**
+Informações do cliente:
 
-```javascript
-// Dados da empresa emissora
+```json
 {
-  "empresa": {
-    "razao_social": "Empresa LTDA",
-    "nome_fantasia": "Empresa",
-    "cnpj": "12.345.678/0001-90",
-    "ie": "123.456.789.012",
-    "endereco": {
-      "logradouro": "Rua das Flores, 123",
-      "bairro": "Centro",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "01234-567"
-    },
-    "telefone": "(11) 1234-5678",
-    "email": "fiscal@empresa.com.br"
+  "cnpj": "11.111.111/0001-11",
+  "razao_social": "CLIENTE EXEMPLO LTDA",
+  "endereco": {
+    "logradouro": "Av. Cliente",
+    "numero": "456",
+    "bairro": "Bairro Cliente",
+    "municipio": "Rio de Janeiro",
+    "uf": "RJ",
+    "cep": "20040-007"
   }
 }
 ```
 
----
+### 3. Itens da Nota
 
-## <ion-icon name="folder-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Estrutura da NFe
+Produtos ou serviços:
 
-### Cabeçalho da Nota
-
-**Dados básicos da NFe:**
-
-```javascript
-// Cabeçalho NFe
-{
-  "nfe": {
-    "versao": "4.00",
-    "id": "NFe12345678901234567890123456789012345678901234",
-    "tipo_emissao": "1", // Normal
-    "finalidade": "1", // Normal
-    "consumidor_final": "1", // Sim
-    "presenca_comprador": "1", // Operação presencial
-    "processo_emissao": "0", // Aplicativo do contribuinte
-    "data_emissao": "2024-01-15T10:30:00-03:00",
-    "tipo_operacao": "0", // Saída
-    "natureza_operacao": "Venda de mercadoria",
-    "serie": "1",
-    "numero": "123456"
-  }
-}
-```
-
-### Dados do Destinatário
-
-**Informações do cliente:**
-
-```javascript
-// Destinatário
-{
-  "destinatario": {
-    "tipo": "F", // Física ou J para Jurídica
-    "cpf_cnpj": "123.456.789-01",
-    "nome": "João Silva",
-    "endereco": {
-      "logradouro": "Rua do Cliente, 456",
-      "numero": "456",
-      "complemento": "Apto 101",
-      "bairro": "Vila Nova",
-      "cidade": "São Paulo",
-      "estado": "SP",
-      "cep": "04567-890",
-      "pais": "BRASIL"
-    },
-    "telefone": "(11) 98765-4321",
-    "email": "joao@email.com"
-  }
-}
-```
-
----
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Itens da Nota
-
-### Produtos e Serviços
-
-**Estrutura dos itens:**
-
-```javascript
-// Itens da NFe
+```json
 {
   "itens": [
     {
-      "numero": "1",
-      "codigo": "PROD001",
-      "descricao": "Produto A",
+      "codigo": "001",
+      "descricao": "Produto Exemplo",
       "ncm": "12345678",
       "cfop": "5102",
-      "unidade": "UN",
-      "quantidade": 2,
-      "valor_unitario": 50.00,
-      "valor_total": 100.00,
-      "icms": {
-        "origem": "0",
-        "cst": "102",
-        "aliquota": 18.00,
-        "base_calculo": 100.00,
-        "valor": 18.00
-      },
-      "pis": {
-        "cst": "01",
-        "aliquota": 1.65,
-        "base_calculo": 100.00,
-        "valor": 1.65
-      },
-      "cofins": {
-        "cst": "01",
-        "aliquota": 7.6,
-        "base_calculo": 100.00,
-        "valor": 7.60
-      }
+      "quantidade": 10,
+      "valor_unitario": 100.00,
+      "valor_total": 1000.00
     }
   ]
 }
 ```
 
-### Cálculos Fiscais
+## Workflows de NFE
 
-**Automatizar cálculos:**
+### 1. Emissão Automática
+
+Workflow para emissão automática de NFE:
 
 ```javascript
-// Cálculo automático de impostos
-{{ (function(item) {
-  const valorTotal = item.quantidade * item.valor_unitario;
-  const baseIcms = valorTotal;
-  const valorIcms = baseIcms * (item.icms.aliquota / 100);
-  const valorPis = valorTotal * (item.pis.aliquota / 100);
-  const valorCofins = valorTotal * (item.cofins.aliquota / 100);
-  
-  return {
+// Workflow: Emissão Automática de NFE
+Webhook (Pedido) → Validação → HTTP Request (SEFAZ) → Processamento → Notificação
+```
+
+**Configuração:**
+- **Webhook**: Recebe dados do pedido
+- **Validação**: Valida dados obrigatórios
+- **HTTP Request**: Envia para SEFAZ
+- **Processamento**: Processa resposta
+- **Notificação**: Notifica resultado
+
+### 2. Consulta de Status
+
+Workflow para consultar status de NFE:
+
+```javascript
+// Workflow: Consulta de Status
+Schedule Trigger → HTTP Request (Consulta) → Processamento → Relatório
+```
+
+**Configuração:**
+- **Schedule Trigger**: Executa periodicamente
+- **HTTP Request**: Consulta SEFAZ
+- **Processamento**: Analisa status
+- **Relatório**: Gera relatório de status
+
+### 3. Cancelamento Automático
+
+Workflow para cancelamento de NFE:
+
+```javascript
+// Workflow: Cancelamento de NFE
+Webhook (Cancelamento) → Validação → HTTP Request (Cancelamento) → Confirmação
+```
+
+**Configuração:**
+- **Webhook**: Recebe solicitação de cancelamento
+- **Validação**: Valida permissões e prazo
+- **HTTP Request**: Envia cancelamento para SEFAZ
+- **Confirmação**: Confirma cancelamento
+
+## Exemplos Práticos
+
+### Exemplo 1: Emissão Automática de NFE
+
+**Cenário:** Emitir NFE automaticamente quando um pedido é aprovado.
+
+**Workflow:**
+```
+Webhook (Pedido Aprovado) → Validação → HTTP Request (SEFAZ) → Processamento → Notificação
+```
+
+**Configuração:**
+```javascript
+// Webhook - Dados do Pedido
+{
+  "pedido_id": "12345",
+  "cliente": {
+    "cnpj": "11.111.111/0001-11",
+    "razao_social": "CLIENTE EXEMPLO LTDA"
+  },
+  "itens": [
+    {
+      "codigo": "001",
+      "descricao": "Produto A",
+      "quantidade": 5,
+      "valor_unitario": 100.00
+    }
+  ]
+}
+
+// Code - Validação de Dados
+const pedido = $json;
+
+// Validar dados obrigatórios
+const validacoes = {
+  cliente_cnpj: pedido.cliente.cnpj && pedido.cliente.cnpj.length === 18,
+  cliente_razao_social: pedido.cliente.razao_social && pedido.cliente.razao_social.length > 0,
+  itens: pedido.itens && pedido.itens.length > 0,
+  valores: pedido.itens.every(item => item.valor_unitario > 0)
+};
+
+const dadosValidos = Object.values(validacoes).every(v => v);
+
+if (!dadosValidos) {
+  throw new Error('Dados do pedido inválidos para emissão de NFE');
+}
+
+// Preparar dados para NFE
+const nfeData = {
+  emitente: {
+    cnpj: "00.000.000/0001-00",
+    razao_social: "EMPRESA EXEMPLO LTDA",
+    ie: "123.456.789"
+  },
+  destinatario: pedido.cliente,
+  itens: pedido.itens.map(item => ({
     ...item,
-    valor_total: valorTotal,
-    icms: {
-      ...item.icms,
-      base_calculo: baseIcms,
-      valor: valorIcms
-    },
-    pis: {
-      ...item.pis,
-      base_calculo: valorTotal,
-      valor: valorPis
-    },
-    cofins: {
-      ...item.cofins,
-      base_calculo: valorTotal,
-      valor: valorCofins
-    }
-  };
-})($json.item) }}
+    ncm: "12345678",
+    cfop: "5102",
+    valor_total: item.quantidade * item.valor_unitario
+  })),
+  total: pedido.itens.reduce((sum, item) => sum + (item.quantidade * item.valor_unitario), 0)
+};
+
+return { json: nfeData };
 ```
 
----
+### Exemplo 2: Consulta de Status de NFE
 
-## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Envio para SEFAZ
+**Cenário:** Consultar status de NFEs emitidas.
 
-### Autorização
+**Workflow:**
+```
+Schedule Trigger → HTTP Request (Consulta) → Code (Análise) → Relatório
+```
 
-**Workflow de autorização:**
-
+**Configuração:**
 ```javascript
-// Workflow: Autorização NFe
-{
-  "trigger": "Nova venda confirmada",
-  "processo": [
-    {
-      "step": 1,
-      "acao": "Validar dados da venda",
-      "validacoes": [
-        "Cliente com CPF/CNPJ válido",
-        "Produtos com NCM correto",
-        "Valores calculados corretamente"
-      ]
-    },
-    {
-      "step": 2,
-      "acao": "Gerar XML da NFe",
-      "template": "nfe_template.xml"
-    },
-    {
-      "step": 3,
-      "acao": "Assinar XML",
-      "certificado": "certificado_a1.pfx"
-    },
-    {
-      "step": 4,
-      "acao": "Enviar para SEFAZ",
-      "endpoint": "https://nfe.fazenda.sp.gov.br/ws/nfeautorizacao4.asmx"
-    },
-    {
-      "step": 5,
-      "acao": "Processar resposta",
-      "acoes": [
-        "Salvar protocolo",
-        "Gerar DANFE",
-        "Enviar por email"
-      ]
-    }
-  ]
+// Schedule Trigger - Execução
+Cron: 0 */2 * * * // A cada 2 horas
+
+// HTTP Request - Consulta SEFAZ
+Method: POST
+URL: https://api.sefaz.gov.br/nfe/consulta
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer {{ $credentials.sefaz.token }}"
 }
-```
+Body: {
+  "cnpj_emitente": "00.000.000/0001-00",
+  "data_inicio": "{{ $now.minus({ days: 1 }).toFormat('yyyy-MM-dd') }}",
+  "data_fim": "{{ $now.toFormat('yyyy-MM-dd') }}"
+}
 
-### Tratamento de Respostas
+// Code - Análise de Status
+const consulta = $json;
 
-**Processar retornos da SEFAZ:**
+const analise = {
+  total_nfes: consulta.nfes.length,
+  aprovadas: consulta.nfes.filter(nfe => nfe.status === "AUTORIZADA").length,
+  canceladas: consulta.nfes.filter(nfe => nfe.status === "CANCELADA").length,
+  pendentes: consulta.nfes.filter(nfe => nfe.status === "PENDENTE").length,
+  rejeitadas: consulta.nfes.filter(nfe => nfe.status === "REJEITADA").length
+};
 
-```javascript
-// Processar resposta da SEFAZ
-{{ (function(resposta) {
-  const status = resposta.status;
-  
-  switch(status) {
-    case '100': // Autorizada
-      return {
-        status: 'AUTORIZADA',
-        protocolo: resposta.protocolo,
-        acoes: [
-          'Salvar NFe no banco',
-          'Gerar DANFE',
-          'Enviar por email',
-          'Atualizar estoque'
-        ]
-      };
-    case '110': // Denegada
-      return {
-        status: 'DENEGADA',
-        motivo: resposta.motivo,
-        acoes: [
-          'Notificar equipe fiscal',
-          'Corrigir dados',
-          'Reenviar após correção'
-        ]
-      };
-    case '301': // Rejeitada
-      return {
-        status: 'REJEITADA',
-        motivo: resposta.motivo,
-        acoes: [
-          'Corrigir erro específico',
-          'Validar dados',
-          'Reenviar'
-        ]
-      };
-    default:
-      return {
-        status: 'ERRO',
-        motivo: 'Status desconhecido',
-        acoes: ['Contatar suporte']
-      };
+// Alertas para problemas
+const alertas = [];
+if (analise.rejeitadas > 0) {
+  alertas.push(`NFEs rejeitadas: ${analise.rejeitadas}`);
+}
+if (analise.pendentes > 5) {
+  alertas.push(`Muitas NFEs pendentes: ${analise.pendentes}`);
+}
+
+return {
+  json: {
+    analise: analise,
+    alertas: alertas,
+    nfes: consulta.nfes,
+    data_consulta: new Date().toISOString()
   }
-})($json.resposta_sefaz) }}
+};
 ```
 
----
+### Exemplo 3: Cancelamento Automático de NFE
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Geração de DANFE
+**Cenário:** Cancelar NFE automaticamente quando pedido é cancelado.
 
-### Template do DANFE
+**Workflow:**
+```
+Webhook (Pedido Cancelado) → Validação → HTTP Request (Cancelamento) → Confirmação
+```
 
-**Estrutura do documento:**
+**Configuração:**
+```javascript
+// Webhook - Pedido Cancelado
+{
+  "pedido_id": "12345",
+  "nfe_numero": "000001",
+  "motivo_cancelamento": "Solicitação do cliente"
+}
+
+// Code - Validação de Cancelamento
+const cancelamento = $json;
+
+// Verificar se NFE pode ser cancelada
+const nfe = await consultarNFE(cancelamento.nfe_numero);
+
+if (nfe.status !== "AUTORIZADA") {
+  throw new Error(`NFE não pode ser cancelada. Status atual: ${nfe.status}`);
+}
+
+// Verificar prazo de cancelamento (24h)
+const dataEmissao = new Date(nfe.data_emissao);
+const agora = new Date();
+const horasDecorridas = (agora - dataEmissao) / (1000 * 60 * 60);
+
+if (horasDecorridas > 24) {
+  throw new Error('Prazo para cancelamento expirado (24h)');
+}
+
+// Preparar dados para cancelamento
+const cancelamentoData = {
+  nfe_numero: cancelamento.nfe_numero,
+  justificativa: cancelamento.motivo_cancelamento,
+  protocolo: nfe.protocolo
+};
+
+return { json: cancelamentoData };
+```
+
+## Integração com SEFAZ
+
+### 1. Autenticação
 
 ```javascript
-// Template DANFE
-{
-  "danfe": {
-    "cabecalho": {
-      "logo_empresa": "logo.png",
-      "razao_social": "Empresa LTDA",
-      "cnpj": "12.345.678/0001-90",
-      "numero_nfe": "NFe 123.456",
-      "data_emissao": "15/01/2024",
-      "protocolo": "123456789012345"
-    },
-    "destinatario": {
-      "nome": "João Silva",
-      "cpf": "123.456.789-01",
-      "endereco": "Rua do Cliente, 456 - São Paulo/SP"
-    },
-    "itens": [
-      {
-        "codigo": "PROD001",
-        "descricao": "Produto A",
-        "qtd": "2",
-        "un": "UN",
-        "vl_unit": "R$ 50,00",
-        "vl_total": "R$ 100,00"
-      }
-    ],
-    "totais": {
-      "subtotal": "R$ 100,00",
-      "icms": "R$ 18,00",
-      "pis": "R$ 1,65",
-      "cofins": "R$ 7,60",
-      "total": "R$ 127,25"
-    }
-  }
+// Code - Autenticação SEFAZ
+const credentials = {
+  cnpj: "00.000.000/0001-00",
+  certificado: "certificado.p12",
+  senha: "senha_certificado"
+};
+
+// Gerar token de acesso
+const token = await gerarTokenSEFAZ(credentials);
+
+return { json: { token: token } };
+```
+
+### 2. Emissão de NFE
+
+```javascript
+// HTTP Request - Emissão NFE
+Method: POST
+URL: https://api.sefaz.gov.br/nfe/emissao
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer {{ $credentials.sefaz.token }}"
+}
+Body: {
+  "emitente": $json.emitente,
+  "destinatario": $json.destinatario,
+  "itens": $json.itens,
+  "total": $json.total,
+  "forma_pagamento": "01", // Dinheiro
+  "tipo_operacao": "0" // Saída
 }
 ```
 
-### Envio Automático
-
-**Workflow de envio:**
+### 3. Consulta de Status
 
 ```javascript
-// Enviar DANFE por email
-{
-  "trigger": "NFe autorizada",
-  "processo": [
-    {
-      "step": 1,
-      "acao": "Gerar PDF do DANFE",
-      "template": "danfe_template.html"
-    },
-    {
-      "step": 2,
-      "acao": "Preparar email",
-      "dados": {
-        "para": "{{ $json.cliente.email }}",
-        "assunto": "NFe {{ $json.numero }} - Empresa LTDA",
-        "corpo": "Segue em anexo a NFe {{ $json.numero }}"
-      }
-    },
-    {
-      "step": 3,
-      "acao": "Anexar DANFE",
-      "arquivo": "danfe_{{ $json.numero }}.pdf"
-    },
-    {
-      "step": 4,
-      "acao": "Enviar email",
-      "servico": "SMTP"
-    },
-    {
-      "step": 5,
-      "acao": "Registrar envio",
-      "log": "Email enviado para {{ $json.cliente.email }}"
-    }
-  ]
+// HTTP Request - Consulta Status
+Method: GET
+URL: https://api.sefaz.gov.br/nfe/status/{{ $json.nfe_numero }}
+Headers: {
+  "Authorization": "Bearer {{ $credentials.sefaz.token }}"
 }
 ```
 
----
+## Tratamento de Erros
 
-## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Integração com Sistemas
-
-### ERP e CRM
-
-**Sincronização com sistemas:**
+### 1. NFE Rejeitada
 
 ```javascript
-// Integração com ERP
-{
-  "trigger": "NFe autorizada",
-  "sincronizacoes": [
-    {
-      "sistema": "ERP",
-      "acao": "Atualizar fatura",
-      "dados": {
-        "fatura_id": "{{ $json.fatura_id }}",
-        "status": "FATURADA",
-        "nfe_numero": "{{ $json.numero_nfe }}",
-        "nfe_protocolo": "{{ $json.protocolo }}"
-      }
-    },
-    {
-      "sistema": "CRM",
-      "acao": "Atualizar cliente",
-      "dados": {
-        "cliente_id": "{{ $json.cliente_id }}",
-        "ultima_compra": "{{ $json.data_emissao }}",
-        "valor_total": "{{ $json.valor_total }}"
-      }
-    },
-    {
-      "sistema": "Estoque",
-      "acao": "Baixar produtos",
-      "dados": {
-        "itens": "{{ $json.itens }}"
-      }
-    }
-  ]
-}
-```
+// Code - Tratamento de Rejeição
+const resposta = $json;
 
-### Contabilidade
-
-**Integração contábil:**
-
-```javascript
-// Lançamentos contábeis
-{
-  "contabilidade": {
-    "debito": [
-      {
-        "conta": "1.1.01.001", // Clientes
-        "valor": "{{ $json.valor_total }}",
-        "historico": "Venda NFe {{ $json.numero }}"
-      }
-    ],
-    "credito": [
-      {
-        "conta": "3.1.01.001", // Receita de Vendas
-        "valor": "{{ $json.valor_produtos }}",
-        "historico": "Venda NFe {{ $json.numero }}"
-      },
-      {
-        "conta": "2.1.01.001", // ICMS a Recolher
-        "valor": "{{ $json.valor_icms }}",
-        "historico": "ICMS NFe {{ $json.numero }}"
-      }
-    ]
-  }
-}
-```
-
----
-
-## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Relatórios Fiscais
-
-### Relatórios Obrigatórios
-
-**Relatórios para SEFAZ:**
-
-```javascript
-// Relatório de NFe emitidas
-{{ (function(nfes) {
-  const periodo = {
-    inicio: "2024-01-01",
-    fim: "2024-01-31"
+if (resposta.status === "REJEITADA") {
+  const erro = {
+    nfe_numero: resposta.nfe_numero,
+    motivo: resposta.motivo_rejeicao,
+    codigo: resposta.codigo_rejeicao,
+    data_rejeicao: new Date().toISOString()
   };
   
-  const filtradas = nfes.filter(nfe => 
-    nfe.data_emissao >= periodo.inicio && 
-    nfe.data_emissao <= periodo.fim
-  );
-  
+  // Enviar para correção manual
   return {
-    periodo: periodo,
-    total_nfes: filtradas.length,
-    valor_total: filtradas.reduce((acc, nfe) => acc + nfe.valor_total, 0),
-    icms_total: filtradas.reduce((acc, nfe) => acc + nfe.valor_icms, 0),
-    por_estado: filtradas.reduce((acc, nfe) => {
-      const estado = nfe.destinatario.estado;
-      acc[estado] = (acc[estado] || 0) + 1;
-      return acc;
-    }, {}),
-    canceladas: filtradas.filter(nfe => nfe.status === 'CANCELADA').length
-  };
-})($json.nfes) }}
-```
-
-### Arquivos SPED
-
-**Geração de SPED:**
-
-```javascript
-// Estrutura SPED Fiscal
-{
-  "sped": {
-    "bloco_0": {
-      "0000": {
-        "cod_ver": "017",
-        "cod_fin": "0",
-        "dt_ini": "01012024",
-        "dt_fin": "31012024",
-        "nome": "Empresa LTDA",
-        "cnpj": "12345678000190"
-      }
-    },
-    "bloco_c": {
-      "c100": {
-        "ind_oper": "0",
-        "ind_emit": "0",
-        "cod_part": "CLIENTE001",
-        "cod_mod": "55",
-        "cod_sit": "00",
-        "ser": "1",
-        "num_doc": "123456",
-        "chv_nfe": "12345678901234567890123456789012345678901234",
-        "dt_doc": "15012024",
-        "dt_e_s": "15012024",
-        "vl_doc": "127.25",
-        "ind_pgto": "0",
-        "vl_desc": "0.00",
-        "vl_abat_nt": "0.00",
-        "vl_merc": "100.00",
-        "ind_frt": "0",
-        "vl_frt": "0.00",
-        "vl_seg": "0.00",
-        "vl_out_da": "0.00",
-        "vl_bc_icms": "100.00",
-        "vl_icms": "18.00",
-        "vl_bc_icms_st": "0.00",
-        "vl_icms_st": "0.00",
-        "vl_ipi": "0.00",
-        "vl_pis": "1.65",
-        "vl_cofins": "7.60",
-        "vl_pis_st": "0.00",
-        "vl_cofins_st": "0.00"
-      }
+    json: {
+      tipo: "CORRECAO_MANUAL",
+      erro: erro,
+      dados_originais: $('Webhook').json
     }
-  }
+  };
 }
 ```
 
----
+### 2. Timeout da SEFAZ
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 8 | Próximos passos
+```javascript
+// Code - Tratamento de Timeout
+try {
+  const resposta = await enviarNFE($json);
+  return { json: resposta };
+} catch (error) {
+  if (error.code === "TIMEOUT") {
+    // Retry com backoff
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    const resposta = await enviarNFE($json);
+    return { json: resposta };
+  }
+  throw error;
+}
+```
 
-1. **[Conciliação Bancária](./conciliacao-bancaria)** - Automatizar conciliação
-2. **[Relatórios Fiscais](./relatorios-fiscais)** - Gerar relatórios obrigatórios
-3. **[Integração com PIX](./pix-avancado)** - Conectar pagamentos PIX
+### 3. Certificado Expirado
 
-> *Agora você domina integrações com NFe. Use essas técnicas para automatizar completamente seus processos fiscais!*
+```javascript
+// Code - Verificação de Certificado
+const certificado = await verificarCertificado();
 
----
+if (certificado.expirado) {
+  // Notificar administrador
+  return {
+    json: {
+      tipo: "ALERTA_CERTIFICADO",
+      mensagem: "Certificado digital expirado",
+      data_expiracao: certificado.data_expiracao,
+      acao_necessaria: "Renovar certificado digital"
+    }
+  };
+}
+```
 
-:::tip **Dica Pro**
-Mantenha um backup de todas as NFe emitidas e seus XMLs. A SEFAZ pode solicitar essas informações em auditorias.
-:::
+## Relatórios Fiscais
 
-:::warning **Importante**
-Sempre teste integrações NFe em ambiente de homologação antes de usar em produção. Erros podem resultar em problemas fiscais.
-:::
+### 1. Relatório de NFEs Emitidas
 
-:::info **Recurso Adicional**
-Considere usar serviços como NFe.io, API NFe ou sistemas ERP que já possuem integração com SEFAZ para simplificar o processo.
-:::
+```javascript
+// Code - Relatório de NFEs
+const nfes = $json.nfes;
+
+const relatorio = {
+  periodo: {
+    inicio: $json.data_inicio,
+    fim: $json.data_fim
+  },
+  resumo: {
+    total_emitidas: nfes.length,
+    total_valor: nfes.reduce((sum, nfe) => sum + nfe.valor_total, 0),
+    aprovadas: nfes.filter(nfe => nfe.status === "AUTORIZADA").length,
+    canceladas: nfes.filter(nfe => nfe.status === "CANCELADA").length
+  },
+  por_cliente: nfes.reduce((acc, nfe) => {
+    const cliente = nfe.destinatario.razao_social;
+    if (!acc[cliente]) acc[cliente] = { total: 0, nfes: [] };
+    acc[cliente].total += nfe.valor_total;
+    acc[cliente].nfes.push(nfe);
+    return acc;
+  }, {}),
+  data_geracao: new Date().toISOString()
+};
+
+return { json: relatorio };
+```
+
+### 2. Dashboard Fiscal
+
+```javascript
+// Code - Dashboard Fiscal
+const dados = $json;
+
+const dashboard = {
+  metricas: {
+    nfes_hoje: dados.nfes.filter(nfe => 
+      nfe.data_emissao.startsWith(new Date().toISOString().split('T')[0])).length,
+    valor_hoje: dados.nfes.filter(nfe => 
+      nfe.data_emissao.startsWith(new Date().toISOString().split('T')[0]))
+      .reduce((sum, nfe) => sum + nfe.valor_total, 0),
+    pendentes: dados.nfes.filter(nfe => nfe.status === "PENDENTE").length
+  },
+  tendencias: {
+    ultimos_7_dias: calcularTendencia(dados.nfes, 7),
+    ultimos_30_dias: calcularTendencia(dados.nfes, 30)
+  },
+  alertas: gerarAlertas(dados)
+};
+
+return { json: dashboard };
+```
+
+## Boas Práticas
+
+### 1. Segurança
+
+- **Use certificados digitais** válidos
+- **Mantenha senhas** seguras
+- **Implemente auditoria** de acesso
+- **Configure backup** de certificados
+- **Monitore expiração** de certificados
+
+### 2. Performance
+
+- **Implemente cache** para consultas
+- **Configure timeouts** adequados
+- **Processe em lotes** quando possível
+- **Monitore tempo** de resposta
+- **Configure retry** com backoff
+
+### 3. Compliance
+
+- **Mantenha logs** de todas as operações
+- **Configure alertas** para problemas
+- **Implemente validações** robustas
+- **Documente processos** fiscais
+- **Configure backup** de dados
+
+## Troubleshooting
+
+### Problemas Comuns
+
+#### NFE rejeitada
+- Verifique dados obrigatórios
+- Confirme formato dos dados
+- Valide certificado digital
+- Consulte códigos de erro
+- Teste com dados de exemplo
+
+#### Timeout da SEFAZ
+- Configure timeouts adequados
+- Implemente retry logic
+- Monitore conectividade
+- Verifique certificado
+- Configure alertas
+
+#### Certificado expirado
+- Monitore data de expiração
+- Configure alertas antecipados
+- Mantenha backup de certificados
+- Documente processo de renovação
+- Configure notificações
+
+### Debug
+
+1. **Use o node Debug Helper** para inspecionar dados
+2. **Configure logging detalhado**
+3. **Teste com dados de exemplo**
+4. **Monitore logs da SEFAZ**
+5. **Valide certificado digital**
+
+## Próximos Passos
+
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request.md) - Fazer requisições HTTP
+- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
+- [Integrações Brasileiras](/integracoes-br/index.md) - Outras integrações brasileiras
+- [Compliance Fiscal](/integracoes-br/financeiro/compliance-fiscal.md) - Conformidade fiscal

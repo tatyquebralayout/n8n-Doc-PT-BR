@@ -1,311 +1,644 @@
 ---
-sidebar_position: 1
 title: Manual Trigger
-description: Iniciar workflows manualmente para testes e execuções pontuais
-keywords: [n8n, manual, trigger, execução, teste, workflow]
+description: Guia completo sobre o Manual Trigger no n8n, incluindo configuração, execução manual, exemplos práticos e boas práticas
+sidebar_position: 1
+keywords: [n8n, manual trigger, execução manual, teste, desenvolvimento, workflow]
 ---
 
-# <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Manual Trigger
+# <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Manual Trigger
 
-O **Manual Trigger** é o trigger mais simples do n8n. Ele permite **executar workflows manualmente** clicando em um botão, sendo perfeito para testes, execuções pontuais e fluxos que não precisam ser automatizados.
+O **Manual Trigger** é o node mais fundamental do n8n, permitindo executar workflows manualmente. É essencial para testes, desenvolvimento e execução sob demanda de automações.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Conceito Principal**
+## O que é o Manual Trigger?
 
-**Manual Trigger = "Executar Quando EU Clicar"**
+O **Manual Trigger** permite:
 
-Este é um **TRIGGER** que:
+- **Executar workflows** manualmente
+- **Testar automações** durante desenvolvimento
+- **Fornecer dados** de entrada para workflows
+- **Simular eventos** e cenários específicos
+- **Executar workflows** sob demanda
+- **Criar workflows** independentes de eventos externos
 
-- **INICIA** o workflow quando clicado
-- **Não aguarda** eventos externos
-- **Perfeito** para testes e debug
-- **Sempre** o primeiro node do workflow
+### Quando Usar o Manual Trigger
 
-> **Diferença Fundamental:** Manual Trigger INICIA workflows. Nodes de ação (como Set, HTTP Request) PROCESSAM dados dentro do workflow.
+- **Desenvolvimento** e teste de workflows
+- **Execução manual** de automações
+- **Simulação** de dados de entrada
+- **Demonstração** de funcionalidades
+- **Processamento** sob demanda
+- **Workflows** que não dependem de eventos
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Como Funciona**
+## Configuração Básica
 
-```mermaid
-graph LR
-A[👤 Usuário] -->|Clica "Execute"| B[⚡ Manual Trigger]
-B --> C[⚙️ Set Node]
-C --> D[🌐 HTTP Request]
-D --> E[✅ Finalizado]
-```
+### Estrutura do Manual Trigger
 
-### **Fluxo de Execução:**
-
-1. **Usuário clica** no botão "Execute Workflow"
-2. **Manual Trigger dispara** e passa dados iniciais
-3. **Workflow continua** com os próximos nodes
-4. **Execução termina** e mostra resultados
-
-## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações**
-
-### **Dados de Entrada**
-
-O Manual Trigger pode passar dados iniciais para o workflow:
-
-#### **Dados Vazios (Padrão)**
-
-```json
-{}
-```
-
-#### **Dados Customizados**
-
-```json
+```javascript
+// Manual Trigger - Estrutura básica
 {
-"nome": "João Silva",
-"email": "joao@email.com",
-"teste": true,
-"timestamp": "2024-01-15T10:30:00Z"
+  "name": "Manual Trigger",
+  "description": "Executar workflow manualmente",
+  "options": {
+    "data": [
+      {
+        "name": "exemplo",
+        "value": "dados de teste"
+      }
+    ]
+  }
 }
 ```
 
-### **Usar Dados Dinâmicos**
+### Configuração de Dados de Entrada
 
-```json
+#### 1. Dados Simples
+
+```javascript
+// Dados básicos
 {
-"usuario": "{{$user.email}}",
-"data_execucao": "{{new Date().toISOString()}}",
-"ambiente": "producao"
+  "name": "nome",
+  "value": "João Silva"
 }
-```
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Casos de Uso Práticos**
-
-### **1. Teste de Workflows**
-
-```
-Manual Trigger → Set (dados de teste) → HTTP Request (API) → Verificar resposta
-```
-
-**Exemplo prático:**
-
-- **Manual Trigger:** `{"cep": "01310-100"}`
-- **HTTP Request:** Consultar ViaCEP
-- **Resultado:** Testar se API retorna dados corretos
-
----
-
-### **2. Processamento de Dados Pontuais**
-
-```
-Manual Trigger → Google Sheets (ler) → Function (processar) → Slack (notificar)
-```
-
-**Cenário:** Relatório mensal manual
-
-- **Manual Trigger:** Executar quando precisar
-- **Google Sheets:** Ler dados do mês
-- **Function:** Calcular métricas
-- **Slack:** Enviar resumo para equipe
-
----
-
-### **3. Operações Administrativas**
-
-```
-Manual Trigger → Database (cleanup) → Email (confirmar)
-```
-
-**Exemplo:** Limpeza de dados antigos
-
-- **Manual Trigger:** `{"dias_retencao": 90}`
-- **Database:** Remover registros antigos
-- **Email:** Confirmar quantos registros foram removidos
-
----
-
-### **4. Sincronização Manual**
-
-```
-Manual Trigger → API A (buscar) → Transform (converter) → API B (salvar)
-```
-
-**Cenário:** Sincronizar dados entre sistemas
-
-- **Manual Trigger:** Quando necessário
-- **API A:** Buscar dados atualizados
-- **Transform:** Converter formato
-- **API B:** Salvar no sistema destino
-
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Vantagens do Manual Trigger**
-
-### **Controle Total**
-
-- Você decide **quando** executar
-- Perfeito para **operações sensíveis**
-- **Zero chance** de execução acidental
-
-### **Ideal para Testes**
-
-- **Debug** de workflows complexos
-- **Validar** lógica antes de automatizar
-- **Testar** integrações com APIs
-
-### **Simplicidade**
-
-- **Sem configuração** complexa
-- **Sem dependências** externas
-- **Funciona** imediatamente
-
-### **Flexibilidade**
-
-- **Dados customizados** a cada execução
-- **Diferentes cenários** de teste
-- **Controle** de ambiente (teste/produção)
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações**
-
-### **Não é Automático**
-
-- Precisa de **intervenção humana**
-- **Não escala** para alta frequência
-- **Não funciona** fora do horário comercial
-
-### **Sem Agendamento**
-
-- **Não executa** em horários específicos
-- **Não repete** automaticamente
-- Para isso, use **[Schedule Trigger](./schedule-trigger)**
-
-### **Dependente de Interface**
-
-- Precisa **acessar o n8n**
-- **Não funciona** via API externa
-- Para isso, use **[Webhook Trigger](../event-based/webhook-trigger)**
-
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configuração Avançada**
-
-### **Dados Condicionais**
-
-```json
 {
-"ambiente": "{{$user.email.includes('admin') ? 'producao' : 'teste'}}",
-"permissoes": ["{{$user.role}}"],
-"timestamp": "{{new Date().toISOString()}}"
+  "name": "idade",
+  "value": 30
 }
-```
 
-### **Configurações por Usuário**
-
-```json
 {
-"usuario_id": "{{$user.id}}",
-"usuario_email": "{{$user.email}}",
-"configuracao": {
-"limite_registros": "{{$user.role === 'admin' ? 1000 : 100}}",
-"acesso_completo": "{{$user.role === 'admin'}}"
-}
+  "name": "ativo",
+  "value": true
 }
 ```
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Melhores Práticas**
+#### 2. Dados Estruturados
 
-### **1. Use para Desenvolvimento**
-
-```
-Desenvolvimento: Manual Trigger
-Produção: Schedule/Webhook Trigger
-```
-
-### **2. Dados de Teste Realistas**
-
-```json
+```javascript
+// Objeto complexo
 {
-"cliente_teste": {
-"nome": "João Silva",
-"email": "joao.teste@empresa.com",
-"documento": "123.456.789-00"
-}
+  "name": "cliente",
+  "value": {
+    "id": 12345,
+    "nome": "João Silva",
+    "email": "joao@email.com",
+    "telefone": "(11) 99999-9999",
+    "ativo": true
+  }
 }
 ```
 
-### **3. Documentar Propósito**
+#### 3. Arrays de Dados
 
-```json
+```javascript
+// Lista de itens
 {
-"proposito": "Teste de integração com API de pagamentos",
-"responsavel": "admin@empresa.com",
-"versao_workflow": "1.2.3"
+  "name": "produtos",
+  "value": [
+    {
+      "id": 1,
+      "nome": "Notebook",
+      "preco": 2500.00
+    },
+    {
+      "id": 2,
+      "nome": "Mouse",
+      "preco": 50.00
+    }
+  ]
 }
 ```
 
-### **4. Incluir Metadados**
+#### 4. Dados com Expressões
 
-```json
+```javascript
+// Usar expressões para dados dinâmicos
 {
-"execucao_manual": true,
-"ambiente": "desenvolvimento",
-"data_execucao": "{{new Date().toISOString()}}",
-"dados": {
-// Seus dados aqui
+  "name": "data_atual",
+  "value": "{{ $now.toISOString() }}"
 }
+
+{
+  "name": "usuario",
+  "value": "{{ $env.USER || 'desenvolvedor' }}"
+}
+
+{
+  "name": "ambiente",
+  "value": "{{ $env.NODE_ENV || 'desenvolvimento' }}"
 }
 ```
 
-## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Transição para Automação**
+## Exemplos Práticos
 
-### **Workflow Manual → Automático**
+### 1. Teste de Validação de Dados
 
-#### **1. Começar Manual:**
-
+```javascript
+// Manual Trigger - Teste de validação
+{
+  "name": "Teste Validação",
+  "description": "Testar validação de dados de cliente",
+  "options": {
+    "data": [
+      {
+        "name": "cliente_valido",
+        "value": {
+          "nome": "João Silva",
+          "email": "joao@email.com",
+          "cpf": "12345678901",
+          "idade": 25
+        }
+      },
+      {
+        "name": "cliente_invalido",
+        "value": {
+          "nome": "",
+          "email": "email_invalido",
+          "cpf": "123",
+          "idade": 15
+        }
+      }
+    ]
+  }
+}
 ```
-Manual Trigger → Lógica do Workflow
+
+### 2. Simulação de Pedido
+
+```javascript
+// Manual Trigger - Simular pedido
+{
+  "name": "Simular Pedido",
+  "description": "Testar processamento de pedido",
+  "options": {
+    "data": [
+      {
+        "name": "pedido",
+        "value": {
+          "numero": "PED-2024-001",
+          "cliente": {
+            "id": 12345,
+            "nome": "Maria Santos",
+            "email": "maria@email.com"
+          },
+          "itens": [
+            {
+              "produto_id": 1,
+              "nome": "Notebook Dell",
+              "quantidade": 1,
+              "preco_unitario": 3500.00
+            },
+            {
+              "produto_id": 2,
+              "nome": "Mouse Wireless",
+              "quantidade": 2,
+              "preco_unitario": 80.00
+            }
+          ],
+          "total": 3660.00,
+          "status": "pendente"
+        }
+      }
+    ]
+  }
+}
 ```
 
-#### **2. Testar Completamente:**
+### 3. Teste de API
 
-- Diferentes cenários
-- Tratamento de erros
-- Performance
-
-#### **3. Migrar para Automático:**
-
+```javascript
+// Manual Trigger - Teste de API
+{
+  "name": "Teste API",
+  "description": "Testar integração com API externa",
+  "options": {
+    "data": [
+      {
+        "name": "configuracao_api",
+        "value": {
+          "url": "https://api.exemplo.com/dados",
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer token_teste"
+          },
+          "body": {
+            "cliente_id": 12345,
+            "acao": "consultar"
+          }
+        }
+      }
+    ]
+  }
+}
 ```
-Schedule Trigger → Mesma Lógica do Workflow
+
+### 4. Simulação de Evento
+
+```javascript
+// Manual Trigger - Simular evento
+{
+  "name": "Simular Evento",
+  "description": "Simular evento de sistema",
+  "options": {
+    "data": [
+      {
+        "name": "evento",
+        "value": {
+          "tipo": "cliente_novo",
+          "timestamp": "{{ $now.toISOString() }}",
+          "dados": {
+            "cliente_id": 67890,
+            "nome": "Pedro Costa",
+            "email": "pedro@email.com",
+            "origem": "site"
+          },
+          "metadata": {
+            "ip": "192.168.1.100",
+            "user_agent": "Mozilla/5.0...",
+            "referrer": "https://google.com"
+          }
+        }
+      }
+    ]
+  }
+}
 ```
 
-### **Manter Ambos**
+### 5. Teste de Processamento em Lote
 
+```javascript
+// Manual Trigger - Processamento em lote
+{
+  "name": "Teste Lote",
+  "description": "Testar processamento de múltiplos itens",
+  "options": {
+    "data": [
+      {
+        "name": "itens_lote",
+        "value": [
+          {
+            "id": 1,
+            "nome": "Produto A",
+            "categoria": "eletronicos",
+            "preco": 100.00
+          },
+          {
+            "id": 2,
+            "nome": "Produto B",
+            "categoria": "roupas",
+            "preco": 50.00
+          },
+          {
+            "id": 3,
+            "nome": "Produto C",
+            "categoria": "eletronicos",
+            "preco": 200.00
+          },
+          {
+            "id": 4,
+            "nome": "Produto D",
+            "categoria": "livros",
+            "preco": 30.00
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
-Manual Trigger (testes) 
-→ Subworkflow Comum
-Schedule Trigger (prod) 
+
+## Casos de Uso Avançados
+
+### 1. Teste com Diferentes Cenários
+
+```javascript
+// Manual Trigger - Múltiplos cenários
+{
+  "name": "Teste Cenários",
+  "description": "Testar diferentes cenários de negócio",
+  "options": {
+    "data": [
+      {
+        "name": "cenario_sucesso",
+        "value": {
+          "tipo": "sucesso",
+          "dados": {
+            "cliente": "vip",
+            "valor": 5000,
+            "status": "aprovado"
+          }
+        }
+      },
+      {
+        "name": "cenario_erro",
+        "value": {
+          "tipo": "erro",
+          "dados": {
+            "cliente": "novo",
+            "valor": 10000,
+            "status": "pendente"
+          }
+        }
+      },
+      {
+        "name": "cenario_limite",
+        "value": {
+          "tipo": "limite",
+          "dados": {
+            "cliente": "regular",
+            "valor": 1000,
+            "status": "rejeitado"
+          }
+        }
+      }
+    ]
+  }
+}
 ```
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
+### 2. Simulação de Dados Reais
 
-Depois de dominar Manual Trigger, evolua para:
+```javascript
+// Manual Trigger - Dados realistas
+{
+  "name": "Dados Reais",
+  "description": "Simular dados de produção",
+  "options": {
+    "data": [
+      {
+        "name": "transacao_real",
+        "value": {
+          "id": "{{ $now.toMillis() }}",
+          "cliente": {
+            "id": "{{ Math.floor(Math.random() * 10000) }}",
+            "nome": "{{ ['João', 'Maria', 'Pedro', 'Ana'][Math.floor(Math.random() * 4)] }} {{ ['Silva', 'Santos', 'Costa', 'Oliveira'][Math.floor(Math.random() * 4)] }}",
+            "email": "{{ ['joao', 'maria', 'pedro', 'ana'][Math.floor(Math.random() * 4)] }}@email.com"
+          },
+          "produto": {
+            "id": "{{ Math.floor(Math.random() * 100) }}",
+            "nome": "{{ ['Notebook', 'Mouse', 'Teclado', 'Monitor'][Math.floor(Math.random() * 4)] }}",
+            "preco": "{{ Math.floor(Math.random() * 1000) + 100 }}"
+          },
+          "timestamp": "{{ $now.toISOString() }}",
+          "status": "{{ ['aprovado', 'pendente', 'rejeitado'][Math.floor(Math.random() * 3)] }}"
+        }
+      }
+    ]
+  }
+}
+```
 
-1. **[Schedule Trigger](./schedule-trigger)** - Para execução automática
-2. **[Webhook Trigger](../event-based/webhook-trigger)** - Para eventos externos
-3. **[Set Node](../../builtin-nodes/data-processing/set)** - Para manipular dados
+### 3. Teste de Performance
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Checklist de Uso**
+```javascript
+// Manual Trigger - Teste de performance
+{
+  "name": "Teste Performance",
+  "description": "Testar performance com grandes volumes",
+  "options": {
+    "data": [
+      {
+        "name": "dados_grande_volume",
+        "value": "{{ Array.from({length: 1000}, (_, i) => ({ id: i + 1, nome: `Item ${i + 1}`, valor: Math.random() * 1000 })) }}"
+      }
+    ]
+  }
+}
+```
 
-### **Antes de Executar:**
+### 4. Simulação de Erros
 
-- Dados de entrada definidos
-- Workflow testado por partes
-- Credenciais configuradas
-- Ambiente correto (teste/prod)
+```javascript
+// Manual Trigger - Simular erros
+{
+  "name": "Simular Erros",
+  "description": "Testar tratamento de erros",
+  "options": {
+    "data": [
+      {
+        "name": "erro_conectividade",
+        "value": {
+          "tipo": "erro_rede",
+          "mensagem": "Timeout na conexão",
+          "codigo": 408,
+          "retry": true
+        }
+      },
+      {
+        "name": "erro_dados",
+        "value": {
+          "tipo": "erro_validacao",
+          "mensagem": "Dados inválidos",
+          "campos": ["email", "cpf"],
+          "retry": false
+        }
+      },
+      {
+        "name": "erro_sistema",
+        "value": {
+          "tipo": "erro_interno",
+          "mensagem": "Erro interno do servidor",
+          "codigo": 500,
+          "retry": true
+        }
+      }
+    ]
+  }
+}
+```
 
-### **Durante Desenvolvimento:**
+## Boas Práticas
 
-- Use dados realistas mas seguros
-- Teste cenários de erro
-- Valide todas as saídas
-- Documente comportamentos
+### 1. Nomenclatura Descritiva
 
-### **Antes da Produção:**
+```javascript
+// ✅ Bom: Nome descritivo
+{
+  "name": "Teste Validação Cliente VIP"
+}
 
-- Substitua por trigger automático
-- Configure monitoramento
-- Teste em ambiente similar à produção
-- Defina plano de rollback
+// ❌ Evitar: Nome genérico
+{
+  "name": "Teste"
+}
+```
 
----
+### 2. Documentação Clara
 
-**Manual Trigger = Seu botão de controle total sobre o workflow!**
+```javascript
+// ✅ Bom: Descrição detalhada
+{
+  "description": "Testar validação de dados de cliente VIP com valores altos"
+}
+
+// ❌ Evitar: Descrição vaga
+{
+  "description": "Teste"
+}
+```
+
+### 3. Dados Realistas
+
+```javascript
+// ✅ Bom: Dados que simulam produção
+{
+  "value": {
+    "nome": "João Silva",
+    "email": "joao.silva@empresa.com",
+    "cpf": "12345678901"
+  }
+}
+
+// ❌ Evitar: Dados irreais
+{
+  "value": {
+    "nome": "teste",
+    "email": "teste@teste.com",
+    "cpf": "00000000000"
+  }
+}
+```
+
+### 4. Múltiplos Cenários
+
+```javascript
+// ✅ Bom: Testar diferentes cenários
+{
+  "data": [
+    { "name": "sucesso", "value": {...} },
+    { "name": "erro", "value": {...} },
+    { "name": "limite", "value": {...} }
+  ]
+}
+
+// ❌ Evitar: Apenas um cenário
+{
+  "data": [
+    { "name": "teste", "value": {...} }
+  ]
+}
+```
+
+## Troubleshooting
+
+### Problemas Comuns
+
+#### Workflow não executa
+- Verifique se o Manual Trigger está conectado
+- Confirme se há dados de entrada
+- Teste com dados simples
+- Verifique logs de erro
+
+#### Dados não aparecem
+- Verifique a estrutura dos dados
+- Confirme se os campos estão corretos
+- Teste com dados básicos
+- Use Debug Helper
+
+#### Performance lenta
+- Reduza volume de dados de teste
+- Simplifique expressões
+- Use dados otimizados
+- Monitore recursos
+
+### Debug
+
+```javascript
+// Code Node - Debug de Manual Trigger
+const debugManualTrigger = (dados) => {
+  console.log('=== DEBUG MANUAL TRIGGER ===');
+  console.log('Dados de entrada:', dados);
+  console.log('Tipo de dados:', typeof dados);
+  console.log('É array:', Array.isArray(dados));
+  console.log('Número de itens:', Array.isArray(dados) ? dados.length : 1);
+  console.log('===========================');
+  
+  return dados;
+};
+
+// Usar após o Manual Trigger
+return { json: debugManualTrigger($json) };
+```
+
+## Integração com Outros Nodes
+
+### 1. Manual Trigger + Set Node
+
+```javascript
+// Manual Trigger - Dados básicos
+{
+  "name": "dados_cliente",
+  "value": {
+    "nome": "João Silva",
+    "email": "joao@email.com"
+  }
+}
+
+// Set Node - Enriquecer dados
+{
+  "mode": "keepAllSet",
+  "values": {
+    "string": [
+      {
+        "name": "timestamp_processamento",
+        "value": "{{ $now.toISOString() }}"
+      },
+      {
+        "name": "workflow_id",
+        "value": "{{ $workflow.id }}"
+      }
+    ]
+  }
+}
+```
+
+### 2. Manual Trigger + If Node
+
+```javascript
+// Manual Trigger - Dados de teste
+{
+  "name": "dados_teste",
+  "value": {
+    "tipo": "cliente_vip",
+    "valor": 5000
+  }
+}
+
+// If Node - Roteamento baseado em dados
+{
+  "condition": "{{ $json.tipo === 'cliente_vip' && $json.valor > 1000 }}",
+  "true": "Processamento VIP",
+  "false": "Processamento Regular"
+}
+```
+
+### 3. Manual Trigger + HTTP Request
+
+```javascript
+// Manual Trigger - Configuração de API
+{
+  "name": "config_api",
+  "value": {
+    "url": "https://api.exemplo.com/dados",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
+
+// HTTP Request - Usar configuração
+{
+  "url": "{{ $json.url }}",
+  "method": "{{ $json.method }}",
+  "headers": "{{ $json.headers }}"
+}
+```
+
+## Próximos Passos
+
+- [Schedule Trigger](/integracoes/trigger-nodes/time-based/schedule-trigger.md) - Execução automática
+- [Webhook Trigger](/integracoes/trigger-nodes/event-based/webhook-trigger.md) - Receber dados externos
+- [If Node](/integracoes/builtin-nodes/logic-control/if.md) - Controle de fluxo
+- [Set Node](/integracoes/builtin-nodes/data-processing/set.md) - Manipulação de dados
+- [Debugging](/logica-e-dados/flow-logic/debugging.md) - Técnicas de debug

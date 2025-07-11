@@ -42,6 +42,8 @@
     "analyze-gaps": "node scripts/analyze-content-gaps.js",
     "analyze-gaps-issues": "node scripts/analyze-content-gaps.js --create-issues",
     "analyze-gaps-report": "node scripts/analyze-content-gaps.js --save-report",
+    "validate-overlaps": "node scripts/validate-overlaps.js",
+    "check-overlaps": "node scripts/validate-overlaps.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0"
@@ -94,6 +96,7 @@
     "axios": "^1.10.0",
     "eslint": "^9.30.1",
     "eslint-plugin-react": "^7.37.5",
+    "glob": "^10.3.10",
     "kill-port": "^2.0.1",
     "markdownlint-cli2": "^0.18.1",
     "typescript": "^5.8.3"

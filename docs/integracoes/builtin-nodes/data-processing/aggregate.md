@@ -1,634 +1,681 @@
 ---
+title: Aggregate Node
+description: Guia completo sobre o Aggregate Node no n8n, incluindo agrupamento, agregações, exemplos práticos e boas práticas
 sidebar_position: 3
-title: Aggregate
-description: Agrupe e resuma dados em workflows n8n
-keywords: [n8n, aggregate, agrupar, resumir, dados, estatísticas, agregação]
+keywords: [n8n, aggregate node, agregação, agrupamento, dados, estatísticas, sum, count, average]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Aggregate Node
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Aggregate Node
 
-O **Aggregate Node** permite **agrupar e resumir dados** de forma eficiente, criando estatísticas e relatórios a partir de grandes conjuntos de dados. É essencial para análise de dados e geração de insights.
+O **Aggregate Node** é uma ferramenta poderosa do n8n para agrupar e agregar dados. Ele permite calcular estatísticas, somar valores, contar itens e criar resumos baseados em critérios específicos.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Conceito Principal**
+## O que é o Aggregate Node?
 
-**Aggregate = "Agrupar e Resumir Dados"**
+O **Aggregate Node** permite:
 
-O Aggregate Node é uma **AÇÃO** que:
+- **Agrupar** dados por campos específicos
+- **Calcular** estatísticas (soma, média, contagem)
+- **Criar** resumos de dados
+- **Consolidar** informações de múltiplos itens
+- **Gerar** relatórios agregados
+- **Reduzir** volume de dados
 
-- **Agrupa** dados por campos específicos
-- **Calcula** estatísticas (soma, média, contagem, etc.)
-- **Resume** grandes volumes de dados
-- **Gera** relatórios e insights
+### Quando Usar o Aggregate Node
 
-> **💡 Dica:** Use este node para criar dashboards, relatórios e análises de dados em seus workflows.
+- **Relatórios** de vendas por período
+- **Estatísticas** de usuários por categoria
+- **Consolidação** de dados de múltiplas fontes
+- **Análise** de performance por região
+- **Resumos** de transações financeiras
+- **Agregação** de métricas de negócio
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
+## Configuração Básica
 
-### **1. Group By**
+### Estrutura do Aggregate Node
 
-```
-Campo(s) para agrupar os dados (ex: categoria, data, região)
-```
-
-### **2. Aggregation Functions**
-
-```
-Sum - Soma de valores
-Average - Média aritmética
-Count - Contagem de itens
-Min - Valor mínimo
-Max - Valor máximo
-First - Primeiro valor
-Last - Último valor
-```
-
-### **3. Fields to Aggregate**
-
-```
-Campos numéricos para aplicar as funções de agregação
-```
-
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos Práticos**
-
-### **Exemplo 1: Vendas por Categoria**
-
-**Entrada:**
-
-```json
-[
-  {"categoria": "Eletrônicos", "valor": 1500, "quantidade": 3},
-  {"categoria": "Eletrônicos", "valor": 2000, "quantidade": 2},
-  {"categoria": "Roupas", "valor": 500, "quantidade": 5},
-  {"categoria": "Roupas", "valor": 300, "quantidade": 3},
-  {"categoria": "Livros", "valor": 200, "quantidade": 10}
-]
+```javascript
+// Aggregate Node - Estrutura básica
+{
+  "groupBy": ["categoria", "regiao"], // Campos para agrupar
+  "aggregations": [
+    {
+      "field": "valor",
+      "operation": "sum",
+      "name": "total_valor"
+    },
+    {
+      "field": "id",
+      "operation": "count",
+      "name": "quantidade_itens"
+    }
+  ]
+}
 ```
 
-**Configuração:**
+### Campos de Agrupamento
 
-```
-Group By: categoria
-Fields to Aggregate:
-  - valor (Sum)
-  - quantidade (Sum)
-  - valor (Average)
-  - quantidade (Count)
-```
+#### 1. Agrupamento Simples
 
-**Saída:**
+```javascript
+// Agrupar por um campo
+{
+  "groupBy": ["categoria"]
+}
 
-```json
-[
-  {
-    "categoria": "Eletrônicos",
-    "valor_sum": 3500,
-    "quantidade_sum": 5,
-    "valor_average": 1750,
-    "quantidade_count": 2
-  },
-  {
-    "categoria": "Roupas",
-    "valor_sum": 800,
-    "quantidade_sum": 8,
-    "valor_average": 400,
-    "quantidade_count": 2
-  },
-  {
-    "categoria": "Livros",
-    "valor_sum": 200,
-    "quantidade_sum": 10,
-    "valor_average": 200,
-    "quantidade_count": 1
-  }
-]
+// Agrupar por múltiplos campos
+{
+  "groupBy": ["categoria", "regiao", "mes"]
+}
 ```
 
-### **Exemplo 2: Vendas por Mês e Região**
+#### 2. Agrupamento com Expressões
 
-**Entrada:**
+```javascript
+// Agrupar por data formatada
+{
+  "groupBy": ["{{ $json.data.substring(0, 7) }}"] // YYYY-MM
+}
 
-```json
-[
-  {"mes": "2024-01", "regiao": "SP", "vendas": 5000, "clientes": 50},
-  {"mes": "2024-01", "regiao": "RJ", "vendas": 3000, "clientes": 30},
-  {"mes": "2024-02", "regiao": "SP", "vendas": 6000, "clientes": 60},
-  {"mes": "2024-02", "regiao": "RJ", "vendas": 4000, "clientes": 40}
-]
+// Agrupar por faixa de valor
+{
+  "groupBy": ["{{ $json.valor > 1000 ? 'Alto' : 'Baixo' }}"]
+}
+
+// Agrupar por categoria condicional
+{
+  "groupBy": ["{{ $json.categoria || 'Sem Categoria' }}"]
+}
 ```
 
-**Configuração:**
+### Operações de Agregação
 
-```
-Group By: mes, regiao
-Fields to Aggregate:
-  - vendas (Sum)
-  - clientes (Sum)
-  - vendas (Average)
-```
+#### 1. Soma (Sum)
 
-**Saída:**
+```javascript
+// Somar valores numéricos
+{
+  "field": "valor",
+  "operation": "sum",
+  "name": "total_vendas"
+}
 
-```json
-[
-  {
-    "mes": "2024-01",
-    "regiao": "SP",
-    "vendas_sum": 5000,
-    "clientes_sum": 50,
-    "vendas_average": 5000
-  },
-  {
-    "mes": "2024-01",
-    "regiao": "RJ",
-    "vendas_sum": 3000,
-    "clientes_sum": 30,
-    "vendas_average": 3000
-  },
-  {
-    "mes": "2024-02",
-    "regiao": "SP",
-    "vendas_sum": 6000,
-    "clientes_sum": 60,
-    "vendas_average": 6000
-  },
-  {
-    "mes": "2024-02",
-    "regiao": "RJ",
-    "vendas_sum": 4000,
-    "clientes_sum": 40,
-    "vendas_average": 4000
-  }
-]
+// Somar com condição
+{
+  "field": "{{ $json.status === 'aprovado' ? $json.valor : 0 }}",
+  "operation": "sum",
+  "name": "total_aprovado"
+}
 ```
 
-### **Exemplo 3: Análise de Produtos**
+#### 2. Contagem (Count)
 
-**Entrada:**
+```javascript
+// Contar todos os itens
+{
+  "field": "id",
+  "operation": "count",
+  "name": "total_registros"
+}
 
-```json
-[
-  {"produto": "Notebook", "preco": 3000, "estoque": 10, "categoria": "Eletrônicos"},
-  {"produto": "Mouse", "preco": 50, "estoque": 100, "categoria": "Eletrônicos"},
-  {"produto": "Camiseta", "preco": 80, "estoque": 200, "categoria": "Roupas"},
-  {"produto": "Calça", "preco": 150, "estoque": 50, "categoria": "Roupas"}
-]
+// Contar com condição
+{
+  "field": "{{ $json.ativo ? 1 : 0 }}",
+  "operation": "sum",
+  "name": "registros_ativos"
+}
 ```
 
-**Configuração:**
+#### 3. Média (Average)
 
-```
-Group By: categoria
-Fields to Aggregate:
-  - preco (Sum, Average, Min, Max)
-  - estoque (Sum, Average)
-  - produto (Count)
-```
+```javascript
+// Calcular média
+{
+  "field": "valor",
+  "operation": "average",
+  "name": "valor_medio"
+}
 
-**Saída:**
-
-```json
-[
-  {
-    "categoria": "Eletrônicos",
-    "preco_sum": 3050,
-    "preco_average": 1525,
-    "preco_min": 50,
-    "preco_max": 3000,
-    "estoque_sum": 110,
-    "estoque_average": 55,
-    "produto_count": 2
-  },
-  {
-    "categoria": "Roupas",
-    "preco_sum": 230,
-    "preco_average": 115,
-    "preco_min": 80,
-    "preco_max": 150,
-    "estoque_sum": 250,
-    "estoque_average": 125,
-    "produto_count": 2
-  }
-]
+// Média com filtro
+{
+  "field": "{{ $json.valor > 0 ? $json.valor : null }}",
+  "operation": "average",
+  "name": "media_valores_positivos"
+}
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Funções de Agregação**
+#### 4. Mínimo e Máximo
 
-### **Funções Disponíveis**
+```javascript
+// Valor mínimo
+{
+  "field": "valor",
+  "operation": "min",
+  "name": "valor_minimo"
+}
 
-| Função | Descrição | Exemplo |
-|--------|-----------|---------|
-| **Sum** | Soma todos os valores | `[1,2,3] → 6` |
-| **Average** | Média aritmética | `[1,2,3] → 2` |
-| **Count** | Conta itens | `[a,b,c] → 3` |
-| **Min** | Valor mínimo | `[1,2,3] → 1` |
-| **Max** | Valor máximo | `[1,2,3] → 3` |
-| **First** | Primeiro valor | `[a,b,c] → a` |
-| **Last** | Último valor | `[a,b,c] → c` |
-
-### **Exemplos de Uso**
-
-**Soma de Vendas:**
-
-```
-Field: vendas
-Function: Sum
-Result: Total de vendas do grupo
+// Valor máximo
+{
+  "field": "valor",
+  "operation": "max",
+  "name": "valor_maximo"
+}
 ```
 
-**Média de Preços:**
+#### 5. Primeiro e Último
 
-```
-Field: preco
-Function: Average
-Result: Preço médio do grupo
-```
+```javascript
+// Primeiro valor
+{
+  "field": "nome",
+  "operation": "first",
+  "name": "primeiro_nome"
+}
 
-**Contagem de Pedidos:**
-
-```
-Field: pedido_id
-Function: Count
-Result: Número de pedidos no grupo
-```
-
-**Faixa de Preços:**
-
-```
-Field: preco
-Functions: Min, Max
-Result: Preço mínimo e máximo do grupo
+// Último valor
+{
+  "field": "data",
+  "operation": "last",
+  "name": "ultima_data"
+}
 ```
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Casos de Uso Avançados**
+## Exemplos Práticos
 
-### **1. Relatório de Vendas Diárias**
+### 1. Relatório de Vendas por Categoria
 
-**Entrada (vendas do mês):**
-
-```json
-[
-  {"data": "2024-01-01", "vendas": 1000, "clientes": 10},
-  {"data": "2024-01-01", "vendas": 1500, "clientes": 15},
-  {"data": "2024-01-02", "vendas": 2000, "clientes": 20},
-  {"data": "2024-01-02", "vendas": 1200, "clientes": 12}
-]
-```
-
-**Configuração:**
-
-```
-Group By: data
-Fields to Aggregate:
-  - vendas (Sum)
-  - clientes (Sum)
-  - vendas (Average)
-```
-
-**Saída (resumo diário):**
-
-```json
-[
-  {
-    "data": "2024-01-01",
-    "vendas_sum": 2500,
-    "clientes_sum": 25,
-    "vendas_average": 1250
-  },
-  {
-    "data": "2024-01-02",
-    "vendas_sum": 3200,
-    "clientes_sum": 32,
-    "vendas_average": 1600
-  }
-]
-```
-
-### **2. Análise de Performance por Vendedor**
-
-**Entrada:**
-
-```json
-[
-  {"vendedor": "João", "vendas": 5000, "comissao": 500, "mes": "2024-01"},
-  {"vendedor": "João", "vendas": 6000, "comissao": 600, "mes": "2024-02"},
-  {"vendedor": "Maria", "vendas": 4000, "comissao": 400, "mes": "2024-01"},
-  {"vendedor": "Maria", "vendas": 7000, "comissao": 700, "mes": "2024-02"}
-]
-```
-
-**Configuração:**
-
-```
-Group By: vendedor
-Fields to Aggregate:
-  - vendas (Sum, Average)
-  - comissao (Sum, Average)
-  - mes (Count)
-```
-
-**Saída:**
-
-```json
-[
-  {
-    "vendedor": "João",
-    "vendas_sum": 11000,
-    "vendas_average": 5500,
-    "comissao_sum": 1100,
-    "comissao_average": 550,
-    "mes_count": 2
-  },
-  {
-    "vendedor": "Maria",
-    "vendas_sum": 11000,
-    "vendas_average": 5500,
-    "comissao_sum": 1100,
-    "comissao_average": 550,
-    "mes_count": 2
-  }
-]
-```
-
-### **3. Análise de Produtos por Categoria e Fornecedor**
-
-**Entrada:**
-
-```json
-[
-  {"categoria": "Eletrônicos", "fornecedor": "TechCorp", "preco": 1000, "estoque": 50},
-  {"categoria": "Eletrônicos", "fornecedor": "TechCorp", "preco": 2000, "estoque": 30},
-  {"categoria": "Eletrônicos", "fornecedor": "ElectroMax", "preco": 1500, "estoque": 40},
-  {"categoria": "Roupas", "fornecedor": "FashionCo", "preco": 100, "estoque": 200}
-]
-```
-
-**Configuração:**
-
-```
-Group By: categoria, fornecedor
-Fields to Aggregate:
-  - preco (Sum, Average, Min, Max)
-  - estoque (Sum, Average)
-```
-
-**Saída:**
-
-```json
-[
-  {
-    "categoria": "Eletrônicos",
-    "fornecedor": "TechCorp",
-    "preco_sum": 3000,
-    "preco_average": 1500,
-    "preco_min": 1000,
-    "preco_max": 2000,
-    "estoque_sum": 80,
-    "estoque_average": 40
-  },
-  {
-    "categoria": "Eletrônicos",
-    "fornecedor": "ElectroMax",
-    "preco_sum": 1500,
-    "preco_average": 1500,
-    "preco_min": 1500,
-    "preco_max": 1500,
-    "estoque_sum": 40,
-    "estoque_average": 40
-  },
-  {
-    "categoria": "Roupas",
-    "fornecedor": "FashionCo",
-    "preco_sum": 100,
-    "preco_average": 100,
-    "preco_min": 100,
-    "preco_max": 100,
-    "estoque_sum": 200,
-    "estoque_average": 200
-  }
-]
-```
-
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Otimização de Performance**
-
-### **Escolhendo Campos para Agrupar**
-
-**Campos Ideais para Agrupamento:**
-
-- ✅ **Categorias** (categoria, tipo, status)
-- ✅ **Datas** (ano, mês, dia)
-- ✅ **Regiões** (estado, cidade, país)
-- ✅ **IDs** (vendedor_id, cliente_id)
-
-**Campos a Evitar:**
-
-- ❌ **Valores únicos** (IDs de transação)
-- ❌ **Campos com muitos valores distintos**
-- ❌ **Campos numéricos contínuos**
-
-### **Campos para Agregação**
-
-**Campos Numéricos Ideais:**
-
-- ✅ **Valores monetários** (vendas, preços, comissões)
-- ✅ **Quantidades** (estoque, quantidade, contadores)
-- ✅ **Métricas** (pontuação, rating, performance)
-
-### **Exemplo de Configuração Otimizada**
-
-**Entrada (vendas):**
-
-```json
-[
-  {"categoria": "Eletrônicos", "vendedor": "João", "vendas": 1000, "quantidade": 5},
-  {"categoria": "Eletrônicos", "vendedor": "João", "vendas": 2000, "quantidade": 10},
-  {"categoria": "Roupas", "vendedor": "Maria", "vendas": 500, "quantidade": 20}
-]
-```
-
-**Configuração Otimizada:**
-
-```
-Group By: categoria, vendedor
-Fields to Aggregate:
-  - vendas (Sum, Average)
-  - quantidade (Sum, Average)
-```
-
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Tratamento de Dados**
-
-### **Dados Faltantes**
-
-**Configuração para Ignorar Nulos:**
-
-```
-Skip Empty Values: true
-```
-
-**Exemplo:**
-
-```json
-// Entrada com valores nulos
-[
-  {"categoria": "A", "valor": 100},
-  {"categoria": "A", "valor": null},
-  {"categoria": "B", "valor": 200}
-]
-
-// Saída (null ignorado)
-[
-  {"categoria": "A", "valor_sum": 100},
-  {"categoria": "B", "valor_sum": 200}
-]
-```
-
-### **Valores Zero vs Nulos**
-
-**Configuração:**
-
-```
-Include Zero Values: true
-Skip Empty Values: true
+```javascript
+// Aggregate Node - Vendas por categoria
+{
+  "groupBy": ["categoria"],
+  "aggregations": [
+    {
+      "field": "valor",
+      "operation": "sum",
+      "name": "total_vendas"
+    },
+    {
+      "field": "id",
+      "operation": "count",
+      "name": "quantidade_vendas"
+    },
+    {
+      "field": "valor",
+      "operation": "average",
+      "name": "ticket_medio"
+    },
+    {
+      "field": "valor",
+      "operation": "min",
+      "name": "menor_venda"
+    },
+    {
+      "field": "valor",
+      "operation": "max",
+      "name": "maior_venda"
+    }
+  ]
+}
 ```
 
 **Resultado:**
+```json
+[
+  {
+    "categoria": "Eletrônicos",
+    "total_vendas": 15000,
+    "quantidade_vendas": 25,
+    "ticket_medio": 600,
+    "menor_venda": 100,
+    "maior_venda": 2000
+  },
+  {
+    "categoria": "Roupas",
+    "total_vendas": 8000,
+    "quantidade_vendas": 40,
+    "ticket_medio": 200,
+    "menor_venda": 50,
+    "maior_venda": 500
+  }
+]
+```
 
-- **Zero (0)**: Incluído nas agregações
-- **Null/Undefined**: Ignorado nas agregações
-
-### **Formatação de Resultados**
-
-**Usando Code Node após Aggregate:**
+### 2. Estatísticas de Usuários por Região
 
 ```javascript
-const items = $input.all();
-const returnData = [];
+// Aggregate Node - Usuários por região
+{
+  "groupBy": ["regiao", "status"],
+  "aggregations": [
+    {
+      "field": "id",
+      "operation": "count",
+      "name": "total_usuarios"
+    },
+    {
+      "field": "{{ $json.ativo ? 1 : 0 }}",
+      "operation": "sum",
+      "name": "usuarios_ativos"
+    },
+    {
+      "field": "data_cadastro",
+      "operation": "first",
+      "name": "primeiro_cadastro"
+    },
+    {
+      "field": "data_cadastro",
+      "operation": "last",
+      "name": "ultimo_cadastro"
+    }
+  ]
+}
+```
 
-for (const item of items) {
-  const data = item.json;
-  
-  // Formatar valores monetários
-  const formattedData = {
-    ...data,
-    vendas_sum: parseFloat(data.vendas_sum).toFixed(2),
-    vendas_average: parseFloat(data.vendas_average).toFixed(2),
-    percentual: ((data.vendas_sum / 10000) * 100).toFixed(1) + '%'
-  };
-  
-  returnData.push({ json: formattedData });
+### 3. Análise de Performance por Período
+
+```javascript
+// Aggregate Node - Performance por mês
+{
+  "groupBy": ["{{ $json.data.substring(0, 7) }}"],
+  "aggregations": [
+    {
+      "field": "vendas",
+      "operation": "sum",
+      "name": "total_vendas_mes"
+    },
+    {
+      "field": "clientes",
+      "operation": "count",
+      "name": "novos_clientes"
+    },
+    {
+      "field": "receita",
+      "operation": "sum",
+      "name": "receita_total"
+    },
+    {
+      "field": "custo",
+      "operation": "sum",
+      "name": "custo_total"
+    },
+    {
+      "field": "{{ $json.receita - $json.custo }}",
+      "operation": "sum",
+      "name": "lucro_mes"
+    }
+  ]
+}
+```
+
+### 4. Consolidação de Dados de Múltiplas Fontes
+
+```javascript
+// Aggregate Node - Consolidação de dados
+{
+  "groupBy": ["produto_id", "fornecedor"],
+  "aggregations": [
+    {
+      "field": "quantidade",
+      "operation": "sum",
+      "name": "estoque_total"
+    },
+    {
+      "field": "valor_unitario",
+      "operation": "average",
+      "name": "preco_medio"
+    },
+    {
+      "field": "data_entrada",
+      "operation": "last",
+      "name": "ultima_entrada"
+    },
+    {
+      "field": "id",
+      "operation": "count",
+      "name": "numero_entradas"
+    }
+  ]
+}
+```
+
+### 5. Análise de Transações Financeiras
+
+```javascript
+// Aggregate Node - Análise financeira
+{
+  "groupBy": ["tipo_transacao", "{{ $json.data.substring(0, 10) }}"],
+  "aggregations": [
+    {
+      "field": "{{ $json.tipo === 'credito' ? $json.valor : 0 }}",
+      "operation": "sum",
+      "name": "total_creditos"
+    },
+    {
+      "field": "{{ $json.tipo === 'debito' ? $json.valor : 0 }}",
+      "operation": "sum",
+      "name": "total_debitos"
+    },
+    {
+      "field": "id",
+      "operation": "count",
+      "name": "numero_transacoes"
+    },
+    {
+      "field": "{{ $json.tipo === 'credito' ? $json.valor : -$json.valor }}",
+      "operation": "sum",
+      "name": "saldo_dia"
+    }
+  ]
+}
+```
+
+## Casos de Uso Avançados
+
+### 1. Agregação com Condições Complexas
+
+```javascript
+// Aggregate Node - Condições complexas
+{
+  "groupBy": ["categoria", "{{ $json.valor > 1000 ? 'Premium' : 'Standard' }}"],
+  "aggregations": [
+    {
+      "field": "{{ $json.status === 'aprovado' ? $json.valor : 0 }}",
+      "operation": "sum",
+      "name": "vendas_aprovadas"
+    },
+    {
+      "field": "{{ $json.status === 'pendente' ? $json.valor : 0 }}",
+      "operation": "sum",
+      "name": "vendas_pendentes"
+    },
+    {
+      "field": "{{ $json.status === 'cancelado' ? $json.valor : 0 }}",
+      "operation": "sum",
+      "name": "vendas_canceladas"
+    },
+    {
+      "field": "{{ $json.status === 'aprovado' ? 1 : 0 }}",
+      "operation": "sum",
+      "name": "quantidade_aprovadas"
+    }
+  ]
+}
+```
+
+### 2. Agregação Temporal
+
+```javascript
+// Aggregate Node - Agregação temporal
+{
+  "groupBy": [
+    "{{ $json.data.substring(0, 4) }}", // Ano
+    "{{ $json.data.substring(5, 7) }}", // Mês
+    "{{ $json.data.substring(8, 10) }}" // Dia
+  ],
+  "aggregations": [
+    {
+      "field": "vendas",
+      "operation": "sum",
+      "name": "vendas_dia"
+    },
+    {
+      "field": "clientes",
+      "operation": "count",
+      "name": "clientes_dia"
+    },
+    {
+      "field": "{{ $json.vendas / $json.clientes }}",
+      "operation": "average",
+      "name": "ticket_medio_dia"
+    }
+  ]
+}
+```
+
+### 3. Agregação Hierárquica
+
+```javascript
+// Aggregate Node - Agregação hierárquica
+{
+  "groupBy": [
+    "pais",
+    "estado",
+    "cidade",
+    "bairro"
+  ],
+  "aggregations": [
+    {
+      "field": "vendas",
+      "operation": "sum",
+      "name": "vendas_local"
+    },
+    {
+      "field": "clientes",
+      "operation": "count",
+      "name": "clientes_local"
+    },
+    {
+      "field": "vendedor",
+      "operation": "first",
+      "name": "vendedor_responsavel"
+    }
+  ]
+}
+```
+
+### 4. Agregação com Cálculos Personalizados
+
+```javascript
+// Aggregate Node - Cálculos personalizados
+{
+  "groupBy": ["categoria"],
+  "aggregations": [
+    {
+      "field": "valor",
+      "operation": "sum",
+      "name": "total_vendas"
+    },
+    {
+      "field": "custo",
+      "operation": "sum",
+      "name": "total_custo"
+    },
+    {
+      "field": "{{ $json.valor - $json.custo }}",
+      "operation": "sum",
+      "name": "lucro_bruto"
+    },
+    {
+      "field": "{{ ($json.valor - $json.custo) / $json.valor * 100 }}",
+      "operation": "average",
+      "name": "margem_percentual"
+    },
+    {
+      "field": "id",
+      "operation": "count",
+      "name": "quantidade_produtos"
+    }
+  ]
+}
+```
+
+## Boas Práticas
+
+### 1. Escolha de Campos de Agrupamento
+
+```javascript
+// ✅ Bom: Campos com valores limitados
+{
+  "groupBy": ["categoria", "status", "regiao"]
 }
 
-return returnData;
+// ❌ Evitar: Campos com muitos valores únicos
+{
+  "groupBy": ["id", "email", "timestamp"]
+}
 ```
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos de Workflows**
-
-### **Workflow 1: Relatório de Vendas Mensal**
-
-```
-Schedule Trigger → HTTP Request (buscar vendas) → Aggregate → Email (relatório)
-```
-
-**Configuração Aggregate:**
-
-```
-Group By: mes, categoria
-Fields to Aggregate:
-  - vendas (Sum)
-  - quantidade (Sum)
-  - pedidos (Count)
-```
-
-### **Workflow 2: Dashboard de Performance**
-
-```
-Webhook (novos dados) → Aggregate → HTTP Request (atualizar dashboard)
-```
-
-**Configuração Aggregate:**
-
-```
-Group By: vendedor, mes
-Fields to Aggregate:
-  - vendas (Sum, Average)
-  - comissao (Sum)
-  - clientes (Count)
-```
-
-### **Workflow 3: Análise de Produtos**
-
-```
-Manual Trigger → CSV Parser → Aggregate → Set (formatação) → HTTP Request (salvar)
-```
-
-**Configuração Aggregate:**
-
-```
-Group By: categoria, fornecedor
-Fields to Aggregate:
-  - preco (Sum, Average, Min, Max)
-  - estoque (Sum, Average)
-```
-
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações e Considerações**
-
-### **Limitações Técnicas**
-
-- **Memória**: Grandes conjuntos de dados podem consumir muita memória
-- **Performance**: Agrupamentos complexos podem ser lentos
-- **Campos**: Apenas campos existentes podem ser agrupados
-- **Tipos**: Apenas campos numéricos podem ser agregados
-
-### **Considerações de Design**
-
-- **Campos de agrupamento**: Escolha campos com valores discretos
-- **Funções de agregação**: Use funções apropriadas para cada tipo de dado
-- **Performance**: Teste com conjuntos de dados reais
-- **Resultados**: Valide se os resultados fazem sentido
-
-### **Boas Práticas**
+### 2. Nomenclatura de Agregações
 
 ```javascript
-// ✅ Bom: Campos de agrupamento apropriados
-Group By: categoria, mes, vendedor
+// ✅ Bom: Nomes descritivos
+{
+  "field": "valor",
+  "operation": "sum",
+  "name": "total_vendas_categoria"
+}
 
-// ✅ Bom: Funções de agregação adequadas
-Fields: vendas (Sum, Average), quantidade (Sum), pedidos (Count)
-
-// ❌ Evitar: Muitos campos de agrupamento
-Group By: id, timestamp, valor, categoria, vendedor, cliente, produto
-
-// ❌ Evitar: Agregar campos não numéricos
-Fields: nome (Sum), email (Average)  // Não faz sentido
+// ❌ Evitar: Nomes genéricos
+{
+  "field": "valor",
+  "operation": "sum",
+  "name": "total"
+}
 ```
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
+### 3. Performance
 
-Agora que você entende o Aggregate Node:
+```javascript
+// ✅ Bom: Agregações simples
+{
+  "field": "valor",
+  "operation": "sum",
+  "name": "total"
+}
 
-1. **[Set Node](./set)** - Para manipulação básica de dados
-2. **[Split In Batches](./split-in-batches)** - Para processamento em lotes
-3. **[Code Node](../core-nodes/code)** - Para lógica customizada
-4. **[IF Node](../logic-control/if.md)** - Para controle de fluxo
+// ❌ Evitar: Cálculos complexos
+{
+  "field": "{{ $json.valor * Math.pow(1 + $json.taxa, $json.periodo) }}",
+  "operation": "sum",
+  "name": "valor_futuro"
+}
+```
 
----
+### 4. Validação de Dados
 
-:::tip **Dica Pro**
-Use o **Aggregate Node** para criar relatórios e dashboards. Combine com **Code Node** para formatação personalizada dos resultados.
-:::
+```javascript
+// ✅ Bom: Validar dados antes de agregar
+{
+  "field": "{{ $json.valor && !isNaN($json.valor) ? $json.valor : 0 }}",
+  "operation": "sum",
+  "name": "total_valido"
+}
 
-:::info **Performance**
-Escolha campos de agrupamento com valores discretos e evite agrupar por campos com muitos valores únicos.
-:::
+// ❌ Evitar: Usar dados sem validação
+{
+  "field": "valor",
+  "operation": "sum",
+  "name": "total"
+}
+```
 
-:::warning **Dados**
-Certifique-se de que os campos numéricos estão no formato correto antes da agregação.
-:::
+## Troubleshooting
 
----
+### Problemas Comuns
 
-**Links úteis:**
+#### Agregação retorna valores incorretos
+- Verifique se os campos existem
+- Confirme se os tipos de dados estão corretos
+- Teste com dados de exemplo
+- Use Debug Helper para ver dados
 
-- [Documentação oficial do Aggregate](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.aggregate/)
-- [Set Node](./set) - Para manipulação de dados
-- [Split In Batches](./split-in-batches) - Para processamento em lotes
-- [Code Node](../core-nodes/code) - Para lógica customizada
+#### Performance lenta
+- Reduza o número de campos de agrupamento
+- Simplifique as expressões
+- Use agregações básicas
+- Considere filtrar dados antes
+
+#### Campos de agrupamento não funcionam
+- Verifique se os campos têm valores
+- Confirme se as expressões estão corretas
+- Teste com agrupamento simples
+- Verifique se há valores nulos
+
+### Debug
+
+```javascript
+// Code Node - Debug de Aggregate Node
+const debugAggregate = (dados) => {
+  console.log('=== DEBUG AGGREGATE ===');
+  console.log('Dados de entrada:', dados);
+  console.log('Campos disponíveis:', Object.keys(dados[0] || {}));
+  console.log('Número de registros:', dados.length);
+  console.log('Exemplo de registro:', dados[0]);
+  console.log('========================');
+  
+  return dados;
+};
+
+// Usar antes do Aggregate Node
+return { json: debugAggregate($json) };
+```
+
+## Integração com Outros Nodes
+
+### 1. Aggregate Node + Set Node
+
+```javascript
+// Aggregate Node - Calcular estatísticas
+{
+  "groupBy": ["categoria"],
+  "aggregations": [
+    {
+      "field": "valor",
+      "operation": "sum",
+      "name": "total"
+    },
+    {
+      "field": "id",
+      "operation": "count",
+      "name": "quantidade"
+    }
+  ]
+}
+
+// Set Node - Adicionar cálculos adicionais
+{
+  "mode": "keepAllSet",
+  "values": {
+    "number": [
+      {
+        "name": "ticket_medio",
+        "value": "{{ $json.total / $json.quantidade }}"
+      },
+      {
+        "name": "percentual_total",
+        "value": "{{ ($json.total / $('Aggregate Node').json.total_geral) * 100 }}"
+      }
+    ]
+  }
+}
+```
+
+### 2. Aggregate Node + If Node
+
+```javascript
+// Aggregate Node - Agrupar por status
+{
+  "groupBy": ["status"],
+  "aggregations": [
+    {
+      "field": "valor",
+      "operation": "sum",
+      "name": "total_por_status"
+    }
+  ]
+}
+
+// If Node - Processar por status
+{
+  "condition": "{{ $json.status === 'aprovado' }}",
+  "true": "Processar Aprovados",
+  "false": "Processar Outros"
+}
+```
+
+## Próximos Passos
+
+- [Set Node](/integracoes/builtin-nodes/data-processing/set.md) - Manipulação de dados
+- [Code Node](/integracoes/builtin-nodes/core-nodes/code.md) - Lógica customizada
+- [If Node](/integracoes/builtin-nodes/logic-control/if.md) - Controle de fluxo
+- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões avançadas
+- [Data Processing](/integracoes/builtin-nodes/data-processing/index.md) - Outros nodes de processamento

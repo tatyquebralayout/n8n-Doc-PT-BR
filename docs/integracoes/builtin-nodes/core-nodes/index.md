@@ -1,333 +1,358 @@
 ---
+title: Nodes Core
+description: Nodes fundamentais e essenciais para operações básicas no n8n
 sidebar_position: 1
-title: Core Nodes
-description: Nodes fundamentais do n8n para programação e manipulação de dados
-keywords: [n8n, core, nodes, fundamentais, programação, javascript, dados]
+keywords: [n8n, core, nodes, básicos, fundamentais, operações]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Core Nodes
+# <ion-icon name="cube-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nodes Core
 
-Os **Core Nodes** são os blocos de construção fundamentais do n8n, oferecendo capacidades de programação e manipulação de dados essenciais para qualquer workflow.
+Os **Nodes Core** são os componentes fundamentais do n8n, fornecendo funcionalidades essenciais para operações básicas, debug, manipulação de dados e controle de workflows.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## Nodes Disponíveis
 
-### Nodes de Programação
+### <ion-icon name="code-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Code
 
-- **[Code Node](./code)** - Execute código JavaScript customizado
-- **[Function Node](./function)** - Funções simples e rápidas
-- **[Expression Node](./expression)** - Expressões JavaScript inline
+O node **Code** permite executar código JavaScript customizado dentro do workflow, oferecendo controle total sobre a lógica de processamento.
 
-### Nodes de Manipulação
+**Principais funcionalidades:**
+- Executar código JavaScript
+- Manipular dados com lógica customizada
+- Implementar algoritmos complexos
+- Integrar bibliotecas externas
+- Criar funções reutilizáveis
 
-- **[Edit Fields (Set)](../data-processing/set)** - Definir e modificar campos
-- **[Split In Batches](../data-processing/split-in-batches)** - Dividir dados em lotes
-- **[Aggregate](../data-processing/aggregate)** - Agregar e resumir dados
-
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
-
-### O que são Core Nodes?
-
-Core Nodes são nodes nativos do n8n que fornecem funcionalidades básicas de programação e manipulação de dados. Eles são essenciais para:
-
-- **Programação customizada** com JavaScript
-- **Manipulação de dados** e transformações
-- **Lógica condicional** e controle de fluxo
-- **Agregações** e processamento em lote
-
-### Quando usar Core Nodes?
-
-- ✅ **Lógica customizada** não disponível em outros nodes
-- ✅ **Transformações complexas** de dados
-- ✅ **Validações avançadas** e tratamento de erros
-- ✅ **Integrações personalizadas** com APIs externas
-- ✅ **Cálculos matemáticos** e estatísticas
-
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nodes de Programação
-
-### **Code Node**
-
-O node mais poderoso para programação customizada:
-
-```javascript
-// Exemplo: Processar múltiplos itens
-const items = $input.all();
-const returnData = [];
-
-for (const item of items) {
-  // Sua lógica complexa aqui
-  const processedData = {
-    ...item.json,
-    processado: true,
-    timestamp: new Date().toISOString()
-  };
-  
-  returnData.push({ json: processedData });
-}
-
-return returnData;
-```
-
-**Use quando:**
-
-- Lógica complexa envolvendo múltiplos itens
+**Casos de uso:**
+- Transformações de dados complexas
+- Validações customizadas
+- Cálculos avançados
 - Integração com APIs externas
-- Processamento em lote
-- Manipulação de arrays complexos
+- Lógica de negócio específica
 
-### **Function Node**
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/code.md)
 
-Versão simplificada para operações rápidas:
+### <ion-icon name="bug-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Debug Helper
 
-```javascript
-// Exemplo: Transformação simples
-return {
-  json: {
-    ...$json,
-    nome_completo: $json.primeiro_nome + ' ' + $json.ultimo_nome,
-    processado_em: $now.toISOString()
-  }
-};
+O node **Debug Helper** é essencial para desenvolvimento e troubleshooting, permitindo inspecionar dados em qualquer ponto do workflow.
+
+**Principais funcionalidades:**
+- Inspecionar dados de entrada e saída
+- Visualizar estrutura de dados
+- Testar expressões
+- Validar transformações
+- Facilitar desenvolvimento
+
+**Casos de uso:**
+- Debug de workflows
+- Validação de dados
+- Teste de expressões
+- Desenvolvimento iterativo
+- Troubleshooting
+
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/debug-helper.md)
+
+### <ion-icon name="create-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Edit Fields (Set)
+
+O node **Edit Fields** permite definir, modificar e remover campos nos dados de forma visual e intuitiva.
+
+**Principais funcionalidades:**
+- Definir novos campos
+- Modificar valores existentes
+- Remover campos desnecessários
+- Renomear campos
+- Aplicar transformações básicas
+
+**Casos de uso:**
+- Padronizar formatos de dados
+- Adicionar campos calculados
+- Limpar dados de entrada
+- Preparar dados para APIs
+- Criar estruturas customizadas
+
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/edit-fields-set.md)
+
+### <ion-icon name="play-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Execute Sub-Workflow
+
+O node **Execute Sub-Workflow** permite executar outros workflows como parte do workflow atual, criando modularidade e reutilização.
+
+**Principais funcionalidades:**
+- Executar workflows como sub-rotinas
+- Passar dados entre workflows
+- Receber resultados de sub-workflows
+- Criar workflows modulares
+- Reutilizar lógica comum
+
+**Casos de uso:**
+- Modularizar workflows complexos
+- Reutilizar lógica comum
+- Criar bibliotecas de workflows
+- Separar responsabilidades
+- Facilitar manutenção
+
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow.md)
+
+### <ion-icon name="alert-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Error Trigger
+
+O node **Error Trigger** permite capturar e processar erros que ocorrem em outros nodes, implementando tratamento de erro robusto.
+
+**Principais funcionalidades:**
+- Capturar erros de outros nodes
+- Processar falhas de forma controlada
+- Implementar retry logic
+- Notificar sobre problemas
+- Registrar logs de erro
+
+**Casos de uso:**
+- Tratamento de erro robusto
+- Notificações de falha
+- Retry automático
+- Logging de problemas
+- Recuperação de falhas
+
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/error-trigger.md)
+
+### <ion-icon name="git-branch-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Workflow Trigger
+
+O node **Workflow Trigger** permite que um workflow seja executado por outro workflow, criando hierarquias e dependências.
+
+**Principais funcionalidades:**
+- Disparar workflows de forma programática
+- Passar dados entre workflows
+- Criar dependências entre workflows
+- Orquestrar workflows complexos
+- Implementar pipelines de dados
+
+**Casos de uso:**
+- Orquestração de workflows
+- Pipelines de dados
+- Workflows dependentes
+- Processamento em etapas
+- Automação complexa
+
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/workflow-trigger.md)
+
+## Conceitos Fundamentais
+
+### Hierarquia de Nodes
+
+Os nodes core formam a base sobre a qual outros nodes são construídos:
+
+```
+Core Nodes → Built-in Nodes → Community Nodes → Custom Nodes
 ```
 
-**Use quando:**
+### Fluxo de Dados
 
-- Operações simples por item
-- Transformações básicas de dados
-- Validações rápidas
-- Formatação de campos
+Os nodes core processam dados de forma sequencial:
 
-### **Expression Node**
+1. **Entrada**: Dados chegam do node anterior
+2. **Processamento**: Node executa sua lógica
+3. **Saída**: Dados processados são enviados para o próximo node
 
-Expressões JavaScript inline em outros nodes:
+### Tipos de Operação
 
-```javascript
-// Exemplo: URL dinâmica
-{{ 'https://api.exemplo.com/usuarios/' + $json.id }}
+- **Transformação**: Modificar dados (Code, Edit Fields)
+- **Inspeção**: Visualizar dados (Debug Helper)
+- **Controle**: Gerenciar fluxo (Execute Sub-Workflow, Workflow Trigger)
+- **Tratamento**: Lidar com erros (Error Trigger)
 
-// Exemplo: Condição dinâmica
-{{ $json.valor > 1000 && $json.ativo }}
+## Padrões de Uso
+
+### 1. Pipeline de Processamento
+
+```
+Dados Brutos → Debug Helper → Code → Edit Fields → Dados Processados
 ```
 
-**Use quando:**
+**Exemplo:**
+1. **Debug Helper** inspeciona dados de entrada
+2. **Code** aplica transformações complexas
+3. **Edit Fields** padroniza estrutura
+4. **Debug Helper** valida resultado final
 
-- Valores dinâmicos em outros nodes
-- Condições simples
-- Cálculos básicos
-- Formatação inline
+### 2. Modularização
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Comparação de Performance
-
-| Node | Complexidade | Performance | Caso de Uso |
-|------|-------------|-------------|-------------|
-| **Expression** | Baixa | ⭐⭐⭐⭐⭐ | Valores dinâmicos simples |
-| **Function** | Média | ⭐⭐⭐⭐ | Operações por item |
-| **Code** | Alta | ⭐⭐⭐ | Lógica complexa |
-
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos Práticos
-
-### **Exemplo 1: Validação de Dados**
-
-**Function Node:**
-
-```javascript
-// Validar dados de entrada
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const emailValido = emailRegex.test($json.email);
-
-const telefoneValido = /^\d{10,11}$/.test(($json.telefone || '').replace(/\D/g, ''));
-
-return {
-  json: {
-    ...$json,
-    validacoes: {
-      email_valido: emailValido,
-      telefone_valido: telefoneValido,
-      todos_validos: emailValido && telefoneValido
-    },
-    status: (emailValido && telefoneValido) ? 'valido' : 'invalido'
-  }
-};
+```
+Workflow Principal → Execute Sub-Workflow → Sub-Workflow → Resultado
 ```
 
-### **Exemplo 2: Transformação de Dados**
+**Exemplo:**
+1. Workflow principal recebe dados
+2. **Execute Sub-Workflow** chama workflow de validação
+3. Sub-workflow valida e retorna resultado
+4. Workflow principal processa dados validados
 
-**Code Node:**
+### 3. Tratamento de Erro
+
+```
+Node Principal → Error Trigger → Tratamento → Notificação
+```
+
+**Exemplo:**
+1. Node principal executa operação
+2. **Error Trigger** captura falhas
+3. Código de tratamento processa erro
+4. Notificação é enviada
+
+## Exemplos Práticos
+
+### Exemplo 1: Validação e Transformação de Dados
+
+**Cenário:** Processar dados de clientes com validação e transformação.
+
+**Workflow:**
+```
+Webhook → Debug Helper → Code (Validação) → Edit Fields → Debug Helper → HTTP Request
+```
+
+**Configuração:**
+- **Debug Helper**: Inspeciona dados recebidos
+- **Code**: Valida email, CPF, telefone
+- **Edit Fields**: Padroniza formatos
+- **Debug Helper**: Valida dados processados
+- **HTTP Request**: Envia para API
+
+### Exemplo 2: Workflow Modular
+
+**Cenário:** Sistema de aprovação com workflows separados.
+
+**Workflow Principal:**
+```
+Pedido → Execute Sub-Workflow (Validação) → Execute Sub-Workflow (Aprovação) → Confirmação
+```
+
+**Sub-Workflows:**
+- **Validação**: Verifica dados do pedido
+- **Aprovação**: Processa aprovação baseada em regras
+
+### Exemplo 3: Sistema de Monitoramento
+
+**Cenário:** Monitorar APIs e tratar falhas automaticamente.
+
+**Workflow:**
+```
+Schedule Trigger → HTTP Request → Error Trigger → Code (Retry Logic) → Notificação
+```
+
+**Configuração:**
+- **Schedule Trigger**: Executa a cada 5 minutos
+- **HTTP Request**: Verifica status da API
+- **Error Trigger**: Captura falhas de conexão
+- **Code**: Implementa retry com backoff
+- **Notificação**: Alerta sobre problemas
+
+## Boas Práticas
+
+### Desenvolvimento
+
+1. **Use Debug Helper** frequentemente durante desenvolvimento
+2. **Teste código** em pequenos trechos antes de integrar
+3. **Documente lógica complexa** nos comentários
+4. **Valide dados** em cada etapa
+5. **Use versionamento** para workflows
+
+### Performance
+
+1. **Otimize código** para evitar loops desnecessários
+2. **Use Edit Fields** para operações simples
+3. **Limite execução de sub-workflows** quando possível
+4. **Implemente cache** para dados frequentemente acessados
+5. **Monitore uso de recursos**
+
+### Manutenção
+
+1. **Modularize workflows** complexos
+2. **Implemente logging** adequado
+3. **Configure alertas** para falhas
+4. **Mantenha documentação** atualizada
+5. **Teste regularmente** workflows críticos
+
+## Troubleshooting
+
+### Problemas Comuns
+
+#### Code node não funciona
+- Verifique sintaxe JavaScript
+- Confirme acesso a variáveis
+- Use Debug Helper para inspecionar dados
+- Teste código em console primeiro
+
+#### Debug Helper não mostra dados
+- Verifique se node está conectado
+- Confirme se dados estão chegando
+- Use "Include All" para ver dados completos
+- Verifique configuração do node
+
+#### Execute Sub-Workflow falha
+- Verifique se sub-workflow existe
+- Confirme se está ativo
+- Valide dados de entrada
+- Verifique permissões
+
+#### Error Trigger não captura erros
+- Verifique configuração de conexão
+- Confirme se erro está sendo gerado
+- Valide expressões de condição
+- Use Debug Helper para verificar
+
+### Debug
+
+1. **Use Debug Helper** em pontos críticos
+2. **Configure logging detalhado**
+3. **Teste nodes individualmente**
+4. **Valide dados de entrada e saída**
+5. **Monitore execuções**
+
+## Expressões Avançadas
+
+### Acesso a Dados
 
 ```javascript
-const items = $input.all();
-const returnData = [];
+// Dados do item atual
+$json.campo
 
-for (const item of items) {
-  const data = item.json;
-  
-  // Padronizar dados
-  const processedData = {
-    nome_completo: `${data.primeiro_nome} ${data.ultimo_nome}`,
-    email: data.email.toLowerCase(),
-    telefone: data.telefone.replace(/(\d{2})(\d{5})(\d{4})/, '+55 $1 $2-$3'),
-    data_nascimento: new Date(data.data_nascimento).toISOString(),
-    idade: Math.floor((new Date() - new Date(data.data_nascimento)) / (365.25 * 24 * 60 * 60 * 1000))
-  };
-  
-  returnData.push({ json: processedData });
+// Dados de itens anteriores
+$('Node Anterior').json.campo
+
+// Dados de múltiplos nodes
+$('Node A').json.campo + $('Node B').json.campo
+
+// Dados binários
+$binary.arquivo.data
+```
+
+### Manipulação de Arrays
+
+```javascript
+// Filtrar array
+$json.items.filter(item => item.ativo)
+
+// Mapear array
+$json.items.map(item => ({ ...item, processado: true }))
+
+// Reduzir array
+$json.numeros.reduce((sum, num) => sum + num, 0)
+```
+
+### Validações
+
+```javascript
+// Validar email
+/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email)
+
+// Validar CPF
+function validarCPF(cpf) {
+  // Implementação da validação
 }
 
-return returnData;
+// Validar telefone
+/^\(\d{2}\) \d{4,5}-\d{4}$/.test($json.telefone)
 ```
 
-### **Exemplo 3: Integração com API Externa**
+## Próximos Passos
 
-**Code Node:**
-
-```javascript
-const items = $input.all();
-const returnData = [];
-
-for (const item of items) {
-  const data = item.json;
-  
-  try {
-    // Consultar CEP via ViaCEP
-    const cep = data.cep.replace(/\D/g, '');
-    const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const cepData = await response.json();
-    
-    if (!cepData.erro) {
-      const enrichedData = {
-        ...data,
-        endereco: {
-          logradouro: cepData.logradouro,
-          bairro: cepData.bairro,
-          cidade: cepData.localidade,
-          estado: cepData.uf,
-          cep: cepData.cep
-        },
-        consultado_em: new Date().toISOString()
-      };
-      
-      returnData.push({ json: enrichedData });
-    } else {
-      returnData.push({ 
-        json: { 
-          ...data, 
-          erro: 'CEP não encontrado',
-          cep_informado: cep
-        } 
-      });
-    }
-  } catch (error) {
-    returnData.push({ 
-      json: { 
-        ...data, 
-        erro: 'Erro na consulta do CEP',
-        detalhes: error.message
-      } 
-    });
-  }
-}
-
-return returnData;
-```
-
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
-
-### **Segurança**
-
-```javascript
-// ✅ Bom: Validar entrada
-const valor = parseFloat($json.valor) || 0;
-
-// ❌ Evitar: Executar código dinâmico
-const resultado = eval($json.expressao);
-```
-
-### **Performance**
-
-```javascript
-// ✅ Bom: Código otimizado
-const items = $input.all();
-const returnData = items.map(item => ({
-  json: { ...item.json, processado: true }
-}));
-
-// ❌ Evitar: Loops desnecessários
-for (let i = 0; i < items.length; i++) {
-  // Código lento
-}
-```
-
-### **Tratamento de Erros**
-
-```javascript
-// ✅ Bom: Try-catch adequado
-try {
-  const resultado = processarDados($json);
-  return { json: { ...$json, resultado } };
-} catch (error) {
-  return { 
-    json: { 
-      ...$json, 
-      erro: true, 
-      mensagem: error.message 
-    } 
-  };
-}
-```
-
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Limitações e Considerações
-
-### **Limitações Técnicas**
-
-- **Timeout**: 30 segundos por execução (Code/Function Nodes)
-- **Memória**: Limite de memória por execução
-- **Bibliotecas**: Apenas bibliotecas nativas do Node.js
-- **Sistema de arquivos**: Acesso limitado
-
-### **Considerações de Performance**
-
-- **Expression**: Mais rápida para operações simples
-- **Function**: Otimizada para processamento por item
-- **Code**: Mais flexível, mas pode ser mais lento
-
-### **Debugging**
-
-```javascript
-// Logs aparecem na aba "Execution"
-console.log('Dados de entrada:', $json);
-console.log('Resultado:', resultado);
-```
-
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
-
-Agora que você entende os Core Nodes:
-
-1. **[Code Node](./code)** - Para lógica complexa e customizada
-2. **[Function Node](./function)** - Para operações simples e rápidas
-3. **[Expression Node](./expression)** - Para expressões inline
-4. **[Data Processing](../data-processing/)** - Para manipulação de dados
-5. **[Logic Control](../logic-control/)** - Para controle de fluxo
-
----
-
-:::tip **Dica Pro**
-Comece com **Expression** para valores dinâmicos simples, depois use **Function** para operações por item, e finalmente **Code** para lógica complexa.
-:::
-
-:::info **Performance**
-Use o node mais simples possível para sua necessidade. Expression > Function > Code em ordem de performance.
-:::
-
-:::warning **Segurança**
-Sempre valide dados de entrada e evite usar `eval()` ou código dinâmico em seus nodes.
-:::
-
----
-
-**Links úteis:**
-
-- [Documentação oficial dos Core Nodes](https://docs.n8n.io/integrations/builtin/cluster-nodes/)
-- [JavaScript MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- [Node.js Documentation](https://nodejs.org/docs/)
-- [Code Node](./code) - Para lógica complexa
-- [Function Node](./function) - Para operações simples
-- [Expression Node](./expression) - Para expressões inline
+- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões avançadas
+- [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index.md) - Processar dados
+- [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index.md) - Controlar fluxo
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
+- [Debugging](/logica-e-dados/flow-logic/debugging.md) - Depurar workflows

@@ -1,224 +1,497 @@
 ---
-title: IF Node
+title: If Node
+description: Guia completo sobre o If Node no n8n, incluindo condições, operadores, exemplos práticos e boas práticas
 sidebar_position: 1
+keywords: [n8n, if node, condições, lógica, decisões, operadores, controle de fluxo]
 ---
 
-# IF Node
+# <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> If Node
 
-O **IF Node** é um dos nodes mais importantes do n8n para controle de fluxo condicional. Ele permite que você execute diferentes caminhos em seu workflow baseado em condições específicas.
+O **If Node** é um dos nodes mais importantes do n8n para controle de fluxo. Ele permite criar condições e tomar decisões baseadas em dados, direcionando o workflow por diferentes caminhos.
 
-## Visão Geral
+## O que é o If Node?
 
-O IF Node avalia uma condição e direciona o fluxo de dados para diferentes saídas baseado no resultado (verdadeiro ou falso).
+O **If Node** permite:
 
-## Como Funciona
+- **Criar condições** baseadas em dados
+- **Tomar decisões** automaticamente
+- **Direcionar fluxo** para diferentes caminhos
+- **Validar dados** antes do processamento
+- **Implementar lógica de negócio** complexa
+- **Criar workflows dinâmicos** e inteligentes
 
-### Estrutura Básica
+### Quando Usar o If Node
 
+- **Validação** de dados de entrada
+- **Classificação** de itens por critérios
+- **Filtragem** de dados
+- **Roteamento** para diferentes processos
+- **Tratamento de erros** condicional
+- **Lógica de negócio** baseada em regras
+
+## Configuração Básica
+
+### Estrutura do If Node
+
+```javascript
+// If Node - Estrutura básica
+{
+  "condition": "{{ $json.valor > 100 }}",
+  "true": "Caminho para valores altos",
+  "false": "Caminho para valores baixos"
+}
 ```
-Entrada → IF Node → Saída A (condição verdadeira)
-                → Saída B (condição falsa)
+
+### Tipos de Condições
+
+#### 1. Condição Simples
+
+```javascript
+// Verificar se campo existe
+{{ $json.nome }}
+
+// Verificar se valor é verdadeiro
+{{ $json.ativo === true }}
+
+// Verificar se string não está vazia
+{{ $json.email && $json.email.length > 0 }}
 ```
 
-### Tipos de Condição
+#### 2. Comparações Numéricas
 
-#### 1. **Condições Simples**
+```javascript
+// Maior que
+{{ $json.valor > 100 }}
 
-- Comparações básicas (igual, diferente, maior, menor)
-- Verificação de valores nulos/vazios
-- Verificação de tipos de dados
+// Menor que
+{{ $json.valor < 50 }}
 
-#### 2. **Condições Complexas**
+// Igual a
+{{ $json.quantidade === 10 }}
 
-- Múltiplas condições com operadores lógicos (AND, OR)
-- Expressões personalizadas
-- Verificação de arrays e objetos
+// Diferente de
+{{ $json.status !== 'ativo' }}
 
-## Configuração
+// Maior ou igual
+{{ $json.idade >= 18 }}
 
-### Parâmetros Principais
+// Menor ou igual
+{{ $json.preco <= 1000 }}
+```
 
-| Parâmetro | Descrição | Exemplo |
-|-----------|-----------|---------|
-| **Condição** | Expressão a ser avaliada | `{{ $json.temperature > 25 }}` |
-| **Operador** | Tipo de comparação | `equals`, `not equals`, `contains` |
-| **Valor 1** | Primeiro valor para comparação | `{{ $json.status }}` |
-| **Valor 2** | Segundo valor para comparação | `"active"` |
+#### 3. Comparações de String
 
-### Operadores Disponíveis
+```javascript
+// Igual a (case sensitive)
+{{ $json.categoria === 'Premium' }}
 
-#### Comparação
+// Igual a (case insensitive)
+{{ $json.categoria.toLowerCase() === 'premium' }}
 
-- `equals` - Igual a
-- `not equals` - Diferente de
-- `larger` - Maior que
-- `smaller` - Menor que
-- `larger equals` - Maior ou igual a
-- `smaller equals` - Menor ou igual a
+// Contém texto
+{{ $json.descricao.includes('importante') }}
 
-#### String
+// Começa com
+{{ $json.nome.startsWith('João') }}
 
-- `contains` - Contém
-- `not contains` - Não contém
-- `starts with` - Começa com
-- `ends with` - Termina com
-- `regex` - Expressão regular
+// Termina com
+{{ $json.email.endsWith('@gmail.com') }}
 
-#### Array/Object
+// Regex
+{{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}
+```
 
-- `exists` - Existe
-- `not exists` - Não existe
-- `is empty` - Está vazio
-- `is not empty` - Não está vazio
+#### 4. Condições com Arrays
+
+```javascript
+// Verificar se array contém valor
+{{ $json.tags.includes('urgente') }}
+
+// Verificar tamanho do array
+{{ $json.itens.length > 0 }}
+
+// Verificar se array está vazio
+{{ $json.produtos.length === 0 }}
+
+// Verificar se todos os itens atendem condição
+{{ $json.numeros.every(num => num > 0) }}
+
+// Verificar se algum item atende condição
+{{ $json.status.some(s => s === 'erro') }}
+```
+
+#### 5. Condições com Datas
+
+```javascript
+// Verificar se data é hoje
+{{ $json.data === $today }}
+
+// Verificar se data é futura
+{{ new Date($json.data) > new Date() }}
+
+// Verificar se data é passada
+{{ new Date($json.data) < new Date() }}
+
+// Verificar se data está em intervalo
+{{ new Date($json.data) >= new Date('2024-01-01') && 
+   new Date($json.data) <= new Date('2024-12-31') }}
+
+// Verificar se é fim de semana
+{{ [0, 6].includes(new Date($json.data).getDay()) }}
+```
+
+## Operadores Lógicos
+
+### 1. Operador AND (&&)
+
+```javascript
+// Múltiplas condições (todas devem ser verdadeiras)
+{{ $json.ativo && $json.saldo > 0 && $json.email }}
+
+// Exemplo prático
+{{ $json.idade >= 18 && $json.cpf && $json.email.includes('@') }}
+```
+
+### 2. Operador OR (||)
+
+```javascript
+// Múltiplas condições (pelo menos uma deve ser verdadeira)
+{{ $json.categoria === 'Premium' || $json.valor > 1000 }}
+
+// Exemplo prático
+{{ $json.status === 'ativo' || $json.status === 'pendente' }}
+```
+
+### 3. Operador NOT (!)
+
+```javascript
+// Negar condição
+{{ !$json.inativo }}
+
+// Exemplo prático
+{{ !$json.erro && $json.dados }}
+```
+
+### 4. Combinação de Operadores
+
+```javascript
+// Condição complexa
+{{ ($json.ativo && $json.saldo > 0) || $json.admin }}
+
+// Exemplo prático
+{{ ($json.idade >= 18 && $json.cpf) || $json.categoria === 'VIP' }}
+```
 
 ## Exemplos Práticos
 
-### Exemplo 1: Filtro por Status
+### 1. Validação de Dados
 
-```json
+```javascript
+// If Node - Validação de cliente
 {
-  "condition": "equals",
-  "value1": "{{ $json.status }}",
-  "value2": "active"
+  "condition": "{{ $json.nome && $json.email && $json.cpf && $json.idade >= 18 }}",
+  "true": "Cliente Válido",
+  "false": "Cliente Inválido"
 }
 ```
 
-### Exemplo 2: Verificação de Temperatura
+**Caminho "Cliente Válido":**
+- Processar dados do cliente
+- Salvar no banco de dados
+- Enviar confirmação
 
-```json
+**Caminho "Cliente Inválido":**
+- Registrar erro
+- Enviar notificação
+- Solicitar dados corretos
+
+### 2. Classificação por Valor
+
+```javascript
+// If Node - Classificação de pedido
 {
-  "condition": "larger",
-  "value1": "{{ $json.temperature }}",
-  "value2": 25
+  "condition": "{{ $json.valor_total > 1000 }}",
+  "true": "Pedido Premium",
+  "false": "Pedido Standard"
 }
 ```
 
-### Exemplo 3: Verificação de Array
+**Caminho "Pedido Premium":**
+- Aplicar desconto especial
+- Enviar para processamento prioritário
+- Notificar gerente
 
-```json
+**Caminho "Pedido Standard":**
+- Processamento normal
+- Aplicar desconto padrão
+- Enviar confirmação
+
+### 3. Filtragem por Status
+
+```javascript
+// If Node - Filtragem por status
 {
-  "condition": "contains",
-  "value1": "{{ $json.tags }}",
-  "value2": "urgent"
+  "condition": "{{ $json.status === 'aprovado' }}",
+  "true": "Processar Aprovação",
+  "false": "Aguardar Aprovação"
 }
 ```
 
-## Casos de Uso Comuns
+**Caminho "Processar Aprovação":**
+- Executar workflow de aprovação
+- Enviar notificação
+- Atualizar status
 
-### 1. **Filtro de Dados**
+**Caminho "Aguardar Aprovação":**
+- Salvar para processamento posterior
+- Enviar lembrança
+- Monitorar status
 
-- Separar registros por categoria
-- Filtrar por status ou prioridade
-- Validar dados obrigatórios
+### 4. Tratamento de Erros
 
-### 2. **Controle de Fluxo**
+```javascript
+// If Node - Tratamento de erro
+{
+  "condition": "{{ $json.erro || $json.status === 'falha' }}",
+  "true": "Tratar Erro",
+  "false": "Processar Sucesso"
+}
+```
 
-- Executar diferentes ações baseado em condições
-- Implementar lógica de retry
-- Criar workflows condicionais
+**Caminho "Tratar Erro":**
+- Registrar erro no log
+- Enviar alerta
+- Tentar reprocessamento
 
-### 3. **Validação**
+**Caminho "Processar Sucesso":**
+- Continuar processamento
+- Salvar resultado
+- Enviar confirmação
 
-- Verificar se campos obrigatórios existem
-- Validar formatos de dados
-- Implementar regras de negócio
+### 5. Roteamento por Categoria
+
+```javascript
+// If Node - Roteamento por categoria
+{
+  "condition": "{{ $json.categoria === 'financeiro' }}",
+  "true": "Processamento Financeiro",
+  "false": "Processamento Geral"
+}
+```
+
+**Caminho "Processamento Financeiro":**
+- Validações específicas
+- Aprovação obrigatória
+- Auditoria detalhada
+
+**Caminho "Processamento Geral":**
+- Validações básicas
+- Aprovação automática
+- Processamento direto
+
+## Workflows Complexos
+
+### 1. Múltiplos If Nodes em Sequência
+
+```
+Manual Trigger → If (Validação) → If (Classificação) → If (Processamento)
+                    ↓                    ↓                    ↓
+                Validação OK         Premium              Processar
+                    ↓                    ↓                    ↓
+                Validação Falhou    Standard              Aguardar
+```
+
+### 2. If Node com Switch Node
+
+```javascript
+// Switch Node - Múltiplas condições
+{
+  "rules": [
+    {
+      "condition": "{{ $json.categoria === 'urgente' }}",
+      "output": "Processamento Urgente"
+    },
+    {
+      "condition": "{{ $json.categoria === 'normal' }}",
+      "output": "Processamento Normal"
+    },
+    {
+      "condition": "{{ $json.categoria === 'baixa' }}",
+      "output": "Processamento Baixa Prioridade"
+    }
+  ],
+  "default": "Processamento Padrão"
+}
+```
+
+### 3. If Node com Merge
+
+```
+If Node A → Processamento A
+    ↓
+If Node B → Processamento B
+    ↓
+Merge Node → Resultado Final
+```
 
 ## Boas Práticas
 
-### 1. **Use Expressões Claras**
+### 1. Condições Claras
 
 ```javascript
-// ✅ Bom
-{{ $json.status === 'active' }}
+// ✅ Bom: Condição clara e legível
+{{ $json.ativo && $json.saldo > 0 }}
 
-// ❌ Evite
-{{ $json.s === 'a' }}
+// ❌ Evitar: Condição confusa
+{{ $json.a && $json.s > 0 }}
 ```
 
-### 2. **Combine Múltiplas Condições**
+### 2. Validação de Dados
 
 ```javascript
-// ✅ Múltiplas condições
-{{ $json.status === 'active' && $json.priority === 'high' }}
+// ✅ Bom: Validar antes de usar
+{{ $json.valor && typeof $json.valor === 'number' && $json.valor > 0 }}
 
-// ✅ Usando operadores do IF Node
-// Configure múltiplas condições no node
+// ❌ Evitar: Usar sem validação
+{{ $json.valor > 0 }}
 ```
 
-### 3. **Trate Valores Nulos**
+### 3. Condições Simples
 
 ```javascript
-// ✅ Verificação segura
-{{ $json.temperature && $json.temperature > 25 }}
+// ✅ Bom: Condições simples
+{{ $json.status === 'ativo' }}
 
-// ✅ Usando operador exists
-// Configure: exists, value1: {{ $json.temperature }}
+// ❌ Evitar: Condições muito complexas
+{{ $json.status === 'ativo' && $json.saldo > 0 && $json.email && $json.cpf && $json.idade >= 18 }}
+```
+
+### 4. Nomenclatura Descritiva
+
+```javascript
+// ✅ Bom: Nomes descritivos
+"Cliente Válido"
+"Pedido Premium"
+"Processamento Urgente"
+
+// ❌ Evitar: Nomes genéricos
+"True"
+"False"
+"Option 1"
+```
+
+### 5. Documentação
+
+```javascript
+// ✅ Bom: Documentar condições
+// Condição: Verifica se cliente tem dados obrigatórios e idade mínima
+{{ $json.nome && $json.email && $json.cpf && $json.idade >= 18 }}
+
+// ❌ Evitar: Condição sem contexto
+{{ $json.a && $json.b && $json.c }}
 ```
 
 ## Troubleshooting
 
 ### Problemas Comuns
 
-#### 1. **Condição Sempre Falsa**
+#### Condição sempre verdadeira
+- Verifique se está usando operadores corretos
+- Confirme se os campos existem
+- Teste com dados de exemplo
+- Use Debug Helper para inspecionar dados
 
-- Verifique se os valores estão sendo passados corretamente
-- Confirme o tipo de dados (string vs number)
-- Use debug para verificar os valores
+#### Condição sempre falsa
+- Verifique se os valores estão corretos
+- Confirme se os tipos de dados estão corretos
+- Teste com valores simples
+- Verifique se há espaços em branco
 
-#### 2. **Erro de Sintaxe**
-
-- Verifique aspas em strings
-- Confirme a sintaxe das expressões
-- Use o validador de expressões do n8n
-
-#### 3. **Valores Nulos**
-
-- Sempre verifique se o campo existe antes de comparar
-- Use operadores `exists` e `is empty` quando apropriado
+#### Workflow não segue caminho esperado
+- Verifique a lógica da condição
+- Confirme se os dados estão corretos
+- Teste com diferentes cenários
+- Use Debug Helper para ver dados
 
 ### Debug
 
-1. Use o **Debug Node** antes do IF para verificar os dados
-2. Configure logs detalhados no IF Node
-3. Teste condições individualmente
+```javascript
+// Code Node - Debug de condição
+const debugCondicao = (dados, condicao) => {
+  console.log('=== DEBUG CONDIÇÃO ===');
+  console.log('Dados:', dados);
+  console.log('Condição:', condicao);
+  console.log('Resultado:', eval(condicao));
+  console.log('=====================');
+  
+  return eval(condicao);
+};
 
-## Integração com Outros Nodes
-
-### Nodes Relacionados
-
-- **[Switch Node](../logic-control/switch.md)** - Para múltiplas condições
-- **[Merge Node](../logic-control/merge.md)** - Para combinar fluxos
-- **[Wait Node](../logic-control/wait.md)** - Para pausas condicionais
-
-### Workflow Exemplo
-
-```
-Webhook → IF (status = active) → Processar
-                              → Notificar (inativo)
+// Usar no If Node
+{{ debugCondicao($json, '$json.ativo && $json.saldo > 0') }}
 ```
 
-## Recursos Avançados
+## Exemplos Avançados
 
-### Expressões Personalizadas
+### 1. Validação de Email
 
 ```javascript
-// Verificação complexa
-{{ 
-  $json.temperature > 25 && 
-  $json.humidity < 80 && 
-  $json.status === 'active' 
-}}
+// If Node - Validação de email
+{
+  "condition": "{{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}",
+  "true": "Email Válido",
+  "false": "Email Inválido"
+}
 ```
 
-### Condições Dinâmicas
+### 2. Verificação de CPF
 
 ```javascript
-// Usar valores de outros nodes
-{{ $json.value > $('Set Variable').item.json.threshold }}
+// If Node - Verificação de CPF
+{
+  "condition": "{{ /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test($json.cpf) }}",
+  "true": "CPF Válido",
+  "false": "CPF Inválido"
+}
+```
+
+### 3. Classificação de Cliente
+
+```javascript
+// If Node - Classificação de cliente
+{
+  "condition": "{{ $json.valor_total > 10000 || $json.categoria === 'VIP' }}",
+  "true": "Cliente Premium",
+  "false": "Cliente Regular"
+}
+```
+
+### 4. Verificação de Horário
+
+```javascript
+// If Node - Verificação de horário comercial
+{
+  "condition": "{{ new Date().getHours() >= 8 && new Date().getHours() <= 18 && new Date().getDay() >= 1 && new Date().getDay() <= 5 }}",
+  "true": "Horário Comercial",
+  "false": "Fora do Horário"
+}
+```
+
+### 5. Validação de Dados Obrigatórios
+
+```javascript
+// If Node - Validação de dados obrigatórios
+{
+  "condition": "{{ $json.nome && $json.nome.trim().length > 0 && $json.email && $json.email.trim().length > 0 && $json.telefone && $json.telefone.trim().length > 0 }}",
+  "true": "Dados Completos",
+  "false": "Dados Incompletos"
+}
 ```
 
 ## Próximos Passos
 
-- **[Switch Node](../logic-control/switch.md)** - Para múltiplas condições
-- **[Merge Node](../logic-control/merge.md)** - Para combinar fluxos
-- **[Error Handling](../../../logica-e-dados/01-flow-logic/error-handling)** - Para tratamento de erros
+- [Switch Node](/integracoes/builtin-nodes/logic-control/switch.md) - Múltiplas condições
+- [Merge Node](/integracoes/builtin-nodes/logic-control/merge.md) - Combinar dados
+- [Code Node](/integracoes/builtin-nodes/core-nodes/code.md) - Lógica customizada
+- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões em condições
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas

@@ -1,261 +1,354 @@
 ---
-sidebar_position: 3
 title: Primeiro Workflow
-description: Crie seu primeiro workflow em 5 minutos
-keywords: [n8n, primeiro workflow, tutorial, webhook, http request]
+description: Guia passo a passo para criar seu primeiro workflow no n8n, desde a instalação até a primeira automação
+sidebar_position: 1
+keywords: [n8n, primeiro, workflow, tutorial, guia, automação, iniciante]
 ---
 
-:::info
-<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
-:::
+# <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Primeiro Workflow
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Seu Primeiro Workflow
+Este guia te levará do zero ao seu primeiro workflow funcional no n8n. Vamos criar uma automação simples que demonstra os conceitos fundamentais da plataforma.
 
-Vamos criar um workflow simples que recebe dados via webhook e os envia para uma API externa. Este tutorial levará apenas **5 minutos**!
+## Pré-requisitos
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que vamos construir
+Antes de começar, certifique-se de que você tem:
 
-Um workflow que:
+- **n8n instalado** e funcionando
+- **Acesso à interface web** do n8n
+- **Conhecimento básico** de conceitos de automação
+- **Dados de exemplo** para testar
 
-1. **Recebe** dados via webhook
-2. **Transforma** os dados
-3. **Envia** para uma API externa
-4. **Retorna** uma resposta
+## Passo 1: Acessar o n8n
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
+### 1.1 Abrir o n8n
 
-- n8n instalado e rodando
-- Acesso ao editor visual
-- Conhecimento básico dos [conceitos](./conceitos-basicos)
+1. **Abra seu navegador** e acesse o n8n
+2. **Faça login** com suas credenciais
+3. **Clique em "New Workflow"** no menu lateral
+4. **Dê um nome** ao seu workflow (ex: "Meu Primeiro Workflow")
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Passo a Passo
+### 1.2 Interface Básica
 
-### 1. Criar Novo Workflow
+A interface do n8n é dividida em:
 
-1. Acesse o n8n em `http://localhost:5678`
-2. Clique em **"Add Workflow"**
-3. Nomeie como **"Meu Primeiro Workflow"**
+- **Menu lateral**: Navegação e configurações
+- **Área de trabalho**: Onde você constrói workflows
+- **Painel de propriedades**: Configurações dos nodes
+- **Barra de ferramentas**: Ações e execução
 
-### 2. Adicionar Webhook Trigger
+## Passo 2: Criar um Trigger
 
-#### Adicionar o Node
+### 2.1 Adicionar Manual Trigger
 
-1. Clique em **"Add first step"**
-2. Busque por **"Webhook"**
-3. Selecione **"Webhook"** da lista
+1. **Clique no botão "+"** na área de trabalho
+2. **Procure por "Manual"** na lista de nodes
+3. **Selecione "Manual Trigger"**
+4. **Arraste para a área** de trabalho
 
-#### Configurar o Webhook
+### 2.2 Configurar o Trigger
 
-```javascript
-// Configurações básicas
-HTTP Method: POST
-Path: meu-primeiro-webhook
-Authentication: None
-```
+1. **Clique no node** Manual Trigger
+2. **No painel de propriedades**, configure:
+   - **Name**: "Início"
+   - **Description**: "Inicia o workflow manualmente"
+3. **Clique em "Save"**
 
-:::tip Dica
-O n8n gerará automaticamente uma URL única para seu webhook. Algo como:
-`http://localhost:5678/webhook/meu-primeiro-webhook`
-:::
+## Passo 3: Adicionar um Node de Processamento
 
-### 3. Adicionar Node de Transformação
+### 3.1 Adicionar Set Node
 
-#### Adicionar Set Node
+1. **Clique no "+"** ao lado do Manual Trigger
+2. **Procure por "Set"** na lista
+3. **Selecione "Set"**
+4. **Conecte** ao Manual Trigger
 
-1. Clique no **"+"** após o Webhook
-2. Busque por **"Set"**
-3. Selecione **"Set"** para manipular dados
+### 3.2 Configurar o Set Node
 
-#### Configurar Transformação
-
-```javascript
-// Adicione estas transformações
-Key: processedAt
-Value: {{ new Date().toISOString() }}
-
-Key: originalData
-Value: {{ JSON.stringify($json) }}
-
-Key: messageCount
-Value: {{ Object.keys($json).length }}
-```
-
-### 4. Adicionar HTTP Request
-
-#### Adicionar o Node
-
-1. Clique no **"+"** após o Set
-2. Busque por **"HTTP Request"**
-3. Selecione **"HTTP Request"**
-
-#### Configurar Request
+1. **Clique no node Set**
+2. **Configure as propriedades**:
 
 ```javascript
-// Configurações da requisição
-Method: POST
-URL: https://httpbin.org/post
-Headers:
-Content-Type: application/json
-
-Body (JSON):
+// Adicionar campo "mensagem"
 {
-"original": {{ $json.originalData }},
-"processed_at": "{{ $json.processedAt }}",
-"count": {{ $json.messageCount }}
+  "mensagem": "Olá, este é meu primeiro workflow!"
+}
+
+// Adicionar campo "data_criacao"
+{
+  "data_criacao": "{{ $now.toFormat('yyyy-MM-dd HH:mm:ss') }}"
+}
+
+// Adicionar campo "usuario"
+{
+  "usuario": "Desenvolvedor n8n"
 }
 ```
 
-:::info HTTPBin
-Usamos `httpbin.org` para teste. É um serviço que ecoa os dados recebidos, perfeito para testar workflows!
-:::
+3. **Clique em "Save"**
 
-### 5. Adicionar Resposta
+## Passo 4: Adicionar Saída
 
-#### Adicionar Respond to Webhook
+### 4.1 Adicionar Debug Helper
 
-1. Clique no **"+"** após o HTTP Request
-2. Busque por **"Respond to Webhook"**
-3. Selecione o node
+1. **Clique no "+"** ao lado do Set node
+2. **Procure por "Debug"**
+3. **Selecione "Debug Helper"**
+4. **Conecte** ao Set node
 
-#### Configurar Resposta
+### 4.2 Configurar Debug Helper
 
-```javascript
-// Configuração da resposta
-Response Code: 200
-Response Body:
-{
-"status": "success",
-"message": "Dados processados com sucesso!",
-"processed_at": "{{ $json.processedAt }}",
-"external_response": {{ JSON.stringify($json) }}
-}
-```
+1. **Clique no node Debug Helper**
+2. **Configure**:
+   - **Name**: "Resultado"
+   - **Description**: "Mostra o resultado do processamento"
+3. **Clique em "Save"**
 
-## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testando o Workflow
+## Passo 5: Testar o Workflow
 
-### 1. Salvar e Ativar
+### 5.1 Executar o Workflow
 
-1. Clique em **"Save"** (Ctrl+S)
-2. Clique na **toggle** para ativar o workflow
-3. Anote a URL do webhook gerada
+1. **Clique em "Execute Workflow"** na barra de ferramentas
+2. **Aguarde** a execução
+3. **Verifique** os resultados no Debug Helper
 
-### 2. Testar com cURL
+### 5.2 Verificar Resultados
 
-```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Teste básico
-curl -X POST \
-http://localhost:5678/webhook/meu-primeiro-webhook \
--H "Content-Type: application/json" \
--d '{
-"nome": "João Silva",
-"email": "joao@exemplo.com",
-"idade": 30
-}'
-```
-
-### 3. Verificar Resultado
-
-Você deve receber uma resposta similar a:
+No Debug Helper, você deve ver:
 
 ```json
 {
-"status": "success",
-"message": "Dados processados com sucesso!",
-"processed_at": "2025-01-15T10:30:00.000Z",
-"external_response": {
-"json": {
-"original": "{\"nome\":\"João Silva\",\"email\":\"joao@exemplo.com\",\"idade\":30}",
-"processed_at": "2025-01-15T10:30:00.000Z",
-"count": 3
-}
-}
+  "mensagem": "Olá, este é meu primeiro workflow!",
+  "data_criacao": "2024-01-15 14:30:25",
+  "usuario": "Desenvolvedor n8n"
 }
 ```
 
-## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visualizar Execuções
+## Passo 6: Salvar e Ativar
 
-### Acessar o Log
+### 6.1 Salvar o Workflow
 
-1. Na interface do n8n, vá para **"Executions"**
-2. Clique na execução mais recente
-3. Visualize os dados em cada node
+1. **Clique em "Save"** na barra de ferramentas
+2. **Digite um nome** para o workflow
+3. **Clique em "Save"**
 
-### Debug de Dados
+### 6.2 Ativar o Workflow
 
-- **Node Webhook**: Dados originais recebidos
-- **Node Set**: Dados transformados
-- **Node HTTP Request**: Resposta da API externa
-- **Node Respond**: Resposta final enviada
+1. **Clique no toggle** "Active" na barra de ferramentas
+2. **Confirme** a ativação
+3. **O workflow** agora está ativo e pode ser executado
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Melhorias Possíveis
+## Exemplo Prático: Workflow de Notificação
 
-### 1. Validação de Dados
+Vamos criar um workflow mais prático que envia uma notificação.
 
-```javascript
-// No node Set, adicione validação
-Key: isValid
-Value: {{ $json.nome && $json.email ? 'valid' : 'invalid' }}
+### Estrutura do Workflow
+
+```
+Manual Trigger → Set → HTTP Request → Debug Helper
 ```
 
-### 2. Tratamento de Erro
+### Configuração Detalhada
 
-1. Adicione um node **"IF"** após o Set
-2. Configure condição: `{{ $json.isValid === 'valid' }}`
-3. Roteie dados inválidos para tratamento diferente
+#### 1. Manual Trigger
+- **Name**: "Iniciar Notificação"
+- **Description**: "Inicia o processo de notificação"
 
-### 3. Logging
-
+#### 2. Set Node
 ```javascript
-// Adicione log detalhado
-Key: logEntry
-Value: {{ `Processado: ${$json.nome} em ${new Date().toLocaleString('pt-BR')}` }}
+{
+  "titulo": "Notificação do n8n",
+  "mensagem": "Este é um teste do meu primeiro workflow!",
+  "timestamp": "{{ $now.toISOString() }}",
+  "usuario": "Desenvolvedor"
+}
 ```
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integrações Reais
+#### 3. HTTP Request (Webhook)
+- **Method**: POST
+- **URL**: `https://webhook.site/seu-webhook-id`
+- **Headers**: 
+  ```json
+  {
+    "Content-Type": "application/json"
+  }
+  ```
+- **Body**: 
+  ```json
+  {
+    "titulo": "{{ $json.titulo }}",
+    "mensagem": "{{ $json.mensagem }}",
+    "timestamp": "{{ $json.timestamp }}",
+    "usuario": "{{ $json.usuario }}"
+  }
+  ```
 
-### APIs Populares
+#### 4. Debug Helper
+- **Name**: "Resultado"
+- **Description**: "Mostra o resultado da notificação"
 
-- **Slack**: Enviar notificações
-- **Google Sheets**: Salvar dados
-- **Email**: Enviar confirmações
-- **Database**: Persistir informações
+## Conceitos Fundamentais
 
-### Exemplos de URLs
+### 1. Nodes
+
+**Nodes** são os blocos de construção dos workflows:
+
+- **Trigger Nodes**: Iniciam workflows
+- **Regular Nodes**: Processam dados
+- **Output Nodes**: Geram resultados
+
+### 2. Connections
+
+**Connections** ligam os nodes:
+
+- **Dados fluem** de um node para outro
+- **Cada node** recebe dados do anterior
+- **Dados são processados** em sequência
+
+### 3. Data Flow
+
+**O fluxo de dados** funciona assim:
+
+1. **Trigger** inicia o workflow
+2. **Dados** são passados para o próximo node
+3. **Cada node** processa os dados
+4. **Resultado** é passado adiante
+
+### 4. Expressions
+
+**Expressions** permitem usar dados dinâmicos:
 
 ```javascript
-// Slack Webhook
-https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+// Usar dados do node anterior
+{{ $json.campo }}
 
-// Discord Webhook 
-https://discord.com/api/webhooks/YOUR/DISCORD/WEBHOOK
+// Usar data/hora atual
+{{ $now.toISOString() }}
 
-// Teams Webhook
-https://outlook.office.com/webhook/YOUR/TEAMS/WEBHOOK
+// Usar dados de nodes específicos
+{{ $('Nome do Node').json.campo }}
 ```
 
-## <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Sucesso
+## Próximos Passos
 
-- Workflow criado e nomeado
-- Webhook configurado e ativo
-- Dados sendo transformados corretamente
-- Requisição externa funcionando
-- Resposta sendo retornada
-- Execuções aparecendo no log
-- Teste com dados reais realizado
+### 1. Explorar Mais Nodes
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+Experimente outros nodes:
 
-Parabéns! Você criou seu primeiro workflow. Agora explore:
+- **HTTP Request**: Fazer chamadas para APIs
+- **Code**: Executar código JavaScript
+- **If**: Criar condições
+- **Switch**: Múltiplas condições
+- **Merge**: Combinar dados
 
-1. **[Diferentes tipos de triggers](../integracoes/trigger-nodes/time-based/manual-trigger)**
-2. **[Mais integrações](../integracoes/)**
-3. **[Expressões avançadas](../logica-e-dados/data/data-mapping-avancado)**
-4. **[Deploy em produção](../hosting-n8n/instalacao)**
+### 2. Criar Workflows Mais Complexos
 
-:::success Sucesso!
-Você acabou de criar um workflow funcional que pode receber, processar e responder dados automaticamente. Este é o primeiro passo para automações mais complexas!
-:::
+Tente criar workflows que:
 
----
+- **Processem dados** de APIs
+- **Enviem emails** automaticamente
+- **Salvem dados** em planilhas
+- **Notifiquem** sobre eventos
 
-**Anterior:** [Conceitos Básicos](./conceitos-basicos) ← | → **Próximo:** [Integrações](../integracoes/webhooks)
+### 3. Usar Templates
+
+Explore templates prontos:
+
+1. **Vá para "Templates"** no menu lateral
+2. **Procure** por templates interessantes
+3. **Importe** e adapte para suas necessidades
+4. **Estude** como funcionam
+
+## Troubleshooting
+
+### Problemas Comuns
+
+#### Workflow não executa
+- Verifique se está ativo
+- Confirme se todos os nodes estão conectados
+- Verifique se há erros de configuração
+- Monitore os logs de execução
+
+#### Dados não aparecem
+- Use o Debug Helper para inspecionar dados
+- Verifique se os campos estão configurados corretamente
+- Confirme se as expressões estão corretas
+- Teste com dados de exemplo
+
+#### Node não funciona
+- Verifique a configuração do node
+- Confirme se as credenciais estão corretas
+- Teste com dados simples
+- Consulte a documentação do node
+
+### Debug
+
+1. **Use o Debug Helper** frequentemente
+2. **Configure logging** detalhado
+3. **Teste nodes** individualmente
+4. **Monitore execuções**
+5. **Verifique logs** de erro
+
+## Boas Práticas
+
+### 1. Nomenclatura
+
+- **Use nomes descritivos** para workflows
+- **Nomeie nodes** de forma clara
+- **Documente** o propósito de cada node
+- **Mantenha** consistência na nomenclatura
+
+### 2. Organização
+
+- **Agrupe nodes** relacionados
+- **Use comentários** para explicar lógica
+- **Mantenha workflows** organizados
+- **Evite workflows** muito complexos
+
+### 3. Teste
+
+- **Teste frequentemente** durante o desenvolvimento
+- **Use dados de exemplo** realistas
+- **Valide resultados** esperados
+- **Configure alertas** para falhas
+
+## Recursos Adicionais
+
+### 1. Documentação
+
+- **Guia oficial**: [docs.n8n.io](https://docs.n8n.io)
+- **Exemplos**: Templates e casos de uso
+- **Comunidade**: Fóruns e grupos
+- **Vídeos**: Tutoriais em vídeo
+
+### 2. Comunidade
+
+- **Fórum oficial**: [community.n8n.io](https://community.n8n.io)
+- **GitHub**: Issues e discussões
+- **Discord**: Chat em tempo real
+- **Redes sociais**: Twitter, LinkedIn
+
+### 3. Templates
+
+- **Marketplace**: Templates oficiais
+- **Comunidade**: Templates compartilhados
+- **GitHub**: Repositórios de templates
+- **Blogs**: Templates em artigos
+
+## Conclusão
+
+Parabéns! Você criou seu primeiro workflow no n8n. Agora você tem uma base sólida para:
+
+- **Criar workflows** mais complexos
+- **Automatizar processos** do dia a dia
+- **Integrar sistemas** diferentes
+- **Melhorar produtividade** com automação
+
+Continue explorando, experimentando e aprendendo. O n8n oferece infinitas possibilidades de automação!
+
+## Próximos Passos
+
+- [Conceitos Básicos](/primeiros-passos/conceitos-basicos.md) - Entender fundamentos
+- [Conectar Aplicações](/primeiros-passos/conectar-aplicacoes.md) - Integrar sistemas
+- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
+- [Templates](/integracoes/templates.md) - Usar templates prontos
+- [Casos de Uso](/catalogo/index.md) - Ver exemplos práticos

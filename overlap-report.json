@@ -1,0 +1,3387 @@
+{
+  "metadata": {
+    "generatedAt": "2025-07-11T21:35:09.376Z",
+    "totalIssues": 344,
+    "configVersion": "1.0.0"
+  },
+  "summary": {
+    "structure": 47,
+    "keyword": 247,
+    "content": 12,
+    "similarity": 38
+  },
+  "issues": [
+    {
+      "type": "structure",
+      "message": "Seção não encontrada: intro",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\intro",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.271Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: quickstart-rapido",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\quickstart-rapido",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.272Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: workflow-na-pratica",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\workflow-na-pratica",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.272Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: navegacao-editor-ui",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\navegacao-editor-ui",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.272Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: componentes-execucoes",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\componentes-execucoes",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.272Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: criar-editar",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\criar-editar",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: compartilhamento",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\compartilhamento",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: boas-praticas",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\boas-praticas",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: criar-editar",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\criar-editar",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: historico",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\historico",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: configuracoes",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\configuracoes",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: compartilhamento",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\compartilhamento",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: export-import",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\export-import",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: tags",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\tags",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: workflow-id",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\workflow-id",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: visualizar-execucoes",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\visualizar-execucoes",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: criar-editar-usuarios",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\usando-n8n\\criar-editar-usuarios",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.273Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: error-handling",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\error-handling",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: looping",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\looping",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: merging",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\merging",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: splitting",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\splitting",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: subworkflows",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\subworkflows",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: waiting",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\waiting",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: data-mapping-avancado",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\data-mapping-avancado",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: transformacoes-dados",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\transformacoes-dados",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: binary-data",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\binary-data",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: data-mocking",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\data-mocking",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: schema-preview",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\schema-preview",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: data-filtering",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\data-filtering",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: data-editing",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\data-editing",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: agregacoes-estatisticas",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\agregacoes-estatisticas",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: integracao-apis",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\integracao-apis",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: otimizacao-performance",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\otimizacao-performance",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: visualizacao-dados",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\logica-e-dados\\visualizacao-dados",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: api-keys",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes\\api-keys",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: basic-auth",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes\\basic-auth",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: oauth",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes\\oauth",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: instalacao",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes\\instalacao",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: populares",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes\\populares",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: estrutura-node",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes\\estrutura-node",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: tutorial-desenvolvimento",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes\\tutorial-desenvolvimento",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: publicar-npm",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes\\publicar-npm",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: pix",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes-br\\pix",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: pix-avancado",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes-br\\pix-avancado",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: nfe-integracao",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes-br\\nfe-integracao",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.274Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: cnpj-receita",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes-br\\cnpj-receita",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.275Z"
+    },
+    {
+      "type": "structure",
+      "message": "Arquivo não encontrado: viacep",
+      "path": "F:\\D\\n8ndoc_BR\\docs\\integracoes-br\\viacep",
+      "details": {},
+      "timestamp": "2025-07-11T21:35:08.275Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 3 vezes",
+      "path": "integracoes-br\\financeiro\\nfe-integracao.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.331Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 3 vezes",
+      "path": "integracoes-br\\financeiro\\nfe-integracao.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.331Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 11 vezes",
+      "path": "integracoes-br\\financeiro\\nfe-integracao.md",
+      "details": {
+        "keyword": "dados",
+        "count": 11
+      },
+      "timestamp": "2025-07-11T21:35:08.331Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 7 vezes",
+      "path": "integracoes-br\\financeiro\\nfe-integracao.md",
+      "details": {
+        "keyword": "integração",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.331Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 3 vezes",
+      "path": "integracoes-br\\financeiro\\nfe-integracao.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.332Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 13 vezes",
+      "path": "integracoes-br\\financeiro\\pix-avancado.md",
+      "details": {
+        "keyword": "api",
+        "count": 13
+      },
+      "timestamp": "2025-07-11T21:35:08.332Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 6 vezes",
+      "path": "integracoes-br\\financeiro\\pix-avancado.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.332Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 10 vezes",
+      "path": "integracoes-br\\financeiro\\pix-avancado.md",
+      "details": {
+        "keyword": "dados",
+        "count": 10
+      },
+      "timestamp": "2025-07-11T21:35:08.332Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes-br\\financeiro\\pix-avancado.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.332Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 4 vezes",
+      "path": "integracoes-br\\financeiro\\pix-avancado.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.332Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes-br\\financeiro\\pix.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.332Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes-br\\governo\\cnpj-receita.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.332Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes-br\\localizacao\\viacep.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.333Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes\\app-nodes\\communication\\gmail.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.333Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 4 vezes",
+      "path": "integracoes\\app-nodes\\communication\\slack.md",
+      "details": {
+        "keyword": "integração",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.333Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes\\app-nodes\\ecommerce\\index.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.333Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 3 vezes",
+      "path": "integracoes\\app-nodes\\index.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.334Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 3 vezes",
+      "path": "integracoes\\app-nodes\\index.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.334Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 7 vezes",
+      "path": "integracoes\\app-nodes\\index.md",
+      "details": {
+        "keyword": "api",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.334Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 5 vezes",
+      "path": "integracoes\\app-nodes\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.334Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes\\app-nodes\\index.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.334Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 7 vezes",
+      "path": "integracoes\\app-nodes\\productivity\\google-sheets.md",
+      "details": {
+        "keyword": "api",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.334Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 7 vezes",
+      "path": "integracoes\\app-nodes\\productivity\\google-sheets.md",
+      "details": {
+        "keyword": "dados",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.334Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes\\app-nodes\\productivity\\google-sheets.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.334Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"credential\" encontrada 3 vezes",
+      "path": "integracoes\\app-nodes\\productivity\\google-sheets.md",
+      "details": {
+        "keyword": "credential",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.334Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes\\app-nodes\\productivity\\trello.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.334Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 13 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\code.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 13
+      },
+      "timestamp": "2025-07-11T21:35:08.335Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 26 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\code.md",
+      "details": {
+        "keyword": "dados",
+        "count": 26
+      },
+      "timestamp": "2025-07-11T21:35:08.335Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\error-trigger.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.335Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\execute-sub-workflow.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.335Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 5 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\expression.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.336Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 4 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\expression.md",
+      "details": {
+        "keyword": "api",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.336Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\expression.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.336Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 18 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\expression.md",
+      "details": {
+        "keyword": "dados",
+        "count": 18
+      },
+      "timestamp": "2025-07-11T21:35:08.336Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 5 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\function.md",
+      "details": {
+        "keyword": "api",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.336Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\function.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.336Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 20 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\function.md",
+      "details": {
+        "keyword": "dados",
+        "count": 20
+      },
+      "timestamp": "2025-07-11T21:35:08.337Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 4 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\index.md",
+      "details": {
+        "keyword": "api",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.337Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 17 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 17
+      },
+      "timestamp": "2025-07-11T21:35:08.337Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\workflow-trigger.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.337Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\workflow-trigger.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.337Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 13 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\aggregate.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 13
+      },
+      "timestamp": "2025-07-11T21:35:08.338Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 6 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\aggregate.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.338Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 18 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\aggregate.md",
+      "details": {
+        "keyword": "dados",
+        "count": 18
+      },
+      "timestamp": "2025-07-11T21:35:08.338Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\set.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.338Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\set.md",
+      "details": {
+        "keyword": "api",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.338Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 5 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\set.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.338Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 20 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\set.md",
+      "details": {
+        "keyword": "dados",
+        "count": 20
+      },
+      "timestamp": "2025-07-11T21:35:08.338Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 5 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\set.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 11 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\split-in-batches.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 11
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 15 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\split-in-batches.md",
+      "details": {
+        "keyword": "api",
+        "count": 15
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 8 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\split-in-batches.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 8
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 11 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\split-in-batches.md",
+      "details": {
+        "keyword": "dados",
+        "count": 11
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 5 vezes",
+      "path": "integracoes\\builtin-nodes\\data-processing\\split-in-batches.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\http-request.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\http-request.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 9 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\http-request.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 9
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 26 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\http-request.md",
+      "details": {
+        "keyword": "api",
+        "count": 26
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 15 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\http-request.md",
+      "details": {
+        "keyword": "dados",
+        "count": 15
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"credential\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\http-request.md",
+      "details": {
+        "keyword": "credential",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\http-request.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.339Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 34 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\webhook.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 34
+      },
+      "timestamp": "2025-07-11T21:35:08.340Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 7 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\webhook.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.340Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 9 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\webhook.md",
+      "details": {
+        "keyword": "dados",
+        "count": 9
+      },
+      "timestamp": "2025-07-11T21:35:08.340Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 8 vezes",
+      "path": "integracoes\\builtin-nodes\\http-requests\\webhook.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 8
+      },
+      "timestamp": "2025-07-11T21:35:08.340Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\index.md",
+      "details": {
+        "keyword": "api",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.341Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 8 vezes",
+      "path": "integracoes\\builtin-nodes\\index.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 8
+      },
+      "timestamp": "2025-07-11T21:35:08.341Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 17 vezes",
+      "path": "integracoes\\builtin-nodes\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 17
+      },
+      "timestamp": "2025-07-11T21:35:08.341Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\index.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.341Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\logic-control\\if.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.341Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 8 vezes",
+      "path": "integracoes\\builtin-nodes\\logic-control\\if.md",
+      "details": {
+        "keyword": "dados",
+        "count": 8
+      },
+      "timestamp": "2025-07-11T21:35:08.341Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 8 vezes",
+      "path": "integracoes\\builtin-nodes\\logic-control\\index.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 8
+      },
+      "timestamp": "2025-07-11T21:35:08.342Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 15 vezes",
+      "path": "integracoes\\builtin-nodes\\logic-control\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 15
+      },
+      "timestamp": "2025-07-11T21:35:08.342Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 3 vezes",
+      "path": "integracoes\\builtin-nodes\\utilities\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.342Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"instalação\" encontrada 5 vezes",
+      "path": "integracoes\\community-nodes\\instalacao.md",
+      "details": {
+        "keyword": "instalação",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.343Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 5 vezes",
+      "path": "integracoes\\credential-nodes\\api-keys.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.343Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 6 vezes",
+      "path": "integracoes\\credential-nodes\\api-keys.md",
+      "details": {
+        "keyword": "api",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.343Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 4 vezes",
+      "path": "integracoes\\credential-nodes\\basic-auth.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.343Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 5 vezes",
+      "path": "integracoes\\credential-nodes\\oauth.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.343Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 5 vezes",
+      "path": "integracoes\\index.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.344Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 5 vezes",
+      "path": "integracoes\\index.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.344Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 12 vezes",
+      "path": "integracoes\\index.md",
+      "details": {
+        "keyword": "api",
+        "count": 12
+      },
+      "timestamp": "2025-07-11T21:35:08.344Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 3 vezes",
+      "path": "integracoes\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.344Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes\\index.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.344Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 6 vezes",
+      "path": "integracoes\\index.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.344Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: Credenciais",
+      "path": "integracoes\\index.md",
+      "details": {
+        "duplicateTitles": [
+          "Credenciais"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.344Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 19 vezes",
+      "path": "integracoes\\templates.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 19
+      },
+      "timestamp": "2025-07-11T21:35:08.345Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 6 vezes",
+      "path": "integracoes\\templates.md",
+      "details": {
+        "keyword": "dados",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.345Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "integracoes\\templates.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.345Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: Marketplace Oficial, Comunidade",
+      "path": "integracoes\\templates.md",
+      "details": {
+        "duplicateTitles": [
+          "Marketplace Oficial",
+          "Comunidade"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.345Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 6 vezes",
+      "path": "integracoes\\trigger-nodes\\app-triggers\\index.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.345Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 6 vezes",
+      "path": "integracoes\\trigger-nodes\\event-based\\webhook-trigger.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 5 vezes",
+      "path": "integracoes\\trigger-nodes\\event-based\\webhook-trigger.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 9 vezes",
+      "path": "integracoes\\trigger-nodes\\index.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 9
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 6 vezes",
+      "path": "integracoes\\trigger-nodes\\index.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 13 vezes",
+      "path": "integracoes\\trigger-nodes\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 13
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 34 vezes",
+      "path": "integracoes\\trigger-nodes\\index.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 34
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: App Triggers, Event-based Triggers, Time-based Triggers",
+      "path": "integracoes\\trigger-nodes\\index.md",
+      "details": {
+        "duplicateTitles": [
+          "App Triggers",
+          "Event-based Triggers",
+          "Time-based Triggers"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 5 vezes",
+      "path": "integracoes\\trigger-nodes\\time-based\\manual-trigger.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 9 vezes",
+      "path": "integracoes\\trigger-nodes\\time-based\\manual-trigger.md",
+      "details": {
+        "keyword": "api",
+        "count": 9
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 19 vezes",
+      "path": "integracoes\\trigger-nodes\\time-based\\manual-trigger.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 19
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 23 vezes",
+      "path": "integracoes\\trigger-nodes\\time-based\\manual-trigger.md",
+      "details": {
+        "keyword": "dados",
+        "count": 23
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 37 vezes",
+      "path": "integracoes\\trigger-nodes\\time-based\\manual-trigger.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 37
+      },
+      "timestamp": "2025-07-11T21:35:08.346Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 5 vezes",
+      "path": "integracoes\\trigger-nodes\\time-based\\schedule-trigger.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.347Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 3 vezes",
+      "path": "integracoes\\webhooks.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.347Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 3 vezes",
+      "path": "primeiros-passos\\conceitos-basicos.md",
+      "details": {
+        "keyword": "api",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.349Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 32 vezes",
+      "path": "primeiros-passos\\conceitos-basicos.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 32
+      },
+      "timestamp": "2025-07-11T21:35:08.349Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 40 vezes",
+      "path": "primeiros-passos\\conceitos-basicos.md",
+      "details": {
+        "keyword": "dados",
+        "count": 40
+      },
+      "timestamp": "2025-07-11T21:35:08.349Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 10 vezes",
+      "path": "primeiros-passos\\conceitos-basicos.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 10
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: Como Funciona, Benefícios",
+      "path": "primeiros-passos\\conceitos-basicos.md",
+      "details": {
+        "duplicateTitles": [
+          "Como Funciona",
+          "Benefícios"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 4 vezes",
+      "path": "primeiros-passos\\conectar-aplicacoes.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 8 vezes",
+      "path": "primeiros-passos\\conectar-aplicacoes.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 8
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 15 vezes",
+      "path": "primeiros-passos\\conectar-aplicacoes.md",
+      "details": {
+        "keyword": "api",
+        "count": 15
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 5 vezes",
+      "path": "primeiros-passos\\conectar-aplicacoes.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 17 vezes",
+      "path": "primeiros-passos\\conectar-aplicacoes.md",
+      "details": {
+        "keyword": "dados",
+        "count": 17
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 6 vezes",
+      "path": "primeiros-passos\\conectar-aplicacoes.md",
+      "details": {
+        "keyword": "integração",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"credential\" encontrada 3 vezes",
+      "path": "primeiros-passos\\conectar-aplicacoes.md",
+      "details": {
+        "keyword": "credential",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 5 vezes",
+      "path": "primeiros-passos\\conectar-aplicacoes.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"instalação\" encontrada 4 vezes",
+      "path": "primeiros-passos\\faq.md",
+      "details": {
+        "keyword": "instalação",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 5 vezes",
+      "path": "primeiros-passos\\faq.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 6 vezes",
+      "path": "primeiros-passos\\faq.md",
+      "details": {
+        "keyword": "api",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 17 vezes",
+      "path": "primeiros-passos\\faq.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 17
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 7 vezes",
+      "path": "primeiros-passos\\faq.md",
+      "details": {
+        "keyword": "dados",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.350Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"instalação\" encontrada 11 vezes",
+      "path": "primeiros-passos\\guia-instalacao.md",
+      "details": {
+        "keyword": "instalação",
+        "count": 11
+      },
+      "timestamp": "2025-07-11T21:35:08.351Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 4 vezes",
+      "path": "primeiros-passos\\guia-instalacao.md",
+      "details": {
+        "keyword": "dados",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.351Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"instalação\" encontrada 10 vezes",
+      "path": "primeiros-passos\\index.md",
+      "details": {
+        "keyword": "instalação",
+        "count": 10
+      },
+      "timestamp": "2025-07-11T21:35:08.351Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 10 vezes",
+      "path": "primeiros-passos\\index.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 10
+      },
+      "timestamp": "2025-07-11T21:35:08.351Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 4 vezes",
+      "path": "primeiros-passos\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.351Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 9 vezes",
+      "path": "primeiros-passos\\instalacao-cloud.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 9
+      },
+      "timestamp": "2025-07-11T21:35:08.352Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 3 vezes",
+      "path": "primeiros-passos\\instalacao-cloud.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.352Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 6 vezes",
+      "path": "primeiros-passos\\instalacao-cloud.md",
+      "details": {
+        "keyword": "api",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.352Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 53 vezes",
+      "path": "primeiros-passos\\instalacao-cloud.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 53
+      },
+      "timestamp": "2025-07-11T21:35:08.352Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 24 vezes",
+      "path": "primeiros-passos\\instalacao-cloud.md",
+      "details": {
+        "keyword": "dados",
+        "count": 24
+      },
+      "timestamp": "2025-07-11T21:35:08.352Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 3 vezes",
+      "path": "primeiros-passos\\instalacao-cloud.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.352Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"instalação\" encontrada 14 vezes",
+      "path": "primeiros-passos\\instalacao-npm.md",
+      "details": {
+        "keyword": "instalação",
+        "count": 14
+      },
+      "timestamp": "2025-07-11T21:35:08.352Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 5 vezes",
+      "path": "primeiros-passos\\instalacao-npm.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.353Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 10 vezes",
+      "path": "primeiros-passos\\instalacao-npm.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 10
+      },
+      "timestamp": "2025-07-11T21:35:08.353Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 3 vezes",
+      "path": "primeiros-passos\\instalacao-npm.md",
+      "details": {
+        "keyword": "dados",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.353Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"instalação\" encontrada 18 vezes",
+      "path": "primeiros-passos\\instalacao.md",
+      "details": {
+        "keyword": "instalação",
+        "count": 18
+      },
+      "timestamp": "2025-07-11T21:35:08.353Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 6 vezes",
+      "path": "primeiros-passos\\instalacao.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.353Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 5 vezes",
+      "path": "primeiros-passos\\instalacao.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.353Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 8 vezes",
+      "path": "primeiros-passos\\instalacao.md",
+      "details": {
+        "keyword": "dados",
+        "count": 8
+      },
+      "timestamp": "2025-07-11T21:35:08.353Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 28 vezes",
+      "path": "primeiros-passos\\primeiro-workflow.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 28
+      },
+      "timestamp": "2025-07-11T21:35:08.354Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 5 vezes",
+      "path": "primeiros-passos\\primeiro-workflow.md",
+      "details": {
+        "keyword": "api",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.354Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 15 vezes",
+      "path": "primeiros-passos\\primeiro-workflow.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 15
+      },
+      "timestamp": "2025-07-11T21:35:08.354Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 18 vezes",
+      "path": "primeiros-passos\\primeiro-workflow.md",
+      "details": {
+        "keyword": "dados",
+        "count": 18
+      },
+      "timestamp": "2025-07-11T21:35:08.354Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 4 vezes",
+      "path": "primeiros-passos\\primeiro-workflow.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.354Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: Adicionar o Node",
+      "path": "primeiros-passos\\primeiro-workflow.md",
+      "details": {
+        "duplicateTitles": [
+          "Adicionar o Node"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.354Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 4 vezes",
+      "path": "usando-n8n\\credenciais\\boas-praticas.md",
+      "details": {
+        "keyword": "api",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.355Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 6 vezes",
+      "path": "usando-n8n\\credenciais\\boas-praticas.md",
+      "details": {
+        "keyword": "dados",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.355Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 6 vezes",
+      "path": "usando-n8n\\credenciais\\criar-editar.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.356Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 3 vezes",
+      "path": "usando-n8n\\credenciais\\criar-editar.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.356Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 3 vezes",
+      "path": "usando-n8n\\credenciais\\criar-editar.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.356Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 25 vezes",
+      "path": "usando-n8n\\credenciais\\criar-editar.md",
+      "details": {
+        "keyword": "api",
+        "count": 25
+      },
+      "timestamp": "2025-07-11T21:35:08.356Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"credential\" encontrada 20 vezes",
+      "path": "usando-n8n\\credenciais\\criar-editar.md",
+      "details": {
+        "keyword": "credential",
+        "count": 20
+      },
+      "timestamp": "2025-07-11T21:35:08.356Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 4 vezes",
+      "path": "usando-n8n\\credenciais\\index.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.356Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 5 vezes",
+      "path": "usando-n8n\\credenciais\\politicas-seguranca.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.357Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 5 vezes",
+      "path": "usando-n8n\\credenciais\\politicas-seguranca.md",
+      "details": {
+        "keyword": "api",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.357Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 9 vezes",
+      "path": "usando-n8n\\credenciais\\politicas-seguranca.md",
+      "details": {
+        "keyword": "dados",
+        "count": 9
+      },
+      "timestamp": "2025-07-11T21:35:08.357Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"credential\" encontrada 87 vezes",
+      "path": "usando-n8n\\credenciais\\politicas-seguranca.md",
+      "details": {
+        "keyword": "credential",
+        "count": 87
+      },
+      "timestamp": "2025-07-11T21:35:08.357Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 5 vezes",
+      "path": "usando-n8n\\credenciais\\politicas-seguranca.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.357Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 7 vezes",
+      "path": "usando-n8n\\credenciais\\treinamento-seguranca.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.357Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 6 vezes",
+      "path": "usando-n8n\\credenciais\\treinamento-seguranca.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.357Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 3 vezes",
+      "path": "usando-n8n\\credenciais\\treinamento-seguranca.md",
+      "details": {
+        "keyword": "dados",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.358Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: Objetivos de Aprendizado, Conteúdo, Atividades Práticas",
+      "path": "usando-n8n\\credenciais\\treinamento-seguranca.md",
+      "details": {
+        "duplicateTitles": [
+          "Objetivos de Aprendizado",
+          "Conteúdo",
+          "Atividades Práticas"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.358Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 3 vezes",
+      "path": "usando-n8n\\execucoes\\index.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.358Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 3 vezes",
+      "path": "usando-n8n\\execucoes\\index.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.358Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 20 vezes",
+      "path": "usando-n8n\\execucoes\\index.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 20
+      },
+      "timestamp": "2025-07-11T21:35:08.358Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 11 vezes",
+      "path": "usando-n8n\\execucoes\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 11
+      },
+      "timestamp": "2025-07-11T21:35:08.358Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 12 vezes",
+      "path": "usando-n8n\\execucoes\\index.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 12
+      },
+      "timestamp": "2025-07-11T21:35:08.358Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 5 vezes",
+      "path": "usando-n8n\\getting-started\\index.md",
+      "details": {
+        "keyword": "api",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 19 vezes",
+      "path": "usando-n8n\\getting-started\\index.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 19
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 4 vezes",
+      "path": "usando-n8n\\getting-started\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 11 vezes",
+      "path": "usando-n8n\\getting-started\\quickstart-rapido.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 11
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 3 vezes",
+      "path": "usando-n8n\\getting-started\\quickstart-rapido.md",
+      "details": {
+        "keyword": "dados",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 8 vezes",
+      "path": "usando-n8n\\getting-started\\quickstart-rapido.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 8
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 13 vezes",
+      "path": "usando-n8n\\getting-started\\workflow-na-pratica.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 13
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 4 vezes",
+      "path": "usando-n8n\\getting-started\\workflow-na-pratica.md",
+      "details": {
+        "keyword": "dados",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 11 vezes",
+      "path": "usando-n8n\\getting-started\\workflow-na-pratica.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 11
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 6 vezes",
+      "path": "usando-n8n\\index.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 3 vezes",
+      "path": "usando-n8n\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.359Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 15 vezes",
+      "path": "usando-n8n\\interface\\index.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 15
+      },
+      "timestamp": "2025-07-11T21:35:08.360Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 22 vezes",
+      "path": "usando-n8n\\interface\\navegacao-editor-ui.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 22
+      },
+      "timestamp": "2025-07-11T21:35:08.360Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 9 vezes",
+      "path": "usando-n8n\\interface\\navegacao-editor-ui.md",
+      "details": {
+        "keyword": "dados",
+        "count": 9
+      },
+      "timestamp": "2025-07-11T21:35:08.360Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 3 vezes",
+      "path": "usando-n8n\\monitoring\\analisar-logs.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.360Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 5 vezes",
+      "path": "usando-n8n\\monitoring\\analisar-logs.md",
+      "details": {
+        "keyword": "api",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.360Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 17 vezes",
+      "path": "usando-n8n\\monitoring\\analisar-logs.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 17
+      },
+      "timestamp": "2025-07-11T21:35:08.360Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 3 vezes",
+      "path": "usando-n8n\\monitoring\\analisar-logs.md",
+      "details": {
+        "keyword": "dados",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.360Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: !/bin/bash",
+      "path": "usando-n8n\\monitoring\\analisar-logs.md",
+      "details": {
+        "duplicateTitles": [
+          "!/bin/bash"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.361Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 7 vezes",
+      "path": "usando-n8n\\monitoring\\index.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.361Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 10 vezes",
+      "path": "usando-n8n\\monitoring\\visualizar-execucoes.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 10
+      },
+      "timestamp": "2025-07-11T21:35:08.361Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 13 vezes",
+      "path": "usando-n8n\\monitoring\\visualizar-execucoes.md",
+      "details": {
+        "keyword": "dados",
+        "count": 13
+      },
+      "timestamp": "2025-07-11T21:35:08.361Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 4 vezes",
+      "path": "usando-n8n\\monitoring\\visualizar-execucoes.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.361Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 11 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\autenticacao.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 11
+      },
+      "timestamp": "2025-07-11T21:35:08.361Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 16 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\autenticacao.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 16
+      },
+      "timestamp": "2025-07-11T21:35:08.361Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 3 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\autenticacao.md",
+      "details": {
+        "keyword": "api",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.361Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 4 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\autenticacao.md",
+      "details": {
+        "keyword": "integração",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.362Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: Variáveis de ambiente",
+      "path": "usando-n8n\\usuarios-permissoes\\autenticacao.md",
+      "details": {
+        "duplicateTitles": [
+          "Variáveis de ambiente"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.362Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 5 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\criar-editar-usuarios.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.362Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 6 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\criar-editar-usuarios.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.362Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 3 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\criar-editar-usuarios.md",
+      "details": {
+        "keyword": "dados",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.362Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 3 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\index.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.362Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 10 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\roles-permissoes.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 10
+      },
+      "timestamp": "2025-07-11T21:35:08.362Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 4 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\roles-permissoes.md",
+      "details": {
+        "keyword": "autenticação",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.362Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 4 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\roles-permissoes.md",
+      "details": {
+        "keyword": "api",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.362Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 53 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\roles-permissoes.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 53
+      },
+      "timestamp": "2025-07-11T21:35:08.362Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"credential\" encontrada 6 vezes",
+      "path": "usando-n8n\\usuarios-permissoes\\roles-permissoes.md",
+      "details": {
+        "keyword": "credential",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.363Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 18 vezes",
+      "path": "usando-n8n\\workflows\\compartilhamento.md",
+      "details": {
+        "keyword": "api",
+        "count": 18
+      },
+      "timestamp": "2025-07-11T21:35:08.363Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 86 vezes",
+      "path": "usando-n8n\\workflows\\compartilhamento.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 86
+      },
+      "timestamp": "2025-07-11T21:35:08.363Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 5 vezes",
+      "path": "usando-n8n\\workflows\\compartilhamento.md",
+      "details": {
+        "keyword": "dados",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.363Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"credential\" encontrada 3 vezes",
+      "path": "usando-n8n\\workflows\\compartilhamento.md",
+      "details": {
+        "keyword": "credential",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.363Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 5 vezes",
+      "path": "usando-n8n\\workflows\\configuracoes.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.363Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 11 vezes",
+      "path": "usando-n8n\\workflows\\configuracoes.md",
+      "details": {
+        "keyword": "api",
+        "count": 11
+      },
+      "timestamp": "2025-07-11T21:35:08.364Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 36 vezes",
+      "path": "usando-n8n\\workflows\\configuracoes.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 36
+      },
+      "timestamp": "2025-07-11T21:35:08.364Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 23 vezes",
+      "path": "usando-n8n\\workflows\\configuracoes.md",
+      "details": {
+        "keyword": "dados",
+        "count": 23
+      },
+      "timestamp": "2025-07-11T21:35:08.364Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: Configurações de Performance, Configurações de Segurança, Configurações de Monitoramento",
+      "path": "usando-n8n\\workflows\\configuracoes.md",
+      "details": {
+        "duplicateTitles": [
+          "Configurações de Performance",
+          "Configurações de Segurança",
+          "Configurações de Monitoramento"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.364Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 6 vezes",
+      "path": "usando-n8n\\workflows\\criar-editar.md",
+      "details": {
+        "keyword": "api",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.364Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 32 vezes",
+      "path": "usando-n8n\\workflows\\criar-editar.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 32
+      },
+      "timestamp": "2025-07-11T21:35:08.364Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 12 vezes",
+      "path": "usando-n8n\\workflows\\criar-editar.md",
+      "details": {
+        "keyword": "dados",
+        "count": 12
+      },
+      "timestamp": "2025-07-11T21:35:08.364Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 12 vezes",
+      "path": "usando-n8n\\workflows\\criar-editar.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 12
+      },
+      "timestamp": "2025-07-11T21:35:08.364Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 10 vezes",
+      "path": "usando-n8n\\workflows\\export-import.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 10
+      },
+      "timestamp": "2025-07-11T21:35:08.365Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 24 vezes",
+      "path": "usando-n8n\\workflows\\export-import.md",
+      "details": {
+        "keyword": "api",
+        "count": 24
+      },
+      "timestamp": "2025-07-11T21:35:08.365Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 193 vezes",
+      "path": "usando-n8n\\workflows\\export-import.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 193
+      },
+      "timestamp": "2025-07-11T21:35:08.365Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 6 vezes",
+      "path": "usando-n8n\\workflows\\export-import.md",
+      "details": {
+        "keyword": "dados",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.365Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"credential\" encontrada 11 vezes",
+      "path": "usando-n8n\\workflows\\export-import.md",
+      "details": {
+        "keyword": "credential",
+        "count": 11
+      },
+      "timestamp": "2025-07-11T21:35:08.365Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 9 vezes",
+      "path": "usando-n8n\\workflows\\export-import.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 9
+      },
+      "timestamp": "2025-07-11T21:35:08.365Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: Via Interface Web, Via API",
+      "path": "usando-n8n\\workflows\\export-import.md",
+      "details": {
+        "duplicateTitles": [
+          "Via Interface Web",
+          "Via API"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.365Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 9 vezes",
+      "path": "usando-n8n\\workflows\\historico.md",
+      "details": {
+        "keyword": "api",
+        "count": 9
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 25 vezes",
+      "path": "usando-n8n\\workflows\\historico.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 25
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 25 vezes",
+      "path": "usando-n8n\\workflows\\historico.md",
+      "details": {
+        "keyword": "dados",
+        "count": 25
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 26 vezes",
+      "path": "usando-n8n\\workflows\\index.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 26
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 6 vezes",
+      "path": "usando-n8n\\workflows\\index.md",
+      "details": {
+        "keyword": "dados",
+        "count": 6
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 3 vezes",
+      "path": "usando-n8n\\workflows\\organizar.md",
+      "details": {
+        "keyword": "configuração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 3 vezes",
+      "path": "usando-n8n\\workflows\\organizar.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 3 vezes",
+      "path": "usando-n8n\\workflows\\organizar.md",
+      "details": {
+        "keyword": "api",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 46 vezes",
+      "path": "usando-n8n\\workflows\\organizar.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 46
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 7 vezes",
+      "path": "usando-n8n\\workflows\\organizar.md",
+      "details": {
+        "keyword": "dados",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "usando-n8n\\workflows\\organizar.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 4 vezes",
+      "path": "usando-n8n\\workflows\\organizar.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 4
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: Exemplos Práticos",
+      "path": "usando-n8n\\workflows\\organizar.md",
+      "details": {
+        "duplicateTitles": [
+          "Exemplos Práticos"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.366Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 15 vezes",
+      "path": "usando-n8n\\workflows\\otimizar.md",
+      "details": {
+        "keyword": "api",
+        "count": 15
+      },
+      "timestamp": "2025-07-11T21:35:08.367Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 16 vezes",
+      "path": "usando-n8n\\workflows\\otimizar.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 16
+      },
+      "timestamp": "2025-07-11T21:35:08.367Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 13 vezes",
+      "path": "usando-n8n\\workflows\\otimizar.md",
+      "details": {
+        "keyword": "dados",
+        "count": 13
+      },
+      "timestamp": "2025-07-11T21:35:08.367Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"trigger\" encontrada 3 vezes",
+      "path": "usando-n8n\\workflows\\otimizar.md",
+      "details": {
+        "keyword": "trigger",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.367Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 27 vezes",
+      "path": "usando-n8n\\workflows\\tags.md",
+      "details": {
+        "keyword": "api",
+        "count": 27
+      },
+      "timestamp": "2025-07-11T21:35:08.367Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 71 vezes",
+      "path": "usando-n8n\\workflows\\tags.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 71
+      },
+      "timestamp": "2025-07-11T21:35:08.367Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 5 vezes",
+      "path": "usando-n8n\\workflows\\tags.md",
+      "details": {
+        "keyword": "dados",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.367Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"webhook\" encontrada 18 vezes",
+      "path": "usando-n8n\\workflows\\workflow-id.md",
+      "details": {
+        "keyword": "webhook",
+        "count": 18
+      },
+      "timestamp": "2025-07-11T21:35:08.368Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 29 vezes",
+      "path": "usando-n8n\\workflows\\workflow-id.md",
+      "details": {
+        "keyword": "api",
+        "count": 29
+      },
+      "timestamp": "2025-07-11T21:35:08.368Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 115 vezes",
+      "path": "usando-n8n\\workflows\\workflow-id.md",
+      "details": {
+        "keyword": "workflow",
+        "count": 115
+      },
+      "timestamp": "2025-07-11T21:35:08.368Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 8 vezes",
+      "path": "usando-n8n\\workflows\\workflow-id.md",
+      "details": {
+        "keyword": "dados",
+        "count": 8
+      },
+      "timestamp": "2025-07-11T21:35:08.368Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"integração\" encontrada 3 vezes",
+      "path": "usando-n8n\\workflows\\workflow-id.md",
+      "details": {
+        "keyword": "integração",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.368Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"instalação\" encontrada 7 vezes",
+      "path": "primeiros-passos\\instalacao-self-hosted.mdx",
+      "details": {
+        "keyword": "instalação",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.370Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"configuração\" encontrada 17 vezes",
+      "path": "primeiros-passos\\instalacao-self-hosted.mdx",
+      "details": {
+        "keyword": "configuração",
+        "count": 17
+      },
+      "timestamp": "2025-07-11T21:35:08.370Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"autenticação\" encontrada 5 vezes",
+      "path": "primeiros-passos\\instalacao-self-hosted.mdx",
+      "details": {
+        "keyword": "autenticação",
+        "count": 5
+      },
+      "timestamp": "2025-07-11T21:35:08.370Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"api\" encontrada 3 vezes",
+      "path": "primeiros-passos\\instalacao-self-hosted.mdx",
+      "details": {
+        "keyword": "api",
+        "count": 3
+      },
+      "timestamp": "2025-07-11T21:35:08.371Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"workflow\" encontrada 7 vezes",
+      "path": "primeiros-passos\\instalacao-self-hosted.mdx",
+      "details": {
+        "keyword": "workflow",
+        "count": 7
+      },
+      "timestamp": "2025-07-11T21:35:08.371Z"
+    },
+    {
+      "type": "keyword",
+      "message": "Palavra-chave \"dados\" encontrada 12 vezes",
+      "path": "primeiros-passos\\instalacao-self-hosted.mdx",
+      "details": {
+        "keyword": "dados",
+        "count": 12
+      },
+      "timestamp": "2025-07-11T21:35:08.371Z"
+    },
+    {
+      "type": "content",
+      "message": "Títulos duplicados encontrados: !/bin/bash",
+      "path": "primeiros-passos\\instalacao-self-hosted.mdx",
+      "details": {
+        "duplicateTitles": [
+          "!/bin/bash"
+        ]
+      },
+      "timestamp": "2025-07-11T21:35:08.371Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (76%)",
+      "path": "integracoes-br\\financeiro\\conciliacao-bancaria.md ↔ integracoes-br\\financeiro\\relatorios-fiscais.md",
+      "details": {
+        "similarity": 0.7575757575757576,
+        "file1": "integracoes-br\\financeiro\\conciliacao-bancaria.md",
+        "file2": "integracoes-br\\financeiro\\relatorios-fiscais.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.372Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (91%)",
+      "path": "integracoes-br\\financeiro\\index.md ↔ integracoes-br\\governo\\index.md",
+      "details": {
+        "similarity": 0.9090909090909091,
+        "file1": "integracoes-br\\financeiro\\index.md",
+        "file2": "integracoes-br\\governo\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.384Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (91%)",
+      "path": "integracoes-br\\financeiro\\index.md ↔ integracoes-br\\localizacao\\index.md",
+      "details": {
+        "similarity": 0.9090909090909091,
+        "file1": "integracoes-br\\financeiro\\index.md",
+        "file2": "integracoes-br\\localizacao\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.384Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (91%)",
+      "path": "integracoes-br\\governo\\index.md ↔ integracoes-br\\localizacao\\index.md",
+      "details": {
+        "similarity": 0.9090909090909091,
+        "file1": "integracoes-br\\governo\\index.md",
+        "file2": "integracoes-br\\localizacao\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.477Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\communication\\index.md ↔ integracoes\\app-nodes\\productivity\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\communication\\index.md",
+        "file2": "integracoes\\app-nodes\\productivity\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.528Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\communication\\index.md ↔ integracoes\\builtin-nodes\\data-processing\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\communication\\index.md",
+        "file2": "integracoes\\builtin-nodes\\data-processing\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.529Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\communication\\index.md ↔ integracoes\\builtin-nodes\\http-requests\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\communication\\index.md",
+        "file2": "integracoes\\builtin-nodes\\http-requests\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.530Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\communication\\index.md ↔ integracoes\\credential-nodes\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\communication\\index.md",
+        "file2": "integracoes\\credential-nodes\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.530Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\communication\\index.md ↔ integracoes\\trigger-nodes\\event-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\communication\\index.md",
+        "file2": "integracoes\\trigger-nodes\\event-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.531Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\communication\\index.md ↔ integracoes\\trigger-nodes\\time-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\communication\\index.md",
+        "file2": "integracoes\\trigger-nodes\\time-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.531Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\productivity\\index.md ↔ integracoes\\builtin-nodes\\data-processing\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\productivity\\index.md",
+        "file2": "integracoes\\builtin-nodes\\data-processing\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.604Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\productivity\\index.md ↔ integracoes\\builtin-nodes\\http-requests\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\productivity\\index.md",
+        "file2": "integracoes\\builtin-nodes\\http-requests\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.605Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\productivity\\index.md ↔ integracoes\\credential-nodes\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\productivity\\index.md",
+        "file2": "integracoes\\credential-nodes\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.605Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\productivity\\index.md ↔ integracoes\\trigger-nodes\\event-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\productivity\\index.md",
+        "file2": "integracoes\\trigger-nodes\\event-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.605Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\app-nodes\\productivity\\index.md ↔ integracoes\\trigger-nodes\\time-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\app-nodes\\productivity\\index.md",
+        "file2": "integracoes\\trigger-nodes\\time-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.606Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (74%)",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\debug-helper.md ↔ integracoes\\builtin-nodes\\core-nodes\\edit-fields-set.md",
+      "details": {
+        "similarity": 0.7428571428571429,
+        "file1": "integracoes\\builtin-nodes\\core-nodes\\debug-helper.md",
+        "file2": "integracoes\\builtin-nodes\\core-nodes\\edit-fields-set.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.648Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (82%)",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\debug-helper.md ↔ integracoes\\builtin-nodes\\core-nodes\\error-trigger.md",
+      "details": {
+        "similarity": 0.8181818181818182,
+        "file1": "integracoes\\builtin-nodes\\core-nodes\\debug-helper.md",
+        "file2": "integracoes\\builtin-nodes\\core-nodes\\error-trigger.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.648Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (76%)",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\debug-helper.md ↔ integracoes\\builtin-nodes\\core-nodes\\execute-sub-workflow.md",
+      "details": {
+        "similarity": 0.7647058823529411,
+        "file1": "integracoes\\builtin-nodes\\core-nodes\\debug-helper.md",
+        "file2": "integracoes\\builtin-nodes\\core-nodes\\execute-sub-workflow.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.648Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (76%)",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\debug-helper.md ↔ integracoes\\builtin-nodes\\core-nodes\\workflow-trigger.md",
+      "details": {
+        "similarity": 0.7647058823529411,
+        "file1": "integracoes\\builtin-nodes\\core-nodes\\debug-helper.md",
+        "file2": "integracoes\\builtin-nodes\\core-nodes\\workflow-trigger.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.648Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (74%)",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\edit-fields-set.md ↔ integracoes\\builtin-nodes\\core-nodes\\error-trigger.md",
+      "details": {
+        "similarity": 0.7428571428571429,
+        "file1": "integracoes\\builtin-nodes\\core-nodes\\edit-fields-set.md",
+        "file2": "integracoes\\builtin-nodes\\core-nodes\\error-trigger.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.657Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (74%)",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\edit-fields-set.md ↔ integracoes\\builtin-nodes\\core-nodes\\execute-sub-workflow.md",
+      "details": {
+        "similarity": 0.7428571428571429,
+        "file1": "integracoes\\builtin-nodes\\core-nodes\\edit-fields-set.md",
+        "file2": "integracoes\\builtin-nodes\\core-nodes\\execute-sub-workflow.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.657Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (74%)",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\edit-fields-set.md ↔ integracoes\\builtin-nodes\\core-nodes\\workflow-trigger.md",
+      "details": {
+        "similarity": 0.7428571428571429,
+        "file1": "integracoes\\builtin-nodes\\core-nodes\\edit-fields-set.md",
+        "file2": "integracoes\\builtin-nodes\\core-nodes\\workflow-trigger.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.658Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (76%)",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\error-trigger.md ↔ integracoes\\builtin-nodes\\core-nodes\\execute-sub-workflow.md",
+      "details": {
+        "similarity": 0.7647058823529411,
+        "file1": "integracoes\\builtin-nodes\\core-nodes\\error-trigger.md",
+        "file2": "integracoes\\builtin-nodes\\core-nodes\\execute-sub-workflow.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.666Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (82%)",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\error-trigger.md ↔ integracoes\\builtin-nodes\\core-nodes\\workflow-trigger.md",
+      "details": {
+        "similarity": 0.8181818181818182,
+        "file1": "integracoes\\builtin-nodes\\core-nodes\\error-trigger.md",
+        "file2": "integracoes\\builtin-nodes\\core-nodes\\workflow-trigger.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.667Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (82%)",
+      "path": "integracoes\\builtin-nodes\\core-nodes\\execute-sub-workflow.md ↔ integracoes\\builtin-nodes\\core-nodes\\workflow-trigger.md",
+      "details": {
+        "similarity": 0.8181818181818182,
+        "file1": "integracoes\\builtin-nodes\\core-nodes\\execute-sub-workflow.md",
+        "file2": "integracoes\\builtin-nodes\\core-nodes\\workflow-trigger.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.675Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\builtin-nodes\\data-processing\\index.md ↔ integracoes\\builtin-nodes\\http-requests\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\builtin-nodes\\data-processing\\index.md",
+        "file2": "integracoes\\builtin-nodes\\http-requests\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.792Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\builtin-nodes\\data-processing\\index.md ↔ integracoes\\credential-nodes\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\builtin-nodes\\data-processing\\index.md",
+        "file2": "integracoes\\credential-nodes\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.792Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\builtin-nodes\\data-processing\\index.md ↔ integracoes\\trigger-nodes\\event-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\builtin-nodes\\data-processing\\index.md",
+        "file2": "integracoes\\trigger-nodes\\event-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.793Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\builtin-nodes\\data-processing\\index.md ↔ integracoes\\trigger-nodes\\time-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\builtin-nodes\\data-processing\\index.md",
+        "file2": "integracoes\\trigger-nodes\\time-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.793Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\builtin-nodes\\http-requests\\index.md ↔ integracoes\\credential-nodes\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\builtin-nodes\\http-requests\\index.md",
+        "file2": "integracoes\\credential-nodes\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.853Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\builtin-nodes\\http-requests\\index.md ↔ integracoes\\trigger-nodes\\event-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\builtin-nodes\\http-requests\\index.md",
+        "file2": "integracoes\\trigger-nodes\\event-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.854Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\builtin-nodes\\http-requests\\index.md ↔ integracoes\\trigger-nodes\\time-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\builtin-nodes\\http-requests\\index.md",
+        "file2": "integracoes\\trigger-nodes\\time-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.854Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (78%)",
+      "path": "integracoes\\builtin-nodes\\logic-control\\merge.md ↔ integracoes\\builtin-nodes\\logic-control\\switch.md",
+      "details": {
+        "similarity": 0.775,
+        "file1": "integracoes\\builtin-nodes\\logic-control\\merge.md",
+        "file2": "integracoes\\builtin-nodes\\logic-control\\switch.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.917Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (78%)",
+      "path": "integracoes\\builtin-nodes\\logic-control\\merge.md ↔ integracoes\\builtin-nodes\\logic-control\\wait.md",
+      "details": {
+        "similarity": 0.775,
+        "file1": "integracoes\\builtin-nodes\\logic-control\\merge.md",
+        "file2": "integracoes\\builtin-nodes\\logic-control\\wait.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.917Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (76%)",
+      "path": "integracoes\\builtin-nodes\\logic-control\\switch.md ↔ integracoes\\builtin-nodes\\logic-control\\wait.md",
+      "details": {
+        "similarity": 0.7560975609756098,
+        "file1": "integracoes\\builtin-nodes\\logic-control\\switch.md",
+        "file2": "integracoes\\builtin-nodes\\logic-control\\wait.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.924Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\credential-nodes\\index.md ↔ integracoes\\trigger-nodes\\event-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\credential-nodes\\index.md",
+        "file2": "integracoes\\trigger-nodes\\event-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.984Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\credential-nodes\\index.md ↔ integracoes\\trigger-nodes\\time-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\credential-nodes\\index.md",
+        "file2": "integracoes\\trigger-nodes\\time-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:08.984Z"
+    },
+    {
+      "type": "similarity",
+      "message": "Conteúdo similar detectado (100%)",
+      "path": "integracoes\\trigger-nodes\\event-based\\index.md ↔ integracoes\\trigger-nodes\\time-based\\index.md",
+      "details": {
+        "similarity": 1,
+        "file1": "integracoes\\trigger-nodes\\event-based\\index.md",
+        "file2": "integracoes\\trigger-nodes\\time-based\\index.md"
+      },
+      "timestamp": "2025-07-11T21:35:09.060Z"
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "structure",
+      "priority": "high",
+      "message": "Corrigir estrutura de arquivos ausentes ou mal organizados",
+      "count": 47
+    },
+    {
+      "type": "content",
+      "priority": "medium",
+      "message": "Revisar e consolidar conteúdo similar",
+      "count": 38
+    }
+  ]
+}

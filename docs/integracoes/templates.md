@@ -3,232 +3,299 @@
 :::
 
 ---
-sidebar_position: 8
-title: Templates
-description: Como usar e criar templates de workflows no n8n
-keywords: [n8n, templates, workflows, marketplace, reutilização]
+title: Templates de Workflows
+description: Aprenda a usar, criar e compartilhar templates de workflows no n8n para acelerar o desenvolvimento
+sidebar_position: 1
+keywords: [n8n, templates, workflows, reutilização, compartilhamento, automação]
 ---
 
-# <ion-icon name="library-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Templates de Workflows
+# <ion-icon name="copy-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Templates de Workflows
 
-Os **templates** são workflows pré-construídos que você pode importar e personalizar para suas necessidades específicas. Eles aceleram o desenvolvimento e fornecem exemplos práticos de automação.
+Os **Templates** são workflows pré-configurados que você pode usar como ponto de partida para suas automações. Eles aceleram o desenvolvimento, reduzem erros e permitem compartilhar soluções com a comunidade.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que são Templates?
+## O que são Templates?
 
-Templates são workflows completos e funcionais que podem ser:
+Templates são workflows salvos que podem ser importados e reutilizados. Eles incluem:
 
-- **Importados** diretamente no n8n
-- **Personalizados** para suas necessidades
-- **Executados** imediatamente após configuração
-- **Compartilhados** com a comunidade
+- **Configuração completa** dos nodes
+- **Lógica de negócio** testada
+- **Exemplos de dados** de entrada
+- **Documentação** de uso
+- **Casos de uso** específicos
 
-### Benefícios dos Templates
+### Vantagens dos Templates
 
-- **Início Rápido**: Comece com workflows funcionais
-- **Aprendizado**: Veja como outros resolvem problemas
-- **Produtividade**: Economize tempo de desenvolvimento
-- **Inspiração**: Descubra novas possibilidades
+- **Acelerar desenvolvimento**: Comece com uma base sólida
+- **Reduzir erros**: Use soluções testadas pela comunidade
+- **Aprender boas práticas**: Veja como outros resolvem problemas
+- **Padronizar processos**: Mantenha consistência entre workflows
+- **Compartilhar conhecimento**: Ajude outros desenvolvedores
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tipos de Templates
+## Tipos de Templates
 
-### Templates Oficiais
+### 1. Templates Oficiais
 
-Criados pela equipe n8n:
+Templates criados e mantidos pela equipe do n8n:
 
-- **Integrações Populares**: Gmail, Slack, Google Sheets
-- **Casos de Uso Comuns**: Notificações, sincronização de dados
-- **Workflows Educativos**: Exemplos de conceitos específicos
-- **Templates Empresariais**: Soluções para negócios
+- **Testados e validados** pela equipe
+- **Documentação completa** em inglês
+- **Atualizações regulares** com novas versões
+- **Suporte oficial** disponível
+- **Casos de uso** bem definidos
 
-### Templates Comunitários
+### 2. Templates da Comunidade
 
-Compartilhados pela comunidade:
+Templates criados por usuários da comunidade:
 
-- **Casos de Uso Específicos**: Soluções para nichos
-- **Integrações Personalizadas**: Conectores customizados
-- **Workflows Avançados**: Automações complexas
-- **Templates Regionais**: Adaptados para mercados específicos
+- **Diversidade de soluções** para diferentes necessidades
+- **Casos de uso específicos** de diferentes indústrias
+- **Inovação e criatividade** da comunidade
+- **Feedback e melhorias** contínuas
+- **Adaptação a necessidades locais**
 
-### Templates Personalizados
+### 3. Templates Personalizados
 
-Criados por você:
+Templates que você cria para sua organização:
 
-- **Workflows Internos**: Para sua organização
-- **Templates Reutilizáveis**: Para projetos similares
-- **Documentação Viva**: Exemplos para sua equipe
+- **Processos específicos** da sua empresa
+- **Integrações customizadas** com sistemas internos
+- **Padrões de desenvolvimento** da equipe
+- **Reutilização interna** de soluções
+- **Documentação em português**
 
-## <ion-icon name="download-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Usar Templates
+## Como Encontrar Templates
 
-### 1. Encontrar Templates
+### 1. Marketplace do n8n
 
-#### Marketplace Oficial
+O marketplace oficial do n8n oferece milhares de templates:
 
-1. Acesse [n8n.io/templates](https://n8n.io/templates)
-2. Navegue por categorias ou use busca
-3. Filtre por popularidade, data ou tipo
+- **Categorias organizadas**: E-commerce, Marketing, CRM, etc.
+- **Busca avançada**: Filtros por categoria, complexidade, popularidade
+- **Avaliações e comentários**: Feedback da comunidade
+- **Versões**: Templates para diferentes versões do n8n
+- **Documentação**: Guias de uso e configuração
 
-#### Comunidade
+### 2. Comunidade Brasileira
 
-- **GitHub**: Repositórios da comunidade
-- **Fóruns**: Compartilhamentos em discussões
-- **Blogs**: Templates em artigos e tutoriais
+Recursos específicos para usuários brasileiros:
 
-### 2. Importar Template
+- **Templates localizados**: Adaptados para o mercado brasileiro
+- **Integrações brasileiras**: APIs e serviços locais
+- **Documentação em português**: Guias e tutoriais
+- **Suporte em português**: Comunidade ativa
+- **Casos de uso brasileiros**: Exemplos relevantes
 
-#### Via Interface Web
+### 3. GitHub e Repositórios
 
-1. **Copie o JSON** do template
-2. No n8n, clique em **"Import from URL"**
-3. Cole o JSON e clique em **"Import"**
-4. Configure credenciais necessárias
+Templates compartilhados em repositórios:
 
-#### Via Arquivo
+- **Código aberto**: Templates gratuitos e modificáveis
+- **Versionamento**: Controle de versões e atualizações
+- **Colaboração**: Contribuições da comunidade
+- **Documentação técnica**: READMEs detalhados
+- **Issues e discussões**: Suporte e melhorias
 
-1. **Baixe o arquivo JSON** do template
-2. No n8n, clique em **"Import from File"**
-3. Selecione o arquivo baixado
-4. Configure credenciais necessárias
+## Como Usar Templates
 
-### 3. Configurar Template
+### 1. Importar um Template
 
-Após importar:
+**Passo a passo:**
 
-1. **Revise o workflow** para entender a lógica
-2. **Configure credenciais** necessárias
-3. **Ajuste parâmetros** para seu caso
-4. **Teste a execução** antes de usar
+1. **Navegue até Templates** no menu lateral do n8n
+2. **Busque** por um template específico ou navegue pelas categorias
+3. **Clique** no template desejado
+4. **Revise** a descrição e casos de uso
+5. **Clique em "Use Template"** para importar
+6. **Configure** as credenciais necessárias
+7. **Teste** o workflow antes de usar em produção
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Categorias Populares
+### 2. Configurar Credenciais
 
-### Comunicação
+Após importar um template, você precisa configurar as credenciais:
 
-- **Notificações por Email**: Alertas automáticos
-- **Integração com Slack**: Mensagens e webhooks
-- **WhatsApp Business**: Automação de mensagens
-- **SMS Automatizado**: Notificações por texto
+- **Identifique** quais credenciais são necessárias
+- **Configure** cada credencial com suas informações
+- **Teste** as conexões antes de executar
+- **Documente** as configurações para a equipe
+- **Mantenha** as credenciais seguras
+
+### 3. Adaptar para Suas Necessidades
+
+Personalize o template para seu caso específico:
+
+- **Modifique** endpoints e URLs
+- **Ajuste** lógica de negócio
+- **Adicione** validações específicas
+- **Configure** notificações
+- **Teste** com seus dados reais
+
+## Como Criar Templates
+
+### 1. Planejar o Template
+
+Antes de criar, defina:
+
+- **Objetivo**: O que o template resolve?
+- **Público-alvo**: Quem vai usar?
+- **Casos de uso**: Quais situações cobre?
+- **Complexidade**: Nível de dificuldade
+- **Requisitos**: Credenciais e configurações necessárias
+
+### 2. Desenvolver o Workflow
+
+Crie um workflow robusto e bem documentado:
+
+- **Use nomes descritivos** para nodes
+- **Adicione comentários** explicando a lógica
+- **Implemente tratamento de erros**
+- **Teste com dados reais**
+- **Documente configurações necessárias**
+
+### 3. Documentar o Template
+
+Crie documentação completa:
+
+- **Descrição clara** do que o template faz
+- **Casos de uso** específicos
+- **Requisitos** e pré-condições
+- **Instruções** de configuração
+- **Exemplos** de uso
+
+### 4. Testar e Validar
+
+Antes de compartilhar:
+
+- **Teste** com diferentes cenários
+- **Valide** com usuários reais
+- **Corrija** problemas identificados
+- **Otimize** performance
+- **Atualize** documentação
+
+### 5. Compartilhar
+
+Publique seu template:
+
+- **Marketplace do n8n**: Para alcance global
+- **Comunidade brasileira**: Para usuários locais
+- **GitHub**: Para controle de versão
+- **Blogs e fóruns**: Para divulgação
+- **Redes sociais**: Para networking
+
+## Templates Populares
 
 ### E-commerce
 
-- **Sincronização de Pedidos**: Entre plataformas
-- **Atualização de Estoque**: Controle automático
-- **Notificações de Cliente**: Follow-ups automáticos
-- **Relatórios de Vendas**: Análises automáticas
+- **Processamento de Pedidos**: Automatizar fluxo de vendas
+- **Sincronização de Estoque**: Manter estoque atualizado
+- **Notificações de Entrega**: Acompanhar status de pedidos
+- **Relatórios de Vendas**: Gerar análises automáticas
+- **Integração com Marketplaces**: Conectar com Mercado Livre, etc.
 
 ### Marketing
 
-- **Automação de Email**: Sequências de marketing
-- **Integração com CRM**: Sincronização de leads
-- **Análise de Redes Sociais**: Monitoramento de menções
-- **Relatórios de Campanha**: Métricas automáticas
+- **Automação de Email**: Sequências de email marketing
+- **Segmentação de Leads**: Classificar leads automaticamente
+- **Integração com Redes Sociais**: Postar em múltiplas plataformas
+- **Análise de Campanhas**: Relatórios de performance
+- **Chatbot**: Atendimento automatizado
 
-### Financeiro
+### CRM
 
-- **Conciliação Bancária**: Sincronização de transações
-- **Relatórios Financeiros**: Geração automática
-- **Notificações de Pagamento**: Alertas de recebimento
-- **Integração com Contabilidade**: Sincronização de dados
+- **Criação de Contatos**: Adicionar leads automaticamente
+- **Follow-up**: Lembretes e acompanhamentos
+- **Qualificação de Leads**: Pontuar e classificar
+- **Integração com WhatsApp**: Comunicação via WhatsApp Business
+- **Relatórios de Vendas**: Métricas e análises
 
-## <ion-icon name="create-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Criar Templates
+### Finanças
 
-### 1. Desenvolver o Workflow
+- **Conciliação Bancária**: Automatizar conciliação
+- **Geração de Relatórios**: Relatórios fiscais e contábeis
+- **Integração com Gateways**: PagSeguro, Mercado Pago
+- **Controle de Despesas**: Aprovação e controle
+- **Faturamento**: Geração automática de faturas
 
-1. **Crie um workflow** funcional e bem estruturado
-2. **Teste completamente** antes de compartilhar
-3. **Documente a lógica** com comentários
+## Boas Práticas
+
+### Para Usuários
+
+1. **Leia a documentação** antes de usar
+2. **Teste em ambiente de desenvolvimento** primeiro
+3. **Configure credenciais** adequadamente
+4. **Adapte para suas necessidades** específicas
+5. **Mantenha backup** do workflow original
+
+### Para Criadores
+
+1. **Documente completamente** o template
+2. **Teste com dados reais** antes de publicar
+3. **Implemente tratamento de erros** robusto
 4. **Use nomes descritivos** para nodes
+5. **Mantenha templates atualizados**
 
-### 2. Preparar para Compartilhamento
+### Para Organizações
 
-#### Limpar Dados Sensíveis
+1. **Crie biblioteca interna** de templates
+2. **Padronize processos** com templates
+3. **Documente casos de uso** específicos
+4. **Treine equipe** no uso de templates
+5. **Mantenha controle de versão**
 
-- **Remova credenciais** específicas
-- **Substitua dados reais** por exemplos
-- **Use variáveis** para configurações
-- **Documente dependências** necessárias
+## Troubleshooting
 
-#### Adicionar Documentação
+### Problemas Comuns
 
-```markdown
-# Nome do Template
+#### Template não funciona
+- Verifique se todas as credenciais estão configuradas
+- Confirme se as APIs estão acessíveis
+- Teste com dados de exemplo
+- Verifique logs de erro
+- Consulte a documentação do template
 
-## Descrição
-Breve descrição do que o workflow faz.
+#### Configuração complexa
+- Leia a documentação completa
+- Configure uma credencial por vez
+- Teste cada configuração
+- Use dados de exemplo
+- Peça ajuda na comunidade
 
-## Pré-requisitos
-- Credenciais necessárias
-- Configurações específicas
-- Dependências externas
+#### Performance lenta
+- Otimize consultas de API
+- Configure timeouts adequados
+- Use paginação quando necessário
+- Monitore uso de recursos
+- Considere usar cache
 
-## Como Usar
-1. Importe o template
-2. Configure credenciais
-3. Ajuste parâmetros
-4. Execute o workflow
+### Debug
 
-## Personalização
-Dicas para adaptar o template.
-```
+1. **Use o node Debug Helper** para inspecionar dados
+2. **Configure logging detalhado**
+3. **Teste com dados de exemplo**
+4. **Verifique configurações de credenciais**
+5. **Monitore execuções**
 
-### 3. Compartilhar o Template
+## Recursos Adicionais
 
-#### Marketplace Oficial
+### Comunidade Brasileira
 
-1. Acesse [n8n Creator Hub](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f)
-2. Siga o processo de submissão
-3. Aguarde revisão da equipe
-4. Template publicado no marketplace
+- **Grupos no WhatsApp**: Compartilhamento de templates
+- **Canais no Discord**: Discussões e suporte
+- **Blogs e sites**: Tutoriais e exemplos
+- **YouTube**: Vídeos explicativos
+- **LinkedIn**: Networking profissional
 
-#### Comunidade
+### Ferramentas Úteis
 
-- **GitHub**: Crie um repositório público
-- **Fóruns**: Compartilhe em discussões
-- **Blogs**: Escreva artigos com templates
+- **n8n CLI**: Automação de importação/exportação
+- **GitHub Actions**: CI/CD para templates
+- **Docker**: Containers para testes
+- **Postman**: Teste de APIs
+- **JSON Schema**: Validação de dados
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
+## Próximos Passos
 
-### Ao Usar Templates
-
-1. **Revise o código** antes de executar
-2. **Configure credenciais** adequadamente
-3. **Teste em ambiente** de desenvolvimento
-4. **Personalize** para suas necessidades
-5. **Documente** suas modificações
-
-### Ao Criar Templates
-
-1. **Mantenha simplicidade** na estrutura
-2. **Use nomes descritivos** para nodes
-3. **Adicione comentários** explicativos
-4. **Teste com dados** de exemplo
-5. **Documente dependências** claramente
-
-### Segurança
-
-- **Nunca inclua credenciais** reais
-- **Use dados de exemplo** representativos
-- **Valide inputs** e outputs
-- **Teste casos de erro** comuns
-
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
-
-1. **[Explorar Integrações](../app-nodes/)** - Conectar com serviços
-2. **[Criar Workflows](../usando-n8n/workflows/criar-editar)** - Desenvolver automações
-3. **[Contribuir com Templates](../../contribuir/n8n-oficial/contribuir-modelos)** - Compartilhar conhecimento
-
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
-
-### Links Externos
-
-- **[n8n Templates](https://n8n.io/templates)** - Marketplace oficial
-- **[n8n Creator Hub](https://www.notion.so/n8n/n8n-Creator-hub-7bd2cbe0fce0449198ecb23ff4a2f76f)** - Submissão de templates
-- **[GitHub Examples](https://github.com/n8n-io/n8n/tree/master/packages/cli/templates)** - Exemplos oficiais
-
-### Documentação Relacionada
-
-- **[Criar Workflows](../usando-n8n/workflows/criar-editar)** - Desenvolvimento de workflows
-- **[Integrações](../app-nodes/)** - Conectores disponíveis
-- **[Contribuir](../../contribuir/n8n-oficial/contribuir-modelos)** - Como compartilhar templates
-
----
-
-**<ion-icon name="library-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Templates aceleram sua jornada de automação!** 
+- [Primeiro Workflow](/primeiros-passos/primeiro-workflow.md) - Começar com workflows básicos
+- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
+- [Credenciais](/integracoes/credential-nodes/index.md) - Configurar autenticação
+- [Compartilhamento](/usando-n8n/workflows/compartilhamento.md) - Compartilhar workflows 
