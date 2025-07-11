@@ -1136,6 +1136,65 @@
   text-decoration: underline;
 }
 
+/* ===== VALIDATION PROCESS ===== */
+.validationProcess {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #17a2b8;
+}
+
+[data-theme='dark'] .validationProcess {
+  background: linear-gradient(135deg, #2a2a2e 0%, #1b1b1d 100%);
+  border-left-color: #17a2b8;
+}
+
+.validationProcess h4 {
+  color: #17a2b8;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.validationProcess p {
+  color: var(--ifm-font-color-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 1rem;
+}
+
+.validationSteps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.validationStep {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--font-size-sm);
+  color: var(--ifm-font-color-secondary);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-gray-200);
+}
+
+[data-theme='dark'] .validationStep {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: var(--ifm-color-gray-700);
+}
+
+.validationStep ion-icon {
+  flex-shrink: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .progressHeader {

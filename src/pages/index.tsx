@@ -50,8 +50,8 @@ function DocumentationProgress() {
   const [animatedProgress, setAnimatedProgress] = useState(0);
   
   // Metas da documentação
-  const totalGoals = 35;
-  const completedGoals = 22;
+  const totalGoals = 38; // Aumentado para incluir processo de validação
+  const completedGoals = 24; // Incluindo chatbot de suporte validado
   const progressPercentage = Math.round((completedGoals / totalGoals) * 100);
   
   // Agrupamento por categorias
@@ -104,6 +104,7 @@ function DocumentationProgress() {
       { name: "Nodes", status: "Em progresso" },
       { name: "Exemplos", status: "Em progresso" },
       { name: "Tutorial", status: "Em progresso" },
+      { name: "Chatbot de Suporte", status: "Validado" },
     ],
     "Embed": [
       { name: "Preparação", status: "Completo" },
@@ -128,6 +129,7 @@ function DocumentationProgress() {
     "Contribuir": [
       { name: "Esta Documentação", status: "Completo" },
       { name: "n8n Oficial", status: "Completo" },
+      { name: "Processo de Validação", status: "Em progresso" },
     ],
     "Referência": [
       { name: "Guias", status: "Em progresso" },
@@ -250,6 +252,8 @@ function DocumentationProgress() {
                             <span className={styles.itemStatus}>
                               {item.status === "Completo" ? (
                                 <IonicIcon name="checkmark-outline" size={12} color="#28a745" />
+                              ) : item.status === "Validado" ? (
+                                <IonicIcon name="shield-checkmark-outline" size={12} color="#17a2b8" />
                               ) : item.status === "Em progresso" ? (
                                 <IonicIcon name="refresh-outline" size={12} color="#ffc107" />
                               ) : (
@@ -410,14 +414,14 @@ export default function Home(): React.ReactElement {
                 </div>
               </div>
 
-              {/* Contribuição para Documentação em Português */}
+              {/* Processo da Documentação */}
               <div className={styles.mainFeature}>
                 <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="heart-outline" size={20} color="var(--ifm-color-primary)" />
+                  <IonicIcon name="construct-outline" size={20} color="var(--ifm-color-primary)" />
                 </div>
                 <div className={styles.mainFeatureContent}>
-                  <h4>Contribua para a Doc em Português</h4>
-                  <p>Ajude a construir a melhor documentação do n8n para a comunidade brasileira.</p>
+                  <h4>Processo da Documentação</h4>
+                  <p>Metodologia robusta para desenvolvimento e validação de workflows.</p>
                   <ul>
                     <li><Link to="/contribuir/esta-documentacao">Contribuir com a Doc</Link></li>
                     <li><Link to="/contribuir/esta-documentacao/entendendo-o-projeto/como-contribuir">Como Contribuir</Link></li>
