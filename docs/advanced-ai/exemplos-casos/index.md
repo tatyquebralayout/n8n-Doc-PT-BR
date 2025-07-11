@@ -5,6 +5,10 @@ description: Exemplos práticos e implementações completas de IA no n8n para c
 keywords: [n8n, ia, exemplos, casos de uso, práticos, implementação, chatbot, rag, classificação, geração]
 ---
 
+:::warning
+<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::
+
 # <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral - Exemplos e Casos de Uso
 
 Esta seção apresenta exemplos práticos e implementações completas de IA no n8n, desenvolvidos especificamente para o contexto brasileiro. Cada caso de uso inclui workflows funcionais, configurações detalhadas e integrações com sistemas locais.

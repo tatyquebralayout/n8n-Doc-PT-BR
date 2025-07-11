@@ -5,6 +5,10 @@ description: Resumos e guias em português para os cursos em vídeo oficiais do 
 keywords: [n8n, cursos, vídeo, youtube, tutorial, iniciante, avançado, oficial]
 ---
 
+:::warning
+<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::
+
 
 # <ion-icon name="videocam-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral - Cursos em Vídeo
 

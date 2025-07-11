@@ -5,6 +5,10 @@ description: Guias e resumos em português para os cursos em texto da documenta�
 keywords: [n8n, cursos, texto, documentação, nível 1, nível 2, oficial]
 ---
 
+:::warning
+<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::
+
 Visão Geral - Cursos em Texto
 
 Esta seção contém **guias e resumos em português** para os **cursos em texto oficiais** da documentação do n8n.

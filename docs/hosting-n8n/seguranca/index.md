@@ -5,6 +5,10 @@ description: Guia completo de segurança para n8n - autenticação, permissões,
 keywords: [n8n, segurança, autenticação, permissões, backup, monitoramento, rbac, sso, 2fa]
 ---
 
+:::warning
+<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::
+
 
 # <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
 

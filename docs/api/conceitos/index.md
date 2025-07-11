@@ -5,6 +5,10 @@ description: Entenda os conceitos fundamentais para interagir com a API do n8n, 
 keywords: [n8n, api, conceitos, autenticação, paginação]
 ---
 
+:::warning
+<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::
+
 # <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral - Conceitos da API
 
 Bem-vindo à seção de **Conceitos Fundamentais da API** do n8n. Antes de mergulhar na referência completa dos endpoints, é crucial entender os princípios básicos que governam a interação com a API.

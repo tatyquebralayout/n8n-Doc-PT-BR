@@ -4,6 +4,10 @@ title: Configuração
 description: Visão geral das opções de configuração do n8n para ambientes de produção robustos e seguros.
 ---
 
+:::warning
+<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::
+
 
 # <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração do n8n
 

@@ -5,6 +5,10 @@ description: Encontre a documentação detalhada para cada endpoint da API REST 
 keywords: [n8n, api, referência, endpoints, documentação]
 ---
 
+:::warning
+<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::
+
 # <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral - Referência da API
 
 Bem-vindo à **Referência Completa da API** do n8n. Esta seção é o seu guia definitivo para todos os endpoints disponíveis, servindo como um manual técnico para desenvolvedores que precisam de informações detalhadas sobre cada recurso da API.

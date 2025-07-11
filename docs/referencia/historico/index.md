@@ -5,6 +5,10 @@ description: Histórico de mudanças e evolução da documentação n8n Brasil
 keywords: [n8n, histórico, changelog, versões, mudanças, documentação]
 ---
 
+:::warning
+<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::
+
 # <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
 Esta seção mantém o histórico completo de mudanças na documentação n8n Brasil, incluindo novas funcionalidades, correções e melhorias. Acompanhe a evolução do projeto e fique por dentro das últimas atualizações.

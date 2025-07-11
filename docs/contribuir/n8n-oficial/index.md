@@ -5,6 +5,10 @@ description: Saiba como contribuir diretamente para o repositório oficial do n8
 keywords: [n8n, contribuir, projeto oficial, open source, código, global, n8n GmbH]
 ---
 
+:::info
+<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+:::
+
 
 # <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral – Contribuição ao Projeto Oficial do n8n
 
