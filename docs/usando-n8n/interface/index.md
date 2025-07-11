@@ -1,3 +1,7 @@
+:::warning
+<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::
+
 ---
 sidebar_position: 1
 title: Introdução

@@ -5,6 +5,10 @@ description: Guias completos para escalar n8n em produção com alta disponibili
 keywords: [n8n, escalonamento, clustering, load balancing, performance, alta disponibilidade]
 ---
 
+:::info
+<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+:::
+
 
 # <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalonamento
 

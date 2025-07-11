@@ -6,6 +6,10 @@ slug: /primeiros-passos/instalacao
 keywords: [n8n, instalação, docker, npm, setup, self-hosted]
 ---
 
+:::info
+<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+:::
+
 # <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalação Self-hosted do n8n
 
 Esta página detalha os métodos de instalação **self-hosted** do n8n, incluindo Docker (recomendado) e npm. Para uma visão geral de todos os métodos, consulte o [Guia de Instalação – Visão Panorâmica](./guia-instalacao).

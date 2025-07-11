@@ -5,6 +5,10 @@ description: Crie seu primeiro workflow em 5 minutos
 keywords: [n8n, primeiro workflow, tutorial, webhook, http request]
 ---
 
+:::info
+<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+:::
+
 # <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Seu Primeiro Workflow
 
 Vamos criar um workflow simples que recebe dados via webhook e os envia para uma API externa. Este tutorial levará apenas **5 minutos**!

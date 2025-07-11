@@ -1,3 +1,7 @@
+:::info
+<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+:::
+
 ---
 sidebar_position: 8
 title: Templates

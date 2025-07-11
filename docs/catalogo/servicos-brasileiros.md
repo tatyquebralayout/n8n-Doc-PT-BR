@@ -5,6 +5,10 @@ description: Integrações específicas para o mercado brasileiro
 keywords: [n8n, brasil, pix, nfe, receita federal, correios, viacep]
 ---
 
+:::info
+<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+:::
+
 # <ion-icon name="flag-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Serviços Brasileiros
 
 Explore as integrações específicas para o mercado brasileiro. Estas integrações permitem automatizar processos que envolvem serviços governamentais, financeiros e de localização do Brasil.

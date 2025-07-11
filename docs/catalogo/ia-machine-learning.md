@@ -5,6 +5,10 @@ description: Integrações para inteligência artificial e processamento de dado
 keywords: [n8n, ia, machine learning, openai, gpt, claude, langchain]
 ---
 
+:::info
+<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+:::
+
 # <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> IA e Machine Learning
 
 Explore as integrações de inteligência artificial e machine learning disponíveis no n8n. Estas integrações permitem automatizar processos complexos usando IA, processamento de linguagem natural e análise de dados avançada.

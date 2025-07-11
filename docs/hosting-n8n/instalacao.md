@@ -5,6 +5,10 @@ description: Guia completo para hospedar n8n em produção - instalação, confi
 keywords: [n8n, hosting, hospedagem, produção, instalação, configuração, escalonamento, segurança]
 ---
 
+:::info
+<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+:::
+
 
 # <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
