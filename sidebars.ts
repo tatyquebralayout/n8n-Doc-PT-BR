@@ -13,11 +13,16 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Primeiros Passos',
       items: [
+        'primeiros-passos/index',
         'primeiros-passos/guia-instalacao',
+        'primeiros-passos/instalacao',
         'primeiros-passos/instalacao-cloud',
+        'primeiros-passos/instalacao-npm',
         'primeiros-passos/instalacao-self-hosted',
         'primeiros-passos/conceitos-basicos',
-        'primeiros-passos/primeiro-workflow'
+        'primeiros-passos/conectar-aplicacoes',
+        'primeiros-passos/primeiro-workflow',
+        'primeiros-passos/faq'
       ],
     },
     {
@@ -33,12 +38,18 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Interface',
-          items: ['usando-n8n/interface/navegacao-editor-ui'],
+          items: [
+            'usando-n8n/interface/index',
+            'usando-n8n/interface/navegacao-editor-ui'
+          ],
         },
         {
           type: 'category',
           label: 'Execuções',
-          items: ['usando-n8n/execucoes/componentes-execucoes'],
+          items: [
+            'usando-n8n/execucoes/index',
+            'usando-n8n/execucoes/componentes-execucoes'
+          ],
         },
         {
           type: 'category',
@@ -48,6 +59,8 @@ const sidebars: SidebarsConfig = {
             'usando-n8n/credenciais/criar-editar',
             'usando-n8n/credenciais/compartilhamento',
             'usando-n8n/credenciais/boas-praticas',
+            'usando-n8n/credenciais/politicas-seguranca',
+            'usando-n8n/credenciais/treinamento-seguranca'
           ],
         },
         {
@@ -62,6 +75,8 @@ const sidebars: SidebarsConfig = {
             'usando-n8n/workflows/export-import',
             'usando-n8n/workflows/tags',
             'usando-n8n/workflows/workflow-id',
+            'usando-n8n/workflows/organizar',
+            'usando-n8n/workflows/otimizar'
           ],
         },
         {
@@ -70,6 +85,8 @@ const sidebars: SidebarsConfig = {
           items: [
             'usando-n8n/monitoring/index',
             'usando-n8n/monitoring/visualizar-execucoes',
+            'usando-n8n/monitoring/analisar-logs',
+            'usando-n8n/monitoring/configurar-alertas'
           ],
         },
         {
@@ -78,6 +95,8 @@ const sidebars: SidebarsConfig = {
           items: [
             'usando-n8n/usuarios-permissoes/index',
             'usando-n8n/usuarios-permissoes/criar-editar-usuarios',
+            'usando-n8n/usuarios-permissoes/autenticacao',
+            'usando-n8n/usuarios-permissoes/roles-permissoes'
           ],
         },
       ],
@@ -87,16 +106,24 @@ const sidebars: SidebarsConfig = {
       label: 'Lógica e Dados',
       items: [
         'logica-e-dados/index',
+        'logica-e-dados/expressoes',
+        'logica-e-dados/execucao',
+        'logica-e-dados/conexoes',
         {
           type: 'category',
           label: 'Lógica de Fluxo',
           items: [
+            'logica-e-dados/01-flow-logic/index',
+            'logica-e-dados/01-flow-logic/error-handling',
+            'logica-e-dados/01-flow-logic/looping',
+            'logica-e-dados/01-flow-logic/merging',
+            'logica-e-dados/01-flow-logic/splitting',
+            'logica-e-dados/01-flow-logic/subworkflows',
+            'logica-e-dados/01-flow-logic/waiting',
+            'logica-e-dados/01-flow-logic/execution-order',
+            'logica-e-dados/01-flow-logic/debugging',
             'logica-e-dados/flow-logic/error-handling',
-            'logica-e-dados/flow-logic/looping',
-            'logica-e-dados/flow-logic/merging',
-            'logica-e-dados/flow-logic/splitting',
-            'logica-e-dados/flow-logic/subworkflows',
-            'logica-e-dados/flow-logic/waiting',
+            'logica-e-dados/flow-logic/debugging'
           ],
         },
         {
@@ -115,6 +142,9 @@ const sidebars: SidebarsConfig = {
             'logica-e-dados/data/integracao-apis',
             'logica-e-dados/data/otimizacao-performance',
             'logica-e-dados/data/visualizacao-dados',
+            'logica-e-dados/data/data-flow-nodes',
+            'logica-e-dados/data/data-pinning',
+            'logica-e-dados/data/data-structure'
           ],
         },
       ],
@@ -124,6 +154,8 @@ const sidebars: SidebarsConfig = {
       label: 'Integrações',
       items: [
         'integracoes/index',
+        'integracoes/templates',
+        'integracoes/webhooks',
         {
           type: 'category',
           label: 'Nodes Integrados',
@@ -131,17 +163,47 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Requisições HTTP',
-              items: ['integracoes/builtin-nodes/http-requests/http-request', 'integracoes/builtin-nodes/http-requests/webhook'],
+              items: [
+                'integracoes/builtin-nodes/http-requests/index',
+                'integracoes/builtin-nodes/http-requests/http-request', 
+                'integracoes/builtin-nodes/http-requests/webhook'
+              ],
             },
             {
               type: 'category',
               label: 'Processamento de Dados',
-              items: ['integracoes/builtin-nodes/data-processing/set'],
+              items: [
+                'integracoes/builtin-nodes/data-processing/index',
+                'integracoes/builtin-nodes/data-processing/set',
+                'integracoes/builtin-nodes/data-processing/aggregate',
+                'integracoes/builtin-nodes/data-processing/split-in-batches'
+              ],
             },
             {
               type: 'category',
               label: 'Controle de Lógica',
-              items: ['integracoes/builtin-nodes/logic-control/index'],
+              items: [
+                'integracoes/builtin-nodes/logic-control/index',
+                'integracoes/builtin-nodes/logic-control/if',
+                'integracoes/builtin-nodes/logic-control/merge',
+                'integracoes/builtin-nodes/logic-control/switch',
+                'integracoes/builtin-nodes/logic-control/wait'
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Core Nodes',
+              items: [
+                'integracoes/builtin-nodes/core-nodes/index',
+                'integracoes/builtin-nodes/core-nodes/code',
+                'integracoes/builtin-nodes/core-nodes/debug-helper',
+                'integracoes/builtin-nodes/core-nodes/edit-fields-set',
+                'integracoes/builtin-nodes/core-nodes/error-trigger',
+                'integracoes/builtin-nodes/core-nodes/execute-sub-workflow',
+                'integracoes/builtin-nodes/core-nodes/expression',
+                'integracoes/builtin-nodes/core-nodes/function',
+                'integracoes/builtin-nodes/core-nodes/workflow-trigger'
+              ],
             },
             {
               type: 'category',
@@ -157,12 +219,20 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Comunicação',
-              items: ['integracoes/app-nodes/communication/gmail', 'integracoes/app-nodes/communication/slack'],
+              items: [
+                'integracoes/app-nodes/communication/index',
+                'integracoes/app-nodes/communication/gmail', 
+                'integracoes/app-nodes/communication/slack'
+              ],
             },
             {
               type: 'category',
               label: 'Produtividade',
-              items: ['integracoes/app-nodes/productivity/google-sheets', 'integracoes/app-nodes/productivity/trello'],
+              items: [
+                'integracoes/app-nodes/productivity/index',
+                'integracoes/app-nodes/productivity/google-sheets', 
+                'integracoes/app-nodes/productivity/trello'
+              ],
             },
             {
               type: 'category',
@@ -183,12 +253,19 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Baseados em Tempo',
-              items: ['integracoes/trigger-nodes/time-based/manual-trigger', 'integracoes/trigger-nodes/time-based/schedule-trigger'],
+              items: [
+                'integracoes/trigger-nodes/time-based/index',
+                'integracoes/trigger-nodes/time-based/manual-trigger', 
+                'integracoes/trigger-nodes/time-based/schedule-trigger'
+              ],
             },
             {
               type: 'category',
               label: 'Baseados em Eventos',
-              items: ['integracoes/trigger-nodes/event-based/webhook-trigger'],
+              items: [
+                'integracoes/trigger-nodes/event-based/index',
+                'integracoes/trigger-nodes/event-based/webhook-trigger'
+              ],
             },
             {
               type: 'category',
@@ -210,7 +287,12 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Criar Nodes',
-          items: ['integracoes/criar-nodes/estrutura-node', 'integracoes/criar-nodes/tutorial-desenvolvimento', 'integracoes/criar-nodes/publicar-npm'],
+          items: [
+            'integracoes/criar-nodes/index',
+            'integracoes/criar-nodes/estrutura-node', 
+            'integracoes/criar-nodes/tutorial-desenvolvimento', 
+            'integracoes/criar-nodes/publicar-npm'
+          ],
         },
       ],
     },
@@ -226,6 +308,8 @@ const sidebars: SidebarsConfig = {
             'integracoes-br/financeiro/pix',
             'integracoes-br/financeiro/pix-avancado',
             'integracoes-br/financeiro/nfe-integracao',
+            'integracoes-br/financeiro/conciliacao-bancaria',
+            'integracoes-br/financeiro/relatorios-fiscais'
           ],
         },
         {
@@ -250,6 +334,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Hosting n8n',
       items: [
+        'hosting-n8n/index',
         'hosting-n8n/instalacao',
         {
           type: 'category',
@@ -260,7 +345,9 @@ const sidebars: SidebarsConfig = {
             'hosting-n8n/instalacao/npm', 
             'hosting-n8n/instalacao/docker', 
             'hosting-n8n/instalacao/cloud',
-            'hosting-n8n/instalacao/aws-brasil'
+            'hosting-n8n/instalacao/aws-brasil',
+            'hosting-n8n/instalacao/azure-brasil',
+            'hosting-n8n/instalacao/gcp-brasil'
           ],
         },
         {
@@ -294,6 +381,14 @@ const sidebars: SidebarsConfig = {
             'hosting-n8n/escalonamento/clustering', 
             'hosting-n8n/escalonamento/load-balancing', 
             'hosting-n8n/escalonamento/performance'
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Compliance',
+          items: [
+            'hosting-n8n/compliance/index',
+            'hosting-n8n/compliance/lgpd'
           ],
         },
       ],
@@ -423,7 +518,10 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Histórico',
-          items: ['referencia/historico/changelog'],
+          items: [
+            'referencia/historico/index',
+            'referencia/historico/changelog'
+          ],
         },
       ],
     },
@@ -450,27 +548,37 @@ const sidebars: SidebarsConfig = {
           label: 'Contribuir com Esta Documentação',
           items: [
             'contribuir/esta-documentacao/index',
+            'contribuir/esta-documentacao/guidelines',
+            'contribuir/esta-documentacao/guidelines',
             {
               type: 'category',
               label: 'Entendendo o Projeto',
               items: [
+                'contribuir/esta-documentacao/entendendo-o-projeto/index',
                 'contribuir/esta-documentacao/entendendo-o-projeto/sobre-o-projeto',
                 'contribuir/esta-documentacao/entendendo-o-projeto/como-contribuir',
                 'contribuir/esta-documentacao/entendendo-o-projeto/codigo-conduta',
+                'contribuir/esta-documentacao/entendendo-o-projeto/mentoria',
+                'contribuir/esta-documentacao/entendendo-o-projeto/roadmap',
+                'contribuir/esta-documentacao/entendendo-o-projeto/sistema-overlaps'
               ],
             },
             {
               type: 'category',
               label: 'Primeiros Passos',
               items: [
+                'contribuir/esta-documentacao/primeiros-passos/index',
                 'contribuir/esta-documentacao/primeiros-passos/getting-started',
                 'contribuir/esta-documentacao/primeiros-passos/exemplos-praticos',
+                'contribuir/esta-documentacao/primeiros-passos/processo-validacao'
               ],
             },
             {
               type: 'category',
               label: 'Padrões e Estilo',
               items: [
+                'contribuir/esta-documentacao/padroes-e-estilo/index',
+                'contribuir/esta-documentacao/padroes-e-estilo/intro',
                 'contribuir/esta-documentacao/padroes-e-estilo/guia-de-estilo',
                 'contribuir/esta-documentacao/padroes-e-estilo/markdown-features',
                 'contribuir/esta-documentacao/padroes-e-estilo/design-system',
@@ -481,6 +589,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Tradução e Localização',
               items: [
+                'contribuir/esta-documentacao/traducao-e-localizacao/index',
                 'contribuir/esta-documentacao/traducao-e-localizacao/guia-traducao',
               ],
             },
@@ -488,6 +597,7 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Suporte e Dúvidas',
               items: [
+                'contribuir/esta-documentacao/suporte-e-duvidas/index',
                 'contribuir/esta-documentacao/suporte-e-duvidas/onde-buscar-ajuda',
               ],
             },
@@ -495,8 +605,10 @@ const sidebars: SidebarsConfig = {
               type: 'category',
               label: 'Recursos Técnicos',
               items: [
+                'contribuir/esta-documentacao/recursos-tecnicos/index',
                 'contribuir/esta-documentacao/recursos-tecnicos/docusaurus-folder',
                 'contribuir/esta-documentacao/recursos-tecnicos/paleta-cores',
+                'contribuir/esta-documentacao/recursos-tecnicos/validacao-overlaps'
               ],
             },
           ],
@@ -514,6 +626,25 @@ const sidebars: SidebarsConfig = {
         'comunidade/github',
         'comunidade/como-participar',
         'comunidade/estatisticas',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Privacidade e Segurança',
+      items: [
+        'privacidade-seguranca/index',
+        'privacidade-seguranca/privacy',
+        'privacidade-seguranca/security-best-practices',
+        'privacidade-seguranca/lgpd-compliance',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Catálogo',
+      items: [
+        'catalogo/index',
+        'catalogo/servicos-brasileiros',
+        'catalogo/ia-machine-learning',
       ],
     },
     {
