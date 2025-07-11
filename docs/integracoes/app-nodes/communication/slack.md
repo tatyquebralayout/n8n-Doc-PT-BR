@@ -490,7 +490,7 @@ return {
 - **[Webhook Trigger](../../integracoes/trigger-nodes/event-based/webhook-trigger)** - Triggers baseados em webhooks
 - **[HTTP Request](../../integracoes/builtin-nodes/http-requests/http-request)** - Requisições HTTP customizadas
 - **[Code Node](../../integracoes/builtin-nodes/core-nodes/code)** - Lógica customizada
-- **[Error Handling](../../logica-e-dados/01-flow-logic/error-handling)** - Tratamento de erros
+- **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros
 
 ---
 

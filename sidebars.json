@@ -19,6 +19,7 @@
         "path": "primeiros-passos",
         "type": "category",
         "subsections": [
+          "conceitos-fundamentais",
           "guia-instalacao",
           "instalacao-cloud", 
           "instalacao-self-hosted",

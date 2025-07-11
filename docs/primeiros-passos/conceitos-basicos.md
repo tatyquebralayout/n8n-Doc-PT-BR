@@ -7,25 +7,11 @@ keywords: [n8n, conceitos, básicos, fundamentos, workflows, nodes, triggers, au
 
 # <ion-icon name="library-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Básicos
 
-Antes de começar a criar workflows no n8n, é importante entender os conceitos fundamentais que formam a base da plataforma. Este guia explica os principais termos e conceitos que você encontrará ao usar o n8n.
+Esta página complementa a seção de **[Conceitos Fundamentais](./conceitos-fundamentais)** com informações adicionais e exemplos práticos para iniciantes.
 
-## O que é o n8n?
-
-O **n8n** é uma plataforma de automação de workflows que permite conectar diferentes aplicações e serviços através de uma interface visual. Ele é:
-
-- **Open source**: Código aberto e gratuito
-- **Visual**: Interface gráfica para criar workflows
-- **Flexível**: Suporta centenas de integrações
-- **Poderoso**: Permite automações complexas
-- **Escalável**: Funciona para projetos pequenos e grandes
-
-### Principais Características
-
-- **Workflows visuais**: Crie automações arrastando e soltando
-- **Integrações nativas**: Conecte com APIs populares
-- **Código customizado**: Use JavaScript quando necessário
-- **Execução em tempo real**: Workflows executam automaticamente
-- **Monitoramento**: Acompanhe execuções e logs
+:::tip **Antes de continuar**
+Recomendamos ler primeiro a seção **[Conceitos Fundamentais](./conceitos-fundamentais)** para entender os conceitos básicos do n8n.
+:::
 
 ## Workflows
 

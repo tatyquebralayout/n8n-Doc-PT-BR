@@ -427,10 +427,10 @@ return processados;
 
 ## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências
 
-- **[Error Handling](../../logica-e-dados/01-flow-logic/error-handling)** - Tratamento de erros em workflows
-- **[Execution Order](../../logica-e-dados/01-flow-logic/execution-order)** - Ordem de execução de nós
+- **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros em workflows
+- **[Execution Order](../../logica-e-dados/flow-logic/execution-order)** - Ordem de execução de nós
 - **[Webhook Trigger](../../integracoes/trigger-nodes/event-based/webhook-trigger)** - Triggers baseados em webhooks
-- **[Rate Limiting](../../logica-e-dados/01-flow-logic/rate-limiting)** - Controle de taxa de requisições
+- **[Rate Limiting](../../logica-e-dados/flow-logic/rate-limiting)** - Controle de taxa de requisições
 
 ---
 

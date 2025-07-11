@@ -140,7 +140,7 @@ Triggers baseados em tempo:
 - **[Built-in Nodes](../builtin-nodes/)** - Funcionalidades nativas
 - **[App Nodes](../app-nodes/)** - Integrações com aplicações
 - **[Webhooks](../webhooks)** - Conecte com aplicações via webhooks
-- **[Flow Logic](../../logica-e-dados/01-flow-logic/)** - Controle de fluxo
+- **[Flow Logic](../../logica-e-dados/flow-logic/)** - Controle de fluxo
 
 ---
 

@@ -487,7 +487,7 @@ return lead;
 - **[Gmail Trigger](../../integracoes/trigger-nodes/app-triggers/gmail-trigger)** - Triggers baseados em eventos do Gmail
 - **[Code Node](../../integracoes/builtin-nodes/core-nodes/code)** - Processamento customizado de emails
 - **[Database Nodes](../../integracoes/builtin-nodes/data-processing)** - Armazenamento de dados de email
-- **[Error Handling](../../logica-e-dados/01-flow-logic/error-handling)** - Tratamento de erros em workflows
+- **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros em workflows
 
 ---
 

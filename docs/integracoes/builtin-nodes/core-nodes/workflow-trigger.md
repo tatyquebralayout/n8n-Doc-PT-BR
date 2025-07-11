@@ -306,9 +306,9 @@ return {
 
 ## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências
 
-- **[Subworkflows](../../logica-e-dados/01-flow-logic/subworkflows)** - Conceitos avançados de subworkflows
-- **[Error Handling](../../logica-e-dados/01-flow-logic/error-handling)** - Tratamento de erros em workflows
-- **[Execution Order](../../logica-e-dados/01-flow-logic/execution-order)** - Ordem de execução de nós
+- **[Subworkflows](../../logica-e-dados/flow-logic/subworkflows)** - Conceitos avançados de subworkflows
+- **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros em workflows
+- **[Execution Order](../../logica-e-dados/flow-logic/execution-order)** - Ordem de execução de nós
 - **[Data Mapping](../../logica-e-dados/data/data-mapping-avancado)** - Mapeamento avançado de dados
 
 ---

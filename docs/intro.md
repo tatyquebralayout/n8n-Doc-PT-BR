@@ -30,26 +30,17 @@ O n8n (pronuncia-se "n‑eight‑n") é uma plataforma que oferece:
 
 ### Conceitos fundamentais
 
-**Workflow (Fluxo de Trabalho)**  
-Um workflow é uma sequência visual de etapas automatizadas. Ele conecta diferentes ferramentas — como Gmail, Notion ou Google Sheets — para que elas colaborem entre si, sem intervenção manual. No n8n, você constrói isso como se estivesse montando um fluxograma. [Saiba mais sobre workflows](../../usando-n8n/getting-started/workflow-na-pratica).
+Para entender completamente o n8n, é essencial conhecer os conceitos fundamentais que formam a base da plataforma. **[Consulte nossa seção dedicada de Conceitos Fundamentais](./primeiros-passos/conceitos-fundamentais)** para uma explicação completa de:
 
-**Node (Nó)**  
-Cada etapa no seu fluxo é representada por um node. Um node pode enviar um e-mail, consultar uma API, transformar dados ou aguardar um evento. É como uma peça de LEGO: pequena, funcional, e que se encaixa em outras. [Explore todos os nós](../../integracoes).
+- **Workflows** - Sequências visuais de etapas automatizadas
+- **Nodes** - Blocos de construção dos workflows
+- **Triggers** - Disparadores que iniciam workflows
+- **Connections** - Ligações entre nodes
+- **Execution** - Processo de execução de workflows
+- **Data Mapping** - Mapeamento de dados entre nodes
+- **Error Handling** - Tratamento de erros
 
-**Trigger (Disparador)**  
-Todo workflow começa com algo. Um trigger é o nó que escuta esse "algo": um novo formulário enviado, uma mensagem recebida, ou simplesmente o relógio marcando a hora. Ele dá o sinal verde para o fluxo começar. [Conheça os triggers](../../integracoes/trigger-nodes).
-
-**Connection (Conexão)**  
-Os nodes são ligados entre si por connections. Elas mostram por onde os dados vão passar e em que ordem. Conectar bem significa garantir que a informação certa chegue ao lugar certo — sem ruídos. [Aprenda sobre fluxo de dados](../../logica-e-dados/data/transformacoes-dados).
-
-**Execution (Execução)**  
-Cada vez que um workflow é ativado, ocorre uma execução. O n8n pega seus dados reais, segue o fluxo definido, e gera um resultado — seja um e-mail enviado, uma planilha atualizada ou uma decisão automatizada. [Entenda as execuções](../../usando-n8n/execucoes/componentes-execucoes).
-
-**Data Mapping (Mapeamento de Dados)**  
-Você pode usar os dados gerados por um node anterior nos próximos passos. Esse processo é chamado de data mapping. É como dizer: "pegue o nome que veio do formulário e insira aqui no e-mail". [Aprenda mapeamento](../../logica-e-dados/data/data-mapping-avancado).
-
-**Error Handling (Tratamento de Erros)**  
-Em automação, erros podem acontecer — e tudo bem. O n8n permite criar caminhos de tratamento de erros que detectam, registram e até corrigem falhas automaticamente. Isso torna seus fluxos mais confiáveis e resilientes. [Tratamento de erros](../../logica-e-dados/flow-logic/error-handling).
+Esses conceitos são a base para criar automações eficientes no n8n.
 
 ---
 

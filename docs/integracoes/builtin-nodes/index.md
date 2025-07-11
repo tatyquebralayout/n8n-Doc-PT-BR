@@ -105,7 +105,7 @@ Nodes built-in são funcionalidades nativas do n8n que:
 - **[App Nodes](../app-nodes/)** - Integrações com aplicações
 - **[Community Nodes](../community-nodes/)** - Nodes da comunidade
 - **[Criar Nodes](../criar-nodes/)** - Desenvolva nodes customizados
-- **[Flow Logic](../../logica-e-dados/01-flow-logic/)** - Controle de fluxo
+- **[Flow Logic](../../logica-e-dados/flow-logic/)** - Controle de fluxo
 
 ---
 

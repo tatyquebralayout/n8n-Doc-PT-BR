@@ -13,9 +13,10 @@ Bem-vindo ao n8n! Esta seção é o ponto de partida perfeito para sua jornada d
 
 ### Conceitos Fundamentais
 
-- **Conceitos Básicos**: Entenda os fundamentos do n8n e automação
-- **Primeiro Workflow**: Crie sua primeira automação passo a passo
-- **Conectar Aplicações**: Aprenda a integrar diferentes serviços
+- **[Conceitos Fundamentais](./conceitos-fundamentais)**: Definições essenciais do n8n
+- **[Conceitos Básicos](./conceitos-basicos)**: Informações complementares
+- **[Primeiro Workflow](./primeiro-workflow)**: Crie sua primeira automação passo a passo
+- **[Conectar Aplicações](./conectar-aplicacoes)**: Aprenda a integrar diferentes serviços
 
 ### Instalação e Configuração
 
@@ -33,7 +34,7 @@ Bem-vindo ao n8n! Esta seção é o ponto de partida perfeito para sua jornada d
 
 ### Para iniciantes absolutos
 
-1. **Leia os [Conceitos Básicos](./conceitos-basicos)** para entender o que é o n8n
+1. **Leia os [Conceitos Fundamentais](./conceitos-fundamentais)** para entender o que é o n8n
 2. **Siga o [Guia de Instalação](./guia-instalacao)** para configurar seu ambiente
 3. **Crie seu [Primeiro Workflow](./primeiro-workflow)** para ver o n8n em ação
 
@@ -64,7 +65,7 @@ O n8n é uma plataforma de automação de workflow que permite conectar diferent
 
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
-1. **Comece com os [Conceitos Básicos](./conceitos-basicos)** para entender os fundamentos
+1. **Comece com os [Conceitos Fundamentais](./conceitos-fundamentais)** para entender os fundamentos
 2. **Configure sua instalação** seguindo o [Guia de Instalação](./guia-instalacao)
 3. **Crie seu primeiro workflow** com nosso [tutorial prático](./primeiro-workflow)
 
