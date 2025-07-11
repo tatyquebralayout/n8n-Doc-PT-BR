@@ -52,7 +52,7 @@ Bem-vindo à seção "Usando n8n"! Aqui você aprenderá como aproveitar ao máx
 
 ### Workflows
 
-Um workflow no n8n é uma sequência de operações que automatiza um processo. Cada workflow é composto por:
+Para uma explicação completa de workflows, **[consulte nossa seção de Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)**. Em resumo, um workflow no n8n é uma sequência de operações que automatiza um processo através de:
 
 - **Nodes**: Blocos de funcionalidade que executam ações específicas
 - **Connections**: Ligações entre nodes que definem o fluxo de dados

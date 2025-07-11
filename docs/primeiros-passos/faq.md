@@ -17,7 +17,7 @@ Encontre respostas rápidas para as perguntas mais comuns sobre o n8n. Se sua d�
 
 ### O que é o n8n?
 
-O n8n é uma plataforma de automação de workflow open-source que permite conectar diferentes aplicações e serviços através de uma interface visual. Você pode automatizar tarefas repetitivas sem escrever código.
+Para uma explicação completa, **[consulte nossa seção de Conceitos Fundamentais](./conceitos-fundamentais)**. Em resumo, o n8n é uma plataforma de automação de workflow open-source que permite conectar diferentes aplicações e serviços através de uma interface visual.
 
 ### O n8n é gratuito?
 

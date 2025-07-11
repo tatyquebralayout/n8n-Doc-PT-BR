@@ -7,7 +7,7 @@ keywords: [n8n, http request, api, rest, integração, automação]
 
 # <ion-icon name="globe-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node HTTP Request
 
-O node **HTTP Request** é um dos nodes mais versáteis do n8n. Ele permite que você faça requisições HTTP para consultar dados de qualquer aplicação ou serviço que tenha uma API REST. Você pode usar este node como um node regular ou conectá-lo a um [agente de IA](/advanced-ai/nodes-ia/ai-agent.md) para funcionar como uma [ferramenta](/advanced-ai/exemplos-casos/ferramentas-ia.md).
+O node **HTTP Request** é um dos nodes mais versáteis do n8n. Ele permite que você faça requisições HTTP para consultar dados de qualquer aplicação ou serviço que tenha uma API REST. Você pode usar este node como um node regular ou conectá-lo a um [agente de IA](/advanced-ai/nodes-ia/ai-agent) para funcionar como uma [ferramenta](/advanced-ai/exemplos-casos/ferramentas-ia).
 
 Quando você usa este node, está criando uma chamada de API REST. É importante ter um entendimento básico de terminologia e conceitos de API.
 

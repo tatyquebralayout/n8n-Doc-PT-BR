@@ -110,7 +110,7 @@ Cada node tem **propriedades** configuráveis:
 
 ### O que são Triggers?
 
-**Triggers** são nodes especiais que iniciam workflows. Eles "disparam" a execução baseado em eventos ou condições.
+Para uma explicação completa de triggers, **[consulte nossa seção de Conceitos Fundamentais](./conceitos-fundamentais)**. Em resumo, **Triggers** são nodes especiais que iniciam workflows. Eles "disparam" a execução baseado em eventos ou condições.
 
 ### Tipos de Triggers
 
@@ -281,6 +281,8 @@ Use **expressions** para acessar dados:
 ```
 
 ## Execução de Workflows
+
+Para uma explicação completa de execuções, **[consulte nossa seção de Conceitos Fundamentais](./conceitos-fundamentais)**. Em resumo:
 
 ### Como os Workflows Executam
 

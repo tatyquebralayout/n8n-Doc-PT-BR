@@ -272,8 +272,8 @@ Você pode proteger seus webhooks com diferentes métodos de autenticação:
 
 ## Próximos Passos
 
-- [Node Webhook](/integracoes/builtin-nodes/http-requests/webhook.md) - Configuração detalhada
-- [Node HTTP Request](/integracoes/builtin-nodes/http-requests/http-request.md) - Fazer requisições
-- [Credenciais Webhook](/integracoes/credential-nodes/webhook.md) - Configurar autenticação
+- [Node Webhook](/integracoes/builtin-nodes/http-requests/webhook) - Configuração detalhada
+- [Node HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições
+- [Credenciais Webhook](/integracoes/credential-nodes/webhook) - Configurar autenticação
 - [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas

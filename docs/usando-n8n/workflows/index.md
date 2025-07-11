@@ -36,7 +36,7 @@ Bem-vindo à seção de gerenciamento de workflows do n8n! Aqui você aprenderá
 
 ### O que são Workflows?
 
-Workflows são sequências automatizadas de tarefas que conectam diferentes aplicações e serviços. Eles permitem:
+Para uma explicação completa de workflows, **[consulte nossa seção de Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)**. Em resumo, workflows são sequências automatizadas de tarefas que conectam diferentes aplicações e serviços, permitindo:
 
 - **Automatizar processos** repetitivos
 - **Integrar sistemas** diferentes

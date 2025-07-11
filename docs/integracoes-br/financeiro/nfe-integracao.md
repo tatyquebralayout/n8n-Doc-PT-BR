@@ -543,4 +543,4 @@ return { json: dashboard };
 - [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
 - [Integrações Brasileiras](/integracoes-br/index.md) - Outras integrações brasileiras
-- [Compliance Fiscal](/integracoes-br/financeiro/compliance-fiscal.md) - Conformidade fiscal
+- [Compliance Fiscal](/integracoes-br/financeiro/compliance-fiscal) - Conformidade fiscal

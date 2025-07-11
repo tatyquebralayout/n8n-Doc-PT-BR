@@ -25,7 +25,7 @@ Conectar aplicações é o coração do n8n. Neste guia, você aprenderá como i
 
 ### O que são Nodes?
 
-Nodes são os blocos de construção dos workflows no n8n. Cada node representa uma ação ou integração específica:
+Para uma explicação completa de nodes, **[consulte nossa seção de Conceitos Fundamentais](./conceitos-fundamentais)**. Em resumo, nodes são os blocos de construção dos workflows no n8n. Cada node representa uma ação ou integração específica:
 
 - **Trigger Nodes**: Iniciam workflows (webhooks, agendamento, etc.)
 - **Action Nodes**: Executam ações (enviar email, criar registro, etc.)

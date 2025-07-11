@@ -46,22 +46,11 @@ Bem-vindo ao n8n! Esta seção é o ponto de partida perfeito para sua jornada d
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
-### O que é o n8n?
+Para entender completamente o que é o n8n e seus benefícios, **[consulte nossa seção dedicada de Conceitos Fundamentais](./conceitos-fundamentais)**.
 
-O n8n é uma plataforma de automação de workflow que permite conectar diferentes aplicações e serviços através de uma interface visual intuitiva. Com ele, você pode:
+### Resumo Rápido
 
-- **Automatizar tarefas repetitivas** sem escrever código
-- **Integrar diferentes sistemas** de forma simples
-- **Processar dados** entre aplicações
-- **Criar workflows complexos** com lógica condicional
-
-### Por que usar o n8n?
-
-- **Interface visual**: Construa workflows arrastando e soltando
-- **Open source**: Totalmente gratuito e personalizável
-- **Self-hosted**: Mantenha seus dados seguros
-- **Extensível**: Crie seus próprios nodes e integrações
-- **Comunidade ativa**: Suporte e recursos da comunidade
+O n8n é uma plataforma de automação de workflow que permite conectar diferentes aplicações e serviços através de uma interface visual intuitiva. Com ele, você pode automatizar tarefas repetitivas, integrar sistemas e processar dados sem escrever código.
 
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 

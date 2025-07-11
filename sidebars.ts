@@ -14,6 +14,7 @@ const sidebars: SidebarsConfig = {
       label: 'Primeiros Passos',
       items: [
         'primeiros-passos/index',
+        'primeiros-passos/conceitos-fundamentais',
         'primeiros-passos/guia-instalacao',
         'primeiros-passos/instalacao',
         'primeiros-passos/instalacao-cloud',
