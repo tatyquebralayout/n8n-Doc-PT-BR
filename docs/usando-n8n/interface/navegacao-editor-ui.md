@@ -257,4 +257,4 @@ Quando um node está selecionado:
 
 - [Configuração de Credenciais](../credenciais/criar-editar.md)
 - [Execução de Workflows](../execucoes/index.md)
-- [Tratamento de Erros](../../logica-e-dados/01-flow-logic/error-handling.md)
+- [Tratamento de Erros](../../logica-e-dados/flow-logic/error-handling.md)

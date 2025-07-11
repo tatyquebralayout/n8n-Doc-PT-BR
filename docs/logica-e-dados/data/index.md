@@ -123,7 +123,7 @@ Como os dados se movem através dos workflows:
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Flow Logic](../01-flow-logic/)** - Controle de fluxo e lógica
+- **[Flow Logic](../flow-logic/)** - Controle de fluxo e lógica
 - **[Integrações](../../integracoes/)** - Conectar com serviços externos
 - **[API](../../api/)** - Automação via API
 - **[Usando n8n](../../usando-n8n/)** - Conceitos básicos de workflows

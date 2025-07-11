@@ -98,7 +98,7 @@ Ao construir sua lógica, você usará os **[Core Nodes](../integracoes/builtin-
 
 1. **Comece com [Data Structure](./data/data-structure)** para entender como os dados são organizados
 2. **Aprenda sobre [Data Flow](./data/data-flow-nodes)** para entender como os dados se movem
-3. **Explore [Error Handling](./01-flow-logic/error-handling)** para criar workflows robustos
+3. **Explore [Error Handling](./flow-logic/error-handling)** para criar workflows robustos
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 

@@ -304,17 +304,17 @@ Combine condições com operadores lógicos:
 
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
-1. **[Execution Order](../01-flow-logic/execution-order)** - Entender ordem de execução
-2. **[Error Handling](../01-flow-logic/error-handling)** - Tratamento robusto de erros
-3. **[Subworkflows](../01-flow-logic/subworkflows)** - Modularização de workflows
+1. **[Execution Order](../flow-logic/execution-order)** - Entender ordem de execução
+2. **[Error Handling](../flow-logic/error-handling)** - Tratamento robusto de erros
+3. **[Subworkflows](../flow-logic/subworkflows)** - Modularização de workflows
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
 
 ### Documentação Relacionada
 
-- **[Execution Order](../01-flow-logic/execution-order)** - Ordem de execução
-- **[Error Handling](../01-flow-logic/error-handling)** - Tratamento de erros
-- **[Subworkflows](../01-flow-logic/subworkflows)** - Workflows modulares
+- **[Execution Order](../flow-logic/execution-order)** - Ordem de execução
+- **[Error Handling](../flow-logic/error-handling)** - Tratamento de erros
+- **[Subworkflows](../flow-logic/subworkflows)** - Workflows modulares
 
 ### Links Externos
 

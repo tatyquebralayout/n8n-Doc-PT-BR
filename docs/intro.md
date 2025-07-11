@@ -128,7 +128,7 @@ Explore recursos avançados e casos de uso complexos.
   - [Interface](../../usando-n8n/interface) - Navegação e editor UI
   - [Execuções](../../usando-n8n/execucoes) - Componentes de execução
 - **[Lógica e Dados](../../logica-e-dados)** - Conceitos avançados de fluxo
-  - [Lógica de Fluxo](../../logica-e-dados/01-flow-logic) - Error handling, looping, merging
+  - [Lógica de Fluxo](../../logica-e-dados/flow-logic) - Error handling, looping, merging
   - [Dados](../../logica-e-dados/data) - Data flow, mapping, structure
 - **[IA Avançada](../../advanced-ai)** - Integração com inteligência artificial
 - **[Embed](../../embed)** - Implementação e gerenciamento

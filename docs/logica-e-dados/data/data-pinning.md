@@ -106,8 +106,8 @@ Quando você está testando a lógica de um workflow:
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 1. **[Transformações de Dados](./transformacoes-dados)** - Manipular dados pinados
-2. **[Error Handling](../01-flow-logic/error-handling)** - Tratar erros em workflows
-3. **[Debugging](../01-flow-logic/debugging)** - Técnicas avançadas de debug
+2. **[Error Handling](../flow-logic/error-handling)** - Tratar erros em workflows
+3. **[Debugging](../flow-logic/debugging)** - Técnicas avançadas de debug
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dicas Pro
 

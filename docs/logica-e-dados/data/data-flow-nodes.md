@@ -162,13 +162,13 @@ graph LR
 
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
-1. **Aprenda sobre [Looping](../01-flow-logic/looping)** para processamento repetitivo
-2. **Explore [Error Handling](../01-flow-logic/error-handling)** para lidar com falhas
+1. **Aprenda sobre [Looping](../flow-logic/looping)** para processamento repetitivo
+2. **Explore [Error Handling](../flow-logic/error-handling)** para lidar com falhas
 3. **Entenda [Data Structure](./data-structure)** para estrutura de dados
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
 - **[Data Structure](./data-structure)** - Estrutura fundamental dos dados
-- **[Looping](../01-flow-logic/looping)** - Processamento repetitivo
-- **[Error Handling](../01-flow-logic/error-handling)** - Tratamento de erros
+- **[Looping](../flow-logic/looping)** - Processamento repetitivo
+- **[Error Handling](../flow-logic/error-handling)** - Tratamento de erros
 - **[Core Nodes](../integracoes/builtin-nodes/core-nodes/)** - Nodes fundamentais

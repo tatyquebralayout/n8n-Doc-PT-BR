@@ -318,16 +318,16 @@ Monitoramento em tempo real:
 
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
-1. **[Execution Order](../01-flow-logic/execution-order)** - Entender ordem de execução
-2. **[Error Handling](../01-flow-logic/error-handling)** - Tratamento robusto de erros
+1. **[Execution Order](../flow-logic/execution-order)** - Entender ordem de execução
+2. **[Error Handling](../flow-logic/error-handling)** - Tratamento robusto de erros
 3. **[Monitoring](../usando-n8n/monitoring/)** - Monitoramento de workflows
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
 
 ### Documentação Relacionada
 
-- **[Execution Order](../01-flow-logic/execution-order)** - Ordem de execução
-- **[Error Handling](../01-flow-logic/error-handling)** - Tratamento de erros
+- **[Execution Order](../flow-logic/execution-order)** - Ordem de execução
+- **[Error Handling](../flow-logic/error-handling)** - Tratamento de erros
 - **[Monitoring](../usando-n8n/monitoring/)** - Monitoramento
 
 ### Links Externos

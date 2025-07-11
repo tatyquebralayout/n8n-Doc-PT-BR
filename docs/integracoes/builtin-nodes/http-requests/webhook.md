@@ -46,7 +46,7 @@ O node Webhook suporta os métodos <a href="https://developer.mozilla.org/pt-BR/
 
 /// note | Tamanho máximo do payload
 O tamanho máximo do payload do webhook é 16MB.
-Se você está hospedando o n8n, pode alterar isso usando a [variável de ambiente](/hosting-n8n/configuracao/environment-variables.md) `N8N_PAYLOAD_SIZE_MAX`.
+Se você está hospedando o n8n, pode alterar isso usando a [variável de ambiente](/hosting-n8n/configuracao/variaveis-ambiente.md) `N8N_PAYLOAD_SIZE_MAX`.
 ///
 
 ### Caminho (Path)
