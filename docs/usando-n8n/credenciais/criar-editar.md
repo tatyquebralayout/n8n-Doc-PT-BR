@@ -534,6 +534,6 @@ async function testCredential(credentialId) {
 
 **Próximos Passos:**
 
-- [Boas Práticas de Credenciais](boas-praticas.md)
-- [Compartilhamento de Credenciais](compartilhamento.md)
-- [Segurança e Autenticação](../../hosting-n8n/seguranca/autenticacao.md)
+- [Boas Práticas de Credenciais](boas-praticas)
+- [Compartilhamento de Credenciais](compartilhamento)
+- [Segurança e Autenticação](../../hosting-n8n/seguranca/autenticacao)

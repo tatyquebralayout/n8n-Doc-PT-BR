@@ -387,8 +387,8 @@ Para casos específicos, considere:
 
 ## Próximos Passos
 
-- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request.md) - Fazer requisições HTTP
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
-- [Integrações Brasileiras](/integracoes-br/index.md) - Outras integrações brasileiras
-- [Localização](/integracoes-br/localizacao/index.md) - Mais ferramentas de localização
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições HTTP
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
+- [Integrações Brasileiras](/integracoes-br/index) - Outras integrações brasileiras
+- [Localização](/integracoes-br/localizacao/index) - Mais ferramentas de localização

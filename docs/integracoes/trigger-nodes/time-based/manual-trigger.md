@@ -637,8 +637,8 @@ return { json: debugManualTrigger($json) };
 
 ## Próximos Passos
 
-- [Schedule Trigger](/integracoes/trigger-nodes/time-based/schedule-trigger.md) - Execução automática
-- [Webhook Trigger](/integracoes/trigger-nodes/event-based/webhook-trigger.md) - Receber dados externos
-- [If Node](/integracoes/builtin-nodes/logic-control/if.md) - Controle de fluxo
-- [Set Node](/integracoes/builtin-nodes/data-processing/set.md) - Manipulação de dados
-- [Debugging](/logica-e-dados/flow-logic/debugging.md) - Técnicas de debug
+- [Schedule Trigger](/integracoes/trigger-nodes/time-based/schedule-trigger) - Execução automática
+- [Webhook Trigger](/integracoes/trigger-nodes/event-based/webhook-trigger) - Receber dados externos
+- [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
+- [Set Node](/integracoes/builtin-nodes/data-processing/set) - Manipulação de dados
+- [Debugging](/logica-e-dados/flow-logic/debugging) - Técnicas de debug

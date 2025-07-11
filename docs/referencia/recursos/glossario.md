@@ -496,6 +496,6 @@ Verificação periódica do status de um sistema.
 
 **Recursos Relacionados:**
 
-- [Conceitos Básicos](../../primeiros-passos/conceitos-basicos.md)
-- [Referência da API](../../api/referencia/referencia-api.md)
-- [Guias de Performance](../../referencia/guias/performance-guide.md)
+- [Conceitos Básicos](../../primeiros-passos/conceitos-basicos)
+- [Referência da API](../../api/referencia/referencia-api)
+- [Guias de Performance](../../referencia/guias/performance-guide)

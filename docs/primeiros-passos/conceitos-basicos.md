@@ -438,11 +438,11 @@ Para uma explicação completa de execuções, **[consulte nossa seção de Conc
 
 Agora que você entende os conceitos básicos:
 
-1. **[Primeiro Workflow](/primeiros-passos/primeiro-workflow.md)** - Criar seu primeiro workflow
-2. **[Expressões n8n](/logica-e-dados/expressoes.md)** - Aprender expressões avançadas
-3. **[HTTP Request](/integracoes/builtin-nodes/http-requests/http-request.md)** - Fazer chamadas para APIs
-4. **[Templates](/integracoes/templates.md)** - Usar templates prontos
-5. **[Casos de Uso](/catalogo/index.md)** - Ver exemplos práticos
+1. **[Primeiro Workflow](/primeiros-passos/primeiro-workflow)** - Criar seu primeiro workflow
+2. **[Expressões n8n](/logica-e-dados/expressoes)** - Aprender expressões avançadas
+3. **[HTTP Request](/integracoes/builtin-nodes/http-requests/http-request)** - Fazer chamadas para APIs
+4. **[Templates](/integracoes/templates)** - Usar templates prontos
+5. **[Casos de Uso](/catalogo/index)** - Ver exemplos práticos
 
 ## Recursos Adicionais
 

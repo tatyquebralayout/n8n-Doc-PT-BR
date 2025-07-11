@@ -420,7 +420,7 @@ Agora que você entende as expressões:
 1. **[Code Node](./code)** - Para lógica complexa
 2. **[Function Node](./function)** - Para funções simples
 3. **[Set Node](../data-processing/set)** - Para manipulação básica de dados
-4. **[IF Node](../logic-control/if.md)** - Para lógica condicional
+4. **[IF Node](../logic-control/if)** - Para lógica condicional
 
 ---
 

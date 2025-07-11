@@ -29,7 +29,7 @@ O node **Code** permite executar código JavaScript customizado dentro do workfl
 - Integração com APIs externas
 - Lógica de negócio específica
 
-[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/code.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/code)
 
 ### <ion-icon name="bug-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Debug Helper
 
@@ -49,7 +49,7 @@ O node **Debug Helper** é essencial para desenvolvimento e troubleshooting, per
 - Desenvolvimento iterativo
 - Troubleshooting
 
-[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/debug-helper.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/debug-helper)
 
 ### <ion-icon name="create-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Edit Fields (Set)
 
@@ -69,7 +69,7 @@ O node **Edit Fields** permite definir, modificar e remover campos nos dados de 
 - Preparar dados para APIs
 - Criar estruturas customizadas
 
-[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/edit-fields-set.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/edit-fields-set)
 
 ### <ion-icon name="play-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Execute Sub-Workflow
 
@@ -89,7 +89,7 @@ O node **Execute Sub-Workflow** permite executar outros workflows como parte do 
 - Separar responsabilidades
 - Facilitar manutenção
 
-[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)
 
 ### <ion-icon name="alert-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Error Trigger
 
@@ -109,7 +109,7 @@ O node **Error Trigger** permite capturar e processar erros que ocorrem em outro
 - Logging de problemas
 - Recuperação de falhas
 
-[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/error-trigger.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/error-trigger)
 
 ### <ion-icon name="git-branch-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Workflow Trigger
 
@@ -129,7 +129,7 @@ O node **Workflow Trigger** permite que um workflow seja executado por outro wor
 - Processamento em etapas
 - Automação complexa
 
-[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/workflow-trigger.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/workflow-trigger)
 
 ## Conceitos Fundamentais
 
@@ -351,8 +351,8 @@ function validarCPF(cpf) {
 
 ## Próximos Passos
 
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões avançadas
-- [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index.md) - Processar dados
-- [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index.md) - Controlar fluxo
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
-- [Debugging](/logica-e-dados/flow-logic/debugging.md) - Depurar workflows
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões avançadas
+- [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index) - Processar dados
+- [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index) - Controlar fluxo
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
+- [Debugging](/logica-e-dados/flow-logic/debugging) - Depurar workflows

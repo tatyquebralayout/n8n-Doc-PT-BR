@@ -657,6 +657,6 @@ const syncData = async (source, destination) => {
 
 **Próximos Passos:**
 
-- [Looping e Iteração](looping.md)
-- [Merging e Agregação](merging.md)
-- [Subworkflows](subworkflows.md)
+- [Looping e Iteração](looping)
+- [Merging e Agregação](merging)
+- [Subworkflows](subworkflows)

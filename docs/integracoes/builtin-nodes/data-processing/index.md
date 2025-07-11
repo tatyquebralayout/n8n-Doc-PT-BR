@@ -29,7 +29,7 @@ O node **Aggregate** permite agrupar e agregar dados baseado em campos específi
 - Analisar métricas de performance
 - Processar dados de logs
 
-[Ver documentação completa →](/integracoes/builtin-nodes/data-processing/aggregate.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/data-processing/aggregate)
 
 ### <ion-icon name="create-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Set
 
@@ -49,7 +49,7 @@ O node **Set** permite definir, modificar e remover campos nos dados, oferecendo
 - Preparar dados para APIs
 - Criar estruturas customizadas
 
-[Ver documentação completa →](/integracoes/builtin-nodes/data-processing/set.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/data-processing/set)
 
 ## Conceitos Fundamentais
 
@@ -341,8 +341,8 @@ Dados Básicos → Consulta Externa → Mesclagem → Dados Enriquecidos
 
 ## Próximos Passos
 
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
-- [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index.md) - Controlar fluxo
-- [Nodes Core](/integracoes/builtin-nodes/core-nodes/index.md) - Operações básicas
-- [Manipulação de Dados](/logica-e-dados/data/index.md) - Conceitos avançados
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
+- [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index) - Controlar fluxo
+- [Nodes Core](/integracoes/builtin-nodes/core-nodes/index) - Operações básicas
+- [Manipulação de Dados](/logica-e-dados/data/index) - Conceitos avançados
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas

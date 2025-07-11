@@ -616,8 +616,8 @@ return { json: debugMerge($json) };
 
 ## Próximos Passos
 
-- [Switch Node](/integracoes/builtin-nodes/logic-control/switch.md) - Múltiplas condições
-- [If Node](/integracoes/builtin-nodes/logic-control/if.md) - Controle de fluxo
-- [Aggregate Node](/integracoes/builtin-nodes/data-processing/aggregate.md) - Agregação de dados
-- [Set Node](/integracoes/builtin-nodes/data-processing/set.md) - Manipulação de dados
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões em merge
+- [Switch Node](/integracoes/builtin-nodes/logic-control/switch) - Múltiplas condições
+- [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
+- [Aggregate Node](/integracoes/builtin-nodes/data-processing/aggregate) - Agregação de dados
+- [Set Node](/integracoes/builtin-nodes/data-processing/set) - Manipulação de dados
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões em merge

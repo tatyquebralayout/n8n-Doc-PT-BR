@@ -17,8 +17,8 @@ description: "{{ DESCRICAO_SECAO }}"
 
 ## 🔗 Navegação
 
-- [← Voltar ao índice principal](../index.md)
-- [→ Próxima seção](../{{ PROXIMA_SECAO }}/index.md)
+- [← Voltar ao índice principal](../index)
+- [→ Próxima seção](../{{ PROXIMA_SECAO }}/index)
 
 ---
 

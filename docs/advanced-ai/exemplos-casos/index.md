@@ -15,7 +15,7 @@ Esta seção apresenta exemplos práticos e implementações completas de IA no 
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Disponíveis
 
-### <ion-icon name="chatbubble-ellipses-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [Chatbot de Suporte - Atendimento Inteligente](./chatbot-suporte.md)
+### <ion-icon name="chatbubble-ellipses-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [Chatbot de Suporte - Atendimento Inteligente](./chatbot-suporte)
 
 **Implementação completa** de chatbot inteligente para atendimento ao cliente com:
 
@@ -27,7 +27,7 @@ Esta seção apresenta exemplos práticos e implementações completas de IA no 
 
 **Ideal para:** E-commerce, SaaS, bancos digitais e empresas com alto volume de atendimento.
 
-### <ion-icon name="grid-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [RAG com Arquivos - Sistema de Busca Inteligente](./rag-com-arquivos.md)
+### <ion-icon name="grid-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [RAG com Arquivos - Sistema de Busca Inteligente](./rag-com-arquivos)
 
 **Sistema completo** de RAG (Retrieval-Augmented Generation) para documentos empresariais:
 
@@ -39,7 +39,7 @@ Esta seção apresenta exemplos práticos e implementações completas de IA no 
 
 **Ideal para:** Empresas com documentação extensa, manuais de procedimentos, bases de conhecimento.
 
-### <ion-icon name="analytics-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [Classificação de Dados com IA - Automatização Inteligente](./classificacao-dados.md)
+### <ion-icon name="analytics-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [Classificação de Dados com IA - Automatização Inteligente](./classificacao-dados)
 
 **Sistema avançado** de classificação automática para tickets e conteúdo:
 
@@ -51,7 +51,7 @@ Esta seção apresenta exemplos práticos e implementações completas de IA no 
 
 **Ideal para:** Centros de suporte, e-commerce, SaaS, bancos digitais.
 
-### <ion-icon name="sparkles-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [Geração de Conteúdo com IA - Criação Automatizada](./geracao-conteudo.md)
+### <ion-icon name="sparkles-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [Geração de Conteúdo com IA - Criação Automatizada](./geracao-conteudo)
 
 **Plataforma completa** de geração de conteúdo para marketing digital:
 

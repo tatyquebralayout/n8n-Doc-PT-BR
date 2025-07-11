@@ -669,8 +669,8 @@ return { json: debugSwitch($json) };
 
 ## Próximos Passos
 
-- [If Node](/integracoes/builtin-nodes/logic-control/if.md) - Condições simples
-- [Merge Node](/integracoes/builtin-nodes/logic-control/merge.md) - Combinar dados
-- [Code Node](/integracoes/builtin-nodes/core-nodes/code.md) - Lógica customizada
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões em condições
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
+- [If Node](/integracoes/builtin-nodes/logic-control/if) - Condições simples
+- [Merge Node](/integracoes/builtin-nodes/logic-control/merge) - Combinar dados
+- [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões em condições
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas

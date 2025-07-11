@@ -312,8 +312,8 @@ Sempre teste antes de usar:
 
 ## Próximos Passos
 
-- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request.md) - Fazer requisições autenticadas
-- [Webhook](/integracoes/builtin-nodes/http-requests/webhook.md) - Receber dados com autenticação
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar credenciais dinamicamente
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas de autenticação
-- [Segurança](/privacidade-seguranca/security-best-practices.md) - Boas práticas de segurança
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições autenticadas
+- [Webhook](/integracoes/builtin-nodes/http-requests/webhook) - Receber dados com autenticação
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar credenciais dinamicamente
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas de autenticação
+- [Segurança](/privacidade-seguranca/security-best-practices) - Boas práticas de segurança

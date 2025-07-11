@@ -30,7 +30,7 @@ O node **HTTP Request** é usado para **enviar** requisições HTTP para APIs e 
 - Upload de arquivos
 - Automação de processos web
 
-[Ver documentação completa →](/integracoes/builtin-nodes/http-requests/http-request.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/http-requests/http-request)
 
 ### <ion-icon name="link-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Webhook
 
@@ -51,7 +51,7 @@ O node **Webhook** é usado para **receber** requisições HTTP de sistemas exte
 - Automação baseada em eventos
 - Construir APIs REST
 
-[Ver documentação completa →](/integracoes/builtin-nodes/http-requests/webhook.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/http-requests/webhook)
 
 ## Diferenças Principais
 
@@ -194,8 +194,8 @@ await new Promise(resolve => setTimeout(resolve, delay));
 
 ## Próximos Passos
 
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
-- [Credenciais](/integracoes/credential-nodes/index.md) - Configurar autenticação
-- [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index.md) - Controlar fluxo
-- [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index.md) - Processar dados
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
+- [Credenciais](/integracoes/credential-nodes/index) - Configurar autenticação
+- [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index) - Controlar fluxo
+- [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index) - Processar dados

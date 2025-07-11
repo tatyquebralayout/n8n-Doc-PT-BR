@@ -46,7 +46,7 @@ O node Webhook suporta os métodos <a href="https://developer.mozilla.org/pt-BR/
 
 /// note | Tamanho máximo do payload
 O tamanho máximo do payload do webhook é 16MB.
-Se você está hospedando o n8n, pode alterar isso usando a [variável de ambiente](/hosting-n8n/configuracao/variaveis-ambiente.md) `N8N_PAYLOAD_SIZE_MAX`.
+Se você está hospedando o n8n, pode alterar isso usando a [variável de ambiente](/hosting-n8n/configuracao/variaveis-ambiente) `N8N_PAYLOAD_SIZE_MAX`.
 ///
 
 ### Caminho (Path)
@@ -79,13 +79,13 @@ Você pode exigir autenticação para qualquer serviço que chame sua URL de web
 * **JWT auth**: Autenticação via JWT (JSON Web Token)
 * **None**: Sem autenticação
 
-Consulte [Credenciais Webhook](/integracoes/credential-nodes/webhook.md) para mais informações sobre como configurar cada tipo de credencial.
+Consulte [Credenciais Webhook](/integracoes/credential-nodes/webhook) para mais informações sobre como configurar cada tipo de credencial.
 
 ### Responder
 
 * **Imediatamente**: O node Webhook retorna o código de resposta e a mensagem **Workflow foi iniciado**.
 * **Quando o Último Node Terminar**: O node Webhook retorna o código de resposta e os dados de saída do último node executado no workflow.
-* **Usando Node 'Responder ao Webhook'**: O node Webhook responde conforme definido no node [Responder ao Webhook](/integracoes/builtin-nodes/core-nodes/respond-to-webhook.md).
+* **Usando Node 'Responder ao Webhook'**: O node Webhook responde conforme definido no node [Responder ao Webhook](/integracoes/builtin-nodes/core-nodes/respond-to-webhook).
 
 ### Código de Resposta
 
@@ -320,8 +320,8 @@ if (isNaN(timestamp.getTime())) {
 
 ## Próximos Passos
 
-- [Node HTTP Request](/integracoes/builtin-nodes/http-requests/http-request.md) - Para fazer requisições HTTP
-- [Node Responder ao Webhook](/integracoes/builtin-nodes/core-nodes/respond-to-webhook.md) - Para respostas customizadas
-- [Credenciais Webhook](/integracoes/credential-nodes/webhook.md) - Configurar autenticação
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
+- [Node HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Para fazer requisições HTTP
+- [Node Responder ao Webhook](/integracoes/builtin-nodes/core-nodes/respond-to-webhook) - Para respostas customizadas
+- [Credenciais Webhook](/integracoes/credential-nodes/webhook) - Configurar autenticação
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas

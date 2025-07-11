@@ -666,8 +666,8 @@ return { json: debugSetNode($json) };
 
 ## Próximos Passos
 
-- [Code Node](/integracoes/builtin-nodes/core-nodes/code.md) - Lógica customizada
-- [If Node](/integracoes/builtin-nodes/logic-control/if.md) - Controle de fluxo
-- [Aggregate Node](/integracoes/builtin-nodes/data-processing/aggregate.md) - Agregação de dados
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões avançadas
-- [Data Processing](/integracoes/builtin-nodes/data-processing/index.md) - Outros nodes de processamento
+- [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
+- [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
+- [Aggregate Node](/integracoes/builtin-nodes/data-processing/aggregate) - Agregação de dados
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões avançadas
+- [Data Processing](/integracoes/builtin-nodes/data-processing/index) - Outros nodes de processamento

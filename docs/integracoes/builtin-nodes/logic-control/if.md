@@ -490,8 +490,8 @@ const debugCondicao = (dados, condicao) => {
 
 ## Próximos Passos
 
-- [Switch Node](/integracoes/builtin-nodes/logic-control/switch.md) - Múltiplas condições
-- [Merge Node](/integracoes/builtin-nodes/logic-control/merge.md) - Combinar dados
-- [Code Node](/integracoes/builtin-nodes/core-nodes/code.md) - Lógica customizada
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões em condições
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
+- [Switch Node](/integracoes/builtin-nodes/logic-control/switch) - Múltiplas condições
+- [Merge Node](/integracoes/builtin-nodes/logic-control/merge) - Combinar dados
+- [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões em condições
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas

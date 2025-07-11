@@ -403,6 +403,6 @@ Frequência: "Agendado (diário às 02h)"
 
 **Próximos Passos:**
 
-- [Execução de Workflows](../execucoes/index.md)
-- [Monitoramento de Workflows](../monitoring/index.md)
-- [Backup e Recuperação](../../hosting-n8n/seguranca/backup-recovery.md)
+- [Execução de Workflows](../execucoes/index)
+- [Monitoramento de Workflows](../monitoring/index)
+- [Backup e Recuperação](../../hosting-n8n/seguranca/backup-recovery)

@@ -614,6 +614,6 @@ N8N_EXECUTION_PRUNE_DATA_MAX_AGE=168
 
 **Próximos Passos:**
 
-- [Componentes de Execuções](componentes-execucoes.md)
-- [Monitoramento de Workflows](../monitoring/index.md)
-- [Tratamento de Erros](../../logica-e-dados/flow-logic/error-handling.md)
+- [Componentes de Execuções](componentes-execucoes)
+- [Monitoramento de Workflows](../monitoring/index)
+- [Tratamento de Erros](../../logica-e-dados/flow-logic/error-handling)

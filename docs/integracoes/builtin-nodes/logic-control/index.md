@@ -29,7 +29,7 @@ O node **If** permite criar condições e tomar decisões baseadas em valores ou
 - Criar fluxos de aprovação
 - Processar dados diferentes baseado em condições
 
-[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/if.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/if)
 
 ### <ion-icon name="git-network-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Switch
 
@@ -49,7 +49,7 @@ O node **Switch** permite direcionar dados para múltiplos caminhos baseado em d
 - Criar workflows de roteamento
 - Implementar lógica de negócio complexa
 
-[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/switch.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/switch)
 
 ### <ion-icon name="git-merge-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Merge
 
@@ -69,7 +69,7 @@ O node **Merge** permite combinar dados de múltiplas fontes em um único fluxo,
 - Agregar resultados de múltiplas consultas
 - Consolidar dados de diferentes sistemas
 
-[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/merge.md)
+[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/merge)
 
 ## Conceitos Fundamentais
 
@@ -320,8 +320,8 @@ new Date($json.data_vencimento) > new Date()
 
 ## Próximos Passos
 
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões avançadas
-- [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index.md) - Processar dados
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
-- [Fluxo de Execução](/logica-e-dados/flow-logic/execution-order.md) - Controlar ordem
-- [Debugging](/logica-e-dados/flow-logic/debugging.md) - Depurar workflows
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões avançadas
+- [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index) - Processar dados
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
+- [Fluxo de Execução](/logica-e-dados/flow-logic/execution-order) - Controlar ordem
+- [Debugging](/logica-e-dados/flow-logic/debugging) - Depurar workflows

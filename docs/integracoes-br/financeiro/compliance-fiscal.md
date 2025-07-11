@@ -45,4 +45,4 @@ O compliance fiscal no n8n abrange as funcionalidades e integrações necessári
 
 ## Exemplos
 
-Consulte a [integração de NF-e](/integracoes-br/financeiro/nfe-integracao.md) para exemplos práticos de implementação. 
+Consulte a [integração de NF-e](/integracoes-br/financeiro/nfe-integracao) para exemplos práticos de implementação. 

@@ -622,8 +622,8 @@ logEstruturado('INFO', 'Iniciando processamento', $json);
 
 ## Próximos Passos
 
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões JavaScript
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
-- [Debugging](/logica-e-dados/flow-logic/debugging.md) - Técnicas de debug
-- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request.md) - Integrar com APIs
-- [Data Processing](/integracoes/builtin-nodes/data-processing/index.md) - Processar dados
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões JavaScript
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
+- [Debugging](/logica-e-dados/flow-logic/debugging) - Técnicas de debug
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Integrar com APIs
+- [Data Processing](/integracoes/builtin-nodes/data-processing/index) - Processar dados

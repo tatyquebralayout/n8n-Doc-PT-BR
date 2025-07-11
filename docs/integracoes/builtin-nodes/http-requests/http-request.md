@@ -14,7 +14,7 @@ Quando você usa este node, está criando uma chamada de API REST. É importante
 Existem duas formas de criar uma requisição HTTP: configurando os [parâmetros do node](#parâmetros-do-node) ou [importando um comando curl](#importar-comando-curl).
 
 /// note | Credenciais
-Consulte [Credenciais HTTP Request](/integracoes/credential-nodes/http-request.md) para orientações sobre como configurar autenticação.
+Consulte [Credenciais HTTP Request](/integracoes/credential-nodes/http-request) para orientações sobre como configurar autenticação.
 ///
 
 ## Quando usar o HTTP Request
@@ -293,7 +293,7 @@ Antes de configurar paginação, execute o node uma vez para ver a estrutura dos
 
 ## Próximos Passos
 
-- [Node Webhook](/integracoes/builtin-nodes/http-requests/webhook.md) - Para receber requisições HTTP
-- [Credenciais HTTP Request](/integracoes/credential-nodes/http-request.md) - Configurar autenticação
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos nas requisições
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas nas requisições
+- [Node Webhook](/integracoes/builtin-nodes/http-requests/webhook) - Para receber requisições HTTP
+- [Credenciais HTTP Request](/integracoes/credential-nodes/http-request) - Configurar autenticação
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos nas requisições
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas nas requisições

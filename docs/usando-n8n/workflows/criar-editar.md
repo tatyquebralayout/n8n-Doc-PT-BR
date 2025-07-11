@@ -414,6 +414,6 @@ graph TD
 
 **Próximos Passos:**
 
-- [Organização de Workflows](organizar.md)
-- [Execução de Workflows](../execucoes/index.md)
-- [Tratamento de Erros](../../logica-e-dados/flow-logic/error-handling.md)
+- [Organização de Workflows](organizar)
+- [Execução de Workflows](../execucoes/index)
+- [Tratamento de Erros](../../logica-e-dados/flow-logic/error-handling)

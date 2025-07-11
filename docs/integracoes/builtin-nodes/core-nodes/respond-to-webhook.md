@@ -70,4 +70,4 @@ O node **Respond to Webhook** permite enviar respostas customizadas para requisi
 
 ## Integração
 
-Este node é frequentemente usado em conjunto com o [node Webhook](/integracoes/builtin-nodes/http-requests/webhook.md) para criar APIs completas. 
+Este node é frequentemente usado em conjunto com o [node Webhook](/integracoes/builtin-nodes/http-requests/webhook) para criar APIs completas. 

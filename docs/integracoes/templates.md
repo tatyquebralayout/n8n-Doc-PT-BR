@@ -294,8 +294,8 @@ Publique seu template:
 
 ## Próximos Passos
 
-- [Primeiro Workflow](/primeiros-passos/primeiro-workflow.md) - Começar com workflows básicos
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling.md) - Lidar com falhas
-- [Credenciais](/integracoes/credential-nodes/index.md) - Configurar autenticação
-- [Compartilhamento](/usando-n8n/workflows/compartilhamento.md) - Compartilhar workflows 
+- [Primeiro Workflow](/primeiros-passos/primeiro-workflow) - Começar com workflows básicos
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
+- [Credenciais](/integracoes/credential-nodes/index) - Configurar autenticação
+- [Compartilhamento](/usando-n8n/workflows/compartilhamento) - Compartilhar workflows 

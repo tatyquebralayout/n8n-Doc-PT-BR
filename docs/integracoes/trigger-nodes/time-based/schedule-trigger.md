@@ -640,8 +640,8 @@ return { json: debugSchedule() };
 
 ## Próximos Passos
 
-- [Manual Trigger](/integracoes/trigger-nodes/time-based/manual-trigger.md) - Execução manual
-- [Webhook Trigger](/integracoes/trigger-nodes/event-based/webhook-trigger.md) - Eventos externos
-- [If Node](/integracoes/builtin-nodes/logic-control/if.md) - Controle de fluxo
-- [Set Node](/integracoes/builtin-nodes/data-processing/set.md) - Manipulação de dados
-- [Monitoring](/usando-n8n/monitoring/index.md) - Monitorar execuções
+- [Manual Trigger](/integracoes/trigger-nodes/time-based/manual-trigger) - Execução manual
+- [Webhook Trigger](/integracoes/trigger-nodes/event-based/webhook-trigger) - Eventos externos
+- [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
+- [Set Node](/integracoes/builtin-nodes/data-processing/set) - Manipulação de dados
+- [Monitoring](/usando-n8n/monitoring/index) - Monitorar execuções

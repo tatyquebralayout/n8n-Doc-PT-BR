@@ -255,6 +255,6 @@ Quando um node está selecionado:
 
 **Próximos Passos:**
 
-- [Configuração de Credenciais](../credenciais/criar-editar.md)
-- [Execução de Workflows](../execucoes/index.md)
-- [Tratamento de Erros](../../logica-e-dados/flow-logic/error-handling.md)
+- [Configuração de Credenciais](../credenciais/criar-editar)
+- [Execução de Workflows](../execucoes/index)
+- [Tratamento de Erros](../../logica-e-dados/flow-logic/error-handling)

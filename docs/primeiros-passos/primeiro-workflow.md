@@ -347,8 +347,8 @@ Continue explorando, experimentando e aprendendo. O n8n oferece infinitas possib
 
 ## Próximos Passos
 
-- [Conceitos Básicos](/primeiros-passos/conceitos-basicos.md) - Entender fundamentos
-- [Conectar Aplicações](/primeiros-passos/conectar-aplicacoes.md) - Integrar sistemas
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar dados dinâmicos
-- [Templates](/integracoes/templates.md) - Usar templates prontos
-- [Casos de Uso](/catalogo/index.md) - Ver exemplos práticos
+- [Conceitos Básicos](/primeiros-passos/conceitos-basicos) - Entender fundamentos
+- [Conectar Aplicações](/primeiros-passos/conectar-aplicacoes) - Integrar sistemas
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
+- [Templates](/integracoes/templates) - Usar templates prontos
+- [Casos de Uso](/catalogo/index) - Ver exemplos práticos
