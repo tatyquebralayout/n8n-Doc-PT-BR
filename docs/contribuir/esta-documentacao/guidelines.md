@@ -122,3 +122,50 @@ Obrigado por contribuir com a documentação do n8n Brasil! Sua participação a
 ---
 
 **💡 Dica**: Se você tem dúvidas sobre como contribuir, não hesite em abrir uma issue ou participar das discussões da comunidade.
+
+## Processo de Validação Contínua da Documentação
+
+Para garantir a qualidade, transparência e confiança na documentação, siga este processo de validação contínua para todas as páginas em `docs/`:
+
+### 1. Sinalização de Status
+- **Páginas validadas**: Devem conter no início do arquivo o aviso:
+  ```md
+  :::info
+  <ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+  :::
+  ```
+- **Páginas em progresso**: Devem conter no início do arquivo o aviso:
+  ```md
+  :::warning
+  <ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+  :::
+  ```
+
+### 2. Checklist de Validação
+- [ ] Revisão técnica do conteúdo (exatidão, exemplos, comandos, código)
+- [ ] Revisão didática (clareza, estrutura, progressão, acessibilidade)
+- [ ] Conferência de links internos e externos
+- [ ] Consistência visual (ícones, avisos, títulos, cores)
+- [ ] Teste prático de tutoriais e exemplos
+- [ ] Atualização do status na homepage (src/pages/index.tsx)
+- [ ] Atualização do aviso no início do arquivo
+- [ ] Registro da validação (data, responsável, observações)
+
+### 3. Orientações para Contribuidores
+- Sempre adicione ou atualize o aviso de status ao criar ou editar uma página.
+- Ao concluir a validação, altere o aviso de `:::warning` para `:::info`.
+- Mantenha o padrão de ícones e cores para garantir clareza ao usuário.
+- Se identificar uma página sem aviso, sinalize imediatamente e registre para validação.
+- Use o checklist acima para cada página validada.
+
+### 4. Auditoria Periódica
+- Realize auditorias automáticas ou manuais periodicamente para garantir que todas as páginas estejam sinalizadas corretamente.
+- Gere relatórios de status para acompanhamento do progresso da documentação.
+
+### 5. Transparência e Comunicação
+- Mantenha o histórico de validação acessível para a equipe e comunidade.
+- Comunique mudanças de status relevantes no changelog ou canal de comunicação do projeto.
+
+---
+
+> **Dica:** Automatize a verificação de avisos com scripts ou ferramentas de CI para garantir que nenhuma página fique sem sinalização adequada.

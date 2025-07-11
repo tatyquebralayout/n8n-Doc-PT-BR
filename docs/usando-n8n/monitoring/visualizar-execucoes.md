@@ -5,6 +5,10 @@ description: Como acompanhar e analisar execuções de workflows no n8n
 keywords: [n8n, execuções, visualizar, status, histórico, resultados]
 ---
 
+:::warning
+<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::
+
 
 # <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visualizar Execuções
 

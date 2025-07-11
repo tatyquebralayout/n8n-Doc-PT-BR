@@ -130,3 +130,14 @@ src/components/draft/
 src/pages/temp/
 src/pages/draft/
 
+# Scripts de fix e configuração temporária
+final-fix-ionicons.js
+fix-all-ionicons.js
+fix-extra-braces.js
+fix-html-attributes.js
+fix-ionicon-titles.js
+fix-title-quotes.js
+fix-missing-braces.js
+remove-title-quotes.js
+.markdownlint.json
+
