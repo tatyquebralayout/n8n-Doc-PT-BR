@@ -7,7 +7,7 @@ keywords: [n8n, webhook, trigger, receber dados, api endpoint]
 
 # <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node Webhook
 
-Use o node **Webhook** para criar [webhooks](https://pt.wikipedia.org/wiki/Webhook){:target=_blank .external-link}, que podem receber dados de aplicações e serviços quando um evento ocorre. É um node trigger, o que significa que pode iniciar um workflow do n8n. Isso permite que serviços se conectem ao n8n e executem um workflow.
+Use o node **Webhook** para criar [webhooks](https://pt.wikipedia.org/wiki/Webhook){:target="_blank" .external-link}, que podem receber dados de aplicações e serviços quando um evento ocorre. É um node trigger, o que significa que pode iniciar um workflow do n8n. Isso permite que serviços se conectem ao n8n e executem um workflow.
 
 Você pode usar o node Webhook como um trigger para um workflow quando quiser receber dados e executar um workflow baseado nesses dados. O node Webhook também suporta retornar os dados gerados no final de um workflow. Isso o torna útil para construir um workflow que processa dados e retorna os resultados, como um endpoint de API.
 

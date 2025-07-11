@@ -1,631 +1,662 @@
 ---
-title: Tratamento de Erros
-description: Guia completo sobre como tratar erros e falhas em workflows n8n, incluindo estratégias, boas práticas e exemplos práticos
 sidebar_position: 1
-keywords: [n8n, tratamento, erros, falhas, exceções, debugging, robustez]
+title: Tratamento de Erros
+sidebar_label: Tratamento de Erros
 ---
 
-# <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
+# Tratamento de Erros
 
-O **tratamento de erros** é fundamental para criar workflows robustos e confiáveis no n8n. Este guia ensina como identificar, prevenir e tratar diferentes tipos de falhas em suas automações.
+O tratamento de erros é fundamental para criar workflows robustos e confiáveis no n8n. Este guia aborda estratégias, técnicas e ferramentas para implementar tratamento de erros eficiente.
 
-## O que são Erros?
+## Conceitos Fundamentais
 
-**Erros** são situações inesperadas que impedem o funcionamento normal de um workflow. Eles podem ocorrer por diversos motivos:
+### Por que Tratar Erros
 
-- **Problemas de conectividade** com APIs externas
-- **Dados inválidos** ou malformados
-- **Configurações incorretas** de nodes
-- **Limites de rate** atingidos
-- **Timeouts** de requisições
-- **Credenciais expiradas** ou inválidas
+Tratar erros adequadamente garante:
 
-### Impacto dos Erros
+- **Confiabilidade**: Workflows que continuam funcionando mesmo com falhas
+- **Observabilidade**: Visibilidade sobre problemas e suas causas
+- **Recuperação**: Capacidade de se recuperar automaticamente
+- **Manutenibilidade**: Facilita debugging e correção de problemas
 
-Erros não tratados podem causar:
+### Tipos de Erros
 
-- **Interrupção** do workflow
-- **Perda de dados** importantes
-- **Experiência ruim** do usuário
-- **Problemas de compliance** em processos críticos
-- **Custos** com reprocessamento
+#### 1. Erros de Conectividade
 
-## Tipos de Erros
-
-### 1. Erros de Conectividade
-
-```javascript
-// Exemplo: API não disponível
+```json
 {
-  "error": "ECONNREFUSED",
-  "message": "Connection refused",
-  "code": "ENOTFOUND"
+  "error": {
+    "type": "connection",
+    "code": "ECONNREFUSED",
+    "message": "Connection refused",
+    "node": "HTTP Request",
+    "timestamp": "2024-01-20T10:00:00Z"
+  }
 }
 ```
 
-**Causas comuns:**
-- Serviço offline
-- Problemas de rede
-- Firewall bloqueando
-- DNS não resolvido
+#### 2. Erros de Autenticação
 
-### 2. Erros de Autenticação
-
-```javascript
-// Exemplo: Token expirado
+```json
 {
-  "error": "unauthorized",
-  "message": "Invalid or expired token",
-  "status": 401
+  "error": {
+    "type": "authentication",
+    "code": "401",
+    "message": "Unauthorized",
+    "node": "Gmail",
+    "timestamp": "2024-01-20T10:00:00Z"
+  }
 }
 ```
 
-**Causas comuns:**
-- Credenciais expiradas
-- Tokens inválidos
-- Permissões insuficientes
-- Configuração incorreta
+#### 3. Erros de Dados
 
-### 3. Erros de Dados
-
-```javascript
-// Exemplo: Campo obrigatório ausente
+```json
 {
-  "error": "validation_error",
-  "message": "Required field 'email' is missing",
-  "field": "email"
+  "error": {
+    "type": "data",
+    "code": "VALIDATION_ERROR",
+    "message": "Required field missing",
+    "node": "Set",
+    "timestamp": "2024-01-20T10:00:00Z"
+  }
 }
 ```
 
-**Causas comuns:**
-- Campos obrigatórios ausentes
-- Formato de dados incorreto
-- Validações falhando
-- Dados corrompidos
+#### 4. Erros de Rate Limiting
 
-### 4. Erros de Rate Limiting
-
-```javascript
-// Exemplo: Muitas requisições
+```json
 {
-  "error": "rate_limit_exceeded",
-  "message": "Too many requests",
-  "retry_after": 60
+  "error": {
+    "type": "rate_limit",
+    "code": "429",
+    "message": "Too Many Requests",
+    "node": "API Request",
+    "timestamp": "2024-01-20T10:00:00Z"
+  }
 }
 ```
-
-**Causas comuns:**
-- Limite de API atingido
-- Muitas requisições simultâneas
-- Configuração inadequada de delays
-
-### 5. Erros de Timeout
-
-```javascript
-// Exemplo: Requisição demorou muito
-{
-  "error": "timeout",
-  "message": "Request timed out after 30 seconds",
-  "timeout": 30000
-}
-```
-
-**Causas comuns:**
-- Serviço lento
-- Rede instável
-- Timeout configurado muito baixo
-- Processamento complexo
 
 ## Estratégias de Tratamento
 
-### 1. Prevenção de Erros
+### 1. Try-Catch Pattern
+
+#### Implementação com IF Node
+
+```json
+{
+  "node": {
+    "type": "n8n-nodes-base.if",
+    "name": "Error Handler",
+    "parameters": {
+      "conditions": {
+        "string": [
+          {
+            "value1": "={{ $json.error }}",
+            "operation": "exists"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+#### Implementação com Code Node
+
+```javascript
+// Code Node para tratamento de erros
+try {
+  // Operação que pode falhar
+  const result = await someOperation();
+  return { success: true, data: result };
+} catch (error) {
+  // Tratamento do erro
+  console.error('Error occurred:', error);
+  return { 
+    success: false, 
+    error: error.message,
+    timestamp: new Date().toISOString()
+  };
+}
+```
+
+### 2. Retry Logic
+
+#### Configuração de Retry
+
+```json
+{
+  "retry": {
+    "attempts": 3,
+    "delay": 5000,
+    "backoff": "exponential",
+    "maxDelay": 30000,
+    "conditions": [
+      "network_error",
+      "rate_limit",
+      "temporary_failure"
+    ]
+  }
+}
+```
+
+#### Retry Customizado
+
+```javascript
+// Code Node para retry inteligente
+const maxAttempts = 3;
+const currentAttempt = $execution.attempt || 1;
+
+if (currentAttempt < maxAttempts) {
+  // Calcular delay exponencial
+  const delay = Math.pow(2, currentAttempt) * 1000;
+  
+  // Aguardar antes da próxima tentativa
+  await new Promise(resolve => setTimeout(resolve, delay));
+  
+  // Lançar erro para forçar retry
+  throw new Error(`Retry attempt ${currentAttempt}`);
+}
+
+// Se chegou aqui, é a última tentativa
+return items;
+```
+
+### 3. Circuit Breaker Pattern
+
+#### Implementação
+
+```javascript
+// Code Node para Circuit Breaker
+const circuitBreaker = {
+  failureThreshold: 5,
+  recoveryTimeout: 60000,
+  state: 'CLOSED', // CLOSED, OPEN, HALF_OPEN
+  failureCount: 0,
+  lastFailureTime: null
+};
+
+// Verificar estado do circuit breaker
+if (circuitBreaker.state === 'OPEN') {
+  const timeSinceLastFailure = Date.now() - circuitBreaker.lastFailureTime;
+  
+  if (timeSinceLastFailure > circuitBreaker.recoveryTimeout) {
+    circuitBreaker.state = 'HALF_OPEN';
+  } else {
+    throw new Error('Circuit breaker is OPEN');
+  }
+}
+
+try {
+  // Executar operação
+  const result = await riskyOperation();
+  
+  // Sucesso - reset circuit breaker
+  if (circuitBreaker.state === 'HALF_OPEN') {
+    circuitBreaker.state = 'CLOSED';
+  }
+  circuitBreaker.failureCount = 0;
+  
+  return result;
+} catch (error) {
+  // Falha - incrementar contador
+  circuitBreaker.failureCount++;
+  circuitBreaker.lastFailureTime = Date.now();
+  
+  if (circuitBreaker.failureCount >= circuitBreaker.failureThreshold) {
+    circuitBreaker.state = 'OPEN';
+  }
+  
+  throw error;
+}
+```
+
+## Nodes Específicos para Tratamento de Erros
+
+### 1. Error Trigger Node
+
+#### Configuração
+
+```json
+{
+  "node": {
+    "type": "n8n-nodes-base.errorTrigger",
+    "name": "Error Handler",
+    "parameters": {
+      "errorMessage": "={{ $json.error.message }}",
+      "errorType": "={{ $json.error.type }}",
+      "nodeName": "={{ $json.error.node }}"
+    }
+  }
+}
+```
+
+#### Uso no Workflow
+
+```mermaid
+graph TD
+    A[Main Node] -->|Error| B[Error Trigger]
+    A -->|Success| C[Success Path]
+    B --> D[Error Processing]
+    D --> E[Notification]
+    D --> F[Logging]
+```
+
+### 2. Set Node para Error Handling
+
+#### Configuração de Error Context
+
+```json
+{
+  "node": {
+    "type": "n8n-nodes-base.set",
+    "name": "Add Error Context",
+    "parameters": {
+      "values": {
+        "string": [
+          {
+            "name": "errorTimestamp",
+            "value": "={{ $now }}"
+          },
+          {
+            "name": "workflowName",
+            "value": "={{ $workflow.name }}"
+          },
+          {
+            "name": "executionId",
+            "value": "={{ $execution.id }}"
+          },
+          {
+            "name": "errorSeverity",
+            "value": "high"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+### 3. HTTP Request para Error Reporting
+
+#### Configuração de Webhook de Erro
+
+```json
+{
+  "node": {
+    "type": "n8n-nodes-base.httpRequest",
+    "name": "Send Error Report",
+    "parameters": {
+      "method": "POST",
+      "url": "https://api.error-reporting.com/errors",
+      "authentication": "predefinedCredentialType",
+      "sendHeaders": true,
+      "headerParameters": {
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "sendBody": true,
+      "bodyParameters": {
+        "parameters": [
+          {
+            "name": "error",
+            "value": "={{ $json.error }}"
+          },
+          {
+            "name": "context",
+            "value": "={{ $json.context }}"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+## Padrões de Tratamento por Tipo de Erro
+
+### 1. Erros de Rede
+
+#### Detecção e Retry
+
+```javascript
+// Code Node para tratamento de erros de rede
+const isNetworkError = (error) => {
+  const networkErrors = [
+    'ECONNREFUSED',
+    'ENOTFOUND',
+    'ETIMEDOUT',
+    'ECONNRESET'
+  ];
+  
+  return networkErrors.includes(error.code) || 
+         error.message.includes('network') ||
+         error.message.includes('timeout');
+};
+
+try {
+  const result = await networkOperation();
+  return result;
+} catch (error) {
+  if (isNetworkError(error)) {
+    // Implementar retry com backoff exponencial
+    const retryCount = $execution.attempt || 1;
+    const delay = Math.pow(2, retryCount) * 1000;
+    
+    if (retryCount < 3) {
+      await new Promise(resolve => setTimeout(resolve, delay));
+      throw new Error('Retry network operation');
+    }
+  }
+  
+  // Se não for erro de rede ou excedeu tentativas
+  throw error;
+}
+```
+
+### 2. Erros de Rate Limiting
+
+#### Implementação de Rate Limiting
+
+```javascript
+// Code Node para tratamento de rate limiting
+const handleRateLimit = async (error) => {
+  if (error.status === 429) {
+    // Extrair tempo de espera do header
+    const retryAfter = error.headers['retry-after'] || 60;
+    
+    console.log(`Rate limited. Waiting ${retryAfter} seconds...`);
+    await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
+    
+    // Retry a operação
+    throw new Error('Retry after rate limit');
+  }
+  
+  throw error;
+};
+
+try {
+  const result = await apiCall();
+  return result;
+} catch (error) {
+  await handleRateLimit(error);
+}
+```
+
+### 3. Erros de Validação
 
 #### Validação de Dados
 
 ```javascript
-// Code Node - Validação de entrada
-const dados = $json;
-
-// Validar campos obrigatórios
-const validacoes = {
-  nome: dados.nome && dados.nome.length > 0,
-  email: dados.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dados.email),
-  idade: dados.idade && dados.idade >= 18
-};
-
-// Verificar se todos os campos são válidos
-const dadosValidos = Object.values(validacoes).every(v => v);
-
-if (!dadosValidos) {
-  throw new Error('Dados inválidos: ' + Object.keys(validacoes).filter(k => !validacoes[k]).join(', '));
-}
-
-return { json: dados };
-```
-
-#### Verificação de Conectividade
-
-```javascript
-// Code Node - Teste de conectividade
-const testarConectividade = async (url) => {
-  try {
-    const response = await fetch(url, { 
-      method: 'HEAD',
-      timeout: 5000 
-    });
-    return response.ok;
-  } catch (error) {
-    return false;
-  }
-};
-
-const conectividade = await testarConectividade('https://api.exemplo.com');
-
-if (!conectividade) {
-  throw new Error('API não está disponível');
-}
-
-return { json: { conectividade: true } };
-```
-
-### 2. Tratamento de Erros com Try-Catch
-
-#### Tratamento Básico
-
-```javascript
-// Code Node - Tratamento básico
-try {
-  // Operação que pode falhar
-  const resultado = await processarDados($json);
-  return { json: resultado };
-} catch (error) {
-  // Log do erro
-  console.error('Erro ao processar dados:', error.message);
+// Code Node para validação e tratamento de erros
+const validateData = (data) => {
+  const errors = [];
   
-  // Retornar dados de erro estruturados
+  // Validar campos obrigatórios
+  if (!data.email) {
+    errors.push('Email is required');
+  }
+  
+  if (!data.name) {
+    errors.push('Name is required');
+  }
+  
+  // Validar formato de email
+  if (data.email && !isValidEmail(data.email)) {
+    errors.push('Invalid email format');
+  }
+  
+  return errors;
+};
+
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+// Processar dados
+const validationErrors = validateData($input.first().json);
+
+if (validationErrors.length > 0) {
   return {
-    json: {
-      sucesso: false,
-      erro: error.message,
-      timestamp: new Date().toISOString(),
-      dados_originais: $json
-    }
+    success: false,
+    errors: validationErrors,
+    data: $input.first().json
   };
 }
-```
 
-#### Tratamento Específico por Tipo
-
-```javascript
-// Code Node - Tratamento específico
-try {
-  const resultado = await fazerRequisicao($json);
-  return { json: resultado };
-} catch (error) {
-  // Tratar diferentes tipos de erro
-  if (error.code === 'ECONNREFUSED') {
-    return {
-      json: {
-        erro: 'Serviço indisponível',
-        acao: 'Tentar novamente em 5 minutos',
-        tipo: 'CONECTIVIDADE'
-      }
-    };
-  } else if (error.status === 401) {
-    return {
-      json: {
-        erro: 'Credenciais inválidas',
-        acao: 'Renovar token de acesso',
-        tipo: 'AUTENTICACAO'
-      }
-    };
-  } else if (error.status === 429) {
-    return {
-      json: {
-        erro: 'Rate limit atingido',
-        acao: 'Aguardar antes de tentar novamente',
-        tipo: 'RATE_LIMIT'
-      }
-    };
-  } else {
-    return {
-      json: {
-        erro: 'Erro desconhecido',
-        acao: 'Contatar suporte',
-        tipo: 'DESCONHECIDO',
-        detalhes: error.message
-      }
-    };
-  }
-}
-```
-
-### 3. Retry Logic
-
-#### Retry Simples
-
-```javascript
-// Code Node - Retry simples
-const fazerRequisicaoComRetry = async (dados, maxTentativas = 3) => {
-  for (let tentativa = 1; tentativa <= maxTentativas; tentativa++) {
-    try {
-      const resultado = await fazerRequisicao(dados);
-      return resultado;
-    } catch (error) {
-      console.log(`Tentativa ${tentativa} falhou:`, error.message);
-      
-      if (tentativa === maxTentativas) {
-        throw error;
-      }
-      
-      // Aguardar antes da próxima tentativa
-      await new Promise(resolve => setTimeout(resolve, 1000 * tentativa));
-    }
-  }
+// Dados válidos - continuar processamento
+return {
+  success: true,
+  data: $input.first().json
 };
-
-try {
-  const resultado = await fazerRequisicaoComRetry($json);
-  return { json: resultado };
-} catch (error) {
-  return {
-    json: {
-      sucesso: false,
-      erro: 'Falha após todas as tentativas',
-      detalhes: error.message
-    }
-  };
-}
-```
-
-#### Retry com Backoff Exponencial
-
-```javascript
-// Code Node - Retry com backoff exponencial
-const fazerRequisicaoComBackoff = async (dados, maxTentativas = 5) => {
-  for (let tentativa = 1; tentativa <= maxTentativas; tentativa++) {
-    try {
-      const resultado = await fazerRequisicao(dados);
-      return resultado;
-    } catch (error) {
-      console.log(`Tentativa ${tentativa} falhou:`, error.message);
-      
-      if (tentativa === maxTentativas) {
-        throw error;
-      }
-      
-      // Backoff exponencial: 1s, 2s, 4s, 8s, 16s
-      const delay = Math.pow(2, tentativa - 1) * 1000;
-      await new Promise(resolve => setTimeout(resolve, delay));
-    }
-  }
-};
-```
-
-### 4. Fallback Strategies
-
-#### Caminho Alternativo
-
-```javascript
-// Code Node - Fallback strategy
-const processarComFallback = async (dados) => {
-  try {
-    // Tentar método principal
-    return await processarMetodoPrincipal(dados);
-  } catch (error) {
-    console.log('Método principal falhou, tentando fallback:', error.message);
-    
-    try {
-      // Tentar método alternativo
-      return await processarMetodoAlternativo(dados);
-    } catch (fallbackError) {
-      // Ambos falharam
-      throw new Error(`Método principal e fallback falharam: ${error.message}, ${fallbackError.message}`);
-    }
-  }
-};
-```
-
-#### Dados de Cache
-
-```javascript
-// Code Node - Cache como fallback
-const processarComCache = async (dados) => {
-  try {
-    // Tentar obter dados frescos
-    const dadosFrescos = await obterDadosFrescos(dados);
-    
-    // Salvar no cache
-    await salvarCache(dados.chave, dadosFrescos);
-    
-    return dadosFrescos;
-  } catch (error) {
-    console.log('Erro ao obter dados frescos, usando cache:', error.message);
-    
-    try {
-      // Tentar usar cache
-      const dadosCache = await obterCache(dados.chave);
-      
-      if (dadosCache) {
-        return {
-          ...dadosCache,
-          origem: 'cache',
-          timestamp_cache: new Date().toISOString()
-        };
-      } else {
-        throw new Error('Cache não disponível');
-      }
-    } catch (cacheError) {
-      throw new Error(`Dados frescos e cache falharam: ${error.message}, ${cacheError.message}`);
-    }
-  }
-};
-```
-
-## Workflows de Tratamento de Erros
-
-### 1. Workflow com Error Handling
-
-```
-Manual Trigger → Validação → HTTP Request → Processamento → Sucesso
-                    ↓
-                Validação Falhou → Error Handler → Notificação
-                    ↓
-            HTTP Request Falhou → Retry Logic → Fallback → Notificação
-```
-
-### 2. Configuração do Error Handler
-
-```javascript
-// Error Handler Node
-const erro = $json;
-
-// Classificar tipo de erro
-const tipoErro = (() => {
-  if (erro.code === 'ECONNREFUSED') return 'CONECTIVIDADE';
-  if (erro.status === 401) return 'AUTENTICACAO';
-  if (erro.status === 429) return 'RATE_LIMIT';
-  if (erro.message.includes('timeout')) return 'TIMEOUT';
-  return 'DESCONHECIDO';
-})();
-
-// Preparar notificação
-const notificacao = {
-  tipo: tipoErro,
-  mensagem: erro.message,
-  timestamp: new Date().toISOString(),
-  workflow: 'Nome do Workflow',
-  dados_originais: erro.dados_originais || {},
-  acao_necessaria: (() => {
-    switch (tipoErro) {
-      case 'CONECTIVIDADE': return 'Verificar conectividade de rede';
-      case 'AUTENTICACAO': return 'Renovar credenciais';
-      case 'RATE_LIMIT': return 'Aguardar antes de tentar novamente';
-      case 'TIMEOUT': return 'Aumentar timeout ou otimizar requisição';
-      default: return 'Contatar suporte técnico';
-    }
-  })()
-};
-
-return { json: notificacao };
-```
-
-### 3. Workflow de Monitoramento
-
-```
-Schedule Trigger → Health Check → If (Status OK) → Log Sucesso
-                        ↓
-                    Status Error → Error Handler → Alert → Dashboard
-```
-
-## Configuração de Nodes
-
-### 1. HTTP Request com Error Handling
-
-```javascript
-// Configuração do HTTP Request
-{
-  "method": "POST",
-  "url": "https://api.exemplo.com/dados",
-  "timeout": 30000,
-  "retry": {
-    "enabled": true,
-    "maxTries": 3,
-    "waitBetweenTries": 5000
-  },
-  "continueOnFail": true,
-  "options": {
-    "allowUnauthorizedCerts": false,
-    "response": {
-      "response": {
-        "fullResponse": true
-      }
-    }
-  }
-}
-```
-
-### 2. Code Node com Error Handling
-
-```javascript
-// Code Node - Configuração
-const processarDados = async (dados) => {
-  // Validação de entrada
-  if (!dados || !dados.campo_obrigatorio) {
-    throw new Error('Campo obrigatório ausente');
-  }
-  
-  // Processamento
-  const resultado = await processar(dados);
-  
-  // Validação de saída
-  if (!resultado || !resultado.id) {
-    throw new Error('Resultado inválido');
-  }
-  
-  return resultado;
-};
-
-try {
-  const resultado = await processarDados($json);
-  return { json: resultado };
-} catch (error) {
-  // Log estruturado
-  console.error('Erro no processamento:', {
-    erro: error.message,
-    dados: $json,
-    timestamp: new Date().toISOString()
-  });
-  
-  // Retornar erro estruturado
-  return {
-    json: {
-      sucesso: false,
-      erro: error.message,
-      tipo: 'PROCESSAMENTO',
-      dados_entrada: $json
-    }
-  };
-}
 ```
 
 ## Monitoramento e Alertas
 
-### 1. Logs Estruturados
+### 1. Logging de Erros
 
-```javascript
-// Code Node - Log estruturado
-const logEstruturado = {
-  nivel: 'ERROR',
-  mensagem: error.message,
-  tipo: tipoErro,
-  workflow: 'Nome do Workflow',
-  node: 'Nome do Node',
-  timestamp: new Date().toISOString(),
-  dados: {
-    entrada: $json,
-    contexto: contextoAdicional
-  },
-  stack: error.stack
-};
+#### Estrutura de Log
 
-console.error(JSON.stringify(logEstruturado));
+```json
+{
+  "log": {
+    "level": "error",
+    "timestamp": "2024-01-20T10:00:00Z",
+    "workflow": "Processamento de Pedidos",
+    "execution": "exec_12345",
+    "node": "HTTP Request",
+    "error": {
+      "type": "connection",
+      "message": "Connection refused",
+      "code": "ECONNREFUSED",
+      "stack": "..."
+    },
+    "context": {
+      "input": "dados de entrada",
+      "attempt": 3,
+      "retryCount": 2
+    }
+  }
+}
 ```
 
 ### 2. Alertas Automáticos
 
-```javascript
-// Code Node - Sistema de alertas
-const enviarAlerta = async (erro) => {
-  const alerta = {
-    titulo: 'Erro no Workflow n8n',
-    mensagem: erro.message,
-    severidade: 'ALTA',
-    workflow: 'Nome do Workflow',
-    timestamp: new Date().toISOString(),
-    acao: 'Verificar logs e corrigir problema'
-  };
-  
-  // Enviar para Slack
-  await enviarParaSlack(alerta);
-  
-  // Enviar email
-  await enviarEmail(alerta);
-  
-  // Salvar no banco
-  await salvarAlerta(alerta);
-};
+#### Configuração de Alertas
 
-await enviarAlerta(error);
+```json
+{
+  "alerts": {
+    "critical": {
+      "conditions": [
+        "error_rate > 0.1",
+        "consecutive_failures > 5",
+        "execution_time > 300000"
+      ],
+      "channels": ["email", "slack", "sms"],
+      "recipients": ["oncall@company.com"]
+    },
+    "warning": {
+      "conditions": [
+        "error_rate > 0.05",
+        "execution_time > 60000"
+      ],
+      "channels": ["slack"],
+      "recipients": ["dev-team"]
+    }
+  }
+}
 ```
 
-### 3. Dashboard de Monitoramento
+### 3. Dashboard de Erros
+
+#### Métricas Importantes
+
+```yaml
+Error Rate:
+  - Total Errors: 25
+  - Error Rate: 2.5%
+  - Critical Errors: 5
+  - Warning Errors: 20
+
+Error Types:
+  - Network: 40%
+  - Authentication: 25%
+  - Validation: 20%
+  - Rate Limiting: 15%
+
+Top Error Sources:
+  - HTTP Request Node: 15 errors
+  - Gmail Node: 5 errors
+  - Database Node: 3 errors
+  - API Node: 2 errors
+```
+
+## Melhores Práticas
+
+### 1. Design de Workflows
+
+#### Estrutura Recomendada
+
+```mermaid
+graph TD
+    A[Trigger] --> B[Validation]
+    B -->|Valid| C[Processing]
+    B -->|Invalid| D[Error Handler]
+    C -->|Success| E[Success Action]
+    C -->|Error| F[Error Handler]
+    D --> G[Error Notification]
+    F --> G
+    G --> H[Error Logging]
+```
+
+### 2. Nomenclatura e Organização
+
+#### Convenções
+
+```yaml
+Error Nodes:
+  - "Error Handler - [Tipo]"
+  - "Retry Logic - [Operação]"
+  - "Validation - [Dados]"
+  - "Notification - [Canal]"
+
+Error Workflows:
+  - "Error Processing - [Contexto]"
+  - "Error Reporting - [Sistema]"
+  - "Error Recovery - [Processo]"
+```
+
+### 3. Documentação
+
+#### Template de Documentação
+
+```markdown
+# Error Handling Strategy
+
+## Error Types
+- **Network Errors**: Retry with exponential backoff
+- **Authentication Errors**: Alert admin, disable workflow
+- **Validation Errors**: Log and continue with default values
+- **Rate Limiting**: Wait and retry
+
+## Recovery Actions
+- **Automatic**: Retry, circuit breaker, fallback
+- **Manual**: Admin notification, workflow pause
+- **Escalation**: SMS alert, phone call
+
+## Monitoring
+- **Metrics**: Error rate, response time, success rate
+- **Alerts**: Email, Slack, SMS
+- **Logs**: Structured logging with context
+```
+
+## Exemplos Práticos
+
+### Exemplo 1: E-commerce Order Processing
+
+```mermaid
+graph TD
+    A[New Order] --> B[Validate Order]
+    B -->|Valid| C[Process Payment]
+    B -->|Invalid| D[Send Error Email]
+    C -->|Success| E[Update Inventory]
+    C -->|Failed| F[Payment Error Handler]
+    E -->|Success| G[Send Confirmation]
+    E -->|Failed| H[Inventory Error Handler]
+    F --> I[Retry Payment]
+    H --> J[Manual Review]
+    D --> K[Error Log]
+    I --> K
+    J --> K
+```
+
+### Exemplo 2: Data Synchronization
 
 ```javascript
-// Code Node - Métricas de erro
-const calcularMetricas = (erros) => {
+// Code Node para sincronização com tratamento de erros
+const syncData = async (source, destination) => {
+  const errors = [];
+  const successes = [];
+  
+  for (const item of source) {
+    try {
+      // Tentar sincronizar item
+      const result = await syncItem(item, destination);
+      successes.push({ item, result });
+    } catch (error) {
+      // Registrar erro
+      errors.push({ 
+        item, 
+        error: error.message,
+        timestamp: new Date().toISOString()
+      });
+      
+      // Continuar com próximo item
+      continue;
+    }
+  }
+  
   return {
-    total_erros: erros.length,
-    erros_por_tipo: erros.reduce((acc, erro) => {
-      acc[erro.tipo] = (acc[erro.tipo] || 0) + 1;
-      return acc;
-    }, {}),
-    erros_por_hora: erros.filter(erro => 
-      new Date(erro.timestamp) > new Date(Date.now() - 3600000)
-    ).length,
-    taxa_erro: (erros.length / total_execucoes) * 100
+    total: source.length,
+    successful: successes.length,
+    failed: errors.length,
+    errors: errors,
+    successes: successes
   };
 };
 ```
 
-## Boas Práticas
+## Recursos Adicionais
 
-### 1. Estratégia de Tratamento
+### Documentação Oficial
 
-- **Sempre valide** dados de entrada
-- **Use try-catch** em operações críticas
-- **Implemente retry logic** para falhas temporárias
-- **Configure timeouts** adequados
-- **Monitore** erros em produção
+- [Error Handling](https://docs.n8n.io/workflows/error-handling/)
+- [Retry Logic](https://docs.n8n.io/workflows/retry-logic/)
+- [Error Nodes](https://docs.n8n.io/integrations/builtin/cluster-nodes/)
 
-### 2. Logging
+### Ferramentas de Debug
 
-- **Use logs estruturados** para facilitar análise
-- **Inclua contexto** suficiente para debug
-- **Configure níveis** de log apropriados
-- **Centralize** logs para análise
-- **Retenha** logs por período adequado
+- [Execution Inspector](https://docs.n8n.io/workflows/executions/)
+- [Error Logging](https://docs.n8n.io/hosting/logging/)
+- [Performance Monitoring](https://docs.n8n.io/hosting/monitoring/)
 
-### 3. Notificações
+### Comunidade
 
-- **Configure alertas** para erros críticos
-- **Use canais apropriados** (Slack, email, SMS)
-- **Inclua contexto** útil nas notificações
-- **Evite spam** de alertas
-- **Configure escalação** de alertas
+- [Error Handling Discussions](https://community.n8n.io/c/error-handling/)
+- [Best Practices](https://community.n8n.io/c/best-practices/)
+- [Troubleshooting](https://community.n8n.io/c/troubleshooting/)
 
-### 4. Recuperação
+---
 
-- **Implemente fallbacks** para operações críticas
-- **Use circuit breakers** para serviços instáveis
-- **Configure graceful degradation**
-- **Teste** cenários de falha
-- **Documente** procedimentos de recuperação
+**Próximos Passos:**
 
-## Troubleshooting
-
-### Problemas Comuns
-
-#### Workflow para de funcionar
-- Verifique logs de erro
-- Confirme conectividade
-- Valide credenciais
-- Teste com dados simples
-
-#### Erros recorrentes
-- Implemente retry logic
-- Configure timeouts adequados
-- Monitore rate limits
-- Use circuit breakers
-
-#### Performance degradada
-- Otimize requisições
-- Implemente cache
-- Configure timeouts
-- Monitore recursos
-
-### Debug
-
-1. **Use Debug Helper** para inspecionar dados
-2. **Configure logging** detalhado
-3. **Teste cenários** de erro
-4. **Monitore métricas** de performance
-5. **Use ferramentas** de monitoramento
-
-## Próximos Passos
-
-- [Debugging](/logica-e-dados/flow-logic/debugging.md) - Técnicas de debugging
-- [Expressões n8n](/logica-e-dados/expressoes.md) - Usar expressões para validação
-- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request.md) - Configurar requisições robustas
-- [Code Node](/integracoes/builtin-nodes/core-nodes/code.md) - JavaScript avançado para tratamento de erros
-- [Monitoring](/usando-n8n/monitoring/index.md) - Monitorar workflows em produção 
+- [Looping e Iteração](looping.md)
+- [Merging e Agregação](merging.md)
+- [Subworkflows](subworkflows.md)
