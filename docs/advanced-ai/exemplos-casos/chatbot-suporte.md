@@ -7,6 +7,18 @@ keywords: [n8n, chatbot, suporte, atendimento, ia, cliente, escalação, sentime
 
 # <ion-icon name="chatbubble-ellipses-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Chatbot de Suporte - Atendimento Inteligente
 
+:::warning **Validação em Andamento**
+<ion-icon name="time-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> **Este workflow está sendo validado tecnicamente e será testado em breve.**
+
+**Próximos passos:**
+- ✅ Configurações técnicas revisadas
+- 🔄 Validação prática em ambiente de testes
+- 📹 **Vídeo de demonstração e validação será publicado em breve**
+- 📋 Checklist de implementação será atualizado
+
+**Status atual:** Documentação completa e funcional, aguardando validação final em produção.
+:::
+
 Este guia ensina como criar chatbots inteligentes para atendimento ao cliente usando n8n, com recursos avançados como escalação automática, análise de sentimento e integração com sistemas brasileiros de atendimento.
 
 ## <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos Técnicos
