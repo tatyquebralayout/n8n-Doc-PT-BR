@@ -99,7 +99,9 @@ graph TD
 
 ### Passo 1: Configurar Webhook para Receber Mensagens
 
-Configure um **Webhook** para receber mensagens do WhatsApp ou Telegram:
+Configure um **Webhook** para receber mensagens do WhatsApp ou Telegram com segurança:
+
+#### Configuração Básica do Webhook
 
 ```json
 {
@@ -114,6 +116,10 @@ Configure um **Webhook** para receber mensagens do WhatsApp ou Telegram:
           {
             "name": "Content-Type",
             "value": "application/json"
+          },
+          {
+            "name": "Access-Control-Allow-Origin",
+            "value": "*"
           }
         ]
       }
@@ -122,7 +128,223 @@ Configure um **Webhook** para receber mensagens do WhatsApp ou Telegram:
 }
 ```
 
-### Passo 2: Implementar Análise de Sentimento
+#### Opções de Autenticação para Produção
+
+**Opção A - Autenticação por Header (Recomendada para APIs customizadas):**
+
+```json
+{
+  "node": "n8n-nodes-base.webhook",
+  "parameters": {
+    "httpMethod": "POST",
+    "path": "chatbot",
+    "responseMode": "responseNode",
+    "authentication": "headerAuth",
+    "options": {
+      "authentication": {
+        "headerName": "Authorization",
+        "expectedValue": "Bearer {{ $env.WEBHOOK_TOKEN }}"
+      },
+      "responseHeaders": {
+        "entries": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+**Opção B - Validação de Assinatura (Recomendada para WhatsApp/Telegram):**
+
+```json
+{
+  "node": "n8n-nodes-base.webhook",
+  "parameters": {
+    "httpMethod": "POST",
+    "path": "chatbot",
+    "responseMode": "responseNode",
+    "options": {
+      "authentication": "webhookSignature",
+      "signatureAlgorithm": "sha256",
+      "secretKey": "{{ $env.WEBHOOK_SECRET }}",
+      "responseHeaders": {
+        "entries": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+#### Estruturas de Dados Esperadas
+
+**WhatsApp Business API:**
+```json
+{
+  "object": "whatsapp_business_account",
+  "entry": [{
+    "changes": [{
+      "value": {
+        "messages": [{
+          "from": "5511999999999",
+          "text": {"body": "Mensagem do usuário"},
+          "timestamp": "1234567890"
+        }]
+      }
+    }]
+  }]
+}
+```
+
+**Telegram Bot API:**
+```json
+{
+  "update_id": 123456789,
+  "message": {
+    "message_id": 1,
+    "from": {"id": 123456, "first_name": "João"},
+    "chat": {"id": 123456, "type": "private"},
+    "text": "Mensagem do usuário"
+  }
+}
+```
+
+#### Validação de Funcionamento
+
+Teste seu webhook com dados simulados:
+
+```bash
+# Teste básico do webhook
+curl -X POST https://seu-n8n.com/webhook/chatbot \
+  -H "Content-Type: application/json" \
+  -d '{"message": "teste", "from": "usuario_teste"}'
+```
+
+**Resposta esperada:**
+```json
+{
+  "message": "Mensagem processada com sucesso",
+  "status": "ok"
+}
+```
+
+:::tip **Dica de Segurança**
+Configure variáveis de ambiente para tokens e secrets. Nunca hardcode credenciais no código.
+:::
+
+#### Nó "Respond to Webhook" para Respostas Customizadas
+
+Após processar a mensagem, use o nó "Respond to Webhook" para enviar respostas estruturadas:
+
+```json
+{
+  "node": "n8n-nodes-base.respondToWebhook",
+  "parameters": {
+    "respondWith": "json",
+    "responseBody": {
+      "message": "Mensagem processada com sucesso",
+      "status": "ok",
+      "timestamp": "={{ new Date().toISOString() }}",
+      "sessionId": "={{ $json.sessionId }}"
+    },
+    "options": {
+      "responseHeaders": {
+        "entries": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+### Passo 2: Validação e Sanitização de Dados
+
+Antes de processar a mensagem, valide e sanitize os dados de entrada:
+
+```json
+{
+  "node": "n8n-nodes-base.code",
+  "parameters": {
+    "code": `
+    // Extrair dados da mensagem baseado na plataforma
+    let messageData = {};
+    
+    if ($json.object === 'whatsapp_business_account') {
+      // WhatsApp Business API
+      const entry = $json.entry[0];
+      const change = entry.changes[0];
+      const message = change.value.messages[0];
+      
+      messageData = {
+        platform: 'whatsapp',
+        message: message.text.body,
+        from: message.from,
+        timestamp: message.timestamp,
+        messageId: message.id
+      };
+    } else if ($json.message) {
+      // Telegram Bot API
+      messageData = {
+        platform: 'telegram',
+        message: $json.message.text,
+        from: $json.message.from.id,
+        timestamp: $json.message.date,
+        messageId: $json.message.message_id,
+        firstName: $json.message.from.first_name
+      };
+    } else {
+      throw new Error('Formato de mensagem não reconhecido');
+    }
+    
+    // Sanitização básica
+    const sanitizedMessage = messageData.message.replace(/[<>]/g, '');
+    
+    // Validação de telefone brasileiro (WhatsApp)
+    if (messageData.platform === 'whatsapp') {
+      const phoneRegex = /^55[1-9]{2}[9]?[0-9]{8}$/;
+      const isValidPhone = phoneRegex.test(messageData.from);
+      if (!isValidPhone) {
+        throw new Error('Número de telefone inválido');
+      }
+    }
+    
+    // Verificar conteúdo suspeito
+    const suspiciousWords = ['script', 'javascript', 'eval', 'exec', 'alert'];
+    const hasSuspiciousContent = suspiciousWords.some(word => 
+      sanitizedMessage.toLowerCase().includes(word)
+    );
+    
+    if (hasSuspiciousContent) {
+      throw new Error('Conteúdo suspeito detectado');
+    }
+    
+    // Rate limiting básico (implementar com Redis em produção)
+    const sessionId = messageData.from + '_' + Math.floor(Date.now() / 60000);
+    
+    return {
+      ...messageData,
+      message: sanitizedMessage,
+      sessionId,
+      timestamp: new Date().toISOString()
+    };
+    `
+  }
+}
+```
+
+### Passo 3: Implementar Análise de Sentimento
 
 Use o **OpenAI** node para análise de sentimento com configuração validada:
 
@@ -154,7 +376,7 @@ Use o **OpenAI** node para análise de sentimento com configuração validada:
 }
 ```
 
-### Passo 3: Lógica de Decisão com IF Node
+### Passo 4: Lógica de Decisão com IF Node
 
 Configure decisões baseadas no sentimento com estrutura validada:
 
@@ -189,7 +411,7 @@ Configure decisões baseadas no sentimento com estrutura validada:
 }
 ```
 
-### Passo 4: Integração com Sistemas
+### Passo 5: Integração com Sistemas
 
 Use **HTTP Request** para consultar dados:
 
@@ -213,6 +435,93 @@ Use **HTTP Request** para consultar dados:
   }
 }
 ```
+
+### Passo 6: Monitoramento e Logging
+
+Implemente logging estruturado para monitorar o funcionamento do chatbot:
+
+```json
+{
+  "node": "n8n-nodes-base.code",
+  "parameters": {
+    "code": `
+    // Log estruturado para monitoramento
+    const logEntry = {
+      timestamp: new Date().toISOString(),
+      sessionId: $json.sessionId,
+      platform: $json.platform,
+      from: $json.from,
+      message: $json.message.substring(0, 100), // Primeiros 100 chars
+      sentiment: $('Análise de Sentimento').item.json.choices[0].message.content,
+      escalated: $json.escalated || false,
+      processingTime: Date.now() - new Date($json.timestamp).getTime(),
+      status: 'success'
+    };
+    
+    // Em produção, enviar para sistema de logging (ELK, CloudWatch, etc.)
+    console.log('Chatbot Log:', JSON.stringify(logEntry));
+    
+    // Retornar dados para próximo node
+    return {
+      ...$json,
+      logEntry
+    };
+    `
+  }
+}
+```
+
+#### Configuração de Alertas
+
+Configure alertas para situações críticas:
+
+```json
+{
+  "node": "n8n-nodes-base.code",
+  "parameters": {
+    "code": `
+    const sentiment = $('Análise de Sentimento').item.json.choices[0].message.content;
+    const message = $json.message;
+    
+    // Alertas para situações críticas
+    const alerts = [];
+    
+    if (sentiment === 'URGENTE') {
+      alerts.push({
+        type: 'urgent',
+        message: 'Cliente com problema urgente detectado',
+        data: { from: $json.from, message: message }
+      });
+    }
+    
+    if (message.toLowerCase().includes('procon') || message.toLowerCase().includes('reclamação')) {
+      alerts.push({
+        type: 'complaint',
+        message: 'Possível reclamação Procon detectada',
+        data: { from: $json.from, message: message }
+      });
+    }
+    
+    if (message.toLowerCase().includes('cancelar') && message.toLowerCase().includes('pedido')) {
+      alerts.push({
+        type: 'cancellation',
+        message: 'Tentativa de cancelamento detectada',
+        data: { from: $json.from, message: message }
+      });
+    }
+    
+    return {
+      ...$json,
+      alerts
+    };
+    `
+  }
+}
+```
+
+:::tip **Dica de Monitoramento**
+Configure dashboards para acompanhar métricas como tempo de resposta, taxa de escalação e satisfação do cliente.
+:::
 
 </details>
 
