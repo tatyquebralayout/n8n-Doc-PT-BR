@@ -11,10 +11,10 @@ keywords: [n8n, chatbot, suporte, atendimento, ia, cliente, escalação, sentime
 <ion-icon name="time-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> **Este workflow está sendo validado tecnicamente e será testado em breve.**
 
 **Próximos passos:**
-- ✅ Configurações técnicas revisadas
-- 🔄 Validação prática em ambiente de testes
-- 📹 **Vídeo de demonstração e validação será publicado em breve**
-- 📋 Checklist de implementação será atualizado
+- <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Configurações técnicas revisadas
+- <ion-icon name="refresh-outline" style={{ fontSize: '16px', color: '#3b82f6' }}></ion-icon> Validação prática em ambiente de testes
+- <ion-icon name="videocam-outline" style={{ fontSize: '16px', color: '#8b5cf6' }}></ion-icon> **Vídeo de demonstração e validação será publicado em breve**
+- <ion-icon name="list-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> Checklist de implementação será atualizado
 
 **Status atual:** Documentação completa e funcional, aguardando validação final em produção.
 :::
