@@ -104,7 +104,7 @@ function DocumentationProgress() {
       { name: "Nodes", status: "Em progresso" },
       { name: "Exemplos", status: "Em progresso" },
       { name: "Tutorial", status: "Em progresso" },
-      { name: "Chatbot de Suporte", status: "Validado" },
+      { name: "Chatbot de Suporte", status: "Em progresso" },
     ],
     "Embed": [
       { name: "Preparação", status: "Completo" },
