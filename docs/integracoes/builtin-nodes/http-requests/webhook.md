@@ -35,7 +35,7 @@ Selecione **URL de Teste** ou **URL de Produção** para alternar qual URL o n8n
 
 ### Método HTTP
 
-O node Webhook suporta os métodos [HTTP Request Methods](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods){:target=_blank .external-link} padrão:
+O node Webhook suporta os métodos [HTTP Request Methods](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods){:target="_blank" .external-link} padrão:
 
 * **DELETE**: Remover recursos
 * **GET**: Buscar dados
@@ -89,7 +89,7 @@ Consulte [Credenciais Webhook](/integracoes/credential-nodes/webhook.md) para ma
 
 ### Código de Resposta
 
-Personalize o [código de resposta HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status){:target=_blank .external-link} que o node Webhook retorna após execução bem-sucedida. Selecione entre códigos de resposta comuns ou crie um código customizado.
+Personalize o [código de resposta HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status){:target="_blank" .external-link} que o node Webhook retorna após execução bem-sucedida. Selecione entre códigos de resposta comuns ou crie um código customizado.
 
 **Códigos comuns:**
 - **200 OK**: Sucesso (padrão)
@@ -156,7 +156,7 @@ Envie dados customizados com a resposta.
 
 ### Headers de Resposta
 
-Envie headers extras na resposta do Webhook. Consulte [MDN Web Docs | Response header](https://developer.mozilla.org/pt-BR/docs/Glossary/Response_header){:target=_blank .external-link} para aprender mais sobre headers de resposta.
+Envie headers extras na resposta do Webhook. Consulte [MDN Web Docs | Response header](https://developer.mozilla.org/pt-BR/docs/Glossary/Response_header){:target="_blank" .external-link} para aprender mais sobre headers de resposta.
 
 ### Nome da Propriedade
 
