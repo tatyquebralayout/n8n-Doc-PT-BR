@@ -5,9 +5,9 @@ sidebar_position: 2
 keywords: [n8n, webhook, trigger, receber dados, api endpoint]
 ---
 
-# <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node Webhook
+# Node Webhook
 
-Use o node **Webhook** para criar [webhooks](https://pt.wikipedia.org/wiki/Webhook){:target="_blank" .external-link}, que podem receber dados de aplicações e serviços quando um evento ocorre. É um node trigger, o que significa que pode iniciar um workflow do n8n. Isso permite que serviços se conectem ao n8n e executem um workflow.
+Use o node **Webhook** para criar <a href="https://pt.wikipedia.org/wiki/Webhook" target="_blank" rel="noopener">webhooks</a>, que podem receber dados de aplicações e serviços quando um evento ocorre. É um node trigger, o que significa que pode iniciar um workflow do n8n. Isso permite que serviços se conectem ao n8n e executem um workflow.
 
 Você pode usar o node Webhook como um trigger para um workflow quando quiser receber dados e executar um workflow baseado nesses dados. O node Webhook também suporta retornar os dados gerados no final de um workflow. Isso o torna útil para construir um workflow que processa dados e retorna os resultados, como um endpoint de API.
 
@@ -35,7 +35,7 @@ Selecione **URL de Teste** ou **URL de Produção** para alternar qual URL o n8n
 
 ### Método HTTP
 
-O node Webhook suporta os métodos [HTTP Request Methods](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods){:target="_blank" .external-link} padrão:
+O node Webhook suporta os métodos <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods" target="_blank" rel="noopener">HTTP Request Methods</a> padrão:
 
 * **DELETE**: Remover recursos
 * **GET**: Buscar dados
@@ -89,7 +89,7 @@ Consulte [Credenciais Webhook](/integracoes/credential-nodes/webhook.md) para ma
 
 ### Código de Resposta
 
-Personalize o [código de resposta HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status){:target="_blank" .external-link} que o node Webhook retorna após execução bem-sucedida. Selecione entre códigos de resposta comuns ou crie um código customizado.
+Personalize o <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status" target="_blank" rel="noopener">código de resposta HTTP</a> que o node Webhook retorna após execução bem-sucedida. Selecione entre códigos de resposta comuns ou crie um código customizado.
 
 **Códigos comuns:**
 - **200 OK**: Sucesso (padrão)
@@ -156,7 +156,7 @@ Envie dados customizados com a resposta.
 
 ### Headers de Resposta
 
-Envie headers extras na resposta do Webhook. Consulte [MDN Web Docs | Response header](https://developer.mozilla.org/pt-BR/docs/Glossary/Response_header){:target="_blank" .external-link} para aprender mais sobre headers de resposta.
+Envie headers extras na resposta do Webhook. Consulte <a href="https://developer.mozilla.org/pt-BR/docs/Glossary/Response_header" target="_blank" rel="noopener">MDN Web Docs | Response header</a> para aprender mais sobre headers de resposta.
 
 ### Nome da Propriedade
 
@@ -205,7 +205,6 @@ https://seu-n8n.com/webhook/api/usuarios/123
   "nome": "João Silva",
   "email": "joao@exemplo.com",
   "ativo": true
-}
 ```
 
 ### Exemplo 3: Webhook com autenticação
