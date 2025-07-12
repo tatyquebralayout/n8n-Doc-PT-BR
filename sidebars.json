@@ -220,7 +220,7 @@
             "id": "financeiro",
             "label": "Financeiro",
             "path": "integracoes-br/financeiro",
-            "items": ["index", "pix", "pix-avancado", "nfe-integracao"]
+            "items": ["index", "pix", "pix-avancado", "nfe-integracao", "conciliacao-bancaria", "crm-integration", "compliance-fiscal", "relatorios-fiscais"]
           },
           {
             "id": "governo",
@@ -233,6 +233,18 @@
             "label": "Localização",
             "path": "integracoes-br/localizacao",
             "items": ["index", "viacep"]
+          },
+          {
+            "id": "communication",
+            "label": "Comunicação",
+            "path": "integracoes-br/communication",
+            "items": ["whatsapp"]
+          },
+          {
+            "id": "marketing",
+            "label": "Marketing",
+            "path": "integracoes-br/marketing",
+            "items": ["email-automation"]
           }
         ]
       }
