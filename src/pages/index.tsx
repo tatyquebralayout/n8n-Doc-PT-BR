@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import IonicIcon from '@site/src/components/IonicIcon';
+import IonicIcon from '../components/IonicIcon';
 
 import styles from './index.module.css';
 
@@ -50,8 +50,8 @@ function DocumentationProgress() {
   const [animatedProgress, setAnimatedProgress] = useState(0);
   
   // Metas da documentação
-  const totalGoals = 38; // Aumentado para incluir processo de validação
-  const completedGoals = 24; // Incluindo chatbot de suporte validado
+  const totalGoals = 38; // Total de metas da documentação
+  const completedGoals = 22; // Ajustado baseado no estado real atual
   const progressPercentage = Math.round((completedGoals / totalGoals) * 100);
   
   // Agrupamento por categorias
@@ -73,7 +73,7 @@ function DocumentationProgress() {
       { name: "Usuários e Permissões", status: "Em progresso" },
     ],
     "Lógica e Dados": [
-      { name: "Flow Logic", status: "Em progresso" },
+      { name: "Flow Logic", status: "Completo" },
       { name: "Data Processing", status: "Em progresso" },
       { name: "Expressões", status: "Completo" },
       { name: "Conexões", status: "Completo" },
