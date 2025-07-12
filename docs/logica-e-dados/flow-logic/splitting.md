@@ -1146,7 +1146,7 @@ Pedido → IF (Cliente VIP?)
 ### Debugging de Condições
 
 <Admonition type="tip" title="🔍 Técnicas de Debug para Splitting">
-**1. Adicione um [Edit Fields (Set)](/integracoes/builtin-nodes/core-nodes/edit-fields-set) antes do split:**
+**1. Adicione um Edit Fields (Set) antes do split:**
 ```javascript
 {
   "debug_valor": "{{ $json.categoria }}",

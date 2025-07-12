@@ -40,7 +40,7 @@ Agrupa itens separados, ou porções deles, em itens individuais.
 ]
 ```
 
-### [Limit](../integracoes/builtin-nodes/data-processing/limit)
+### Limit
 
 Remove itens além de um número máximo definido.
 
@@ -51,7 +51,7 @@ Remove itens além de um número máximo definido.
 // Saída (apenas os primeiros 5 itens)
 ```
 
-### [Remove Duplicates](../integracoes/builtin-nodes/data-processing/remove-duplicates)
+### Remove Duplicates
 
 Identifica e remove itens que são idênticos em todos os campos ou um subconjunto de campos.
 
@@ -72,7 +72,7 @@ Identifica e remove itens que são idênticos em todos os campos ou um subconjun
 ]
 ```
 
-### [Sort](../integracoes/builtin-nodes/data-processing/sort)
+### Sort
 
 Organiza listas em uma ordem desejada ou gera uma seleção aleatória.
 
@@ -94,7 +94,7 @@ Organiza listas em uma ordem desejada ou gera uma seleção aleatória.
 ]
 ```
 
-### [Split Out](../integracoes/builtin-nodes/data-processing/split-out)
+### Split Out
 
 Separa um único item de dados contendo uma lista em múltiplos itens.
 
@@ -114,7 +114,7 @@ Separa um único item de dados contendo uma lista em múltiplos itens.
 ]
 ```
 
-### [Summarize](../integracoes/builtin-nodes/data-processing/summarize)
+### Summarize
 
 Agrega itens juntos, de maneira similar às tabelas dinâmicas do Excel.
 

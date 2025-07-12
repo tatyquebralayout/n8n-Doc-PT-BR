@@ -69,7 +69,7 @@ O node **Edit Fields** permite definir, modificar e remover campos nos dados de 
 - Preparar dados para APIs
 - Criar estruturas customizadas
 
-[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/edit-fields-set)
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/edit-fields-set) (Em construção)
 
 ### <ion-icon name="play-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Execute Sub-Workflow
 

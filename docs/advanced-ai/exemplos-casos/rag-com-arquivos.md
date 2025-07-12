@@ -251,9 +251,8 @@ Baseado nos documentos recuperados, forneça uma resposta clara e estruturada:
 
 ## Recursos Adicionais
 
-- [Guia de RAG no n8n](/advanced-ai/rag-in-n8n)
+- [Tutorial de IA](/advanced-ai/tutorial-ai)
 - [Templates de Workflow RAG](https://n8n.io/workflows/?categories=25)
-- [Melhores Práticas de Vector Stores](/advanced-ai/exemplos-casos/vector-stores)
 - [Compliance LGPD](/privacidade-seguranca/lgpd-compliance)
 
 ---

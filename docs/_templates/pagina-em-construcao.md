@@ -4,9 +4,9 @@ description: "{{ DESCRICAO }}"
 sidebar_position: {{ POSICAO }}
 ---
 
-# <ion-icon name="{{ ICONE }}" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> {{ TITULO }}
+# Página em construção
 
-> Esta página está em construção. Em breve, conteúdo sobre {{ DESCRICAO_DETALHADA }}.
+Esta página está em construção. Em breve, conteúdo completo.
 
 ## 📋 O que será abordado
 
