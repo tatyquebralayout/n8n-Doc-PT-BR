@@ -147,7 +147,14 @@ class OverlapValidator {
   }
 
   validateFrontmatter(filePath, content) {
-    const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+    // Skip template files from frontmatter validation
+    if (filePath.includes('_templates/')) {
+      return;
+    }
+    
+    // Normalize line endings for consistent matching
+    const normalizedContent = content.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+    const frontmatterMatch = normalizedContent.match(/^---\n([\s\S]*?)\n---/);
     
     if (!frontmatterMatch) {
       this.addIssue('warning', 'MISSING_FRONTMATTER', `${filePath}: Frontmatter ausente`);
