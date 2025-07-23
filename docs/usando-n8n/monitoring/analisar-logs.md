@@ -526,7 +526,7 @@ grep "execution_time" /var/log/n8n/execution.log | \
 - **[Configurar Alertas](./configurar-alertas)** - Monitoramento proativo
 - **[Execuções](../../usando-n8n/execucoes/index.md)** - Análise de execuções
 - **[Referência](../../referencia/index.md)** - Documentação técnica
-- **[Comunidade](../../comunidade/index.md)** - Suporte e dicas
+- **[Comunidade](../../comunidade/index.mdx)** - Suporte e dicas
 - **[Hosting](../../hosting-n8n/index.md)** - Configurações de produção
 
 ---

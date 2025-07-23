@@ -33,12 +33,12 @@ Splitting em workflows é como criar um **ponto de decisão** em um processo aut
 
 ### O que é Splitting de Workflow?
 
-No n8n, um [workflow](/primeiros-passos/primeiro-workflow) percorre naturalmente um **único caminho sequencial**. *Splitting* transforma esse caminho em **ramificações paralelas**: cada item é avaliado por um nó condicional ([*IF*](/integracoes/builtin-nodes/logic-control) ou [*Switch*](/integracoes/builtin-nodes/logic-control)) e roteado ao ramo que corresponde aos seus dados.
+No n8n, um [workflow](../primeiros-passos/primeiro-workflow) percorre naturalmente um **único caminho sequencial**. *Splitting* transforma esse caminho em **ramificações paralelas**: cada item é avaliado por um nó condicional ([*IF*](../integracoes/builtin-nodes/logic-control/if) ou [*Switch*](../integracoes/builtin-nodes/logic-control/switch)) e roteado ao ramo que corresponde aos seus dados.
 
 <Admonition type="warning" title="⚠️ Importante: Não confunda com Split Out">
 **Splitting** ≠ **Split Out**
 
-- **Split Out**: Quebra uma lista em itens individuais para [processamento em loop](/logica-e-dados/flow-logic/looping)
+- **Split Out**: Quebra uma lista em itens individuais para [processamento em loop](./looping)
 - **Splitting condicional**: Mantém o item intacto e decide *qual* caminho ele seguirá
 
 ```mermaid
@@ -140,9 +140,9 @@ graph TD
 
 | **Nó** | **Finalidade** | **Saídas** | **Dicas Rápidas** |
 |--------|---------------|------------|------------------|
-| **[IF](/integracoes/builtin-nodes/logic-control)** | Decisão binária | `true`, `false` | Combine condições com **AND/OR**; ative **Always Output Data** se for fazer [merge](/logica-e-dados/flow-logic/merging) depois |
-| **[Switch](/integracoes/builtin-nodes/logic-control)** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** ([lógica JavaScript](/referencia/recursos/glossario)) |
-| **[Merge](/logica-e-dados/flow-logic/merging)** | Reunir ramificações | — | Estratégias *Wait → All* ou *Merge By Key* garantem dados completos |
+| **[IF](../integracoes/builtin-nodes/logic-control/if)** | Decisão binária | `true`, `false` | Combine condições com **AND/OR**; ative **Always Output Data** se for fazer [merge](./merging) depois |
+| **[Switch](../integracoes/builtin-nodes/logic-control/switch)** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** ([lógica JavaScript](../referencia/recursos/glossario)) |
+| **[Merge](./merging)** | Reunir ramificações | — | Estratégias *Wait → All* ou *Merge By Key* garantem dados completos |
 
 </TabItem>
 <TabItem value="if" label="Node IF">
@@ -175,7 +175,7 @@ graph TD
 
 - **Always Output Data**: Garante que mesmo ramos "vazios" produzam dados
 - **Combine Conditions**: Use AND/OR para lógicas complexas
-- **Data Type**: Certifique-se de comparar tipos compatíveis - veja [transformações de dados](/logica-e-dados/data/transformacoes-dados)
+- **Data Type**: Certifique-se de comparar tipos compatíveis - veja [transformações de dados](../data/transformacoes-dados)
 
 <CodeBlock language="javascript" title="Lógica do node IF">
 {`// Lógica do node IF
@@ -698,7 +698,7 @@ graph LR
 </TabItem>
 <TabItem value="passo6" label="6. Merge (Opcional)">
 
-#### 6. [Merge](/logica-e-dados/flow-logic/merging) – Reunir Resultados
+#### 6. [Merge](./merging) – Reunir Resultados
 
 **Objetivo**: Se etapas posteriores exigirem o conjunto completo de itens, configure *Wait → All*.
 
@@ -764,7 +764,7 @@ graph TD
 
 <Admonition type="warning" title="Quando usar Always Output Data">
 ✅ **Use quando:**
-- Vai fazer [merge](/logica-e-dados/flow-logic/merging) depois
+- Vai fazer [merge](./merging) depois
 - Precisa garantir continuidade do fluxo
 - Alguns ramos podem não ter dados
 

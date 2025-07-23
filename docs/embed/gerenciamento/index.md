@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 title: Gerenciamento
-description: Visão geral das opções de gerenciamento para n8n embarcado, incluindo controle de workflows e personalização visual.
+description: Gerenciamento de workflows e white labelling no embed do n8n
+keywords: [n8n, embed, gerenciamento, workflows, white label]
 ---
 
 :::info

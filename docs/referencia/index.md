@@ -1,117 +1,95 @@
 ---
 id: index
 title: Introdução
+description: Guia definitivo de referência do n8n em português, com consultas rápidas, troubleshooting e recursos avançados.
 sidebar_label: Visão Geral
+keywords: [n8n, referência, consulta, troubleshooting, glossário, APIs, performance]
 ---
 
 # <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
 
-Esta seção concentra **toda a documentação de referência** para n8n em português, servindo como seu guia definitivo para consultas rápidas, troubleshooting, e recursos avançados.
+Esta seção concentra **toda a documentação de referência** para n8n em português, servindo como seu guia definitivo para consultas rápidas, troubleshooting e recursos avançados.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que Você Encontra Aqui
+## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
-### **Guias Essenciais**
+- [Guias Essenciais](#guias-essenciais): Performance, migração e troubleshooting
+- [Recursos de Consulta](#recursos-de-consulta): Glossário, APIs brasileiras
+- [Histórico e Evolução](#historico-e-evolucao): Changelog e atualizações
+- [Destaques da Seção](#destaques-da-secao): Foco brasileiro, exemplos práticos
+- [Como Contribuir](#como-contribuir): Participe e melhore esta referência
+
+---
+
+## <ion-icon name="book-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Guias Essenciais {#guias-essenciais}
 
 Documentação técnica aprofundada para operações avançadas:
 
-- **[Performance Guide](guias/performance-guide)** - Otimize workflows para máxima eficiência
-- **[Migration Guide](guias/migration-guide)** - Migre versões e ambientes com segurança
-- **[Troubleshooting](guias/troubleshooting)** - Resolva problemas comum e avançados
+- **[Performance Guide](guias/performance-guide)** – Otimize workflows para máxima eficiência
+- **[Migration Guide](guias/migration-guide)** – Migre versões e ambientes com segurança
+- **[Troubleshooting](guias/troubleshooting)** – Resolva problemas comuns e avançados
 
-### **Recursos de Consulta**
+---
+
+## <ion-icon name="search-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos de Consulta {#recursos-de-consulta}
 
 Referências rápidas e catálogos especializados:
 
-- **[Glossário](recursos/glossario)** - Todos os termos técnicos do n8n explicados
-- **[APIs Brasileiras](recursos/apis-brasileiras)** - Catálogo de integrações nacionais
+- **[Glossário](recursos/glossario)** – Todos os termos técnicos do n8n explicados
+- **[APIs Brasileiras](recursos/apis-brasileiras)** – Catálogo de integrações nacionais
 
-### **Histórico e Evolução**
+---
+
+## <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Histórico e Evolução {#historico-e-evolucao}
 
 Acompanhe o desenvolvimento desta documentação:
 
-- **[Changelog](historico/changelog)** - Registro de todas as atualizações
+- **[Changelog](historico/changelog)** – Registro de todas as atualizações
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Usar Esta Seção
+---
 
-### **Para Consulta Rápida**
-
-- Use o **glossário** para esclarecer termos
-- Consulte **APIs brasileiras** para integração
-- Verifique o **troubleshooting** para problemas específicos
-
-### **Para Otimização**
-
-- Siga o **guia de performance** para workflows eficientes
-- Use o **guia de migração** para updates seguros
-- Implemente **best practices** documentadas
-
-### **Para Navegação**
-
-- **Busca rápida**: Use Ctrl+F para encontrar termos específicos
-- **Links cruzados**: Navegue entre documentos relacionados
-- **Tags**: Filtre conteúdo por categoria
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Destaques da Seção
-
-### **Foco Brasileiro**
+## <ion-icon name="star-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Destaques da Seção {#destaques-da-secao}
 
 - **APIs nacionais** catalogadas e testadas
 - **Casos de uso** do mercado brasileiro
 - **Terminologia** adaptada para o português
 - **Exemplos** com dados brasileiros realistas
-
-### **Sempre Atualizado**
-
-- Documentação sincronizada com versões oficiais
-- **Changelog** transparente de mudanças
-- **Community feedback** incorporado regularmente
-- **Issues** resolvidas rapidamente
-
-### **Orientado à Prática**
-
-- **Exemplos executáveis** em todos os guias
-- **Checklists** para procedimentos complexos
-- **Templates** prontos para usar
-- **Troubleshooting** baseado em casos reais
-
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Mais Populares
-
-### **Top 5 Consultas**
-
-1. **[Troubleshooting](guias/troubleshooting)** - Resolver erros comuns
-2. **[APIs Brasileiras](recursos/apis-brasileiras)** - Integrar serviços nacionais
-3. **[Glossário](recursos/glossario)** - Esclarecer terminologia
-4. **[Performance](guias/performance-guide)** - Otimizar workflows
-5. **[Migração](guias/migration-guide)** - Atualizar versões
-
-### **Estatísticas de Uso**
-
-- **+50 APIs brasileiras** catalogadas
-- **+200 termos** no glossário
-- **+100 soluções** no troubleshooting
-- **Atualizado semanalmente**
-
-## <ion-icon name="git-pull-request-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Contribuir
-
-### **Sua Experiência Importa**
-
-- **Relate problemas** não documentados
-- **Sugira melhorias** nos guias existentes
-- **Compartilhe soluções** que funcionaram para você
-- **Proponha novos tópicos** de referência
-
-### **Links Úteis**
-
-- **GitHub Issues** - Reporte problemas ou sugestões
-- **Community Forum** - Discuta com outros usuários
-- **Contributing Guide** - Saiba como contribuir
+- **Documentação sincronizada** com versões oficiais
+- **Exemplos executáveis** e checklists práticos
 
 ---
 
-**Esta referência é construída pela comunidade!**
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
-*Cada contribuição torna esta documentação mais completa e útil para todos os brasileiros usando n8n.*
+1. **Consulte o [Glossário](recursos/glossario)** para esclarecer termos
+2. **Explore as [APIs Brasileiras](recursos/apis-brasileiras)** para integrações locais
+3. **Acesse o [Troubleshooting](guias/troubleshooting)** para resolver problemas
+4. **Veja o [Changelog](historico/changelog)** para acompanhar novidades
 
-:::tip Procurando algo específico?
-Use a **busca global** (Ctrl+K) ou navegue pelas categorias acima para encontrar exatamente o que precisa.
-:::
+---
+
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+
+- **[Primeiros Passos](../primeiros-passos/guia-instalacao)** – Conceitos fundamentais
+- **[Usando n8n](../usando-n8n)** – Guias práticos
+- **[Integrações](../integracoes)** – Conectar com aplicações externas
+- **[Comunidade](../comunidade)** – Suporte e discussões
+
+---
+
+## <ion-icon name="git-pull-request-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Contribuir
+
+Sua experiência importa! Ajude a tornar esta referência mais completa:
+
+- Relate problemas não documentados
+- Sugira melhorias nos guias existentes
+- Compartilhe soluções que funcionaram para você
+- Proponha novos tópicos de referência
+
+Links úteis:
+- **GitHub Issues** – Reporte problemas ou sugestões
+- **Community Forum** – Discuta com outros usuários
+- **[Guia de Contribuição](../contribuir/index.md)** – Saiba como contribuir
+
+---
+
+> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Esta referência é construída pela comunidade! Cada contribuição torna a documentação mais útil para todos os brasileiros usando n8n.**</span>

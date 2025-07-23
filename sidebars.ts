@@ -20,7 +20,6 @@ const sidebars: SidebarsConfig = {
         'primeiros-passos/instalacao-cloud',
         'primeiros-passos/instalacao-npm',
         'primeiros-passos/instalacao-self-hosted',
-        'primeiros-passos/conceitos-basicos',
         'primeiros-passos/conectar-aplicacoes',
         'primeiros-passos/primeiro-workflow',
         'primeiros-passos/faq'
@@ -334,7 +333,6 @@ const sidebars: SidebarsConfig = {
       label: 'Hosting n8n',
       items: [
         'hosting-n8n/index',
-        'hosting-n8n/instalacao',
         {
           type: 'category',
           label: 'Instalação',

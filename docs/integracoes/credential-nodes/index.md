@@ -1,8 +1,8 @@
 ---
-title: Credenciais
-description: Aprenda a configurar e gerenciar credenciais para conectar com APIs e serviços externos no n8n
-sidebar_position: 1
-keywords: [n8n, credenciais, autenticação, api, segurança, tokens]
+sidebar_position: 4
+title: Credential Nodes
+description: Autenticação e credenciais para integrações
+keywords: [n8n, credential nodes, autenticação, credenciais, oauth]
 ---
 
 # <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Credenciais

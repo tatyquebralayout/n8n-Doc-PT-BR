@@ -3,10 +3,10 @@
 :::
 
 ---
-sidebar_position: 1
-title: Monitoramento e Logs
-description: Aprenda a monitorar execuções, analisar logs e manter seus workflows funcionando
-keywords: [n8n, monitoramento, logs, execuções, métricas, alertas, performance]
+sidebar_position: 7
+title: Monitoramento
+description: Logs, alertas e monitoramento de performance
+keywords: [n8n, monitoramento, logs, alertas, performance]
 ---
 
 # Monitoramento e Logs

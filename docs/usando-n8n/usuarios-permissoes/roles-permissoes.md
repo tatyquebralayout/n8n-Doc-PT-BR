@@ -440,7 +440,7 @@ tail -f /var/log/n8n/audit.log
 - **[Autenticação](./autenticacao)** - Métodos de login
 - **[Segurança](../../hosting-n8n/seguranca/index.md)** - Configurações de segurança
 - **[Referência](../../referencia/index.md)** - Documentação técnica
-- **[Comunidade](../../comunidade/index.md)** - Suporte e dicas
+- **[Comunidade](../../comunidade/index.mdx)** - Suporte e dicas
 
 ---
 

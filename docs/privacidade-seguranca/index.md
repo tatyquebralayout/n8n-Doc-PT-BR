@@ -16,14 +16,14 @@ O n8n está comprometido com a privacidade e segurança dos seus dados. Esta se�
 - **[Política de Privacidade](./privacy)**: Como o n8n coleta, usa e protege seus dados
 - **[Conformidade LGPD](./lgpd-compliance)**: Implementação da Lei Geral de Proteção de Dados
 - **[Melhores Práticas de Segurança](./security-best-practices)**: Recomendações para proteger seus workflows
-- **[Resposta a Incidentes](./incident-response)**: Procedimentos para lidar com violações de segurança
+- **[Resposta a Incidentes](./incident-response)** *(Em desenvolvimento)*: Procedimentos para lidar com violações de segurança
 
 ### Implementação Prática
 
-- **[Configuração de Segurança](./security-configuration)**: Configurar n8n de forma segura
-- **[Criptografia de Dados](./data-encryption)**: Proteger dados sensíveis
-- **[Controle de Acesso](./access-control)**: Gerenciar permissões e autenticação
-- **[Auditoria e Logs](./audit-logs)**: Monitorar e registrar atividades
+- **[Configuração de Segurança](./security-configuration)** *(Em desenvolvimento)*: Configurar n8n de forma segura
+- **[Criptografia de Dados](./data-encryption)** *(Em desenvolvimento)*: Proteger dados sensíveis
+- **[Controle de Acesso](./access-control)** *(Em desenvolvimento)*: Gerenciar permissões e autenticação
+- **[Auditoria e Logs](./audit-logs)** *(Em desenvolvimento)*: Monitorar e registrar atividades
 
 ## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Compromisso com a Privacidade
 
@@ -94,7 +94,7 @@ Para suporte específico no Brasil:
 1. **Leia a [Política de Privacidade](./privacy)** para entender como seus dados são tratados
 2. **Conheça a [Conformidade LGPD](./lgpd-compliance)** para entender seus direitos
 3. **Implemente [Melhores Práticas de Segurança](./security-best-practices)** em seus workflows
-4. **Configure [Segurança](./security-configuration)** adequadamente em sua instalação
+4. **Configure [Segurança](./security-configuration)** *(Em desenvolvimento)* adequadamente em sua instalação
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 

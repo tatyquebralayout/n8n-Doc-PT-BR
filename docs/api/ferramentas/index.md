@@ -4,7 +4,7 @@
 
 ---
 sidebar_position: 1
-title: Visão Geral - Ferramentas da API
+title: Visão Geral
 description: Descubra as ferramentas que facilitam o desenvolvimento e teste de integrações com a API do n8n.
 keywords: [n8n, api, ferramentas, playground, swagger]
 ---

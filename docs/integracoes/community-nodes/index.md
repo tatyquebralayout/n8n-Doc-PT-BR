@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
-title: Visão Geral dos Community Nodes
-description: Introdução ao ecossistema de nodes da comunidade n8n
-keywords: [n8n, community nodes, ecossistema, comunidade, marketplace]
+sidebar_position: 3
+title: Community Nodes
+description: Nodes da comunidade e desenvolvimento customizado
+keywords: [n8n, community nodes, custom, desenvolvimento, npm]
 ---
 
 # <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral dos Community Nodes

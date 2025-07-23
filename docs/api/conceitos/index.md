@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Visão Geral - Conceitos da API
+title: Visão Geral
 description: Entenda os conceitos fundamentais para interagir com a API do n8n, como autenticação e paginação.
 keywords: [n8n, api, conceitos, autenticação, paginação]
 ---

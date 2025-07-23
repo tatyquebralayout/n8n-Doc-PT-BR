@@ -3,9 +3,9 @@
 :::
 
 ---
-sidebar_position: 1
-title: Gerenciar Credenciais
-description: Aprenda a criar, editar e gerenciar credenciais no n8n de forma segura
+sidebar_position: 5
+title: Credenciais
+description: Gerenciamento de credenciais e autenticação
 keywords: [n8n, credenciais, autenticação, segurança, gerenciamento]
 ---
 
@@ -52,6 +52,6 @@ O n8n oferece várias camadas de segurança:
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Primeiros Passos](/primeiros-passos/guia-instalacao)** - Conceitos fundamentais
+- **[Primeiros Passos](../../primeiros-passos/guia-instalacao)** - Conceitos fundamentais
 - **[Interface](../interface/navegacao-editor-ui)** - Navegar pela interface
 - **[Integrações](../../integracoes/index.md)** - Conectar com aplicações externas

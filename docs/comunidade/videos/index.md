@@ -194,9 +194,9 @@ Coleção curada de vídeos em português sobre n8n, criados pela comunidade bra
 ## 🤝 Como Contribuir
 
 ### Criadores de Conteúdo
-- **[Diretrizes para Criadores](./diretrizes-criadores.md)**
-- **[Programa de Parceria](./programa-parceria.md)**
-- **[Kit de Marca](./kit-marca.md)**
+- **[Diretrizes para Criadores](./diretrizes-criadores.md)** - Em desenvolvimento
+- **[Programa de Parceria](./programa-parceria.md)** - Em desenvolvimento
+- **[Kit de Marca](./kit-marca.md)** - Em desenvolvimento
 
 ### Espectadores
 - Like e compartilhe vídeos úteis

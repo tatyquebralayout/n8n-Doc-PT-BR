@@ -3,10 +3,10 @@
 :::
 
 ---
-sidebar_position: 1
-title: Gerenciar Workflows
-description: Aprenda a criar, editar, organizar e otimizar workflows no n8n
-keywords: [n8n, workflows, automação, gerenciamento, organização, otimização]
+sidebar_position: 3
+title: Workflows
+description: Criação, edição e configuração de workflows
+keywords: [n8n, workflows, criação, edição, configuração]
 ---
 
 # <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciar Workflows
@@ -29,8 +29,8 @@ Bem-vindo à seção de gerenciamento de workflows do n8n! Aqui você aprenderá
 ### Otimização e Performance
 
 - **[Otimizar Performance](./otimizar)**: Melhorar velocidade e eficiência
-- **[Debugging](./debugging)**: Identificar e corrigir problemas
-- **[Monitoramento](./monitoring)**: Acompanhar execuções e métricas
+- **[Debugging](../../logica-e-dados/flow-logic/debugging)**: Identificar e corrigir problemas
+- **[Monitoramento](../monitoring/index)**: Acompanhar execuções e métricas
 
 ## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 

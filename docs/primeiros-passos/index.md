@@ -13,8 +13,7 @@ Bem-vindo ao n8n! Esta seção é o ponto de partida perfeito para sua jornada d
 
 ### Conceitos Fundamentais
 
-- **[Conceitos Fundamentais](./conceitos-fundamentais)**: Definições essenciais do n8n
-- **[Conceitos Básicos](./conceitos-basicos)**: Informações complementares
+- **[Conceitos Fundamentais](./conceitos-fundamentais)**: Guia completo organizado por nível de complexidade
 - **[Primeiro Workflow](./primeiro-workflow)**: Crie sua primeira automação passo a passo
 - **[Conectar Aplicações](./conectar-aplicacoes)**: Aprenda a integrar diferentes serviços
 
@@ -34,9 +33,9 @@ Bem-vindo ao n8n! Esta seção é o ponto de partida perfeito para sua jornada d
 
 ### Para iniciantes absolutos
 
-1. **Leia os [Conceitos Fundamentais](./conceitos-fundamentais)** para entender o que é o n8n
-2. **Siga o [Guia de Instalação](./guia-instalacao)** para configurar seu ambiente
-3. **Crie seu [Primeiro Workflow](./primeiro-workflow)** para ver o n8n em ação
+1. **Leia os [Conceitos Fundamentais](./conceitos-fundamentais)** para entender a hierarquia de conceitos
+4. **Siga o [Guia de Instalação](./guia-instalacao)** para configurar seu ambiente
+5. **Crie seu [Primeiro Workflow](./primeiro-workflow)** para ver o n8n em ação
 
 ### Para quem já conhece automação
 
@@ -61,7 +60,7 @@ O n8n é uma plataforma de automação de workflow que permite conectar diferent
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Precisa de ajuda?
 
 - **[FAQ](./faq)** - Perguntas frequentes e soluções rápidas
-- **[Comunidade](../comunidade/index.md)** - Conecte-se com outros usuários
+- **[Comunidade](../comunidade/index.mdx)** - Conecte-se com outros usuários
 - **[Discord](https://discord.gg/n8nbrasil)** - Suporte em tempo real
 - **[GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR)** - Reporte problemas
 

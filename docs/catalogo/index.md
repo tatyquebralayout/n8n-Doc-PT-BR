@@ -329,4 +329,4 @@ Verifique os limites de rate limiting e quotas de cada integração para evitar 
 
 > <ion-icon name="quote-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **Pronto para integrar?** Escolha uma categoria e comece a automatizar!
 >
-> Para mais detalhes sobre cada integração, visite a [documentação oficial do n8n](https://docs.n8n.io/integrations/).
+> Para mais detalhes sobre cada integração, visite a [documentação oficial do n8n](https://docs.n8n.io/integrations/) ou explore nossa [documentação de integrações](../integracoes/).

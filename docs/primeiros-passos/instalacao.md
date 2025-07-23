@@ -432,7 +432,7 @@ docker exec n8n ls -la /home/node/.n8n
 
 Se encontrar problemas, consulte:
 
-- [FAQ](../faq)
+- [FAQ](./faq)
 - [Comunidade Discord](https://discord.gg/n8n)
 - [GitHub Issues](https://github.com/n8n-io/n8n/issues)
 - [Fórum da Comunidade](https://community.n8n.io/c/questions/12)
@@ -442,7 +442,7 @@ Se encontrar problemas, consulte:
 Agora que o n8n está instalado e funcionando:
 
 - [x] <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> **Instalação concluída**
-- [ ] <ion-icon name="book-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **[Conceitos Básicos](./conceitos-basicos)** - Entenda os fundamentos
+- [ ] <ion-icon name="book-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **[Conceitos Fundamentais](./conceitos-fundamentais)** - Entenda os fundamentos
 - [ ] <ion-icon name="play-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **[Primeiro Workflow](./primeiro-workflow)** - Crie seu primeiro fluxo
 - [ ] <ion-icon name="link-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **[Conectar Aplicações](./conectar-aplicacoes)** - Integre suas ferramentas
 

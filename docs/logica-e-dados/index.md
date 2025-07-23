@@ -1,108 +1,138 @@
 ---
 sidebar_position: 1
 title: Introdução
-description: Aprenda sobre lógica de fluxo e manipulação de dados no n8n
-keywords: [n8n, lógica, dados, workflow, automação, fluxo]
+description: Aprenda a trabalhar com dados e lógica no n8n
+keywords: [n8n, dados, lógica, workflow, automação, processamento]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
+# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Lógica e Dados
 
-Esta seção aborda os conceitos fundamentais de lógica de fluxo e manipulação de dados no n8n, essenciais para criar workflows robustos e eficientes.
+A manipulação de dados e a implementação de lógica são fundamentais para criar workflows eficientes no n8n. Esta seção abrange desde conceitos básicos até técnicas avançadas de processamento e transformação de dados.
 
 ## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
 
-### Lógica de Fluxo (Flow Logic)
+- [Dados](#dados): Tipos, manipulação e transformação
+- [Lógica de Fluxo](#logica-de-fluxo): Controle de execução e decisões
+- [Conexões](#conexoes): Como conectar nodes e dados
+- [Conceitos Fundamentais](#conceitos-fundamentais): Estrutura de dados e tipos
+- [Técnicas Avançadas](#tecnicas-avancadas): Agregações, filtros e mapeamento
+- [Debugging](#debugging): Troubleshooting e monitoramento
 
-- **Error Handling**: Como lidar com erros em workflows
-- **Looping**: Executar operações repetitivas automaticamente
-- **Merging**: Combinar dados de diferentes fontes
-- **Splitting**: Dividir dados para processamento paralelo
-- **Subworkflows**: Organizar workflows em módulos reutilizáveis
-- **Waiting**: Pausar execução por tempo ou condições
-- **Debugging**: Técnicas e ferramentas de debugging
+---
 
-### Expressões e Conexões
+## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dados {#dados}
 
-- **Expressões JavaScript**: Manipulação dinâmica de dados
-- **Conexões entre Nodes**: Fluxo de dados e lógica
-- **Execução de Workflows**: Modos e estados de execução
+- **Tipos de Dados**: Strings, números, objetos, arrays
+- **Manipulação**: Transformação e formatação
+- **Validação**: Verificação de dados
+- **Conversão**: Mudança de tipos
 
-### Dados (Data)
+---
 
-- **Data Structure**: Estrutura de dados no n8n
-- **Data Flow**: Como os dados fluem entre nodes
-- **Transforming Data**: Transformar dados entre formatos
-- **Data Mapping**: Mapear e transformar dados
-- **Binary Data**: Trabalhar com arquivos e dados binários
-- **Data Pinning & Editing**: Manipular dados em tempo real
-- **Data Filtering**: Filtrar dados baseado em condições
-- **Data Mocking**: Criar dados de teste
-- **Schema Preview**: Visualizar estrutura de dados
+## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Lógica de Fluxo {#logica-de-fluxo}
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
+- **Condicionais**: IF/ELSE e decisões
+- **Loops**: Repetição de operações
+- **Merge**: Combinação de fluxos
+- **Error Handling**: Tratamento de erros
 
-### Lógica de Fluxo
+---
 
-A lógica de fluxo determina como seu workflow se comporta em diferentes situações. Você aprenderá a:
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conexões {#conexoes}
 
-- Controlar o fluxo de execução entre nodes
-- Lidar com erros graciosamente
-- Otimizar performance com operações paralelas
-- Criar workflows modulares e reutilizáveis
-- Implementar loops e condições complexas
+- **Tipos de Conexão**: Sucesso, erro, condicional
+- **Mapeamento de Dados**: Passagem entre nodes
+- **Transformação**: Modificação durante passagem
+
+---
+
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais {#conceitos-fundamentais}
+
+### Estrutura de Dados
+
+O n8n trabalha com dados estruturados:
+
+- **Items**: Unidades básicas de dados
+- **JSON**: Formato padrão para dados
+- **Arrays**: Coleções de itens
+- **Objects**: Estruturas complexas
+
+### Tipos de Dados
+
+- **String**: Texto e caracteres
+- **Number**: Números inteiros e decimais
+- **Boolean**: Verdadeiro ou falso
+- **Array**: Lista de valores
+- **Object**: Estrutura chave-valor
+- **Date**: Datas e timestamps
 
 ### Manipulação de Dados
 
-O n8n oferece ferramentas poderosas para trabalhar com dados:
+- **Extração**: Obter valores específicos
+- **Transformação**: Modificar formato ou estrutura
+- **Validação**: Verificar integridade
+- **Enriquecimento**: Adicionar informações
 
-- Transformar dados entre diferentes formatos
-- Filtrar e validar informações
-- Combinar dados de múltiplas fontes
-- Estruturar dados para uso posterior
-- Processar dados binários e arquivos
+---
 
-## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Seções Relacionadas
+## <ion-icon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Técnicas Avançadas {#tecnicas-avancadas}
 
-Para usar efetivamente a lógica de fluxo e dados, você precisa entender:
+### Agregações e Estatísticas
 
-- **[Data Structure](./data/data-structure)**: Estrutura fundamental dos dados no n8n
-- **[Data Flow](./data/data-flow-nodes)**: Como os dados se movem entre nodes
+- **Soma**: Total de valores numéricos
+- **Média**: Valor médio de um conjunto
+- **Contagem**: Número de itens
+- **Máximo/Mínimo**: Valores extremos
 
-Ao construir sua lógica, você usará os **[Core Nodes](../integracoes/builtin-nodes/core-nodes/)**, incluindo:
+### Filtros e Seleção
 
-**Divisão (Splitting):**
+- **Filtros Condicionais**: Seleção baseada em critérios
+- **Ordenação**: Organização por valores
+- **Limitação**: Redução de volume de dados
+- **Deduplicação**: Remoção de duplicatas
 
-- **[IF](../integracoes/builtin-nodes/logic-control/if)** e **[Switch](../integracoes/builtin-nodes/logic-control/switch)**
+### Mapeamento e Transformação
 
-**Combinação (Merging):**
+- **Mapeamento Simples**: Transformação 1:1
+- **Mapeamento Complexo**: Transformações condicionais
+- **Join**: Combinação de dados de fontes diferentes
+- **Split**: Divisão de dados em múltiplos fluxos
 
-- **[Merge](../integracoes/builtin-nodes/logic-control/merge)** e **[Code](../integracoes/builtin-nodes/core-nodes/code)**
+---
 
-**Loops:**
+## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Debugging {#debugging}
 
-- **[IF](../integracoes/builtin-nodes/logic-control/if)** e **[Split in Batches](../integracoes/builtin-nodes/data-processing/split-in-batches)**
+### Ferramentas de Debug
 
-**Aguardar:**
+- **Debug Node**: Visualização de dados em tempo real
+- **Logs**: Registro de execução
+- **Error Handling**: Captura e tratamento de erros
+- **Validation**: Verificação de dados
 
-- **[Wait](../integracoes/builtin-nodes/logic-control/wait)**
+### Boas Práticas
 
-**Sub-workflows:**
+- **Teste Incremental**: Valide cada etapa
+- **Documentação**: Comente lógicas complexas
+- **Versionamento**: Controle de mudanças
+- **Monitoramento**: Acompanhe performance
 
-- **[Execute Workflow](../integracoes/builtin-nodes/core-nodes/execute-sub-workflow)**
-
-**Tratamento de Erros:**
-
-- **[Error Trigger](../integracoes/builtin-nodes/core-nodes/error-trigger)**
+---
 
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
-1. **Comece com [Data Structure](./data/data-structure)** para entender como os dados são organizados
-2. **Aprenda sobre [Data Flow](./data/data-flow-nodes)** para entender como os dados se movem
-3. **Explore [Error Handling](./flow-logic/error-handling)** para criar workflows robustos
+1. **Aprenda sobre [Dados](./data/)** para entender tipos e manipulação
+2. **Explore [Lógica de Fluxo](./flow-logic/)** para controle de execução
+3. **Pratique [Debugging](./flow-logic/debugging)** para troubleshooting
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+---
 
-- **[Primeiros Passos](/primeiros-passos/guia-instalacao)** - Conceitos fundamentais
-- **[Usando n8n](../usando-n8n)** - Guias práticos
-- **[Integrações](../integracoes)** - Conectar com aplicações externas
-- **[Core Nodes](../integracoes/builtin-nodes/core-nodes/)** - Nodes fundamentais para lógica
+## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+
+- **[Primeiros Passos](../primeiros-passos/)** – Conceitos básicos
+- **[Usando n8n](../usando-n8n/)** – Guias práticos
+- **[Integrações](../integracoes/)** – Conectar com dados externos
+- **[API](../api/)** – Automação via API
+
+---
+
+> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Domine a manipulação de dados e crie workflows inteligentes com lógica poderosa!**</span>

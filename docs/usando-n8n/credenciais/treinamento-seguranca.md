@@ -902,7 +902,7 @@ ORDER BY avg_score DESC;
 - **[Políticas de Segurança](./politicas-seguranca)** - Políticas de segurança
 - **[Boas Práticas](./boas-praticas)** - Práticas recomendadas
 - **[Segurança](../../hosting-n8n/seguranca/index.md)** - Configurações de segurança
-- **[Comunidade](../../comunidade/index.md)** - Suporte e dicas
+- **[Comunidade](../../comunidade/index.mdx)** - Suporte e dicas
 - **[Referência](../../referencia/index.md)** - Documentação técnica
 
 ---

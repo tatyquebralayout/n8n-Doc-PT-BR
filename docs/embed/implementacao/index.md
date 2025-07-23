@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
-title: Implementação do Embed
-description: Visão geral das opções de implementação do n8n embarcado, incluindo configuração e implantação segura.
+sidebar_position: 2
+title: Implementação
+description: Guia de implementação do sistema de embed do n8n
+keywords: [n8n, embed, implementação, configuração, integração]
 ---
 
 :::info

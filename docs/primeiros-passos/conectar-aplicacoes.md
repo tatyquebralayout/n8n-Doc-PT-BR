@@ -274,7 +274,7 @@ return processados;
 - **[Credenciais](../usando-n8n/credenciais)** - Gerenciamento de autenticação
 - **[HTTP Requests](../integracoes/builtin-nodes/http-requests/http-request)** - Integrações customizadas
 - **[Webhooks](../integracoes/trigger-nodes/event-based/webhook-trigger)** - Receber dados externos
-- **[Comunidade](../comunidade/index.md)** - Exemplos e ajuda da comunidade
+- **[Comunidade](../comunidade/index.mdx)** - Exemplos e ajuda da comunidade
 
 ---
 

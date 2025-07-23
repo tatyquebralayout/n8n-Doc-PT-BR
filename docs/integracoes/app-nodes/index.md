@@ -1,8 +1,8 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Integrações com aplicações populares e serviços externos
-keywords: [n8n, app nodes, integrações, aplicações, serviços, conectores]
+title: App Nodes
+description: Nodes de aplicações externas e serviços
+keywords: [n8n, app nodes, integrações, aplicações, serviços]
 ---
 
 # <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução

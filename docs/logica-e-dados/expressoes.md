@@ -582,8 +582,8 @@ Para trabalhar com múltiplos items:
 
 ## Próximos Passos
 
-- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Usar expressões em requisições
-- [Code Node](/integracoes/builtin-nodes/core-nodes/code) - JavaScript avançado
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
-- [Data Processing](/integracoes/builtin-nodes/data-processing/index) - Processar dados
-- [Templates](/integracoes/templates) - Ver exemplos práticos 
+- [HTTP Request](../integracoes/builtin-nodes/http-requests/http-request) - Usar expressões em requisições
+- [Code Node](../integracoes/builtin-nodes/core-nodes/code) - JavaScript avançado
+- [Tratamento de Erros](./flow-logic/error-handling) - Lidar com falhas
+- [Data Processing](../integracoes/builtin-nodes/data-processing/index) - Processar dados
+- [Templates](../integracoes/templates) - Ver exemplos práticos 

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
-title: Introdução
-description: Processe, transforme e analise dados em workflows n8n
-keywords: [n8n, dados, processamento, transformação, análise, workflows]
+sidebar_position: 2
+title: Dados
+description: Manipulação e transformação de dados no n8n
+keywords: [n8n, dados, manipulação, transformação, processamento]
 ---
 
 # <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução

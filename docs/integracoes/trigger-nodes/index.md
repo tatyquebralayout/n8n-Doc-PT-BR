@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
-title: Introdução
-description: Nodes de trigger para iniciar workflows automaticamente
-keywords: [n8n, trigger nodes, gatilhos, webhooks, agendamento, eventos]
+sidebar_position: 5
+title: Trigger Nodes
+description: Nodes de trigger e inicialização de workflows
+keywords: [n8n, trigger nodes, webhooks, schedule, manual]
 ---
 
 # <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução

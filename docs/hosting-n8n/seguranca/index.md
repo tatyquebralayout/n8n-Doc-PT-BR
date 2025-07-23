@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Segurança
-description: Guia completo de segurança para n8n - autenticação, permissões, backup e monitoramento
-keywords: [n8n, segurança, autenticação, permissões, backup, monitoramento, rbac, sso, 2fa]
+description: Configure segurança e autenticação para sua instância n8n
+keywords: [n8n, segurança, autenticação, backup, lgpd, compliance]
 ---
 
 :::warning

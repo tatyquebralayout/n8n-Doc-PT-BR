@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 6
 title: Usuários e Permissões
-description: Aprenda a gerenciar usuários, definir permissões e controlar acesso no n8n
-keywords: [n8n, usuários, permissões, acesso, roles, segurança, administração]
+description: Gerenciamento de usuários e controle de acesso
+keywords: [n8n, usuários, permissões, autenticação, rbac]
 ---
 
 :::warning
