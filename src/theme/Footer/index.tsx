@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useColorMode } from '@docusaurus/theme-common';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import ThemedImage from '@theme/ThemedImage';
 import { useThemeConfig } from '@docusaurus/theme-common';
 
 interface GitHubUser {
@@ -19,7 +17,6 @@ interface GitHubUser {
 function FooterLink({ to, href, label, prependBaseUrlToHref, ...props }) {
   const toUrl = useBaseUrl(to);
   const normalizedHref = useBaseUrl(href, { forcePrependBaseUrl: true });
-  const hreff = href ? normalizedHref : toUrl;
   return (
     <Link
       className="footer__link-item"
@@ -36,15 +33,6 @@ function FooterLink({ to, href, label, prependBaseUrlToHref, ...props }) {
     </Link>
   );
 }
-
-const FooterLogo = ({ url, alt }: { url: string; alt: string }) => {
-  const { colorMode } = useColorMode();
-  const sources = {
-    light: useBaseUrl(url),
-    dark: useBaseUrl(url.replace(/\.svg$/, '-dark.svg')),
-  };
-  return <ThemedImage alt={alt} sources={sources} />;
-};
 
 function Footer(): React.JSX.Element | null {
   const { footer } = useThemeConfig();
@@ -80,7 +68,7 @@ function Footer(): React.JSX.Element | null {
     return null;
   }
 
-  const { copyright, links = [], logo = {} } = footer;
+  const { copyright, links = [] } = footer;
 
   return (
     <footer
