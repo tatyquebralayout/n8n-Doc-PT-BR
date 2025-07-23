@@ -291,6 +291,43 @@ Antes de configurar paginação, execute o node uma vez para ver a estrutura dos
 3. **Use o node Debug Helper** antes do HTTP Request para verificar os dados
 4. **Execute manualmente** para testar a configuração
 
+## Importar Comando cURL
+
+Você pode importar comandos cURL diretamente no n8n para criar requisições HTTP automaticamente.
+
+### Como Importar
+
+1. **Copie o comando cURL** da documentação da API ou das ferramentas de desenvolvedor do navegador
+2. **Abra o node HTTP Request**
+3. **Clique em "Importar cURL"** (botão no topo do painel de configuração)
+4. **Cole o comando** e clique em "Importar"
+5. **Revise os parâmetros** gerados automaticamente
+
+### Exemplo de cURL
+
+```bash
+curl -X POST https://api.exemplo.com/v1/usuarios \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer seu-token" \
+  -d '{
+    "nome": "João Silva",
+    "email": "joao@exemplo.com"
+  }'
+```
+
+Quando importado, este comando cURL configura automaticamente:
+- **Método**: POST
+- **URL**: https://api.exemplo.com/v1/usuarios
+- **Headers**: Content-Type e Authorization
+- **Body**: JSON com os dados
+
+### Vantagens do cURL Import
+
+- **Rapidez**: Configuração instantânea
+- **Precisão**: Evita erros de digitação
+- **Compatibilidade**: Funciona com qualquer comando cURL válido
+- **Produtividade**: Acelera o desenvolvimento de integrações
+
 ## Próximos Passos
 
 - [Node Webhook](/integracoes/builtin-nodes/http-requests/webhook) - Para receber requisições HTTP

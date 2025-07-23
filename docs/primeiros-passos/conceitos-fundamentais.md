@@ -222,11 +222,11 @@ Agora que você entende os conceitos fundamentais:
 1. **[Instalação](./guia-instalacao)** - Configure seu ambiente n8n
 2. **[Primeiro Workflow](./primeiro-workflow)** - Crie sua primeira automação
 3. **[Conectar Aplicações](./conectar-aplicacoes)** - Aprenda sobre integrações
-4. **[Usando n8n](../../usando-n8n/getting-started/)** - Explore a interface
+4. **[Usando n8n](../usando-n8n/getting-started/)** - Explore a interface
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Integrações](../../integracoes/)** - Explore todos os nodes disponíveis
-- **[Lógica e Dados](../../logica-e-dados/)** - Conceitos avançados de fluxo
-- **[Usando n8n](../../usando-n8n/)** - Guias práticos para usar a interface
-- **[Glossário](../../referencia/recursos/glossario)** - Termos técnicos do n8n 
+- **[Integrações](../integracoes/index.md)** - Explore todos os nodes disponíveis
+- **[Lógica e Dados](../logica-e-dados/index.md)** - Conceitos avançados de fluxo
+- **[Usando n8n](../usando-n8n/index.md)** - Guias práticos para usar a interface
+- **[Glossário](../referencia/recursos/glossario.md)** - Termos técnicos do n8n 

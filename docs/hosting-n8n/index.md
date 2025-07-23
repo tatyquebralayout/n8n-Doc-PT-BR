@@ -127,10 +127,10 @@ Para ambientes complexos e escaláveis:
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Primeiros Passos](../../primeiros-passos/)** - Conceitos básicos
-- **[Usando n8n](../../usando-n8n/)** - Guias práticos
-- **[API](../../api/)** - Automação via API
-- **[Comunidade](../../comunidade/)** - Suporte e discussões
+- **[Primeiros Passos](../primeiros-passos/)** - Conceitos básicos
+- **[Usando n8n](../usando-n8n/index.md)** - Guias práticos
+- **[API](../api/)** - Automação via API
+- **[Comunidade](../comunidade/)** - Suporte e discussões
 
 ---
 

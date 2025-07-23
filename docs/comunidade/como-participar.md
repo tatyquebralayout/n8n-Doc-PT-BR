@@ -67,4 +67,4 @@ A comunidade n8n Brasil é um ecossistema aberto e colaborativo. Existem várias
 
 ## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Código de Conduta
 
-Nossa comunidade é baseada no respeito mútuo e colaboração. Leia nosso [código de conduta](/contribuir/esta-documentacao/entendendo-o-projeto/codigo-conduta) para entender nossas diretrizes.
+Nossa comunidade é baseada no respeito mútuo e colaboração. Leia nosso [código de conduta](/contribuir/codigo-conduta.md) para entender nossas diretrizes.
