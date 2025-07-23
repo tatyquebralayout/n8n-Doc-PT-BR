@@ -86,8 +86,8 @@ As credenciais permitem que o n8n se conecte a serviços externos:
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
 - **[Primeiros Passos](../../primeiros-passos/)** - Conceitos fundamentais
-- **[Integrações](../../integracoes/)** - Conectar com aplicações externas
-- **[Lógica e Dados](../../logica-e-dados/)** - Processamento avançado
+- **[Integrações](../../integracoes/index.md)** - Conectar com aplicações externas
+- **[Lógica e Dados](../../logica-e-dados/index.md)** - Processamento avançado
 - **[Hosting](../../hosting-n8n/)** - Configuração de ambiente
 
 ---

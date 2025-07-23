@@ -98,10 +98,10 @@ Para suporte específico no Brasil:
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Hosting n8n](../../hosting-n8n/seguranca)** - Configurações de segurança para self-hosting
-- **[Credenciais](../../usando-n8n/credenciais)** - Gerenciamento seguro de credenciais
-- **[Workflows](../../usando-n8n/workflows)** - Boas práticas de segurança em workflows
-- **[API](../../api)** - Segurança na integração com APIs
+- **[Hosting n8n](../hosting-n8n/seguranca/index.md)** - Configurações de segurança para self-hosting
+- **[Credenciais](../usando-n8n/credenciais)** - Gerenciamento seguro de credenciais
+- **[Workflows](../usando-n8n/workflows)** - Boas práticas de segurança em workflows
+- **[API](../api/index.md)** - Segurança na integração com APIs
 
 ---
 

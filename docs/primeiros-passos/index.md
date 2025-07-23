@@ -41,8 +41,8 @@ Bem-vindo ao n8n! Esta seção é o ponto de partida perfeito para sua jornada d
 ### Para quem já conhece automação
 
 1. **Pule direto para [Conectar Aplicações](./conectar-aplicacoes)**
-2. **Explore as [Integrações](../../integracoes)** disponíveis
-3. **Experimente com [Lógica e Dados](../../logica-e-dados)**
+2. **Explore as [Integrações](../integracoes/index.md)** disponíveis
+3. **Experimente com [Lógica e Dados](../logica-e-dados/index.md)**
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
 
@@ -61,7 +61,7 @@ O n8n é uma plataforma de automação de workflow que permite conectar diferent
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Precisa de ajuda?
 
 - **[FAQ](./faq)** - Perguntas frequentes e soluções rápidas
-- **[Comunidade](../../comunidade)** - Conecte-se com outros usuários
+- **[Comunidade](../comunidade/index.md)** - Conecte-se com outros usuários
 - **[Discord](https://discord.gg/n8nbrasil)** - Suporte em tempo real
 - **[GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR)** - Reporte problemas
 

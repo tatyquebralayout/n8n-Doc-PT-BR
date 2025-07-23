@@ -917,9 +917,9 @@ openssl enc -aes-256-gcm -k "test-key" -in test.txt -out test.enc
 
 - **[Boas Práticas](./boas-praticas)** - Práticas recomendadas
 - **[Compartilhamento](./compartilhamento)** - Compartilhamento seguro
-- **[Segurança](../../hosting-n8n/seguranca)** - Configurações de segurança
+- **[Segurança](../../hosting-n8n/seguranca/index.md)** - Configurações de segurança
 - **[LGPD](../../hosting-n8n/compliance/lgpd)** - Conformidade LGPD
-- **[Comunidade](../../comunidade)** - Suporte e dicas
+- **[Comunidade](../../comunidade/index.md)** - Suporte e dicas
 
 ---
 

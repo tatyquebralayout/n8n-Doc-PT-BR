@@ -22,7 +22,8 @@
     "typecheck": "tsc",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0"
+    "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0",
+    "validate-overlaps": "node scripts/validate-overlaps.js"
   },
   "keywords": [
     "n8n",

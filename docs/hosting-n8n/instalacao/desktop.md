@@ -430,7 +430,7 @@ Agora que você tem o n8n Desktop instalado:
 
 1. **[Criar Primeiro Workflow](../../../primeiros-passos/primeiro-workflow)** - Aprenda a construir workflows
 2. **[Conceitos Básicos](../../primeiros-passos/conceitos-basicos)** - Entenda os fundamentos
-3. **[Integrações](../../integracoes/)** - Conecte suas aplicações
+3. **[Integrações](../../integracoes/index.md)** - Conecte suas aplicações
 
 ### **Outros Métodos de Instalação**
 

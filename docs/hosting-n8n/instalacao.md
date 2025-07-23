@@ -46,7 +46,7 @@ Bem-vindo ao guia completo de **hospedagem n8n em produção**! Esta seção abr
 
 ---
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação e Deploy {#instalação-e-deploy}
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação e Deploy
 
 ### [Instalação via Docker](./instalacao/docker)
 

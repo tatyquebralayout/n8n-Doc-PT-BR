@@ -89,11 +89,11 @@ Comece com o **[Primeiros Passos](./primeiros-passos/guia-instalacao)** para apr
 :::
 
 :::info **Para desenvolvedores**
-Vá direto para **[Integrações e API](../../integracoes)** para integração avançada.
+Vá direto para **[Integrações e API](./integracoes/index.md)** para integração avançada.
 :::
 
 :::note **Para empresas**
-Consulte **[Hosting n8n](../../hosting-n8n)** para configuração em produção.
+Consulte **[Hosting n8n](./hosting-n8n/index.md)** para configuração em produção.
 :::
 
 ---
@@ -114,69 +114,69 @@ Aprenda os conceitos fundamentais do n8n passo a passo.
 
 Explore recursos avançados e casos de uso complexos.
 
-- **[Usando n8n](../../usando-n8n)** - Guias práticos para usar a interface
-  - [Getting Started](../../usando-n8n/getting-started) - Início rápido
-  - [Interface](../../usando-n8n/interface) - Navegação e editor UI
-  - [Execuções](../../usando-n8n/execucoes) - Componentes de execução
-- **[Lógica e Dados](../../logica-e-dados)** - Conceitos avançados de fluxo
-  - [Lógica de Fluxo](../../logica-e-dados/flow-logic) - Error handling, looping, merging
-  - [Dados](../../logica-e-dados/data) - Data flow, mapping, structure
-- **[IA Avançada](../../advanced-ai)** - Integração com inteligência artificial
-- **[Embed](../../embed)** - Implementação e gerenciamento
+- **[Usando n8n](./usando-n8n/index.md)** - Guias práticos para usar a interface
+  - [Getting Started](./usando-n8n/getting-started/index.md) - Início rápido
+  - [Interface](./usando-n8n/interface/index.md) - Navegação e editor UI
+  - [Execuções](./usando-n8n/execucoes/index.md) - Componentes de execução
+- **[Lógica e Dados](./logica-e-dados/index.md)** - Conceitos avançados de fluxo
+  - [Lógica de Fluxo](./logica-e-dados/flow-logic/index.md) - Error handling, looping, merging
+  - [Dados](./logica-e-dados/data/index.md) - Data flow, mapping, structure
+- **[IA Avançada](./advanced-ai/index.md)** - Integração com inteligência artificial
+- **[Embed](./embed/index.md)** - Implementação e gerenciamento
 
 ### Referência da API
 
 Documentação completa da API REST do n8n.
 
-- **[API](../../api)** - Documentação completa da API
-  - [Conceitos](../../api/conceitos) - Autenticação, paginação
-  - [Ferramentas](../../api/ferramentas) - Playground e recursos
-  - [Referência](../../api/referencia) - Documentação técnica
+- **[API](./api/index.md)** - Documentação completa da API
+  - [Conceitos](./api/conceitos/index.md) - Autenticação, paginação
+  - [Ferramentas](./api/ferramentas/index.md) - Playground e recursos
+  - [Referência](./api/referencia/index.md) - Documentação técnica
 
 ### Deployment
 
 Guias para implantação em diferentes ambientes.
 
-- **[Hosting n8n](../../hosting-n8n)** - Guias para implantação
-  - [Instalação](../../hosting-n8n/instalacao) - Desktop, Docker, NPM, Cloud
-  - [Configuração](../../hosting-n8n/configuracao) - Variáveis, database, SSL
-  - [Segurança](../../hosting-n8n/seguranca) - Autenticação, backup, monitoring
-  - [Escalonamento](../../hosting-n8n/escalonamento) - Clustering, load balancing
+- **[Hosting n8n](./hosting-n8n/index.md)** - Guias para implantação
+  - [Instalação](./hosting-n8n/instalacao.md) - Desktop, Docker, NPM, Cloud
+  - [Configuração](./hosting-n8n/configuracao/index.md) - Variáveis, database, SSL
+  - [Segurança](./hosting-n8n/seguranca/index.md) - Autenticação, backup, monitoring
+  - [Escalonamento](./hosting-n8n/escalonamento/index.md) - Clustering, load balancing
 
 ### Nós (Nodes)
 
 Documentação detalhada de todos os nós disponíveis.
 
-- **[Integrações](../../integracoes)** - Todos os nós disponíveis
-  - [Nodes Integrados](../../integracoes/builtin-nodes) - HTTP, dados, lógica, utilitários
-  - [App Nodes](../../integracoes/app-nodes) - Comunicação, produtividade, e-commerce, marketing
-  - [Trigger Nodes](../../integracoes/trigger-nodes) - Baseados em tempo, eventos, apps
-  - [Credential Nodes](../../integracoes/credential-nodes) - API keys, OAuth, autenticação
-  - [Community Nodes](../../integracoes/community-nodes) - Nodes da comunidade
-  - [Criar Nodes](../../integracoes/criar-nodes) - Desenvolvimento de nodes customizados
-- **[Integrações Brasileiras](../../integracoes-br)** - PIX, CNPJ, ViaCEP
+- **[Integrações](./integracoes/index.md)** - Todos os nós disponíveis
+  - [Nodes Integrados](./integracoes/builtin-nodes/index.md) - HTTP, dados, lógica, utilitários
+  - [App Nodes](./integracoes/app-nodes/index.md) - Comunicação, produtividade, e-commerce, marketing
+  - [Trigger Nodes](./integracoes/trigger-nodes/index.md) - Baseados em tempo, eventos, apps
+  - [Credential Nodes](./integracoes/credential-nodes/index.md) - API keys, OAuth, autenticação
+  - [Community Nodes](./integracoes/community-nodes/index.md) - Nodes da comunidade
+  - [Criar Nodes](./integracoes/criar-nodes/index.md) - Desenvolvimento de nodes customizados
+- **[Integrações Brasileiras](./integracoes-br/index.md)** - PIX, CNPJ, ViaCEP
 
 ### Exemplos
 
 Workflows práticos e casos de uso reais.
 
-- **[Comunidade](../../comunidade)** - Artigos e casos de uso
-  - [Automação para Iniciantes](../../comunidade/automacao-iniciantes)
-  - [Casos de Uso Avançados](../../comunidade/casos-uso-avancados)
-  - [Vídeos](../../comunidade/videos)
-- **[Cursos](../../cursos)** - Aprendizado estruturado
-  - [Cursos em Vídeo](../../cursos/cursos-em-video)
-  - [Cursos em Texto](../../cursos/cursos-em-texto)
-- **[Referência](../../referencia)** - Guias e recursos
-  - [Guias](../../referencia/guias) - Performance, troubleshooting
-  - [Recursos](../../referencia/recursos) - APIs brasileiras, glossário
-  - [Histórico](../../referencia/historico) - Changelog
+- **[Comunidade](./comunidade/index.md)** - Artigos e casos de uso
+  - [Automação para Iniciantes](./comunidade/automacao-iniciantes/index.md)
+  - [Casos de Uso Avançados](./comunidade/casos-uso-avancados/index.md)
+  - [Vídeos](./comunidade/videos/index.md)
+- **[Cursos](./cursos/index.md)** - Aprendizado estruturado
+  - [Cursos em Vídeo](./cursos/cursos-em-video/index.md)
+  - [Cursos em Texto](./cursos/cursos-em-texto/index.md)
+- **[Referência](./referencia/index.md)** - Guias e recursos
+  - [Guias](./referencia/guias/index.md) - Performance, troubleshooting
+  - [Recursos](./referencia/recursos/index.md) - APIs brasileiras, glossário
+  - [Histórico](./referencia/historico/index.md) - Changelog
 
 ### Recursos Adicionais
 
-- **[Como Contribuir](../../contribuir)** - Guias para contribuição
-- **[Release Notes](../../release-notes/index)** - Notas de versão <!-- Temporariamente desabilitado -->
-- **[Catálogo](../../catalogo)** - Índice de recursos
+- **[Como Contribuir](./contribuir/index.md)** - Guias para contribuição
+- **[Release Notes](./release-notes/index.md)** - Notas de versão <!-- Temporariamente desabilitado -->
+- **[Catálogo](./catalogo/index.md)** - Índice de recursos
 
 ---
 
@@ -186,7 +186,7 @@ Este material é produzido **pela comunidade brasileira**, sem vínculo direto c
 
 ### Como contribuir
 
-- **[Editar esta página](../../contribuir/esta-documentacao/entendendo-o-projeto/como-contribuir)**
+- **[Editar esta página](./contribuir/esta-documentacao/entendendo-o-projeto/como-contribuir)**
 - **[Reportar um problema](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/issues)**
 - **[Participar da discussão](https://discord.gg/n8nbrasil)**
 

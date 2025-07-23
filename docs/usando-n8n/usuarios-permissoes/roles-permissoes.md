@@ -438,9 +438,9 @@ tail -f /var/log/n8n/audit.log
 
 - **[Criar e Editar Usuários](./criar-editar-usuarios)** - Gerenciamento de usuários
 - **[Autenticação](./autenticacao)** - Métodos de login
-- **[Segurança](../../hosting-n8n/seguranca)** - Configurações de segurança
-- **[Referência](../../referencia)** - Documentação técnica
-- **[Comunidade](../../comunidade)** - Suporte e dicas
+- **[Segurança](../../hosting-n8n/seguranca/index.md)** - Configurações de segurança
+- **[Referência](../../referencia/index.md)** - Documentação técnica
+- **[Comunidade](../../comunidade/index.md)** - Suporte e dicas
 
 ---
 

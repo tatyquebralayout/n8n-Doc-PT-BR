@@ -383,10 +383,10 @@ await Promise.all(promises);
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
 - **[Organizar Workflows](./organizar)** - Estruturação eficiente
-- **[Execuções](../../usando-n8n/execucoes)** - Monitoramento de performance
-- **[Lógica e Dados](../../logica-e-dados)** - Técnicas avançadas
-- **[Referência](../../referencia)** - Documentação técnica
-- **[Comunidade](../../comunidade)** - Exemplos e dicas
+- **[Execuções](../../usando-n8n/execucoes/index.md)** - Monitoramento de performance
+- **[Lógica e Dados](../../logica-e-dados/index.md)** - Técnicas avançadas
+- **[Referência](../../referencia/index.md)** - Documentação técnica
+- **[Comunidade](../../comunidade/index.md)** - Exemplos e dicas
 
 ---
 
