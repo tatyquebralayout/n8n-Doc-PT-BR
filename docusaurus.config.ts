@@ -18,6 +18,12 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  // Experimental Docusaurus Faster for improved performance and newer infrastructure
+  future: {
+    experimental_faster: true,
+    v4: true,
+  },
+
   i18n: {
     defaultLocale: 'pt-BR',
     locales: ['pt-BR'],
