@@ -17,9 +17,11 @@ description: "{{ DESCRICAO_SECAO }}"
 
 ## 🔗 Navegação
 
-- [← Voltar ao índice principal](../index)
-- [→ Próxima seção](../{{ PROXIMA_SECAO }}/index)
+- [← Voltar ao índice principal](../intro.md)
+- [→ Próxima seção](../{{ PROXIMA_SECAO }}/index.md)
 
 ---
 
-**Precisa de ajuda?** Consulte nossa [documentação de contribuição](docs/contribuir/esta-documentacao/) ou participe da [comunidade n8n Brasil](https://github.com/n8n-brasil). 
+**Precisa de ajuda?** Consulte nossa 
+[documentação de contribuição](../contribuir/esta-documentacao/) ou participe da 
+[comunidade n8n Brasil](https://github.com/n8n-brasil). 

@@ -24,4 +24,5 @@ Esta página está em construção. Em breve, conteúdo completo.
 
 ---
 
-**Contribua com esta documentação!** Se você tem conhecimento sobre este tópico, considere [contribuir com o projeto](docs/contribuir/esta-documentacao/). 
+**Contribua com esta documentação!** Se você tem conhecimento sobre este tópico, 
+considere [contribuir com o projeto](../contribuir/esta-documentacao/). 
