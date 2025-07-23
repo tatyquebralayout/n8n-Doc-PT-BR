@@ -11,7 +11,7 @@ keywords: [n8n, faq, perguntas frequentes, dúvidas, troubleshooting]
 
 # <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> FAQ - Perguntas Frequentes
 
-Encontre respostas rápidas para as perguntas mais comuns sobre o n8n. Se sua dúvida não estiver aqui, consulte nossa [comunidade](../../comunidade) ou [GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR).
+Encontre respostas rápidas para as perguntas mais comuns sobre o n8n. Se sua dúvida não estiver aqui, consulte nossa [comunidade](../comunidade/index.md) ou [GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR).
 
 ## <ion-icon name="rocket-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Primeiros Passos
 
@@ -271,4 +271,4 @@ Sim! Muitas empresas usam o n8n para:
 
 ---
 
-**<ion-icon name="help-circle-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Não encontrou sua resposta? Entre em contato conosco na [comunidade](../../comunidade)!**
+**<ion-icon name="help-circle-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Não encontrou sua resposta? Entre em contato conosco na [comunidade](../comunidade/index.md)!**

@@ -263,19 +263,19 @@ return processados;
 
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
-1. **Explore as [Integrações](../../integracoes)** disponíveis
-2. **Aprenda sobre [Credenciais](../../usando-n8n/credenciais)** em detalhes
+1. **Explore as [Integrações](../integracoes/index.md)** disponíveis
+2. **Aprenda sobre [Credenciais](../usando-n8n/credenciais)** em detalhes
 3. **Crie seu primeiro workflow** com integrações
-4. **Experimente com [Lógica e Dados](../../logica-e-dados)**
+4. **Experimente com [Lógica e Dados](../logica-e-dados/index.md)**
 
 ## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Integrações](../../integracoes)** - Catálogo completo de nodes
-- **[Credenciais](../../usando-n8n/credenciais)** - Gerenciamento de autenticação
-- **[HTTP Requests](../../integracoes/builtin-nodes/http-requests/http-request)** - Integrações customizadas
-- **[Webhooks](../../integracoes/trigger-nodes/event-based/webhook-trigger)** - Receber dados externos
-- **[Comunidade](../../comunidade)** - Exemplos e ajuda da comunidade
+- **[Integrações](../integracoes/index.md)** - Catálogo completo de nodes
+- **[Credenciais](../usando-n8n/credenciais)** - Gerenciamento de autenticação
+- **[HTTP Requests](../integracoes/builtin-nodes/http-requests/http-request)** - Integrações customizadas
+- **[Webhooks](../integracoes/trigger-nodes/event-based/webhook-trigger)** - Receber dados externos
+- **[Comunidade](../comunidade/index.md)** - Exemplos e ajuda da comunidade
 
 ---
 
-**<ion-icon name="link-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para conectar suas aplicações? Comece explorando as [integrações disponíveis](../../integracoes)!**
+**<ion-icon name="link-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para conectar suas aplicações? Comece explorando as [integrações disponíveis](../integracoes/index.md)!**

@@ -88,7 +88,7 @@ Para quem prefere **ler e seguir no próprio ritmo**, a documentação oficial d
 
 1. **Comece com o [Curso de Iniciante em Vídeo](cursos-em-video/curso-iniciante)** para uma introdução visual
 2. **Continue com o [Nível 1 em Texto](cursos-em-texto/nivel-um/capitulo-1)** para aprofundar
-3. **Pratique com os [Guias da Comunidade](../../comunidade/automacao-iniciantes)**
+3. **Pratique com os [Guias da Comunidade](../comunidade/automacao-iniciantes/index.md)**
 
 ### Para Desenvolvedores
 
@@ -99,8 +99,8 @@ Para quem prefere **ler e seguir no próprio ritmo**, a documentação oficial d
 ### Para Empresas
 
 1. **Foque no [Nível 2](cursos-em-texto/nivel-dois/capitulo-1)** para workflows empresariais
-2. **Consulte [Hosting n8n](../../hosting-n8n)** para deployment
-3. **Explore [IA Avançada](../../advanced-ai)** para automações inteligentes
+2. **Consulte [Hosting n8n](../hosting-n8n/index.md)** para deployment
+3. **Explore [IA Avançada](../advanced-ai/index.md)** para automações inteligentes
 
 ---
 
@@ -110,4 +110,4 @@ Para quem prefere **ler e seguir no próprio ritmo**, a documentação oficial d
 Estes cursos são mantidos por **voluntários apaixonados por automação**. Contribua você também!
 :::
 
-**[Saiba como contribuir](../../contribuir/esta-documentacao)**
+**[Saiba como contribuir](../contribuir/esta-documentacao)**

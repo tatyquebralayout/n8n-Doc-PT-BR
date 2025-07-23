@@ -135,7 +135,7 @@ As credenciais permitem autenticação segura:
 - **[Integrações Brasileiras](../integracoes-br/)** - Serviços específicos do Brasil
 - **[Criar Nodes](./criar-nodes/)** - Desenvolva integrações customizadas
 - **[Webhooks](./webhooks)** - Conecte com aplicações via webhooks
-- **[API](../../api/)** - Automação via API do n8n
+- **[API](../api/)** - Automação via API do n8n
 
 ---
 

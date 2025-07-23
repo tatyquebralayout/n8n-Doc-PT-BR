@@ -25,5 +25,5 @@ Revise todos os pré-requisitos antes de começar a implementação. Isso garant
 :::
 
 :::info **Recurso Adicional**
-Consulte a seção de [Hosting n8n](../../hosting-n8n/instalacao) para detalhes sobre configuração de instância e infraestrutura.
+Consulte a seção de [Hosting n8n](../../hosting-n8n/instalacao.md) para detalhes sobre configuração de instância e infraestrutura.
 :::
