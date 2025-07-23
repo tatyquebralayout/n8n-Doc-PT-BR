@@ -53,7 +53,7 @@ coverage/
 .tscache/
 
 # Scripts de automação e desenvolvimento (não essenciais para produção)
-scripts/
+# scripts/ - removido para permitir scripts de validação
 check-sidebar-links.js
 lint-markdown.sh
 
