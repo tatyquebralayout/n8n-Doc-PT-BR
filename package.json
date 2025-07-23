@@ -23,7 +23,14 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0",
-    "validate-overlaps": "node scripts/validate-overlaps.js"
+    "validate-overlaps": "node scripts/validate-overlaps.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "generate-meta": "node scripts/generate-meta.js",
+    "check-seo": "node scripts/check-seo.js",
+    "spell-check": "node scripts/spell-check.js",
+    "format-check": "node scripts/format-check.js",
+    "accessibility-check": "node scripts/accessibility-check.js",
+    "quality-check": "npm run check-seo && npm run spell-check && npm run format-check && npm run accessibility-check"
   },
   "keywords": [
     "n8n",
@@ -57,6 +64,7 @@
     "graphql": "^16.11.0",
     "graphql-request": "^7.2.0",
     "ionicons": "^8.0.10",
+    "js-yaml": "^4.1.0",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.1.0",
     "react-bits": "^1.0.5",
