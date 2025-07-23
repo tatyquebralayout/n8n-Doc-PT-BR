@@ -54,26 +54,23 @@ jobs:
               const report = JSON.parse(fs.readFileSync('overlap-report.json', 'utf8'));
               
               let comment = `## 📋 Relatório de Validação de Overlaps\n\n`;
-              comment += `**Status:** ${report.metadata.totalIssues === 0 ? '✅ Passou' : '⚠️ Problemas encontrados'}\n\n`;
+              comment += `**Status:** ${report.summary.totalIssues === 0 ? '✅ Passou' : '⚠️ Problemas encontrados'}\n\n`;
               comment += `**Resumo:**\n`;
-              comment += `- Problemas de estrutura: ${report.summary.structure}\n`;
-              comment += `- Palavras-chave suspeitas: ${report.summary.keyword}\n`;
-              comment += `- Conteúdo duplicado: ${report.summary.content}\n`;
-              comment += `- Conteúdo similar: ${report.summary.similarity}\n\n`;
+              comment += `- Total de problemas: ${report.summary.totalIssues}\n`;
+              comment += `- Erros: ${report.summary.errors}\n`;
+              comment += `- Avisos: ${report.summary.warnings}\n`;
+              comment += `- Informações: ${report.summary.info}\n\n`;
               
-              if (report.recommendations.length > 0) {
-                comment += `**💡 Recomendações:**\n`;
-                report.recommendations.forEach(rec => {
-                  comment += `- ${rec.message} (${rec.count} itens)\n`;
-                });
-                comment += `\n`;
-              }
+              comment += `**📊 Estatísticas:**\n`;
+              comment += `- Arquivos escaneados: ${report.stats.filesScanned}\n`;
+              comment += `- Links quebrados: ${report.stats.brokenLinks}\n`;
+              comment += `- Conteúdo duplicado: ${report.stats.duplicateContent}\n`;
+              comment += `- Arquivos ausentes: ${report.stats.missingFiles}\n\n`;
               
               if (report.issues.length > 0) {
                 comment += `**🔍 Problemas Detalhados:**\n`;
                 report.issues.slice(0, 10).forEach(issue => {
                   comment += `- **${issue.type.toUpperCase()}**: ${issue.message}\n`;
-                  comment += `  - Arquivo: \`${issue.path}\`\n`;
                 });
                 
                 if (report.issues.length > 10) {
@@ -93,7 +90,7 @@ jobs:
             } catch (error) {
               console.error('Erro ao processar relatório:', error);
               
-              const errorComment = `## ❌ Erro na Validação de Overlaps\n\n`;
+              let errorComment = `## ❌ Erro na Validação de Overlaps\n\n`;
               errorComment += `Ocorreu um erro durante a validação. Verifique:\n`;
               errorComment += `- Se o arquivo \`sidebars.json\` está válido\n`;
               errorComment += `- Se todas as dependências estão instaladas\n`;
