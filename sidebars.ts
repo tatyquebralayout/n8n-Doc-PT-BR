@@ -16,13 +16,10 @@ const sidebars: SidebarsConfig = {
         'primeiros-passos/index',
         'primeiros-passos/conceitos-fundamentais',
         'primeiros-passos/guia-instalacao',
-        'primeiros-passos/instalacao',
-        'primeiros-passos/instalacao-cloud',
-        'primeiros-passos/instalacao-npm',
-        'primeiros-passos/instalacao-self-hosted',
         'primeiros-passos/conectar-aplicacoes',
         'primeiros-passos/primeiro-workflow',
-        'primeiros-passos/faq'
+        'primeiros-passos/faq',
+        'primeiros-passos/troubleshooting'
       ],
     },
     {
@@ -547,9 +544,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Contribuir com Esta Documentação',
           items: [
-            'contribuir/esta-documentacao/index',
-            'contribuir/esta-documentacao/guidelines',
-            'contribuir/esta-documentacao/guidelines',
+                         'contribuir/esta-documentacao/index',
+             'contribuir/esta-documentacao/guidelines',
             {
               type: 'category',
               label: 'Entendendo o Projeto',

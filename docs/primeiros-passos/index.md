@@ -26,7 +26,7 @@ Se você ainda não entendeu por que o n8n é diferente, volte para a **[Introdu
 
 ### **Configure Seu Ambiente**  
 - **[Visão Geral das Instalações](./guia-instalacao)** - Compare as opções e descubra qual combina com você
-- **[n8n Cloud](./n8n-cloud)** - Use na nuvem sem instalar nada no seu computador
+- **[n8n Cloud](./instalacao-cloud)** - Use na nuvem sem instalar nada no seu computador
 - **[Instalação via NPM](./instalacao-npm)** - Para quem já tem Node.js instalado
 - **[Instalação Self-Hosted](./instalacao-self-hosted)** - Para empresas que querem controle total dos dados
 
