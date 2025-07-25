@@ -2,10 +2,10 @@
 sidebar_position: 2
 title: Node OpenAI Chat
 description: Como usar o node OpenAI Chat para conversação e processamento de texto
-keywords: [n8n, openai, chat, gpt, conversação, texto]
+keywords: [n8n, openai, chat, gpt, conversa, texto, chatbot n8n, integração GPT, automação com IA]
 ---
 
-# <ion-icon name="mail-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> OpenAI Chat Model
+# OpenAI Chat Model no n8n: Implementação de Chatbots Inteligentes
 
 Este documento descreve como usar o node **OpenAI Chat Model** para interagir com os modelos de linguagem da OpenAI, como o GPT.
 

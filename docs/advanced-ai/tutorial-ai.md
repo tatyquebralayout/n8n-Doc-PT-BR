@@ -1,16 +1,12 @@
 ---
-sidebar_position: 1
-title: Tutorial de IA
-sidebar_label: Tutorial de IA
+title: Tutorial prático de IA no n8n: Do Básico ao Avançado
+description: Aprenda a criar agentes de IA, integrar LLMs, usar ferramentas externas e construir workflows inteligentes no n8n, com exemplos para o mercado brasileiro.
+keywords: [n8n, tutorial IA, integração GPT, agentes inteligentes, workflows IA, automação cognitiva, LangChain, exemplos Brasil, chatbot, processamento de linguagem natural]
 ---
 
-:::warning
-<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
-:::
+# Tutorial prático de IA no n8n: Do Básico ao Avançado
 
-# <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tutorial de IA com n8n
-
-Este documento apresenta um **tutorial prático de IA com n8n**, incluindo como construir seu primeiro agente de IA, integrar com modelos de linguagem (LLMs), usar ferramentas (tools) para dar acesso a dados externos, gerenciar memória de conversação, e criar workflows que executam tarefas complexas de forma autônoma.
+Este tutorial apresenta um guia prático e completo de IA com n8n, incluindo como construir agentes inteligentes, integrar modelos de linguagem (LLMs), usar ferramentas externas, gerenciar memória de conversação e criar workflows avançados para automação cognitiva em empresas brasileiras.
 
 Este documento oferece **tutorial completo para IA avançada** com n8n, abordando integração com LangChain, implementação de agentes inteligentes, processamento de linguagem natural, automação com GPT, criação de chatbots sofisticados, e casos de uso práticos que demonstram como construir soluções de automação cognitiva que transformam dados em insights e ações inteligentes para negócios brasileiros.
 

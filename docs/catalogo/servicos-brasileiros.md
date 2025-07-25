@@ -1,17 +1,17 @@
 ---
 sidebar_position: 3
-title: Serviços Brasileiros
-description: Integrações específicas para o mercado brasileiro
-keywords: [n8n, brasil, pix, nfe, receita federal, correios, viacep]
+title: Serviços Brasileiros no n8n: Integrações, Compliance e Casos de Uso
+description: Integrações específicas para o mercado brasileiro no n8n, compliance nacional, exemplos práticos e automação de processos locais.
+keywords: [n8n, serviços brasileiros, integrações Brasil, compliance nacional, automação de processos, exemplos de automação, APIs nacionais, compliance LGPD]
 ---
 
 :::info
 <ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
 :::
 
-# <ion-icon name="flag-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Serviços Brasileiros
+# Serviços Brasileiros no n8n: Integrações, Compliance e Casos de Uso
 
-Explore as integrações específicas para o mercado brasileiro. Estas integrações permitem automatizar processos que envolvem serviços governamentais, financeiros e de localização do Brasil.
+Explore as integrações específicas para o mercado brasileiro no n8n. Descubra como automatizar processos com serviços governamentais, financeiros, localização, compliance LGPD e acesse exemplos práticos para empresas nacionais.
 
 :::tip **Dica Pro**
 Comece com integrações simples como **ViaCEP** para validação de endereços, depois evolua para serviços mais complexos como PIX e NFe.

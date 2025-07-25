@@ -1,21 +1,21 @@
 ---
-title: Como Contribuir
-description: Guia completo para contribuir com a documentação do n8n em português
+title: Como Contribuir: Guia Completo para Colaborar com a Documentação n8n Brasil
+description: Guia completo para contribuir com a documentação do n8n em português, incluindo tradução, revisão, exemplos brasileiros e colaboração open source.
 sidebar_position: 1
-keywords: [contribuir, documentação, n8n, open source, português]
+keywords: [contribuir, documentação, n8n, open source, português, contribuição open source, documentação colaborativa, tradução n8n, comunidade n8n Brasil, guia de contribuição]
 ---
 
-# <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Contribuir
+# Como Contribuir: Guia Completo para Colaborar com a Documentação n8n Brasil
 
-Contribuir com a documentação do n8n em português é uma forma de fortalecer a comunidade, compartilhar conhecimento e tornar a automação mais acessível para todos. Este guia mostra como você pode participar, seja traduzindo, revisando, sugerindo melhorias ou reportando problemas.
+Contribuir com a documentação do n8n em português é uma forma de fortalecer a comunidade, compartilhar conhecimento e tornar a automação mais acessível para todos. Este guia mostra como participar, traduzir, revisar, sugerir melhorias, reportar problemas e colaborar com exemplos brasileiros.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-- [Formas de Contribuir](#formas-de-contribuir): Como participar ativamente
-- [Primeiros Passos](#primeiros-passos): Como começar a contribuir
-- [Diretrizes](#diretrizes): Estilo, formatação e tradução
-- [Links Úteis](#links-uteis): Recursos para facilitar sua contribuição
-- [Precisa de Ajuda?](#precisa-de-ajuda): Onde buscar suporte
+- [Formas de contribuir para a documentação n8n Brasil](#formas-de-contribuir)
+- [Primeiros passos para começar a contribuir](#primeiros-passos)
+- [Guia de estilo para documentação n8n Brasil](./esta-documentacao/03-padroes-e-estilo/guia-de-estilo)
+- [Processo de tradução e localização](./esta-documentacao/04-traducao-e-localizacao/guia-traducao)
+- [Onde buscar ajuda e suporte técnico](./esta-documentacao/06-suporte-e-duvidas/onde-buscar-ajuda)
 
 ---
 

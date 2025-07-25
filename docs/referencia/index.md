@@ -1,22 +1,23 @@
 ---
 id: index
-title: Introdução
-description: Guia definitivo de referência do n8n em português, com consultas rápidas, troubleshooting e recursos avançados.
+title: Referência n8n: Guia Completo, Glossário e Troubleshooting em Português
+description: Guia definitivo de referência do n8n em português, com consultas rápidas, glossário, troubleshooting, APIs e recursos avançados para automação.
 sidebar_label: Visão Geral
-keywords: [n8n, referência, consulta, troubleshooting, glossário, APIs, performance]
+keywords: [n8n, referência, documentação n8n, manual de referência, consultas rápidas, glossário n8n, troubleshooting, APIs, performance, guia oficial]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
+# Referência n8n: Guia Completo, Glossário e Troubleshooting em Português
 
-Esta seção concentra **toda a documentação de referência** para n8n em português, servindo como seu guia definitivo para consultas rápidas, troubleshooting e recursos avançados.
+Esta seção concentra toda a documentação de referência para n8n em português, servindo como seu guia definitivo para consultas rápidas, glossário, troubleshooting, APIs e recursos avançados para automação empresarial.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-- [Guias Essenciais](#guias-essenciais): Performance, migração e troubleshooting
-- [Recursos de Consulta](#recursos-de-consulta): Glossário, APIs brasileiras
-- [Histórico e Evolução](#historico-e-evolucao): Changelog e atualizações
-- [Destaques da Seção](#destaques-da-secao): Foco brasileiro, exemplos práticos
-- [Como Contribuir](#como-contribuir): Participe e melhore esta referência
+- [Guia de performance para workflows eficientes no n8n](guias/performance-guide)
+- [Guia de migração de ambientes e versões](guias/migration-guide)
+- [Guia de troubleshooting para problemas comuns](guias/troubleshooting)
+- [Glossário completo de termos do n8n](recursos/glossario)
+- [Catálogo de APIs brasileiras para integração](recursos/apis-brasileiras)
+- [Changelog e histórico de atualizações](historico/changelog)
 
 ---
 

@@ -1,22 +1,19 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Configure e gerencie sua instância n8n em produção
-keywords: [n8n, hosting, produção, configuração, deployment, servidor]
+title: Hosting n8n: Deploy, Configuração e Infraestrutura para Produção
+description: Configure, faça deploy e gerencie sua instância n8n em produção, com guias para cloud, self-hosted, escalonamento, segurança e boas práticas.
+keywords: [n8n, hosting, deploy n8n, hospedagem n8n, cloud n8n, self-hosted n8n, infraestrutura n8n, produção, configuração, escalonamento, boas práticas]
 ---
 
-# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Hosting n8n
+# Hosting n8n: Deploy, Configuração e Infraestrutura para Produção
 
-O n8n pode ser hospedado de várias formas, desde instalações locais até ambientes de produção escaláveis. Esta seção abrange tudo o que você precisa saber para configurar e manter uma instância n8n robusta e segura.
+O n8n pode ser hospedado de várias formas, desde instalações locais até ambientes de produção escaláveis. Esta seção abrange tudo o que você precisa saber para configurar, fazer deploy e manter uma instância n8n robusta, segura e eficiente, seja em cloud, self-hosted ou híbrido.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-- [Instalação e Configuração](#instalacao-e-configuracao): Guias para diferentes ambientes
-- [Segurança e Compliance](#seguranca-e-compliance): Autenticação, backup e LGPD
-- [Escalonamento](#escalonamento): Clustering, load balancing e performance
-- [Cloud e On-Premises](#cloud-e-on-premises): AWS, Azure, GCP e Docker
-- [Conceitos Fundamentais](#conceitos-fundamentais): Tipos de deploy e componentes
-- [Arquiteturas de Deploy](#arquiteturas-de-deploy): Single, multi-instance e microservices
+- [Guia de instalação do n8n em diferentes ambientes](./instalacao/)
+- [Configuração de segurança e compliance LGPD](./seguranca/)
+- [Otimização de performance e escalonamento](./escalonamento/)
 
 ---
 

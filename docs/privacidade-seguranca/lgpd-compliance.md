@@ -1,6 +1,12 @@
-# Conformidade LGPD
+---
+title: Conformidade LGPD no n8n: Guia Prático, Checklist e Implementação
+description: Guia completo de conformidade LGPD no n8n, checklist, exemplos práticos, recursos para empresas brasileiras e proteção de dados pessoais.
+keywords: [LGPD n8n, compliance de dados, proteção de dados Brasil, checklist LGPD, conformidade legal, automação segura, privacidade, direitos do titular]
+---
 
-Esta seção detalha como o n8n implementa a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e garante a conformidade com todas as suas disposições.
+# Conformidade LGPD no n8n: Guia Prático, Checklist e Implementação
+
+Esta seção detalha como o n8n implementa a Lei Geral de Proteção de Dados (LGPD), apresenta checklist de conformidade, exemplos práticos, recursos para empresas brasileiras e orientações para proteção de dados pessoais.
 
 ## Visão Geral
 

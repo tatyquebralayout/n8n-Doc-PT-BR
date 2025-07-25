@@ -1,38 +1,30 @@
 ---
 sidebar_position: 1
-title: Primeiros Passos
-description: Comece sua jornada com o n8n - conceitos básicos, instalação e primeiro workflow
-keywords: [n8n, primeiros passos, introdução, instalação, conceitos básicos, workflow]
+title: Primeiros Passos no n8n: Guia de Onboarding e Primeira Automação
+description: Guia completo para começar com o n8n, incluindo conceitos básicos, instalação, primeiros workflows e dicas para automação eficiente.
+keywords: [n8n, primeiros passos, onboarding, introdução, instalação, workflow inicial, tutorial n8n, primeira automação, guia rápido, automação empresarial]
 ---
 
-# Primeiros Passos
+# Primeiros Passos no n8n: Guia de Onboarding e Primeira Automação
 
-## <ion-icon name="compass-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sua Jornada de Automação Começa Aqui
+Esta seção é o ponto de partida ideal para quem deseja aprender n8n do zero, com foco em onboarding, primeiros workflows, instalação, conceitos fundamentais e dicas práticas para automação eficiente em empresas brasileiras.
 
-Esta seção é seu ponto de partida para dominar automação com n8n. Organizamos tudo para que você aprenda de forma gradual, sem pular etapas importantes ou se perder em detalhes desnecessários.
-
-:::note Antes de começar
-Se você ainda não entendeu por que o n8n é diferente, volte para a **[Introdução](../intro.md)** e leia sobre "O Problema" e "A Solução".
-:::
-
----
-
-## <ion-icon name="map-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
 ### **Entenda Como Funciona**
-- **[Conceitos Fundamentais](./conceitos-fundamentais)** - Os fundamentos explicados de forma clara, do básico ao avançado
-- **[Primeiro Workflow](./primeiro-workflow)** - Crie sua primeira automação que realmente funciona
-- **[Conectar Aplicações](./conectar-aplicacoes)** - Como fazer sistemas diferentes conversarem entre si
+- [Fundamentos essenciais do n8n para automação](./conceitos-fundamentais)
+- [Guia prático para criar seu primeiro workflow no n8n](./primeiro-workflow)
+- [Como conectar diferentes aplicações e sistemas no n8n](./conectar-aplicacoes)
 
-### **Configure Seu Ambiente**  
-- **[Visão Geral das Instalações](./guia-instalacao)** - Compare as opções e descubra qual combina com você
-- **[n8n Cloud](./instalacao-cloud)** - Use na nuvem sem instalar nada no seu computador
-- **[Instalação via NPM](./instalacao-npm)** - Para quem já tem Node.js instalado
-- **[Instalação Self-Hosted](./instalacao-self-hosted)** - Para empresas que querem controle total dos dados
+### **Configure Seu Ambiente**
+- [Comparativo de métodos de instalação do n8n](./guia-instalacao)
+- [Como usar o n8n Cloud sem instalar nada](./instalacao-cloud)
+- [Instalação via NPM para quem já tem Node.js](./instalacao-npm)
+- [Instalação Self-Hosted para empresas com controle total dos dados](./instalacao-self-hosted)
 
 ### **Quando Algo Der Errado**
-- **[FAQ](./faq)** - Respostas para as dúvidas mais comuns
-- **[Troubleshooting](./troubleshooting)** - Como resolver problemas que aparecem no caminho
+- [FAQ: dúvidas comuns sobre n8n](./faq)
+- [Guia de troubleshooting para problemas frequentes](./troubleshooting)
 
 ---
 

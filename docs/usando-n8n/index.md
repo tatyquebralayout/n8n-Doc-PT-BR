@@ -1,24 +1,26 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Guias práticos para usar o n8n efetivamente
-keywords: [n8n, guias, prático, workflows, interface, execução]
+title: Usando n8n: Guias Práticos, Dicas e Workflows para Produtividade
+description: Guias práticos, dicas e exemplos para usar o n8n de forma eficiente, criar workflows produtivos e dominar automação empresarial.
+keywords: [n8n, guias práticos, como usar n8n, workflows, dicas de automação, produtividade n8n, exemplos, automação empresarial, melhores práticas]
 ---
 
-# <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Usando n8n
+# Usando n8n: Guias Práticos, Dicas e Workflows para Produtividade
 
-Bem-vindo aos guias práticos do n8n! Esta seção contém tudo o que você precisa saber para usar o n8n de forma eficiente, desde a interface básica até técnicas avançadas de criação e gerenciamento de workflows.
+Bem-vindo aos guias práticos do n8n! Esta seção reúne tudo o que você precisa saber para usar o n8n de forma eficiente, criar workflows produtivos, aplicar boas práticas e dominar automação empresarial, desde a interface básica até técnicas avançadas.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-- [Getting Started](#getting-started): Primeiros passos e quickstart
-- [Interface](#interface): Navegação e editor UI
-- [Workflows](#workflows): Criação, edição e configuração
-- [Execuções](#execucoes): Monitoramento e análise
-- [Credenciais](#credenciais): Gerenciamento de autenticação
-- [Usuários e Permissões](#usuarios-e-permissoes): Controle de acesso
-- [Monitoramento](#monitoring): Logs, alertas e performance
-- [Boas Práticas](#boas-praticas): Dicas e recomendações
+- [Guia rápido para criar seu primeiro workflow no n8n](./getting-started/quickstart-rapido)
+- [Exemplo prático de workflow na vida real](./getting-started/workflow-na-pratica)
+- [Como navegar e usar a interface do n8n](./interface/navegacao-editor-ui)
+- [Desenvolvimento e edição de workflows](./workflows/criar-editar)
+- [Configurações e parâmetros avançados de workflows](./workflows/configuracoes)
+- [Compartilhamento e colaboração em workflows](./workflows/compartilhamento)
+- [Monitoramento e análise de execuções](./execucoes/componentes-execucoes)
+- [Guia de credenciais seguras e boas práticas](./credenciais/boas-praticas)
+- [Gerenciamento de usuários e permissões](./usuarios-permissoes/criar-editar-usuarios)
+- [Dicas de troubleshooting e performance](./monitoring/analisar-logs)
 
 ---
 

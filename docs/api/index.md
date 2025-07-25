@@ -1,20 +1,20 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Documentação completa da API REST do n8n
-keywords: [n8n, API, REST, endpoints, autenticação, webhooks]
+title: API REST do n8n: Integração Programática, Endpoints e Webhooks
+description: Documentação completa da API REST do n8n, exemplos de uso, integração programática, endpoints, webhooks e autenticação para automação empresarial.
+keywords: [n8n, API, REST, endpoints, autenticação, webhooks, API n8n Brasil, documentação REST, integração programática, exemplos de uso, integração com sistemas externos]
 ---
 
-# <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> API REST do n8n
+# API REST do n8n: Integração Programática, Endpoints e Webhooks
 
-Bem-vindo à documentação da API REST do n8n! Aqui você encontrará tudo o que precisa para integrar e automatizar o n8n programaticamente, desde conceitos básicos até endpoints avançados.
+Bem-vindo à documentação da API REST do n8n! Aqui você encontrará tudo o que precisa para integrar e automatizar o n8n programaticamente, com exemplos de uso, endpoints, webhooks, autenticação e integração com sistemas externos para empresas brasileiras.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-- [Conceitos](#conceitos): Visão geral, autenticação e paginação
-- [Ferramentas](#ferramentas): Playground e recursos práticos
-- [Referência](#referencia): Documentação completa da API
-- [Endpoints Principais](#endpoints-principais): Workflows, execuções e credenciais
+- [Guia de autenticação e segurança da API n8n](./conceitos/autenticacao)
+- [Guia de paginação para grandes volumes de dados](./conceitos/paginacao)
+- [Playground interativo para testar a API](./ferramentas/playground)
+- [Referência completa dos endpoints da API](./referencia/referencia-api)
 
 ---
 

@@ -1,6 +1,12 @@
-# Agente de IA
+---
+title: Node Agente de IA no n8n
+description: Guia completo sobre o node Agente de IA no n8n, incluindo configuração, casos de uso e integração com LLMs.
+keywords: [n8n, agente de IA, automação com IA, integração GPT, workflow inteligente, chatbot n8n, tomada de decisão, IA contextual]
+---
 
-O Agente de IA é um node especializado que permite criar agentes inteligentes capazes de tomar decisões e executar ações baseadas em contexto.
+# Agente de IA no n8n: Automação Inteligente e Contextual
+
+Este guia apresenta o node Agente de IA do n8n, explicando como configurar, integrar com modelos de linguagem (LLMs), criar automações inteligentes e aplicar em casos de uso como chatbots, classificação automática e workflows dinâmicos para empresas brasileiras.
 
 ## Funcionalidades
 

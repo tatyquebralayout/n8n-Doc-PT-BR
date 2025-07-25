@@ -1,21 +1,22 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Aprenda n8n com os cursos oficiais em vídeo e texto, com resumos e guias em português.
-keywords: [n8n, cursos, tutorial, vídeo, texto, aprender, oficial, documentação]
+title: Central de Cursos n8n: Aprenda Automação com Vídeos, Textos e Projetos
+description: Aprenda n8n com cursos gratuitos, vídeos, textos, projetos práticos e formação em automação para iniciantes e avançados no Brasil.
+keywords: [n8n, cursos, tutorial, vídeo, texto, aprender, oficial, documentação, cursos n8n Brasil, formação em automação, cursos gratuitos n8n, treinamento n8n]
 ---
 
-# <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Central de Cursos n8n
+# Central de Cursos n8n: Aprenda Automação com Vídeos, Textos e Projetos
 
-Bem-vindo à central de aprendizado n8n! Aqui você encontra cursos oficiais em vídeo e texto, adaptados para a comunidade brasileira, com resumos, dicas e links para o conteúdo original.
+Bem-vindo à central de aprendizado n8n! Aqui você encontra cursos gratuitos, vídeos, textos, projetos práticos e formação em automação para iniciantes e avançados, com conteúdo adaptado para a comunidade brasileira.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-- [Como Funciona](#como-funciona): Estrutura dos cursos e formato
-- [Cursos em Vídeo](#cursos-em-video): Playlists e links
-- [Cursos em Texto](#cursos-em-texto): Capítulos e projetos práticos
-- [Como Escolher seu Curso](#como-escolher-seu-curso): Recomendações por perfil
-- [Feito pela Comunidade](#feito-pela-comunidade): Voluntariado e contribuição
+- [Curso de Iniciante em Vídeo no YouTube](cursos-em-video/curso-iniciante)
+- [Curso Avançado em Vídeo para recursos empresariais](cursos-em-video/curso-avancado)
+- [Curso em Texto Nível 1: automação de marketing](cursos-em-texto/nivel-um/capitulo-1)
+- [Curso em Texto Nível 2: workflows empresariais](cursos-em-texto/nivel-dois/capitulo-1)
+- [Guias da Comunidade para automação de iniciantes](../comunidade/automacao-iniciantes/index.md)
+- [Saiba como contribuir para os cursos n8n Brasil](../contribuir/esta-documentacao)
 
 ---
 

@@ -1,21 +1,19 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Integre o n8n em suas aplicações através do sistema de embed
-keywords: [n8n, embed, integração, iframe, white-label, workflow]
+title: Sistema de Embed n8n: Integração White-Label e Workflows em Aplicações
+description: Aprenda a integrar o n8n em aplicações SaaS, personalizar interface, embed via iframe, white-label e gerenciar workflows integrados.
+keywords: [n8n, embed, integração white-label, embed workflow, iframe n8n, embed SaaS, integração em aplicações, personalização de interface, controle de workflows]
 ---
 
-# <ion-icon name="browsers-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sistema de Embed n8n
+# Sistema de Embed n8n: Integração White-Label e Workflows em Aplicações
 
-Bem-vindo à seção de Embed do n8n! Aqui você aprenderá como integrar o n8n em suas aplicações através do sistema de embed, permitindo oferecer automação como parte de sua plataforma.
+Bem-vindo à seção de Embed do n8n! Aqui você aprenderá como integrar o n8n em aplicações SaaS, personalizar a interface, embed via iframe, white-label, gerenciar workflows integrados e oferecer automação como serviço para seus clientes.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-- [Preparação](#preparacao): Pré-requisitos técnicos e infraestrutura
-- [Implementação](#implementacao): Configuração e implantação
-- [Gerenciamento](#gerenciamento): Controle de workflows e white labelling
-- [Conceitos Fundamentais](#conceitos-fundamentais): Sistema de embed e casos de uso
-- [Arquitetura](#arquitetura): Componentes e fluxo de integração
+- [Checklist de pré-requisitos para embed n8n](./preparacao/prerequisitos)
+- [Guia de configuração e implantação do embed](./implementacao/configuracao)
+- [Como gerenciar workflows integrados e white-labelling](./gerenciamento/gerenciar-workflows)
 
 ---
 

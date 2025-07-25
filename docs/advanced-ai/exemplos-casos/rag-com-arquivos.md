@@ -1,13 +1,13 @@
 ---
 sidebar_position: 2
-title: RAG com Arquivos - Sistema de Busca Inteligente
-description: Implemente RAG (Retrieval-Augmented Generation) com arquivos para criar sistemas de busca inteligente baseados em documentos
-keywords: [n8n, rag, arquivos, ia, retrieval, vector database, embeddings, busca semântica]
+title: RAG com Arquivos no n8n: Busca Inteligente e Compliance para Empresas Brasileiras
+description: Implemente RAG (Retrieval-Augmented Generation) com arquivos no n8n para busca inteligente, compliance LGPD e automação de conhecimento empresarial.
+keywords: [n8n, rag, arquivos, ia, retrieval, vector database, embeddings, busca semântica, automação Brasil, compliance LGPD, assistente de documentação, busca empresarial]
 ---
 
-# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> RAG com Arquivos - Sistema de Busca Inteligente
+# RAG com Arquivos no n8n: Busca Inteligente e Compliance para Empresas Brasileiras
 
-Este guia ensina como implementar **RAG (Retrieval-Augmented Generation)** com arquivos no n8n para criar sistemas de busca inteligente que podem responder perguntas baseadas em documentos específicos da sua empresa.
+Este guia ensina como implementar RAG (Retrieval-Augmented Generation) com arquivos no n8n, criando sistemas de busca inteligente, assistentes de documentação, compliance LGPD e automação de conhecimento para empresas brasileiras.
 
 ## O que é RAG?
 

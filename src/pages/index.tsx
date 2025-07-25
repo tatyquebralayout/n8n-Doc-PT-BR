@@ -11,31 +11,35 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx('hero hero--primary', styles.heroBanner)} itemScope itemType="https://schema.org/TechArticle">
       <div className="container">
         <div className={styles.heroContent}>
           <div className={styles.heroImageContainer}>
             <img 
               src="img/banner_n8n_ptbr.png" 
-              alt="n8n Documentation Brasil - Automatize tudo em português"
+              alt="Banner da documentação n8n Brasil: automação de workflows, integrações no-code e recursos em português para a comunidade brasileira" 
               className={styles.heroImage}
+              itemProp="image"
             />
           </div>
           <div className={styles.heroTextContent}>
-            <Heading as="h1" className={styles.heroTitle}>
+            <Heading as="h1" className={styles.heroTitle} itemProp="headline">
               <IonicIcon name="compass-outline" size={20} color="#ea4b71" />
-              {siteConfig.title}
+              n8n Brasil: Documentação em Português para Automação de Workflows e Integrações
             </Heading>
-            <p className={styles.heroSubtitle}>
+            <p className={styles.heroSubtitle} itemProp="description">
               <IonicIcon name="globe-outline" size={20} color="var(--ifm-color-primary)" />
-              {siteConfig.tagline}
+              Guia completo de automação, integrações no-code e recursos avançados do n8n para a comunidade brasileira.
             </p>
             <div className={styles.buttons}>
               <Link
                 className={styles.getStartedButton}
-                to="/intro">
+                to="/intro"
+                aria-label="Comece a explorar a documentação do n8n Brasil em português - Guia de introdução e primeiros passos"
+                title="Comece a explorar a documentação do n8n Brasil em português - Guia de introdução e primeiros passos"
+              >
                 <IonicIcon name="play-circle-outline" size={20} color="var(--ifm-color-primary)" />
-                Comece a Explorar - 5min
+                Comece a Explorar: Guia de Introdução ao n8n Brasil
               </Link>
             </div>
           </div>

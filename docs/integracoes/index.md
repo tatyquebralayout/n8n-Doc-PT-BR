@@ -1,23 +1,19 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Conecte o n8n com centenas de aplicações e serviços
-keywords: [n8n, integrações, conectores, nodes, apps, serviços]
+title: Integrações no n8n: Conecte Aplicações, APIs e Serviços com Automação
+description: Descubra como conectar o n8n a centenas de aplicações, APIs e serviços, criando automações poderosas e integradas para empresas brasileiras.
+keywords: [n8n, integrações, conectores, integração de apps, automação de sistemas, integração Brasil, API n8n, conectores empresariais, integração de serviços, automação de processos]
 ---
 
-# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integrações n8n
+# Integrações no n8n: Conecte Aplicações, APIs e Serviços com Automação
 
-As integrações são o que torna o n8n tão poderoso. Com centenas de conectores disponíveis, você pode conectar praticamente qualquer aplicação ou serviço para criar automações complexas e eficientes.
+Descubra como conectar o n8n a centenas de aplicações, APIs e serviços, criando automações poderosas, integradas e escaláveis para empresas brasileiras. Esta seção apresenta conectores, exemplos práticos e dicas para integração eficiente de sistemas.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-- [Nodes de Aplicações](#nodes-de-aplicacoes): Comunicação, e-commerce, marketing e produtividade
-- [Nodes Built-in](#nodes-built-in): Core, HTTP, dados, lógica e utilitários
-- [Nodes da Comunidade](#nodes-da-comunidade): Instalação, populares e desenvolvimento
-- [Credenciais](#credenciais): API Keys, OAuth e autenticação
-- [Triggers](#triggers): App, event-based e time-based
-- [Conceitos Fundamentais](#conceitos-fundamentais): O que são nodes e tipos de integração
-- [Categorias de Integração](#categorias-de-integracao): Comunicação, produtividade, e-commerce e marketing
+- [Veja como conectar o n8n a aplicações populares com App Nodes](./app-nodes/)
+- [Aprenda sobre funcionalidades básicas com Built-in Nodes](./builtin-nodes/)
+- [Configure credenciais seguras para integrações](./credential-nodes/)
 
 ---
 

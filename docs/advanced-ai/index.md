@@ -1,21 +1,21 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Explore recursos avançados de inteligência artificial no n8n
-keywords: [n8n, IA, inteligência artificial, AI, langchain, openai, workflow]
+title: Inteligência Artificial Avançada no n8n: Guia Completo de Automação com IA
+description: Guia completo sobre recursos avançados de inteligência artificial no n8n, incluindo integração com LangChain, exemplos práticos, workflows inteligentes e automação para empresas brasileiras.
+keywords: [n8n, IA, inteligência artificial, automação inteligente, integração IA n8n, workflows avançados, casos de uso IA Brasil, langchain, openai, exemplos práticos, automação empresarial]
 ---
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Inteligência Artificial Avançada
+# Inteligência Artificial Avançada no n8n: Guia Completo de Automação com IA
 
-Bem-vindo à seção de Inteligência Artificial Avançada do n8n! Aqui você encontrará recursos para integrar e utilizar IA em seus workflows de automação, desde conceitos básicos até implementações complexas.
+Bem-vindo à seção de Inteligência Artificial Avançada do n8n! Aqui você encontrará recursos para integrar e utilizar IA em seus workflows de automação, desde conceitos básicos até implementações complexas, com foco em automação inteligente, integração com LangChain, exemplos práticos para empresas brasileiras e compliance LGPD.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-- [Tutorial de IA](#tutorial-de-ia): Introdução prática aos conceitos
-- [LangChain](#langchain): Framework para aplicações de IA
-- [Nodes de IA](#nodes-de-ia): Integrações com modelos de linguagem
-- [Exemplos e Casos](#exemplos-e-casos): Implementações práticas
-- [Conceitos Fundamentais](#conceitos-fundamentais): Base teórica e prática
+- [Tutorial prático de integração de IA no n8n](./tutorial-ai): Guia passo a passo para criar agentes de IA e workflows inteligentes
+- [Guia de integração com LangChain para automação avançada](./langchain-overview): Framework para aplicações de IA
+- [Nodes de IA](./nodes-ia): Integrações com modelos de linguagem, agentes e ferramentas
+- [Exemplos práticos de automação com IA no n8n](./exemplos-casos): Casos de uso reais e implementações completas
+- [Conceitos Fundamentais](#conceitos-fundamentais): Base teórica e prática para automação com IA
 
 ---
 

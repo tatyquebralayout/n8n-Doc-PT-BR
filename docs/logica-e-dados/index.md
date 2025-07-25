@@ -1,22 +1,19 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Aprenda a trabalhar com dados e lógica no n8n
-keywords: [n8n, dados, lógica, workflow, automação, processamento]
+title: Lógica e Manipulação de Dados no n8n: Workflows Inteligentes e Práticos
+description: Aprenda a dominar dados, lógica e processamento no n8n para criar workflows inteligentes, eficientes e escaláveis.
+keywords: [n8n, lógica, dados, manipulação de dados, workflow inteligente, automação, processamento de dados, boas práticas, lógica de automação, transformação de dados]
 ---
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Lógica e Dados
+# Lógica e Manipulação de Dados no n8n: Workflows Inteligentes e Práticos
 
-A manipulação de dados e a implementação de lógica são fundamentais para criar workflows eficientes no n8n. Esta seção abrange desde conceitos básicos até técnicas avançadas de processamento e transformação de dados.
+Domine a manipulação de dados, lógica de automação e técnicas avançadas para criar workflows inteligentes, eficientes e escaláveis no n8n. Esta seção abrange desde conceitos básicos até boas práticas e troubleshooting para automação empresarial.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-- [Dados](#dados): Tipos, manipulação e transformação
-- [Lógica de Fluxo](#logica-de-fluxo): Controle de execução e decisões
-- [Conexões](#conexoes): Como conectar nodes e dados
-- [Conceitos Fundamentais](#conceitos-fundamentais): Estrutura de dados e tipos
-- [Técnicas Avançadas](#tecnicas-avancadas): Agregações, filtros e mapeamento
-- [Debugging](#debugging): Troubleshooting e monitoramento
+- [Aprenda sobre tipos e manipulação de dados no n8n](./data/)
+- [Explore lógica de fluxo e controle de execução](./flow-logic/)
+- [Guia prático de debugging e troubleshooting no n8n](./flow-logic/debugging)
 
 ---
 

@@ -1,17 +1,17 @@
 ---
 sidebar_position: 2
-title: IA e Machine Learning
-description: Integrações para inteligência artificial e processamento de dados avançado
-keywords: [n8n, ia, machine learning, openai, gpt, claude, langchain]
+title: Integrações de IA e Machine Learning no n8n: Automação Inteligente e Casos Práticos
+description: Integrações de inteligência artificial e machine learning no n8n, automação inteligente, exemplos práticos e compliance para empresas brasileiras.
+keywords: [n8n, integrações IA, machine learning Brasil, automação inteligente, exemplos de automação, compliance nacional, casos práticos IA, integração GPT, LangChain]
 ---
 
 :::info
 <ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
 :::
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> IA e Machine Learning
+# Integrações de IA e Machine Learning no n8n: Automação Inteligente e Casos Práticos
 
-Explore as integrações de inteligência artificial e machine learning disponíveis no n8n. Estas integrações permitem automatizar processos complexos usando IA, processamento de linguagem natural e análise de dados avançada.
+Explore as integrações de inteligência artificial e machine learning disponíveis no n8n. Descubra como automatizar processos complexos, aplicar IA em workflows, garantir compliance e acessar exemplos práticos para empresas brasileiras.
 
 :::tip **Dica Pro**
 Comece com integrações simples como **OpenAI GPT-3.5** para entender o conceito, depois evolua para modelos mais avançados como GPT-4 e Claude.

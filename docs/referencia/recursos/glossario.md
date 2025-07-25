@@ -1,13 +1,13 @@
 ---
-title: Glossário
-description: Definições de termos técnicos e conceitos importantes do n8n
+title: Glossário n8n: Termos Técnicos e Conceitos de Automação
+description: Definições de termos técnicos, conceitos importantes e dicionário de automação no n8n para referência rápida.
 sidebar_position: 1
-keywords: [glossário, termos, definições, n8n, conceitos]
+keywords: [glossário n8n, termos técnicos, dicionário de automação, conceitos n8n, referência rápida, explicações claras]
 ---
 
-# 📚 Glossário
+# Glossário n8n: Termos Técnicos e Conceitos de Automação
 
-Definições dos principais termos e conceitos utilizados no n8n e em automação de workflows.
+Definições dos principais termos e conceitos utilizados no n8n e em automação de workflows. Use este glossário como dicionário de referência rápida para tirar dúvidas sobre automação, integrações, nodes, credenciais e outros conceitos essenciais.
 
 ## A
 
