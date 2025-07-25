@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: API REST do n8n: Integração Programática, Endpoints e Webhooks
+title: "API REST do n8n: Integração Programática, Endpoints e Webhooks"
 description: Documentação completa da API REST do n8n, exemplos de uso, integração programática, endpoints, webhooks e autenticação para automação empresarial.
 keywords: [n8n, API, REST, endpoints, autenticação, webhooks, API n8n Brasil, documentação REST, integração programática, exemplos de uso, integração com sistemas externos]
 ---
