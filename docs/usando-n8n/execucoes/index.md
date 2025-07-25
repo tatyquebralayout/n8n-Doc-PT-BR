@@ -1,472 +1,341 @@
-:::warning
-<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+:::info
+<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
 :::
 
 ---
-sidebar_position: 4
-title: Execuções
-description: Monitoramento e análise de execuções
-keywords: [n8n, execuções, monitoramento, análise, logs]
+sidebar_position: 5
+title: Execução de Workflows
+description: Como executar workflows e entender os diferentes modos de execução no n8n
+keywords: [n8n, execução, workflows, triggers, modos, estados]
 ---
 
-# Execuções de Workflows
+# <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Execução de Workflows
 
-As execuções são o coração do n8n, onde workflows ganham vida e processam dados reais. Este guia aborda todos os aspectos das execuções, desde tipos básicos até técnicas avançadas de monitoramento.
+A execução é o processo pelo qual um workflow é ativado e processado pelo n8n. Entender os diferentes modos de execução é fundamental para criar automações eficientes e confiáveis.
 
-## Conceitos Fundamentais
+## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que é Execução?
 
-### O que é uma Execução
+Execução é o processo de:
 
-Uma execução no n8n é uma instância específica de um workflow que:
+- **Ativar** um workflow através de um trigger
+- **Processar** dados através dos nodes
+- **Executar** operações definidas
+- **Retornar** resultados ou erros
 
-- **Processa dados** reais através dos nodes
-- **Executa ações** em sistemas externos
-- **Gera logs** detalhados de cada etapa
-- **Retorna resultados** ou continua o processamento
+### Componentes da Execução
 
-### Tipos de Execução
+- **Trigger**: Inicia a execução
+- **Nodes**: Processam dados
+- **Conexões**: Definem fluxo
+- **Resultado**: Saída final
 
-#### 1. Execução Manual
+## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Modos de Execução
 
-```json
+### Manual Execution
+
+Execução iniciada pelo usuário:
+
+- **Trigger**: Manual Trigger
+- **Controle**: Total pelo usuário
+- **Uso**: Testes e execuções pontuais
+- **Dados**: Definidos pelo usuário
+
+#### Como Usar
+
+1. **Abra** o workflow
+2. **Clique** em "Execute Workflow"
+3. **Configure** dados de entrada (opcional)
+4. **Execute** e monitore resultados
+
+### Automatic Execution
+
+Execução baseada em eventos ou tempo:
+
+- **Trigger**: Schedule, Webhook, Event
+- **Controle**: Automático
+- **Uso**: Automações contínuas
+- **Dados**: Baseados no trigger
+
+#### Tipos de Triggers Automáticos
+
+- **Schedule**: Baseado em tempo
+- **Webhook**: Baseado em HTTP requests
+- **Event**: Baseado em eventos de apps
+- **Polling**: Verificação periódica
+
+### API Execution
+
+Execução via API REST:
+
+- **Trigger**: HTTP request para API
+- **Controle**: Programático
+- **Uso**: Integração com sistemas externos
+- **Dados**: Enviados via API
+
+#### Endpoint da API
+
+```bash
+POST /api/v1/workflows/{id}/trigger
+Content-Type: application/json
+
 {
-  "type": "manual",
-  "trigger": "Manual Trigger",
   "data": {
-    "customInput": "dados de teste",
-    "timestamp": "2024-01-20T10:00:00Z"
-  },
-  "mode": "test"
-}
-```
-
-#### 2. Execução Agendada
-
-```json
-{
-  "type": "scheduled",
-  "trigger": "Schedule Trigger",
-  "schedule": {
-    "cron": "0 9 * * *",
-    "timezone": "America/Sao_Paulo"
-  },
-  "mode": "production"
-}
-```
-
-#### 3. Execução por Webhook
-
-```json
-{
-  "type": "webhook",
-  "trigger": "Webhook",
-  "data": {
-    "method": "POST",
-    "headers": {
-      "Content-Type": "application/json"
-    },
-    "body": {
-      "event": "order.created",
-      "orderId": "12345"
-    }
-  },
-  "mode": "production"
-}
-```
-
-#### 4. Execução por Evento
-
-```json
-{
-  "type": "event",
-  "trigger": "App Trigger",
-  "data": {
-    "source": "github",
-    "event": "push",
-    "repository": "user/repo"
-  },
-  "mode": "production"
-}
-```
-
-## Componentes da Execução
-
-### 1. Trigger Node
-
-O ponto de entrada da execução:
-
-#### Configurações do Trigger
-
-```json
-{
-  "trigger": {
-    "type": "manual",
-    "name": "Manual Trigger",
-    "description": "Inicia o workflow manualmente",
-    "options": {
-      "allowManualExecution": true,
-      "showTestData": true
-    }
+    "nome": "João Silva",
+    "email": "joao@exemplo.com"
   }
 }
 ```
 
-#### Dados de Entrada
+## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estados de Execução
 
-```json
-{
-  "inputData": {
-    "json": {
-      "message": "Hello World",
-      "timestamp": "2024-01-20T10:00:00Z"
-    },
-    "binary": {},
-    "pairedItem": null
-  }
-}
+### Success
+
+Execução concluída com sucesso:
+
+- **Status**: Verde
+- **Significado**: Todos os nodes executaram
+- **Ação**: Dados processados normalmente
+- **Log**: Detalhes completos disponíveis
+
+### Error
+
+Execução falhou:
+
+- **Status**: Vermelho
+- **Significado**: Erro em algum node
+- **Ação**: Workflow parou ou usou error handling
+- **Log**: Detalhes do erro disponíveis
+
+### Waiting
+
+Execução aguardando:
+
+- **Status**: Amarelo
+- **Significado**: Aguardando input ou condição
+- **Ação**: Pausado temporariamente
+- **Log**: Status de espera
+
+### Running
+
+Execução em andamento:
+
+- **Status**: Azul
+- **Significado**: Processando ativamente
+- **Ação**: Executando nodes
+- **Log**: Progresso em tempo real
+
+## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tipos de Execução
+
+### Single Execution
+
+Execução de um item por vez:
+
+- **Comportamento**: Processa um item
+- **Performance**: Mais lento para muitos itens
+- **Memória**: Menor uso
+- **Debugging**: Mais fácil
+
+### Batch Execution
+
+Execução de múltiplos itens:
+
+- **Comportamento**: Processa vários itens
+- **Performance**: Mais rápido
+- **Memória**: Maior uso
+- **Debugging**: Mais complexo
+
+### Parallel Execution
+
+Execução simultânea:
+
+- **Comportamento**: Múltiplas execuções simultâneas
+- **Performance**: Máxima velocidade
+- **Recursos**: Alto uso de CPU/memória
+- **Limitações**: Rate limits de APIs
+
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de Execução
+
+### Timeout
+
+Define tempo limite para execução:
+
+```bash
+# Configurar timeout global
+N8N_TIMEOUT=300000  # 5 minutos
+
+# Configurar timeout por node
+# No node: Settings → Timeout
 ```
 
-### 2. Nodes de Processamento
+### Retry Logic
 
-Cada node processa e transforma os dados:
-
-#### Exemplo de Processamento
-
-```json
-{
-  "node": {
-    "id": "node_001",
-    "name": "Set Status",
-    "type": "n8n-nodes-base.set",
-    "parameters": {
-      "values": {
-        "string": [
-          {
-            "name": "status",
-            "value": "processed"
-          }
-        ]
-      }
-    },
-    "execution": {
-      "startTime": "2024-01-20T10:00:01Z",
-      "endTime": "2024-01-20T10:00:02Z",
-      "duration": 1000,
-      "status": "success"
-    }
-  }
-}
-```
-
-### 3. Nodes de Ação
-
-Executam operações em sistemas externos:
-
-#### Exemplo de Ação
-
-```json
-{
-  "node": {
-    "id": "node_002",
-    "name": "Send Email",
-    "type": "n8n-nodes-base.emailSend",
-    "parameters": {
-      "toEmail": "user@example.com",
-      "subject": "Workflow Executed",
-      "text": "Your workflow has been executed successfully"
-    },
-    "execution": {
-      "startTime": "2024-01-20T10:00:02Z",
-      "endTime": "2024-01-20T10:00:05Z",
-      "duration": 3000,
-      "status": "success",
-      "response": {
-        "messageId": "msg_12345"
-      }
-    }
-  }
-}
-```
-
-## Monitoramento de Execuções
-
-### 1. Dashboard de Execuções
-
-#### Métricas Principais
-
-```yaml
-Execuções Hoje:
-  - Total: 150
-  - Sucesso: 142
-  - Erro: 8
-  - Taxa de Sucesso: 94.7%
-
-Execuções da Semana:
-  - Total: 1,050
-  - Sucesso: 1,023
-  - Erro: 27
-  - Taxa de Sucesso: 97.4%
-
-Performance:
-  - Tempo Médio: 2.3s
-  - Tempo Máximo: 15.2s
-  - Tempo Mínimo: 0.1s
-```
-
-#### Filtros e Busca
-
-```json
-{
-  "filters": {
-    "status": ["success", "error", "running"],
-    "workflow": "workflow-id",
-    "dateRange": {
-      "start": "2024-01-01",
-      "end": "2024-01-31"
-    },
-    "duration": {
-      "min": 1000,
-      "max": 10000
-    }
-  }
-}
-```
-
-### 2. Logs Detalhados
-
-#### Estrutura do Log
-
-```json
-{
-  "executionId": "exec_12345",
-  "workflowId": "workflow_001",
-  "startTime": "2024-01-20T10:00:00Z",
-  "endTime": "2024-01-20T10:00:10Z",
-  "duration": 10000,
-  "status": "success",
-  "nodes": [
-    {
-      "id": "node_001",
-      "name": "Manual Trigger",
-      "status": "success",
-      "startTime": "2024-01-20T10:00:00Z",
-      "endTime": "2024-01-20T10:00:01Z",
-      "duration": 1000,
-      "data": {
-        "input": {},
-        "output": {
-          "json": {
-            "message": "Hello World"
-          }
-        }
-      }
-    }
-  ]
-}
-```
-
-#### Níveis de Log
-
-```yaml
-Debug:
-  - Dados detalhados de cada node
-  - Valores de variáveis
-  - Configurações internas
-
-Info:
-  - Início e fim de execuções
-  - Status de nodes
-  - Operações principais
-
-Warning:
-  - Timeouts
-  - Rate limits
-  - Dados incompletos
-
-Error:
-  - Falhas de conexão
-  - Erros de autenticação
-  - Exceções não tratadas
-```
-
-### 3. Alertas e Notificações
-
-#### Configuração de Alertas
-
-```json
-{
-  "alerts": {
-    "executionFailed": {
-      "enabled": true,
-      "channels": ["email", "slack"],
-      "threshold": 1,
-      "recipients": ["admin@company.com"]
-    },
-    "executionSlow": {
-      "enabled": true,
-      "channels": ["slack"],
-      "threshold": 30000,
-      "recipients": ["dev-team"]
-    },
-    "highErrorRate": {
-      "enabled": true,
-      "channels": ["email", "slack", "sms"],
-      "threshold": 0.1,
-      "recipients": ["oncall@company.com"]
-    }
-  }
-}
-```
-
-## Técnicas Avançadas
-
-### 1. Execução em Lote (Batch Processing)
-
-#### Configuração de Batch
-
-```json
-{
-  "batch": {
-    "enabled": true,
-    "size": 100,
-    "delay": 1000,
-    "retry": {
-      "attempts": 3,
-      "delay": 5000
-    }
-  }
-}
-```
-
-#### Processamento Paralelo
-
-```json
-{
-  "parallel": {
-    "enabled": true,
-    "maxConcurrent": 5,
-    "timeout": 30000
-  }
-}
-```
-
-### 2. Execução Condicional
-
-#### Baseada em Dados
+Configurar tentativas automáticas:
 
 ```javascript
-// Code Node para decisão condicional
-const shouldExecute = items.some(item => {
-  return item.json.priority === 'high' && 
-         item.json.status === 'pending';
-});
-
-if (shouldExecute) {
-  return items;
-} else {
-  return [];
+// Configurar retry no node
+{
+  "retryOnFail": true,
+  "maxTries": 3,
+  "waitBetweenTries": 5000
 }
 ```
 
-#### Baseada em Tempo
+### Rate Limiting
+
+Controlar velocidade de execução:
 
 ```javascript
-// Verificar horário de execução
-const now = new Date();
-const hour = now.getHours();
-
-if (hour >= 9 && hour <= 18) {
-  return items;
-} else {
-  return [];
-}
-```
-
-### 3. Execução com Retry
-
-#### Configuração de Retry
-
-```json
+// Configurar delay entre execuções
 {
-  "retry": {
-    "attempts": 3,
-    "delay": 5000,
-    "backoff": "exponential",
-    "maxDelay": 30000,
-    "conditions": [
-      "network_error",
-      "rate_limit",
-      "temporary_failure"
-    ]
+  "options": {
+    "delay": 1000  // 1 segundo
   }
 }
 ```
 
-#### Retry Inteligente
+## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento de Execução
 
-```javascript
-// Code Node para retry customizado
-const maxAttempts = 3;
-const currentAttempt = $execution.attempt || 1;
+### Execution Log
 
-if (currentAttempt < maxAttempts) {
-  // Aguardar antes da próxima tentativa
-  await new Promise(resolve => 
-    setTimeout(resolve, Math.pow(2, currentAttempt) * 1000)
-  );
-  throw new Error('Retry attempt');
-}
+Histórico detalhado de execuções:
 
-return items;
-```
+- **Dados de entrada**: O que foi recebido
+- **Dados de saída**: O que foi processado
+- **Tempo de execução**: Performance
+- **Erros**: Detalhes de falhas
 
-## Troubleshooting
+### Performance Metrics
 
-### Problemas Comuns
+Métricas de performance:
 
-#### 1. Execuções Falhando
+- **Tempo total**: Duração da execução
+- **Tempo por node**: Performance individual
+- **Uso de memória**: Consumo de recursos
+- **Throughput**: Itens processados por segundo
 
-**Sintomas:**
+### Real-time Monitoring
 
-- Status "error" nas execuções
-- Logs com mensagens de erro
-- Workflows não completando
+Monitoramento em tempo real:
 
-**Diagnóstico:**
+- **Status atual**: Estado da execução
+- **Progresso**: Porcentagem concluída
+- **Logs live**: Logs em tempo real
+- **Alertas**: Notificações de problemas
 
-```javascript
-// Code Node para debug
-console.log('Input data:', JSON.stringify(items, null, 2));
-console.log('Environment variables:', $env);
-console.log('Execution context:', $execution);
+## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Problemas Comuns
 
-return items;
-```
+### Timeout Errors
+
+**Problema:** Execução demora muito
 
 **Soluções:**
+- Aumentar timeout
+- Otimizar workflow
+- Usar processamento em lotes
+- Implementar cache
 
-- Verificar credenciais
-- Validar dados de entrada
-- Implementar tratamento de erros
-- Ajustar timeouts
+### Memory Issues
 
-#### 2. Execuções Lentas
+**Problema:** Uso excessivo de memória
 
-**Sintomas:**
+**Soluções:**
+- Processar em lotes menores
+- Limpar dados desnecessários
+- Usar streaming quando possível
+- Monitorar uso de recursos
 
-- Tempo de execução alto
-- Timeouts frequentes
-- Performance degradada
+### Rate Limiting
 
-**Otimizações:**
+**Problema:** APIs bloqueiam por excesso de requests
 
-```json
-{
-  "optimization": {
-    "batchSize": 50,
-    "parallelProcessing": true,
-    "caching": true,
-    "timeout": 60000
-  }
-}
+**Soluções:**
+- Implementar delays
+- Usar rate limiting
+- Distribuir carga
+- Implementar retry com backoff
+
+### Infinite Loops
+
+**Problema:** Workflow executa indefinidamente
+
+**Soluções:**
+- Verificar condições de parada
+- Implementar contadores
+- Usar timeouts
+- Testar com dados limitados
+
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Debugging de Execução
+
+### Step-by-Step Debugging
+
+1. **Execute manualmente** para controle total
+2. **Verifique dados** em cada node
+3. **Analise logs** detalhadamente
+4. **Teste condições** individualmente
+
+### Log Analysis
+
+```javascript
+// Log no início da execução
+{{ console.log('Iniciando execução:', $now) }}
+
+// Log de dados importantes
+{{ console.log('Dados processados:', $json) }}
+
+// Log de performance
+{{ console.log('Tempo de execução:', Date.now() - startTime) }}
 ```
+
+### Error Tracking
+
+- **Capture erros** com error handling
+- **Log detalhes** de falhas
+- **Implemente alertas** para problemas
+- **Monitore tendências** de erro
+
+## <ion-icon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Otimização
+
+### Performance
+
+- **Processe em lotes** quando possível
+- **Use cache** para dados repetitivos
+- **Implemente filtros** antecipados
+- **Monitore recursos** de sistema
+
+### Reliability
+
+- **Implemente retry logic** robusto
+- **Use error handling** adequado
+- **Teste com dados reais** antes de produção
+- **Monitore execuções** continuamente
+
+### Scalability
+
+- **Use subworkflows** para modularizar
+- **Implemente load balancing** quando necessário
+- **Distribua carga** entre múltiplas instâncias
+- **Monitore capacidade** do sistema
+
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+
+1. **[Execution Order](../../logica-e-dados/flow-logic/execution-order)** - Entender ordem de execução
+2. **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento robusto de erros
+3. **[Monitoring](../monitoring/)** - Monitoramento de workflows
+
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
+
+### Documentação Relacionada
+
+- **[Execution Order](../../logica-e-dados/flow-logic/execution-order)** - Ordem de execução
+- **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros
+- **[Monitoring](../monitoring/)** - Monitoramento
+
+### Links Externos
+
+- **[n8n Execution](https://docs.n8n.io/workflows/execution/)** - Documentação oficial
+- **[n8n API](https://docs.n8n.io/api/)** - API de execução
+- **[n8n Community](https://community.n8n.io/)** - Fórum para dúvidas
+
+---
+
+**<ion-icon name="play-circle-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Execuções bem configuradas garantem workflows confiáveis e eficientes!**

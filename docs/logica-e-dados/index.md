@@ -5,15 +5,30 @@ description: Aprenda a dominar dados, lógica e processamento no n8n para criar 
 keywords: [n8n, lógica, dados, manipulação de dados, workflow inteligente, automação, processamento de dados, boas práticas, lógica de automação, transformação de dados]
 ---
 
-# Lógica e Manipulação de Dados no n8n: Workflows Inteligentes e Práticos
+:::info
+<ion-icon name="cube-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon>
+Esta seção apresenta os **fundamentos técnicos, arquitetura e conceitos de lógica e dados** do n8n. Para guias práticos, passo a passo e troubleshooting, acesse a seção [Usando n8n](../usando-n8n/).
+:::
 
-Domine a manipulação de dados, lógica de automação e técnicas avançadas para criar workflows inteligentes, eficientes e escaláveis no n8n. Esta seção abrange desde conceitos básicos até boas práticas e troubleshooting para automação empresarial.
+:::info
+<ion-icon name="cube-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon>
+**Veja o guia completo:** [Estrutura de Dados no n8n](./estrutura-dados.md) — padrão, exemplos, boas práticas e diagrama visual.
+:::
 
-## O que você encontrará aqui
+## Resumo Técnico: Estrutura de Dados no n8n
 
-- [Aprenda sobre tipos e manipulação de dados no n8n](./data/)
-- [Explore lógica de fluxo e controle de execução](./flow-logic/)
-- [Guia prático de debugging e troubleshooting no n8n](./flow-logic/debugging)
+No n8n, **todos os dados trafegam entre os nós como um array de objetos**. Cada item pode conter:
+- `json`: dados estruturados (campos, valores, objetos aninhados)
+- `binary` (opcional): arquivos anexos, com `data`, `mimeType`, `fileExtension`, `fileName`
+
+> Consulte a página [Estrutura de Dados no n8n](./estrutura-dados.md) para detalhes avançados, exemplos genéricos e diagrama visual.
+
+## Casos de Uso no Brasil
+
+Veja exemplos completos e dicas para automações nacionais:
+- [Automação de Boletos Bancários](./data/boletos-bancarios.md)
+- [Integração de NF-e e XML Fiscal](./data/nfe-xml.md)
+- [Anexos Contratuais e Documentos Digitais](./data/anexos-contratuais.md)
 
 ---
 
@@ -111,10 +126,6 @@ flowchart TD
   A --> B["Item 1"]
   A --> C["Item 2"]
   B --> D["json"]
-  C --> E["json"]
-  C --> F["binary"]
-  F --> G["meuArquivo"]
-  G --> H["data, mimeType, fileExtension, fileName"]
 ```
 
 > **Nota importante:**
