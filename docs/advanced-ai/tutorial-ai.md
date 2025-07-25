@@ -1,5 +1,5 @@
 ---
-title: Tutorial prático de IA no n8n: Do Básico ao Avançado
+title: "Tutorial prático de IA no n8n: Do Básico ao Avançado"
 description: Aprenda a criar agentes de IA, integrar LLMs, usar ferramentas externas e construir workflows inteligentes no n8n, com exemplos para o mercado brasileiro.
 keywords: [n8n, tutorial IA, integração GPT, agentes inteligentes, workflows IA, automação cognitiva, LangChain, exemplos Brasil, chatbot, processamento de linguagem natural]
 ---
