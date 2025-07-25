@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Primeiros Passos no n8n: Guia de Onboarding e Primeira Automação
+title: "Primeiros Passos no n8n: Guia de Onboarding e Primeira Automação"
 description: Guia completo para começar com o n8n, incluindo conceitos básicos, instalação, primeiros workflows e dicas para automação eficiente.
 keywords: [n8n, primeiros passos, onboarding, introdução, instalação, workflow inicial, tutorial n8n, primeira automação, guia rápido, automação empresarial]
 ---

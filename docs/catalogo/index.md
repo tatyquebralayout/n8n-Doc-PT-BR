@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Catálogo de Integrações n8n: Encontre e Compare Conectores para Automação
+title: "Catálogo de Integrações n8n: Encontre e Compare Conectores para Automação"
 description: Explore todas as integrações disponíveis no n8n, encontre conectores para automação, integrações para o mercado brasileiro e dicas para uso eficiente.
 keywords: [n8n, catálogo de integrações, lista de nodes, integrações Brasil, automação de sistemas, conectores n8n, automação empresarial, integrações populares, conectores para empresas]
 ---

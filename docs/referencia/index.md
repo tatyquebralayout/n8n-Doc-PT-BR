@@ -1,6 +1,6 @@
 ---
 id: index
-title: Referência n8n: Guia Completo, Glossário e Troubleshooting em Português
+title: "Referência n8n: Guia Completo, Glossário e Troubleshooting em Português"
 description: Guia definitivo de referência do n8n em português, com consultas rápidas, glossário, troubleshooting, APIs e recursos avançados para automação.
 sidebar_label: Visão Geral
 keywords: [n8n, referência, documentação n8n, manual de referência, consultas rápidas, glossário n8n, troubleshooting, APIs, performance, guia oficial]

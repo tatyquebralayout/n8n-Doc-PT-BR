@@ -1,5 +1,5 @@
 ---
-title: Glossário n8n: Termos Técnicos e Conceitos de Automação
+title: "Glossário n8n: Termos Técnicos e Conceitos de Automação"
 description: Definições de termos técnicos, conceitos importantes e dicionário de automação no n8n para referência rápida.
 sidebar_position: 1
 keywords: [glossário n8n, termos técnicos, dicionário de automação, conceitos n8n, referência rápida, explicações claras]

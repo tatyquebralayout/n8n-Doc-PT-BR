@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Sistema de Embed n8n: Integração White-Label e Workflows em Aplicações
+title: "Sistema de Embed n8n: Integração White-Label e Workflows em Aplicações"
 description: Aprenda a integrar o n8n em aplicações SaaS, personalizar interface, embed via iframe, white-label e gerenciar workflows integrados.
 keywords: [n8n, embed, integração white-label, embed workflow, iframe n8n, embed SaaS, integração em aplicações, personalização de interface, controle de workflows]
 ---

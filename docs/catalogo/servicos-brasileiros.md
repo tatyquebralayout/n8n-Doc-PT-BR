@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Serviços Brasileiros no n8n: Integrações, Compliance e Casos de Uso
+title: "Serviços Brasileiros no n8n: Integrações, Compliance e Casos de Uso"
 description: Integrações específicas para o mercado brasileiro no n8n, compliance nacional, exemplos práticos e automação de processos locais.
 keywords: [n8n, serviços brasileiros, integrações Brasil, compliance nacional, automação de processos, exemplos de automação, APIs nacionais, compliance LGPD]
 ---

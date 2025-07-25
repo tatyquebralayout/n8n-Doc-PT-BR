@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: Classificação Automática de Dados com IA no n8n: Suporte e Atendimento Inteligente
+title: "Classificação Automática de Dados com IA no n8n: Suporte e Atendimento Inteligente"
 description: Automatize a classificação de dados e tickets usando IA no n8n, com priorização inteligente, análise de sentimento e integração para empresas brasileiras.
 keywords: [n8n, classificação, dados, ia, machine learning, categorização, sentimento, tickets, automação inteligente, suporte Brasil, priorização, automação de tickets, workflow inteligente]
 ---

@@ -1,6 +1,6 @@
 ---
 id: troubleshooting
-title: Troubleshooting n8n: Diagnóstico, Soluções e Base de Conhecimento
+title: "Troubleshooting n8n: Diagnóstico, Soluções e Base de Conhecimento"
 description: Guia completo de troubleshooting para n8n, diagnóstico de erros, soluções rápidas, base de conhecimento pesquisável e exemplos práticos.
 sidebar_label: Troubleshooting
 keywords: [troubleshooting n8n, diagnóstico de erros, base de conhecimento n8n, soluções rápidas, problemas comuns, automação empresarial]

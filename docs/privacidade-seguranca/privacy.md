@@ -1,5 +1,5 @@
 ---
-title: Política de Privacidade n8n: Proteção de Dados, LGPD e Direitos do Usuário
+title: "Política de Privacidade n8n: Proteção de Dados, LGPD e Direitos do Usuário"
 description: Política de privacidade do n8n, proteção de dados pessoais, LGPD, direitos do titular, segurança e transparência para empresas brasileiras.
 keywords: [política de privacidade n8n, proteção de dados pessoais, LGPD, direitos do titular, segurança de dados, transparência, compliance, automação segura]
 ---

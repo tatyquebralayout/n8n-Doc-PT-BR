@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Integrações no n8n: Conecte Aplicações, APIs e Serviços com Automação
+title: "Integrações no n8n: Conecte Aplicações, APIs e Serviços com Automação"
 description: Descubra como conectar o n8n a centenas de aplicações, APIs e serviços, criando automações poderosas e integradas para empresas brasileiras.
 keywords: [n8n, integrações, conectores, integração de apps, automação de sistemas, integração Brasil, API n8n, conectores empresariais, integração de serviços, automação de processos]
 ---

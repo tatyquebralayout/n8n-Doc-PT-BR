@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Privacidade e Segurança no n8n: LGPD, Compliance e Boas Práticas para o Brasil
+title: "Privacidade e Segurança no n8n: LGPD, Compliance e Boas Práticas para o Brasil"
 description: Aprenda sobre privacidade, segurança de dados, compliance LGPD e melhores práticas para proteger workflows e dados no n8n, com foco no mercado brasileiro.
 keywords: [n8n, privacidade, segurança, lgpd, compliance, proteção de dados, segurança de dados n8n, boas práticas de privacidade, workflows seguros, compliance LGPD, segurança workflows n8n]
 ---

@@ -1,5 +1,5 @@
 ---
-title: Melhores Práticas de Segurança no n8n: Proteja Workflows, Dados e Compliance
+title: "Melhores Práticas de Segurança no n8n: Proteja Workflows, Dados e Compliance"
 description: Guia completo de melhores práticas de segurança no n8n, proteção de workflows, compliance LGPD, exemplos práticos e segurança de dados para empresas brasileiras.
 keywords: [segurança n8n, boas práticas de segurança, proteção de workflows, compliance LGPD, segurança de dados Brasil, automação segura, exemplos práticos, checklist de segurança]
 ---

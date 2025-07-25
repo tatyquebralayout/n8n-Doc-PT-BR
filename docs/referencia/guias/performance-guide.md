@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Guia de Performance no n8n: Otimize Workflows e Escalabilidade
+title: "Guia de Performance no n8n: Otimize Workflows e Escalabilidade"
 description: Guia completo para otimizar performance de workflows n8n, melhores práticas, benchmarks e escalabilidade para empresas brasileiras.
 keywords: [n8n, performance, otimização de workflows, escalabilidade, guia de performance, benchmark n8n, melhores práticas, automação empresarial]
 ---

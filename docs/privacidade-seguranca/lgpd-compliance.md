@@ -1,5 +1,5 @@
 ---
-title: Conformidade LGPD no n8n: Guia Prático, Checklist e Implementação
+title: "Conformidade LGPD no n8n: Guia Prático, Checklist e Implementação"
 description: Guia completo de conformidade LGPD no n8n, checklist, exemplos práticos, recursos para empresas brasileiras e proteção de dados pessoais.
 keywords: [LGPD n8n, compliance de dados, proteção de dados Brasil, checklist LGPD, conformidade legal, automação segura, privacidade, direitos do titular]
 ---

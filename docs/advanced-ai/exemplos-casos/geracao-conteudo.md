@@ -1,6 +1,6 @@
 ---
 sidebar_position: 5
-title: Geração de Conteúdo com IA no n8n: Automação para Marketing Digital
+title: "Geração de Conteúdo com IA no n8n: Automação para Marketing Digital"
 description: Automatize a criação de conteúdo com IA no n8n para marketing digital, copywriting, email, blog e personalização para empresas brasileiras.
 keywords: [n8n, geração de conteúdo, ia, texto, automação, marketing, email, blog, copywriting, automação Brasil, marketing digital, personalização de conteúdo]
 ---

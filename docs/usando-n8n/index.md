@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Usando n8n: Guias Práticos, Dicas e Workflows para Produtividade
+title: "Usando n8n: Guias Práticos, Dicas e Workflows para Produtividade"
 description: Guias práticos, dicas e exemplos para usar o n8n de forma eficiente, criar workflows produtivos e dominar automação empresarial.
 keywords: [n8n, guias práticos, como usar n8n, workflows, dicas de automação, produtividade n8n, exemplos, automação empresarial, melhores práticas]
 ---

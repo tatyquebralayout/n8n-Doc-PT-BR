@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Lógica e Manipulação de Dados no n8n: Workflows Inteligentes e Práticos
+title: "Lógica e Manipulação de Dados no n8n: Workflows Inteligentes e Práticos"
 description: Aprenda a dominar dados, lógica e processamento no n8n para criar workflows inteligentes, eficientes e escaláveis.
 keywords: [n8n, lógica, dados, manipulação de dados, workflow inteligente, automação, processamento de dados, boas práticas, lógica de automação, transformação de dados]
 ---

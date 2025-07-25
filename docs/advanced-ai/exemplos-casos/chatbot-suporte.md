@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Chatbot de Suporte com IA no n8n: Atendimento Inteligente e Escalável
+title: "Chatbot de Suporte com IA no n8n: Atendimento Inteligente e Escalável"
 description: Crie chatbots inteligentes para atendimento ao cliente com automação, integração com WhatsApp, análise de sentimento e compliance LGPD.
 keywords: [n8n, chatbot, suporte, atendimento, ia, cliente, escalação, sentimento, automação, WhatsApp, integração Brasil, automação de atendimento, chatbot empresarial, compliance LGPD]
 ---

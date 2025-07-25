@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Hosting n8n: Deploy, Configuração e Infraestrutura para Produção
+title: "Hosting n8n: Deploy, Configuração e Infraestrutura para Produção"
 description: Configure, faça deploy e gerencie sua instância n8n em produção, com guias para cloud, self-hosted, escalonamento, segurança e boas práticas.
 keywords: [n8n, hosting, deploy n8n, hospedagem n8n, cloud n8n, self-hosted n8n, infraestrutura n8n, produção, configuração, escalonamento, boas práticas]
 ---

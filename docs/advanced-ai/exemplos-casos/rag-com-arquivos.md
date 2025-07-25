@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: RAG com Arquivos no n8n: Busca Inteligente e Compliance para Empresas Brasileiras
+title: "RAG com Arquivos no n8n: Busca Inteligente e Compliance para Empresas Brasileiras"
 description: Implemente RAG (Retrieval-Augmented Generation) com arquivos no n8n para busca inteligente, compliance LGPD e automação de conhecimento empresarial.
 keywords: [n8n, rag, arquivos, ia, retrieval, vector database, embeddings, busca semântica, automação Brasil, compliance LGPD, assistente de documentação, busca empresarial]
 ---

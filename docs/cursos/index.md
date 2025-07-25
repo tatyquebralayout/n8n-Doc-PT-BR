@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Central de Cursos n8n: Aprenda Automação com Vídeos, Textos e Projetos
+title: "Central de Cursos n8n: Aprenda Automação com Vídeos, Textos e Projetos"
 description: Aprenda n8n com cursos gratuitos, vídeos, textos, projetos práticos e formação em automação para iniciantes e avançados no Brasil.
 keywords: [n8n, cursos, tutorial, vídeo, texto, aprender, oficial, documentação, cursos n8n Brasil, formação em automação, cursos gratuitos n8n, treinamento n8n]
 ---
