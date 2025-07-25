@@ -47,12 +47,78 @@ Domine a manipulação de dados, lógica de automação e técnicas avançadas p
 
 ### Estrutura de Dados
 
-O n8n trabalha com dados estruturados:
+No n8n, **todos os dados trafegam entre os nodes como um array de objetos**, chamados de _items_. Cada item representa uma unidade de informação processada no workflow.
 
-- **Items**: Unidades básicas de dados
-- **JSON**: Formato padrão para dados
-- **Arrays**: Coleções de itens
-- **Objects**: Estruturas complexas
+#### Estrutura de Dados no n8n
+
+No n8n, **todos os dados trafegam entre os nodes como um array de objetos**, chamados de _items_. Cada item representa uma unidade de informação processada no workflow.
+
+##### Estrutura Padrão de um Item
+
+Cada item possui, no mínimo, a chave `json` (com dados estruturados) e, opcionalmente, a chave `binary` (para arquivos e dados binários):
+
+```json
+[
+  {
+    "json": {
+      "nome": "João Silva",
+      "email": "joao@exemplo.com",
+      "idade": 30
+    }
+  },
+  {
+    "json": {
+      "nome": "Maria Souza",
+      "email": "maria@exemplo.com",
+      "idade": 28
+    },
+    "binary": {
+      "arquivo": {
+        "data": "base64...",
+        "mimeType": "application/pdf",
+        "fileName": "contrato.pdf",
+        "fileExtension": "pdf"
+      }
+    }
+  }
+]
+```
+
+##### Explicação dos Campos
+
+- **json**: Objeto com dados estruturados (campos, valores, objetos aninhados).
+- **binary**: Objeto para dados binários (arquivos, imagens, documentos).
+  - **data**: Conteúdo do arquivo em base64.
+  - **mimeType**: Tipo MIME do arquivo (ex: `image/png`, `application/pdf`).
+  - **fileName**: Nome do arquivo original.
+  - **fileExtension**: Extensão do arquivo (ex: `png`, `pdf`).
+
+##### Boas Práticas
+
+- Sempre defina `mimeType`, `fileName` e `fileExtension` ao trabalhar com arquivos binários para garantir compatibilidade e rastreabilidade.
+- Use a chave `json` para todos os dados estruturados e reserve `binary` apenas para arquivos.
+- Lembre-se: todos os nodes recebem e retornam arrays de items, mesmo que haja apenas um item no array.
+
+##### Visualização e Debug
+
+Você pode inspecionar a estrutura dos dados em cada etapa do workflow usando o node **Debug** ou a visualização de execução do n8n.
+
+##### Visualização da Estrutura de Dados (Mermaid.js)
+
+```mermaid
+flowchart TD
+  A["Array de Itens"]
+  A --> B["Item 1"]
+  A --> C["Item 2"]
+  B --> D["json"]
+  C --> E["json"]
+  C --> F["binary"]
+  F --> G["meuArquivo"]
+  G --> H["data, mimeType, fileExtension, fileName"]
+```
+
+> **Nota importante:**
+> A padronização da estrutura de dados facilita a criação de automações robustas, a integração entre diferentes nós e a manipulação de arquivos e informações em workflows complexos.
 
 ### Tipos de Dados
 
@@ -69,6 +135,50 @@ O n8n trabalha com dados estruturados:
 - **Transformação**: Modificar formato ou estrutura
 - **Validação**: Verificar integridade
 - **Enriquecimento**: Adicionar informações
+
+---
+
+## <ion-icon name="repeat-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Processamento de Itens e Fluxo de Dados nos Nós
+
+No n8n, **cada nó processa automaticamente todos os itens do array de entrada**. Isso significa que, se um node recebe 10 itens, ele executará sua lógica 10 vezes, uma para cada item, de forma independente.
+
+### Como funciona a iteração
+
+- **Entrada:** O node recebe um array de objetos (itens).
+- **Processamento:** Executa a ação para cada item individualmente (exemplo: criar um cartão no Trello para cada item).
+- **Saída:** Retorna um novo array, normalmente com a mesma quantidade de itens, mas os dados podem ser transformados, filtrados ou expandidos.
+
+#### Exemplo prático: Trello Node
+
+Se você conectar um node Trello após um node que gera múltiplos itens (ex: uma lista de tarefas), o Trello criará um cartão para **cada item** automaticamente:
+
+```mermaid
+graph TD
+    A[Lista de Tarefas] --> B[Trello Node: Criar Cartão]
+    B --> C[Cartão 1]
+    B --> D[Cartão 2]
+    B --> E[Cartão 3]
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#e8f5e8
+    style E fill:#e8f5e8
+```
+
+### Paralelismo e múltiplos ramos
+
+- **Ramos paralelos:** Quando um workflow se divide (ex: IF, Switch), cada ramo processa os itens de forma independente e paralela.
+- **Ordem de execução:** O n8n executa todos os ramos em paralelo, mas a ordem de chegada dos resultados pode variar. Se precisar sincronizar, use o node Merge.
+- **Always Output Data:** Use esta opção em ramos que podem não gerar saída, para garantir que o fluxo continue sem erros.
+
+### Boas práticas
+
+- Sempre que possível, projete seus workflows para processar múltiplos itens em lote, aproveitando o paralelismo nativo do n8n.
+- Use o node Merge para reunir dados de diferentes ramos antes de etapas finais.
+- Teste com diferentes quantidades de itens para garantir que o fluxo se comporte como esperado.
+
+> **Nota importante:**
+> O processamento item a item é automático e transparente para o usuário, tornando o n8n ideal para automações em escala, como envio de emails em massa, criação de múltiplos registros em sistemas externos ou processamento de grandes volumes de dados.
 
 ---
 
