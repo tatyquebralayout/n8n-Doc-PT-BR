@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Integrações de IA e Machine Learning no n8n: Automação Inteligente e Casos Práticos
+title: "Integrações de IA e Machine Learning no n8n: Automação Inteligente e Casos Práticos"
 description: Integrações de inteligência artificial e machine learning no n8n, automação inteligente, exemplos práticos e compliance para empresas brasileiras.
 keywords: [n8n, integrações IA, machine learning Brasil, automação inteligente, exemplos de automação, compliance nacional, casos práticos IA, integração GPT, LangChain]
 ---
