@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Inteligência Artificial Avançada no n8n: Guia Completo de Automação com IA
+title: "Inteligência Artificial Avançada no n8n: Guia Completo de Automação com IA"
 description: Guia completo sobre recursos avançados de inteligência artificial no n8n, incluindo integração com LangChain, exemplos práticos, workflows inteligentes e automação para empresas brasileiras.
 keywords: [n8n, IA, inteligência artificial, automação inteligente, integração IA n8n, workflows avançados, casos de uso IA Brasil, langchain, openai, exemplos práticos, automação empresarial]
 ---
