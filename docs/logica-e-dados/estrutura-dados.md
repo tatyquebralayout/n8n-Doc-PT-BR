@@ -71,35 +71,34 @@ Imagine um workflow que recebe dados de um formulário e um upload de imagem:
 ]
 ```
 
-## Visualização em Mermaid.js
+## Exemplo Nacional: Anexos Contratuais
 
-```mermaid
-flowchart TD
-  A["Array de Itens"]
-  B["Item"]
-  C["json"]
-  D["binary (opcional)"]
-  E["campo1: valor"]
-  F["campo2: valor"]
-  G["nome-do-arquivo"]
-  H["data (base64)"]
-  I["mimeType"]
-  J["fileExtension"]
-  K["fileName"]
+Em automações jurídicas ou empresariais no Brasil, é comum trafegar contratos digitais em PDF junto com os dados do cliente ou empresa. Veja como ficaria um item típico:
 
-  A --> B
-  B --> C
-  B --> D
-  C --> E
-  C --> F
-  D --> G
-  G --> H
-  G --> I
-  G --> J
-  G --> K
+```json
+[
+  {
+    "json": {
+      "empresa": "Empresa ABC",
+      "cnpj": "98.765.432/0001-11",
+      "contrato_id": "C-2024-001"
+    },
+    "binary": {
+      "contrato": {
+        "data": "base64...",
+        "mimeType": "application/pdf",
+        "fileExtension": "pdf",
+        "fileName": "contrato-empresa-abc.pdf"
+      }
+    }
+  }
+]
 ```
 
----
+- O campo `contrato_id` facilita rastreabilidade e integração com ERPs/CRMs.
+- O PDF do contrato é armazenado em `binary.contrato`, pronto para assinatura digital, envio por e-mail ou arquivamento.
+- Use sempre metadados corretos para garantir compatibilidade e conformidade jurídica.
 
-> **Nota importante:**
-> O padrão de dados do n8n garante flexibilidade e integração entre diferentes nós, facilitando a automação de processos complexos e o tratamento de arquivos em workflows empresariais. 
+## Visualização em Mermaid.js
+
+```
