@@ -1,8 +1,8 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Aprenda a controlar o fluxo de dados e lógica em workflows n8n
-keywords: [n8n, lógica, fluxo, controle, workflows, automação]
+title: Lógica de Fluxo
+description: Controle de fluxo, condicionais e loops no n8n
+keywords: [n8n, lógica, fluxo, condicionais, loops, controle]
 ---
 
 # <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução

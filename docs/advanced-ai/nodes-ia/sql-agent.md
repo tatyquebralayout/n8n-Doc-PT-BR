@@ -5,10 +5,10 @@ import { Icon } from '@iconify/react';
 sidebar_position: 6
 title: SQL Agent
 description: Como usar o node SQL Agent para consultas inteligentes
-keywords: [n8n, sql, agent, database, consultas]
+keywords: [n8n, sql agent, banco de dados, consultas inteligentes, automação de dados, IA para SQL, queries automáticas, análise de dados]
 ---
 
-# <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> SQL Agent
+# SQL Agent no n8n: Consultas Inteligentes com IA em Bancos de Dados
 
 Este documento descreve o **Agente SQL (SQL Agent)**, uma ferramenta de IA que pode interagir com bancos de dados.
 

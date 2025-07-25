@@ -919,7 +919,7 @@ openssl enc -aes-256-gcm -k "test-key" -in test.txt -out test.enc
 - **[Compartilhamento](./compartilhamento)** - Compartilhamento seguro
 - **[Segurança](../../hosting-n8n/seguranca/index.md)** - Configurações de segurança
 - **[LGPD](../../hosting-n8n/compliance/lgpd)** - Conformidade LGPD
-- **[Comunidade](../../comunidade/index.md)** - Suporte e dicas
+- **[Comunidade](../../comunidade/index.mdx)** - Suporte e dicas
 
 ---
 

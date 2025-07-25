@@ -1,35 +1,41 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Integre o n8n em suas aplicações através do sistema de embed
-keywords: [n8n, embed, integração, iframe, white-label, workflow]
+title: "Sistema de Embed n8n: Integração White-Label e Workflows em Aplicações"
+description: Aprenda a integrar o n8n em aplicações SaaS, personalizar interface, embed via iframe, white-label e gerenciar workflows integrados.
+keywords: [n8n, embed, integração white-label, embed workflow, iframe n8n, embed SaaS, integração em aplicações, personalização de interface, controle de workflows]
 ---
 
+# Sistema de Embed n8n: Integração White-Label e Workflows em Aplicações
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
+Bem-vindo à seção de Embed do n8n! Aqui você aprenderá como integrar o n8n em aplicações SaaS, personalizar a interface, embed via iframe, white-label, gerenciar workflows integrados e oferecer automação como serviço para seus clientes.
 
-Bem-vindo à seção de Embed do n8n! Aqui você aprenderá como integrar o n8n em suas aplicações através do sistema de embed, permitindo oferecer automação como parte de sua plataforma.
+## O que você encontrará aqui
 
----
-
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
-
-Selecione abaixo o tópico desejado para acessar guias completos de integração, configuração e gerenciamento do n8n embarcado:
-
----
-
-- [Preparação](./preparacao)
-  <br/><span style={{ color: '#6b7280' }}>Pré-requisitos técnicos, infraestrutura, domínios permitidos, CORS, segurança e checklist completo.</span>
-
-- [Implementação](./implementacao)
-  <br/><span style={{ color: '#6b7280' }}>Configuração de parâmetros, implantação em produção, SSO, performance, monitoramento e troubleshooting.</span>
-
-- [Gerenciamento](./gerenciamento)
-  <br/><span style={{ color: '#6b7280' }}>Controle de workflows, white labelling, versionamento, auditoria, backup e integração com sistemas externos.</span>
+- [Checklist de pré-requisitos para embed n8n](./preparacao/prerequisitos)
+- [Guia de configuração e implantação do embed](./implementacao/configuracao)
+- [Como gerenciar workflows integrados e white-labelling](./gerenciamento/gerenciar-workflows)
 
 ---
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Preparação {#preparacao}
+
+- **[Pré-requisitos](./preparacao/prerequisitos)** – Infraestrutura, domínios permitidos, CORS, segurança e checklist completo
+
+---
+
+## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação {#implementacao}
+
+- **[Configuração](./implementacao/configuracao)** – Parâmetros, implantação em produção, SSO, performance, monitoramento e troubleshooting
+
+---
+
+## <ion-icon name="options-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciamento {#gerenciamento}
+
+- **[Gerenciar Workflows](./gerenciamento/gerenciar-workflows)** – Controle de workflows, white labelling, versionamento, auditoria, backup e integração com sistemas externos
+
+---
+
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais {#conceitos-fundamentais}
 
 ### Sistema de Embed
 
@@ -58,7 +64,7 @@ O embed é ideal para:
 
 ---
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquitetura
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquitetura {#arquitetura}
 
 ### Componentes Principais
 
@@ -83,18 +89,12 @@ O embed é ideal para:
 
 ---
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **[Primeiros Passos](/primeiros-passos/guia-instalacao)** - Conceitos fundamentais
-- **[Hosting n8n](../hosting-n8n/instalacao)** - Configuração de instância
-- **[API](../api)** - Integração programática
+- **[Primeiros Passos](../primeiros-passos/guia-instalacao)** – Conceitos fundamentais
+- **[Hosting n8n](../hosting-n8n/instalacao)** – Configuração de instância
+- **[API](../api)** – Integração programática
 
 ---
 
-:::tip **Dica Pro**
-Comece pela seção de Preparação para garantir que todos os pré-requisitos estejam atendidos antes de implementar o embed.
-:::
-
-:::info **Recurso Adicional**
-Consulte a documentação oficial do n8n para detalhes técnicos avançados sobre o sistema de embed.
-:::
+> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Integre automação em suas aplicações e ofereça poder de workflow aos seus usuários!**</span>

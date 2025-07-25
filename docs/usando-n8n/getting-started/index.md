@@ -1,8 +1,8 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Aprenda a usar o n8n de forma eficaz - workflows, interface e execuções
-keywords: [n8n, usando, workflows, interface, execuções, automação]
+title: Getting Started
+description: Primeiros passos e quickstart para usar o n8n
+keywords: [n8n, getting started, quickstart, primeiro workflow]
 ---
 
 # <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução

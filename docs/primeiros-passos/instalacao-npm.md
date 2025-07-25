@@ -352,7 +352,7 @@ cp -r ~/.n8n/workflows/ ./backup-workflows/
 Agora que você tem o n8n rodando localmente:
 
 1. **[Criar Primeiro Workflow](./primeiro-workflow)** - Aprenda a construir workflows
-2. **[Conceitos Básicos](./conceitos-basicos)** - Entenda os fundamentos
+2. **[Conceitos Fundamentais](./conceitos-fundamentais)** - Entenda os fundamentos
 3. **[Desenvolver Nodes Customizados](../integracoes/criar-nodes/tutorial-desenvolvimento)** - Crie suas próprias integrações
 
 ### **Outros Métodos de Instalação**

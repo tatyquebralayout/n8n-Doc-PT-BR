@@ -1,44 +1,58 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Configure e gerencie sua instância n8n em produção
-keywords: [n8n, hosting, produção, configuração, deployment, servidor]
+title: "Hosting n8n: Deploy, Configuração e Infraestrutura para Produção"
+description: Configure, faça deploy e gerencie sua instância n8n em produção, com guias para cloud, self-hosted, escalonamento, segurança e boas práticas.
+keywords: [n8n, hosting, deploy n8n, hospedagem n8n, cloud n8n, self-hosted n8n, infraestrutura n8n, produção, configuração, escalonamento, boas práticas]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
+# Hosting n8n: Deploy, Configuração e Infraestrutura para Produção
 
-O n8n pode ser hospedado de várias formas, desde instalações locais até ambientes de produção escaláveis. Esta seção abrange tudo o que você precisa saber para configurar e manter uma instância n8n robusta e segura.
+O n8n pode ser hospedado de várias formas, desde instalações locais até ambientes de produção escaláveis. Esta seção abrange tudo o que você precisa saber para configurar, fazer deploy e manter uma instância n8n robusta, segura e eficiente, seja em cloud, self-hosted ou híbrido.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-### Instalação e Configuração
+- [Guia de instalação do n8n em diferentes ambientes](./instalacao/)
+- [Configuração de segurança e compliance LGPD](./seguranca/)
+- [Otimização de performance e escalonamento](./escalonamento/)
+
+---
+
+## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação e Configuração {#instalacao-e-configuracao}
 
 - **Instalação**: Guias para diferentes ambientes
 - **Configuração**: Ajuste parâmetros e variáveis
 - **Database**: Configure bancos de dados
 - **Queues**: Configure filas de processamento
 
-### Segurança e Compliance
+---
+
+## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Compliance {#seguranca-e-compliance}
 
 - **Autenticação**: Configure acesso seguro
 - **Backup e Recovery**: Proteja seus dados
 - **Monitoring**: Monitore performance e saúde
 - **LGPD**: Conformidade com regulamentações brasileiras
 
-### Escalonamento
+---
+
+## <ion-icon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalonamento {#escalonamento}
 
 - **Clustering**: Configure múltiplas instâncias
 - **Load Balancing**: Distribua carga entre servidores
 - **Performance**: Otimize para alta demanda
 
-### Cloud e On-Premises
+---
+
+## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cloud e On-Premises {#cloud-e-on-premises}
 
 - **AWS Brasil**: Deploy na Amazon Web Services
 - **Azure Brasil**: Deploy no Microsoft Azure
 - **GCP Brasil**: Deploy no Google Cloud Platform
 - **Docker**: Containerização e orquestração
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
+---
+
+## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais {#conceitos-fundamentais}
 
 ### Tipos de Deploy
 
@@ -61,7 +75,9 @@ O n8n pode ser hospedado de várias formas, desde instalações locais até ambi
 - **Storage**: SSD recomendado para performance
 - **Network**: Conexão estável para APIs externas
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquiteturas de Deploy
+---
+
+## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquiteturas de Deploy {#arquiteturas-de-deploy}
 
 ### Single Instance
 
@@ -89,49 +105,23 @@ Para ambientes complexos e escaláveis:
 - **Configuration Management**: Gerenciamento centralizado
 - **Monitoring**: Observabilidade completa
 
+---
+
 ## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
 
 1. **Escolha sua [Instalação](./instalacao/)** baseada em suas necessidades
 2. **Configure [Segurança](./seguranca/)** para proteger sua instância
 3. **Otimize [Performance](./escalonamento/)** para sua carga de trabalho
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
+---
 
-### Segurança
+## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 
-- **Use HTTPS** em produção
-- **Configure autenticação** adequada
-- **Monitore logs** regularmente
-- **Mantenha atualizações** em dia
-
-### Performance
-
-- **Use SSD** para armazenamento
-- **Configure cache** adequadamente
-- **Monitore recursos** do sistema
-- **Otimize queries** de banco de dados
-
-### Backup
-
-- **Backup regular** de workflows
-- **Backup de banco de dados** diário
-- **Teste restauração** periodicamente
-- **Armazene backups** em local seguro
-
-### Monitoramento
-
-- **Configure alertas** para problemas
-- **Monitore métricas** de performance
-- **Log centralizado** para análise
-- **Dashboard** para visibilidade
-
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
-
-- **[Primeiros Passos](../primeiros-passos/)** - Conceitos básicos
-- **[Usando n8n](../usando-n8n/index.md)** - Guias práticos
-- **[API](../api/)** - Automação via API
-- **[Comunidade](../comunidade/)** - Suporte e discussões
+- **[Primeiros Passos](../primeiros-passos/)** – Conceitos básicos
+- **[Usando n8n](../usando-n8n/index.md)** – Guias práticos
+- **[API](../api/)** – Automação via API
+- **[Comunidade](../comunidade/)** – Suporte e discussões
 
 ---
 
-**<ion-icon name="server-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Configure sua infraestrutura para automações em escala!**
+> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Configure sua infraestrutura para automações em escala e leve o n8n para produção!**</span>

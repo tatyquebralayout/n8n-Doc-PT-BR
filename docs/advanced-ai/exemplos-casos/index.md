@@ -1,21 +1,21 @@
 ---
 sidebar_position: 1
-title: Visão Geral - Exemplos e Casos de Uso
-description: Exemplos práticos e implementações completas de IA no n8n para casos de uso brasileiros
-keywords: [n8n, ia, exemplos, casos de uso, práticos, implementação, chatbot, rag, classificação, geração]
+title: Exemplos Práticos de IA no n8n para Empresas Brasileiras
+description: Exemplos práticos, implementações completas e casos de uso de IA no n8n para automação inteligente em empresas brasileiras.
+keywords: [n8n, ia, exemplos práticos, automação inteligente, casos de uso IA Brasil, workflows empresariais, chatbot, rag, classificação automática, geração de conteúdo, integração Brasil, compliance LGPD]
 ---
 
 :::warning
 <ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
 :::
 
-# <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral - Exemplos e Casos de Uso
+# Exemplos Práticos de IA no n8n para Empresas Brasileiras
 
-Esta seção apresenta exemplos práticos e implementações completas de IA no n8n, desenvolvidos especificamente para o contexto brasileiro. Cada caso de uso inclui workflows funcionais, configurações detalhadas e integrações com sistemas locais.
+Esta seção reúne exemplos práticos e implementações completas de IA no n8n, voltados para automação inteligente, atendimento ao cliente, classificação de dados, geração de conteúdo e busca semântica, com foco em empresas brasileiras e integração com sistemas locais. Cada caso de uso inclui workflows funcionais, configurações detalhadas e orientações para compliance LGPD.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Disponíveis
+## Casos de Uso Disponíveis
 
-### <ion-icon name="chatbubble-ellipses-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [Chatbot de Suporte - Atendimento Inteligente](./chatbot-suporte)
+### [Veja como criar um chatbot de atendimento inteligente com IA no n8n](./chatbot-suporte)
 
 **Implementação completa** de chatbot inteligente para atendimento ao cliente com:
 
@@ -27,7 +27,7 @@ Esta seção apresenta exemplos práticos e implementações completas de IA no 
 
 **Ideal para:** E-commerce, SaaS, bancos digitais e empresas com alto volume de atendimento.
 
-### <ion-icon name="grid-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [RAG com Arquivos - Sistema de Busca Inteligente](./rag-com-arquivos)
+### [Implemente busca inteligente em documentos empresariais com RAG no n8n](./rag-com-arquivos)
 
 **Sistema completo** de RAG (Retrieval-Augmented Generation) para documentos empresariais:
 
@@ -39,7 +39,7 @@ Esta seção apresenta exemplos práticos e implementações completas de IA no 
 
 **Ideal para:** Empresas com documentação extensa, manuais de procedimentos, bases de conhecimento.
 
-### <ion-icon name="analytics-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [Classificação de Dados com IA - Automatização Inteligente](./classificacao-dados)
+### [Aprenda a implementar classificação automática de tickets com IA no n8n](./classificacao-dados)
 
 **Sistema avançado** de classificação automática para tickets e conteúdo:
 
@@ -51,7 +51,7 @@ Esta seção apresenta exemplos práticos e implementações completas de IA no 
 
 **Ideal para:** Centros de suporte, e-commerce, SaaS, bancos digitais.
 
-### <ion-icon name="sparkles-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> [Geração de Conteúdo com IA - Criação Automatizada](./geracao-conteudo)
+### [Descubra como automatizar a geração de conteúdo para marketing digital com IA no n8n](./geracao-conteudo)
 
 **Plataforma completa** de geração de conteúdo para marketing digital:
 

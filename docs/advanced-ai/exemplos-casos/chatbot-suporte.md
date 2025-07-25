@@ -1,11 +1,13 @@
 ---
 sidebar_position: 1
-title: Chatbot de Suporte - Atendimento Inteligente
-description: Crie chatbots inteligentes para atendimento ao cliente com escalação automática e análise de sentimento
-keywords: [n8n, chatbot, suporte, atendimento, ia, cliente, escalação, sentimento]
+title: "Chatbot de Suporte com IA no n8n: Atendimento Inteligente e Escalável"
+description: Crie chatbots inteligentes para atendimento ao cliente com automação, integração com WhatsApp, análise de sentimento e compliance LGPD.
+keywords: [n8n, chatbot, suporte, atendimento, ia, cliente, escalação, sentimento, automação, WhatsApp, integração Brasil, automação de atendimento, chatbot empresarial, compliance LGPD]
 ---
 
-# <ion-icon name="chatbubble-ellipses-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Chatbot de Suporte - Atendimento Inteligente
+# Chatbot de Suporte com IA no n8n: Atendimento Inteligente e Escalável
+
+Este guia ensina como criar chatbots inteligentes para atendimento ao cliente usando n8n, com automação de atendimento, integração com WhatsApp Business API, análise de sentimento, compliance LGPD e recursos avançados para empresas brasileiras que buscam eficiência e escalabilidade.
 
 :::warning **Validação em Andamento**
 <ion-icon name="time-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> **Este workflow está sendo validado tecnicamente e será testado em breve.**

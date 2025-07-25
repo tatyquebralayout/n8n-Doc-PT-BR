@@ -1,13 +1,13 @@
 ---
 sidebar_position: 5
-title: Geração de Conteúdo com IA - Criação Automatizada
-description: Automatize a criação de conteúdo usando IA para gerar textos, emails, relatórios e materiais de marketing
-keywords: [n8n, geração, conteúdo, ia, texto, automação, marketing, email, blog]
+title: "Geração de Conteúdo com IA no n8n: Automação para Marketing Digital"
+description: Automatize a criação de conteúdo com IA no n8n para marketing digital, copywriting, email, blog e personalização para empresas brasileiras.
+keywords: [n8n, geração de conteúdo, ia, texto, automação, marketing, email, blog, copywriting, automação Brasil, marketing digital, personalização de conteúdo]
 ---
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Geração de Conteúdo com IA - Criação Automatizada
+# Geração de Conteúdo com IA no n8n: Automação para Marketing Digital
 
-Este guia ensina como implementar sistemas de geração automática de conteúdo usando IA no n8n, permitindo criar textos, emails, relatórios e materiais de marketing de forma inteligente e personalizada.
+Este guia ensina como implementar sistemas de geração automática de conteúdo com IA no n8n, otimizando copywriting, marketing digital, personalização de mensagens e automação de campanhas para empresas brasileiras.
 
 ## Caso de Uso: Marketing Digital Brasileiro
 

@@ -1,7 +1,8 @@
 ---
 sidebar_position: 1
-title: Preparação do Embed
-description: Visão geral dos pré-requisitos e preparação necessária para integrar o n8n embarcado em sua aplicação.
+title: Preparação
+description: Pré-requisitos e preparação para embed do n8n
+keywords: [n8n, embed, preparação, pré-requisitos, infraestrutura]
 ---
 
 :::info
@@ -25,5 +26,5 @@ Revise todos os pré-requisitos antes de começar a implementação. Isso garant
 :::
 
 :::info **Recurso Adicional**
-Consulte a seção de [Hosting n8n](../../hosting-n8n/instalacao.md) para detalhes sobre configuração de instância e infraestrutura.
+Consulte a seção de [Hosting n8n](../../hosting-n8n/instalacao/index.md) para detalhes sobre configuração de instância e infraestrutura.
 :::

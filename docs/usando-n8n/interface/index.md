@@ -3,10 +3,10 @@
 :::
 
 ---
-sidebar_position: 1
-title: Introdução
-description: Explore a interface do n8n - navegação, componentes e funcionalidades
-keywords: [n8n, interface, navegação, editor, componentes, ui]
+sidebar_position: 2
+title: Interface
+description: Navegação e editor UI do n8n
+keywords: [n8n, interface, editor, navegação, ui]
 ---
 
 # <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução

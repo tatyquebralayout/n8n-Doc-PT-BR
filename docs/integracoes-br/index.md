@@ -39,7 +39,7 @@ Integrações com serviços financeiros brasileiros:
 - **PIX**: Integração com sistema PIX
 - **Cartões**: Processamento de cartões de crédito
 
-[Ver integrações financeiras →](/integracoes-br/financeiro/index)
+[Ver integrações financeiras →](./financeiro/compliance-fiscal)
 
 ### <ion-icon name="library-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Governo
 
@@ -51,7 +51,7 @@ APIs e serviços governamentais brasileiros:
 - **SERPRO**: Serviços de dados públicos
 - **IBGE**: Dados estatísticos
 
-[Ver integrações governamentais →](/integracoes-br/governo/index)
+[Ver integrações governamentais →](./governo/cnpj-receita)
 
 ### <ion-icon name="location-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Localização
 
@@ -63,7 +63,7 @@ Ferramentas de localização e geolocalização:
 - **Roteamento**: Cálculo de rotas
 - **Zonas de entrega**: Definição de áreas de cobertura
 
-[Ver integrações de localização →](/integracoes-br/localizacao/index)
+[Ver integrações de localização →](./localizacao/viacep)
 
 ## Integrações Financeiras
 
@@ -402,8 +402,8 @@ Pedido → Cálculo Rota → Agendamento → Coleta → Entrega → Confirmaçã
 
 ## Próximos Passos
 
-- [Integrações Financeiras](/integracoes-br/financeiro/index) - Serviços financeiros brasileiros
-- [Integrações Governamentais](/integracoes-br/governo/index) - APIs governamentais
-- [Integrações de Localização](/integracoes-br/localizacao/index) - Ferramentas de localização
-- [Compliance LGPD](/privacidade-seguranca/lgpd-compliance) - Conformidade com LGPD
-- [Segurança](/privacidade-seguranca/security-best-practices) - Boas práticas de segurança
+- [Integrações Financeiras](./financeiro/compliance-fiscal) - Serviços financeiros brasileiros
+- [Integrações Governamentais](./governo/cnpj-receita) - APIs governamentais
+- [Integrações de Localização](./localizacao/viacep) - Ferramentas de localização
+- [Compliance LGPD](../privacidade-seguranca/lgpd-compliance) - Conformidade com LGPD
+- [Segurança](../privacidade-seguranca/security-best-practices) - Boas práticas de segurança

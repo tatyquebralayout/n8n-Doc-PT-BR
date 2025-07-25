@@ -386,7 +386,7 @@ await Promise.all(promises);
 - **[Execuções](../../usando-n8n/execucoes/index.md)** - Monitoramento de performance
 - **[Lógica e Dados](../../logica-e-dados/index.md)** - Técnicas avançadas
 - **[Referência](../../referencia/index.md)** - Documentação técnica
-- **[Comunidade](../../comunidade/index.md)** - Exemplos e dicas
+- **[Comunidade](../../comunidade/index.mdx)** - Exemplos e dicas
 
 ---
 

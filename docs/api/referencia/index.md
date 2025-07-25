@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Visão Geral - Referência da API
+title: Visão Geral
 description: Encontre a documentação detalhada para cada endpoint da API REST do n8n.
 keywords: [n8n, api, referência, endpoints, documentação]
 ---

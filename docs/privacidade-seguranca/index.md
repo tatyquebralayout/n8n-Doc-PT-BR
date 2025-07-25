@@ -1,29 +1,20 @@
 ---
 sidebar_position: 1
-title: Privacidade e Segurança
-description: Aprenda sobre privacidade e segurança no n8n, incluindo conformidade com LGPD e melhores práticas para o mercado brasileiro
-keywords: [n8n, privacidade, segurança, lgpd, compliance, proteção de dados]
+title: "Privacidade e Segurança no n8n: LGPD, Compliance e Boas Práticas para o Brasil"
+description: Aprenda sobre privacidade, segurança de dados, compliance LGPD e melhores práticas para proteger workflows e dados no n8n, com foco no mercado brasileiro.
+keywords: [n8n, privacidade, segurança, lgpd, compliance, proteção de dados, segurança de dados n8n, boas práticas de privacidade, workflows seguros, compliance LGPD, segurança workflows n8n]
 ---
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Privacidade e Segurança no n8n
+# Privacidade e Segurança no n8n: LGPD, Compliance e Boas Práticas para o Brasil
 
-O n8n está comprometido com a privacidade e segurança dos seus dados. Esta seção aborda como o n8n gerencia e protege seus dados, com foco especial na conformidade com a LGPD (Lei Geral de Proteção de Dados) e nas melhores práticas para o mercado brasileiro.
+O n8n está comprometido com a privacidade e segurança dos seus dados. Esta seção aborda como o n8n gerencia e protege dados, com foco especial em compliance LGPD, proteção de dados, segurança para empresas brasileiras e melhores práticas para workflows seguros.
 
-## <ion-icon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## O que você encontrará aqui
 
-### Políticas e Conformidade
-
-- **[Política de Privacidade](./privacy)**: Como o n8n coleta, usa e protege seus dados
-- **[Conformidade LGPD](./lgpd-compliance)**: Implementação da Lei Geral de Proteção de Dados
-- **[Melhores Práticas de Segurança](./security-best-practices)**: Recomendações para proteger seus workflows
-- **[Resposta a Incidentes](./incident-response)**: Procedimentos para lidar com violações de segurança
-
-### Implementação Prática
-
-- **[Configuração de Segurança](./security-configuration)**: Configurar n8n de forma segura
-- **[Criptografia de Dados](./data-encryption)**: Proteger dados sensíveis
-- **[Controle de Acesso](./access-control)**: Gerenciar permissões e autenticação
-- **[Auditoria e Logs](./audit-logs)**: Monitorar e registrar atividades
+- [Guia completo de conformidade LGPD no n8n](./lgpd-compliance)
+- [Política de privacidade e proteção de dados](./privacy)
+- [Melhores práticas de segurança para workflows](./security-best-practices)
+- [Configuração segura do n8n (em desenvolvimento)](./security-configuration)
 
 ## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Compromisso com a Privacidade
 
@@ -94,7 +85,7 @@ Para suporte específico no Brasil:
 1. **Leia a [Política de Privacidade](./privacy)** para entender como seus dados são tratados
 2. **Conheça a [Conformidade LGPD](./lgpd-compliance)** para entender seus direitos
 3. **Implemente [Melhores Práticas de Segurança](./security-best-practices)** em seus workflows
-4. **Configure [Segurança](./security-configuration)** adequadamente em sua instalação
+4. **Configure [Segurança](./security-configuration)** *(Em desenvolvimento)* adequadamente em sua instalação
 
 ## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
 

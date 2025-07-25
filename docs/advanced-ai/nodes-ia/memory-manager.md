@@ -1,11 +1,11 @@
 ---
 sidebar_position: 3
-title: Memory Manager
+title: "Memory Manager"
 description: Como usar o node Memory Manager para gerenciar memória de conversação
-keywords: [n8n, memory, manager, conversação, contexto]
+keywords: [n8n, memory, manager, conversa, contexto, persistência de contexto, RAG, memória conversacional, IA empresarial]
 ---
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Memory Manager
+# Memory Manager no n8n: Gerenciamento de Memória e Contexto em IA
 
 Este documento descreve o **Gerenciador de Memória (Memory Manager)**, que permite que um agente de IA se lembre de interações passadas.
 

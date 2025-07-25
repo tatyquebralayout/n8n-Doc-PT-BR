@@ -16,14 +16,10 @@ const sidebars: SidebarsConfig = {
         'primeiros-passos/index',
         'primeiros-passos/conceitos-fundamentais',
         'primeiros-passos/guia-instalacao',
-        'primeiros-passos/instalacao',
-        'primeiros-passos/instalacao-cloud',
-        'primeiros-passos/instalacao-npm',
-        'primeiros-passos/instalacao-self-hosted',
-        'primeiros-passos/conceitos-basicos',
         'primeiros-passos/conectar-aplicacoes',
         'primeiros-passos/primeiro-workflow',
-        'primeiros-passos/faq'
+        'primeiros-passos/faq',
+        'primeiros-passos/troubleshooting'
       ],
     },
     {
@@ -334,7 +330,6 @@ const sidebars: SidebarsConfig = {
       label: 'Hosting n8n',
       items: [
         'hosting-n8n/index',
-        'hosting-n8n/instalacao',
         {
           type: 'category',
           label: 'Instalação',
@@ -549,9 +544,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Contribuir com Esta Documentação',
           items: [
-            'contribuir/esta-documentacao/index',
-            'contribuir/esta-documentacao/guidelines',
-            'contribuir/esta-documentacao/guidelines',
+                         'contribuir/esta-documentacao/index',
+             'contribuir/esta-documentacao/guidelines',
             {
               type: 'category',
               label: 'Entendendo o Projeto',

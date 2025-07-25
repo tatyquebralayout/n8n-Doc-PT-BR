@@ -26,19 +26,19 @@ Bem-vindo ao mundo da automação! Este guia foi criado especialmente para quem 
 ## 📚 Conteúdo do Curso
 
 ### Módulo 1: Fundamentos
-- **[Introdução à Automação](./modulo-1/introducao-automacao.md)**
-- **[Primeiros Conceitos](./modulo-1/primeiros-conceitos.md)**
-- **[Configuração Inicial](./modulo-1/configuracao-inicial.md)**
+- **[Introdução à Automação](./modulo-1/introducao-automacao.md)** - Em desenvolvimento
+- **[Primeiros Conceitos](./modulo-1/primeiros-conceitos.md)** - Em desenvolvimento
+- **[Configuração Inicial](./modulo-1/configuracao-inicial.md)** - Em desenvolvimento
 
 ### Módulo 2: Primeiro Workflow
-- **[Criando seu Primeiro Workflow](./modulo-2/primeiro-workflow.md)**
-- **[Conectando Aplicações](./modulo-2/conectando-aplicacoes.md)**
-- **[Testando e Depurando](./modulo-2/testando-depurando.md)**
+- **[Criando seu Primeiro Workflow](./modulo-2/primeiro-workflow.md)** - Em desenvolvimento
+- **[Conectando Aplicações](./modulo-2/conectando-aplicacoes.md)** - Em desenvolvimento
+- **[Testando e Depurando](./modulo-2/testando-depurando.md)** - Em desenvolvimento
 
 ### Módulo 3: Automações Práticas
-- **[Notificações Automáticas](./modulo-3/notificacoes-automaticas.md)**
-- **[Sincronização de Dados](./modulo-3/sincronizacao-dados.md)**
-- **[Relatórios Automáticos](./modulo-3/relatorios-automaticos.md)**
+- **[Notificações Automáticas](./modulo-3/notificacoes-automaticas.md)** - Em desenvolvimento
+- **[Sincronização de Dados](./modulo-3/sincronizacao-dados.md)** - Em desenvolvimento
+- **[Relatórios Automáticos](./modulo-3/relatorios-automaticos.md)** - Em desenvolvimento
 
 ## 💡 Projetos Práticos
 
@@ -169,7 +169,7 @@ npx n8n
 
 ## 🎯 Próximos Passos
 
-1. **Comece com o [Módulo 1](./modulo-1/introducao-automacao.md)**
+1. **Comece com o [Módulo 1](./modulo-1/introducao-automacao.md)** - Em desenvolvimento
 2. **Pratique cada conceito antes de prosseguir**
 3. **Junte-se à [comunidade](../como-participar.md)**
 4. **Compartilhe seus primeiros workflows**

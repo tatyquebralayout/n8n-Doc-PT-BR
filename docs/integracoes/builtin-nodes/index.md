@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
-title: Introdução
-description: Nodes nativos e built-in do n8n para funcionalidades fundamentais
-keywords: [n8n, builtin nodes, nodes nativos, funcionalidades básicas, core nodes]
+sidebar_position: 2
+title: Built-in Nodes
+description: Nodes nativos e funcionalidades básicas do n8n
+keywords: [n8n, built-in nodes, funcionalidades, core, http, dados]
 ---
 
 # <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução

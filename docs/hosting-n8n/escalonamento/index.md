@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 title: Escalonamento
-description: Guias completos para escalar n8n em produção com alta disponibilidade e performance
-keywords: [n8n, escalonamento, clustering, load balancing, performance, alta disponibilidade]
+description: Escale sua instância n8n para alta disponibilidade e performance
+keywords: [n8n, escalonamento, clustering, load balancing, performance]
 ---
 
 :::info

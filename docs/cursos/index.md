@@ -1,34 +1,39 @@
 ---
 sidebar_position: 1
-title: Introdução
-description: Aprenda n8n com os cursos oficiais em vídeo e texto, com resumos e guias em português.
-keywords: [n8n, cursos, tutorial, vídeo, texto, aprender, oficial, documentação]
+title: "Central de Cursos n8n: Aprenda Automação com Vídeos, Textos e Projetos"
+description: Aprenda n8n com cursos gratuitos, vídeos, textos, projetos práticos e formação em automação para iniciantes e avançados no Brasil.
+keywords: [n8n, cursos, tutorial, vídeo, texto, aprender, oficial, documentação, cursos n8n Brasil, formação em automação, cursos gratuitos n8n, treinamento n8n]
 ---
 
+# Central de Cursos n8n: Aprenda Automação com Vídeos, Textos e Projetos
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
+Bem-vindo à central de aprendizado n8n! Aqui você encontra cursos gratuitos, vídeos, textos, projetos práticos e formação em automação para iniciantes e avançados, com conteúdo adaptado para a comunidade brasileira.
 
-Bem-vindo à nossa central de aprendizado n8n! Esta seção oferece um **guia em português para os cursos oficiais** criados pela equipe do n8n.
+## O que você encontrará aqui
 
-:::info  **Cursos Oficiais**
-Todos os cursos aqui são **baseados na documentação oficial do n8n** e adaptados para a comunidade brasileira. Mantemos fidelidade ao conteúdo original enquanto adicionamos contexto local e traduções.
-:::
+- [Curso de Iniciante em Vídeo no YouTube](cursos-em-video/curso-iniciante)
+- [Curso Avançado em Vídeo para recursos empresariais](cursos-em-video/curso-avancado)
+- [Curso em Texto Nível 1: automação de marketing](cursos-em-texto/nivel-um/capitulo-1)
+- [Curso em Texto Nível 2: workflows empresariais](cursos-em-texto/nivel-dois/capitulo-1)
+- [Guias da Comunidade para automação de iniciantes](../comunidade/automacao-iniciantes/index.md)
+- [Saiba como contribuir para os cursos n8n Brasil](../contribuir/esta-documentacao)
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Funciona
+---
+
+## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Funciona {#como-funciona}
 
 :::tip  **Nosso Formato**
-
-- **Resumos em Português:** Cada capítulo aqui é um resumo do conteúdo oficial.
+- **Resumos em Português:** Cada capítulo é um resumo do conteúdo oficial.
 - **Links para o Original:** Sempre forneceremos o link para o curso completo em inglês.
-- **Adaptação Brasileira:** Adicionamos notas e dicas relevantes para o contexto local.
+- **Adaptação Brasileira:** Notas e dicas relevantes para o contexto local.
 - **Conteúdo Oficial:** Baseado na documentação oficial do n8n.
 :::
 
 ---
 
-## <ion-icon name="videocam-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cursos em Vídeo (YouTube)
+## <ion-icon name="videocam-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cursos em Vídeo {#cursos-em-video}
 
-O n8n oferece **cursos completos em formato de vídeo** no YouTube, ideais para quem prefere aprendizado visual e interativo.
+O n8n oferece cursos completos em formato de vídeo no YouTube, ideais para quem prefere aprendizado visual e interativo.
 
 ### Curso de Iniciante (Beginner Course)
 
@@ -54,9 +59,9 @@ O n8n oferece **cursos completos em formato de vídeo** no YouTube, ideais para 
 
 ---
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cursos em Texto (Documentação Oficial)
+## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Cursos em Texto {#cursos-em-texto}
 
-Para quem prefere **ler e seguir no próprio ritmo**, a documentação oficial do n8n oferece cursos baseados em texto com projetos práticos.
+Para quem prefere ler e seguir no próprio ritmo, a documentação oficial do n8n oferece cursos baseados em texto com projetos práticos.
 
 ### Nível 1 (Level One)
 
@@ -82,32 +87,33 @@ Para quem prefere **ler e seguir no próprio ritmo**, a documentação oficial d
 
 ---
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Escolher seu Curso
+## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Escolher seu Curso {#como-escolher-seu-curso}
 
 ### Para Iniciantes
-
 1. **Comece com o [Curso de Iniciante em Vídeo](cursos-em-video/curso-iniciante)** para uma introdução visual
 2. **Continue com o [Nível 1 em Texto](cursos-em-texto/nivel-um/capitulo-1)** para aprofundar
 3. **Pratique com os [Guias da Comunidade](../comunidade/automacao-iniciantes/index.md)**
 
 ### Para Desenvolvedores
-
 1. **Complete o [Nível 1](cursos-em-texto/nivel-um/capitulo-1)** para fundamentos sólidos
 2. **Avance para o [Nível 2](cursos-em-texto/nivel-dois/capitulo-1)** para técnicas avançadas
 3. **Explore o [Curso Avançado em Vídeo](cursos-em-video/curso-avancado)** para recursos empresariais
 
 ### Para Empresas
-
 1. **Foque no [Nível 2](cursos-em-texto/nivel-dois/capitulo-1)** para workflows empresariais
 2. **Consulte [Hosting n8n](../hosting-n8n/index.md)** para deployment
 3. **Explore [IA Avançada](../advanced-ai/index.md)** para automações inteligentes
 
 ---
 
-## <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Feito pela Comunidade
+## <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Feito pela Comunidade {#feito-pela-comunidade}
 
 :::note  **Contribuição**
 Estes cursos são mantidos por **voluntários apaixonados por automação**. Contribua você também!
 :::
 
 **[Saiba como contribuir](../contribuir/esta-documentacao)**
+
+---
+
+> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Aprender, compartilhar e contribuir: juntos, levamos o n8n mais longe no Brasil!**</span>

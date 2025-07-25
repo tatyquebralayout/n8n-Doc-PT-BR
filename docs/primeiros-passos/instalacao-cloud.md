@@ -531,7 +531,7 @@ O sistema monitora automaticamente e avisa quando algo precisa de atenção:
 Agora que você conhece o n8n Cloud:
 
 1. **[Criar Primeiro Workflow](./primeiro-workflow)** - Aprenda a construir workflows
-2. **[Conceitos Básicos](./conceitos-basicos)** - Entenda os fundamentos
+2. **[Conceitos Fundamentais](./conceitos-fundamentais)** - Entenda os fundamentos
 3. **[Integrações](../integracoes/)** - Conecte suas aplicações
 
 

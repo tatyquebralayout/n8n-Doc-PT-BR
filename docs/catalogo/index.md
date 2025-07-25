@@ -1,15 +1,19 @@
 ---
 sidebar_position: 1
-title: Catálogo de Integrações
-description: Explore todas as integrações disponíveis no n8n organizadas por categoria
-keywords: [n8n, integrações, nodes, automação, categorias]
+title: "Catálogo de Integrações n8n: Encontre e Compare Conectores para Automação"
+description: Explore todas as integrações disponíveis no n8n, encontre conectores para automação, integrações para o mercado brasileiro e dicas para uso eficiente.
+keywords: [n8n, catálogo de integrações, lista de nodes, integrações Brasil, automação de sistemas, conectores n8n, automação empresarial, integrações populares, conectores para empresas]
 ---
 
-# <ion-icon name="apps-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Catálogo de Integrações
+# Catálogo de Integrações n8n: Encontre e Compare Conectores para Automação
 
-Bem-vindo ao **Catálogo de Integrações** do n8n Brasil!
+Bem-vindo ao Catálogo de Integrações do n8n Brasil! Aqui você encontra todas as integrações disponíveis no n8n, organizadas por categoria, com foco em conectores para automação, integrações para o mercado brasileiro e dicas para uso eficiente em empresas.
 
-Aqui você encontra todas as integrações disponíveis no n8n, organizadas por categoria para facilitar sua busca. Cada integração permite conectar o n8n com diferentes serviços, APIs e ferramentas.
+## O que você encontrará aqui
+
+- [Veja a documentação oficial de integrações do n8n](https://docs.n8n.io/integrations/)
+- [Explore integrações específicas para o Brasil](../integracoes-br/)
+- [Guia de credenciais e autenticação para integrações](../integracoes/credential-nodes/)
 
 :::tip **Dica Pro**
 Comece com integrações simples como **HTTP Request** e **Webhook** para entender o conceito, depois evolua para integrações mais complexas.
@@ -329,4 +333,4 @@ Verifique os limites de rate limiting e quotas de cada integração para evitar 
 
 > <ion-icon name="quote-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **Pronto para integrar?** Escolha uma categoria e comece a automatizar!
 >
-> Para mais detalhes sobre cada integração, visite a [documentação oficial do n8n](https://docs.n8n.io/integrations/).
+> Para mais detalhes sobre cada integração, visite a [documentação oficial do n8n](https://docs.n8n.io/integrations/) ou explore nossa [documentação de integrações](../integracoes/).
