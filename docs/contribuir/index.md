@@ -1,5 +1,5 @@
 ---
-title: Como Contribuir: Guia Completo para Colaborar com a Documentação n8n Brasil
+title: "Como Contribuir: Guia Completo para Colaborar com a Documentação n8n Brasil"
 description: Guia completo para contribuir com a documentação do n8n em português, incluindo tradução, revisão, exemplos brasileiros e colaboração open source.
 sidebar_position: 1
 keywords: [contribuir, documentação, n8n, open source, português, contribuição open source, documentação colaborativa, tradução n8n, comunidade n8n Brasil, guia de contribuição]

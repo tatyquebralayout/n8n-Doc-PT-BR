@@ -1,5 +1,5 @@
 ---
-title: Node Agente de IA no n8n
+title: "Node Agente de IA no n8n"
 description: Guia completo sobre o node Agente de IA no n8n, incluindo configuração, casos de uso e integração com LLMs.
 keywords: [n8n, agente de IA, automação com IA, integração GPT, workflow inteligente, chatbot n8n, tomada de decisão, IA contextual]
 ---

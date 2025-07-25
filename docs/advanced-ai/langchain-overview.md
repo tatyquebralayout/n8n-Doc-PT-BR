@@ -1,5 +1,5 @@
 ---
-title: Visão Geral de LangChain no n8n
+title: "Visão Geral de LangChain no n8n"
 description: Entenda como integrar LangChain ao n8n para criar automações inteligentes com IA, chains, agents, memory systems e bancos vetoriais.
 keywords: [n8n, langchain, integração IA, chains, agents, memory, vector database, automação inteligente, workflow IA, português brasileiro]
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Memory Manager
+title: "Memory Manager"
 description: Como usar o node Memory Manager para gerenciar memória de conversação
 keywords: [n8n, memory, manager, conversa, contexto, persistência de contexto, RAG, memória conversacional, IA empresarial]
 ---
