@@ -199,24 +199,42 @@ const config: Config = {
           'aria-label': 'Como contribuir com a documentação e o projeto n8n Brasil',
           title: 'Como contribuir com a documentação e o projeto n8n Brasil',
           items: [
-            { label: 'Contribuir com n8n oficial', to: '/contribuir/n8n-oficial', title: 'Contribuir com n8n oficial' },
-            { label: 'Contribuir com Esta Documentação', to: '/contribuir/esta-documentacao', title: 'Contribuir com Esta Documentação' },
+            { label: 'Como Contribuir', to: '/contribuir', title: 'Como Contribuir com a Documentação n8n Brasil' },
+            { label: 'n8n Oficial', to: '/contribuir/n8n-oficial', title: 'Contribuir com o n8n Oficial' },
+            { label: 'Código de Conduta', to: '/contribuir/codigo-conduta', title: 'Código de Conduta da Comunidade n8n Brasil' },
           ],
         },
+
+        // Dropdown "Recursos" - Agrupa recursos adicionais
         {
-          label: 'Catálogo de Workflows',
-          to: '/catalogo',
+          type: 'dropdown',
+          label: 'Recursos',
           position: 'left',
-          className: 'navbar-catalog-link',
-          'aria-label': 'Catálogo de Workflows n8n Brasil',
-          title: 'Catálogo de Workflows n8n Brasil',
+          className: 'navbar-resources-dropdown',
+          'aria-label': 'Recursos adicionais, referência e histórico do n8n',
+          title: 'Recursos adicionais, referência e histórico do n8n',
+          items: [
+            { label: 'Referência', to: '/referencia', title: 'Referência e Recursos n8n' },
+            { label: 'Release Notes', to: '/release-notes', title: 'Release Notes e Atualizações n8n' },
+            { label: 'Privacidade e Segurança', to: '/privacidade-seguranca', title: 'Privacidade e Segurança n8n' },
+            { label: 'FAQ', to: '/primeiros-passos/faq', title: 'Perguntas Frequentes n8n' },
+          ],
         },
-        // {
-        //   to: '/release-notes',
-        //   label: 'Release Notes',
-        //   position: 'left',
-        //   className: 'navbar-release-notes-link',
-        // },
+
+        // Botão "GitHub" - Link direto para o repositório
+        {
+          href: 'https://github.com/n8n-brasil/n8n-Doc-PT-BR',
+          position: 'right',
+          className: 'navbar-github-link',
+          'aria-label': 'Acesse o repositório no GitHub',
+          title: 'Acesse o repositório no GitHub',
+          children: [
+            {
+              type: 'html',
+              value: '<ion-icon name="logo-github" style="font-size: 1.5rem; color: #333;"></ion-icon>',
+            },
+          ],
+        },
       ],
     },
 
@@ -231,7 +249,7 @@ const config: Config = {
               to: '/primeiros-passos/guia-instalacao',
             },
             {
-              label: 'Usando n8n',
+              label: 'Guias Avançados',
               to: '/usando-n8n',
             },
             {
@@ -248,20 +266,20 @@ const config: Config = {
           title: 'Comunidade',
           items: [
             {
-              label: 'Discord',
-              href: 'https://discord.gg/n8n',
+              label: 'Como Participar',
+              to: '/comunidade/como-participar',
+            },
+            {
+              label: 'Artigos',
+              to: '/comunidade/automacao-iniciantes',
+            },
+            {
+              label: 'Vídeos',
+              to: '/comunidade/videos',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/n8n-io/n8n',
-            },
-            {
-              label: 'YouTube',
-              href: 'https://www.youtube.com/c/n8n-io',
-            },
-            {
-              label: 'Blog',
-              href: 'https://n8n.io/blog',
+              to: '/comunidade/github',
             },
           ],
         },
@@ -269,20 +287,41 @@ const config: Config = {
           title: 'Recursos',
           items: [
             {
-              label: 'n8n Cloud',
-              href: 'https://n8n.io/cloud',
+              label: 'Cursos',
+              to: '/cursos',
             },
             {
-              label: 'Pricing',
-              href: 'https://n8n.io/pricing',
+              label: 'Release Notes',
+              to: '/release-notes',
             },
             {
-              label: 'Enterprise',
-              href: 'https://n8n.io/enterprise',
+              label: 'Referência',
+              to: '/referencia',
             },
             {
-              label: 'Status',
-              href: 'https://status.n8n.io',
+              label: 'FAQ',
+              to: '/primeiros-passos/faq',
+            },
+          ],
+        },
+        {
+          title: 'Links Externos',
+          items: [
+            {
+              label: 'n8n Oficial',
+              href: 'https://n8n.io',
+            },
+            {
+              label: 'Documentação Oficial',
+              href: 'https://docs.n8n.io',
+            },
+            {
+              label: 'GitHub n8n',
+              href: 'https://github.com/n8n-io/n8n',
+            },
+            {
+              label: 'Comunidade n8n',
+              href: 'https://community.n8n.io',
             },
           ],
         },
@@ -343,4 +382,4 @@ const config: Config = {
   },
 } satisfies Config;
 
-export default config; 
+export default config;
