@@ -77,7 +77,6 @@ const config: Config = {
         language: ["pt", "en"],
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
-        searchBarPosition: "right",
         docsRouteBasePath: "/",
         indexPages: true,
       },

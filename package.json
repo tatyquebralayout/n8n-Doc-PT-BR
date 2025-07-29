@@ -55,7 +55,7 @@
     "@docusaurus/theme-mermaid": "^3.8.1",
     "@docusaurus/tsconfig": "^3.8.1",
     "@docusaurus/types": "^3.8.1",
-    "@easyops-cn/docusaurus-search-local": "^0.52.1",
+    "@easyops-cn/docusaurus-search-local": "^0.26.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@iconify/react": "^6.0.0",
@@ -63,6 +63,7 @@
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
     "clsx": "^2.1.1",
+    "docutils": "^1.2.1",
     "dotenv": "^17.2.0",
     "framer-motion": "^12.23.0",
     "graphql": "^16.11.0",
@@ -74,7 +75,8 @@
     "react-bits": "^1.0.5",
     "react-countup": "^6.5.3",
     "react-dom": "^19.1.0",
-    "react-intersection-observer": "^9.16.0"
+    "react-intersection-observer": "^9.16.0",
+    "sphinx": "^0.1.2"
   },
   "devDependencies": {
     "@docusaurus/tsconfig": "^3.8.1",
