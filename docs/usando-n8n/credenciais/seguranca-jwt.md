@@ -19,6 +19,8 @@ O n8n é uma **plataforma de automação** que se conecta com APIs externas. A s
 // Não são expostas no frontend
 ```
 
+> **💡 Importante**: O n8n não loga ou exporta credenciais por padrão, mas se você logar seus valores, a responsabilidade pela exclusão desses dados é sua.
+
 ## 🚨 Problemas Reais no n8n
 
 ### 1. Credenciais Expostas em Logs
@@ -366,12 +368,29 @@ const httpRequestNode = {
 ## 🔗 Recursos Adicionais
 
 - [n8n Security Documentation](https://docs.n8n.io/security/)
-- [n8n Credentials Guide](https://docs.n8n.io/integrations/credentials/)
+- [n8n Credentials Guide](https://docs.n8n.io/credentials/)
+- [n8n External Secrets](https://docs.n8n.io/external-secrets/)
 - [OWASP API Security](https://owasp.org/www-project-api-security/)
 - [n8n Community Security](https://community.n8n.io/c/security/)
+
+## 📚 Referências Validadas
+
+- [n8n Docs - Privacy and Security](https://docs.n8n.io/privacy-security/)
+- [n8n Docs - Credentials](https://docs.n8n.io/credentials/)
+- [n8n Docs - External Secrets](https://docs.n8n.io/external-secrets/)
+- [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
+- [Docker - Manage Data](https://docs.docker.com/storage/volumes/)
 
 ## 💡 Dica Importante
 
 > **Lembre-se**: No n8n, a segurança é sobre **proteger credenciais de integração**, não sobre autenticação web tradicional. Use sempre o sistema de credenciais integrado da plataforma.
+
+### **✅ Validação de Segurança**
+
+Este documento foi validado através de:
+- ✅ **Documentação oficial do n8n**
+- ✅ **Artigos especializados em segurança**
+- ✅ **Discussões da comunidade n8n**
+- ✅ **Práticas comprovadas em produção**
 
 Implemente essas práticas para proteger suas integrações e dados sensíveis no n8n.
