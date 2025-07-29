@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { exec } from 'child_process';
-import { promisify } from 'util';
-
-const execAsync = promisify(exec);
+import IonicIcon from '@site/src/components/IonicIcon';
 
 interface RSTProcessorProps {
   content: string;
@@ -10,8 +7,8 @@ interface RSTProcessorProps {
 }
 
 interface ProcessedContent {
-  type: 'note' | 'warning' | 'code-block' | 'table' | 'graphviz' | 'http' | 'index';
-  content: any;
+  type: 'note' | 'warning' | 'tip' | 'code-block' | 'table' | 'graphviz' | 'http' | 'index';
+  content: string;
   metadata?: Record<string, any>;
 }
 
@@ -20,57 +17,113 @@ const RSTProcessor: React.FC<RSTProcessorProps> = ({ content, className }) => {
   const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
-    const processRSTContent = async () => {
+    const processRSTContent = () => {
       setIsProcessing(true);
       try {
-        // Processar conteúdo RST usando docutils
-        const { stdout } = await execAsync(`python -c "
-import docutils.core
-import docutils.writers.html5_polyglot
-import sys
-import json
+        const lines = content.split('\n');
+        const processed: ProcessedContent[] = [];
+        let currentDirective = '';
+        let currentContent = '';
+        let currentMetadata: Record<string, any> = {};
 
-# Configurar o processador
-settings = docutils.core.PublishSettings(
-    writer_name='html5_polyglot',
-    report_level=docutils.utils.Reporter.WARNING_LEVEL,
-    halt_level=docutils.utils.Reporter.SEVERE_LEVEL,
-)
-
-# Processar o conteúdo RST
-content = '''${content.replace(/'/g, "\\'")}'''
-document = docutils.core.publish_string(content, settings=settings)
-
-# Extrair elementos processados
-processed = []
-for node in document.traverse():
-    if node.tagname == 'note':
-        processed.append({
-            'type': 'note',
-            'content': str(node),
-            'metadata': {'class': 'admonition note'}
-        })
-    elif node.tagname == 'warning':
-        processed.append({
-            'type': 'warning', 
-            'content': str(node),
-            'metadata': {'class': 'admonition warning'}
-        })
-    elif node.tagname == 'literal_block':
-        processed.append({
-            'type': 'code-block',
-            'content': str(node),
-            'metadata': {'language': node.get('language', 'text')}
-        })
-
-print(json.dumps(processed))
-"`);
-
-        const processed = JSON.parse(stdout);
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i].trim();
+          
+          // Detectar diretivas RST
+          if (line.startsWith('.. note::')) {
+            if (currentDirective && currentContent) {
+              processed.push({
+                type: currentDirective as any,
+                content: currentContent.trim(),
+                metadata: currentMetadata
+              });
+            }
+            currentDirective = 'note';
+            currentContent = '';
+            currentMetadata = {};
+            // Pular a linha da diretiva
+            continue;
+          }
+          
+          if (line.startsWith('.. warning::')) {
+            if (currentDirective && currentContent) {
+              processed.push({
+                type: currentDirective as any,
+                content: currentContent.trim(),
+                metadata: currentMetadata
+              });
+            }
+            currentDirective = 'warning';
+            currentContent = '';
+            currentMetadata = {};
+            continue;
+          }
+          
+          if (line.startsWith('.. tip::')) {
+            if (currentDirective && currentContent) {
+              processed.push({
+                type: currentDirective as any,
+                content: currentContent.trim(),
+                metadata: currentMetadata
+              });
+            }
+            currentDirective = 'tip';
+            currentContent = '';
+            currentMetadata = {};
+            continue;
+          }
+          
+          if (line.startsWith('.. code-block::')) {
+            if (currentDirective && currentContent) {
+              processed.push({
+                type: currentDirective as any,
+                content: currentContent.trim(),
+                metadata: currentMetadata
+              });
+            }
+            currentDirective = 'code-block';
+            currentContent = '';
+            currentMetadata = {};
+            // Extrair linguagem
+            const langMatch = line.match(/\.\. code-block::\s*(\w+)/);
+            if (langMatch) {
+              currentMetadata.language = langMatch[1];
+            }
+            continue;
+          }
+          
+          if (line.startsWith('.. table::')) {
+            if (currentDirective && currentContent) {
+              processed.push({
+                type: currentDirective as any,
+                content: currentContent.trim(),
+                metadata: currentMetadata
+              });
+            }
+            currentDirective = 'table';
+            currentContent = '';
+            currentMetadata = {};
+            continue;
+          }
+          
+          // Se não é uma diretiva, adicionar ao conteúdo atual
+          if (currentDirective) {
+            currentContent += line + '\n';
+          }
+        }
+        
+        // Adicionar o último item processado
+        if (currentDirective && currentContent) {
+          processed.push({
+            type: currentDirective as any,
+            content: currentContent.trim(),
+            metadata: currentMetadata
+          });
+        }
+        
         setProcessedContent(processed);
       } catch (error) {
         console.error('Erro ao processar RST:', error);
-        // Fallback para renderização básica
         setProcessedContent([{
           type: 'code-block',
           content: content,
@@ -90,94 +143,79 @@ print(json.dumps(processed))
     switch (item.type) {
       case 'note':
         return (
-          <div className={`admonition note ${item.metadata?.class || ''}`}>
+          <div className="admonition note">
             <div className="admonition-heading">
               <h5>
-                <ion-icon name="information-circle-outline"></ion-icon>
+                <IonicIcon name="information-circle-outline" />
                 Nota
               </h5>
             </div>
-            <div 
-              className="admonition-content"
-              dangerouslySetInnerHTML={{ __html: item.content }}
-            />
+            <div className="admonition-content">
+              <p>{item.content}</p>
+            </div>
           </div>
         );
-
+      
       case 'warning':
         return (
-          <div className={`admonition warning ${item.metadata?.class || ''}`}>
+          <div className="admonition warning">
             <div className="admonition-heading">
               <h5>
-                <ion-icon name="warning-outline"></ion-icon>
+                <IonicIcon name="warning-outline" />
                 Aviso
               </h5>
             </div>
-            <div 
-              className="admonition-content"
-              dangerouslySetInnerHTML={{ __html: item.content }}
-            />
+            <div className="admonition-content">
+              <p>{item.content}</p>
+            </div>
           </div>
         );
-
+      
+      case 'tip':
+        return (
+          <div className="admonition tip">
+            <div className="admonition-heading">
+              <h5>
+                <IonicIcon name="bulb-outline" />
+                Dica
+              </h5>
+            </div>
+            <div className="admonition-content">
+              <p>{item.content}</p>
+            </div>
+          </div>
+        );
+      
       case 'code-block':
         return (
           <div className="code-block">
             {item.metadata?.language && (
-              <div className="code-language">
-                {item.metadata.language}
-              </div>
+              <div className="code-language">{item.metadata.language}</div>
             )}
             <pre>
-              <code 
-                className={item.metadata?.language ? `language-${item.metadata.language}` : ''}
-                dangerouslySetInnerHTML={{ __html: item.content }}
-              />
+              <code className={item.metadata?.language ? `language-${item.metadata.language}` : ''}>
+                {item.content}
+              </code>
             </pre>
           </div>
         );
-
+      
       case 'table':
         return (
-          <div 
-            className="rst-table"
-            dangerouslySetInnerHTML={{ __html: item.content }}
-          />
-        );
-
-      case 'graphviz':
-        return (
-          <div className="graphviz-diagram">
-            <div className="diagram-caption">
-              {item.metadata?.caption || 'Diagrama'}
-            </div>
-            <div 
-              className="diagram-content"
-              dangerouslySetInnerHTML={{ __html: item.content }}
-            />
+          <div className="rst-table">
+            <pre>
+              <code>{item.content}</code>
+            </pre>
           </div>
         );
-
-      case 'http':
-        return (
-          <div className="http-endpoint">
-            <div className="endpoint-header">
-              <span className="method">{item.metadata?.method || 'POST'}</span>
-              <span className="path">{item.metadata?.path || ''}</span>
-            </div>
-            <div 
-              className="endpoint-content"
-              dangerouslySetInnerHTML={{ __html: item.content }}
-            />
-          </div>
-        );
-
+      
       default:
         return (
-          <div 
-            className="rst-content"
-            dangerouslySetInnerHTML={{ __html: item.content }}
-          />
+          <div className="rst-fallback">
+            <pre>
+              <code>{item.content}</code>
+            </pre>
+          </div>
         );
     }
   };
@@ -186,7 +224,7 @@ print(json.dumps(processed))
     return (
       <div className={`rst-processor loading ${className || ''}`}>
         <div className="loading-spinner">
-          <ion-icon name="refresh-outline" class="spinning"></ion-icon>
+          <IonicIcon name="refresh-outline" />
           Processando conteúdo RST...
         </div>
       </div>

@@ -3,6 +3,7 @@
 @import './base.css';
 @import './components.css';
 @import './utilities.css';
+@import './hybrid-components.css';
 
 /* custom.css agora serve apenas como ponto de entrada para os estilos globais. */
 
@@ -1283,9 +1284,6 @@ ion-icon .ionicon-stroke-width {
   box-shadow: 0 4px 16px rgba(234, 75, 113, 0.08);
   border-color: var(--ifm-color-primary-light);
 }
-
-/* Import hybrid components styles */
-@import './hybrid-components.css';
 
 /* Custom styles for n8n Brasil documentation */
 .navbar__brand {

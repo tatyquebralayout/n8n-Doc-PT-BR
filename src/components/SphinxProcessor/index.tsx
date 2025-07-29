@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import IonicIcon from '@site/src/components/IonicIcon';
 
 interface SphinxProcessorProps {
   content: string;
@@ -239,11 +240,11 @@ const SphinxProcessor: React.FC<SphinxProcessorProps> = ({ content, className })
         <p>{workflow.description}</p>
         <div className="workflow-meta">
           <span className="nodes">
-            <ion-icon name="grid-outline"></ion-icon>
+            <IonicIcon name="grid-outline" />
             {workflow.nodes} nodes
           </span>
           <span className="executions">
-            <ion-icon name="play-outline"></ion-icon>
+            <IonicIcon name="play-outline" />
             {workflow.executions}
           </span>
         </div>

@@ -17,6 +17,7 @@ const sidebars: SidebarsConfig = {
   // Onboarding e primeiros passos
   tutorialSidebar: [
     'intro',
+    'recursos-hibridos',
     {
       type: 'category',
       label: 'Primeiros Passos',

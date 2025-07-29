@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RSTProcessor from '../RSTProcessor';
 import SphinxProcessor from '../SphinxProcessor';
+import IonicIcon from '@site/src/components/IonicIcon';
 
 interface HybridProcessorProps {
   content: string;
@@ -26,15 +27,20 @@ const HybridProcessor: React.FC<HybridProcessorProps> = ({
       for (const line of lines) {
         const trimmed = line.trim();
         
-        // Detect RST directives
-        if (trimmed.startsWith('.. ') && !trimmed.startsWith('.. http:')) {
+        // Detect RST directives (but not Sphinx-specific ones)
+        if (trimmed.startsWith('.. ') && 
+            !trimmed.startsWith('.. http:') &&
+            !trimmed.startsWith('.. n8n-workflow::') &&
+            !trimmed.startsWith('.. graphviz::') &&
+            !trimmed.startsWith('.. index::')) {
           hasRST = true;
         }
         
-        // Detect Sphinx directives
+        // Detect Sphinx-specific directives
         if (trimmed.startsWith('.. n8n-workflow::') || 
             trimmed.startsWith('.. graphviz::') ||
-            trimmed.startsWith('.. http:')) {
+            trimmed.startsWith('.. http:') ||
+            trimmed.startsWith('.. index::')) {
           hasSphinx = true;
         }
       }
@@ -86,7 +92,7 @@ const HybridProcessor: React.FC<HybridProcessorProps> = ({
     <div className={`hybrid-processor ${detectedType} ${className || ''}`}>
       {detectedType !== 'markdown' && (
         <div className="processor-badge">
-          <ion-icon name="construct-outline"></ion-icon>
+          <IonicIcon name="construct-outline" />
           {detectedType.toUpperCase()} Processado
         </div>
       )}
