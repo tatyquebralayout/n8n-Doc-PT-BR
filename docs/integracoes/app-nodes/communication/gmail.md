@@ -348,7 +348,6 @@ graph TD
 ### 2. Templates de Email
 
 ```html
-<!-- Template base -->
 <!DOCTYPE html>
 <html>
 <head>

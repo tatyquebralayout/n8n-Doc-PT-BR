@@ -187,7 +187,7 @@ if (valor_pedido > 1000) {
     processarAutomaticamente();
 }`}
 </CodeBlock>
-<!-- Estrutura dos componentes retráteis para replicar -->
+
 <details>
 <summary> Copie e cole este template na dashboard do n8n: </summary>
 <CodeBlock language="json" title="Exemplo de Condicional IF">
@@ -335,7 +335,6 @@ if (valor_pedido > 1000) {
 `}
 </CodeBlock>
 </details>
-<!-- ########################### -->
 
 </TabItem>
 <TabItem value="switch" label="Node Switch">

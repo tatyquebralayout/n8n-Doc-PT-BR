@@ -173,7 +173,6 @@ graph LR
 ### Variáveis Dinâmicas
 
 ```html
-<!-- Exemplo de template personalizado -->
 <h1>Olá {{ first_name }}!</h1>
 <p>Vimos que você se interessou por {{ product_name }}.</p>
 <p>Como cliente desde {{ join_date }}, você tem {{ loyalty_points }} pontos.</p>
