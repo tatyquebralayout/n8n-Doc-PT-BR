@@ -1,339 +1,377 @@
 ---
 id: seguranca-jwt
-title: Segurança JWT - Nunca Guarde no localStorage
-sidebar_label: Segurança JWT
-description: Boas práticas de segurança para autenticação JWT no n8n
+title: Segurança em Integrações - Credenciais e Tokens
+sidebar_label: Segurança em Integrações
+description: Boas práticas de segurança para credenciais e tokens no n8n
 ---
 
-# 🔒 Segurança JWT - Nunca Guarde no localStorage
+# 🔒 Segurança em Integrações - Credenciais e Tokens
 
-## ⚠️ O Problema do localStorage
+## ⚠️ O Contexto Real do n8n
 
-Você terminou de implementar autenticação com JWT e pensa:
+O n8n é uma **plataforma de automação** que se conecta com APIs externas. A segurança aqui é sobre **proteger credenciais de integração**, não autenticação web tradicional.
 
-> "É só salvar o token no localStorage, né?"
-
-**Errado. Muito errado.**
-
-Você pode estar abrindo uma porta para hackers sem perceber.
-
-## 🚨 Vulnerabilidade XSS
-
-Se sua aplicação tiver qualquer brecha de **Cross-Site Scripting (XSS)**, um atacante pode injetar JavaScript malicioso e acessar o localStorage.
+### Como o n8n Funciona
 
 ```javascript
-// ❌ PERIGOSO - Token pode ser roubado
-const token = localStorage.getItem('token')
-// Agora esse token pode ser usado por terceiros
+// ✅ n8n armazena credenciais de forma segura
+// As credenciais são criptografadas no banco de dados
+// Não são expostas no frontend
 ```
 
-**Resultado**: O atacante está autenticado como seu usuário.
+## 🚨 Problemas Reais no n8n
 
-## ✅ Solução Segura: Cookies HttpOnly
+### 1. Credenciais Expostas em Logs
 
-Armazene o JWT em um **cookie seguro** com a flag `HttpOnly`.
+```javascript
+// ❌ PERIGOSO - Logar credenciais
+console.log('API Key:', apiKey)
+console.log('Token:', token)
 
-Esse tipo de cookie:
-- ✅ **Não pode ser acessado via JavaScript**
-- ✅ **Nem por você, nem por scripts maliciosos**
-- ✅ **Enviado automaticamente pelo navegador**
-
-```http
-Set-Cookie: token=eyJhbGciOiJI...; HttpOnly; Secure; SameSite=Strict
+// ✅ SEGURO - Logar apenas metadados
+console.log('API conectada:', 'Google Sheets')
+console.log('Status:', 'success')
 ```
 
-## 🔧 Implementação no n8n
+### 2. Credenciais em Variáveis de Ambiente
 
-### Configuração do Servidor
+```bash
+# ❌ PERIGOSO - Credenciais em texto plano
+N8N_GOOGLE_API_KEY=AIzaSyC...
+N8N_SLACK_TOKEN=xoxb-123...
+
+# ✅ SEGURO - Usar sistema de credenciais do n8n
+# Configurar via interface web ou API
+```
+
+### 3. Tokens em Workflows
+
+```javascript
+// ❌ PERIGOSO - Token hardcoded
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+
+// ✅ SEGURO - Usar credenciais do n8n
+const credentials = $credentials.googleSheets
+```
+
+## 🔧 Configuração Segura no n8n
+
+### 1. Usar Credenciais do n8n
 
 ```javascript
 // ✅ Configuração segura
-app.post('/login', (req, res) => {
-  const token = jwt.sign(payload, secret, { expiresIn: '1h' })
-  
-  res.cookie('token', token, {
-    httpOnly: true,        // Não acessível via JS
-    secure: true,          // Apenas HTTPS
-    sameSite: 'strict',    // Proteção CSRF
-    maxAge: 3600000        // 1 hora
-  })
-  
-  res.json({ success: true })
-})
-```
-
-### Middleware de Autenticação
-
-```javascript
-// ✅ Verificação segura
-const authenticateToken = (req, res, next) => {
-  const token = req.cookies.token
-  
-  if (!token) {
-    return res.status(401).json({ error: 'Token não fornecido' })
+const httpRequest = {
+  method: 'GET',
+  url: 'https://api.exemplo.com/dados',
+  authentication: 'genericCredentialType',
+  genericAuthType: 'httpHeaderAuth',
+  httpHeaderAuth: {
+    name: 'Authorization',
+    value: 'Bearer {{ $credentials.apiExemplo.token }}'
   }
-  
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) {
-      return res.status(403).json({ error: 'Token inválido' })
-    }
-    req.user = user
-    next()
-  })
 }
 ```
 
-## 🛡️ Configurações de Segurança
+### 2. Configurar Credenciais
 
-### 1. HttpOnly
-```javascript
-httpOnly: true  // Bloqueia acesso via JavaScript
+```bash
+# ✅ Variáveis de ambiente para configuração
+N8N_ENCRYPTION_KEY=sua_chave_de_32_caracteres
+N8N_DATABASE_ENCRYPTION_KEY=sua_chave_de_32_caracteres
+N8N_SECRETS_ENCRYPTION_KEY=sua_chave_de_32_caracteres
 ```
 
-### 2. Secure
-```javascript
-secure: true    // Apenas em conexões HTTPS
+### 3. Headers de Segurança
+
+```nginx
+# ✅ Headers para n8n
+add_header X-Frame-Options DENY always;
+add_header X-Content-Type-Options nosniff always;
+add_header X-XSS-Protection "1; mode=block" always;
+add_header Strict-Transport-Security "max-age=31536000" always;
 ```
 
-### 3. SameSite
+## 🛡️ Tipos de Credenciais no n8n
+
+### 1. API Keys
+
 ```javascript
-sameSite: 'strict'  // Proteção contra CSRF
+// ✅ Configuração segura de API Key
+{
+  "name": "Google Sheets API",
+  "type": "googleSheetsOAuth2Api",
+  "data": {
+    "accessToken": "encrypted_token",
+    "refreshToken": "encrypted_refresh_token"
+  }
+}
 ```
 
-### 4. Expiração
+### 2. OAuth Tokens
+
 ```javascript
-maxAge: 3600000  // 1 hora em milissegundos
+// ✅ Configuração OAuth2
+{
+  "name": "Slack Integration",
+  "type": "slackOAuth2Api",
+  "data": {
+    "accessToken": "encrypted_token",
+    "scope": "chat:write,channels:read"
+  }
+}
 ```
 
-## 🔄 Refresh Tokens
-
-Para sessões longas, use **refresh tokens**:
+### 3. Basic Auth
 
 ```javascript
-// ✅ Token de acesso (curta duração)
-const accessToken = jwt.sign(payload, secret, { expiresIn: '15m' })
-
-// ✅ Refresh token (longa duração)
-const refreshToken = jwt.sign(payload, refreshSecret, { expiresIn: '7d' })
-
-res.cookie('accessToken', accessToken, {
-  httpOnly: true,
-  secure: true,
-  sameSite: 'strict',
-  maxAge: 900000  // 15 minutos
-})
-
-res.cookie('refreshToken', refreshToken, {
-  httpOnly: true,
-  secure: true,
-  sameSite: 'strict',
-  maxAge: 604800000  // 7 dias
-})
+// ✅ Configuração Basic Auth
+{
+  "name": "Internal API",
+  "type": "httpBasicAuth",
+  "data": {
+    "user": "encrypted_username",
+    "password": "encrypted_password"
+  }
+}
 ```
 
-## 🚫 O que NUNCA fazer
+## 🔄 Rotação de Credenciais
+
+### 1. Monitoramento de Expiração
 
 ```javascript
-// ❌ NUNCA faça isso
-localStorage.setItem('token', token)
-sessionStorage.setItem('token', token)
+// ✅ Verificar expiração de tokens
+const checkTokenExpiration = (credentials) => {
+  const expiresAt = credentials.expiresAt
+  const now = new Date()
+  
+  if (expiresAt && now > new Date(expiresAt)) {
+    // Token expirado - notificar administrador
+    console.warn('Token expirado:', credentials.name)
+    return false
+  }
+  
+  return true
+}
+```
 
-// ❌ NUNCA exponha tokens no console
+### 2. Refresh Automático
+
+```javascript
+// ✅ Refresh automático de tokens
+const refreshToken = async (credentials) => {
+  try {
+    const response = await fetch('/oauth/refresh', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        refreshToken: credentials.refreshToken
+      })
+    })
+    
+    const newCredentials = await response.json()
+    return newCredentials
+  } catch (error) {
+    console.error('Erro ao renovar token:', error)
+    return null
+  }
+}
+```
+
+## 🚫 O que NUNCA fazer no n8n
+
+```javascript
+// ❌ NUNCA hardcodar credenciais
+const apiKey = "sk-1234567890abcdef"
+
+// ❌ NUNCA logar tokens
 console.log('Token:', token)
 
-// ❌ NUNCA envie tokens em URLs
-fetch('/api/data?token=' + token)
+// ❌ NUNCA expor credenciais em URLs
+const url = `https://api.exemplo.com/data?token=${token}`
+
+// ❌ NUNCA armazenar em localStorage
+localStorage.setItem('n8n-credentials', JSON.stringify(credentials))
 ```
 
 ## 🔍 Verificação de Segurança
 
-### Teste de Vulnerabilidade
+### 1. Auditoria de Credenciais
 
 ```javascript
-// ✅ Teste se o token está protegido
-try {
-  const token = localStorage.getItem('token')
-  console.log('Token encontrado:', !!token)
-} catch (error) {
-  console.log('✅ Token protegido - não acessível via JS')
+// ✅ Verificar credenciais expostas
+const auditCredentials = () => {
+  const workflows = getAllWorkflows()
+  
+  workflows.forEach(workflow => {
+    const nodes = workflow.nodes
+    
+    nodes.forEach(node => {
+      if (node.parameters && node.parameters.authentication) {
+        // Verificar se usa credenciais do n8n
+        if (node.parameters.authentication === 'predefinedCredentialType') {
+          console.log('✅ Credencial segura:', node.name)
+        } else {
+          console.warn('⚠️ Credencial potencialmente insegura:', node.name)
+        }
+      }
+    })
+  })
 }
 ```
 
-### Headers de Segurança
+### 2. Monitoramento de Acesso
 
 ```javascript
-// ✅ Headers de segurança adicionais
-app.use((req, res, next) => {
-  res.setHeader('X-Content-Type-Options', 'nosniff')
-  res.setHeader('X-Frame-Options', 'DENY')
-  res.setHeader('X-XSS-Protection', '1; mode=block')
-  next()
-})
+// ✅ Logs de segurança
+const logSecurityEvent = (event) => {
+  const logEntry = {
+    timestamp: new Date().toISOString(),
+    event: event.type,
+    user: event.user,
+    workflow: event.workflow,
+    ip: event.ip,
+    // NUNCA logar credenciais
+  }
+  
+  console.log('🔒 Evento de segurança:', logEntry)
+}
 ```
 
-## 📋 Checklist de Segurança
+## 📋 Checklist de Segurança para n8n
 
-- [ ] **HttpOnly**: Cookies não acessíveis via JavaScript
-- [ ] **Secure**: Apenas HTTPS
-- [ ] **SameSite**: Proteção CSRF
-- [ ] **Expiração**: Tokens com tempo de vida limitado
-- [ ] **Refresh Tokens**: Para sessões longas
-- [ ] **Headers de Segurança**: XSS, CSRF, etc.
-- [ ] **Logs Seguros**: Nunca logar tokens
-- [ ] **Validação**: Verificar tokens em todas as requisições
-
-## 🔗 Recursos Adicionais
-
-- [OWASP JWT Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html)
-- [MDN HttpOnly Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)
-- [JWT.io](https://jwt.io/) - Debugger e documentação
-
-## 💡 Dica Importante
-
-> **Lembre-se**: Segurança não é um recurso opcional. É fundamental para proteger seus usuários e sua aplicação.
+- [ ] **Credenciais Criptografadas**: Usar sistema de credenciais do n8n
+- [ ] **Variáveis de Ambiente**: Configurar chaves de criptografia
+- [ ] **Logs Seguros**: Nunca logar tokens ou senhas
+- [ ] **Rotação de Tokens**: Implementar refresh automático
+- [ ] **Monitoramento**: Auditoria regular de credenciais
+- [ ] **HTTPS**: Sempre usar conexões seguras
+- [ ] **Headers de Segurança**: Configurar no proxy/reverse proxy
+- [ ] **Backup Seguro**: Criptografar backups de credenciais
 
 ## 🔧 Configuração Específica do n8n
 
-### Variáveis de Ambiente
+### Docker Compose Seguro
 
-```bash
-# Configuração de cookies seguros no n8n
-N8N_SESSION_COOKIE_HTTPONLY=true
-N8N_SESSION_COOKIE_SECURE=true
-N8N_SESSION_COOKIE_SAMESITE=strict
-N8N_SESSION_TIMEOUT=3600
+```yaml
+version: '3.8'
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    environment:
+      # Criptografia
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
+      - N8N_DATABASE_ENCRYPTION_KEY=${N8N_DATABASE_ENCRYPTION_KEY}
+      - N8N_SECRETS_ENCRYPTION_KEY=${N8N_SECRETS_ENCRYPTION_KEY}
+      
+      # Segurança
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_ADMIN_USER}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_ADMIN_PASSWORD}
+      
+      # HTTPS
+      - N8N_PROTOCOL=https
+      - N8N_SSL_KEY=/certs/private.key
+      - N8N_SSL_CERT=/certs/certificate.crt
+      
+      # Sessão
+      - N8N_SESSION_COOKIE_SECURE=true
+      - N8N_SESSION_COOKIE_HTTPONLY=true
+      - N8N_SESSION_COOKIE_SAMESITE=strict
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./certs:/certs:ro
+    ports:
+      - "5678:5678"
 ```
 
-### Headers de Segurança no Nginx
+### Nginx com Segurança
 
 ```nginx
-# Headers de segurança para n8n
-add_header X-Frame-Options DENY always;
-add_header X-Content-Type-Options nosniff always;
-add_header X-XSS-Protection "1; mode=block" always;
-add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-```
-
-## 🚨 Casos de Uso Específicos
-
-### 1. Webhooks com JWT
-
-```javascript
-// ✅ Webhook seguro com JWT
-app.post('/webhook', authenticateToken, (req, res) => {
-  // Processar webhook apenas se autenticado
-  const { data } = req.body
-  // Processar dados...
-  res.json({ success: true })
-})
-```
-
-### 2. API Keys vs JWT
-
-```javascript
-// ✅ Para APIs públicas, use API Keys
-const apiKey = req.headers['x-api-key']
-if (!apiKey || !validApiKeys.includes(apiKey)) {
-  return res.status(401).json({ error: 'API Key inválida' })
-}
-
-// ✅ Para autenticação de usuários, use JWT
-const token = req.cookies.token
-if (!token) {
-  return res.status(401).json({ error: 'Token não fornecido' })
+server {
+    listen 443 ssl http2;
+    server_name n8n.seudominio.com;
+    
+    # SSL
+    ssl_certificate /path/to/cert.pem;
+    ssl_certificate_key /path/to/key.pem;
+    
+    # Headers de segurança
+    add_header X-Frame-Options DENY always;
+    add_header X-Content-Type-Options nosniff always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    
+    # Proxy para n8n
+    location / {
+        proxy_pass http://n8n:5678;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
 }
 ```
 
-### 3. Rate Limiting
+## 🎯 Casos de Uso Reais
+
+### 1. Integração com Google Sheets
 
 ```javascript
-// ✅ Rate limiting para endpoints JWT
-const rateLimit = require('express-rate-limit')
-
-const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 5, // máximo 5 tentativas
-  message: 'Muitas tentativas de login'
-})
-
-app.post('/login', authLimiter, (req, res) => {
-  // Processar login...
-})
+// ✅ Configuração segura
+const googleSheetsNode = {
+  resource: 'spreadsheet',
+  operation: 'read',
+  spreadsheetId: '{{ $json.spreadsheetId }}',
+  range: 'A1:Z1000',
+  // Usa credenciais OAuth2 do n8n automaticamente
+}
 ```
 
-## 🔍 Monitoramento e Logs
-
-### Logs Seguros
+### 2. Webhook Seguro
 
 ```javascript
-// ✅ Logs sem expor tokens
-app.use((req, res, next) => {
-  const { method, url, ip } = req
-  console.log(`${method} ${url} - ${ip}`)
-  
-  // ❌ NUNCA logar tokens
-  // console.log('Token:', req.cookies.token)
-  
-  next()
-})
-```
-
-### Alertas de Segurança
-
-```javascript
-// ✅ Alertas para tentativas suspeitas
-app.post('/login', (req, res) => {
-  const { email, ip } = req
-  
-  if (failedAttempts[email] > 3) {
-    console.warn(`⚠️ Múltiplas tentativas de login para ${email} de ${ip}`)
-    // Enviar alerta para administrador
+// ✅ Webhook com autenticação
+const webhookNode = {
+  httpMethod: 'POST',
+  path: 'webhook-seguro',
+  authentication: 'genericCredentialType',
+  genericAuthType: 'httpHeaderAuth',
+  httpHeaderAuth: {
+    name: 'X-API-Key',
+    value: '{{ $credentials.webhookApi.key }}'
   }
-})
+}
 ```
 
-## 📊 Métricas de Segurança
-
-### Monitoramento de Tokens
+### 3. API Externa com Rate Limiting
 
 ```javascript
-// ✅ Métricas de segurança
-const securityMetrics = {
-  totalLogins: 0,
-  failedLogins: 0,
-  tokenValidations: 0,
-  suspiciousActivities: 0
+// ✅ Configuração com rate limiting
+const httpRequestNode = {
+  method: 'GET',
+  url: 'https://api.externa.com/dados',
+  authentication: 'genericCredentialType',
+  genericAuthType: 'httpHeaderAuth',
+  httpHeaderAuth: {
+    name: 'Authorization',
+    value: 'Bearer {{ $credentials.apiExterna.token }}'
+  },
+  // Rate limiting automático do n8n
 }
-
-// Atualizar métricas em cada operação
-app.post('/login', (req, res) => {
-  securityMetrics.totalLogins++
-  // Processar login...
-})
 ```
 
-## 🎯 Implementação Gradual
+## 🔗 Recursos Adicionais
 
-### Fase 1: Configuração Básica
-1. Configurar cookies HttpOnly
-2. Implementar expiração de tokens
-3. Adicionar headers de segurança
-
-### Fase 2: Autenticação Avançada
-1. Implementar refresh tokens
-2. Adicionar rate limiting
-3. Configurar logs seguros
-
-### Fase 3: Monitoramento
-1. Implementar alertas de segurança
-2. Adicionar métricas de segurança
-3. Configurar auditoria completa
-
-## 🔗 Referências Técnicas
-
-- [RFC 7519 - JSON Web Token](https://tools.ietf.org/html/rfc7519)
-- [OWASP Session Management](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing)
-- [MDN SameSite Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#samesite_attribute)
 - [n8n Security Documentation](https://docs.n8n.io/security/)
+- [n8n Credentials Guide](https://docs.n8n.io/integrations/credentials/)
+- [OWASP API Security](https://owasp.org/www-project-api-security/)
+- [n8n Community Security](https://community.n8n.io/c/security/)
 
-Implemente essas práticas desde o início do seu projeto para evitar vulnerabilidades graves no futuro.
+## 💡 Dica Importante
+
+> **Lembre-se**: No n8n, a segurança é sobre **proteger credenciais de integração**, não sobre autenticação web tradicional. Use sempre o sistema de credenciais integrado da plataforma.
+
+Implemente essas práticas para proteger suas integrações e dados sensíveis no n8n.
