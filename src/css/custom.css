@@ -1180,6 +1180,57 @@ ion-icon .ionicon-stroke-width {
 
 /* 
 ==========================================================================
+  Espaçamento Apenas Entre Seções Mestres do Sidebar
+==========================================================================
+*/
+
+/* Espaçamento apenas entre as seções mestres (primeiro nível) */
+.menu__list > .menu__list-item:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+/* Separador visual sutil APENAS entre seções mestres */
+.menu__list > .menu__list-item:not(:last-child)::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ifm-color-primary-light), transparent);
+  margin: 1rem 0;
+  opacity: 0.2;
+}
+
+/* Destaque para seções mestres */
+.menu__list > .menu__list-item > .menu__link {
+  font-weight: var(--font-weight-semibold);
+  color: var(--ifm-color-primary-dark);
+  font-size: var(--font-size-lg);
+}
+
+/* ZERAR espaçamento em todos os níveis internos */
+.menu__list-item .menu__list-item,
+.menu__list-item .menu__list .menu__list-item,
+.menu__list-item .menu__list .menu__list .menu__list-item {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* REMOVER separadores de subseções */
+.menu__list-item .menu__list-item::after,
+.menu__list-item .menu__list .menu__list-item::after,
+.menu__list-item .menu__list .menu__list .menu__list-item::after {
+  display: none !important;
+}
+
+/* Hover para links do sidebar */
+.menu__link:hover {
+  background-color: rgba(234, 75, 113, 0.05);
+  border-radius: 6px;
+}
+
+/* 
+==========================================================================
   Otimização da Animação da Barra Lateral
 ==========================================================================
 */
