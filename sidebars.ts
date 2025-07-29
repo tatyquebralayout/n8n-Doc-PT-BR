@@ -67,7 +67,8 @@ const sidebars: SidebarsConfig = {
             'usando-n8n/credenciais/compartilhamento',
             'usando-n8n/credenciais/boas-praticas',
             'usando-n8n/credenciais/politicas-seguranca',
-            'usando-n8n/credenciais/treinamento-seguranca'
+            'usando-n8n/credenciais/treinamento-seguranca',
+            'usando-n8n/credenciais/seguranca-jwt'
           ],
         },
         {
