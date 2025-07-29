@@ -69,18 +69,18 @@ const config: Config = {
   },
 
   plugins: [
-    // Plugin de busca local
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        hashed: true,
-        language: ["pt", "en"],
-        highlightSearchTermsOnTargetPage: true,
-        explicitSearchResultPath: true,
-        docsRouteBasePath: "/",
-        indexPages: true,
-      },
-    ],
+    // Plugin de busca local - TEMPORARIAMENTE DESABILITADO devido a conflito de dependências
+    // [
+    //   require.resolve("@easyops-cn/docusaurus-search-local"),
+    //   {
+    //     hashed: true,
+    //     language: ["pt", "en"],
+    //     highlightSearchTermsOnTargetPage: true,
+    //     explicitSearchResultPath: true,
+    //     docsRouteBasePath: "/",
+    //     indexPages: true,
+    //   },
+    // ],
   ],
 
   themes: ['@docusaurus/theme-mermaid'],
