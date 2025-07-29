@@ -49,7 +49,7 @@
             "id": "execucoes",
             "label": "Execuções",
             "path": "usando-n8n/execucoes",
-            "items": ["componentes-execucoes"]
+            "items": ["index", "componentes-execucoes"]
           },
           {
             "id": "credenciais",
@@ -61,19 +61,19 @@
             "id": "workflows",
             "label": "Workflows",
             "path": "usando-n8n/workflows",
-            "items": ["index", "criar-editar", "historico", "configuracoes", "compartilhamento", "export-import", "tags", "workflow-id"]
+            "items": ["index", "criar-editar", "historico", "configuracoes", "compartilhamento", "export-import", "tags", "workflow-id", "organizar", "otimizar"]
           },
           {
             "id": "monitoring",
             "label": "Monitoramento",
             "path": "usando-n8n/monitoring",
-            "items": ["index", "visualizar-execucoes"]
+            "items": ["index", "visualizar-execucoes", "analisar-logs", "configurar-alertas"]
           },
           {
             "id": "usuarios-permissoes",
             "label": "Usuários e Permissões",
             "path": "usando-n8n/usuarios-permissoes",
-            "items": ["index", "criar-editar-usuarios"]
+            "items": ["index", "criar-editar-usuarios", "autenticacao", "roles-permissoes"]
           }
         ]
       },
@@ -87,13 +87,42 @@
             "id": "flow-logic",
             "label": "Lógica de Fluxo",
             "path": "logica-e-dados/flow-logic",
-            "items": ["error-handling", "looping", "merging", "splitting", "subworkflows", "waiting"]
+            "items": ["index", "error-handling", "looping", "merging", "splitting", "subworkflows", "waiting", "execution-order", "debugging"]
           },
           {
             "id": "data",
             "label": "Dados",
             "path": "logica-e-dados/data",
-            "items": ["index", "data-mapping-avancado", "transformacoes-dados", "binary-data", "data-mocking", "schema-preview", "data-filtering", "data-editing", "agregacoes-estatisticas", "integracao-apis", "otimizacao-performance", "visualizacao-dados"]
+            "items": ["index", "data-mapping-avancado", "transformacoes-dados", "binary-data", "data-mocking", "schema-preview", "data-filtering", "data-editing", "agregacoes-estatisticas", "integracao-apis", "otimizacao-performance", "visualizacao-dados", "data-flow-nodes", "data-pinning", "data-structure"]
+          },
+          "expressoes",
+          "execucao",
+          "conexoes"
+        ]
+      },
+      {
+        "id": "referencia",
+        "label": "Referência",
+        "path": "referencia",
+        "type": "category",
+        "subsections": [
+          {
+            "id": "guias",
+            "label": "Guias",
+            "path": "referencia/guias",
+            "items": ["index", "migration-guide", "performance-guide", "troubleshooting"]
+          },
+          {
+            "id": "recursos",
+            "label": "Recursos",
+            "path": "referencia/recursos",
+            "items": ["index", "glossario", "apis-brasileiras"]
+          },
+          {
+            "id": "historico",
+            "label": "Histórico",
+            "path": "referencia/historico",
+            "items": ["index", "changelog"]
           }
         ]
       },
@@ -103,111 +132,6 @@
         "path": "integracoes",
         "type": "category",
         "subsections": [
-          {
-            "id": "builtin-nodes",
-            "label": "Nodes Integrados",
-            "path": "integracoes/builtin-nodes",
-            "subcategories": [
-              {
-                "id": "http-requests",
-                "label": "Requisições HTTP",
-                "path": "integracoes/builtin-nodes/http-requests",
-                "items": ["http-request", "webhook"]
-              },
-              {
-                "id": "data-processing",
-                "label": "Processamento de Dados",
-                "path": "integracoes/builtin-nodes/data-processing",
-                "items": ["set"]
-              },
-              {
-                "id": "logic-control",
-                "label": "Controle de Lógica",
-                "path": "integracoes/builtin-nodes/logic-control",
-                "items": ["index"]
-              },
-              {
-                "id": "utilities",
-                "label": "Utilitários",
-                "path": "integracoes/builtin-nodes/utilities",
-                "items": ["index"]
-              }
-            ]
-          },
-          {
-            "id": "app-nodes",
-            "label": "App Nodes",
-            "path": "integracoes/app-nodes",
-            "subcategories": [
-              {
-                "id": "communication",
-                "label": "Comunicação",
-                "path": "integracoes/app-nodes/communication",
-                "items": ["gmail", "slack"]
-              },
-              {
-                "id": "productivity",
-                "label": "Produtividade",
-                "path": "integracoes/app-nodes/productivity",
-                "items": ["google-sheets", "trello"]
-              },
-              {
-                "id": "ecommerce",
-                "label": "E-commerce",
-                "path": "integracoes/app-nodes/ecommerce",
-                "items": ["index"]
-              },
-              {
-                "id": "marketing",
-                "label": "Marketing",
-                "path": "integracoes/app-nodes/marketing",
-                "items": ["index"]
-              }
-            ]
-          },
-          {
-            "id": "trigger-nodes",
-            "label": "Trigger Nodes",
-            "path": "integracoes/trigger-nodes",
-            "subcategories": [
-              {
-                "id": "time-based",
-                "label": "Baseados em Tempo",
-                "path": "integracoes/trigger-nodes/time-based",
-                "items": ["manual-trigger", "schedule-trigger"]
-              },
-              {
-                "id": "event-based",
-                "label": "Baseados em Eventos",
-                "path": "integracoes/trigger-nodes/event-based",
-                "items": ["webhook-trigger"]
-              },
-              {
-                "id": "app-triggers",
-                "label": "App Triggers",
-                "path": "integracoes/trigger-nodes/app-triggers",
-                "items": ["index"]
-              }
-            ]
-          },
-          {
-            "id": "credential-nodes",
-            "label": "Credential Nodes",
-            "path": "integracoes/credential-nodes",
-            "items": ["api-keys", "basic-auth", "oauth"]
-          },
-          {
-            "id": "community-nodes",
-            "label": "Community Nodes",
-            "path": "integracoes/community-nodes",
-            "items": ["index", "instalacao", "populares"]
-          },
-          {
-            "id": "criar-nodes",
-            "label": "Criar Nodes",
-            "path": "integracoes/criar-nodes",
-            "items": ["estrutura-node", "tutorial-desenvolvimento", "publicar-npm"]
-          }
         ]
       },
       {
@@ -216,36 +140,6 @@
         "path": "integracoes-br",
         "type": "category",
         "subsections": [
-          {
-            "id": "financeiro",
-            "label": "Financeiro",
-            "path": "integracoes-br/financeiro",
-            "items": ["index", "pix", "pix-avancado", "nfe-integracao", "conciliacao-bancaria", "crm-integration", "compliance-fiscal", "relatorios-fiscais"]
-          },
-          {
-            "id": "governo",
-            "label": "Governo",
-            "path": "integracoes-br/governo",
-            "items": ["index", "cnpj-receita"]
-          },
-          {
-            "id": "localizacao",
-            "label": "Localização",
-            "path": "integracoes-br/localizacao",
-            "items": ["index", "viacep"]
-          },
-          {
-            "id": "communication",
-            "label": "Comunicação",
-            "path": "integracoes-br/communication",
-            "items": ["whatsapp"]
-          },
-          {
-            "id": "marketing",
-            "label": "Marketing",
-            "path": "integracoes-br/marketing",
-            "items": ["email-automation"]
-          }
         ]
       }
     ]

@@ -4,11 +4,20 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 /**
  * Configuração completa dos sidebars para n8n Documentation BR
- * Estrutura com 11 seções principais organizadas logicamente
+ *
+ * Organização padronizada:
+ * - Onboarding e primeiros passos
+ * - Guias práticos e exemplos de uso
+ * - Fundamentos técnicos e arquitetura
+ * - Referência e API
+ * - Histórico e release notes
+ * - Cursos e comunidade
  */
 const sidebars: SidebarsConfig = {
+  // Onboarding e primeiros passos
   tutorialSidebar: [
     'intro',
+    'recursos-hibridos',
     {
       type: 'category',
       label: 'Primeiros Passos',
@@ -22,6 +31,7 @@ const sidebars: SidebarsConfig = {
         'primeiros-passos/troubleshooting'
       ],
     },
+    // Guias práticos e exemplos de uso
     {
       type: 'category',
       label: 'Usando n8n',
@@ -44,7 +54,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Execuções',
           items: [
-            'usando-n8n/execucoes/index',
+            'usando-n8n/execucoes/index', // Guia prático de execução
             'usando-n8n/execucoes/componentes-execucoes'
           ],
         },
@@ -73,7 +83,7 @@ const sidebars: SidebarsConfig = {
             'usando-n8n/workflows/tags',
             'usando-n8n/workflows/workflow-id',
             'usando-n8n/workflows/organizar',
-            'usando-n8n/workflows/otimizar'
+            'usando-n8n/workflows/otimizar' // Guia prático de otimização
           ],
         },
         {
@@ -82,7 +92,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'usando-n8n/monitoring/index',
             'usando-n8n/monitoring/visualizar-execucoes',
-            'usando-n8n/monitoring/analisar-logs',
+            'usando-n8n/monitoring/analisar-logs', // Guia prático de debugging
             'usando-n8n/monitoring/configurar-alertas'
           ],
         },
@@ -98,13 +108,14 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+    // Fundamentos técnicos e arquitetura
     {
       type: 'category',
       label: 'Lógica e Dados',
       items: [
         'logica-e-dados/index',
         'logica-e-dados/expressoes',
-        'logica-e-dados/execucao',
+        'logica-e-dados/execucao', // Agora só fundamentos, com link para o prático
         'logica-e-dados/conexoes',
         {
           type: 'category',
@@ -118,7 +129,7 @@ const sidebars: SidebarsConfig = {
             'logica-e-dados/flow-logic/subworkflows',
             'logica-e-dados/flow-logic/waiting',
             'logica-e-dados/flow-logic/execution-order',
-            'logica-e-dados/flow-logic/debugging'
+            'logica-e-dados/flow-logic/debugging' // Agora só fundamentos, com link para o prático
           ],
         },
         {
@@ -135,7 +146,7 @@ const sidebars: SidebarsConfig = {
             'logica-e-dados/data/data-editing',
             'logica-e-dados/data/agregacoes-estatisticas',
             'logica-e-dados/data/integracao-apis',
-            'logica-e-dados/data/otimizacao-performance',
+            'logica-e-dados/data/otimizacao-performance', // Agora só fundamentos, com link para o prático
             'logica-e-dados/data/visualizacao-dados',
             'logica-e-dados/data/data-flow-nodes',
             'logica-e-dados/data/data-pinning',
@@ -144,6 +155,42 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+    // Referência e API
+    {
+      type: 'category',
+      label: 'Referência',
+      items: [
+        'referencia/index',
+        {
+          type: 'category',
+          label: 'Guias',
+          items: [
+            'referencia/guias/index',
+            'referencia/guias/migration-guide',
+            'referencia/guias/performance-guide',
+            'referencia/guias/troubleshooting'
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Recursos',
+          items: [
+            'referencia/recursos/index',
+            'referencia/recursos/glossario',
+            'referencia/recursos/apis-brasileiras'
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Histórico',
+          items: [
+            'referencia/historico/index',
+            'referencia/historico/changelog'
+          ],
+        },
+      ],
+    },
+    // Integrações e exemplos
     {
       type: 'category',
       label: 'Integrações',
@@ -160,7 +207,7 @@ const sidebars: SidebarsConfig = {
               label: 'Requisições HTTP',
               items: [
                 'integracoes/builtin-nodes/http-requests/index',
-                'integracoes/builtin-nodes/http-requests/http-request', 
+                'integracoes/builtin-nodes/http-requests/http-request',
                 'integracoes/builtin-nodes/http-requests/webhook'
               ],
             },
@@ -216,7 +263,7 @@ const sidebars: SidebarsConfig = {
               label: 'Comunicação',
               items: [
                 'integracoes/app-nodes/communication/index',
-                'integracoes/app-nodes/communication/gmail', 
+                'integracoes/app-nodes/communication/gmail',
                 'integracoes/app-nodes/communication/slack'
               ],
             },
@@ -225,7 +272,7 @@ const sidebars: SidebarsConfig = {
               label: 'Produtividade',
               items: [
                 'integracoes/app-nodes/productivity/index',
-                'integracoes/app-nodes/productivity/google-sheets', 
+                'integracoes/app-nodes/productivity/google-sheets',
                 'integracoes/app-nodes/productivity/trello'
               ],
             },
@@ -250,7 +297,7 @@ const sidebars: SidebarsConfig = {
               label: 'Baseados em Tempo',
               items: [
                 'integracoes/trigger-nodes/time-based/index',
-                'integracoes/trigger-nodes/time-based/manual-trigger', 
+                'integracoes/trigger-nodes/time-based/manual-trigger',
                 'integracoes/trigger-nodes/time-based/schedule-trigger'
               ],
             },
@@ -284,8 +331,8 @@ const sidebars: SidebarsConfig = {
           label: 'Criar Nodes',
           items: [
             'integracoes/criar-nodes/index',
-            'integracoes/criar-nodes/estrutura-node', 
-            'integracoes/criar-nodes/tutorial-desenvolvimento', 
+            'integracoes/criar-nodes/estrutura-node',
+            'integracoes/criar-nodes/tutorial-desenvolvimento',
             'integracoes/criar-nodes/publicar-npm'
           ],
         },
@@ -335,9 +382,9 @@ const sidebars: SidebarsConfig = {
           label: 'Instalação',
           items: [
             'hosting-n8n/instalacao/index',
-            'hosting-n8n/instalacao/desktop', 
-            'hosting-n8n/instalacao/npm', 
-            'hosting-n8n/instalacao/docker', 
+            'hosting-n8n/instalacao/desktop',
+            'hosting-n8n/instalacao/npm',
+            'hosting-n8n/instalacao/docker',
             'hosting-n8n/instalacao/cloud',
             'hosting-n8n/instalacao/aws-brasil',
             'hosting-n8n/instalacao/azure-brasil',
@@ -349,9 +396,9 @@ const sidebars: SidebarsConfig = {
           label: 'Configuração',
           items: [
             'hosting-n8n/configuracao/index',
-            'hosting-n8n/configuracao/variaveis-ambiente', 
-            'hosting-n8n/configuracao/database', 
-            'hosting-n8n/configuracao/queues', 
+            'hosting-n8n/configuracao/variaveis-ambiente',
+            'hosting-n8n/configuracao/database',
+            'hosting-n8n/configuracao/queues',
             'hosting-n8n/configuracao/ssl-https'
           ],
         },
@@ -372,8 +419,8 @@ const sidebars: SidebarsConfig = {
           label: 'Escalonamento',
           items: [
             'hosting-n8n/escalonamento/index',
-            'hosting-n8n/escalonamento/clustering', 
-            'hosting-n8n/escalonamento/load-balancing', 
+            'hosting-n8n/escalonamento/clustering',
+            'hosting-n8n/escalonamento/load-balancing',
             'hosting-n8n/escalonamento/performance'
           ],
         },
@@ -405,7 +452,7 @@ const sidebars: SidebarsConfig = {
           label: 'Implementação',
           items: [
             'embed/implementacao/index',
-            'embed/implementacao/configuracao', 
+            'embed/implementacao/configuracao',
             'embed/implementacao/implantacao'
           ],
         },
@@ -465,8 +512,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Conceitos',
           items: [
-            'api/conceitos/index', 
-            'api/conceitos/autenticacao', 
+            'api/conceitos/index',
+            'api/conceitos/autenticacao',
             'api/conceitos/paginacao'
           ],
         },
@@ -474,7 +521,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Ferramentas',
           items: [
-            'api/ferramentas/index', 
+            'api/ferramentas/index',
             'api/ferramentas/playground'
           ],
         },
@@ -482,42 +529,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Referência da API',
           items: [
-            'api/referencia/index', 
+            'api/referencia/index',
             'api/referencia/referencia-api'
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Referência',
-      items: [
-        'referencia/index',
-        {
-          type: 'category',
-          label: 'Guias',
-          items: [
-            'referencia/guias/index',
-            'referencia/guias/migration-guide', 
-            'referencia/guias/performance-guide', 
-            'referencia/guias/troubleshooting'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Recursos',
-          items: [
-            'referencia/recursos/index',
-            'referencia/recursos/glossario', 
-            'referencia/recursos/apis-brasileiras'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Histórico',
-          items: [
-            'referencia/historico/index',
-            'referencia/historico/changelog'
           ],
         },
       ],

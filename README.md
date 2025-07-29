@@ -1,5 +1,5 @@
 <div align="center">
-<img src="static/img/banner_n8n_ptbr.png" alt="Banner da Documentação n8n PT-BR">
+<img src="https://raw.githubusercontent.com/n8n-brasil/n8n-Doc-PT-BR/main/static/img/banner_n8n_ptbr.png" alt="Banner da Documentação n8n PT-BR - Automação de Workflows em Português" width="800">
 </div>
 
 # N8N Documentation BR
@@ -57,7 +57,7 @@ A documentação está organizada nas seguintes seções principais:
 - **[Cursos](/cursos):** Conteúdo estruturado em formato de texto e vídeo para aprendizado sequencial, do nível básico ao avançado.
 - **[Comunidade](/contribuir):** Saiba como contribuir para este projeto e para o ecossistema n8n.
 - **[Referência](/referencia):** Guias de migração, dicas de performance, solução de problemas e um glossário de termos técnicos.
-- **[Release Notes](/release-notes/index):** Fique por dentro de todas as novidades, melhorias e correções a cada versão do n8n. <!-- Temporariamente desabilitado -->
+- **[Release Notes](/release-notes/index):** Fique por dentro de todas as novidades, melhorias e correções a cada versão do n8n.
 
 ---
 

@@ -130,6 +130,11 @@ src/components/draft/
 src/pages/temp/
 src/pages/draft/
 
+# Páginas de desenvolvimento local (não commitadas)
+docs/recursos-hibridos.md
+docs/recursos-hibridos.mdx
+docs/teste-hibrido.md
+
 # Scripts de fix e configuração temporária
 final-fix-ionicons.js
 fix-all-ionicons.js

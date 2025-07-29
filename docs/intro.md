@@ -361,8 +361,16 @@ Este material é mantido pela **comunidade brasileira de n8n**, sem vínculo ofi
 - [Editar esta página no GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/edit/main/docs/intro.md)
 - [Reportar problemas ou sugestões](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/issues/new)
 
-
-
 ---
+
+```rst
+.. index::
+   single: n8n; introdução
+   single: automação; plataformas
+   single: workflow; conceitos
+   pair: integração; sistemas
+   see: n8n; n8n Brasil
+   see: automação; workflow automation
+```
 
 

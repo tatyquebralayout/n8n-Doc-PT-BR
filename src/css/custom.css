@@ -3,6 +3,7 @@
 @import './base.css';
 @import './components.css';
 @import './utilities.css';
+@import './hybrid-components.css';
 
 /* custom.css agora serve apenas como ponto de entrada para os estilos globais. */
 
@@ -1180,6 +1181,57 @@ ion-icon .ionicon-stroke-width {
 
 /* 
 ==========================================================================
+  Espaçamento Apenas Entre Seções Mestres do Sidebar
+==========================================================================
+*/
+
+/* Espaçamento apenas entre as seções mestres (primeiro nível) */
+.menu__list > .menu__list-item:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+/* Separador visual sutil APENAS entre seções mestres */
+.menu__list > .menu__list-item:not(:last-child)::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ifm-color-primary-light), transparent);
+  margin: 1rem 0;
+  opacity: 0.2;
+}
+
+/* Destaque para seções mestres */
+.menu__list > .menu__list-item > .menu__link {
+  font-weight: var(--font-weight-semibold);
+  color: var(--ifm-color-primary-dark);
+  font-size: var(--font-size-lg);
+}
+
+/* ZERAR espaçamento em todos os níveis internos */
+.menu__list-item .menu__list-item,
+.menu__list-item .menu__list .menu__list-item,
+.menu__list-item .menu__list .menu__list .menu__list-item {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* REMOVER separadores de subseções */
+.menu__list-item .menu__list-item::after,
+.menu__list-item .menu__list .menu__list-item::after,
+.menu__list-item .menu__list .menu__list .menu__list-item::after {
+  display: none !important;
+}
+
+/* Hover para links do sidebar */
+.menu__link:hover {
+  background-color: rgba(234, 75, 113, 0.05);
+  border-radius: 6px;
+}
+
+/* 
+==========================================================================
   Otimização da Animação da Barra Lateral
 ==========================================================================
 */
@@ -1231,6 +1283,211 @@ ion-icon .ionicon-stroke-width {
 .featured-card:hover {
   box-shadow: 0 4px 16px rgba(234, 75, 113, 0.08);
   border-color: var(--ifm-color-primary-light);
+}
+
+/* Custom styles for n8n Brasil documentation */
+.navbar__brand {
+  font-weight: 700;
+}
+
+.navbar__title {
+  font-weight: 600;
+}
+
+/* Custom admonition styles */
+.admonition {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.admonition.note {
+  background: #f0f9ff;
+  border-left-color: #3b82f6;
+}
+
+.admonition.tip {
+  background: #f0fdf4;
+  border-left-color: #22c55e;
+}
+
+.admonition.warning {
+  background: #fffbeb;
+  border-left-color: #f59e0b;
+}
+
+.admonition.caution {
+  background: #fef2f2;
+  border-left-color: #ef4444;
+}
+
+.admonition-heading {
+  margin-bottom: 0.5rem;
+}
+
+.admonition-heading h5 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.admonition-content {
+  margin: 0;
+}
+
+/* Custom code block styles */
+.code-block {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.code-language {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  background: #374151;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Custom table styles */
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.markdown th,
+.markdown td {
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.markdown th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+/* Custom link styles */
+.markdown a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.markdown a:hover {
+  text-decoration: underline;
+}
+
+/* Custom heading styles */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  color: #1f2937;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.markdown h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--ifm-color-primary);
+  padding-bottom: 0.5rem;
+}
+
+.markdown h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.markdown h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Custom list styles */
+.markdown ul,
+.markdown ol {
+  padding-left: 1.5rem;
+}
+
+.markdown li {
+  margin: 0.25rem 0;
+}
+
+/* Custom blockquote styles */
+.markdown blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #6b7280;
+}
+
+/* Custom details/summary styles */
+.markdown details {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+.markdown summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.markdown summary:hover {
+  color: var(--ifm-color-primary-dark);
+}
+
+/* Custom mermaid diagram styles */
+.mermaid {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+/* Custom ion-icon styles */
+ion-icon {
+  vertical-align: middle;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .markdown h1 {
+    font-size: 2rem;
+  }
+  
+  .markdown h2 {
+    font-size: 1.75rem;
+  }
+  
+  .markdown h3 {
+    font-size: 1.5rem;
+  }
+  
+  .admonition {
+    margin: 1rem 0;
+    padding: 0.75rem;
+  }
 }
 
 

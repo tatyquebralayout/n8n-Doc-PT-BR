@@ -5,6 +5,11 @@ description: Guias práticos, dicas e exemplos para usar o n8n de forma eficient
 keywords: [n8n, guias práticos, como usar n8n, workflows, dicas de automação, produtividade n8n, exemplos, automação empresarial, melhores práticas]
 ---
 
+:::info
+<ion-icon name="git-branch-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon>
+Esta seção reúne **guias práticos, passo a passo, troubleshooting e exemplos de uso** do n8n. Para fundamentos técnicos, arquitetura e lógica de dados, acesse a seção [Lógica e Dados](../logica-e-dados/).
+:::
+
 # Usando n8n: Guias Práticos, Dicas e Workflows para Produtividade
 
 Bem-vindo aos guias práticos do n8n! Esta seção reúne tudo o que você precisa saber para usar o n8n de forma eficiente, criar workflows produtivos, aplicar boas práticas e dominar automação empresarial, desde a interface básica até técnicas avançadas.

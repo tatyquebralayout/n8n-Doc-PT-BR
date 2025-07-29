@@ -16,10 +16,6 @@ Bem-vindo(a) à nossa central de notas de release. Aqui você encontra as últim
 
 Veja as últimas atualizações, correções e melhorias feitas em nosso projeto de documentação.
 
-<!-- <IonicIcon name="arrow-forward-outline" size={18} /> [Ver Releases da Doc →](/release-notes/nossa-doc) -->
-
 ## <IonicIcon name="globe-outline" size={24} /> n8n Oficial
 
 Acesse as notas de release oficiais do n8n, traduzidas e sincronizadas automaticamente para você.
-
-<!-- <IonicIcon name="arrow-forward-outline" size={18} /> [Ver Releases do n8n →](/release-notes/n8n-oficial) -->

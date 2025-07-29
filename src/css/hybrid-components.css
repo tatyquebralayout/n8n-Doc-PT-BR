@@ -1,0 +1,435 @@
+/* Hybrid Processor Components */
+
+.hybrid-processor {
+  margin: 2rem 0;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.processor-badge {
+  background: linear-gradient(135deg, #ea4b71, #ff6b9d);
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.processor-badge ion-icon {
+  font-size: 1rem;
+}
+
+/* RST Processor Styles */
+.hybrid-rst {
+  padding: 1.5rem;
+}
+
+.rst-processor {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.rst-processor.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6c757d;
+}
+
+.loading-spinner ion-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.admonition {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid;
+}
+
+.admonition.note {
+  background: #f0f9ff;
+  border-left-color: #3b82f6;
+}
+
+.admonition.warning {
+  background: #fffbeb;
+  border-left-color: #f59e0b;
+}
+
+.admonition-heading {
+  margin-bottom: 0.5rem;
+}
+
+.admonition-heading h5 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.admonition-content {
+  margin: 0;
+}
+
+.code-block {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.code-language {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  background: #374151;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.rst-table {
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.rst-table table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e5e7eb;
+}
+
+.rst-table th,
+.rst-table td {
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.rst-table th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+/* Sphinx Processor Styles */
+.hybrid-sphinx {
+  padding: 1.5rem;
+}
+
+.n8n-workflow {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.workflow-header {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 1.5rem;
+}
+
+.workflow-header h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.workflow-header p {
+  margin: 0 0 1rem 0;
+  opacity: 0.9;
+}
+
+.workflow-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+.workflow-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.workflow-steps {
+  padding: 1rem;
+}
+
+.workflow-step {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.step-number {
+  background: #ea4b71;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.step-type {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.step-description {
+  color: #64748b;
+  margin-bottom: 0.75rem;
+}
+
+.step-config,
+.step-code,
+.step-service,
+.step-channel,
+.step-template,
+.step-delay {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: #f8fafc;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.step-config strong,
+.step-code strong,
+.step-service strong,
+.step-channel strong,
+.step-template strong,
+.step-delay strong {
+  color: #374151;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.step-config pre,
+.step-code pre {
+  margin: 0.25rem 0 0 0;
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 0.5rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.step-config code,
+.step-code code {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.75rem;
+}
+
+/* Graphviz Diagram Styles */
+.graphviz-diagram {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.diagram-caption {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.diagram-content {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.diagram-content pre {
+  margin: 0;
+  text-align: left;
+}
+
+.diagram-content code {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.875rem;
+  color: #1f2937;
+}
+
+/* HTTP Endpoint Styles */
+.http-endpoint {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.endpoint-header {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.endpoint-header .method {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.endpoint-header .path {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.875rem;
+}
+
+.endpoint-synopsis {
+  padding: 1rem;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  color: #374151;
+}
+
+.endpoint-params,
+.endpoint-responses,
+.endpoint-examples {
+  padding: 1rem;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.endpoint-params h5,
+.endpoint-responses h5,
+.endpoint-examples h5 {
+  margin: 0 0 0.75rem 0;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.endpoint-params ul,
+.endpoint-responses ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.endpoint-params li,
+.endpoint-responses li {
+  margin: 0.25rem 0;
+  color: #64748b;
+}
+
+.endpoint-examples .example {
+  margin: 1rem 0;
+}
+
+.endpoint-examples .example h6 {
+  margin: 0 0 0.5rem 0;
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.endpoint-examples pre {
+  margin: 0;
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 0.75rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.endpoint-examples code {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.75rem;
+}
+
+/* Fallback Styles */
+.rst-fallback {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.rst-fallback pre {
+  margin: 0;
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 0.75rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.rst-fallback code {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hybrid-processor {
+    margin: 1rem 0;
+  }
+  
+  .workflow-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .endpoint-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .step-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
