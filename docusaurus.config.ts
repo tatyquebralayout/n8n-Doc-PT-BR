@@ -410,10 +410,11 @@ const config: Config = {
         content:
           "n8n Brasil - Documentação não oficial em Português Brasileiro",
       },
-      {
+      // Adiciona a tag de verificação do Google apenas em produção
+      ...process.env.GSC_VERIFICATION_CODE ? [{
         name: "google-site-verification",
-        content: "cPczfCn6ukej2JyY3E23bL9VN5ChEtWJ-TQHLYrlam8"
-      }
+        content: process.env.GSC_VERIFICATION_CODE,
+      }] : [],
     ],
   },
 } satisfies Config;
