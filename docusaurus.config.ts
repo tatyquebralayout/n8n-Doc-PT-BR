@@ -370,7 +370,7 @@ const config: Config = {
       {
         name: "description",
         content:
-          "Documentação não oficial do n8n em português brasileiro (pt-BR), criada por Tatian Barros e Carlos de Lima Junior, com o objetivo de democratizar a automação de processos através da filosofia Open Source.",
+          "Documentação não oficial do n8n em português brasileiro (pt-BR), criada por Tatiana Barros e Carlos de Lima Junior, com o objetivo de democratizar a automação de processos através da filosofia Open Source.",
       },
       {
         name: "keywords",
