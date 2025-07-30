@@ -17,7 +17,7 @@ const sidebars: SidebarsConfig = {
   // Onboarding e primeiros passos
   tutorialSidebar: [
     'intro',
-    'recursos-hibridos',
+    // 'recursos-hibridos',
     {
       type: 'category',
       label: 'Primeiros Passos',
@@ -115,22 +115,22 @@ const sidebars: SidebarsConfig = {
       label: 'Lógica e Dados',
       items: [
         'logica-e-dados/index',
-        'logica-e-dados/expressoes',
-        'logica-e-dados/execucao', // Agora só fundamentos, com link para o prático
+        // 'logica-e-dados/expressoes',
+        // 'logica-e-dados/execucao', // Agora só fundamentos, com link para o prático
         'logica-e-dados/conexoes',
         {
           type: 'category',
           label: 'Lógica de Fluxo',
           items: [
-            'logica-e-dados/flow-logic/index',
-            'logica-e-dados/flow-logic/error-handling',
+            // 'logica-e-dados/flow-logic/index',
+            // 'logica-e-dados/flow-logic/error-handling',
             'logica-e-dados/flow-logic/looping',
             'logica-e-dados/flow-logic/merging',
             'logica-e-dados/flow-logic/splitting',
             'logica-e-dados/flow-logic/subworkflows',
             'logica-e-dados/flow-logic/waiting',
-            'logica-e-dados/flow-logic/execution-order',
-            'logica-e-dados/flow-logic/debugging' // Agora só fundamentos, com link para o prático
+            // 'logica-e-dados/flow-logic/execution-order',
+            // 'logica-e-dados/flow-logic/debugging' // Agora só fundamentos, com link para o prático
           ],
         },
         {
@@ -139,16 +139,16 @@ const sidebars: SidebarsConfig = {
           items: [
             'logica-e-dados/data/index',
             'logica-e-dados/data/data-mapping-avancado',
-            'logica-e-dados/data/transformacoes-dados',
+            // 'logica-e-dados/data/transformacoes-dados',
             'logica-e-dados/data/binary-data',
             'logica-e-dados/data/data-mocking',
-            'logica-e-dados/data/schema-preview',
+            // 'logica-e-dados/data/schema-preview',
             'logica-e-dados/data/data-filtering',
             'logica-e-dados/data/data-editing',
             'logica-e-dados/data/agregacoes-estatisticas',
             'logica-e-dados/data/integracao-apis',
-            'logica-e-dados/data/otimizacao-performance', // Agora só fundamentos, com link para o prático
-            'logica-e-dados/data/visualizacao-dados',
+            // 'logica-e-dados/data/otimizacao-performance', // Agora só fundamentos, com link para o prático
+            // 'logica-e-dados/data/visualizacao-dados',
             'logica-e-dados/data/data-flow-nodes',
             'logica-e-dados/data/data-pinning',
             'logica-e-dados/data/data-structure'
@@ -238,12 +238,12 @@ const sidebars: SidebarsConfig = {
               label: 'Core Nodes',
               items: [
                 'integracoes/builtin-nodes/core-nodes/index',
-                'integracoes/builtin-nodes/core-nodes/code',
-                'integracoes/builtin-nodes/core-nodes/debug-helper',
-                'integracoes/builtin-nodes/core-nodes/edit-fields-set',
-                'integracoes/builtin-nodes/core-nodes/error-trigger',
-                'integracoes/builtin-nodes/core-nodes/execute-sub-workflow',
-                'integracoes/builtin-nodes/core-nodes/expression',
+                // 'integracoes/builtin-nodes/core-nodes/code',
+                // 'integracoes/builtin-nodes/core-nodes/debug-helper',
+                // 'integracoes/builtin-nodes/core-nodes/edit-fields-set',
+                // 'integracoes/builtin-nodes/core-nodes/error-trigger',
+                // 'integracoes/builtin-nodes/core-nodes/execute-sub-workflow',
+                // 'integracoes/builtin-nodes/core-nodes/expression',
                 'integracoes/builtin-nodes/core-nodes/function',
                 'integracoes/builtin-nodes/core-nodes/workflow-trigger'
               ],
@@ -274,7 +274,7 @@ const sidebars: SidebarsConfig = {
               items: [
                 'integracoes/app-nodes/productivity/index',
                 'integracoes/app-nodes/productivity/google-sheets',
-                'integracoes/app-nodes/productivity/trello'
+                // 'integracoes/app-nodes/productivity/trello'
               ],
             },
             {
