@@ -1,5 +1,4 @@
 import React from 'react';
-import IonicIcon from '@site/src/components/IonicIcon';
 
 export default function Mentoria() {
   return (

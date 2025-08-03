@@ -54,7 +54,7 @@ const IonicIcon: React.FC<IonicIconProps> = ({
       display: 'inline-block',
       verticalAlign: 'middle',
       ...style,
-    },
+    } as React.CSSProperties,
     className,
     'aria-hidden': 'true',
   });

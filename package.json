@@ -34,6 +34,7 @@
     "check-duplicate-routes": "node scripts/find-duplicate-routes.js",
     "check-broken-anchors": "node scripts/find-broken-anchors.js",
     "check-all-issues": "node scripts/check-all-issues.js",
+    "fix-unicode-math": "node scripts/fix-unicode-math.js",
     "markdown:lint": "markdownlint-cli2 \"docs/**/*.{md,mdx}\" \"README.md\" \"CONTRIBUTING.md\"",
     "quality-check": "npm run check-seo && npm run spell-check && npm run format-check && npm run accessibility-check",
     "ci:validate": "npm run lint:check && npm run validate-overlaps",

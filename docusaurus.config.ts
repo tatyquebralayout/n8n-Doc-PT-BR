@@ -48,16 +48,38 @@ const config: Config = {
           routeBasePath: "/",
           sidebarCollapsed: false,
           breadcrumbs: true,
-          // Configuração para suporte matemático com KaTeX
-          remarkPlugins: [require('remark-math')],
-          rehypePlugins: [require('rehype-katex')],
+          // Configuração para suporte matemático com KaTeX - TEMPORARIAMENTE DESABILITADO
+          // remarkPlugins: [require('remark-math')],
+          // rehypePlugins: [
+          //   [require('rehype-katex'), {
+          //     strict: false,
+          //     trust: true,
+          //     throwOnError: false,
+          //     errorColor: '#cc0000',
+          //     macros: {
+          //       "\\RR": "\\mathbb{R}",
+          //       "\\NN": "\\mathbb{N}",
+          //       "\\ZZ": "\\mathbb{Z}",
+          //       "\\QQ": "\\mathbb{Q}",
+          //       "\\CC": "\\mathbb{C}"
+          //     },
+          //     minRuleThickness: 0.05,
+          //     colorIsTextColor: false,
+          //     maxSize: Infinity,
+          //     maxExpand: 1000
+          //   }]
+          // ],
           exclude: [
             '**/contribuir/**',
             '**/_*.{js,jsx,ts,tsx,md,mdx}',
             '**/_*/**',
             '**/*.test.{js,jsx,ts,tsx}',
             '**/__tests__/**',
+            // Temporariamente excluir arquivos MDX problemáticos
+            '**/contribuir/esta-documentacao/**/*.mdx',
+            '**/contribuir/n8n-oficial/**/*.mdx',
           ],
+
         },
         blog: false, // Desabilitar blog padrão para usar nossa página customizada
         pages: {

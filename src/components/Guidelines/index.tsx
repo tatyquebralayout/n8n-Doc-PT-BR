@@ -3,64 +3,18 @@ import IonicIcon from '@site/src/components/IonicIcon';
 
 export default function Guidelines() {
   return (
-    <div>
-      <p>Bem-vindo às diretrizes de contribuição para a documentação do n8n Brasil! Este documento estabelece os padrões e processos para contribuir com o projeto.</p>
-      <h2><IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Princípios Fundamentais</h2>
-      <h3>🎯 Missão</h3>
-      <p>Democratizar a automação no Brasil através de documentação clara, acessível e em português brasileiro.</p>
-      <h3>🌟 Valores</h3>
-      <ul>
-        <li><strong>Clareza</strong>: Conteúdo simples e direto</li>
-        <li><strong>Precisão</strong>: Informações técnicas corretas e atualizadas</li>
-        <li><strong>Inclusividade</strong>: Linguagem acessível para todos os níveis</li>
-        <li><strong>Relevância</strong>: Foco no contexto brasileiro</li>
-      </ul>
-      <h2><IonicIcon name="git-pull-request-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Como Contribuir</h2>
-      <h3>1. <strong>Reportar Problemas</strong></h3>
-      <ul>
-        <li>Use o template de issue apropriado</li>
-        <li>Descreva o problema de forma clara</li>
-        <li>Inclua passos para reproduzir</li>
-        <li>Mencione sua versão do n8n</li>
-      </ul>
-      <h3>2. <strong>Sugerir Melhorias</strong></h3>
-      <ul>
-        <li>Explique o benefício da mudança</li>
-        <li>Forneça exemplos quando possível</li>
-        <li>Considere o impacto na experiência do usuário</li>
-      </ul>
-      <h3>3. <strong>Contribuir Conteúdo</strong></h3>
-      <ul>
-        <li>Siga o <a href="./padroes-e-estilo/guia-de-estilo">Guia de Estilo</a></li>
-        <li>Use os <a href="./padroes-e-estilo/markdown-features">Recursos do Markdown</a></li>
-        <li>Teste suas alterações localmente</li>
-        <li>Mantenha o foco no usuário brasileiro</li>
-      </ul>
-      <h2><IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Processo de Contribuição</h2>
-      <h3>Para Correções Simples</h3>
-      <ol>
-        <li>Faça um fork do repositório</li>
-        <li>Crie uma branch para sua correção</li>
-        <li>Faça as alterações necessárias</li>
-        <li>Teste localmente</li>
-        <li>Abra um Pull Request</li>
-      </ol>
-      <h3>Para Novas Funcionalidades</h3>
-      <ol>
-        <li>Abra uma issue para discussão</li>
-        <li>Aguarde feedback da comunidade</li>
-        <li>Implemente seguindo as diretrizes</li>
-        <li>Documente adequadamente</li>
-        <li>Abra um Pull Request</li>
-      </ol>
-      <h2><IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Padrões de Qualidade</h2>
+    <div className="guidelines-container">
+      <h1><IonicIcon name="book-outline" className="guidelines-icon" /> Guia de Contribuição</h1>
+      <p>Este guia estabelece os padrões e diretrizes para contribuir com a documentação do n8n Brasil. Siga estas orientações para garantir qualidade e consistência.</p>
+      
+      <h2><IonicIcon name="checkmark-circle-outline" className="guidelines-icon" /> Princípios Fundamentais</h2>
       <h3>✅ O que fazer</h3>
       <ul>
-        <li>Escreva em português brasileiro claro</li>
-        <li>Use exemplos práticos e relevantes</li>
-        <li>Mantenha a estrutura consistente</li>
-        <li>Teste todos os links e exemplos</li>
-        <li>Siga as convenções de nomenclatura</li>
+        <li>Escrever de forma clara e acessível</li>
+        <li>Usar exemplos relevantes para o Brasil</li>
+        <li>Manter consistência com o estilo existente</li>
+        <li>Testar links e funcionalidades</li>
+        <li>Documentar mudanças significativas</li>
       </ul>
       <h3>❌ O que evitar</h3>
       <ul>
@@ -70,7 +24,7 @@ export default function Guidelines() {
         <li>Quebrar a estrutura existente</li>
         <li>Ignorar feedback da comunidade</li>
       </ul>
-      <h2><IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Revisão e Aprovação</h2>
+      <h2><IonicIcon name="chevron-forward-outline" className="guidelines-icon" /> Revisão e Aprovação</h2>
       <h3>Critérios de Aprovação</h3>
       <ul>
         <li>[ ] Conteúdo técnico correto</li>
@@ -86,14 +40,14 @@ export default function Guidelines() {
         <li><strong>Revisão da comunidade</strong>: Feedback de outros contribuidores</li>
         <li><strong>Revisão final</strong>: Aprovação pelos mantenedores</li>
       </ol>
-      <h2><IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Úteis</h2>
+      <h2><IonicIcon name="school-outline" className="guidelines-icon" /> Recursos Úteis</h2>
       <ul>
         <li><a href="./padroes-e-estilo/guia-de-estilo">Guia de Estilo</a> - Padrões de escrita</li>
         <li><a href="./padroes-e-estilo/markdown-features">Recursos do Markdown</a> - Sintaxe e componentes</li>
         <li><a href="./padroes-e-estilo/design-system">Design System</a> - Elementos visuais</li>
         <li><a href="./traducao-e-localizacao/guia-traducao">Guia de Tradução</a> - Padrões de localização</li>
       </ul>
-      <h2><IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Comunicação</h2>
+      <h2><IonicIcon name="chevron-forward-outline" className="guidelines-icon" /> Comunicação</h2>
       <h3>Canais de Comunicação</h3>
       <ul>
         <li><strong>Issues do GitHub</strong>: Para problemas e sugestões</li>
@@ -102,7 +56,7 @@ export default function Guidelines() {
       </ul>
       <h3>Código de Conduta</h3>
       <p>Siga nosso <a href="./entendendo-o-projeto/codigo-conduta">Código de Conduta</a> em todas as interações.</p>
-      <h2><IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Agradecimentos</h2>
+      <h2><IonicIcon name="chevron-forward-outline" className="guidelines-icon" /> Agradecimentos</h2>
       <p>Obrigado por contribuir com a documentação do n8n Brasil! Sua participação ajuda a tornar a automação mais acessível para todos os brasileiros.</p>
       <hr />
       <p><strong>💡 Dica</strong>: Se você tem dúvidas sobre como contribuir, não hesite em abrir uma issue ou participar das discussões da comunidade.</p>
@@ -111,18 +65,18 @@ export default function Guidelines() {
       <h3>1. Sinalização de Status</h3>
       <ul>
         <li><strong>Páginas validadas</strong>: Devem conter no início do arquivo o aviso:
-          <pre><code>
+          <pre><code>{`
             :::info
-            &lt;ion-icon name="shield-checkmark-outline" style={{"fontSize":"18px","color":"#17a2b8"}}&gt;&lt;/ion-icon&gt; Esta página da documentação foi validada tecnicamente e didaticamente.
+            <ion-icon name="shield-checkmark-outline" style={{fontSize:"18px",color:"#17a2b8"}}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
             :::
-          </code></pre>
+          `}</code></pre>
         </li>
         <li><strong>Páginas em progresso</strong>: Devem conter no início do arquivo o aviso:
-          <pre><code>
+          <pre><code>{`
             :::warning
-            &lt;ion-icon name="time-outline" style={{"fontSize":"18px","color":"#f59e0b"}}&gt;&lt;/ion-icon&gt; Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+            <ion-icon name="time-outline" style={{fontSize:"18px",color:"#f59e0b"}}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
             :::
-          </code></pre>
+          `}</code></pre>
         </li>
       </ul>
       <h3>2. Checklist de Validação</h3>

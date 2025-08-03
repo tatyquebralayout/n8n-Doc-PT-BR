@@ -1,8 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import { AnimatedCounter, InteractiveCard, ConditionalAnimation, ResponsiveAnimation, AnimatedButton } from './_animacoes-e-interacoes-components';
 import IonicIcon from '@site/src/components/IonicIcon';
 
 export default function AnimacoesEInteracoes() {
