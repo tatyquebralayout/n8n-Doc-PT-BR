@@ -152,12 +152,13 @@ RELATORIO_PROBLEMAS_WORKFLOWS.md
 monitoring-report.json
 performance-report.json
 optimization-report.json
+overlap-report.json
+test-report.json
 
 # Scripts de desenvolvimento local (não essenciais para produção)
-scripts/optimize-dependencies.js
-scripts/performance-optimizer.js
-scripts/performance-monitor.js
-scripts/fix-broken-anchors.js
-scripts/demo-improvements.js
-scripts/optimize-images.js
+scripts/
+fix-ion-icons.ps1
+
+# Arquivos de configuração local
+cspell.json
 
