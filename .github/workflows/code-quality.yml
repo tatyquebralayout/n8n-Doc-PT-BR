@@ -15,6 +15,7 @@ permissions:
   security-events: write
   actions: read
   pull-requests: write
+  issues: write
 
 jobs:
   # Job 1: Análise estática de código
@@ -367,9 +368,14 @@ jobs:
             comment += `3. 🔄 Re-executar as verificações se necessário\n`;
             comment += `4. 🇧🇷 Manter qualidade da documentação em português\n`;
             
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
+            // Verificar se é realmente um PR antes de comentar
+            if (context.issue && context.issue.pull_request && context.eventName === 'pull_request') {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            } else {
+              console.log('Não é um PR, pulando comentário');
+            }

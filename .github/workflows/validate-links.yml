@@ -140,12 +140,17 @@ jobs:
               comment += `❌ Erro ao processar relatório de links. Verifique os logs da action.\n`;
             }
             
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
+            // Verificar se é realmente um PR antes de comentar
+            if (context.issue && context.issue.pull_request && context.eventName === 'pull_request') {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            } else {
+              console.log('Não é um PR, pulando comentário');
+            }
             
       - name: Create issue for broken links (scheduled run only)
         if: github.event_name == 'schedule' && always()

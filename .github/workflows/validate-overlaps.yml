@@ -21,6 +21,11 @@ on:
       - 'sidebars*.json'
       - 'scripts/**'
 
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
 jobs:
   validate-overlaps:
     name: Validate Documentation Structure and Content
@@ -104,12 +109,17 @@ jobs:
               
               comment += `\n📄 [Relatório completo disponível nos artifacts](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})\n`;
               
-              github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: comment
-              });
+              // Verificar se é realmente um PR antes de comentar
+              if (context.issue && context.issue.pull_request && context.eventName === 'pull_request') {
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: comment
+                });
+              } else {
+                console.log('Não é um PR, pulando comentário');
+              }
               
             } catch (error) {
               console.error('Erro ao processar relatório:', error);
@@ -120,12 +130,17 @@ jobs:
               errorComment += `- Se todas as dependências estão instaladas\n`;
               errorComment += `- Os logs de execução para mais detalhes\n`;
               
-              github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: errorComment
-              });
+              // Verificar se é realmente um PR antes de comentar
+              if (context.issue && context.issue.pull_request && context.eventName === 'pull_request') {
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: errorComment
+                });
+              } else {
+                console.log('Não é um PR, pulando comentário de erro');
+              }
             }
             
       - name: Fail on validation errors
