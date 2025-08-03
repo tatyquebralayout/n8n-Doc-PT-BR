@@ -1,15 +1,15 @@
----
+﻿---
 sidebar_position: 4
 title: Waiting e Delays
 description: Como implementar esperas e delays em workflows n8n
 keywords: [n8n, wait, delay, pausa, timing, sincronização, rate limiting]
 ---
 
-# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Waiting e Delays
+# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Waiting e Delays
 
 O controle de tempo é fundamental em workflows de automação. O n8n oferece várias estratégias para implementar esperas, delays e sincronização, permitindo criar workflows resilientes que lidam graciosamente com latências, rate limits e dependências temporais.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
+## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conceitos Fundamentais
 
 ### Por que usar Waiting e Delays?
 
@@ -28,7 +28,7 @@ O controle de tempo é fundamental em workflows de automação. O n8n oferece v�
 4. **Polling**: Verificação periódica de status
 5. **Timeout**: Limites de tempo para operações
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Implementação
 
 ### 1. Wait Node
 
@@ -91,7 +91,7 @@ return {
 };
 ```
 
-## <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Práticos
+## <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Práticos
 
 ### 1. Rate Limiting para APIs
 
@@ -218,7 +218,7 @@ return {
 };
 ```
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estratégias Avançadas
+## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estratégias Avançadas
 
 ### 1. Delays Adaptativos
 
@@ -267,7 +267,7 @@ return {
 };
 ```
 
-## <ion-icon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões e Data Mapping
+## <IonicIcon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Expressões e Data Mapping
 
 ### Delays Dinâmicos com Expressões
 
@@ -307,7 +307,7 @@ return {
 }
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tratamento de Erros
 
 ### Timeout e Cancelamento
 
@@ -349,7 +349,7 @@ return {
 };
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance e Otimização
+## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance e Otimização
 
 ### Boas Práticas
 
@@ -389,7 +389,7 @@ return {
 };
 ```
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
 
 ### Problemas Comuns
 
@@ -428,7 +428,7 @@ return {
 };
 ```
 
-## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Outros Nós
+## <IonicIcon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Outros Nós
 
 ### Fluxo Típico
 
@@ -471,7 +471,7 @@ return processados;
 }
 ```
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências
+## <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Referências
 
 - **[Wait Node](../../integracoes/builtin-nodes/logic-control/wait)** - Nó específico para delays
 - **[Error Handling](./error-handling)** - Tratamento de erros em workflows
@@ -484,4 +484,5 @@ return processados;
 Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
 :::
 
-> <ion-icon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon> **Dica**: Use delays estrategicamente para criar workflows mais robustos e respeitosos com os sistemas externos. Lembre-se que delays muito longos podem impactar a experiência do usuário, então sempre considere alternativas como webhooks para operações que podem demorar.
+> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Dica**: Use delays estrategicamente para criar workflows mais robustos e respeitosos com os sistemas externos. Lembre-se que delays muito longos podem impactar a experiência do usuário, então sempre considere alternativas como webhooks para operações que podem demorar.
+

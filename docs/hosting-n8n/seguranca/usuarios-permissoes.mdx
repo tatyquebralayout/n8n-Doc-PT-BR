@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 2
 title: Usuários e Permissões
 description: Como gerenciar usuários e configurar permissões granulares no n8n
@@ -6,11 +6,11 @@ keywords: [n8n, usuários, permissões, rbac, controle acesso, roles]
 ---
 
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Usuários e Permissões
+# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Usuários e Permissões
 
 Este documento detalha **gerenciamento de usuários e permissões** no n8n, incluindo criação de roles customizados, controle granular de acesso, permissões por workflow, segregação de ambientes, auditoria de ações, e implementação de RBAC (Role-Based Access Control) que garante princípio de menor privilégio e conformidade com políticas de segurança empresarial em organizações de grande porte.
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
+## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você vai aprender
 
 - Sistema RBAC (Role-Based Access Control)
 - Controle granular de permissões
@@ -20,7 +20,7 @@ Este documento detalha **gerenciamento de usuários e permissões** no n8n, incl
 
 ---
 
-## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sistema RBAC
+## <IonicIcon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Sistema RBAC
 
 ### Roles Padrão
 
@@ -136,7 +136,7 @@ const financeRole = {
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Controle Granular de Acesso
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Controle Granular de Acesso
 
 ### Permissões por Workflow
 
@@ -244,7 +244,7 @@ const financeRole = {
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segregação de Ambientes
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segregação de Ambientes
 
 ### Ambientes Separados
 
@@ -316,14 +316,14 @@ const environments = {
 
 ---
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Auditoria e Monitoramento
+## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Auditoria e Monitoramento
 
 ### Logs de Auditoria
 
 #### **Configuração de Auditoria**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar logs de auditoria
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar logs de auditoria
 N8N_AUDIT_ENABLED=true
 N8N_AUDIT_LOG_LEVEL=info
 N8N_AUDIT_LOG_FILE=/var/log/n8n/audit.log
@@ -436,7 +436,7 @@ const auditEvents = {
 
 ---
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Templates de Roles Organizacionais
+## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Templates de Roles Organizacionais
 
 ### Startup (10-50 funcionários)
 
@@ -661,7 +661,7 @@ const largeCompanyRoles = {
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Implementação
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Implementação
 
 ### Configuração Inicial
 
@@ -697,7 +697,7 @@ const largeCompanyRoles = {
 
 ---
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 Agora que você configurou usuários e permissões:
 
@@ -726,3 +726,4 @@ Considere implementar um sistema de aprovação para mudanças de permissões cr
 - [Documentação oficial n8n](https://docs.n8n.io/)
 - [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
 - [Segurança n8n](https://docs.n8n.io/hosting/security/)
+

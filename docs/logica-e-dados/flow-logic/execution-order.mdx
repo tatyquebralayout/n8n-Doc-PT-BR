@@ -1,15 +1,15 @@
----
+﻿---
 sidebar_position: 7
 title: Ordem de Execução
 description: Entenda como o n8n determina a ordem de execução dos nodes
 keywords: [n8n, execução, ordem, sequência, workflow, nodes]
 ---
 
-# <ion-icon name="play-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ordem de Execução
+# <IonicIcon name="play-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Ordem de Execução
 
 O n8n determina a ordem de execução dos nodes baseado nas conexões que você cria no workflow. Entender como isso funciona é fundamental para criar workflows eficientes e previsíveis.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como a Ordem é Determinada
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Como a Ordem é Determinada
 
 ### Fluxo Sequencial
 
@@ -43,7 +43,7 @@ graph LR
     E --> F[Process Result]
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tipos de Conexões
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tipos de Conexões
 
 ### Conexão Simples
 
@@ -63,7 +63,7 @@ graph LR
 - Apenas o caminho condicional executará
 - Permite lógica de decisão no workflow
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos de Ordem de Execução
+## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos de Ordem de Execução
 
 ### Exemplo 1: Fluxo Linear
 
@@ -120,7 +120,7 @@ graph LR
     F --> F1[4º: Finaliza]
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Considerações Importantes
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Considerações Importantes
 
 ### Dependências
 
@@ -140,7 +140,7 @@ graph LR
 - Muitas execuções paralelas podem sobrecarregar
 - Use **Rate Limiting** quando necessário
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas
 
 ### Para Workflows Simples
 
@@ -160,15 +160,16 @@ graph LR
 2. **Use Execute Once** para operações únicas
 3. **Monitore logs** para identificar gargalos
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 1. **Aprenda sobre [Error Handling](./error-handling)** para tratar falhas
 2. **Explore [Merging](./merging)** para combinar fluxos
 3. **Entenda [Subworkflows](./subworkflows)** para organização
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
 
 - **[Error Handling](./error-handling)** - Tratamento de erros
 - **[Merging](./merging)** - Combinar fluxos de dados
 - **[Subworkflows](./subworkflows)** - Organizar workflows complexos
 - **[Core Nodes](../integracoes/builtin-nodes/core-nodes/)** - Nodes fundamentais
+

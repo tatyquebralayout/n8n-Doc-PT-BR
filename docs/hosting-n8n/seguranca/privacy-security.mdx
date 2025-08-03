@@ -1,4 +1,4 @@
-# Privacidade e Segurança
+﻿# Privacidade e Segurança
 
 A privacidade e segurança dos dados são fundamentais ao usar o n8n, especialmente considerando a Lei Geral de Proteção de Dados (LGPD) no Brasil. Esta seção aborda as melhores práticas para proteger dados sensíveis e garantir conformidade regulatória.
 
@@ -162,15 +162,7 @@ Implemente alertas para atividades suspeitas:
 
 ```javascript
 // Monitorar tentativas de login
-const monitorarLogin = async (email, ip, sucesso) => {
-  if (!sucesso) {
-    await registrarTentativaFalha(email, ip);
-    
-    const tentativas = await contarTentativasFalha(email, '1h');
-    if (tentativas > 5) {
-      await bloquearUsuario(email, '1h');
-      await enviarAlertaSeguranca(email, ip);
-    }
+
   }
 };
 ```

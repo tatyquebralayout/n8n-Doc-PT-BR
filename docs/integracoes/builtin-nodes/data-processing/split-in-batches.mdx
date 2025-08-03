@@ -1,15 +1,15 @@
----
+﻿---
 sidebar_position: 2
 title: Split In Batches
 description: Divida dados em lotes para processamento eficiente em workflows n8n
 keywords: [n8n, split, batches, lotes, processamento, dados, performance]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Split In Batches Node
+# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Split In Batches Node
 
 O **Split In Batches Node** é essencial para processar grandes volumes de dados de forma eficiente, dividindo-os em lotes menores que podem ser processados sequencialmente ou em paralelo.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Conceito Principal**
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Conceito Principal**
 
 **Split In Batches = "Dividir Dados em Lotes"**
 
@@ -22,7 +22,7 @@ O Split In Batches Node é uma **AÇÃO** que:
 
 > **💡 Dica:** Use este node quando tiver muitos dados para processar ou quando APIs têm limites de rate limiting.
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
+## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Configurações Principais**
 
 ### **1. Batch Size**
 
@@ -44,7 +44,7 @@ Reset - Reiniciar contador de lotes
 Delay (ms) - Tempo de espera entre lotes
 ```
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos Práticos**
+## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Exemplos Práticos**
 
 ### **Exemplo 1: Processar Lista de Emails**
 
@@ -121,7 +121,7 @@ Wait Between Batches: 500ms
 - Sincronizar estoque
 - Enviar para API externa
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Casos de Uso Comuns**
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Casos de Uso Comuns**
 
 ### **1. Rate Limiting de APIs**
 
@@ -167,7 +167,7 @@ Batch Size: 1000
 Wait Between Batches: 2000ms
 ```
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Avançadas**
+## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Configurações Avançadas**
 
 ### **Wait Between Batches**
 
@@ -209,7 +209,7 @@ Batch Size: {{ $json.api_limit || 100 }}
 Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Otimização de Performance**
+## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Otimização de Performance**
 
 ### **Escolhendo o Tamanho do Lote**
 
@@ -244,7 +244,7 @@ Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
 }
 ```
 
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Tratamento de Erros**
+## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Tratamento de Erros**
 
 ### **Erro em um Lote**
 
@@ -282,7 +282,7 @@ Split In Batches → HTTP Request → Error Trigger → Log Error → Continue
 Continue on Fail: true
 ```
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos de Workflows**
+## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Exemplos de Workflows**
 
 ### **Workflow 1: Envio de Newsletter**
 
@@ -320,7 +320,7 @@ Webhook (upload arquivo) → CSV Parser → Split In Batches (1000) → Process 
 - **Wait**: 500ms entre lotes
 - **Process Data**: Transformação de dados
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações e Considerações**
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Limitações e Considerações**
 
 ### **Limitações Técnicas**
 
@@ -352,7 +352,7 @@ Batch Size: 10000  // Pode causar timeout
 Wait Between Batches: 0ms  // Pode sobrecarregar API
 ```
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Próximos Passos**
 
 Agora que você entende o Split In Batches Node:
 
@@ -383,3 +383,4 @@ Sempre configure delays adequados para evitar exceder limites de APIs externas.
 - [Set Node](./set) - Para manipulação de dados
 - [Aggregate Node](./aggregate) - Para agregações
 - [Code Node](../core-nodes/code) - Para lógica customizada
+

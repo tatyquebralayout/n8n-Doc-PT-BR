@@ -1,15 +1,15 @@
----
+﻿---
 sidebar_position: 1
 title: Integração PIX
 description: Como integrar n8n com PIX para automação de pagamentos brasileiros
 keywords: [n8n, pix, pagamentos, brasil, financeiro, automação, qr code, banco]
 ---
 
-# <ion-icon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração PIX
+# <IonicIcon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração PIX
 
 O **PIX** é o sistema de pagamentos instantâneos do Banco Central do Brasil, e a integração com n8n permite automatizar processos financeiros, criar workflows de pagamento e gerenciar transações de forma eficiente e segura.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral
+## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Visão Geral
 
 A integração n8n-PIX oferece:
 
@@ -20,7 +20,7 @@ A integração n8n-PIX oferece:
 - **Webhooks para notificações** de pagamentos
 - **Relatórios financeiros** automatizados
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração
 
 ### 1. Configurar Conta Bancária
 
@@ -53,7 +53,7 @@ Para usar PIX com n8n, você precisa:
 }
 ```
 
-## <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nós Disponíveis
+## <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Nós Disponíveis
 
 ### 1. PIX QR Code Generator
 
@@ -115,7 +115,7 @@ Recebe notificações de pagamentos PIX via webhook.
 }
 ```
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Práticos
+## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Práticos
 
 ### 1. E-commerce com PIX
 
@@ -270,7 +270,7 @@ graph TD
 }
 ```
 
-## <ion-icon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões e Data Mapping
+## <IonicIcon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Expressões e Data Mapping
 
 ### QR Codes Dinâmicos
 
@@ -316,7 +316,7 @@ return {
 };
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tratamento de Erros
 
 ### Erros Comuns PIX
 
@@ -363,7 +363,7 @@ for (let attempt = 1; attempt <= retryConfig.maxTries; attempt++) {
 }
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
+## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas
 
 ### 1. Segurança
 
@@ -415,7 +415,7 @@ await enviarMetricas(metrics);
 - **Implemente auditoria** completa
 - **Use certificados** digitais válidos
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
 
 ### Problemas Comuns
 
@@ -447,7 +447,7 @@ console.log('PIX Debug:', {
 });
 ```
 
-## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Outros Nós
+## <IonicIcon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Outros Nós
 
 ### Fluxo Completo
 
@@ -519,7 +519,7 @@ return qrCodeData;
 }
 ```
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências
+## <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Referências
 
 - **[Conciliação Bancária](../financeiro/conciliacao-bancaria)** - Conciliação automatizada
 - **[NFE Integração](../financeiro/nfe-integracao)** - Integração com notas fiscais
@@ -532,4 +532,5 @@ return qrCodeData;
 Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
 :::
 
-> <ion-icon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon> **Dica**: Use a integração PIX para modernizar seus processos financeiros. Lembre-se de sempre implementar logs detalhados e monitoramento para garantir a segurança e rastreabilidade das transações.
+> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Dica**: Use a integração PIX para modernizar seus processos financeiros. Lembre-se de sempre implementar logs detalhados e monitoramento para garantir a segurança e rastreabilidade das transações.
+

@@ -1,15 +1,15 @@
----
+﻿---
 title: Workflow Trigger
 sidebar_position: 6
 description: Como usar o Workflow Trigger para executar workflows a partir de outros workflows
 keywords: [n8n, workflow trigger, subworkflow, execução, automação, trigger]
 ---
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Workflow Trigger
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Workflow Trigger
 
 O **Workflow Trigger** é um nó especial que permite executar um workflow a partir de outro workflow, criando uma hierarquia de automações. Este recurso é fundamental para organizar workflows complexos em módulos menores e reutilizáveis.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceito
+## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conceito
 
 O Workflow Trigger funciona como um **disparador interno** que permite que um workflow seja executado por outro workflow, similar a uma função em programação. Isso possibilita:
 
@@ -18,7 +18,7 @@ O Workflow Trigger funciona como um **disparador interno** que permite que um wo
 - **Organização** de automações em componentes menores
 - **Manutenção** simplificada de workflows grandes
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração
 
 ### Parâmetros Básicos
 
@@ -43,7 +43,7 @@ O Workflow Trigger funciona como um **disparador interno** que permite que um wo
 }
 ```
 
-## <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos Práticos
+## <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos Práticos
 
 ### Exemplo 1: Workflow Modular de Notificações
 
@@ -79,7 +79,7 @@ graph LR
 }
 ```
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso
+## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso
 
 ### 1. Processamento de Pedidos E-commerce
 
@@ -124,7 +124,7 @@ graph LR
     C --> D[Workflow Trigger - Reports]
 ```
 
-## <ion-icon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões e Data Mapping
+## <IonicIcon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Expressões e Data Mapping
 
 ### Passando Dados Entre Workflows
 
@@ -155,7 +155,7 @@ graph LR
 }
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tratamento de Erros
 
 ### Configuração de Error Handling
 
@@ -184,7 +184,7 @@ graph TD
     E --> G[Retornar Status Success]
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance e Otimização
+## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance e Otimização
 
 ### Boas Práticas
 
@@ -217,7 +217,7 @@ graph TD
 }
 ```
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
 
 ### Problemas Comuns
 
@@ -253,7 +253,7 @@ graph TD
 }
 ```
 
-## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Outros Nós
+## <IonicIcon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Outros Nós
 
 ### Fluxo Típico
 
@@ -304,7 +304,7 @@ return {
 };
 ```
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências
+## <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Referências
 
 - **[Subworkflows](../../logica-e-dados/flow-logic/subworkflows)** - Conceitos avançados de subworkflows
 - **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros em workflows
@@ -313,10 +313,11 @@ return {
 
 ---
 
-> <ion-icon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon> **Dica**: Use Workflow Triggers para criar bibliotecas de workflows reutilizáveis. Isso facilita a manutenção e permite que equipes diferentes trabalhem em módulos específicos sem interferir no workflow principal.
+> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Dica**: Use Workflow Triggers para criar bibliotecas de workflows reutilizáveis. Isso facilita a manutenção e permite que equipes diferentes trabalhem em módulos específicos sem interferir no workflow principal.
 
 ---
 
 :::warning **Nota de Atenção**
 Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
 :::
+

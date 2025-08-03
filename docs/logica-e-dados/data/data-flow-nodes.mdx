@@ -1,15 +1,15 @@
----
+﻿---
 sidebar_position: 2
 title: Fluxo de Dados Dentro dos Nodes
 description: Entenda como os dados fluem dentro dos nodes do n8n
 keywords: [n8n, dados, fluxo, nodes, processamento, itens]
 ---
 
-# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Fluxo de Dados Dentro dos Nodes
+# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Fluxo de Dados Dentro dos Nodes
 
 O n8n processa dados como uma série de itens. Cada item é um objeto que contém os dados que você está trabalhando. Entender como esses itens fluem através dos nodes é fundamental para criar workflows eficientes.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como os Itens Fluem
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Como os Itens Fluem
 
 ### Processamento Padrão
 
@@ -29,7 +29,7 @@ Imagine que você tem um node que retorna uma lista de clientes:
 
 Se você conectar um node de email a este, ele enviará **3 emails** - um para cada cliente.
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de Execução
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de Execução
 
 ### Execute Once
 
@@ -51,7 +51,7 @@ graph LR
     C --> C1[1 email enviado]
 ```
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nodes com Comportamento Especial
+## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Nodes com Comportamento Especial
 
 ### Code Node
 
@@ -78,7 +78,7 @@ O Code node tem duas modalidades:
 - **Insert/Update/Delete:** Executam uma vez para todos os itens
 - **Select:** Processam cada item individualmente
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos de Fluxo
+## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos de Fluxo
 
 ### Exemplo 1: Processamento Individual
 
@@ -120,7 +120,7 @@ graph LR
     D --> D1[1 email com resumo]
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Considerações Importantes
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Considerações Importantes
 
 ### Performance
 
@@ -140,7 +140,7 @@ graph LR
 - Sempre teste com diferentes volumes de dados
 - Monitore os logs de execução
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas
 
 ### Para Muitos Itens
 
@@ -160,15 +160,16 @@ graph LR
 2. **Use Wait nodes** se necessário
 3. **Implemente retry logic** para falhas
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 1. **Aprenda sobre [Looping](../flow-logic/looping)** para processamento repetitivo
 2. **Explore [Error Handling](../flow-logic/error-handling)** para lidar com falhas
 3. **Entenda [Data Structure](./data-structure)** para estrutura de dados
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
 
 - **[Data Structure](./data-structure)** - Estrutura fundamental dos dados
 - **[Looping](../flow-logic/looping)** - Processamento repetitivo
 - **[Error Handling](../flow-logic/error-handling)** - Tratamento de erros
 - **[Core Nodes](../integracoes/builtin-nodes/core-nodes/)** - Nodes fundamentais
+

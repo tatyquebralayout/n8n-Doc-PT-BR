@@ -1,0 +1,113 @@
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--ifm-color-emphasis-100);
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+}
+
+.value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--ifm-heading-color);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  color: var(--ifm-font-color-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Tamanhos */
+.small .icon {
+  width: 40px;
+  height: 40px;
+}
+
+.small .value {
+  font-size: var(--font-size-lg);
+}
+
+.medium .icon {
+  width: 60px;
+  height: 60px;
+}
+
+.medium .value {
+  font-size: var(--font-size-2xl);
+}
+
+.large .icon {
+  width: 80px;
+  height: 80px;
+}
+
+.large .value {
+  font-size: var(--font-size-3xl);
+}
+
+/* Variantes */
+.primary .icon {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary);
+}
+
+.success .icon {
+  background: var(--ifm-color-success-lightest);
+  color: var(--ifm-color-success);
+}
+
+.warning .icon {
+  background: var(--ifm-color-warning-lightest);
+  color: var(--ifm-color-warning);
+}
+
+.danger .icon {
+  background: var(--ifm-color-danger-lightest);
+  color: var(--ifm-color-danger);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .statItem {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .value {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .value {
+    font-size: var(--font-size-lg);
+  }
+} 

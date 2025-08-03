@@ -555,49 +555,7 @@ const sidebars: SidebarsConfig = {
         'catalogo/ia-machine-learning',
       ],
     },
-    {
-      type: 'category',
-      label: 'Cursos',
-      items: [
-        'cursos/index',
-        {
-          type: 'category',
-          label: 'Cursos em Vídeo',
-          items: [
-            'cursos/cursos-em-video/index',
-            'cursos/cursos-em-video/curso-iniciante',
-            'cursos/cursos-em-video/curso-avancado',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Cursos em Texto',
-          items: [
-            'cursos/cursos-em-texto/index',
-            {
-              type: 'category',
-              label: 'Nível Um',
-              items: [
-                'cursos/cursos-em-texto/nivel-um/capitulo-1',
-                'cursos/cursos-em-texto/nivel-um/capitulo-2',
-                'cursos/cursos-em-texto/nivel-um/capitulo-3',
-                'cursos/cursos-em-texto/nivel-um/capitulo-4',
-                'cursos/cursos-em-texto/nivel-um/capitulo-5',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Nível Dois',
-              items: [
-                'cursos/cursos-em-texto/nivel-dois/capitulo-1',
-                'cursos/cursos-em-texto/nivel-dois/capitulo-2',
-                'cursos/cursos-em-texto/nivel-dois/capitulo-3',
-              ],
-            },
-          ],
-        },
-      ],
-    },
+
     {
       type: 'category',
       label: 'Comunidade',

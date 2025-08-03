@@ -1,0 +1,75 @@
+.tagList {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-base);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.moreTags {
+  font-size: var(--font-size-xs);
+  color: var(--ifm-font-color-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Tamanhos */
+.small .tag {
+  font-size: var(--font-size-xs);
+  padding: 0.125rem 0.375rem;
+}
+
+.medium .tag {
+  font-size: var(--font-size-sm);
+  padding: 0.25rem 0.5rem;
+}
+
+.large .tag {
+  font-size: var(--font-size-base);
+  padding: 0.375rem 0.75rem;
+}
+
+/* Variantes */
+.primary .tag {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary);
+}
+
+.secondary .tag {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-secondary);
+}
+
+.success .tag {
+  background: var(--ifm-color-success-lightest);
+  color: var(--ifm-color-success);
+}
+
+.warning .tag {
+  background: var(--ifm-color-warning-lightest);
+  color: var(--ifm-color-warning);
+}
+
+.danger .tag {
+  background: var(--ifm-color-danger-lightest);
+  color: var(--ifm-color-danger);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .tagList {
+    gap: 0.375rem;
+  }
+  
+  .tag {
+    font-size: var(--font-size-xs);
+    padding: 0.125rem 0.375rem;
+  }
+} 

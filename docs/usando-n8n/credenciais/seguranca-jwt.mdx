@@ -1,36 +1,36 @@
----
+﻿---
 id: seguranca-jwt
 title: Segurança em Integrações - Credenciais e Tokens
 sidebar_label: Segurança em Integrações
 description: Boas práticas de segurança para credenciais e tokens no n8n
 ---
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança em Integrações - Credenciais e Tokens
+# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segurança em Integrações - Credenciais e Tokens
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O Contexto Real do n8n
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O Contexto Real do n8n
 
 O n8n é uma **plataforma de automação** que se conecta com APIs externas. A segurança aqui é sobre **proteger credenciais de integração**, não autenticação web tradicional.
 
 ### Como o n8n Funciona
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> n8n armazena credenciais de forma segura
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> n8n armazena credenciais de forma segura
 // As credenciais são criptografadas no banco de dados
 // Não são expostas no frontend
 ```
 
-> **<ion-icon name="bulb-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> Importante**: O n8n não loga ou exporta credenciais por padrão, mas se você logar seus valores, a responsabilidade pela exclusão desses dados é sua.
+> **<IonicIcon name="bulb-outline" style={{ fontSize: '16px', color: '#f59e0b' }} /> Importante**: O n8n não loga ou exporta credenciais por padrão, mas se você logar seus valores, a responsabilidade pela exclusão desses dados é sua.
 
-## <ion-icon name="alert-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Problemas Reais no n8n
+## <IonicIcon name="alert-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Problemas Reais no n8n
 
 ### 1. Credenciais Expostas em Logs
 
 ```javascript
-// <ion-icon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }}></ion-icon> PERIGOSO - Logar credenciais
+// <IonicIcon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }} /> PERIGOSO - Logar credenciais
 console.log('API Key:', apiKey)
 console.log('Token:', token)
 
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> SEGURO - Logar apenas metadados
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> SEGURO - Logar apenas metadados
 console.log('API conectada:', 'Google Sheets')
 console.log('Status:', 'success')
 ```
@@ -38,30 +38,30 @@ console.log('Status:', 'success')
 ### 2. Credenciais em Variáveis de Ambiente
 
 ```bash
-# <ion-icon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }}></ion-icon> PERIGOSO - Credenciais em texto plano
+# <IonicIcon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }} /> PERIGOSO - Credenciais em texto plano
 N8N_GOOGLE_API_KEY=AIzaSyC...
 N8N_SLACK_TOKEN=xoxb-123...
 
-# <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> SEGURO - Usar sistema de credenciais do n8n
+# <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> SEGURO - Usar sistema de credenciais do n8n
 # Configurar via interface web ou API
 ```
 
 ### 3. Tokens em Workflows
 
 ```javascript
-// <ion-icon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }}></ion-icon> PERIGOSO - Token hardcoded
+// <IonicIcon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }} /> PERIGOSO - Token hardcoded
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> SEGURO - Usar credenciais do n8n
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> SEGURO - Usar credenciais do n8n
 const credentials = $credentials.googleSheets
 ```
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Segura no n8n
+## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Segura no n8n
 
 ### 1. Usar Credenciais do n8n
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Configuração segura
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Configuração segura
 const httpRequest = {
   method: 'GET',
   url: 'https://api.exemplo.com/dados',
@@ -77,7 +77,7 @@ const httpRequest = {
 ### 2. Configurar Credenciais
 
 ```bash
-# <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Variáveis de ambiente para configuração
+# <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Variáveis de ambiente para configuração
 N8N_ENCRYPTION_KEY=sua_chave_de_32_caracteres
 N8N_DATABASE_ENCRYPTION_KEY=sua_chave_de_32_caracteres
 N8N_SECRETS_ENCRYPTION_KEY=sua_chave_de_32_caracteres
@@ -86,19 +86,19 @@ N8N_SECRETS_ENCRYPTION_KEY=sua_chave_de_32_caracteres
 ### 3. Headers de Segurança
 
 ```nginx
-# <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Headers para n8n
+# <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Headers para n8n
 add_header X-Frame-Options DENY always;
 add_header X-Content-Type-Options nosniff always;
 add_header X-XSS-Protection "1; mode=block" always;
 add_header Strict-Transport-Security "max-age=31536000" always;
 ```
 
-## <ion-icon name="shield-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tipos de Credenciais no n8n
+## <IonicIcon name="shield-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tipos de Credenciais no n8n
 
 ### 1. API Keys
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Configuração segura de API Key
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Configuração segura de API Key
 {
   "name": "Google Sheets API",
   "type": "googleSheetsOAuth2Api",
@@ -112,7 +112,7 @@ add_header Strict-Transport-Security "max-age=31536000" always;
 ### 2. OAuth Tokens
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Configuração OAuth2
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Configuração OAuth2
 {
   "name": "Slack Integration",
   "type": "slackOAuth2Api",
@@ -126,7 +126,7 @@ add_header Strict-Transport-Security "max-age=31536000" always;
 ### 3. Basic Auth
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Configuração Basic Auth
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Configuração Basic Auth
 {
   "name": "Internal API",
   "type": "httpBasicAuth",
@@ -137,21 +137,13 @@ add_header Strict-Transport-Security "max-age=31536000" always;
 }
 ```
 
-## <ion-icon name="refresh-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Rotação de Credenciais
+## <IonicIcon name="refresh-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Rotação de Credenciais
 
 ### 1. Monitoramento de Expiração
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Verificar expiração de tokens
-const checkTokenExpiration = (credentials) => {
-  const expiresAt = credentials.expiresAt
-  const now = new Date()
-  
-  if (expiresAt && now > new Date(expiresAt)) {
-    // Token expirado - notificar administrador
-    console.warn('Token expirado:', credentials.name)
-    return false
-  }
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Verificar expiração de tokens
+
   
   return true
 }
@@ -160,14 +152,8 @@ const checkTokenExpiration = (credentials) => {
 ### 2. Refresh Automático
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Refresh automático de tokens
-const refreshToken = async (credentials) => {
-  try {
-    const response = await fetch('/oauth/refresh', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Refresh automático de tokens
+,
       body: JSON.stringify({
         refreshToken: credentials.refreshToken
       })
@@ -182,41 +168,31 @@ const refreshToken = async (credentials) => {
 }
 ```
 
-## <ion-icon name="close-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que NUNCA fazer no n8n
+## <IonicIcon name="close-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que NUNCA fazer no n8n
 
 ```javascript
-// <ion-icon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }}></ion-icon> NUNCA hardcodar credenciais
+// <IonicIcon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }} /> NUNCA hardcodar credenciais
 const apiKey = "sk-1234567890abcdef"
 
-// <ion-icon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }}></ion-icon> NUNCA logar tokens
+// <IonicIcon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }} /> NUNCA logar tokens
 console.log('Token:', token)
 
-// <ion-icon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }}></ion-icon> NUNCA expor credenciais em URLs
+// <IonicIcon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }} /> NUNCA expor credenciais em URLs
 const url = `https://api.exemplo.com/data?token=${token}`
 
-// <ion-icon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }}></ion-icon> NUNCA armazenar em localStorage
+// <IonicIcon name="close-circle-outline" style={{ fontSize: '16px', color: '#ef4444' }} /> NUNCA armazenar em localStorage
 localStorage.setItem('n8n-credentials', JSON.stringify(credentials))
 ```
 
-## <ion-icon name="search-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificação de Segurança
+## <IonicIcon name="search-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificação de Segurança
 
 ### 1. Auditoria de Credenciais
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Verificar credenciais expostas
-const auditCredentials = () => {
-  const workflows = getAllWorkflows()
-  
-  workflows.forEach(workflow => {
-    const nodes = workflow.nodes
-    
-    nodes.forEach(node => {
-      if (node.parameters && node.parameters.authentication) {
-        // Verificar se usa credenciais do n8n
-        if (node.parameters.authentication === 'predefinedCredentialType') {
-          console.log('<ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Credencial segura:', node.name)
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Verificar credenciais expostas
+} /> Credencial segura:', node.name)
         } else {
-          console.warn('<ion-icon name="warning-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> Credencial potencialmente insegura:', node.name)
+          console.warn('<IonicIcon name="warning-outline" style={{ fontSize: '16px', color: '#f59e0b' }} /> Credencial potencialmente insegura:', node.name)
         }
       }
     })
@@ -227,22 +203,14 @@ const auditCredentials = () => {
 ### 2. Monitoramento de Acesso
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Logs de segurança
-const logSecurityEvent = (event) => {
-  const logEntry = {
-    timestamp: new Date().toISOString(),
-    event: event.type,
-    user: event.user,
-    workflow: event.workflow,
-    ip: event.ip,
-    // NUNCA logar credenciais
-  }
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Logs de segurança
+
   
-  console.log('<ion-icon name="shield-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Evento de segurança:', logEntry)
+  console.log('<IonicIcon name="shield-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> Evento de segurança:', logEntry)
 }
 ```
 
-## <ion-icon name="list-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Segurança para n8n
+## <IonicIcon name="list-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Segurança para n8n
 
 - [ ] **Credenciais Criptografadas**: Usar sistema de credenciais do n8n
 - [ ] **Variáveis de Ambiente**: Configurar chaves de criptografia
@@ -253,7 +221,7 @@ const logSecurityEvent = (event) => {
 - [ ] **Headers de Segurança**: Configurar no proxy/reverse proxy
 - [ ] **Backup Seguro**: Criptografar backups de credenciais
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Específica do n8n
+## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Específica do n8n
 
 ### Docker Compose Seguro
 
@@ -317,12 +285,12 @@ server {
 }
 ```
 
-## <ion-icon name="target-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Reais
+## <IonicIcon name="target-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Reais
 
 ### 1. Integração com Google Sheets
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Configuração segura
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Configuração segura
 const googleSheetsNode = {
   resource: 'spreadsheet',
   operation: 'read',
@@ -335,7 +303,7 @@ const googleSheetsNode = {
 ### 2. Webhook Seguro
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Webhook com autenticação
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Webhook com autenticação
 const webhookNode = {
   httpMethod: 'POST',
   path: 'webhook-seguro',
@@ -351,7 +319,7 @@ const webhookNode = {
 ### 3. API Externa com Rate Limiting
 
 ```javascript
-// <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Configuração com rate limiting
+// <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Configuração com rate limiting
 const httpRequestNode = {
   method: 'GET',
   url: 'https://api.externa.com/dados',
@@ -365,7 +333,7 @@ const httpRequestNode = {
 }
 ```
 
-## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Adicionais
+## <IonicIcon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Adicionais
 
 - [n8n Security Documentation](https://docs.n8n.io/security/)
 - [n8n Credentials Guide](https://docs.n8n.io/credentials/)
@@ -373,7 +341,7 @@ const httpRequestNode = {
 - [OWASP API Security](https://owasp.org/www-project-api-security/)
 - [n8n Community Security](https://community.n8n.io/c/security/)
 
-## <ion-icon name="library-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências Validadas
+## <IonicIcon name="library-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Referências Validadas
 
 - [n8n Docs - Privacy and Security](https://docs.n8n.io/privacy-security/)
 - [n8n Docs - Credentials](https://docs.n8n.io/credentials/)
@@ -381,16 +349,17 @@ const httpRequestNode = {
 - [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
 - [Docker - Manage Data](https://docs.docker.com/storage/volumes/)
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dica Importante
+## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Dica Importante
 
 > **Lembre-se**: No n8n, a segurança é sobre **proteger credenciais de integração**, não sobre autenticação web tradicional. Use sempre o sistema de credenciais integrado da plataforma.
 
-### **<ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#10b981' }}></ion-icon> Validação de Segurança**
+### **<IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#10b981' }} /> Validação de Segurança**
 
 Este documento foi validado através de:
-- <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> **Documentação oficial do n8n**
-- <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> **Artigos especializados em segurança**
-- <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> **Discussões da comunidade n8n**
-- <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> **Práticas comprovadas em produção**
+- <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> **Documentação oficial do n8n**
+- <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> **Artigos especializados em segurança**
+- <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> **Discussões da comunidade n8n**
+- <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> **Práticas comprovadas em produção**
 
 Implemente essas práticas para proteger suas integrações e dados sensíveis no n8n.
+

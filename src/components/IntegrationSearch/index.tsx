@@ -154,29 +154,34 @@ const IntegrationSearch: React.FC = () => {
           className={styles.integrationSearch}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          data-testid="integration-search"
         />
         <div className={styles.searchFilters}>
           <button
             className={`${styles.filterBtn} ${activeFilter === 'all' ? styles.active : ''}`}
             onClick={() => handleFilterClick('all')}
+            data-testid="filter-all"
           >
             Todas
           </button>
           <button
             className={`${styles.filterBtn} ${activeFilter === 'popular' ? styles.active : ''}`}
             onClick={() => handleFilterClick('popular')}
+            data-testid="filter-popular"
           >
             Populares
           </button>
           <button
             className={`${styles.filterBtn} ${activeFilter === 'new' ? styles.active : ''}`}
             onClick={() => handleFilterClick('new')}
+            data-testid="filter-new"
           >
             Novas
           </button>
           <button
             className={`${styles.filterBtn} ${activeFilter === 'brazilian' ? styles.active : ''}`}
             onClick={() => handleFilterClick('brazilian')}
+            data-testid="filter-brazilian"
           >
             Brasileiras
           </button>
@@ -195,7 +200,7 @@ const IntegrationSearch: React.FC = () => {
             {filteredIntegrations.length > 0 ? (
               <div className={styles.integrationsGrid}>
                 {filteredIntegrations.map((integration, index) => (
-                  <div key={index} className={styles.integrationCard}>
+                  <div key={index} className={styles.integrationCard} data-testid="integration-card">
                     <div className={styles.integrationHeader}>
                       <h4 className={styles.integrationName}>{integration.name}</h4>
                       {integration.users && (

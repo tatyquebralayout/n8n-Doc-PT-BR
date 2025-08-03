@@ -1,5 +1,5 @@
-:::info
-<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+﻿:::info
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }} /> Esta página da documentação foi validada tecnicamente e didaticamente.
 :::
 
 ---
@@ -9,11 +9,11 @@ description: Como conectar nodes e entender o fluxo de dados no n8n
 keywords: [n8n, conexões, nodes, fluxo, dados, workflow]
 ---
 
-# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conexões entre Nodes
+# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conexões entre Nodes
 
 As conexões são a base de qualquer workflow no n8n, definindo como os dados fluem de um node para outro e criando a lógica de execução da sua automação.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que são Conexões?
+## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que são Conexões?
 
 Conexões são linhas que conectam nodes, definindo:
 
@@ -48,7 +48,7 @@ Conexões que podem ou não ser executadas:
 - **Função**: Fluxos condicionais
 - **Uso**: Lógica alternativa
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Criar Conexões
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Como Criar Conexões
 
 ### Método Visual
 
@@ -71,7 +71,7 @@ Um node pode ter múltiplas conexões de saída:
 - **Conexões condicionais**: Baseadas em condições
 - **Conexões de erro**: Para tratamento de falhas
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tipos de Fluxo
+## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tipos de Fluxo
 
 ### Fluxo Linear
 
@@ -129,7 +129,7 @@ Trigger → Node A → Node B (sucesso)
 - Permite recuperação
 - Logging de falhas
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões de Conexão
+## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Padrões de Conexão
 
 ### Padrão Try-Catch
 
@@ -176,7 +176,7 @@ graph LR
     C --> F[Error Handler]
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de Conexão
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de Conexão
 
 ### Condições de Conexão
 
@@ -221,7 +221,7 @@ Combine condições com operadores lógicos:
 {{ typeof $json.valor === 'number' && $json.valor > 0 }}
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Problemas Comuns
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Problemas Comuns
 
 ### Conexões Circulares
 
@@ -250,7 +250,7 @@ Combine condições com operadores lógicos:
 - Use filtros para reduzir volume de dados
 - Implemente timeouts adequados
 
-## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Debugging de Conexões
+## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Debugging de Conexões
 
 ### Verificar Fluxo
 
@@ -279,7 +279,7 @@ Combine condições com operadores lógicos:
 {{ console.log('Condição avaliada:', $json.status === 'ativo') }}
 ```
 
-## <ion-icon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Otimização
+## <IonicIcon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Otimização
 
 ### Reduzir Complexidade
 
@@ -302,13 +302,13 @@ Combine condições com operadores lógicos:
 - **Organize** workflows logicamente
 - **Version controle** suas mudanças
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 1. **[Execution Order](./flow-logic/execution-order)** - Entender ordem de execução
 2. **[Error Handling](./flow-logic/error-handling)** - Tratamento robusto de erros
 3. **[Subworkflows](./flow-logic/subworkflows)** - Modularização de workflows
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
+## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Úteis
 
 ### Documentação Relacionada
 
@@ -324,4 +324,4 @@ Combine condições com operadores lógicos:
 
 ---
 
-**<ion-icon name="git-network-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Conexões bem estruturadas criam workflows eficientes e confiáveis!** 
+**<IonicIcon name="git-network-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> Conexões bem estruturadas criam workflows eficientes e confiáveis!** 

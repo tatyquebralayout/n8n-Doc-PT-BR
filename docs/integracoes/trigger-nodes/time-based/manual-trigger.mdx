@@ -1,11 +1,11 @@
----
+﻿---
 title: Manual Trigger
 description: Guia completo sobre o Manual Trigger no n8n, incluindo configuração, execução manual, exemplos práticos e boas práticas
 sidebar_position: 1
 keywords: [n8n, manual trigger, execução manual, teste, desenvolvimento, workflow]
 ---
 
-# <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Manual Trigger
+# <IonicIcon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Manual Trigger
 
 O **Manual Trigger** é o node mais fundamental do n8n, permitindo executar workflows manualmente. É essencial para testes, desenvolvimento e execução sob demanda de automações.
 
@@ -545,16 +545,7 @@ O **Manual Trigger** permite:
 
 ```javascript
 // Code Node - Debug de Manual Trigger
-const debugManualTrigger = (dados) => {
-  console.log('=== DEBUG MANUAL TRIGGER ===');
-  console.log('Dados de entrada:', dados);
-  console.log('Tipo de dados:', typeof dados);
-  console.log('É array:', Array.isArray(dados));
-  console.log('Número de itens:', Array.isArray(dados) ? dados.length : 1);
-  console.log('===========================');
-  
-  return dados;
-};
+;
 
 // Usar após o Manual Trigger
 return { json: debugManualTrigger($json) };
@@ -642,3 +633,5 @@ return { json: debugManualTrigger($json) };
 - [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
 - [Set Node](/integracoes/builtin-nodes/data-processing/set) - Manipulação de dados
 - [Debugging](/logica-e-dados/flow-logic/debugging) - Técnicas de debug
+
+

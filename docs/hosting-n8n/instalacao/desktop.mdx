@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 4
 title: Instalação Desktop
 description: Como instalar n8n Desktop para uso local e desenvolvimento
@@ -6,11 +6,11 @@ keywords: [n8n, desktop, instalação, local, desenvolvimento, windows, mac]
 ---
 
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação Desktop
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalação Desktop
 
 Este guia detalha como **instalar n8n Desktop** para uso local e desenvolvimento, oferecendo uma experiência nativa e simplificada.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que é o n8n Desktop?
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que é o n8n Desktop?
 
 O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localmente sem necessidade de configurações complexas de servidor ou Docker. É ideal para usuários que preferem uma experiência mais simples e integrada ao sistema operacional.
 
@@ -25,7 +25,7 @@ O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localment
 
 ---
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
+## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Pré-requisitos
 
 ### **Requisitos do Sistema**
 
@@ -55,7 +55,7 @@ O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localment
 
 ---
 
-## <ion-icon name="download-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação
+## <IonicIcon name="download-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalação
 
 ### **Windows**
 
@@ -70,10 +70,10 @@ O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localment
 #### **Instalação via Chocolatey**
 
 ```powershell
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar Chocolatey (se necessário)
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar Chocolatey (se necessário)
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar n8n Desktop
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar n8n Desktop
 choco install n8n-desktop
 ```
 
@@ -96,10 +96,10 @@ winget install n8n.n8n-desktop
 #### **Instalação via Homebrew**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar Homebrew (se necessário)
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar Homebrew (se necessário)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar n8n Desktop
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar n8n Desktop
 brew install --cask n8n-desktop
 ```
 
@@ -108,11 +108,11 @@ brew install --cask n8n-desktop
 #### **Ubuntu/Debian**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Adicionar repositório
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Adicionar repositório
 wget -qO- https://packages.n8n.io/gpg.key | sudo apt-key add -
 echo "deb https://packages.n8n.io/ubuntu/ focal main" | sudo tee /etc/apt/sources.list.d/n8n.list
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Atualizar e instalar
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizar e instalar
 sudo apt update
 sudo apt install n8n-desktop
 ```
@@ -120,10 +120,10 @@ sudo apt install n8n-desktop
 #### **Fedora/RHEL**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Adicionar repositório
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Adicionar repositório
 sudo dnf config-manager --add-repo https://packages.n8n.io/fedora/n8n.repo
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar
 sudo dnf install n8n-desktop
 ```
 
@@ -135,7 +135,7 @@ sudo snap install n8n-desktop
 
 ---
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Inicial
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Inicial
 
 ### **Primeiro Acesso**
 
@@ -147,7 +147,7 @@ sudo snap install n8n-desktop
 ### **Configurações Básicas**
 
 ```bash
-# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações padrão
+# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações padrão
 Porta: 5678
 Protocolo: http
 Host: localhost
@@ -157,10 +157,10 @@ Timezone: Sistema operacional
 ### **Configurações Avançadas**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquivo de configuração (opcional)
-# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Windows: %APPDATA%\n8n\config.json
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> macOS: ~/Library/Application Support/n8n/config.json
-# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Linux: ~/.config/n8n/config.json
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Arquivo de configuração (opcional)
+# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows: %APPDATA%\n8n\config.json
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS: ~/Library/Application Support/n8n/config.json
+# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux: ~/.config/n8n/config.json
 
 {
   "port": 5678,
@@ -173,7 +173,7 @@ Timezone: Sistema operacional
 
 ---
 
-## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sincronização com n8n Cloud
+## <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Sincronização com n8n Cloud
 
 ### **Conectar com n8n Cloud**
 
@@ -205,18 +205,18 @@ Timezone: Sistema operacional
 
 ---
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura de Arquivos
+## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estrutura de Arquivos
 
 ### **Localização dos Dados**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Windows
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
 %APPDATA%\n8n\
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> macOS
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS
 ~/Library/Application Support/n8n/
 
-# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Linux
+# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux
 ~/.config/n8n/
 ```
 
@@ -234,36 +234,36 @@ n8n/
 ### **Backup Manual**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Windows
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
 xcopy "%APPDATA%\n8n" "C:\backup\n8n" /E /I
 
-# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> macOS/Linux
+# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS/Linux
 cp -r ~/.config/n8n ~/backup/n8n
 ```
 
 ---
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Desenvolvimento
+## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Desenvolvimento
 
 ### **Modo Desenvolvedor**
 
 ```bash
-# <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Habilitar modo desenvolvedor
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Windows: n8n-desktop.exe --dev
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> macOS: n8n-desktop --dev
-# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Linux: n8n-desktop --dev
+# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Habilitar modo desenvolvedor
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows: n8n-desktop.exe --dev
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS: n8n-desktop --dev
+# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux: n8n-desktop --dev
 ```
 
 ### **Logs de Desenvolvimento**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Windows
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
 %APPDATA%\n8n\logs\desktop.log
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> macOS
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS
 ~/Library/Application Support/n8n/logs/desktop.log
 
-# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Linux
+# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux
 ~/.config/n8n/logs/desktop.log
 ```
 
@@ -282,7 +282,7 @@ cp -r ~/.config/n8n ~/backup/n8n
 
 ---
 
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
+## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segurança
 
 ### **Configurações de Segurança**
 
@@ -294,45 +294,45 @@ cp -r ~/.config/n8n ~/backup/n8n
 ### **Boas Práticas**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar firewall (Windows)
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar firewall (Windows)
 netsh advfirewall firewall add rule name="n8n Desktop" dir=in action=allow protocol=TCP localport=5678
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar firewall (macOS)
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar firewall (macOS)
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add /Applications/n8n\ Desktop.app
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar firewall (Linux)
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar firewall (Linux)
 sudo ufw allow 5678/tcp
 ```
 
 ---
 
-## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
 
 ### **Problemas Comuns**
 
 #### **Aplicação não inicia**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar logs
-# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Windows: %APPDATA%\n8n\logs\desktop.log
-# <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> macOS: ~/Library/Application Support/n8n/logs/desktop.log
-# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Linux: ~/.config/n8n/logs/desktop.log
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar logs
+# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows: %APPDATA%\n8n\logs\desktop.log
+# <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS: ~/Library/Application Support/n8n/logs/desktop.log
+# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux: ~/.config/n8n/logs/desktop.log
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Reinstalar aplicação
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Desinstale e baixe novamente do site oficial
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Reinstalar aplicação
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Desinstale e baixe novamente do site oficial
 ```
 
 #### **Porta já em uso**
 
 ```bash
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar processo usando a porta
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Windows
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar processo usando a porta
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
 netstat -ano | findstr :5678
 
-# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> macOS/Linux
+# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS/Linux
 lsof -i :5678
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Alterar porta na configuração
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Alterar porta na configuração
 {
   "port": 5679
 }
@@ -341,28 +341,28 @@ lsof -i :5678
 #### **Problemas de sincronização**
 
 ```bash
-# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar conexão com internet
+# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar conexão com internet
 ping cloud.n8n.io
 
-# <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Limpar cache de sincronização
-# <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Remova a pasta de cache e reconecte
+# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Limpar cache de sincronização
+# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Remova a pasta de cache e reconecte
 ```
 
 #### **Performance lenta**
 
 ```bash
-# <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar recursos do sistema
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Windows: Task Manager
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> macOS: Activity Monitor
-# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Linux: htop
+# <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar recursos do sistema
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows: Task Manager
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS: Activity Monitor
+# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux: htop
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Aumentar memória disponível
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Feche outras aplicações
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Aumentar memória disponível
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Feche outras aplicações
 ```
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Atualizações
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizações
 
 ### **Atualizações Automáticas**
 
@@ -374,14 +374,14 @@ ping cloud.n8n.io
 ### **Atualizações Manuais**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificar versão atual
-# <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Vá em Help > About
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar versão atual
+# <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Vá em Help > About
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Baixar nova versão
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Acesse n8n.io/desktop
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Baixar nova versão
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Acesse n8n.io/desktop
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar atualização
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Execute o novo instalador
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar atualização
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Execute o novo instalador
 ```
 
 ### **Configurações de Atualização**
@@ -399,7 +399,7 @@ ping cloud.n8n.io
 
 ---
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Suporte
+## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Suporte
 
 ### **Recursos de Ajuda**
 
@@ -411,26 +411,26 @@ ping cloud.n8n.io
 ### **Logs para Suporte**
 
 ```bash
-# <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Coletar logs para suporte
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Windows
+# <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Coletar logs para suporte
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
 copy "%APPDATA%\n8n\logs\*" "C:\temp\n8n-logs\"
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> macOS
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS
 cp ~/Library/Application\ Support/n8n/logs/* ~/Desktop/n8n-logs/
 
-# <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Linux
+# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux
 cp ~/.config/n8n/logs/* ~/Desktop/n8n-logs/
 ```
 
 ---
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 Agora que você tem o n8n Desktop instalado:
 
 1. **[Criar Primeiro Workflow](../../../primeiros-passos/primeiro-workflow)** - Aprenda a construir workflows
 2. **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)** - Entenda os fundamentos
-3. **[Integrações](../../integracoes/index.mdx)** - Conecte suas aplicações
+3. **[Integrações](../../integracoes/)** - Conecte suas aplicações
 
 ### **Outros Métodos de Instalação**
 
@@ -463,3 +463,4 @@ O **n8n Desktop** é para **uso pessoal** e **desenvolvimento**. Para **produç�
 - [Download n8n Desktop](https://n8n.io/desktop)
 - [Documentação oficial](https://docs.n8n.io/)
 - [Repositório n8n](https://github.com/n8n-io/n8n)
+

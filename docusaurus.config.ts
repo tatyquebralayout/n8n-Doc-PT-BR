@@ -99,28 +99,6 @@ const config: Config = {
   },
 
   plugins: [
-    // Plugin de docs separado para a seção Contribuir - REABILITADO para resolver renderização
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'contribuir',
-        path: 'docs/contribuir',
-        routeBasePath: 'contribuir',
-        sidebarPath: './sidebars-contribuir.ts',
-        editUrl: 'https://github.com/n8n-brasil/n8n-Doc-PT-BR/tree/main/',
-        showLastUpdateAuthor: false,
-        showLastUpdateTime: false,
-        sidebarCollapsed: false,
-        breadcrumbs: true,
-        exclude: [
-          '**/_*.{js,jsx,ts,tsx,md,mdx}',
-          '**/_*/**',
-          '**/*.test.{js,jsx,ts,tsx}',
-          '**/__tests__/**',
-        ],
-      },
-    ],
-    
     // Plugin de busca local - TEMPORARIAMENTE DESABILITADO devido a conflito de dependências
     // [
     //   require.resolve("@easyops-cn/docusaurus-search-local"),
@@ -242,17 +220,7 @@ const config: Config = {
           ],
         },
 
-        // Dropdown "Contribuir" - Como contribuir com o projeto
-        {
-          type: "dropdown",
-          label: "Contribuir",
-          position: "left",
-          className: "navbar-contribute-dropdown",
-          items: [
-            { label: 'Contribuir com n8n oficial', to: '/contribuir/n8n-oficial' },
-            { label: 'Contribuir com Esta Documentação', to: '/contribuir/esta-documentacao' },
-          ],
-        },
+
         {
           label: "Catálogo",
           to: "/catalogo",
@@ -320,10 +288,10 @@ const config: Config = {
               label: "Cursos",
               to: "/cursos",
             },
-            {
-              label: "Release Notes",
-              to: "/release-notes",
-            },
+            // {
+            //   label: "Release Notes",
+            //   to: "/release-notes",
+            // },
             {
               label: "Referência",
               to: "/referencia",

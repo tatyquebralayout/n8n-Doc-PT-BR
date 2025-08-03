@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 2
 title: Configuração do Embed
 description: Como configurar parâmetros e opções do n8n embarcado
@@ -6,13 +6,13 @@ keywords: [n8n, embed, configuração, parâmetros, customização, iframe, SSO,
 ---
 
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração do Embed
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração do Embed
 
 Este guia ensina como **configurar o n8n embarcado** em sua aplicação, cobrindo parâmetros essenciais, permissões, customização visual, integração com autenticação e exemplos práticos para diferentes cenários empresariais.
 
 ---
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Parâmetros de Configuração
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Parâmetros de Configuração
 
 ### Parâmetros do Iframe
 
@@ -56,7 +56,7 @@ N8N_CORS_ALLOW_ORIGIN=https://app.suaempresa.com
 
 ---
 
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Permissões e Controle de Acesso
+## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Permissões e Controle de Acesso
 
 ### RBAC e Restrições
 
@@ -112,7 +112,7 @@ N8N_LDAP_BASE_DN=dc=suaempresa,dc=com
 
 ---
 
-## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Customização Visual
+## <IonicIcon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Customização Visual
 
 ### Temas e Branding
 
@@ -133,7 +133,7 @@ N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n_custom.css
 
 ---
 
-## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Sistemas Externos
+## <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Sistemas Externos
 
 ### Comunicação Host ↔ Embed
 
@@ -164,7 +164,7 @@ window.addEventListener('message', (event) => {
 
 ---
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos Práticos
+## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos Práticos
 
 ### Exemplo de Configuração Completa
 
@@ -195,7 +195,7 @@ iframe.src = `https://n8n.suaempresa.com/embed?${params.toString()}`;
 
 ---
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Configuração
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Configuração
 
 - [ ] Definir domínios permitidos (CORS e CSP)
 - [ ] Configurar autenticação (API Key, SSO, OAuth, LDAP)
@@ -213,3 +213,4 @@ Use tokens de curta duração e renove-os automaticamente para maior segurança 
 :::warning **Importante**
 Sempre teste o embed em ambiente de homologação antes de liberar para produção. Restrinja domínios e permissões para evitar vazamentos de dados.
 :::
+

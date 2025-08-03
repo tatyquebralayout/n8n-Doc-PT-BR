@@ -37,4 +37,4 @@ Este exemplo mostra como gerar boletos para clientes, anexar o PDF do boleto a c
 - Armazene o PDF do boleto no campo `binary` para facilitar envio por e-mail ou integração com ERPs.
 - Utilize webhooks para receber notificações de pagamento e atualizar o status do item.
 
-> Consulte também: [Estrutura de Dados no n8n](../estrutura-dados.md) 
+> Consulte também: [Estrutura de Dados no n8n](../estrutura-dados) 

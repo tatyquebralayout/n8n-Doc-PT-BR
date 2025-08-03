@@ -1,11 +1,11 @@
----
+﻿---
 title: Switch Node
 description: Guia completo sobre o Switch Node no n8n, incluindo múltiplas condições, roteamento, exemplos práticos e boas práticas
 sidebar_position: 2
 keywords: [n8n, switch node, múltiplas condições, roteamento, lógica, decisões, fluxo]
 ---
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Switch Node
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Switch Node
 
 O **Switch Node** é uma ferramenta avançada do n8n para controle de fluxo com múltiplas condições. Ele permite criar workflows dinâmicos com vários caminhos baseados em diferentes critérios.
 
@@ -593,15 +593,7 @@ Switch Node → Processamento Paralelo C
 
 ```javascript
 // Code Node - Debug de Switch Node
-const debugSwitch = (dados) => {
-  console.log('=== DEBUG SWITCH ===');
-  console.log('Dados:', dados);
-  console.log('Campos:', Object.keys(dados));
-  console.log('Valores:', Object.entries(dados));
-  console.log('====================');
-  
-  return dados;
-};
+;
 
 // Usar antes do Switch Node
 return { json: debugSwitch($json) };
@@ -674,3 +666,5 @@ return { json: debugSwitch($json) };
 - [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões em condições
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
+
+

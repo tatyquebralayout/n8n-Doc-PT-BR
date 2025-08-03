@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 1
 title: Implantação do Embed
 description: Como implantar e configurar n8n embarcado em produção
@@ -6,13 +6,13 @@ keywords: [n8n, embed, implantação, deployment, produção, iframe, SSO, segur
 ---
 
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implantação do Embed
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Implantação do Embed
 
 Este guia explica como **implantar o n8n embarcado** em ambiente de produção, cobrindo segurança, autenticação, performance, monitoramento, exemplos de deployment e troubleshooting para garantir integração robusta e segura com sua aplicação.
 
 ---
 
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Boas Práticas
+## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segurança e Boas Práticas
 
 ### Checklist de Segurança para Iframes
 
@@ -32,7 +32,7 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" alway
 
 ---
 
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> SSO e Autenticação
+## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> SSO e Autenticação
 
 ### Passos para SSO Empresarial
 
@@ -59,7 +59,7 @@ N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
 
 ---
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance e Otimização
+## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance e Otimização
 
 ### Recomendações
 
@@ -80,7 +80,7 @@ location ~* \.(js|css|png|jpg|svg)$ {
 
 ---
 
-## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Troubleshooting
+## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Monitoramento e Troubleshooting
 
 ### Logs e Alertas
 
@@ -108,7 +108,7 @@ location ~* \.(js|css|png|jpg|svg)$ {
 
 ---
 
-## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos de Deployment
+## <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos de Deployment
 
 ### Docker Compose para Produção
 
@@ -195,7 +195,7 @@ jobs:
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Produção
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Produção
 
 - [ ] HTTPS obrigatório e certificado válido
 - [ ] Domínios permitidos configurados (CORS e CSP)
@@ -215,3 +215,4 @@ Automatize o deploy do embed com CI/CD e monitore o uso do iframe para identific
 :::warning **Importante**
 Nunca exponha o n8n embed sem HTTPS e sem restrição de domínios. Teste todos os fluxos de autenticação e fallback antes de liberar para produção.
 :::
+

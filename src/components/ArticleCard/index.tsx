@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import Link from '@docusaurus/Link';
+import BaseCard from '@site/src/components/common/BaseCard';
+import TagList from '@site/src/components/common/TagList';
 import IonicIcon from '@site/src/components/IonicIcon';
 import styles from './styles.module.css';
 
@@ -27,44 +28,44 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   icon = 'document-outline',
   className,
 }) => {
+  const footerContent = (
+    <div className={styles.footer}>
+      {views && (
+        <span className={styles.views}>
+          <IonicIcon name="eye-outline" size={16} />
+          {views}
+        </span>
+      )}
+      {tags.length > 0 && (
+        <TagList 
+          tags={tags} 
+          maxVisible={2} 
+          size="small"
+          className={styles.tags}
+        />
+      )}
+    </div>
+  );
+
+  const metaContent = (
+    <div className={styles.meta}>
+      {author && <span className={styles.author}>{author}</span>}
+      {date && <span className={styles.date}>{date}</span>}
+    </div>
+  );
+
   return (
-    <Link to={link} className={clsx(styles.articleCard, className)}>
-      <div className={styles.header}>
-        <div className={styles.icon}>
-          <IonicIcon name={icon} size={24} color="currentColor" />
-        </div>
-        <div className={styles.meta}>
-          {author && <span className={styles.author}>{author}</span>}
-          {date && <span className={styles.date}>{date}</span>}
-        </div>
-      </div>
-      
-      <div className={styles.content}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
-      </div>
-      
-      <div className={styles.footer}>
-        {views && (
-          <span className={styles.views}>
-            <IonicIcon name="eye-outline" size={16} />
-            {views}
-          </span>
-        )}
-        {tags.length > 0 && (
-          <div className={styles.tags}>
-            {tags.slice(0, 2).map((tag, index) => (
-              <span key={index} className={styles.tag}>
-                {tag}
-              </span>
-            ))}
-            {tags.length > 2 && (
-              <span className={styles.moreTags}>+{tags.length - 2}</span>
-            )}
-          </div>
-        )}
-      </div>
-    </Link>
+    <BaseCard
+      title={title}
+      description={description}
+      icon={icon}
+      href={link}
+      className={clsx(styles.articleCard, className)}
+      dataTestId="article-card"
+    >
+      {metaContent}
+      {footerContent}
+    </BaseCard>
   );
 };
 

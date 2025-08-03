@@ -225,10 +225,10 @@ Formato de arquivo compactado suportado pelo n8n.
 
 ## 🔗 Links Relacionados
 
-- **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais.md)** - Entenda os conceitos básicos
-- **[API Reference](../../api/referencia/index.md)** - Documentação técnica da API
-- **[Guias](../guias/index.md)** - Guias práticos e tutoriais
+- **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)** - Entenda os conceitos básicos
+- **[API Reference](../../api/referencia/)** - Documentação técnica da API
+- **[Guias](../guias/)** - Guias práticos e tutoriais
 
 ---
 
-**Não encontrou um termo? [Contribua](../../contribuir/index.md) adicionando novas definições!**
+**Não encontrou um termo? [Contribua](../../contribuir/) adicionando novas definições!**

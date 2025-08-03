@@ -1,15 +1,15 @@
----
+﻿---
 title: Políticas de Segurança
 sidebar_position: 3
 description: Estabeleça políticas de segurança robustas para gerenciar credenciais no n8n de forma segura
 keywords: [n8n, políticas de segurança, credenciais, compliance, LGPD, auditoria, criptografia]
 ---
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Políticas de Segurança
+# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Políticas de Segurança
 
 Estabelecer políticas de segurança robustas é fundamental para proteger credenciais e dados sensíveis no n8n. Neste guia, você aprenderá a criar e implementar políticas de segurança abrangentes.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você aprenderá
+## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você aprenderá
 
 - **Políticas de senha** e autenticação
 - **Criptografia** e armazenamento seguro
@@ -17,7 +17,7 @@ Estabelecer políticas de segurança robustas é fundamental para proteger crede
 - **Compliance** com LGPD e regulamentações
 - **Boas práticas** de segurança
 
-## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Políticas de Senha
+## <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Políticas de Senha
 
 ### 1. Requisitos de Senha
 
@@ -102,7 +102,7 @@ function validatePassword(password) {
 }
 ```
 
-## <ion-icon name="lock-closed-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criptografia e Armazenamento
+## <IonicIcon name="lock-closed-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criptografia e Armazenamento
 
 ### 1. Criptografia de Credenciais
 
@@ -203,7 +203,7 @@ pg_dump -h $DB_HOST -U $DB_USER -d $DB_NAME --table=credentials \
 find $BACKUP_DIR -name "credentials_*.sql.gz.enc" -mtime +30 -delete
 ```
 
-## <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Controle de Acesso
+## <IonicIcon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Controle de Acesso
 
 ### 1. Políticas de Acesso
 
@@ -314,7 +314,7 @@ GROUP BY u.email, c.name, c.type
 ORDER BY access_count DESC;
 ```
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Compliance e Regulamentações
+## <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Compliance e Regulamentações
 
 ### 1. LGPD (Lei Geral de Proteção de Dados)
 
@@ -417,7 +417,7 @@ async function handleDataErasureRequest(userId) {
 }
 ```
 
-## <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
+## <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas
 
 ### 1. Gestão de Credenciais
 
@@ -536,7 +536,7 @@ async function monitorSuspiciousActivity() {
 }
 ```
 
-## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos Práticos
+## <IonicIcon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos Práticos
 
 ### Exemplo 1: Política de Senha Corporativa
 
@@ -863,7 +863,7 @@ class LGPDCompliance {
 }
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
 
 ### Problemas Comuns
 
@@ -905,7 +905,7 @@ tail -f /var/log/n8n/audit.log
 openssl enc -aes-256-gcm -k "test-key" -in test.txt -out test.enc
 ```
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 1. **Implemente políticas** de senha robustas
 2. **Configure criptografia** de credenciais
@@ -913,14 +913,15 @@ openssl enc -aes-256-gcm -k "test-key" -in test.txt -out test.enc
 4. **Implemente auditoria** completa
 5. **Configure compliance** LGPD
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
 
 - **[Boas Práticas](./boas-praticas)** - Práticas recomendadas
 - **[Compartilhamento](./compartilhamento)** - Compartilhamento seguro
-- **[Segurança](../../hosting-n8n/seguranca/index.mdx)** - Configurações de segurança
+- **[Segurança](../../hosting-n8n/seguranca/)** - Configurações de segurança
 - **[LGPD](../../hosting-n8n/compliance/lgpd)** - Conformidade LGPD
-- **[Comunidade](../../comunidade/index.mdx)** - Suporte e dicas
+- **[Comunidade](../../comunidade/)** - Suporte e dicas
 
 ---
 
-**<ion-icon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para proteger? Comece implementando políticas de senha robustas!**
+**<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> Pronto para proteger? Comece implementando políticas de senha robustas!**
+

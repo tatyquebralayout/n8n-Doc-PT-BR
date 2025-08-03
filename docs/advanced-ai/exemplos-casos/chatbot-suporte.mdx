@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 1
 title: "Chatbot de Suporte com IA no n8n: Atendimento Inteligente e Escalável"
 description: Crie chatbots inteligentes para atendimento ao cliente com automação, integração com WhatsApp, análise de sentimento e compliance LGPD.
@@ -10,20 +10,20 @@ keywords: [n8n, chatbot, suporte, atendimento, ia, cliente, escalação, sentime
 Este guia ensina como criar chatbots inteligentes para atendimento ao cliente usando n8n, com automação de atendimento, integração com WhatsApp Business API, análise de sentimento, compliance LGPD e recursos avançados para empresas brasileiras que buscam eficiência e escalabilidade.
 
 :::warning **Validação em Andamento**
-<ion-icon name="time-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> **Este workflow está sendo validado tecnicamente e será testado em breve.**
+<IonicIcon name="time-outline" style={{ fontSize: '16px', color: '#f59e0b' }} /> **Este workflow está sendo validado tecnicamente e será testado em breve.**
 
 **Próximos passos:**
-- <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Configurações técnicas revisadas
-- <ion-icon name="refresh-outline" style={{ fontSize: '16px', color: '#3b82f6' }}></ion-icon> Validação prática em ambiente de testes
-- <ion-icon name="videocam-outline" style={{ fontSize: '16px', color: '#8b5cf6' }}></ion-icon> **Vídeo de demonstração e validação será publicado em breve**
-- <ion-icon name="list-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> Checklist de implementação será atualizado
+- <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Configurações técnicas revisadas
+- <IonicIcon name="refresh-outline" style={{ fontSize: '16px', color: '#3b82f6' }} /> Validação prática em ambiente de testes
+- <IonicIcon name="videocam-outline" style={{ fontSize: '16px', color: '#8b5cf6' }} /> **Vídeo de demonstração e validação será publicado em breve**
+- <IonicIcon name="list-outline" style={{ fontSize: '16px', color: '#f59e0b' }} /> Checklist de implementação será atualizado
 
 **Status atual:** Documentação completa e funcional, aguardando validação final em produção.
 :::
 
 Este guia ensina como criar chatbots inteligentes para atendimento ao cliente usando n8n, com recursos avançados como escalação automática, análise de sentimento e integração com sistemas brasileiros de atendimento.
 
-## <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos Técnicos
+## <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Pré-requisitos Técnicos
 
 Antes de começar, certifique-se de ter:
 
@@ -49,7 +49,7 @@ Antes de começar, certifique-se de ter:
 Configure todas as credenciais necessárias antes de iniciar a implementação. Isso evita interrupções durante o desenvolvimento e facilita os testes.
 :::
 
-## <ion-icon name="chatbubble-ellipses-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Caso de Uso: E-commerce
+## <IonicIcon name="chatbubble-ellipses-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Caso de Uso: E-commerce
 
 Imagine um e-commerce brasileiro que recebe centenas de perguntas diárias sobre produtos, pedidos e problemas técnicos. Um chatbot inteligente pode:
 
@@ -59,18 +59,18 @@ Imagine um e-commerce brasileiro que recebe centenas de perguntas diárias sobre
 - **Analisar sentimento** para priorizar atendimentos urgentes
 - **Integrar com sistemas** brasileiros como WhatsApp Business API
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Arquitetura do Sistema
+## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Arquitetura do Sistema
 
 O chatbot de suporte segue uma arquitetura em camadas com fluxo de dados inteligente:
 
 ```mermaid
 graph TD
-    A[<ion-icon name="phone-portrait-outline"></ion-icon> Interface<br/>WhatsApp/Telegram] -->|Mensagem do Cliente| B[<ion-icon name="chatbubble-ellipses-outline"></ion-icon> Webhook n8n<br/>Recebe Mensagens]
-    B -->|Processa| C[<ion-icon name="analytics-outline"></ion-icon> Analise Sentimento<br/>OpenAI GPT]
-    C -->|Classifica| D[<ion-icon name="bulb-outline"></ion-icon> Lógica de Decisão<br/>IF/Code Nodes]
-    D -->|Consulta Dados| E[<ion-icon name="link-outline"></ion-icon> Sistemas Integrados<br/>HTTP Request • CRM • ERP]
-    D -->|Caso Complexo| F[<ion-icon name="people-outline"></ion-icon> Escalação Humana<br/>Slack • Email • Tickets]
-    D -->|Resposta Automática| G[<ion-icon name="send-outline"></ion-icon> Enviar Resposta<br/>WhatsApp/Telegram]
+    A[<IonicIcon name="phone-portrait-outline" /> Interface<br/>WhatsApp/Telegram] -->|Mensagem do Cliente| B[<IonicIcon name="chatbubble-ellipses-outline" /> Webhook n8n<br/>Recebe Mensagens]
+    B -->|Processa| C[<IonicIcon name="analytics-outline" /> Analise Sentimento<br/>OpenAI GPT]
+    C -->|Classifica| D[<IonicIcon name="bulb-outline" /> Lógica de Decisão<br/>IF/Code Nodes]
+    D -->|Consulta Dados| E[<IonicIcon name="link-outline" /> Sistemas Integrados<br/>HTTP Request • CRM • ERP]
+    D -->|Caso Complexo| F[<IonicIcon name="people-outline" /> Escalação Humana<br/>Slack • Email • Tickets]
+    D -->|Resposta Automática| G[<IonicIcon name="send-outline" /> Enviar Resposta<br/>WhatsApp/Telegram]
     
     style A fill:#e1f5fe
     style B fill:#f3e5f5
@@ -106,7 +106,7 @@ graph TD
 
 **Se algum ponto não estiver claro, revise a seção anterior antes de continuar.**
 
-## <ion-icon name="hammer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação Passo a Passo
+## <IonicIcon name="hammer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Implementação Passo a Passo
 
 <details>
 <summary>Implementação Passo a Passo</summary>
@@ -555,17 +555,17 @@ Configure dashboards para acompanhar métricas como tempo de resposta, taxa de e
 
 ```mermaid
 graph TD
-    A[<ion-icon name="chatbubble-ellipses-outline"></ion-icon> Webhook<br/>Recebe Mensagem] -->|Processa| B[<ion-icon name="analytics-outline"></ion-icon> Analise Sentimento<br/>OpenAI GPT]
-    B --> C{<ion-icon name="alert-circle-outline"></ion-icon> Urgente?}
-    C -->|Sim| D[<ion-icon name="alert-outline"></ion-icon> Escalação Imediata<br/>Prioridade Máxima]
-    C -->|Não| E[<ion-icon name="chatbubbles-outline"></ion-icon> Processar Pergunta<br/>Lógica de Decisão]
-    E --> F[<ion-icon name="search-outline"></ion-icon> Consultar Dados<br/>HTTP Request]
-    F --> G{<ion-icon name="bulb-outline"></ion-icon> Resposta Encontrada?}
-    G -->|Sim| H[<ion-icon name="send-outline"></ion-icon> Enviar Resposta<br/>WhatsApp/Telegram]
-    G -->|Não| I[<ion-icon name="people-outline"></ion-icon> Escalar para Humano<br/>Caso Complexo]
-    D --> J[<ion-icon name="notifications-outline"></ion-icon> Notificar Supervisor<br/>Slack/Email]
-    I --> K[<ion-icon name="ticket-outline"></ion-icon> Criar Ticket<br/>Sistema de Suporte]
-    H --> L[<ion-icon name="document-text-outline"></ion-icon> Registrar Interação<br/>Analytics]
+    A[<IonicIcon name="chatbubble-ellipses-outline" /> Webhook<br/>Recebe Mensagem] -->|Processa| B[<IonicIcon name="analytics-outline" /> Analise Sentimento<br/>OpenAI GPT]
+    B --> C{<IonicIcon name="alert-circle-outline" /> Urgente?}
+    C -->|Sim| D[<IonicIcon name="alert-outline" /> Escalação Imediata<br/>Prioridade Máxima]
+    C -->|Não| E[<IonicIcon name="chatbubbles-outline" /> Processar Pergunta<br/>Lógica de Decisão]
+    E --> F[<IonicIcon name="search-outline" /> Consultar Dados<br/>HTTP Request]
+    F --> G{<IonicIcon name="bulb-outline" /> Resposta Encontrada?}
+    G -->|Sim| H[<IonicIcon name="send-outline" /> Enviar Resposta<br/>WhatsApp/Telegram]
+    G -->|Não| I[<IonicIcon name="people-outline" /> Escalar para Humano<br/>Caso Complexo]
+    D --> J[<IonicIcon name="notifications-outline" /> Notificar Supervisor<br/>Slack/Email]
+    I --> K[<IonicIcon name="ticket-outline" /> Criar Ticket<br/>Sistema de Suporte]
+    H --> L[<IonicIcon name="document-text-outline" /> Registrar Interação<br/>Analytics]
     
     style A fill:#e3f2fd
     style B fill:#f3e5f5
@@ -585,12 +585,12 @@ graph TD
 
 ```mermaid
 graph TD
-    A[<ion-icon name="alert-outline"></ion-icon> Detectar Escalação<br/>Caso Complexo] -->|Analisa| B[<ion-icon name="analytics-outline"></ion-icon> Análise de Criticidade<br/>Define Prioridade]
-    B -->|Seleciona| C[<ion-icon name="person-outline"></ion-icon> Selecionar Agente<br/>Especialista Adequado]
-    C -->|Notifica| D[<ion-icon name="logo-slack"></ion-icon> Enviar para Slack<br/>Canal de Suporte]
-    D -->|Complementa| E[<ion-icon name="mail-outline"></ion-icon> Enviar Email<br/>Notificação Formal]
-    E -->|Registra| F[<ion-icon name="ticket-outline"></ion-icon> Criar Ticket CRM<br/>Sistema de Gestão]
-    F -->|Informa| G[<ion-icon name="chatbubble-ellipses-outline"></ion-icon> Notificar Cliente<br/>Status Atualizado]
+    A[<IonicIcon name="alert-outline" /> Detectar Escalação<br/>Caso Complexo] -->|Analisa| B[<IonicIcon name="analytics-outline" /> Análise de Criticidade<br/>Define Prioridade]
+    B -->|Seleciona| C[<IonicIcon name="person-outline" /> Selecionar Agente<br/>Especialista Adequado]
+    C -->|Notifica| D[<IonicIcon name="logo-slack" /> Enviar para Slack<br/>Canal de Suporte]
+    D -->|Complementa| E[<IonicIcon name="mail-outline" /> Enviar Email<br/>Notificação Formal]
+    E -->|Registra| F[<IonicIcon name="ticket-outline" /> Criar Ticket CRM<br/>Sistema de Gestão]
+    F -->|Informa| G[<IonicIcon name="chatbubble-ellipses-outline" /> Notificar Cliente<br/>Status Atualizado]
     
     style A fill:#ffebee
     style B fill:#fff3e0
@@ -740,7 +740,7 @@ const checkBusinessHours = {
 
 </details>
 
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Considerações de Segurança e LGPD
+## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Considerações de Segurança e LGPD
 
 ### Tratamento de Dados Pessoais
 
@@ -801,7 +801,7 @@ const validateInput = {
 };
 ```
 
-## <ion-icon name="stats-chart-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Analytics
+## <IonicIcon name="stats-chart-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Monitoramento e Analytics
 
 ### Métricas Importantes
 
@@ -842,7 +842,7 @@ const collectMetrics = {
 
 </details>
 
-## <ion-icon name="list-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Específicos
+## <IonicIcon name="list-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Específicos
 
 ### 1. Consulta de Pedido
 
@@ -1040,7 +1040,7 @@ sequenceDiagram
 
 **Se algum ponto não estiver claro, revise a seção anterior antes de continuar.**
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
 
 ### Problemas Comuns
 
@@ -1191,7 +1191,7 @@ sequenceDiagram
     Note left of N: ❌ Performance crítica<br/>SOLUÇÃO: Otimizar pipeline
 ```
 
-## <ion-icon name="arrow-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 :::tip **Dica Importante**
 Comece com um chatbot simples e vá adicionando funcionalidades gradualmente. Teste extensivamente com usuários reais antes de implementar em produção.
@@ -1215,7 +1215,7 @@ Comece com um chatbot simples e vá adicionando funcionalidades gradualmente. Te
 
 **Se algum item não estiver completo, revise as seções correspondentes.**
 
-## <ion-icon name="library-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Adicionais
+## <IonicIcon name="library-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Adicionais
 
 - [Integração com WhatsApp Business API](/integracoes/app-nodes/communication)
 - [Sistemas de CRM e ERP](/integracoes/app-nodes)
@@ -1223,3 +1223,4 @@ Comece com um chatbot simples e vá adicionando funcionalidades gradualmente. Te
 - [Templates de Workflow para Chatbots](https://n8n.io/workflows/?categories=25)
 
 ---
+

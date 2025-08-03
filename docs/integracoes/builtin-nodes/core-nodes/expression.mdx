@@ -1,15 +1,15 @@
----
+﻿---
 sidebar_position: 3
 title: Expression Node
 description: Use expressões JavaScript inline em outros nodes do n8n
 keywords: [n8n, expression, javascript, inline, expressões, variáveis]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expression Node
+# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Expression Node
 
 O **Expression Node** não é um node tradicional, mas sim um **sistema de expressões** que permite usar código JavaScript inline em outros nodes do n8n. É fundamental para acessar dados dinâmicos e criar valores calculados.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Conceito Principal**
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Conceito Principal**
 
 **Expression = "Código JavaScript Inline"**
 
@@ -22,7 +22,7 @@ As expressões permitem:
 
 > **💡 Dica:** As expressões são usadas em campos de outros nodes, não como um node separado.
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Sintaxe Básica**
+## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Sintaxe Básica**
 
 ### **1. Estrutura das Expressões**
 
@@ -39,7 +39,7 @@ As expressões permitem:
 {{ new Date().toISOString() }}     // Data/hora atual
 ```
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Variáveis Disponíveis**
+## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Variáveis Disponíveis**
 
 ### **Acesso a Dados**
 
@@ -76,7 +76,7 @@ $index                   // Índice do item (1, 2, 3...)
 {{ $workflow.name }}
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Casos de Uso Práticos**
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Casos de Uso Práticos**
 
 ### **1. HTTP Request - URL Dinâmica**
 
@@ -171,7 +171,7 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 0 9 * * *
 ```
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Expressões Avançadas**
+## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Expressões Avançadas**
 
 ### **Manipulação de Arrays**
 
@@ -264,7 +264,7 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 }}
 ```
 
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Validações e Tratamento de Erros**
+## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Validações e Tratamento de Erros**
 
 ### **Validação de Campos**
 
@@ -305,7 +305,7 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 }}
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos por Node**
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Exemplos por Node**
 
 ### **HTTP Request Node**
 
@@ -375,7 +375,7 @@ processado_em: {{ new Date().toISOString() }}
 {{ $json.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações e Considerações**
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Limitações e Considerações**
 
 ### **Limitações das Expressões:**
 
@@ -413,7 +413,7 @@ processado_em: {{ new Date().toISOString() }}
 {{ $json.hasOwnProperty('campo') }}
 ```
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Próximos Passos**
 
 Agora que você entende as expressões:
 
@@ -444,3 +444,4 @@ Evite usar `eval()` ou código dinâmico em expressões. Sempre valide dados de 
 - [JavaScript MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Code Node](./code) - Para lógica complexa
 - [Function Node](./function) - Para funções simples
+

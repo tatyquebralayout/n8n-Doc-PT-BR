@@ -1,15 +1,15 @@
----
+﻿---
 title: Wait Node
 sidebar_position: 4
 description: Como usar o Wait Node para adicionar pausas e delays em workflows
 keywords: [n8n, wait node, delay, pausa, tempo, automação, workflow]
 ---
 
-# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Wait Node
+# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Wait Node
 
 O **Wait Node** é um nó fundamental para controlar o timing e a sequência de execução em workflows. Ele permite adicionar pausas programadas, delays condicionais e sincronização entre diferentes etapas da automação.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceito
+## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conceito
 
 O Wait Node funciona como um **controlador de tempo** que pausa a execução do workflow por um período específico. Isso é essencial para:
 
@@ -19,7 +19,7 @@ O Wait Node funciona como um **controlador de tempo** que pausa a execução do 
 - **Batch Processing**: Processar dados em lotes com pausas
 - **User Experience**: Criar delays naturais em automações
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração
 
 ### Tipos de Wait
 
@@ -86,7 +86,7 @@ Aguarda até que outro workflow seja executado.
 }
 ```
 
-## <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos Práticos
+## <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos Práticos
 
 ### Exemplo 1: Rate Limiting para API
 
@@ -173,7 +173,7 @@ graph TD
 }
 ```
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Avançados
+## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Avançados
 
 ### 1. Sistema de Notificações Escalonadas
 
@@ -239,7 +239,7 @@ return {
 };
 ```
 
-## <ion-icon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões e Data Mapping
+## <IonicIcon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Expressões e Data Mapping
 
 ### Delays Dinâmicos
 
@@ -279,7 +279,7 @@ return {
 }
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tratamento de Erros
 
 ### Timeout e Cancelamento
 
@@ -303,7 +303,7 @@ graph TD
     B -->|Sim| E[Continuar]
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance e Otimização
+## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance e Otimização
 
 ### Boas Práticas
 
@@ -343,7 +343,7 @@ return {
 };
 ```
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
 
 ### Problemas Comuns
 
@@ -382,7 +382,7 @@ return {
 };
 ```
 
-## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Outros Nós
+## <IonicIcon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Outros Nós
 
 ### Fluxo Típico
 
@@ -425,7 +425,7 @@ return processados;
 }
 ```
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências
+## <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Referências
 
 - **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros em workflows
 - **[Execution Order](../../logica-e-dados/flow-logic/execution-order)** - Ordem de execução de nós
@@ -434,10 +434,11 @@ return processados;
 
 ---
 
-> <ion-icon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon> **Dica**: Use o Wait Node estrategicamente para criar workflows mais robustos e respeitosos com os sistemas externos. Lembre-se que delays muito longos podem impactar a experiência do usuário, então sempre considere alternativas como webhooks para operações que podem demorar.
+> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Dica**: Use o Wait Node estrategicamente para criar workflows mais robustos e respeitosos com os sistemas externos. Lembre-se que delays muito longos podem impactar a experiência do usuário, então sempre considere alternativas como webhooks para operações que podem demorar.
 
 ---
 
 :::warning **Nota de Atenção**
 Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
 :::
+

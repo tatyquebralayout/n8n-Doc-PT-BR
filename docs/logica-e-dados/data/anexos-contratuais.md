@@ -36,4 +36,4 @@ Este exemplo mostra como trafegar contratos digitais e anexos em automações em
 - Armazene o PDF do contrato no campo `binary` para facilitar assinatura digital, envio por e-mail ou arquivamento.
 - Considere versionar contratos e manter logs de alterações.
 
-> Consulte também: [Estrutura de Dados no n8n](../estrutura-dados.md) 
+> Consulte também: [Estrutura de Dados no n8n](../estrutura-dados) 

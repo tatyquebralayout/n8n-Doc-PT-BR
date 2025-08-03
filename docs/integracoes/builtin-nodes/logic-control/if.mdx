@@ -1,11 +1,11 @@
----
+﻿---
 title: If Node
 description: Guia completo sobre o If Node no n8n, incluindo condições, operadores, exemplos práticos e boas práticas
 sidebar_position: 1
 keywords: [n8n, if node, condições, lógica, decisões, operadores, controle de fluxo]
 ---
 
-# <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> If Node
+# <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> If Node
 
 O **If Node** é um dos nodes mais importantes do n8n para controle de fluxo. Ele permite criar condições e tomar decisões baseadas em dados, direcionando o workflow por diferentes caminhos.
 
@@ -417,15 +417,7 @@ Merge Node → Resultado Final
 
 ```javascript
 // Code Node - Debug de condição
-const debugCondicao = (dados, condicao) => {
-  console.log('=== DEBUG CONDIÇÃO ===');
-  console.log('Dados:', dados);
-  console.log('Condição:', condicao);
-  console.log('Resultado:', eval(condicao));
-  console.log('=====================');
-  
-  return eval(condicao);
-};
+;
 
 // Usar no If Node
 {{ debugCondicao($json, '$json.ativo && $json.saldo > 0') }}
@@ -495,3 +487,5 @@ const debugCondicao = (dados, condicao) => {
 - [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões em condições
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
+
+

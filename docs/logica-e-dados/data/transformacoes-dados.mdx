@@ -1,15 +1,15 @@
----
+﻿---
 sidebar_position: 3
 title: Transformando Dados
 description: Como transformar dados no n8n para diferentes formatos e estruturas
 keywords: [n8n, transformar, dados, estrutura, formatos, nodes]
 ---
 
-# <ion-icon name="swap-horizontal-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Transformando Dados
+# <IonicIcon name="swap-horizontal-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Transformando Dados
 
 O n8n usa uma [estrutura de dados predefinida](./data-structure) que permite que todos os nodes processem dados de entrada corretamente. Seus dados de entrada podem ter uma estrutura diferente, caso em que você precisará transformá-los para permitir que cada item seja processado individualmente.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Quando Transformar Dados
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Quando Transformar Dados
 
 ### Estrutura Incompatível
 
@@ -17,7 +17,7 @@ Por exemplo, quando um node [HTTP Request](../integracoes/builtin-nodes/http-req
 
 Para transformar esse tipo de estrutura na estrutura de dados do n8n, você pode usar os nodes de transformação de dados:
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nodes de Transformação
+## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Nodes de Transformação
 
 ### [Aggregate](../integracoes/builtin-nodes/data-processing/aggregate)
 
@@ -135,7 +135,7 @@ Agrega itens juntos, de maneira similar às tabelas dinâmicas do Excel.
 ]
 ```
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Transformação com Code Node
+## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Transformação com Code Node
 
 Para transformações mais complexas, você pode usar o [Code node](../integracoes/builtin-nodes/core-nodes/code):
 
@@ -160,7 +160,7 @@ const transformedItems = items.map(item => {
 return transformedItems;
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Transformação com Set Node
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Transformação com Set Node
 
 O [Set node](../integracoes/builtin-nodes/data-processing/set) permite adicionar, modificar ou remover campos:
 
@@ -182,7 +182,7 @@ O [Set node](../integracoes/builtin-nodes/data-processing/set) permite adicionar
 ["campo_antigo", "dados_temporarios"]
 ```
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Comuns
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Comuns
 
 ### Normalizar Dados de APIs
 
@@ -219,7 +219,7 @@ graph LR
     D --> E[Dados Limpos]
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Considerações Importantes
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Considerações Importantes
 
 ### Performance
 
@@ -239,15 +239,16 @@ graph LR
 - Use nomes descritivos para campos
 - Mantenha consistência nas transformações
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 1. **Aprenda [Data Mapping](./data-mapping-avancado)** para mapeamento avançado
 2. **Explore [Data Structure](./data-structure)** para entender a estrutura fundamental
 3. **Entenda [Data Flow](./data-flow-nodes)** para fluxo de dados
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
 
 - **[Data Structure](./data-structure)** - Estrutura fundamental dos dados
 - **[Data Mapping](./data-mapping-avancado)** - Mapeamento avançado de dados
 - **[Code Node](../integracoes/builtin-nodes/core-nodes/code)** - Transformações customizadas
 - **[Data Processing Nodes](../integracoes/builtin-nodes/data-processing/)** - Nodes especializados
+

@@ -1,5 +1,5 @@
-:::warning
-<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+﻿:::warning
+<IonicIcon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }} /> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
 :::
 
 ---
@@ -9,11 +9,11 @@ description: Configure métodos de autenticação seguros para o n8n, incluindo 
 keywords: [n8n, autenticação, 2FA, OAuth, segurança, login, usuários]
 ---
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Autenticação
+# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Autenticação
 
 A autenticação é fundamental para proteger seu ambiente n8n. Neste guia, você aprenderá a configurar métodos de autenticação seguros, incluindo autenticação de dois fatores (2FA) e integração com provedores externos.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você aprenderá
+## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você aprenderá
 
 - **Métodos de autenticação** disponíveis no n8n
 - **Configuração de 2FA** para maior segurança
@@ -21,7 +21,7 @@ A autenticação é fundamental para proteger seu ambiente n8n. Neste guia, voc�
 - **Boas práticas** de segurança
 - **Troubleshooting** de problemas de autenticação
 
-## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métodos de Autenticação
+## <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Métodos de Autenticação
 
 ### 1. Autenticação Local
 
@@ -74,7 +74,7 @@ N8N_GOOGLE_CLIENT_SECRET=your-client-secret
 N8N_GOOGLE_CALLBACK_URL=https://your-domain.com/callback
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração de Segurança
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração de Segurança
 
 ### 1. Políticas de Senha
 
@@ -120,7 +120,7 @@ N8N_LOGIN_ATTEMPTS_TIMEOUT=900 # 15 minutos
 N8N_IP_WHITELIST=192.168.1.0/24,10.0.0.0/8
 ```
 
-## <ion-icon name="shield-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Provedores Externos
+## <IonicIcon name="shield-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Provedores Externos
 
 ### 1. Google OAuth
 
@@ -170,7 +170,7 @@ N8N_SAML_ENTRY_POINT=https://your-idp.com/sso
 N8N_SAML_CERT=path/to/certificate.pem
 ```
 
-## <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
+## <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas
 
 ### 1. Segurança de Produção
 
@@ -200,7 +200,7 @@ N8N_SAML_CERT=path/to/certificate.pem
 - **Alterações** em configurações de segurança
 - **Falhas** de autenticação
 
-## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos Práticos
+## <IonicIcon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos Práticos
 
 ### Exemplo 1: Configuração Google OAuth
 
@@ -266,7 +266,7 @@ const ipWhitelist = ['192.168.1.0/24', '10.0.0.0/8'];
 const isAllowedIP = (ip) => ipWhitelist.some(range => ipInRange(ip, range));
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
 
 ### Problemas Comuns
 
@@ -313,7 +313,7 @@ grep "error" /var/log/n8n/error.log
 3. **Verificação de timezone** para 2FA
 4. **Análise de logs** detalhada
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 1. **Configure 2FA** para todos os usuários
 2. **Implemente OAuth** se necessário
@@ -321,14 +321,15 @@ grep "error" /var/log/n8n/error.log
 4. **Monitore logs** de autenticação
 5. **Teste cenários** de recuperação
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
 
 - **[Criar e Editar Usuários](./criar-editar-usuarios)** - Gerenciamento de usuários
 - **[Roles e Permissões](./roles-permissoes)** - Controle de acesso
-- **[Segurança](../../hosting-n8n/seguranca/index.mdx)** - Configurações de segurança
-- **[Referência](../../referencia/index.mdx)** - Documentação técnica
-- **[Comunidade](../../comunidade/index.mdx)** - Suporte e dicas
+- **[Segurança](../../hosting-n8n/seguranca/)** - Configurações de segurança
+- **[Referência](../../referencia/)** - Documentação técnica
+- **[Comunidade](../../comunidade/)** - Suporte e dicas
 
 ---
 
-**<ion-icon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para proteger? Comece configurando 2FA para seus usuários!**
+**<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> Pronto para proteger? Comece configurando 2FA para seus usuários!**
+

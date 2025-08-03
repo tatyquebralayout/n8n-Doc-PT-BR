@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 2
 title: "RAG com Arquivos no n8n: Busca Inteligente e Compliance para Empresas Brasileiras"
 description: Implemente RAG (Retrieval-Augmented Generation) com arquivos no n8n para busca inteligente, compliance LGPD e automação de conhecimento empresarial.
@@ -29,17 +29,17 @@ O workflow RAG com arquivos segue uma arquitetura em duas fases principais:
 ```mermaid
 graph TD
     subgraph "Fase 1: Indexação"
-        A[<ion-icon name="document-outline"></ion-icon> Upload de Documentos<br/>PDF • Word • Excel] -->|Processa| B[<ion-icon name="construct-outline"></ion-icon> Processamento<br/>Limpeza • Normalização]
-        B -->|Divide| C[<ion-icon name="cut-outline"></ion-icon> Text Splitter<br/>Chunks Otimizados]
-        C -->|Converte| D[<ion-icon name="sparkles-outline"></ion-icon> Embeddings<br/>Vetores Semânticos]
-        D -->|Armazena| E[<ion-icon name="folder-open-outline"></ion-icon> Vector Store<br/>Pinecone • Weaviate]
+        A[<IonicIcon name="document-outline" /> Upload de Documentos<br/>PDF • Word • Excel] -->|Processa| B[<IonicIcon name="construct-outline" /> Processamento<br/>Limpeza • Normalização]
+        B -->|Divide| C[<IonicIcon name="cut-outline" /> Text Splitter<br/>Chunks Otimizados]
+        C -->|Converte| D[<IonicIcon name="sparkles-outline" /> Embeddings<br/>Vetores Semânticos]
+        D -->|Armazena| E[<IonicIcon name="folder-open-outline" /> Vector Store<br/>Pinecone • Weaviate]
     end
     
     subgraph "Fase 2: Consulta"
-        F[<ion-icon name="chatbubble-ellipses-outline"></ion-icon> Interface de Chat<br/>Pergunta do Usuário] -->|Busca| G[<ion-icon name="search-outline"></ion-icon> Busca Semântica<br/>Vector Similarity]
+        F[<IonicIcon name="chatbubble-ellipses-outline" /> Interface de Chat<br/>Pergunta do Usuário] -->|Busca| G[<IonicIcon name="search-outline" /> Busca Semântica<br/>Vector Similarity]
         G -->|Recupera| E
-        E -->|Retorna| H[<ion-icon name="document-text-outline"></ion-icon> Contexto Relevante<br/>Documentos Relacionados]
-        H -->|Gera| I[<ion-icon name="bulb-outline"></ion-icon> IA Generativa<br/>Resposta Contextualizada]
+        E -->|Retorna| H[<IonicIcon name="document-text-outline" /> Contexto Relevante<br/>Documentos Relacionados]
+        H -->|Gera| I[<IonicIcon name="bulb-outline" /> IA Generativa<br/>Resposta Contextualizada]
         I -->|Responde| F
     end
     
@@ -119,12 +119,12 @@ Configure um agente que usa o vector store como ferramenta:
 
 ```mermaid
 graph TD
-    A[<ion-icon name="cloud-upload-outline"></ion-icon> Webhook Trigger<br/>Recebe Arquivo] -->|Processa| B[<ion-icon name="file-tray-full-outline"></ion-icon> Read Binary Files<br/>Extrai Conteúdo]
-    B -->|Carrega| C[<ion-icon name="document-outline"></ion-icon> Default Data Loader<br/>Suporte Multi-formato]
-    C -->|Divide| D[<ion-icon name="cut-outline"></ion-icon> Text Splitter<br/>Chunks Otimizados]
-    D -->|Converte| E[<ion-icon name="sparkles-outline"></ion-icon> Embeddings OpenAI<br/>Vetores Semânticos]
-    E -->|Armazena| F[<ion-icon name="folder-open-outline"></ion-icon> Vector Store Insert<br/>Indexação Completa]
-    F -->|Confirma| G[<ion-icon name="checkmark-circle-outline"></ion-icon> Success Response<br/>Documento Indexado]
+    A[<IonicIcon name="cloud-upload-outline" /> Webhook Trigger<br/>Recebe Arquivo] -->|Processa| B[<IonicIcon name="file-tray-full-outline" /> Read Binary Files<br/>Extrai Conteúdo]
+    B -->|Carrega| C[<IonicIcon name="document-outline" /> Default Data Loader<br/>Suporte Multi-formato]
+    C -->|Divide| D[<IonicIcon name="cut-outline" /> Text Splitter<br/>Chunks Otimizados]
+    D -->|Converte| E[<IonicIcon name="sparkles-outline" /> Embeddings OpenAI<br/>Vetores Semânticos]
+    E -->|Armazena| F[<IonicIcon name="folder-open-outline" /> Vector Store Insert<br/>Indexação Completa]
+    F -->|Confirma| G[<IonicIcon name="checkmark-circle-outline" /> Success Response<br/>Documento Indexado]
     
     style A fill:#e3f2fd
     style B fill:#f3e5f5
@@ -141,10 +141,10 @@ graph TD
 
 ```mermaid
 graph TD
-    A[<ion-icon name="chatbubble-ellipses-outline"></ion-icon> Chat Trigger<br/>Pergunta do Usuário] -->|Processa| B[<ion-icon name="chatbubbles-outline"></ion-icon> Agent<br/>IA Inteligente]
-    B -->|Consulta| C[<ion-icon name="search-outline"></ion-icon> Vector Store Tool<br/>Busca Semântica]
-    C -->|Recupera| D[<ion-icon name="document-text-outline"></ion-icon> Generate Response<br/>Resposta Contextualizada]
-    D -->|Retorna| E[<ion-icon name="send-outline"></ion-icon> Return to User<br/>Resposta Final]
+    A[<IonicIcon name="chatbubble-ellipses-outline" /> Chat Trigger<br/>Pergunta do Usuário] -->|Processa| B[<IonicIcon name="chatbubbles-outline" /> Agent<br/>IA Inteligente]
+    B -->|Consulta| C[<IonicIcon name="search-outline" /> Vector Store Tool<br/>Busca Semântica]
+    C -->|Recupera| D[<IonicIcon name="document-text-outline" /> Generate Response<br/>Resposta Contextualizada]
+    D -->|Retorna| E[<IonicIcon name="send-outline" /> Return to User<br/>Resposta Final]
     
     style A fill:#e3f2fd
     style B fill:#f3e5f5
@@ -258,3 +258,4 @@ Baseado nos documentos recuperados, forneça uma resposta clara e estruturada:
 ---
 
 **💡 Dica:** Comece com um conjunto pequeno de documentos para testar e validar o sistema antes de escalar para toda a documentação da empresa.
+

@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 1
 title: Splitting de Dados
 description: Como dividir e distribuir dados em workflows n8n usando conditionals
@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 import Admonition from '@theme/Admonition';
 import CodeBlock from '@theme/CodeBlock';
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Splitting de Workflows: Criando Lógica Condicional no n8n
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Splitting de Workflows: Criando Lógica Condicional no n8n
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender nesta página
+## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você vai aprender nesta página
 
 <Admonition type="info" title="📚 Objetivos de Aprendizado">
 1. **Definir** o que é *splitting* (ramificação condicional) no n8n
@@ -23,7 +23,7 @@ import CodeBlock from '@theme/CodeBlock';
 6. **Aplicar** boas práticas e evitar armadilhas comuns em ambientes de produção
 </Admonition>
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Entendendo o Conceito de Splitting
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Entendendo o Conceito de Splitting
 
 <Admonition type="tip" title="💡 Analogia Prática">
 Splitting em workflows é como criar um **ponto de decisão** em um processo automatizado. Imagine que você é um gerente de atendimento ao cliente que precisa distribuir tickets de suporte: tickets simples vão para o nível 1, problemas técnicos vão para especialistas, e reclamações urgentes vão direto para supervisores.
@@ -133,7 +133,7 @@ graph TD
 </TabItem>
 </Tabs>
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nós Essenciais para Splitting
+## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Nós Essenciais para Splitting
 
 <Tabs>
 <TabItem value="comparativo" label="Comparativo Rápido" default>
@@ -443,7 +443,7 @@ Saiba mais sobre [manipulação de dados](/logica-e-dados/data/data-mapping-avan
 </TabItem>
 </Tabs>
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação Prática: Exemplo Completo
+## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Implementação Prática: Exemplo Completo
 
 ### Cenário: Sistema de Aprovação de Despesas
 
@@ -717,7 +717,7 @@ graph LR
 </TabItem>
 </Tabs>
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Lógica de Execução e Controle
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Lógica de Execução e Controle
 
 ### Entendendo a Ordem de Execução
 
@@ -935,7 +935,7 @@ graph TD
 </TabItem>
 </Tabs>
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões Avançados de Splitting
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Padrões Avançados de Splitting
 
 <Tabs>
 <TabItem value="sequencial" label="Splitting Sequencial" default>
@@ -1140,7 +1140,7 @@ Pedido → IF (Cliente VIP?)
 </TabItem>
 </Tabs>
 
-## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Debugging: Ferramentas e Técnicas
+## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Debugging: Ferramentas e Técnicas
 
 ### Debugging de Condições
 
@@ -1191,7 +1191,7 @@ return $input.item;
 - **Postman**: Para testes manuais de APIs
 - **Browser DevTools**: Para debugging de expressões JavaScript
 
-## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting: Problemas Comuns
+## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting: Problemas Comuns
 
 <Tabs>
 <TabItem value="problema1" label="Workflow Para na Condição" default>
@@ -1343,7 +1343,7 @@ graph TD
 </TabItem>
 </Tabs>
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Comuns
+## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Comuns
 
 <Tabs>
 <TabItem value="ecommerce" label="E-commerce" default>
@@ -1443,7 +1443,7 @@ Para automatizar respostas, considere usar [Slack](/integracoes/app-nodes/commun
 </TabItem>
 </Tabs>
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas e Armadilhas
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas e Armadilhas
 
 <Tabs>
 <TabItem value="boas-praticas" label="✅ Boas Práticas" default>
@@ -1668,7 +1668,7 @@ graph TD
 </TabItem>
 </Tabs>
 
-## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Sub-workflows
+## <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Sub-workflows
 
 ### Splitting + Execute Sub-workflow
 
@@ -1724,7 +1724,7 @@ graph TD
 }`}
 </CodeBlock>
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 <Admonition type="info" title="Agora que você domina splitting básico, explore:">
 1. **[Merge Nodes](/logica-e-dados/flow-logic/merging)**: Como reunir fluxos divididos
@@ -1747,7 +1747,7 @@ graph TD
 *Dica*: Use [Switch aninhados](/integracoes/builtin-nodes/logic-control) e considere múltiplas condições simultâneas.
 </Admonition>
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Resumo Rápido
+## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Resumo Rápido
 
 <Admonition type="success" title="🎯 Pontos-Chave para Dominar Splitting">
 **Conceitos Fundamentais:**
@@ -1817,3 +1817,4 @@ Com esses fundamentos, você está pronto para projetar workflows n8n que se ada
 - [Integrações Brasileiras](/integracoes-br)
 - [Guia de Instalação](/hosting-n8n/instalacao)
 </Admonition>
+

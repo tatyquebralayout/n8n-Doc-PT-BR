@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 1
 title: Gerenciar Workflows Embarcados
 description: Como gerenciar e controlar workflows em n8n embarcado
@@ -6,11 +6,11 @@ keywords: [n8n, embed, workflows, gerenciamento, controle, permissões]
 ---
 
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciar Workflows Embarcados
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Gerenciar Workflows Embarcados
 
 Este documento detalha como **gerenciar workflows em n8n embarcado**, incluindo controle de acesso granular, versionamento integrado, backup automático, sincronização com sistemas externos, auditoria de mudanças, e estratégias de governança que garantem controle total sobre automações criadas dentro do ambiente embarcado mantendo compliance e segurança empresarial.
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
+## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você vai aprender
 
 - Gerenciamento via API REST
 - Controle de acesso e permissões
@@ -20,7 +20,7 @@ Este documento detalha como **gerenciar workflows em n8n embarcado**, incluindo 
 
 ---
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerenciamento via API REST
+## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Gerenciamento via API REST
 
 ### Endpoints Principais
 
@@ -29,13 +29,13 @@ O n8n oferece uma API REST completa para gerenciar workflows programaticamente:
 #### **Workflows**
 
 ```bash
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Listar todos os workflows
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Listar todos os workflows
 GET /api/v1/workflows
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Obter workflow específico
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Obter workflow específico
 GET /api/v1/workflows/{id}
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar novo workflow
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar novo workflow
 POST /api/v1/workflows
 Content-Type: application/json
 
@@ -46,13 +46,13 @@ Content-Type: application/json
   "connections": {...}
 }
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Atualizar workflow
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizar workflow
 PUT /api/v1/workflows/{id}
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Excluir workflow
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Excluir workflow
 DELETE /api/v1/workflows/{id}
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Ativar/desativar workflow
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Ativar/desativar workflow
 PATCH /api/v1/workflows/{id}
 {
   "active": true
@@ -62,10 +62,10 @@ PATCH /api/v1/workflows/{id}
 #### **Execuções**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Listar execuções
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Listar execuções
 GET /api/v1/executions
 
-# <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Executar workflow manualmente
+# <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Executar workflow manualmente
 POST /api/v1/workflows/{id}/trigger
 Content-Type: application/json
 
@@ -76,10 +76,10 @@ Content-Type: application/json
   }
 }
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Obter detalhes da execução
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Obter detalhes da execução
 GET /api/v1/executions/{id}
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Parar execução em andamento
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Parar execução em andamento
 POST /api/v1/executions/{id}/stop
 ```
 
@@ -88,7 +88,7 @@ POST /api/v1/executions/{id}/stop
 #### **API Key (Recomendado)**
 
 ```bash
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerar API Key
+# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Gerar API Key
 curl -X POST "https://seu-n8n.com/api/v1/auth/api-key" \
   -H "Content-Type: application/json" \
   -d '{
@@ -96,7 +96,7 @@ curl -X POST "https://seu-n8n.com/api/v1/auth/api-key" \
     "scopes": ["workflow:read", "workflow:write", "execution:read"]
   }'
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Usar API Key
+# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Usar API Key
 curl -H "X-N8N-API-KEY: sua_api_key" \
   https://seu-n8n.com/api/v1/workflows
 ```
@@ -104,7 +104,7 @@ curl -H "X-N8N-API-KEY: sua_api_key" \
 #### **OAuth 2.0**
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar OAuth 2.0
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar OAuth 2.0
 {
   "client_id": "seu_client_id",
   "client_secret": "seu_client_secret",
@@ -115,7 +115,7 @@ curl -H "X-N8N-API-KEY: sua_api_key" \
 
 ---
 
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Controle de Acesso e Permissões
+## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Controle de Acesso e Permissões
 
 ### Sistema RBAC
 
@@ -174,7 +174,7 @@ const roles = {
 #### **SAML/SSO**
 
 ```yaml
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração SAML
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração SAML
 N8N_SAML_ENABLED=true
 N8N_SAML_ISSUER=https://seu-identity-provider.com
 N8N_SAML_ENTRY_POINT=https://seu-identity-provider.com/sso
@@ -184,7 +184,7 @@ N8N_SAML_CERT=/path/to/certificate.pem
 #### **LDAP/Active Directory**
 
 ```yaml
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração LDAP
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração LDAP
 N8N_LDAP_ENABLED=true
 N8N_LDAP_SERVER_URL=ldap://ldap.empresa.com:389
 N8N_LDAP_BIND_DN=cn=admin,dc=empresa,dc=com
@@ -194,7 +194,7 @@ N8N_LDAP_BASE_DN=dc=empresa,dc=com
 
 ---
 
-## <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Versionamento de Workflows
+## <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Versionamento de Workflows
 
 ### Histórico Automático
 
@@ -228,16 +228,16 @@ O n8n mantém histórico completo de versões automaticamente:
 #### **API de Versionamento**
 
 ```bash
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Listar versões de um workflow
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Listar versões de um workflow
 GET /api/v1/workflows/{id}/versions
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Obter versão específica
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Obter versão específica
 GET /api/v1/workflows/{id}/versions/{version}
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Restaurar versão anterior
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Restaurar versão anterior
 POST /api/v1/workflows/{id}/versions/{version}/restore
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Comparar versões
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Comparar versões
 GET /api/v1/workflows/{id}/versions/compare?from=3&to=5
 ```
 
@@ -258,14 +258,14 @@ GET /api/v1/workflows/{id}/versions/compare?from=3&to=5
 #### **Changelog Automático**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Gerar changelog entre versões
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Gerar changelog entre versões
 curl -X GET "https://seu-n8n.com/api/v1/workflows/{id}/changelog?from=1&to=5" \
   -H "X-N8N-API-KEY: sua_api_key"
 ```
 
 ---
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Auditoria e Logs
+## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Auditoria e Logs
 
 ### Logs de Atividade
 
@@ -288,16 +288,16 @@ const auditEvents = {
 #### **API de Auditoria**
 
 ```bash
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Obter logs de atividade
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Obter logs de atividade
 GET /api/v1/audit-logs?start=2024-01-01&end=2024-01-31
 
-# <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Filtrar por usuário
+# <IonicIcon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Filtrar por usuário
 GET /api/v1/audit-logs?user=usuario@empresa.com
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Filtrar por tipo de evento
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Filtrar por tipo de evento
 GET /api/v1/audit-logs?event=workflow.updated
 
-# <ion-icon name="cloud-download-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exportar logs
+# <IonicIcon name="cloud-download-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exportar logs
 GET /api/v1/audit-logs/export?format=csv
 ```
 
@@ -330,7 +330,7 @@ GET /api/v1/audit-logs/export?format=csv
 #### **Integração com Sistemas de Monitoramento**
 
 ```bash
-# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Webhook para alertas
+# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Webhook para alertas
 POST /webhook/security-alerts
 {
   "event": "workflow.deleted",
@@ -343,7 +343,7 @@ POST /webhook/security-alerts
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup e Recovery
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup e Recovery
 
 ### Backup Automático
 
@@ -351,32 +351,32 @@ POST /webhook/security-alerts
 
 ```bash
 #!/bin/bash
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> backup-workflows.sh
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-workflows.sh
 
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_DIR="/backups/n8n"
 API_KEY="sua_api_key"
 N8N_URL="https://seu-n8n.com"
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar diretório de backup
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar diretório de backup
 mkdir -p $BACKUP_DIR
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup de workflows
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de workflows
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" \
   | jq '.' > "$BACKUP_DIR/workflows_$DATE.json"
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup de credenciais
+# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de credenciais
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/credentials" \
   | jq '.' > "$BACKUP_DIR/credentials_$DATE.json"
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Comprimir backup
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Comprimir backup
 tar -czf "$BACKUP_DIR/n8n_backup_$DATE.tar.gz" \
   "$BACKUP_DIR/workflows_$DATE.json" \
   "$BACKUP_DIR/credentials_$DATE.json"
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Manter apenas últimos 30 backups
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Manter apenas últimos 30 backups
 find $BACKUP_DIR -name "n8n_backup_*.tar.gz" -mtime +30 -delete
 
 echo "Backup criado: $BACKUP_DIR/n8n_backup_$DATE.tar.gz"
@@ -385,11 +385,11 @@ echo "Backup criado: $BACKUP_DIR/n8n_backup_$DATE.tar.gz"
 #### **Cron Job para Backup**
 
 ```bash
-# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Adicionar ao crontab
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup diário às 2h da manhã
+# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Adicionar ao crontab
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup diário às 2h da manhã
 0 2 * * * /path/to/backup-workflows.sh
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup semanal completo
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup semanal completo
 0 2 * * 0 /path/to/backup-workflows-full.sh
 ```
 
@@ -399,16 +399,16 @@ echo "Backup criado: $BACKUP_DIR/n8n_backup_$DATE.tar.gz"
 
 ```bash
 #!/bin/bash
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> restore-workflows.sh
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> restore-workflows.sh
 
 BACKUP_FILE="$1"
 API_KEY="sua_api_key"
 N8N_URL="https://seu-n8n.com"
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Extrair backup
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Extrair backup
 tar -xzf $BACKUP_FILE
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Restaurar workflows
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Restaurar workflows
 jq -c '.[]' workflows_*.json | while read workflow; do
   curl -X POST \
     -H "X-N8N-API-KEY: $API_KEY" \
@@ -422,7 +422,7 @@ echo "Workflows restaurados com sucesso"
 
 ---
 
-## <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sincronização e Integração
+## <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Sincronização e Integração
 
 ### Webhooks
 
@@ -456,22 +456,22 @@ echo "Workflows restaurados com sucesso"
 
 ```bash
 #!/bin/bash
-# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> sync-with-git.sh
+# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> sync-with-git.sh
 
 WORKFLOW_DIR="/tmp/n8n-workflows"
 GIT_REPO="https://github.com/empresa/n8n-workflows.git"
 API_KEY="sua_api_key"
 N8N_URL="https://seu-n8n.com"
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Clonar repositório
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Clonar repositório
 git clone $GIT_REPO $WORKFLOW_DIR
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Baixar workflows atuais
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Baixar workflows atuais
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" \
   | jq '.' > "$WORKFLOW_DIR/workflows.json"
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Commit e push
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Commit e push
 cd $WORKFLOW_DIR
 git add .
 git commit -m "Sync workflows $(date)"
@@ -482,7 +482,7 @@ echo "Workflows sincronizados com Git"
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas
 
 ### Nomenclatura e Documentação
 
@@ -562,13 +562,13 @@ const namingPatterns = {
 
 ---
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 Agora que você entende o gerenciamento de workflows embarcados:
 
 1. **[White Labelling](./white-labelling)** - Personalizar a aparência do n8n
 2. **[Configuração do Embed](../implementacao/configuracao)** - Configurar parâmetros avançados
-3. **[API do n8n](../../api/index.mdx)** - Explorar todos os endpoints disponíveis
+3. **[API do n8n](../../api/)** - Explorar todos os endpoints disponíveis
 4. **[Segurança](../../hosting-n8n/seguranca/autenticacao)** - Implementar autenticação avançada
 
 ---
@@ -584,3 +584,4 @@ Sempre teste workflows em ambiente de desenvolvimento antes de aplicar em produ�
 :::info **Recurso Adicional**
 Considere usar ferramentas de CI/CD para automatizar o deployment de workflows entre ambientes (dev, staging, prod).
 :::
+

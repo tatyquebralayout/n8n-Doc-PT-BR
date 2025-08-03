@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 3
 title: Instalação na Nuvem
 description: Como instalar e configurar n8n em provedores de nuvem
@@ -6,11 +6,11 @@ keywords: [n8n, cloud, nuvem, aws, azure, gcp, instalação]
 ---
 
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação na Nuvem
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalação na Nuvem
 
 Este guia detalha como **instalar n8n em provedores de nuvem**, incluindo n8n Cloud oficial e deployment em AWS, Azure, Google Cloud e outros provedores.
 
-## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Opções de Cloud
+## <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Opções de Cloud
 
 ### **n8n Cloud (Oficial)**
 
@@ -22,7 +22,7 @@ Deploy em sua própria infraestrutura na nuvem.
 
 ---
 
-## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> n8n Cloud (Oficial)
+## <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> n8n Cloud (Oficial)
 
 ### **O que é o n8n Cloud?**
 
@@ -38,7 +38,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Planos e Preços
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Planos e Preços
 
 ### **Free Trial**
 
@@ -71,7 +71,7 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Começar
+## <IonicIcon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Como Começar
 
 ### **1. Criar Conta**
 
@@ -101,7 +101,7 @@ Após o login, você será direcionado para o dashboard:
 
 ---
 
-## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações Avançadas
+## <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações Avançadas
 
 ### **Domínio Personalizado**
 
@@ -133,7 +133,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança e Compliance
+## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segurança e Compliance
 
 ### **Certificações**
 
@@ -157,7 +157,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento e Analytics
+## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Monitoramento e Analytics
 
 ### **Dashboard de Execuções**
 
@@ -175,14 +175,14 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ---
 
-## <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Self-hosted em Cloud
+## <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Self-hosted em Cloud
 
 ### **AWS (Amazon Web Services)**
 
 #### **EC2 com Docker**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar instância EC2
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar instância EC2
 aws ec2 run-instances \
   --image-id ami-0c55b159cbfafe1f0 \
   --instance-type t3.medium \
@@ -190,14 +190,14 @@ aws ec2 run-instances \
   --security-group-ids sg-xxxxxxxxx \
   --subnet-id subnet-xxxxxxxxx
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conectar via SSH
 ssh -i sua-key.pem ubuntu@seu-ip
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar Docker
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar Docker
 sudo apt update
 sudo apt install docker.io docker-compose
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Executar n8n
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Executar n8n
 docker run -d \
   --name n8n \
   -p 80:5678 \
@@ -208,7 +208,7 @@ docker run -d \
 #### **ECS (Elastic Container Service)**
 
 ```yaml
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> task-definition.json
+# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> task-definition.json
 {
   "family": "n8n",
   "networkMode": "awsvpc",
@@ -246,17 +246,17 @@ docker run -d \
 #### **Compute Engine**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar instância
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar instância
 gcloud compute instances create n8n-instance \
   --zone=us-central1-a \
   --machine-type=e2-medium \
   --image-family=ubuntu-2004-lts \
   --image-project=ubuntu-os-cloud
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conectar via SSH
 gcloud compute ssh n8n-instance --zone=us-central1-a
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar e executar n8n
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar e executar n8n
 sudo apt update
 sudo apt install docker.io docker-compose
 sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
@@ -265,7 +265,7 @@ sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
 #### **Cloud Run**
 
 ```yaml
-# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> cloudbuild.yaml
+# <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> cloudbuild.yaml
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['run', '-d', '--name', 'n8n', '-p', '8080:5678', 'n8nio/n8n']
@@ -276,7 +276,7 @@ steps:
 #### **Azure VM**
 
 ```bash
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar VM
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar VM
 az vm create \
   --resource-group n8n-rg \
   --name n8n-vm \
@@ -284,10 +284,10 @@ az vm create \
   --size Standard_B2s \
   --admin-username azureuser
 
-# <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conectar via SSH
+# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conectar via SSH
 ssh azureuser@seu-ip
 
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalar e executar n8n
+# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar e executar n8n
 sudo apt update
 sudo apt install docker.io docker-compose
 sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
@@ -296,7 +296,7 @@ sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
 #### **Azure Container Instances**
 
 ```bash
-# <ion-icon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Criar container
+# <IonicIcon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar container
 az container create \
   --resource-group n8n-rg \
   --name n8n-container \
@@ -307,12 +307,12 @@ az container create \
 
 ---
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Avançada
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Avançada
 
 ### **Load Balancer**
 
 ```yaml
-# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> AWS Application Load Balancer
+# <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> AWS Application Load Balancer
 apiVersion: v1
 kind: Service
 metadata:
@@ -329,7 +329,7 @@ spec:
 ### **Auto Scaling**
 
 ```yaml
-# <ion-icon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Kubernetes HPA
+# <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Kubernetes HPA
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -353,7 +353,7 @@ spec:
 ### **Monitoramento**
 
 ```yaml
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Prometheus monitoring
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Prometheus monitoring
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -370,7 +370,7 @@ data:
 
 ---
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Suporte e Recursos
+## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Suporte e Recursos
 
 ### **Canais de Suporte**
 
@@ -388,13 +388,13 @@ data:
 
 ---
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 Agora que você conhece as opções de cloud:
 
 1. **[Criar Primeiro Workflow](../../../primeiros-passos/primeiro-workflow)** - Aprenda a construir workflows
 2. **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)** - Entenda os fundamentos
-3. **[Integrações](../../integracoes/index.mdx)** - Conecte suas aplicações
+3. **[Integrações](../../integracoes/)** - Conecte suas aplicações
 
 ### **Outros Métodos de Instalação**
 
@@ -423,3 +423,4 @@ Para **self-hosted** em cloud, considere custos de infraestrutura, manutenção 
 - [n8n Cloud](https://cloud.n8n.io)
 - [Documentação oficial](https://docs.n8n.io/)
 - [Repositório n8n](https://github.com/n8n-io/n8n)
+

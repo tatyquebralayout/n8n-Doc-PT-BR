@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 4
 title: "Classificação Automática de Dados com IA no n8n: Suporte e Atendimento Inteligente"
 description: Automatize a classificação de dados e tickets usando IA no n8n, com priorização inteligente, análise de sentimento e integração para empresas brasileiras.
@@ -214,13 +214,13 @@ const postProcessClassification = {
 
 ```mermaid
 graph TD
-    A[<ion-icon name="cloud-upload-outline"></ion-icon> Webhook Trigger<br/>Recebe Ticket] -->|Processa| B[<ion-icon name="construct-outline"></ion-icon> Pré-processamento<br/>Limpeza • Normalização]
-    B -->|Analisa| C[<ion-icon name="analytics-outline"></ion-icon> Classificação IA<br/>Categoria • Sentimento • Prioridade]
-    C -->|Valida| D[<ion-icon name="checkmark-circle-outline"></ion-icon> Validação<br/>Verifica Consistência]
-    D -->|Atribui| E[<ion-icon name="person-outline"></ion-icon> Atribuição de Agente<br/>Especialista Adequado]
-    E -->|Notifica| F[<ion-icon name="notifications-outline"></ion-icon> Notificação<br/>Slack • Email]
-    F -->|Registra| G[<ion-icon name="document-text-outline"></ion-icon> Registro no CRM<br/>Sistema de Gestão]
-    G -->|Responde| H[<ion-icon name="send-outline"></ion-icon> Resposta ao Cliente<br/>Status Atualizado]
+    A[<IonicIcon name="cloud-upload-outline" /> Webhook Trigger<br/>Recebe Ticket] -->|Processa| B[<IonicIcon name="construct-outline" /> Pré-processamento<br/>Limpeza • Normalização]
+    B -->|Analisa| C[<IonicIcon name="analytics-outline" /> Classificação IA<br/>Categoria • Sentimento • Prioridade]
+    C -->|Valida| D[<IonicIcon name="checkmark-circle-outline" /> Validação<br/>Verifica Consistência]
+    D -->|Atribui| E[<IonicIcon name="person-outline" /> Atribuição de Agente<br/>Especialista Adequado]
+    E -->|Notifica| F[<IonicIcon name="notifications-outline" /> Notificação<br/>Slack • Email]
+    F -->|Registra| G[<IonicIcon name="document-text-outline" /> Registro no CRM<br/>Sistema de Gestão]
+    G -->|Responde| H[<IonicIcon name="send-outline" /> Resposta ao Cliente<br/>Status Atualizado]
     
     style A fill:#e3f2fd
     style B fill:#f3e5f5
@@ -236,12 +236,12 @@ graph TD
 
 ```mermaid
 graph TD
-    A[<ion-icon name="document-outline"></ion-icon> Base de Dados<br/>Tickets Históricos] -->|Extrai| B[<ion-icon name="analytics-outline"></ion-icon> Extract Dados<br/>Dados Brutos]
-    B -->|Limpa| C[<ion-icon name="construct-outline"></ion-icon> Limpeza<br/>Remove Ruído]
-    C -->|Analisa| D[<ion-icon name="stats-chart-outline"></ion-icon> Análise Estatística<br/>Padrões • Tendências]
-    D -->|Valida| E[<ion-icon name="people-outline"></ion-icon> Validação Manual<br/>Especialistas]
-    E -->|Atualiza| F[<ion-icon name="refresh-outline"></ion-icon> Atualização Modelo<br/>Melhoria Contínua]
-    F -->|Testa| G[<ion-icon name="flask-outline"></ion-icon> Teste Performance<br/>Métricas de Precisão]
+    A[<IonicIcon name="document-outline" /> Base de Dados<br/>Tickets Históricos] -->|Extrai| B[<IonicIcon name="analytics-outline" /> Extract Dados<br/>Dados Brutos]
+    B -->|Limpa| C[<IonicIcon name="construct-outline" /> Limpeza<br/>Remove Ruído]
+    C -->|Analisa| D[<IonicIcon name="stats-chart-outline" /> Análise Estatística<br/>Padrões • Tendências]
+    D -->|Valida| E[<IonicIcon name="people-outline" /> Validação Manual<br/>Especialistas]
+    E -->|Atualiza| F[<IonicIcon name="refresh-outline" /> Atualização Modelo<br/>Melhoria Contínua]
+    F -->|Testa| G[<IonicIcon name="flask-outline" /> Teste Performance<br/>Métricas de Precisão]
     
     style A fill:#e3f2fd
     style B fill:#f3e5f5
@@ -433,3 +433,4 @@ const performanceMetrics = {
 ---
 
 **💡 Dica:** Comece com poucas categorias bem definidas e expanda gradualmente. Colete feedback dos agentes para melhorar continuamente a precisão da classificação.
+

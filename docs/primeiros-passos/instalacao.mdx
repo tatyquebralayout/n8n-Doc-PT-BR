@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 2
 title: Instalação Self-hosted do n8n
 description: Guia completo para instalação self-hosted do n8n com Docker e npm
@@ -7,15 +7,15 @@ keywords: [n8n, instalação, docker, npm, setup, self-hosted]
 ---
 
 :::info
-<ion-icon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }}></ion-icon> Esta página da documentação foi validada tecnicamente e didaticamente.
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }} /> Esta página da documentação foi validada tecnicamente e didaticamente.
 :::
 
-# <ion-icon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }}></ion-icon> Instalação Self-hosted do n8n
+# <IonicIcon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }} /> Instalação Self-hosted do n8n
 
 Esta página detalha os métodos de instalação **self-hosted** do n8n, incluindo Docker (recomendado) e npm. Para uma visão geral de todos os métodos, consulte o [Guia de Instalação – Visão Panorâmica](./guia-instalacao).
 
 :::warning **Conhecimento Técnico Necessário**
-<ion-icon name="alert-triangle-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> O self-hosting do n8n requer conhecimento técnico, incluindo:
+<IonicIcon name="alert-triangle-outline" style={{ fontSize: '16px', color: '#f59e0b' }} /> O self-hosting do n8n requer conhecimento técnico, incluindo:
 
 * Configuração e gerenciamento de servidores e containers
 * Gerenciamento de recursos de aplicação e escalabilidade
@@ -27,13 +27,13 @@ O n8n recomenda self-hosting apenas para usuários experientes. Erros podem leva
 
 
 :::note **Versões do n8n**
-<ion-icon name="time-outline" style={{ fontSize: '16px', color: '#3b82f6' }}></ion-icon> O n8n lança uma nova versão menor na maioria das semanas. A versão `latest` é para uso em produção. `next` é a versão mais recente e deve ser tratada como beta: pode ser instável.
+<IonicIcon name="time-outline" style={{ fontSize: '16px', color: '#3b82f6' }} /> O n8n lança uma nova versão menor na maioria das semanas. A versão `latest` é para uso em produção. `next` é a versão mais recente e deve ser tratada como beta: pode ser instável.
 
 **Versão atual `latest`**: 1.101.1  
 **Versão atual `next`**: 1.102.1
 :::
 
-## <ion-icon name="list-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Pré-requisitos
+## <IonicIcon name="list-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Pré-requisitos
 
 ### Para Instalação via npm
 - **Node.js**: Versão entre 20.19 e 24.x, inclusive
@@ -44,10 +44,10 @@ O n8n recomenda self-hosting apenas para usuários experientes. Erros podem leva
 - **Docker Compose** (opcional, para configurações avançadas)
 
 :::note **Usuários Linux**
-<ion-icon name="desktop-outline" style={{ fontSize: '16px', color: '#3b82f6' }}></ion-icon> O Docker Desktop está disponível para Mac e Windows. Usuários Linux devem instalar o [Docker Engine](https://docs.docker.com/engine/install/) e [Docker Compose](https://docs.docker.com/compose/install/) individualmente para sua distribuição.
+<IonicIcon name="desktop-outline" style={{ fontSize: '16px', color: '#3b82f6' }} /> O Docker Desktop está disponível para Mac e Windows. Usuários Linux devem instalar o [Docker Engine](https://docs.docker.com/engine/install/) e [Docker Compose](https://docs.docker.com/compose/install/) individualmente para sua distribuição.
 :::
 
-## <ion-icon name="download-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métodos de Instalação
+## <IonicIcon name="download-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Métodos de Instalação
 
 ### Comparação dos Métodos
 
@@ -61,11 +61,11 @@ O n8n recomenda self-hosting apenas para usuários experientes. Erros podem leva
 
 O Docker oferece as seguintes vantagens:
 
-* <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Instala o n8n em um ambiente limpo
-* <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Configuração mais fácil para seu banco de dados preferido
-* <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Evita problemas devido a diferentes sistemas operacionais
-* <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Evita problemas de compatibilidade
-* <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> Facilita a migração para novos hosts ou ambientes
+* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Instala o n8n em um ambiente limpo
+* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Configuração mais fácil para seu banco de dados preferido
+* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Evita problemas devido a diferentes sistemas operacionais
+* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Evita problemas de compatibilidade
+* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Facilita a migração para novos hosts ou ambientes
 
 #### Instalação Básica
 
@@ -88,7 +88,7 @@ Após a execução, você pode acessar o n8n abrindo: [http://localhost:5678](ht
 
 
 <details>
-<summary><ion-icon name="settings-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> <strong>Configurações Avançadas do Docker</strong> <ion-icon name="chevron-down-outline" style={{ fontSize: '14px', color: '#6b7280' }}></ion-icon></summary>
+<summary><IonicIcon name="settings-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> <strong>Configurações Avançadas do Docker</strong> <IonicIcon name="chevron-down-outline" style={{ fontSize: '14px', color: '#6b7280' }} /></summary>
 
 #### Usando com PostgreSQL
 
@@ -177,7 +177,7 @@ n8n
 n8n start
 ```
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Inicial
+## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Inicial
 
 ### Primeiro Acesso
 
@@ -186,7 +186,7 @@ Após a instalação, acesse `http://localhost:5678` e você verá a tela de con
 ### Criar Conta de Administrador
 
 :::warning **Importante**
-<ion-icon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#f59e0b' }}></ion-icon> Na primeira execução, você deve criar uma conta de administrador para proteger sua instância.
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#f59e0b' }} /> Na primeira execução, você deve criar uma conta de administrador para proteger sua instância.
 :::
 
 1. Preencha os dados do administrador:
@@ -197,7 +197,7 @@ Após a instalação, acesse `http://localhost:5678` e você verá a tela de con
 2. Clique em **Criar Conta**
 
 <details>
-<summary><ion-icon name="options-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> <strong>Configurações Avançadas</strong> <ion-icon name="chevron-down-outline" style={{ fontSize: '14px', color: '#6b7280' }}></ion-icon></summary>
+<summary><IonicIcon name="options-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> <strong>Configurações Avançadas</strong> <IonicIcon name="chevron-down-outline" style={{ fontSize: '14px', color: '#6b7280' }} /></summary>
 
 ### Configurações Avançadas
 
@@ -269,7 +269,7 @@ docker-compose up -d
 
 </details>
 
-## <ion-icon name="search-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Verificando a Instalação
+## <IonicIcon name="search-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificando a Instalação
 
 ### Interface Web
 
@@ -300,7 +300,7 @@ docker logs -f n8n
 
 
 
-## <ion-icon name="refresh-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Atualizando o n8n
+## <IonicIcon name="refresh-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizando o n8n
 
 ### Atualização via Docker
 
@@ -344,10 +344,10 @@ Se precisar reverter uma atualização:
    - Execute `n8n db:revert` na versão atual para reverter o banco
 
 :::info **Backup Recomendado**
-<ion-icon name="cloud-upload-outline" style={{ fontSize: '16px', color: '#3b82f6' }}></ion-icon> Sempre faça backup dos seus dados antes de atualizar o n8n em produção.
+<IonicIcon name="cloud-upload-outline" style={{ fontSize: '16px', color: '#3b82f6' }} /> Sempre faça backup dos seus dados antes de atualizar o n8n em produção.
 :::
 
-## <ion-icon name="medical-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Solução de Problemas
+## <IonicIcon name="medical-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Solução de Problemas
 
 ### Problemas Comuns
 
@@ -392,7 +392,7 @@ docker logs container_id
 ```
 
 <details>
-<summary><ion-icon name="analytics-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> <strong>Comandos de Diagnóstico Avançados</strong> <ion-icon name="chevron-down-outline" style={{ fontSize: '14px', color: '#6b7280' }}></ion-icon></summary>
+<summary><IonicIcon name="analytics-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> <strong>Comandos de Diagnóstico Avançados</strong> <IonicIcon name="chevron-down-outline" style={{ fontSize: '14px', color: '#6b7280' }} /></summary>
 
 ### Comandos de Diagnóstico Avançados
 
@@ -437,22 +437,23 @@ Se encontrar problemas, consulte:
 - [GitHub Issues](https://github.com/n8n-io/n8n/issues)
 - [Fórum da Comunidade](https://community.n8n.io/c/questions/12)
 
-## <ion-icon name="arrow-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 Agora que o n8n está instalado e funcionando:
 
-- [x] <ion-icon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }}></ion-icon> **Instalação concluída**
-- [ ] <ion-icon name="book-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **[Conceitos Fundamentais](./conceitos-fundamentais)** - Entenda os fundamentos
-- [ ] <ion-icon name="play-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **[Primeiro Workflow](./primeiro-workflow)** - Crie seu primeiro fluxo
-- [ ] <ion-icon name="link-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **[Conectar Aplicações](./conectar-aplicacoes)** - Integre suas ferramentas
+- [x] <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> **Instalação concluída**
+- [ ] <IonicIcon name="book-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> **[Conceitos Fundamentais](./conceitos-fundamentais)** - Entenda os fundamentos
+- [ ] <IonicIcon name="play-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> **[Primeiro Workflow](./primeiro-workflow)** - Crie seu primeiro fluxo
+- [ ] <IonicIcon name="link-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> **[Conectar Aplicações](./conectar-aplicacoes)** - Integre suas ferramentas
 
 ### Outros Métodos de Instalação
 
-- <ion-icon name="cloud-outline" style={{ fontSize: '16px', color: '#3b82f6' }}></ion-icon> **[n8n Cloud](./instalacao-cloud)** - Instalação via serviço hospedado
-- <ion-icon name="code-outline" style={{ fontSize: '16px', color: '#6b7280' }}></ion-icon> **[Self-hosted (Auto-hospedado)](./instalacao-self-hosted)** - Para desenvolvimento e produção
+- <IonicIcon name="cloud-outline" style={{ fontSize: '16px', color: '#3b82f6' }} /> **[n8n Cloud](./instalacao-cloud)** - Instalação via serviço hospedado
+- <IonicIcon name="code-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> **[Self-hosted (Auto-hospedado)](./instalacao-self-hosted)** - Para desenvolvimento e produção
 
 ---
 
 > <span style={{fontSize: '18px', fontWeight: 'bold'}}>**"A instalação é apenas o primeiro passo. O verdadeiro poder do n8n está na automação que você vai criar!"**</span>
+
 
 

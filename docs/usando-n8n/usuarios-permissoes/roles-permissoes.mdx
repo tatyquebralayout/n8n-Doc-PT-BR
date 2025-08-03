@@ -1,5 +1,5 @@
-:::warning
-<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+﻿:::warning
+<IonicIcon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }} /> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
 :::
 
 ---
@@ -9,11 +9,11 @@ description: Configure roles e permissões granulares para controlar acesso a wo
 keywords: [n8n, roles, permissões, controle de acesso, segurança, usuários, workflows]
 ---
 
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Roles e Permissões
+# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Roles e Permissões
 
 O sistema de roles e permissões do n8n permite controlar com precisão o que cada usuário pode fazer. Neste guia, você aprenderá a configurar permissões granulares para workflows, credenciais e recursos.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você aprenderá
+## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você aprenderá
 
 - **Sistema de roles** do n8n
 - **Tipos de permissões** disponíveis
@@ -21,7 +21,7 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 - **Boas práticas** de segurança
 - **Auditoria** e monitoramento
 
-## <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sistema de Roles
+## <IonicIcon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Sistema de Roles
 
 ### 1. Roles Padrão
 
@@ -75,7 +75,7 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 - Acesso limitado a credenciais
 - Não pode criar workflows
 
-## <ion-icon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tipos de Permissões
+## <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tipos de Permissões
 
 ### 1. Permissões de Workflow
 
@@ -161,7 +161,7 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 - Pode configurar alertas
 - Pode visualizar métricas
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração de Permissões
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração de Permissões
 
 ### 1. Configuração por Usuário
 
@@ -233,7 +233,7 @@ curl -X PUT "https://your-n8n.com/api/v1/users/123" \
 }
 ```
 
-## <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
+## <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas
 
 ### 1. Princípio do Menor Privilégio
 
@@ -266,7 +266,7 @@ Owner (1 usuário)
 - **Notificações** de mudanças críticas
 - **Backup** de configurações de permissões
 
-## <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos Práticos
+## <IonicIcon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos Práticos
 
 ### Exemplo 1: Configuração para Startup
 
@@ -345,7 +345,7 @@ Owner (1 usuário)
 }
 ```
 
-## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Auditoria e Monitoramento
+## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Auditoria e Monitoramento
 
 ### 1. Logs de Auditoria
 
@@ -384,7 +384,7 @@ N8N_AUDIT_LOGS_RETENTION=90 # dias
 - **Credenciais** utilizadas
 - **Atividade** de execução
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
 
 ### Problemas Comuns
 
@@ -426,7 +426,7 @@ curl -X GET "https://your-n8n.com/api/v1/workflows" \
 tail -f /var/log/n8n/audit.log
 ```
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 1. **Audite permissões** atuais dos usuários
 2. **Configure roles** apropriados para sua equipe
@@ -434,14 +434,15 @@ tail -f /var/log/n8n/audit.log
 4. **Configure monitoramento** e alertas
 5. **Documente políticas** de acesso
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
 
 - **[Criar e Editar Usuários](./criar-editar-usuarios)** - Gerenciamento de usuários
 - **[Autenticação](./autenticacao)** - Métodos de login
-- **[Segurança](../../hosting-n8n/seguranca/index.mdx)** - Configurações de segurança
-- **[Referência](../../referencia/index.mdx)** - Documentação técnica
-- **[Comunidade](../../comunidade/index.mdx)** - Suporte e dicas
+- **[Segurança](../../hosting-n8n/seguranca/)** - Configurações de segurança
+- **[Referência](../../referencia/)** - Documentação técnica
+- **[Comunidade](../../comunidade/)** - Suporte e dicas
 
 ---
 
-**<ion-icon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para controlar? Comece configurando roles apropriados para sua equipe!**
+**<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> Pronto para controlar? Comece configurando roles apropriados para sua equipe!**
+

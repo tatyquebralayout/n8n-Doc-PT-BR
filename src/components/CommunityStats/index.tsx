@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import IonicIcon from '@site/src/components/IonicIcon';
+import StatItem from '@site/src/components/common/StatItem';
 import styles from './styles.module.css';
 
 interface CommunityStatsProps {
@@ -23,41 +23,40 @@ const CommunityStats: React.FC<CommunityStatsProps> = ({
       label: 'Contribuidores',
       value: contributors,
       icon: 'people-outline',
-      color: 'var(--ifm-color-primary)',
+      variant: 'primary' as const,
     },
     {
       label: 'Traduções',
       value: translations,
       icon: 'language-outline',
-      color: 'var(--ifm-color-success)',
+      variant: 'success' as const,
     },
     {
       label: 'Idiomas',
       value: languages,
       icon: 'globe-outline',
-      color: 'var(--ifm-color-info)',
+      variant: 'default' as const,
     },
     {
       label: 'Repositórios',
       value: repositories,
       icon: 'logo-github',
-      color: 'var(--ifm-color-warning)',
+      variant: 'warning' as const,
     },
   ];
 
   return (
-    <div className={clsx(styles.communityStats, className)}>
+    <div className={clsx(styles.communityStats, className)} data-testid="community-stats">
       <div className={styles.grid}>
         {stats.map((stat, index) => (
-          <div key={index} className={styles.statItem}>
-            <div className={styles.icon} style={{ color: stat.color }}>
-              <IonicIcon name={stat.icon} size={32} />
-            </div>
-            <div className={styles.content}>
-              <div className={styles.value}>{stat.value.toLocaleString()}</div>
-              <div className={styles.label}>{stat.label}</div>
-            </div>
-          </div>
+          <StatItem
+            key={index}
+            label={stat.label}
+            value={stat.value}
+            icon={stat.icon}
+            variant={stat.variant}
+            dataTestId="community-stat"
+          />
         ))}
       </div>
     </div>

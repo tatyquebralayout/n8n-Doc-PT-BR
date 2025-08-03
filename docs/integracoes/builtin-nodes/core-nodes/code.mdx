@@ -1,11 +1,11 @@
----
+﻿---
 title: Code Node
 description: Guia completo sobre o Code Node no n8n, incluindo sintaxe JavaScript, exemplos práticos e boas práticas
 sidebar_position: 1
 keywords: [n8n, code node, javascript, programação, automação, lógica, customização]
 ---
 
-# <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Code Node
+# <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Code Node
 
 O **Code Node** é um dos nodes mais poderosos do n8n, permitindo executar código JavaScript customizado dentro de seus workflows. Ele oferece controle total sobre a lógica de processamento e manipulação de dados.
 
@@ -115,13 +115,7 @@ return { json: dadosTransformados };
 const dados = $json;
 
 // Função de validação
-const validarDados = (dados) => {
-  const erros = [];
-  
-  // Validar nome
-  if (!dados.nome || dados.nome.length < 2) {
-    erros.push('Nome deve ter pelo menos 2 caracteres');
-  }
+
   
   // Validar email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -192,12 +186,7 @@ return resultados;
 const dados = $json;
 
 // Função para fazer requisição
-const fazerRequisicao = async (url, options) => {
-  try {
-    const response = await fetch(url, options);
-    
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+: ${response.statusText}`);
     }
     
     return await response.json();
@@ -247,16 +236,9 @@ try {
 const dados = $json;
 
 // Funções de cálculo
-const calcularJurosCompostos = (principal, taxa, tempo) => {
-  return principal * Math.pow(1 + taxa / 100, tempo);
-};
+;
 
-const calcularParcelas = (valor, numParcelas, taxaJuros) => {
-  const taxaMensal = taxaJuros / 100 / 12;
-  const valorParcela = valor * (taxaMensal * Math.pow(1 + taxaMensal, numParcelas)) / 
-                      (Math.pow(1 + taxaMensal, numParcelas) - 1);
-  return valorParcela;
-};
+;
 
 // Aplicar cálculos
 const resultado = {
@@ -277,41 +259,17 @@ return { json: resultado };
 const dados = $json;
 
 // Funções de manipulação
-const filtrarDados = (array, criterio) => {
-  return array.filter(item => {
-    switch (criterio.tipo) {
-      case 'valor':
-        return item.valor >= criterio.min && item.valor <= criterio.max;
-      case 'categoria':
-        return criterio.categorias.includes(item.categoria);
-      case 'data':
-        return new Date(item.data) >= new Date(criterio.data_inicio) &&
-               new Date(item.data) <= new Date(criterio.data_fim);
-      default:
-        return true;
-    }
+
   });
 };
 
-const agruparPorCategoria = (array) => {
-  return array.reduce((acc, item) => {
-    if (!acc[item.categoria]) {
-      acc[item.categoria] = [];
-    }
+
     acc[item.categoria].push(item);
     return acc;
   }, {});
 };
 
-const calcularEstatisticas = (array) => {
-  const valores = array.map(item => item.valor);
-  return {
-    total: valores.length,
-    soma: valores.reduce((sum, val) => sum + val, 0),
-    media: valores.reduce((sum, val) => sum + val, 0) / valores.length,
-    maximo: Math.max(...valores),
-    minimo: Math.min(...valores)
-  };
+;
 };
 
 // Aplicar manipulações
@@ -336,15 +294,7 @@ return {
 
 ```javascript
 // Code Node - Funções assíncronas
-const processarDadosAssincrono = async (dados) => {
-  // Simular processamento assíncrono
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
-  return {
-    ...dados,
-    processado: true,
-    timestamp: new Date().toISOString()
-  };
+;
 };
 
 // Executar função assíncrona
@@ -356,16 +306,7 @@ return { json: resultado };
 
 ```javascript
 // Code Node - Tratamento de erros
-const processarComTratamento = async (dados) => {
-  try {
-    // Operação que pode falhar
-    const resultado = await operacaoRiscosa(dados);
-    
-    return {
-      sucesso: true,
-      dados: resultado,
-      timestamp: new Date().toISOString()
-    };
+;
   } catch (error) {
     console.error('Erro no processamento:', error.message);
     
@@ -388,20 +329,7 @@ return { json: resultado };
 // Code Node - Cache simples
 const cache = new Map();
 
-const processarComCache = (chave, dados) => {
-  // Verificar cache
-  if (cache.has(chave)) {
-    const dadosCache = cache.get(chave);
-    const agora = new Date();
-    const diferenca = agora - dadosCache.timestamp;
-    
-    // Cache válido por 5 minutos
-    if (diferenca < 5 * 60 * 1000) {
-      return {
-        ...dadosCache.dados,
-        origem: 'cache',
-        timestamp_cache: dadosCache.timestamp
-      };
+;
     }
   }
   
@@ -429,15 +357,7 @@ return { json: resultado };
 
 ```javascript
 // Code Node - Validação de schema
-const validarSchema = (dados, schema) => {
-  const erros = [];
-  
-  for (const [campo, regras] of Object.entries(schema)) {
-    const valor = dados[campo];
-    
-    // Verificar se campo existe
-    if (regras.obrigatorio && (valor === undefined || valor === null || valor === '')) {
-      erros.push(`Campo '${campo}' é obrigatório`);
+' é obrigatório`);
       continue;
     }
     
@@ -508,24 +428,15 @@ return {
 const dados = $json;
 
 // 1. Validação de entrada
-const validarEntrada = (dados) => {
-  if (!dados || typeof dados !== 'object') {
-    throw new Error('Dados de entrada inválidos');
-  }
+
   return dados;
 };
 
 // 2. Funções de processamento
-const processarDados = (dados) => {
-  // Lógica de processamento
-  return dados;
-};
+;
 
 // 3. Validação de saída
-const validarSaida = (resultado) => {
-  if (!resultado) {
-    throw new Error('Resultado inválido');
-  }
+
   return resultado;
 };
 
@@ -553,19 +464,7 @@ try {
 
 ```javascript
 // Code Node - Otimizações de performance
-const processarEficiente = (dados) => {
-  // Usar Map para busca eficiente
-  const cache = new Map();
-  
-  // Processar em lotes
-  const resultados = [];
-  const tamanhoLote = 100;
-  
-  for (let i = 0; i < dados.length; i += tamanhoLote) {
-    const lote = dados.slice(i, i + tamanhoLote);
-    const resultadoLote = processarLote(lote, cache);
-    resultados.push(...resultadoLote);
-  }
+
   
   return resultados;
 };
@@ -575,13 +474,7 @@ const processarEficiente = (dados) => {
 
 ```javascript
 // Code Node - Logging estruturado
-const logEstruturado = (nivel, mensagem, dados) => {
-  const log = {
-    nivel: nivel,
-    mensagem: mensagem,
-    timestamp: new Date().toISOString(),
-    dados: dados
-  };
+;
   
   console.log(JSON.stringify(log, null, 2));
 };
@@ -627,3 +520,5 @@ logEstruturado('INFO', 'Iniciando processamento', $json);
 - [Debugging](/logica-e-dados/flow-logic/debugging) - Técnicas de debug
 - [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Integrar com APIs
 - [Data Processing](/integracoes/builtin-nodes/data-processing/index) - Processar dados
+
+

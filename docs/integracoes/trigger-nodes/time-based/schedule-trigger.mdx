@@ -1,11 +1,11 @@
----
+﻿---
 title: Schedule Trigger
 description: Guia completo sobre o Schedule Trigger no n8n, incluindo agendamento, cron, exemplos práticos e boas práticas
 sidebar_position: 2
 keywords: [n8n, schedule trigger, agendamento, cron, execução automática, tempo, automação]
 ---
 
-# <ion-icon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Schedule Trigger
+# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Schedule Trigger
 
 O **Schedule Trigger** é uma ferramenta essencial do n8n para automação baseada em tempo. Ele permite executar workflows automaticamente em horários específicos, criando automações verdadeiramente independentes de intervenção humana.
 
@@ -249,21 +249,7 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 
 ```javascript
 // Code Node - Verificar se deve executar
-const verificarExecucao = () => {
-  const agora = new Date();
-  const hora = agora.getHours();
-  const diaSemana = agora.getDay();
-  
-  // Executar apenas em horário comercial (segunda a sexta, 8h às 18h)
-  const horarioComercial = diaSemana >= 1 && diaSemana <= 5 && hora >= 8 && hora <= 18;
-  
-  // Executar apenas se não for feriado
-  const feriados = ['2024-01-01', '2024-12-25']; // Exemplo
-  const hoje = agora.toISOString().split('T')[0];
-  const naoFeriado = !feriados.includes(hoje);
-  
-  return horarioComercial && naoFeriado;
-};
+;
 
 // Schedule Trigger - A cada hora
 {
@@ -289,19 +275,7 @@ const verificarExecucao = () => {
 
 ```javascript
 // Code Node - Calcular próximo agendamento
-const calcularProximoAgendamento = () => {
-  const agora = new Date();
-  const proximaExecucao = new Date(agora);
-  
-  // Próxima execução às 9h do próximo dia útil
-  proximaExecucao.setDate(proximaExecucao.getDate() + 1);
-  proximaExecucao.setHours(9, 0, 0, 0);
-  
-  // Ajustar para próximo dia útil se for fim de semana
-  const diaSemana = proximaExecucao.getDay();
-  if (diaSemana === 0) { // Domingo
-    proximaExecucao.setDate(proximaExecucao.getDate() + 1);
-  } else if (diaSemana === 6) { // Sábado
+ else if (diaSemana === 6) { // Sábado
     proximaExecucao.setDate(proximaExecucao.getDate() + 2);
   }
   
@@ -341,11 +315,7 @@ const calcularProximoAgendamento = () => {
 }
 
 // Code Node - Lógica com retry
-const executarComRetry = async (operacao, maxTentativas = 3) => {
-  for (let tentativa = 1; tentativa <= maxTentativas; tentativa++) {
-    try {
-      const resultado = await operacao();
-      console.log(`Execução bem-sucedida na tentativa ${tentativa}`);
+`);
       return resultado;
     } catch (error) {
       console.error(`Tentativa ${tentativa} falhou:`, error.message);
@@ -377,16 +347,7 @@ const executarComRetry = async (operacao, maxTentativas = 3) => {
 }
 
 // Code Node - Gerar dados baseados no horário
-const gerarDadosPorHorario = () => {
-  const agora = new Date();
-  const hora = agora.getHours();
-  
-  const configuracao = {
-    hora_execucao: hora,
-    periodo: hora < 12 ? 'manha' : hora < 18 ? 'tarde' : 'noite',
-    prioridade: hora >= 9 && hora <= 17 ? 'alta' : 'baixa',
-    destinatarios: hora < 12 ? ['equipe_manha'] : ['equipe_tarde']
-  };
+;
   
   return configuracao;
 };
@@ -482,12 +443,7 @@ const gerarDadosPorHorario = () => {
 
 ```javascript
 // ✅ Bom: Implementar tratamento de erros
-const executarComTratamento = async () => {
-  try {
-    const resultado = await operacao();
-    console.log('Execução bem-sucedida:', resultado);
-    return resultado;
-  } catch (error) {
+ catch (error) {
     console.error('Erro na execução:', error.message);
     
     // Notificar erro
@@ -527,24 +483,7 @@ const executarComTratamento = async () => {
 
 ```javascript
 // Code Node - Debug de Schedule Trigger
-const debugSchedule = () => {
-  const agora = new Date();
-  
-  console.log('=== DEBUG SCHEDULE TRIGGER ===');
-  console.log('Data/hora atual:', agora.toISOString());
-  console.log('Timezone:', Intl.DateTimeFormat().resolvedOptions().timeZone);
-  console.log('Dia da semana:', agora.getDay());
-  console.log('Hora:', agora.getHours());
-  console.log('Minuto:', agora.getMinutes());
-  console.log('=============================');
-  
-  return {
-    timestamp: agora.toISOString(),
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    dia_semana: agora.getDay(),
-    hora: agora.getHours(),
-    minuto: agora.getMinutes()
-  };
+;
 };
 
 // Usar no início do workflow
@@ -645,3 +584,5 @@ return { json: debugSchedule() };
 - [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
 - [Set Node](/integracoes/builtin-nodes/data-processing/set) - Manipulação de dados
 - [Monitoring](/usando-n8n/monitoring/index) - Monitorar execuções
+
+

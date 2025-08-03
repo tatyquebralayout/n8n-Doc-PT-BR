@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 4
 title: Self-hosted (Auto-hospedado)
 description: Guia completo para instalação self-hosted do n8n com Docker, configurações avançadas e segurança
@@ -6,7 +6,7 @@ slug: /primeiros-passos/instalacao-self-hosted
 keywords: [n8n, self-hosted, docker, instalação, produção, segurança]
 ---
 
-## <ion-icon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral
+## <IonicIcon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Visão Geral
 
 ### **O que é Self-hosted?**
 
@@ -30,7 +30,7 @@ Self-hosted significa que você instala e gerencia o n8n em sua própria infraes
 
 ---
 
-## <ion-icon name="download-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Métodos de Instalação
+## <IonicIcon name="download-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Métodos de Instalação
 
 ### **Docker (Recomendado para Produção)**
 
@@ -43,7 +43,7 @@ Docker é a forma recomendada para instalar o n8n em produção pelos seguintes 
 - **Facilidade de backup**: Todo o ambiente pode ser versionado e replicado
 - **Escalabilidade**: Fácil de escalar horizontalmente com múltiplas instâncias
 
-#### <ion-icon name="play-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Instalação Básica
+#### <IonicIcon name="play-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalação Básica
 
 1. **Criar volume para persistência de dados:**
 
@@ -65,7 +65,7 @@ docker run -it --rm \
 
 Abra seu navegador e acesse: `http://localhost:5678`
 
-#### <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração Avançada
+#### <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Avançada
 
 Para produção, configure variáveis de ambiente essenciais:
 
@@ -204,7 +204,7 @@ n8n requer Node.js versão entre 20.19 e 24.x. Verifique sua versão com `node -
 
 ---
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração
+## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração
 
 ### **Variáveis de Ambiente**
 
@@ -268,7 +268,7 @@ N8N_SAMESITE_COOKIE=strict
 
 A configuração de SSL/HTTPS é **essencial para ambientes de produção** pois garante que todas as comunicações entre o navegador e o n8n sejam criptografadas, protegendo dados sensíveis, credenciais e workflows contra interceptação. Além da segurança básica, o HTTPS previne ataques man-in-the-middle e garante a integridade das informações. A compatibilidade com webhooks e APIs externas é fundamental, pois a maioria dos serviços modernos exige conexões seguras. O HTTPS também habilita protocolos mais avançados como HTTP/2 e HTTP/3, que melhoram significativamente a performance. Para aplicações mobile e Progressive Web Apps (PWA), o HTTPS é obrigatório para funcionalidades como notificações push e acesso a recursos do dispositivo.
 
-#### <ion-icon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Com Nginx
+#### <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Com Nginx
 
 O Nginx atua como um proxy reverso que recebe todas as requisições HTTPS e as encaminha para o n8n rodando na porta 5678, gerenciando automaticamente a terminação SSL e os certificados. Esta configuração oferece flexibilidade total para personalizar headers de segurança, otimizar performance e implementar regras de roteamento específicas para seu ambiente de produção.
 
@@ -308,7 +308,7 @@ server {
 
 </details>
 
-#### <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Com Certbot (Lets Encrypt)
+#### <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Com Certbot (Lets Encrypt)
 
 O Certbot é uma ferramenta automatizada que simplifica significativamente a obtenção e renovação de certificados SSL gratuitos através do Let's Encrypt. Esta abordagem elimina a necessidade de gerenciar certificados manualmente, pois o Certbot configura automaticamente o Nginx e renova os certificados antes da expiração.
 
@@ -331,7 +331,7 @@ sudo crontab -e
 
 ---
 
-## <ion-icon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Escalabilidade
+## <IonicIcon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Escalabilidade
 
 ### **Configuração de Filas**
 
@@ -422,7 +422,7 @@ spec:
 
 </details>
 
-## <ion-icon name="lock-closed-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segurança
+## <IonicIcon name="lock-closed-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segurança
 
 A segurança é fundamental em ambientes de produção, pois protege dados sensíveis, credenciais e workflows contra acesso não autorizado. O n8n oferece múltiplas camadas de segurança que incluem autenticação básica, OAuth2, configurações de firewall e restrições de acesso que devem ser configuradas adequadamente para cada ambiente.
 
@@ -477,7 +477,7 @@ sudo ufw allow from 192.168.1.0/24 to any port 5678
 
 ---
 
-## <ion-icon name="save-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Backup e Recuperação
+## <IonicIcon name="save-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup e Recuperação
 
 ### **Script de Backup Automático**
 
@@ -521,7 +521,7 @@ Mantenha sempre backups regulares dos dados e do banco de dados. Em caso de falh
 
 ---
 
-## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Monitoramento
+## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Monitoramento
 
 ### **Logs**
 
@@ -574,7 +574,7 @@ fi
 
 ---
 
-## <ion-icon name="refresh-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Atualizações
+## <IonicIcon name="refresh-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizações
 
 ### **Docker**
 
@@ -615,7 +615,7 @@ n8n db:revert
 
 ---
 
-## <ion-icon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
 
 ### **Problemas Comuns**
 
@@ -631,7 +631,7 @@ sudo kill -9 \`
 
 ---
 
-## <ion-icon name="cloud-upload-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Migração para o Cloud
+## <IonicIcon name="cloud-upload-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Migração para o Cloud
 
 :::info **Migração Sem Interrupção**
 Se você já utiliza o n8n em modo self-hosted, é possível migrar seus workflows, credenciais e dados para o n8n Cloud de forma segura e sem interrupção dos processos. O n8n Cloud oferece infraestrutura gerenciada, backups automáticos, escalabilidade e suporte dedicado, permitindo que você foque apenas na automação dos seus processos.

@@ -1,4 +1,4 @@
-# Visualização de Schema
+﻿# Visualização de Schema
 
 A visualização de schema é fundamental para entender a estrutura dos dados que fluem através dos workflows. Esta seção aborda como visualizar, interpretar e trabalhar com schemas de dados no n8n.
 
@@ -146,12 +146,7 @@ Use ferramentas externas para melhor visualização:
 
 ```javascript
 // Gerar documentação do schema
-const gerarDocumentacaoSchema = (schema) => {
-  const doc = {
-    titulo: 'Documentação do Schema',
-    campos: [],
-    exemplos: []
-  };
+;
   
   if (schema.properties) {
     Object.entries(schema.properties).forEach(([nome, prop]) => {
@@ -169,8 +164,7 @@ const gerarDocumentacaoSchema = (schema) => {
 };
 
 // Extrair validações
-const extrairValidacoes = (propriedade) => {
-  const validacoes = {};
+;
   
   if (propriedade.minLength) validacoes.minLength = propriedade.minLength;
   if (propriedade.maxLength) validacoes.maxLength = propriedade.maxLength;
@@ -412,9 +406,7 @@ const extrairValidacoes = (propriedade) => {
 
 ```javascript
 // Validar dados contra schema
-const validarContraSchema = (dados, schema) => {
-  const Ajv = require('ajv');
-  const ajv = new Ajv({ allErrors: true });
+);
   
   const validate = ajv.compile(schema);
   const valido = validate(dados);
@@ -513,14 +505,7 @@ const validacoesBR = {
 
 ```javascript
 // Converter schema JSON para TypeScript
-const converterParaTypeScript = (schema) => {
-  let typescript = 'interface Dados {\n';
-  
-  if (schema.properties) {
-    Object.entries(schema.properties).forEach(([nome, prop]) => {
-      const tipo = converterTipo(prop);
-      const obrigatorio = schema.required?.includes(nome) ? '' : '?';
-      typescript += `  ${nome}${obrigatorio}: ${tipo};\n`;
+${obrigatorio}: ${tipo};\n`;
     });
   }
   
@@ -528,11 +513,7 @@ const converterParaTypeScript = (schema) => {
   return typescript;
 };
 
-const converterTipo = (propriedade) => {
-  switch (propriedade.type) {
-    case 'string':
-      if (propriedade.enum) {
-        return propriedade.enum.map(v => `'${v}'`).join(' | ');
+'`).join(' | ');
       }
       return 'string';
     case 'integer':
@@ -554,9 +535,7 @@ const converterTipo = (propriedade) => {
 
 ```javascript
 // Gerar exemplos baseados no schema
-const gerarExemplo = (schema) => {
-  if (schema.type === 'object' && schema.properties) {
-    const exemplo = {};
+;
     
     Object.entries(schema.properties).forEach(([nome, prop]) => {
       exemplo[nome] = gerarValorExemplo(prop);
@@ -568,12 +547,7 @@ const gerarExemplo = (schema) => {
   return gerarValorExemplo(schema);
 };
 
-const gerarValorExemplo = (propriedade) => {
-  switch (propriedade.type) {
-    case 'string':
-      if (propriedade.enum) {
-        return propriedade.enum[0];
-      }
+
       if (propriedade.format === 'email') {
         return 'exemplo@email.com';
       }
@@ -636,23 +610,14 @@ const schemaRespostaAPI = {
 };
 
 // Validar resposta da API
-const validarRespostaAPI = (resposta) => {
-  return validarContraSchema(resposta, schemaRespostaAPI);
-};
+;
 ```
 
 ### Mapeamento de Schema
 
 ```javascript
 // Mapear dados entre schemas diferentes
-const mapearSchema = (dados, schemaOrigem, schemaDestino) => {
-  const mapeamento = {
-    'cliente.nome': 'nome',
-    'cliente.email': 'email',
-    'cliente.telefone': 'contato.telefone',
-    'endereco.cep': 'localizacao.cep',
-    'endereco.cidade': 'localizacao.cidade'
-  };
+;
   
   const dadosMapeados = {};
   
@@ -666,15 +631,9 @@ const mapearSchema = (dados, schemaOrigem, schemaDestino) => {
   return dadosMapeados;
 };
 
-const obterValorPorCaminho = (objeto, caminho) => {
-  return caminho.split('.').reduce((obj, prop) => obj?.[prop], objeto);
-};
+;
 
-const definirValorPorCaminho = (objeto, caminho, valor) => {
-  const props = caminho.split('.');
-  const ultimaProp = props.pop();
-  const obj = props.reduce((o, prop) => {
-    if (!o[prop]) o[prop] = {};
+;
     return o[prop];
   }, objeto);
   obj[ultimaProp] = valor;
@@ -686,49 +645,26 @@ const definirValorPorCaminho = (objeto, caminho, valor) => {
 ### JSON Schema Viewer
 
 ```javascript
-// Componente para visualizar schema
-const SchemaViewer = ({ schema }) => {
-  const renderizarPropriedade = (nome, prop, nivel = 0) => {
-    const indentacao = '  '.repeat(nivel);
-    
-    return (
-      <div key={nome} style={{ marginLeft: nivel * 20 }}>
-        <strong>{nome}</strong>: {prop.type}
-        {prop.description && <span> - {prop.description}</span>}
-        {prop.enum && <span> ({prop.enum.join(', ')})</span>}
-        {prop.properties && (
-          <div>
-            {Object.entries(prop.properties).map(([subNome, subProp]) =>
-              renderizarPropriedade(subNome, subProp, nivel + 1)
-            )}
-          </div>
-        )}
-      </div>
-    );
-  };
-  
-  return (
-    <div className="schema-viewer">
-      <h3>Schema de Dados</h3>
-      {schema.properties && Object.entries(schema.properties).map(([nome, prop]) =>
-        renderizarPropriedade(nome, prop)
-      )}
-    </div>
-  );
+import SchemaViewer from '@site/src/components/SchemaViewer';
+
+// Exemplo de uso do componente SchemaViewer
+const schemaExemplo = {
+  properties: {
+    nome: { type: 'string', description: 'Nome do usuário' },
+    email: { type: 'string', format: 'email' },
+    idade: { type: 'number', minimum: 0 }
+  }
 };
+
+// Uso do componente
+<SchemaViewer schema={schemaExemplo} />
 ```
 
 ### Documentação Automática
 
 ```javascript
 // Gerar documentação do schema
-const gerarDocumentacao = (schema) => {
-  const doc = {
-    titulo: 'Documentação do Schema',
-    descricao: schema.description || '',
-    campos: [],
-    exemplos: []
-  };
+;
   
   if (schema.properties) {
     Object.entries(schema.properties).forEach(([nome, prop]) => {

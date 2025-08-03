@@ -13,7 +13,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "baseUrl": ".",
     "paths": {
@@ -29,11 +29,8 @@
     "src",
     "src/types",
     "docs",
-    "release-notes",
     "docusaurus.config.ts",
     "sidebars.ts",
-    "sidebars-contribuir.ts",
-    "sidebars-release-notes.ts",
     "@types"
   ],
   "exclude": [

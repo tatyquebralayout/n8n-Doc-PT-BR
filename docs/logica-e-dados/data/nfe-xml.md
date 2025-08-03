@@ -37,4 +37,4 @@ Este exemplo mostra como trafegar arquivos XML de notas fiscais eletrônicas (NF
 - Armazene o XML no campo `binary` para facilitar integrações com sistemas fiscais e contábeis.
 - Considere criptografar ou proteger arquivos sensíveis.
 
-> Consulte também: [Estrutura de Dados no n8n](../estrutura-dados.md) 
+> Consulte também: [Estrutura de Dados no n8n](../estrutura-dados) 

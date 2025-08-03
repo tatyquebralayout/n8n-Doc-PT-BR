@@ -1,11 +1,11 @@
----
+﻿---
 title: Aggregate Node
 description: Guia completo sobre o Aggregate Node no n8n, incluindo agrupamento, agregações, exemplos práticos e boas práticas
 sidebar_position: 3
 keywords: [n8n, aggregate node, agregação, agrupamento, dados, estatísticas, sum, count, average]
 ---
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Aggregate Node
+# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Aggregate Node
 
 O **Aggregate Node** é uma ferramenta poderosa do n8n para agrupar e agregar dados. Ele permite calcular estatísticas, somar valores, contar itens e criar resumos baseados em critérios específicos.
 
@@ -594,10 +594,7 @@ O **Aggregate Node** permite:
 
 ```javascript
 // Code Node - Debug de Aggregate Node
-const debugAggregate = (dados) => {
-  console.log('=== DEBUG AGGREGATE ===');
-  console.log('Dados de entrada:', dados);
-  console.log('Campos disponíveis:', Object.keys(dados[0] || {}));
+));
   console.log('Número de registros:', dados.length);
   console.log('Exemplo de registro:', dados[0]);
   console.log('========================');
@@ -679,3 +676,5 @@ return { json: debugAggregate($json) };
 - [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões avançadas
 - [Data Processing](/integracoes/builtin-nodes/data-processing/index) - Outros nodes de processamento
+
+

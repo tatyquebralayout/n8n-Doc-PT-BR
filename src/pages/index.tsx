@@ -185,14 +185,14 @@ function DocumentationProgress() {
   };
 
   return (
-    <section className={styles.progressSection}>
+    <section className={styles.progressSection} data-testid="progress-section">
       <div className="container">
         <div className={styles.progressCard}>
           <div className={styles.progressHeader}>
             <IonicIcon name="trophy-outline" size={20} color="#ea4b71" />
             <h2>Progresso da Documentação</h2>
             <div className={styles.progressStats}>
-              <span className={styles.progressPercentage}>{animatedProgress}%</span>
+              <span className={styles.progressPercentage} data-testid="progress-percentage">{animatedProgress}%</span>
               <span className={styles.progressText}>
                 {completedGoals} de {totalGoals} metas
               </span>
@@ -211,7 +211,7 @@ function DocumentationProgress() {
             </button>
           </div>
           
-          <div className={styles.progressBar}>
+          <div className={styles.progressBar} data-testid="progress-bar">
             <div 
               className={styles.progressFill} 
               style={{ width: `${animatedProgress}%` }}

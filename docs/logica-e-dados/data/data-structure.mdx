@@ -1,15 +1,15 @@
----
+﻿---
 sidebar_position: 1
 title: Estrutura de Dados
 description: Entenda como os dados são estruturados no n8n
 keywords: [n8n, dados, estrutura, json, binary, array, objetos]
 ---
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura de Dados
+# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estrutura de Dados
 
 No n8n, todos os dados passados entre nodes são um array de objetos. Eles seguem a seguinte estrutura:
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura Básica
+## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estrutura Básica
 
 ```json
 [
@@ -40,13 +40,13 @@ No n8n, todos os dados passados entre nodes são um array de objetos. Eles segue
 ]
 ```
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Processamento de Itens de Dados
+## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Processamento de Itens de Dados
 
 :::tip **Pular a chave `json` e sintaxe de array**
 A partir da versão 0.166.0, ao usar o Function node ou Code node, o n8n adiciona automaticamente a chave `json` se estiver faltando. Ele também envolve automaticamente seus itens em um array (`[]`) se necessário. Isso só acontece ao usar os Function ou Code nodes. Ao construir seus próprios nodes, você ainda deve garantir que o node retorne dados com a chave `json`.
 :::
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos Práticos
+## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos Práticos
 
 ### Dados Simples
 
@@ -112,7 +112,7 @@ A partir da versão 0.166.0, ao usar o Function node ou Code node, o n8n adicion
 ]
 ```
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como os Dados Fluem
+## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Como os Dados Fluem
 
 Cada node no n8n:
 
@@ -134,7 +134,7 @@ graph LR
     D --> D1[Array de 5 emails enviados]
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de Execução
+## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de Execução
 
 ### Execute Once
 
@@ -144,15 +144,16 @@ Para situações onde você não quer que um node processe todos os itens recebi
 
 Alguns nodes podem processar todos os itens de uma vez, enquanto outros processam item por item. Isso depende da configuração do node e do tipo de operação.
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
 
 1. **Entenda [Data Flow](./data-flow-nodes)** para ver como os dados se movem entre nodes
 2. **Aprenda [Transforming Data](./transformacoes-dados)** para modificar a estrutura dos dados
 3. **Explore [Data Mapping](./data-mapping-avancado)** para mapear dados entre nodes
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
 
 - **[Data Flow](./data-flow-nodes)** - Como os dados fluem entre nodes
 - **[Transforming Data](./transformacoes-dados)** - Transformar estrutura de dados
 - **[Binary Data](./binary-data)** - Trabalhar com arquivos e dados binários
 - **[Core Nodes](../integracoes/builtin-nodes/core-nodes/)** - Nodes para manipulação de dados
+
