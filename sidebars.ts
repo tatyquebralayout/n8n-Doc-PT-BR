@@ -538,108 +538,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Contribuir',
-      items: [
-        'contribuir/index',
-        {
-          type: 'category',
-          label: 'Contribuir com n8n oficial',
-          items: [
-            'contribuir/n8n-oficial/index',
-            'contribuir/n8n-oficial/contribuir-codigo-e-docs',
-            'contribuir/n8n-oficial/contribuir-community',
-            'contribuir/n8n-oficial/contribuir-modelos',
-            'contribuir/n8n-oficial/adicionar-casos-uso',
-            'contribuir/n8n-oficial/afiliados-e-creators',
-            'contribuir/n8n-oficial/referral-vagas',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Contribuir com Esta Documentação',
-          items: [
-                         'contribuir/esta-documentacao/index',
-             'contribuir/esta-documentacao/guidelines',
-            {
-              type: 'category',
-              label: 'Entendendo o Projeto',
-              items: [
-                'contribuir/esta-documentacao/entendendo-o-projeto/index',
-                'contribuir/esta-documentacao/entendendo-o-projeto/sobre-o-projeto',
-                'contribuir/esta-documentacao/entendendo-o-projeto/como-contribuir',
-                'contribuir/esta-documentacao/entendendo-o-projeto/codigo-conduta',
-                'contribuir/esta-documentacao/entendendo-o-projeto/mentoria',
-                'contribuir/esta-documentacao/entendendo-o-projeto/roadmap',
-                'contribuir/esta-documentacao/entendendo-o-projeto/sistema-overlaps'
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Primeiros Passos',
-              items: [
-                'contribuir/esta-documentacao/primeiros-passos/index',
-                'contribuir/esta-documentacao/primeiros-passos/getting-started',
-                'contribuir/esta-documentacao/primeiros-passos/exemplos-praticos',
-                'contribuir/esta-documentacao/primeiros-passos/processo-validacao'
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Padrões e Estilo',
-              items: [
-                'contribuir/esta-documentacao/padroes-e-estilo/index',
-                'contribuir/esta-documentacao/padroes-e-estilo/intro',
-                'contribuir/esta-documentacao/padroes-e-estilo/guia-de-estilo',
-                'contribuir/esta-documentacao/padroes-e-estilo/markdown-features',
-                'contribuir/esta-documentacao/padroes-e-estilo/design-system',
-                'contribuir/esta-documentacao/padroes-e-estilo/paleta-cores',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Tradução e Localização',
-              items: [
-                'contribuir/esta-documentacao/traducao-e-localizacao/index',
-                'contribuir/esta-documentacao/traducao-e-localizacao/guia-traducao',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Suporte e Dúvidas',
-              items: [
-                'contribuir/esta-documentacao/suporte-e-duvidas/index',
-                'contribuir/esta-documentacao/suporte-e-duvidas/onde-buscar-ajuda',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Recursos Técnicos',
-              items: [
-                'contribuir/esta-documentacao/recursos-tecnicos/index',
-                'contribuir/esta-documentacao/recursos-tecnicos/docusaurus-folder',
-                'contribuir/esta-documentacao/recursos-tecnicos/paleta-cores',
-                'contribuir/esta-documentacao/recursos-tecnicos/validacao-overlaps'
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Comunidade',
-      items: [
-        'comunidade/index',
-        'comunidade/automacao-iniciantes/index',
-        'comunidade/casos-uso-avancados/index',
-        'comunidade/videos/index',
-        'comunidade/github',
-        'comunidade/como-participar',
-        'comunidade/estatisticas',
-      ],
-    },
-    {
-      type: 'category',
       label: 'Privacidade e Segurança',
       items: [
         'privacidade-seguranca/index',
@@ -698,6 +596,19 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Comunidade',
+      items: [
+        'comunidade/index',
+        'comunidade/como-participar',
+        'comunidade/estatisticas',
+        'comunidade/videos/index',
+        'comunidade/automacao-iniciantes/index',
+        'comunidade/casos-uso-avancados/index',
+        'comunidade/github',
       ],
     },
   ],

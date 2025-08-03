@@ -19,11 +19,11 @@ const config: Config = {
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
 
-  // Experimental Docusaurus Faster for improved performance and newer infrastructure
-  future: {
-    experimental_faster: true,
-    v4: true,
-  },
+  // Experimental Docusaurus Faster - TEMPORARIAMENTE DESABILITADO devido a problemas MDX
+  // future: {
+  //   experimental_faster: true,
+  //   v4: true,
+  // },
 
   i18n: {
     defaultLocale: "pt-BR",
@@ -48,6 +48,16 @@ const config: Config = {
           routeBasePath: "/",
           sidebarCollapsed: false,
           breadcrumbs: true,
+          // Configuração para suporte matemático com KaTeX
+          remarkPlugins: [require('remark-math')],
+          rehypePlugins: [require('rehype-katex')],
+          exclude: [
+            '**/contribuir/**',
+            '**/_*.{js,jsx,ts,tsx,md,mdx}',
+            '**/_*/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/__tests__/**',
+          ],
         },
         blog: false, // Desabilitar blog padrão para usar nossa página customizada
         pages: {
@@ -70,6 +80,28 @@ const config: Config = {
   },
 
   plugins: [
+    // Plugin de docs separado para a seção Contribuir - REABILITADO para resolver renderização
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'contribuir',
+        path: 'docs/contribuir',
+        routeBasePath: 'contribuir',
+        sidebarPath: './sidebars-contribuir.ts',
+        editUrl: 'https://github.com/n8n-brasil/n8n-Doc-PT-BR/tree/main/',
+        showLastUpdateAuthor: false,
+        showLastUpdateTime: false,
+        sidebarCollapsed: false,
+        breadcrumbs: true,
+        exclude: [
+          '**/_*.{js,jsx,ts,tsx,md,mdx}',
+          '**/_*/**',
+          '**/*.test.{js,jsx,ts,tsx}',
+          '**/__tests__/**',
+        ],
+      },
+    ],
+    
     // Plugin de busca local - TEMPORARIAMENTE DESABILITADO devido a conflito de dependências
     // [
     //   require.resolve("@easyops-cn/docusaurus-search-local"),
@@ -198,14 +230,8 @@ const config: Config = {
           position: "left",
           className: "navbar-contribute-dropdown",
           items: [
-            {
-              label: "Contribuir com n8n oficial",
-              to: "/contribuir/n8n-oficial",
-            },
-            {
-              label: "Contribuir com Esta Documentação",
-              to: "/contribuir/esta-documentacao",
-            },
+            { label: 'Contribuir com n8n oficial', to: '/contribuir/n8n-oficial' },
+            { label: 'Contribuir com Esta Documentação', to: '/contribuir/esta-documentacao' },
           ],
         },
         {

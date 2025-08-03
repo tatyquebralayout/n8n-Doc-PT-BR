@@ -32,6 +32,7 @@
     "release-notes",
     "docusaurus.config.ts",
     "sidebars.ts",
+    "sidebars-contribuir.ts",
     "sidebars-release-notes.ts",
     "@types"
   ],

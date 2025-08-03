@@ -5,6 +5,9 @@
 @import './utilities.css';
 @import './hybrid-components.css';
 
+/* KaTeX CSS para renderização de matemática */
+@import 'katex/dist/katex.min.css';
+
 /* custom.css agora serve apenas como ponto de entrada para os estilos globais. */
 
 /**
@@ -1174,63 +1177,115 @@ ion-icon .ionicon-stroke-width {
   stroke: var(--ifm-color-primary) !important;
 }
 
-/* Estilos para ícones ion-icon no sidebar */
+
+
+/* -- Container e Base do Menu -- */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  border-right-color: var(--ifm-color-emphasis-300);
+}
+
+.menu {
+  padding: 0.5rem; /* Espaçamento geral do menu */
+}
+
+/* -- Títulos de Categoria de Alto Nível -- */
+/* Estiliza os labels principais como 'Usando n8n', 'Lógica e Dados', etc. */
+.menu__list-item > .menu__link {
+  font-size: 12px; /* Fonte menor para criar hierarquia */
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-font-color-secondary);
+  padding: 0.75rem 1rem;
+  margin-top: 1rem; /* Espaço entre as categorias */
+}
+
+.menu__list-item:first-child > .menu__link {
+  margin-top: 0;
+}
+
+/* Remove efeito de hover em títulos de categoria que não são links de verdade */
+.menu__list-item > .menu__link:not([href]):hover {
+  background-color: transparent;
+}
+
+
+/* -- Links de Documentação e Sub-categorias -- */
+.menu__link {
+  font-size: var(--font-size-base); /* 14px */
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4;
+  color: var(--ifm-font-color-base);
+  padding: 8px 12px; /* Espaçamento interno (vertical, horizontal) */
+  border-radius: 6px;
+  border-left: 3px solid transparent; /* Borda para o estado ativo */
+  margin: 2px 0; /* Espaçamento vertical entre os links */
+  transition: all 150ms ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-theme='dark'] .menu__link {
+  color: var(--ifm-font-color-base);
+}
+
+/* Efeito Hover nos Links */
+.menu__link:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+/* Link Ativo */
+.menu__link--active {
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+  border-left-color: var(--ifm-color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+[data-theme='dark'] .menu__link--active {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+/* -- Ícones e Setas -- */
+
+/* Estilo do ícone dentro do link */
 .menu__link ion-icon {
+  font-size: 1.2em; /* Tamanho do ícone */
+  color: var(--ifm-font-color-secondary); /* Cor padrão do ícone */
+  transition: color 150ms ease;
+}
+
+/* Muda a cor do ícone no hover e no estado ativo */
+.menu__link:hover ion-icon,
+.menu__link--active ion-icon {
   color: var(--ifm-color-primary);
 }
 
-/* 
-==========================================================================
-  Espaçamento Apenas Entre Seções Mestres do Sidebar
-==========================================================================
-*/
-
-/* Espaçamento apenas entre as seções mestres (primeiro nível) */
-.menu__list > .menu__list-item:not(:last-child) {
-  margin-bottom: 2rem;
+/* Ícone de seta para categorias colapsáveis */
+.menu__link--sublist::after {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.2rem 1.2rem;
+  transition: transform 150ms ease;
 }
 
-/* Separador visual sutil APENAS entre seções mestres */
-.menu__list > .menu__list-item:not(:last-child)::after {
-  content: '';
-  display: block;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--ifm-color-primary-light), transparent);
-  margin: 1rem 0;
-  opacity: 0.2;
-}
+/* -- Limpeza de Estilos Antigos -- */
 
-/* Destaque para seções mestres */
-.menu__list > .menu__list-item > .menu__link {
-  font-weight: var(--font-weight-semibold);
-  color: var(--ifm-color-primary-dark);
-  font-size: var(--font-size-lg);
-}
-
-/* ZERAR espaçamento em todos os níveis internos */
-.menu__list-item .menu__list-item,
-.menu__list-item .menu__list .menu__list-item,
-.menu__list-item .menu__list .menu__list .menu__list-item {
+/* Remove a margem inferior padrão dos itens de lista */
+.menu__list-item {
   margin-bottom: 0 !important;
-  margin-top: 0 !important;
-  padding-bottom: 0 !important;
-  padding-top: 0 !important;
 }
 
-/* REMOVER separadores de subseções */
-.menu__list-item .menu__list-item::after,
-.menu__list-item .menu__list .menu__list-item::after,
-.menu__list-item .menu__list .menu__list .menu__list-item::after {
-  display: none !important;
-}
-
-/* Hover para links do sidebar */
-.menu__link:hover {
-  background-color: rgba(234, 75, 113, 0.05);
-  border-radius: 6px;
-}
-
-/* 
+/*
 ==========================================================================
   Otimização da Animação da Barra Lateral
 ==========================================================================
@@ -1487,6 +1542,182 @@ ion-icon {
   .admonition {
     margin: 1rem 0;
     padding: 0.75rem;
+  }
+}
+
+/* Estilos para a seção Contribuir */
+.contribuir-section-only {
+  width: 100%;
+  height: 100vh;
+  background: var(--ifm-background-color);
+}
+
+.contribuir-sidebar {
+  width: 300px;
+  height: 100vh;
+  background: var(--ifm-sidebar-background-color);
+  border-right: 1px solid var(--ifm-color-emphasis-300);
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  padding-top: 60px; /* Espaço para o header */
+  font-family: var(--ifm-font-family-base);
+}
+
+
+.contribuir-sidebar-header {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-sidebar-background-color);
+  color: var(--ifm-color-content);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.contribuir-sidebar-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.contribuir-sidebar-content {
+  padding: 0;
+}
+
+.contribuir-sidebar-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contribuir-sidebar-content li {
+  margin: 0;
+}
+
+.contribuir-sidebar-content a {
+  color: var(--ifm-color-content);
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  border-left: 3px solid transparent;
+}
+
+.contribuir-sidebar-content a:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  border-left-color: var(--ifm-color-primary);
+}
+
+.contribuir-sidebar-content a.active {
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  border-left-color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+.contribuir-sidebar-content details {
+  margin: 0;
+}
+
+.contribuir-sidebar-content summary {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  font-weight: 500;
+  color: var(--ifm-color-content);
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  list-style: none;
+  border-left: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contribuir-sidebar-content summary::after {
+  content: '▾';
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.contribuir-sidebar-content details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.contribuir-sidebar-content summary:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  border-left-color: var(--ifm-color-primary);
+}
+
+.contribuir-sidebar-content details[open] summary {
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  border-left-color: var(--ifm-color-primary);
+}
+
+.contribuir-sidebar-content details ul {
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--ifm-color-emphasis-300);
+  margin-left: 1rem;
+}
+
+.contribuir-sidebar-content details details {
+  margin: 0;
+}
+
+.contribuir-sidebar-content details details ul {
+  margin-left: 1rem;
+  border-left: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.contribuir-sidebar-content details details details ul {
+  margin-left: 1rem;
+  border-left: 1px solid var(--ifm-color-emphasis-100);
+}
+
+/* Estilo para links aninhados */
+.contribuir-sidebar-content details a {
+  padding-left: 1.5rem;
+}
+
+.contribuir-sidebar-content details details a {
+  padding-left: 2rem;
+}
+
+.contribuir-sidebar-content details details details a {
+  padding-left: 2.5rem;
+}
+
+/* Ajustar o layout principal quando estiver na seção contribuir */
+.contribuir-section-only .theme-doc-layout {
+  margin-left: 300px;
+}
+
+.contribuir-section-only .theme-doc-sidebar {
+  display: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .contribuir-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0;
+  }
+  
+  .contribuir-section-only .theme-doc-layout {
+    margin-left: 0;
   }
 }
 
