@@ -1,7 +1,5 @@
 import React from 'react';
 import IonicIcon from '@site/src/components/IonicIcon';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 export default function MarkdownFeatures() {
   return (

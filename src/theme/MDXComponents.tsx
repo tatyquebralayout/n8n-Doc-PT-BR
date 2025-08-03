@@ -24,11 +24,11 @@ const CustomCodeBlock: React.FC<CustomCodeBlockProps> = ({ children, className, 
   
   // Se for RST ou Sphinx, usar os processadores customizados
   if (language === 'rst') {
-    return <RSTProcessor content={children} className="custom-rst-block" />;
+    return <RSTProcessor content={children?.toString() || ''} className="custom-rst-block" />;
   }
   
   if (language === 'sphinx') {
-    return <SphinxProcessor content={children} className="custom-sphinx-block" />;
+    return <SphinxProcessor content={children?.toString() || ''} className="custom-sphinx-block" />;
   }
   
   // Detectar automaticamente se o conteúdo é RST ou Sphinx baseado no conteúdo

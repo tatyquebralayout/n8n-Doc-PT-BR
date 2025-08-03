@@ -8,6 +8,121 @@
 /* KaTeX CSS para renderização de matemática */
 @import 'katex/dist/katex.min.css';
 
+/* Configurações para melhor suporte a Unicode no KaTeX */
+.katex {
+  font-family: 'KaTeX_Main', 'Times New Roman', serif;
+  text-rendering: auto;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+.katex .mord {
+  font-family: 'KaTeX_Math', 'Times New Roman', serif;
+}
+
+/* Suporte a caracteres Unicode especiais */
+.katex .unicode-text {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Estilos para o componente MathRenderer */
+.math-renderer {
+  display: inline-block;
+  margin: 0.5em 0;
+}
+
+.math-display {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+.math-inline {
+  display: inline;
+}
+
+.math-error {
+  color: #cc0000;
+  background-color: #ffeeee;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+/* Melhorar suporte a Unicode no KaTeX */
+.katex .mord.text {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.katex .mord.unicode-text {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+.guidelines-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.guidelines-icon {
+  font-size: 24px;
+  color: #ea4b71;
+  margin-right: 8px;
+}
+
+.como-contribuir-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contribuir-icon {
+  font-size: 24px;
+  color: #ea4b71;
+  margin-right: 8px;
+}
+
+.contribuir-icon-small {
+  font-size: 16px;
+  color: #ea4b71;
+  margin-right: 4px;
+}
+
+/* Animações CSS para ícones */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+@keyframes glow {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.3); }
+}
+
 /* custom.css agora serve apenas como ponto de entrada para os estilos globais. */
 
 /**
