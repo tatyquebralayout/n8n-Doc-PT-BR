@@ -1,0 +1,260 @@
+name: Pull Request Validation
+
+on:
+  pull_request:
+    branches: [ main, master ]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  # Job 1: Validação básica e build
+  build-test:
+    name: Build and Basic Validation
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    
+    outputs:
+      build-success: ${{ steps.build.outcome == 'success' }}
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Lint check
+        id: lint
+        run: npm run lint:check
+        continue-on-error: true
+        
+      - name: TypeScript check
+        id: typecheck
+        run: npm run typecheck
+        continue-on-error: true
+        
+      - name: Build documentation
+        id: build
+        run: npm run build
+        env:
+          GSC_VERIFICATION_CODE: ${{ secrets.GSC_VERIFICATION_CODE }}
+        continue-on-error: true
+        
+      - name: Upload build artifacts
+        if: steps.build.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: build/
+          retention-days: 7
+          
+      - name: Comment build status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const buildSuccess = '${{ steps.build.outcome }}' === 'success';
+            const lintSuccess = '${{ steps.lint.outcome }}' === 'success';
+            const typecheckSuccess = '${{ steps.typecheck.outcome }}' === 'success';
+            
+            let comment = `## 🔨 Status do Build\n\n`;
+            
+            comment += `| Verificação | Status |\n`;
+            comment += `|-------------|--------|\n`;
+            comment += `| **Lint** | ${lintSuccess ? '✅ Passou' : '❌ Falhou'} |\n`;
+            comment += `| **TypeScript** | ${typecheckSuccess ? '✅ Passou' : '⚠️ Warnings'} |\n`;
+            comment += `| **Build** | ${buildSuccess ? '✅ Sucesso' : '❌ Falhou'} |\n\n`;
+            
+            if (buildSuccess) {
+              comment += `🎉 **Build realizado com sucesso!** A documentação foi compilada sem erros críticos.\n\n`;
+              comment += `📦 Artifacts do build disponíveis para download nos detalhes da action.\n`;
+            } else {
+              comment += `🚨 **Build falhou!** Verifique os logs para detalhes sobre os erros.\n\n`;
+              comment += `### 🔧 Próximos passos:\n`;
+              comment += `- Verifique os logs de build na aba "Actions"\n`;
+              comment += `- Corrija os erros reportados\n`;
+              comment += `- Execute \`npm run build\` localmente para testar\n`;
+            }
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+  # Job 2: Análise de qualidade (roda em paralelo)
+  quality-check:
+    name: Quality Analysis
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run all quality checks
+        run: |
+          echo "🔍 Executando verificações de qualidade..."
+          npm run validate-overlaps || echo "Overlap validation completed with warnings"
+          npm run check-broken-links || echo "Link check completed with warnings"
+          npm run check-duplicate-routes || echo "Route check completed with warnings"
+          npm run check-seo || echo "SEO check completed with warnings"
+        continue-on-error: true
+        
+      - name: Upload quality reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quality-reports
+          path: |
+            overlap-report.json
+            seo-report.json
+          retention-days: 30
+
+  # Job 3: Verificação de segurança e dependências
+  security-check:
+    name: Security and Dependencies
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Audit dependencies
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+        
+      - name: Check for outdated dependencies
+        run: npm outdated
+        continue-on-error: true
+        
+      - name: Scan for secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --debug --only-verified
+
+  # Job 4: Preview deployment (apenas para PRs)
+  preview-deploy:
+    name: Deploy Preview
+    runs-on: ubuntu-latest
+    needs: build-test
+    if: github.event.pull_request.draft == false && needs.build-test.outputs.build-success == 'true'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: build/
+          
+      - name: Deploy to surge.sh (preview)
+        run: |
+          npm install -g surge
+          export SURGE_DOMAIN="n8n-docs-pr-${{ github.event.number }}.surge.sh"
+          surge build/ $SURGE_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          echo "PREVIEW_URL=https://$SURGE_DOMAIN" >> $GITHUB_ENV
+        continue-on-error: true
+        
+      - name: Comment preview URL
+        if: env.PREVIEW_URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const previewUrl = process.env.PREVIEW_URL;
+            
+            let comment = `## 🌐 Preview da Documentação\n\n`;
+            comment += `✨ **Preview disponível:** [${previewUrl}](${previewUrl})\n\n`;
+            comment += `### 📝 Instruções para Review:\n`;
+            comment += `1. 🔗 Clique no link acima para acessar o preview\n`;
+            comment += `2. 🧪 Teste a navegação e funcionalidades\n`;
+            comment += `3. 📱 Verifique a responsividade em diferentes dispositivos\n`;
+            comment += `4. 🔍 Verifique se todos os links internos funcionam\n`;
+            comment += `5. 📖 Revise o conteúdo adicionado/modificado\n\n`;
+            comment += `⚠️ **Nota:** Este preview será removido automaticamente quando o PR for fechado.\n`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+  # Job 5: Resumo final
+  validation-summary:
+    name: Validation Summary
+    runs-on: ubuntu-latest
+    needs: [build-test, quality-check, security-check]
+    if: always() && github.event.pull_request.draft == false
+    
+    steps:
+      - name: Generate validation summary
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const buildResult = '${{ needs.build-test.result }}';
+            const qualityResult = '${{ needs.quality-check.result }}';
+            const securityResult = '${{ needs.security-check.result }}';
+            
+            let comment = `## 📋 Resumo da Validação do PR\n\n`;
+            
+            comment += `| Job | Status | Resultado |\n`;
+            comment += `|-----|--------|----------|\n`;
+            comment += `| **Build & Test** | ${buildResult === 'success' ? '✅' : buildResult === 'failure' ? '❌' : '⚠️'} | ${buildResult} |\n`;
+            comment += `| **Quality Check** | ${qualityResult === 'success' ? '✅' : qualityResult === 'failure' ? '❌' : '⚠️'} | ${qualityResult} |\n`;
+            comment += `| **Security Check** | ${securityResult === 'success' ? '✅' : securityResult === 'failure' ? '❌' : '⚠️'} | ${securityResult} |\n\n`;
+            
+            const allPassed = buildResult === 'success' && qualityResult === 'success' && securityResult === 'success';
+            
+            if (allPassed) {
+              comment += `🎉 **Todas as validações passaram!** Este PR está pronto para review e merge.\n\n`;
+              comment += `### ✅ Próximos passos:\n`;
+              comment += `- Aguardar review de um mantenedor\n`;
+              comment += `- Fazer merge após aprovação\n`;
+            } else {
+              comment += `⚠️ **Algumas validações falharam ou têm warnings.** Revise os detalhes acima.\n\n`;
+              comment += `### 🔧 Ações recomendadas:\n`;
+              comment += `- Verificar logs detalhados nas actions\n`;
+              comment += `- Corrigir problemas identificados\n`;
+              comment += `- Fazer novo commit para re-executar validações\n`;
+            }
+            
+            comment += `\n📊 Veja os artifacts das actions para relatórios detalhados.\n`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });

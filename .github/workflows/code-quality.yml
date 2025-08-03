@@ -1,0 +1,408 @@
+name: Code Quality Analysis
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    # Executa toda sexta-feira às 10h UTC para análise semanal
+    - cron: '0 10 * * 5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  # Job 1: Análise estática de código
+  static-analysis:
+    name: Static Code Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history for better analysis
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: ESLint Analysis
+        run: |
+          echo "🔍 Executando análise ESLint..."
+          npm run lint -- --format json --output-file eslint-report.json || true
+          npm run lint -- --format stylish
+        continue-on-error: true
+        
+      - name: TypeScript Analysis
+        run: |
+          echo "🔍 Verificando tipos TypeScript..."
+          npm run typecheck 2>&1 | tee typescript-report.txt || true
+        continue-on-error: true
+        
+      - name: Code complexity analysis
+        run: |
+          echo "🔍 Analisando complexidade do código..."
+          npx plato -r -d complexity-report src/ || true
+        continue-on-error: true
+        
+      - name: Dependency analysis
+        run: |
+          echo "🔍 Analisando dependências..."
+          npm audit --audit-level=low --json > audit-report.json || true
+          npm outdated --json > outdated-report.json || true
+        continue-on-error: true
+        
+      - name: Upload analysis reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: code-analysis-reports
+          path: |
+            eslint-report.json
+            typescript-report.txt
+            audit-report.json
+            outdated-report.json
+            complexity-report/
+          retention-days: 30
+
+  # Job 2: Análise de segurança
+  security-analysis:
+    name: Security Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run security audit
+        run: |
+          echo "🔐 Executando auditoria de segurança..."
+          npm audit --audit-level=moderate || true
+        continue-on-error: true
+        
+      - name: Check for known vulnerabilities
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+        continue-on-error: true
+        
+      - name: Upload Trivy scan results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+        continue-on-error: true
+        
+      - name: Secret scanning
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --debug --only-verified
+        continue-on-error: true
+
+  # Job 3: Análise de performance
+  performance-analysis:
+    name: Performance Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build for analysis
+        run: npm run build
+        env:
+          GSC_VERIFICATION_CODE: ${{ secrets.GSC_VERIFICATION_CODE }}
+        continue-on-error: true
+        
+      - name: Bundle size analysis
+        run: |
+          echo "📦 Analisando tamanho do bundle..."
+          
+          if [ -d "build" ]; then
+            echo "## 📊 Análise de Tamanho do Build" > bundle-analysis.md
+            echo "" >> bundle-analysis.md
+            echo "**Total do build:** $(du -sh build/ | cut -f1)" >> bundle-analysis.md
+            echo "" >> bundle-analysis.md
+            echo "### Principais arquivos:" >> bundle-analysis.md
+            find build -name "*.js" -o -name "*.css" | head -20 | xargs ls -lh | while read line; do
+              echo "- $line" >> bundle-analysis.md
+            done
+            
+            # Contar assets por tipo
+            echo "" >> bundle-analysis.md
+            echo "### Estatísticas por tipo:" >> bundle-analysis.md
+            echo "- **JavaScript:** $(find build -name "*.js" | wc -l) arquivos" >> bundle-analysis.md
+            echo "- **CSS:** $(find build -name "*.css" | wc -l) arquivos" >> bundle-analysis.md
+            echo "- **Imagens:** $(find build -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" -o -name "*.svg" -o -name "*.webp" | wc -l) arquivos" >> bundle-analysis.md
+            echo "- **HTML:** $(find build -name "*.html" | wc -l) arquivos" >> bundle-analysis.md
+            
+            cat bundle-analysis.md
+          fi
+        continue-on-error: true
+        
+      - name: Lighthouse CI analysis
+        run: |
+          echo "💡 Executando análise Lighthouse..."
+          npm install -g @lhci/cli@0.12.x
+          
+          # Configuração básica do LHCI
+          cat > lighthouserc.json << EOF
+          {
+            "ci": {
+              "collect": {
+                "staticDistDir": "./build",
+                "numberOfRuns": 1
+              },
+              "assert": {
+                "assertions": {
+                  "categories:performance": ["error", {"minScore": 0.7}],
+                  "categories:accessibility": ["error", {"minScore": 0.8}],
+                  "categories:best-practices": ["error", {"minScore": 0.8}],
+                  "categories:seo": ["error", {"minScore": 0.8}]
+                }
+              },
+              "upload": {
+                "target": "temporary-public-storage"
+              }
+            }
+          }
+          EOF
+          
+          lhci autorun || true
+        continue-on-error: true
+        
+      - name: Upload performance reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: performance-reports
+          path: |
+            bundle-analysis.md
+            .lighthouseci/
+          retention-days: 30
+
+  # Job 4: Análise de documentação
+  documentation-analysis:
+    name: Documentation Quality Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Analyze documentation structure
+        run: |
+          echo "📚 Analisando estrutura da documentação..."
+          
+          echo "## 📊 Relatório de Qualidade da Documentação" > doc-analysis.md
+          echo "" >> doc-analysis.md
+          echo "**Data da análise:** $(date -u)" >> doc-analysis.md
+          echo "" >> doc-analysis.md
+          
+          # Contar arquivos por tipo
+          echo "### 📁 Estrutura de Arquivos" >> doc-analysis.md
+          echo "- **Arquivos .mdx:** $(find docs -name "*.mdx" | wc -l)" >> doc-analysis.md
+          echo "- **Arquivos .md:** $(find docs -name "*.md" | wc -l)" >> doc-analysis.md
+          echo "- **Diretórios:** $(find docs -type d | wc -l)" >> doc-analysis.md
+          echo "" >> doc-analysis.md
+          
+          # Analisar frontmatter
+          echo "### 📝 Análise de Frontmatter" >> doc-analysis.md
+          missing_title=0
+          missing_description=0
+          total_files=0
+          
+          for file in $(find docs -name "*.mdx" -o -name "*.md"); do
+            total_files=$((total_files + 1))
+            if ! grep -q "title:" "$file"; then
+              missing_title=$((missing_title + 1))
+            fi
+            if ! grep -q "description:" "$file"; then
+              missing_description=$((missing_description + 1))
+            fi
+          done
+          
+          echo "- **Arquivos sem título:** $missing_title/$total_files" >> doc-analysis.md
+          echo "- **Arquivos sem descrição:** $missing_description/$total_files" >> doc-analysis.md
+          echo "" >> doc-analysis.md
+          
+          # Analisar links internos
+          echo "### 🔗 Análise de Links" >> doc-analysis.md
+          npm run validate-overlaps || true
+          if [ -f "overlap-report.json" ]; then
+            node -e "
+              const report = require('./overlap-report.json');
+              console.log(\`- **Links quebrados:** \${report.stats.brokenLinks || 0}\`);
+              console.log(\`- **Arquivos analisados:** \${report.stats.filesScanned || 0}\`);
+            " >> doc-analysis.md
+          fi
+          
+          cat doc-analysis.md
+        continue-on-error: true
+        
+      - name: Check documentation spelling
+        run: |
+          echo "🔤 Verificando ortografia..."
+          npm run spell-check || true
+        continue-on-error: true
+        
+      - name: Upload documentation reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: documentation-reports
+          path: |
+            doc-analysis.md
+            overlap-report.json
+          retention-days: 30
+
+  # Job 5: Consolidação de relatórios
+  quality-summary:
+    name: Quality Summary Report
+    runs-on: ubuntu-latest
+    needs: [static-analysis, security-analysis, performance-analysis, documentation-analysis]
+    if: always()
+    
+    steps:
+      - name: Download all reports
+        uses: actions/download-artifact@v4
+        with:
+          path: reports/
+          
+      - name: Generate consolidated report
+        run: |
+          echo "📋 Gerando relatório consolidado de qualidade..."
+          
+          cat > quality-summary.md << 'EOF'
+          # 🎯 Relatório Consolidado de Qualidade
+          
+          **Data:** $(date -u)
+          **Commit:** ${{ github.sha }}
+          **Branch:** ${{ github.ref_name }}
+          
+          ## 📊 Status dos Jobs
+          
+          | Job | Status |
+          |-----|--------|
+          | Static Analysis | ${{ needs.static-analysis.result }} |
+          | Security Analysis | ${{ needs.security-analysis.result }} |
+          | Performance Analysis | ${{ needs.performance-analysis.result }} |
+          | Documentation Analysis | ${{ needs.documentation-analysis.result }} |
+          
+          ## 🔍 Resumo dos Achados
+          
+          ### 🛡️ Segurança
+          - Vulnerabilidades encontradas: Ver relatório detalhado
+          - Secrets expostos: Verificar scan do TruffleHog
+          
+          ### ⚡ Performance
+          - Tamanho do bundle: Ver análise detalhada
+          - Scores Lighthouse: Ver relatório LHCI
+          
+          ### 📚 Documentação
+          - Links quebrados: Ver overlap-report.json
+          - Qualidade do conteúdo: Ver doc-analysis.md
+          
+          ### 🔧 Código
+          - Issues ESLint: Ver eslint-report.json
+          - Erros TypeScript: Ver typescript-report.txt
+          
+          ## 🎯 Recomendações
+          
+          1. **Prioridade Alta:** Corrigir vulnerabilidades de segurança
+          2. **Prioridade Média:** Resolver warnings do ESLint
+          3. **Prioridade Baixa:** Melhorar scores de performance
+          
+          ---
+          
+          📁 Todos os relatórios detalhados estão disponíveis nos artifacts desta action.
+          EOF
+          
+          # Substituir variáveis
+          envsubst < quality-summary.md > quality-summary-final.md
+          
+          cat quality-summary-final.md
+          
+      - name: Upload consolidated report
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-summary
+          path: quality-summary-final.md
+          retention-days: 30
+          
+      - name: Comment on PR (if applicable)
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            let comment = `## 🎯 Relatório de Qualidade do Código\n\n`;
+            
+            // Status dos jobs
+            comment += `### 📊 Status das Verificações\n\n`;
+            comment += `| Verificação | Status |\n`;
+            comment += `|-------------|--------|\n`;
+            comment += `| **Análise Estática** | ${{ needs.static-analysis.result === 'success' ? '✅' : '❌' }} |\n`;
+            comment += `| **Segurança** | ${{ needs.security-analysis.result === 'success' ? '✅' : '❌' }} |\n`;
+            comment += `| **Performance** | ${{ needs.performance-analysis.result === 'success' ? '✅' : '❌' }} |\n`;
+            comment += `| **Documentação** | ${{ needs.documentation-analysis.result === 'success' ? '✅' : '❌' }} |\n\n`;
+            
+            // Links para relatórios
+            comment += `### 📁 Relatórios Detalhados\n\n`;
+            comment += `Todos os relatórios detalhados estão disponíveis nos [artifacts desta action](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}).\n\n`;
+            
+            comment += `### 🎯 Próximos Passos\n\n`;
+            comment += `1. 📋 Revisar os relatórios de qualidade\n`;
+            comment += `2. 🔧 Corrigir issues críticos identificados\n`;
+            comment += `3. 🚀 Re-executar as verificações se necessário\n`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });

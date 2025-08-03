@@ -1,0 +1,79 @@
+name: 📚 Melhoria de Documentação
+description: Sugira melhorias no conteúdo da documentação
+title: "[DOCS] "
+labels: ["documentation", "triage"]
+assignees:
+  - tatyquebralayout
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por ajudar a melhorar nossa documentação! Sua contribuição é muito importante.
+
+  - type: input
+    id: page_url
+    attributes:
+      label: URL da Página (se aplicável)
+      description: Link para a página que precisa de melhoria
+      placeholder: https://n8n-brasil.github.io/n8n-Doc-PT-BR/...
+
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Tipo de Problema
+      description: Que tipo de problema você encontrou?
+      options:
+        - Conteúdo incorreto ou desatualizado
+        - Informação faltante
+        - Explicação confusa
+        - Erro de português/gramática
+        - Link quebrado
+        - Exemplo não funciona
+        - Falta de exemplos práticos
+        - Organização/estrutura
+        - Outro
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_content
+    attributes:
+      label: Conteúdo Atual
+      description: Se aplicável, cole o conteúdo atual que está problemático
+      render: markdown
+
+  - type: textarea
+    id: suggested_content
+    attributes:
+      label: Conteúdo Sugerido
+      description: Como você sugere que seja melhorado?
+      render: markdown
+
+  - type: textarea
+    id: reasoning
+    attributes:
+      label: Justificativa
+      description: Por que essa mudança melhoraria a documentação?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Público-Alvo
+      description: Para quem essa melhoria seria mais útil?
+      options:
+        - Iniciantes
+        - Usuários intermediários  
+        - Usuários avançados
+        - Desenvolvedores
+        - Todos os usuários
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Contexto Adicional
+      description: Qualquer informação adicional que possa ajudar

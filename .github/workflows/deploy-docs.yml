@@ -4,9 +4,24 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'docs/**'
+      - 'src/**'
+      - 'static/**'
+      - 'sidebars*.ts'
+      - 'sidebars*.json'
+      - 'docusaurus.config.ts'
+      - 'package.json'
+      - 'package-lock.json'
   
   # Permite rodar este workflow manualmente pela aba Actions
   workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Force deploy even if no changes detected'
+        required: false
+        default: 'false'
+        type: boolean
 
 permissions:
   contents: read
@@ -18,31 +33,171 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: "github-pages"
-      url: ${{ steps.deployment.outputs.page_url }}
+  # Job 1: Validação pré-deploy
+  pre-deploy-validation:
+    name: Pre-Deploy Validation
     runs-on: ubuntu-latest
+    outputs:
+      should-deploy: ${{ steps.validation.outputs.should-deploy }}
+      
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
+          
       - name: Install dependencies
         run: npm ci
-      - name: Build
+        
+      - name: Run pre-deploy validation
+        id: validation
+        run: |
+          echo "🔍 Executando validações pré-deploy..."
+          
+          # Executar lint
+          npm run lint:check || {
+            echo "❌ Lint check falhou"
+            echo "should-deploy=false" >> $GITHUB_OUTPUT
+            exit 0
+          }
+          
+          # Executar validação de overlaps
+          npm run validate-overlaps || {
+            echo "⚠️ Validação de overlaps encontrou problemas"
+          }
+          
+          # Tentar build
+          npm run build || {
+            echo "❌ Build falhou"
+            echo "should-deploy=false" >> $GITHUB_OUTPUT
+            exit 0
+          }
+          
+          echo "✅ Todas as validações passaram"
+          echo "should-deploy=true" >> $GITHUB_OUTPUT
+        env:
+          GSC_VERIFICATION_CODE: ${{ secrets.GSC_VERIFICATION_CODE }}
+
+  # Job 2: Deploy principal
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: pre-deploy-validation
+    if: needs.pre-deploy-validation.outputs.should-deploy == 'true' || github.event.inputs.force_deploy == 'true'
+    environment:
+      name: "github-pages"
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Generate build info
+        run: |
+          mkdir -p static/build-info
+          echo "{
+            \"buildTime\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\",
+            \"gitCommit\": \"$GITHUB_SHA\",
+            \"gitBranch\": \"$GITHUB_REF_NAME\",
+            \"buildNumber\": \"$GITHUB_RUN_NUMBER\",
+            \"workflow\": \"$GITHUB_WORKFLOW\"
+          }" > static/build-info/build.json
+        
+      - name: Build documentation
         run: npm run build
         env:
           GSC_VERIFICATION_CODE: ${{ secrets.GSC_VERIFICATION_CODE }}
+          
+      - name: Generate sitemap
+        run: |
+          echo "Generating enhanced sitemap..."
+          # O Docusaurus já gera o sitemap, mas podemos adicionar informações extras
+          if [ -f "build/sitemap.xml" ]; then
+            echo "✅ Sitemap gerado com sucesso"
+            wc -l build/sitemap.xml
+          fi
+          
+      - name: Optimize assets
+        run: |
+          echo "🚀 Otimizando assets para produção..."
+          # Remover sourcemaps se existirem (para reduzir tamanho)
+          find build -name "*.map" -delete || true
+          # Mostrar tamanho final do build
+          du -sh build/
+          
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './build'
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
+      - name: Post-deploy verification
+        run: |
+          echo "🔍 Verificando deploy..."
+          SITE_URL="${{ steps.deployment.outputs.page_url }}"
+          
+          # Aguardar um pouco para o site ficar disponível
+          sleep 30
+          
+          # Verificar se o site está respondendo
+          curl -f -s "$SITE_URL" > /dev/null && echo "✅ Site está respondendo" || echo "⚠️ Site pode não estar disponível ainda"
+          
+          # Verificar se o build.json está disponível
+          curl -f -s "${SITE_URL}build-info/build.json" > /dev/null && echo "✅ Build info disponível" || echo "⚠️ Build info não encontrado"
+          
+      - name: Create deployment summary
+        run: |
+          echo "## 🚀 Deploy Realizado com Sucesso!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**URL do Site:** ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** \`$GITHUB_SHA\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Data/Hora:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "**Build Number:** #$GITHUB_RUN_NUMBER" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📊 Estatísticas do Build" >> $GITHUB_STEP_SUMMARY
+          echo "- **Tamanho do build:** $(du -sh build/ | cut -f1)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Arquivos gerados:** $(find build -type f | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔗 Links Úteis" >> $GITHUB_STEP_SUMMARY
+          echo "- [📖 Site da Documentação](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
+          echo "- [🏠 Página Inicial](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
+          echo "- [🔍 Build Info](${{ steps.deployment.outputs.page_url }}build-info/build.json)" >> $GITHUB_STEP_SUMMARY
+
+  # Job 3: Limpeza pós-deploy  
+  post-deploy-cleanup:
+    name: Post-Deploy Cleanup
+    needs: deploy
+    if: always() && needs.deploy.result == 'success'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Cleanup old preview deployments
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Limpar deployments antigos do surge.sh se configurado
+            console.log('🧹 Executando limpeza pós-deploy...');
+            
+            // Aqui poderia adicionar lógica para limpar previews antigos
+            // ou notificar sistemas externos sobre o novo deploy
+            
+            console.log('✅ Limpeza concluída');

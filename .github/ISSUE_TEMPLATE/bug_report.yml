@@ -1,0 +1,96 @@
+name: 🐛 Bug Report
+description: Reporte um problema na documentação
+title: "[BUG] "
+labels: ["bug", "triage"]
+assignees:
+  - tatyquebralayout
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por reportar este problema! Por favor, preencha todas as seções para nos ajudar a resolver rapidamente.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição do Problema
+      description: Descreva claramente o problema encontrado
+      placeholder: Ex. A página X não carrega corretamente...
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL da Página
+      description: Link para a página onde o problema ocorre
+      placeholder: https://n8n-brasil.github.io/n8n-Doc-PT-BR/...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Navegador
+      description: Em qual navegador o problema ocorre?
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Outro
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Dispositivo
+      description: Em que tipo de dispositivo você está?
+      options:
+        - Desktop
+        - Tablet
+        - Mobile
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para Reproduzir
+      description: Como reproduzir o problema?
+      placeholder: |
+        1. Vá para a página...
+        2. Clique em...
+        3. Veja o erro...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento Esperado
+      description: O que deveria acontecer?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamento Atual
+      description: O que está acontecendo?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Se aplicável, adicione screenshots para ajudar a explicar o problema
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Informações Adicionais
+      description: Qualquer outra informação relevante

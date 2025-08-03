@@ -1,0 +1,69 @@
+name: ✨ Solicitação de Funcionalidade
+description: Sugira uma nova funcionalidade ou melhoria
+title: "[FEATURE] "
+labels: ["enhancement", "triage"]
+assignees:
+  - tatyquebralayout
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por sua sugestão! Vamos trabalhar juntos para melhorar a documentação.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema a ser Resolvido
+      description: Descreva o problema que esta funcionalidade resolveria
+      placeholder: Quando eu preciso fazer X, é difícil porque...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solução Proposta
+      description: Descreva a solução que você gostaria de ver
+      placeholder: Eu gostaria que tivesse...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridade
+      description: Qual a importância desta funcionalidade?
+      options:
+        - Baixa - seria legal ter
+        - Média - melhoraria a experiência
+        - Alta - é essencial para o uso
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoria
+      description: Que tipo de melhoria é esta?
+      options:
+        - Conteúdo - novo conteúdo ou melhoria de texto
+        - Interface - melhorias visuais ou de navegação
+        - Funcionalidade - novos recursos técnicos
+        - Performance - melhorias de velocidade
+        - Acessibilidade - melhorias de acessibilidade
+        - SEO - melhorias para motores de busca
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas Consideradas
+      description: Descreva alternativas que você considerou
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Contexto Adicional
+      description: Qualquer outra informação relevante, screenshots, links, etc.
