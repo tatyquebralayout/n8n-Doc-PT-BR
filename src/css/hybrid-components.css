@@ -410,7 +410,248 @@
   font-size: 0.875rem;
 }
 
-/* Responsive Design */
+/* === LAZY LOADING OPTIMIZATIONS === */
+
+/* Loading states */
+.processor-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.loading-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+}
+
+.loading-content ion-icon {
+  font-size: 1.25rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Error states */
+.processor-error,
+.error-boundary {
+  background: var(--ifm-color-danger-contrast-background);
+  border: 1px solid var(--ifm-color-danger-contrast-border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.error-content ion-icon {
+  font-size: 2rem;
+  color: var(--ifm-color-danger);
+}
+
+.retry-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s ease;
+}
+
+.retry-button:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+.retry-button ion-icon {
+  font-size: 1rem;
+}
+
+/* Empty state */
+.hybrid-processor.empty {
+  background: var(--ifm-background-surface-color);
+  border: 1px dashed var(--ifm-color-emphasis-300);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin: 1rem 0;
+}
+
+.empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--ifm-color-emphasis-600);
+  text-align: center;
+}
+
+.empty-content ion-icon {
+  font-size: 2.5rem;
+  opacity: 0.5;
+}
+
+/* Debug info (development only) */
+.rst-debug-info,
+.hybrid-debug-info {
+  background: var(--ifm-code-background);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.rst-debug-info details,
+.hybrid-debug-info details {
+  cursor: pointer;
+}
+
+.rst-debug-info summary,
+.hybrid-debug-info summary {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+.rst-debug-info ul,
+.hybrid-debug-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+.rst-debug-info li,
+.hybrid-debug-info li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.rst-debug-info li:last-child,
+.hybrid-debug-info li:last-child {
+  border-bottom: none;
+}
+
+.rst-debug-info code,
+.hybrid-debug-info code {
+  background: var(--ifm-color-emphasis-100);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.125rem;
+  font-size: 0.75rem;
+}
+
+/* Performance indicators */
+.rst-processor.advanced {
+  position: relative;
+}
+
+.rst-processor.advanced::before {
+  content: "⚡";
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background: var(--ifm-color-success);
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.rst-processor.fallback {
+  position: relative;
+}
+
+.rst-processor.fallback::before {
+  content: "🔄";
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background: var(--ifm-color-warning);
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+/* Hybrid processor types */
+.hybrid-processor.rst {
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+.hybrid-processor.sphinx {
+  border-left: 3px solid var(--ifm-color-secondary);
+}
+
+.hybrid-processor.unknown {
+  border-left: 3px solid var(--ifm-color-warning);
+}
+
+/* Loading spinner optimization */
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.loading-spinner ion-icon {
+  font-size: 1.5rem;
+  animation: spin 1s linear infinite;
+}
+
+.loading-spinner small {
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
+}
+
+/* Math block enhancements */
+.math-block {
+  margin: 1rem 0;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.math-block .katex-display {
+  margin: 0;
+}
+
+/* Responsive optimizations */
 @media (max-width: 768px) {
   .hybrid-processor {
     margin: 1rem 0;
@@ -431,5 +672,55 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+
+  .processor-loading,
+  .processor-error {
+    padding: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .loading-content {
+    font-size: 0.8rem;
+  }
+  
+  .error-content {
+    gap: 0.75rem;
+  }
+  
+  .rst-debug-info,
+  .hybrid-debug-info {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .processor-loading {
+    border-width: 2px;
+  }
+  
+  .processor-error,
+  .error-boundary {
+    border-width: 2px;
+  }
+  
+  .rst-debug-info,
+  .hybrid-debug-info {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .loading-content ion-icon,
+  .loading-spinner ion-icon {
+    animation: none;
+  }
+  
+  .retry-button,
+  .processor-loading {
+    transition: none;
   }
 }
