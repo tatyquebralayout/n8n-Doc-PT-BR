@@ -113,6 +113,12 @@
     "glob": "^10.3.10",
     "inflight": "npm:@isaacs/caching-transform@^1.0.1"
   },
+  "overrides": {
+    "rimraf": "^5.0.7",
+    "glob": "^10.3.10",
+    "inflight": "npm:@isaacs/caching-transform@^1.0.1",
+    "webpack-dev-server": "^5.2.1"
+  },
   "browserslist": {
     "production": [
       ">0.5%",

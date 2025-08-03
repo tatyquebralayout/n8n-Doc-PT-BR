@@ -16,8 +16,6 @@ katex.setOptions({
   colorIsTextColor: false,
   maxSize: Infinity,
   maxExpand: 1000,
-  strict: false,
-  trust: true,
   output: 'html'
 });
 
