@@ -66,7 +66,7 @@ O chatbot de suporte segue uma arquitetura em camadas com fluxo de dados intelig
 ```mermaid
 graph TD
     A[<ion-icon name="phone-portrait-outline"></ion-icon> Interface<br/>WhatsApp/Telegram] -->|Mensagem do Cliente| B[<ion-icon name="chatbubble-ellipses-outline"></ion-icon> Webhook n8n<br/>Recebe Mensagens]
-    B -->|Processa| C[<ion-icon name="analytics-outline"></ion-icon> Análise de Sentimento<br/>OpenAI GPT]
+    B -->|Processa| C[<ion-icon name="analytics-outline"></ion-icon> Analise Sentimento<br/>OpenAI GPT]
     C -->|Classifica| D[<ion-icon name="bulb-outline"></ion-icon> Lógica de Decisão<br/>IF/Code Nodes]
     D -->|Consulta Dados| E[<ion-icon name="link-outline"></ion-icon> Sistemas Integrados<br/>HTTP Request • CRM • ERP]
     D -->|Caso Complexo| F[<ion-icon name="people-outline"></ion-icon> Escalação Humana<br/>Slack • Email • Tickets]
@@ -402,7 +402,7 @@ Configure decisões baseadas no sentimento com estrutura validada:
       "conditions": [
         {
           "id": "urgent",
-          "leftValue": "={{ $('Análise de Sentimento').item.json.choices[0].message.content }}",
+          "leftValue": "={{ $('Analise_Sentimento').item.json.choices[0].message.content }}",
           "rightValue": "URGENTE",
           "operator": {
             "type": "string",
@@ -411,7 +411,7 @@ Configure decisões baseadas no sentimento com estrutura validada:
         },
         {
           "id": "negative",
-          "leftValue": "={{ $('Análise de Sentimento').item.json.choices[0].message.content }}",
+          "leftValue": "={{ $('Analise_Sentimento').item.json.choices[0].message.content }}",
           "rightValue": "NEGATIVO",
           "operator": {
             "type": "string",
@@ -466,7 +466,7 @@ Implemente logging estruturado para monitorar o funcionamento do chatbot:
       platform: $json.platform,
       from: $json.from,
       message: $json.message.substring(0, 100), // Primeiros 100 chars
-      sentiment: $('Análise de Sentimento').item.json.choices[0].message.content,
+      sentiment: $('Analise_Sentimento').item.json.choices[0].message.content,
       escalated: $json.escalated || false,
       processingTime: Date.now() - new Date($json.timestamp).getTime(),
       status: 'success'
@@ -494,7 +494,7 @@ Configure alertas para situações críticas:
   "node": "n8n-nodes-base.code",
   "parameters": {
     "code": `
-    const sentiment = $('Análise de Sentimento').item.json.choices[0].message.content;
+    const sentiment = $('Analise_Sentimento').item.json.choices[0].message.content;
     const message = $json.message;
     
     // Alertas para situações críticas
@@ -555,7 +555,7 @@ Configure dashboards para acompanhar métricas como tempo de resposta, taxa de e
 
 ```mermaid
 graph TD
-    A[<ion-icon name="chatbubble-ellipses-outline"></ion-icon> Webhook<br/>Recebe Mensagem] -->|Processa| B[<ion-icon name="analytics-outline"></ion-icon> Análise de Sentimento<br/>OpenAI GPT]
+    A[<ion-icon name="chatbubble-ellipses-outline"></ion-icon> Webhook<br/>Recebe Mensagem] -->|Processa| B[<ion-icon name="analytics-outline"></ion-icon> Analise Sentimento<br/>OpenAI GPT]
     B --> C{<ion-icon name="alert-circle-outline"></ion-icon> Urgente?}
     C -->|Sim| D[<ion-icon name="alert-outline"></ion-icon> Escalação Imediata<br/>Prioridade Máxima]
     C -->|Não| E[<ion-icon name="chatbubbles-outline"></ion-icon> Processar Pergunta<br/>Lógica de Decisão]

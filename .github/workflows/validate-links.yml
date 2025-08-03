@@ -42,8 +42,6 @@ jobs:
       - name: Build documentation
         run: npm run build
         continue-on-error: true
-        env:
-          GSC_VERIFICATION_CODE: ${{ secrets.GSC_VERIFICATION_CODE }}
         
       - name: Check internal links
         run: npm run check-broken-links

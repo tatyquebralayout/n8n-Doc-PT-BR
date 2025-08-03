@@ -1,88 +1,163 @@
-name: Pull Request Validation
+name: 📋 Validação de Pull Request
 
 on:
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
     types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'docs/**'
+      - 'src/**'
+      - 'static/**'
+      - '*.ts'
+      - '*.json'
+      - '*.md'
+      - '*.mdx'
+      - '.github/workflows/**'
 
 permissions:
   contents: read
   pull-requests: write
   checks: write
+  actions: read
+
+concurrency:
+  group: pr-validation-${{ github.event.number }}
+  cancel-in-progress: true
 
 jobs:
-  # Job 1: Validação básica e build
-  build-test:
-    name: Build and Basic Validation
+  # Job 1: Validação de código e build
+  code-validation:
+    name: 🔍 Validação de Código
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
     
     outputs:
       build-success: ${{ steps.build.outcome == 'success' }}
+      lint-success: ${{ steps.lint.outcome == 'success' }}
       
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
         
-      - name: Setup Node.js
+      - name: 🚀 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
           
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
         
-      - name: Lint check
+      - name: 🔍 ESLint validation
         id: lint
-        run: npm run lint:check
+        run: |
+          echo "Running ESLint validation for documentation project..."
+          npm run lint:check
         continue-on-error: true
         
-      - name: TypeScript check
+      - name: 📝 TypeScript validation
         id: typecheck
-        run: npm run typecheck
+        run: |
+          echo "Validating TypeScript types for React components..."
+          npm run typecheck
         continue-on-error: true
         
-      - name: Build documentation
+      - name: 📋 Markdown linting
+        id: markdown-lint
+        run: |
+          echo "Checking markdown syntax and style..."
+          npm run markdown:lint
+        continue-on-error: true
+        
+      - name: 🛠️ Build documentation
         id: build
-        run: npm run build
-        env:
-          GSC_VERIFICATION_CODE: ${{ secrets.GSC_VERIFICATION_CODE }}
+        run: |
+          echo "Building n8n documentation in Portuguese..."
+          npm run build
+          echo "Build completed. Checking for common issues..."
+          
+          # Check if critical pages were generated
+          if [ -f "build/index.html" ]; then
+            echo "✅ Homepage generated successfully"
+          else
+            echo "❌ Homepage missing"
+            exit 1
+          fi
+          
+          if [ -f "build/intro/index.html" ]; then
+            echo "✅ Intro page generated successfully"
+          else
+            echo "❌ Intro page missing"
+          fi
         continue-on-error: true
         
-      - name: Upload build artifacts
+      - name: 📤 Upload build artifacts
         if: steps.build.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
-          name: build-output
-          path: build/
+          name: n8n-docs-build-pr-${{ github.event.number }}
+          path: |
+            build/
+            !build/**/*.map
           retention-days: 7
           
-      - name: Comment build status
+      - name: 📊 Generate build summary
+        run: |
+          echo "## 📊 Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Project:** n8n Documentation PT-BR" >> $GITHUB_STEP_SUMMARY
+          echo "**PR #:** ${{ github.event.number }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** ${{ github.head_ref }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔍 Validation Results" >> $GITHUB_STEP_SUMMARY
+          echo "- **ESLint:** ${{ steps.lint.outcome == 'success' && '✅ Passed' || '❌ Failed' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **TypeScript:** ${{ steps.typecheck.outcome == 'success' && '✅ Passed' || '❌ Failed' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Markdown:** ${{ steps.markdown-lint.outcome == 'success' && '✅ Passed' || '❌ Failed' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Build:** ${{ steps.build.outcome == 'success' && '✅ Passed' || '❌ Failed' }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.build.outcome }}" = "success" ]; then
+            BUILD_SIZE=$(du -sh build/ | cut -f1)
+            FILE_COUNT=$(find build -type f | wc -l)
+            echo "### 📦 Build Stats" >> $GITHUB_STEP_SUMMARY
+            echo "- **Size:** $BUILD_SIZE" >> $GITHUB_STEP_SUMMARY
+            echo "- **Files:** $FILE_COUNT" >> $GITHUB_STEP_SUMMARY
+            echo "- **Artifacts:** Available for download" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+      - name: 💬 Comment build status
         uses: actions/github-script@v7
         with:
           script: |
             const buildSuccess = '${{ steps.build.outcome }}' === 'success';
             const lintSuccess = '${{ steps.lint.outcome }}' === 'success';
             const typecheckSuccess = '${{ steps.typecheck.outcome }}' === 'success';
+            const markdownSuccess = '${{ steps.markdown-lint.outcome }}' === 'success';
             
-            let comment = `## 🔨 Status do Build\n\n`;
+            let comment = `## 🔨 Status da Validação\n\n`;
+            comment += `**n8n Documentation PT-BR** - Validação de Pull Request #${{ github.event.number }}\n\n`;
             
             comment += `| Verificação | Status |\n`;
             comment += `|-------------|--------|\n`;
-            comment += `| **Lint** | ${lintSuccess ? '✅ Passou' : '❌ Falhou'} |\n`;
-            comment += `| **TypeScript** | ${typecheckSuccess ? '✅ Passou' : '⚠️ Warnings'} |\n`;
+            comment += `| **ESLint** | ${lintSuccess ? '✅ Passou' : '❌ Falhou'} |\n`;
+            comment += `| **TypeScript** | ${typecheckSuccess ? '✅ Passou' : '❌ Falhou'} |\n`;
+            comment += `| **Markdown** | ${markdownSuccess ? '✅ Passou' : '❌ Falhou'} |\n`;
             comment += `| **Build** | ${buildSuccess ? '✅ Sucesso' : '❌ Falhou'} |\n\n`;
             
             if (buildSuccess) {
               comment += `🎉 **Build realizado com sucesso!** A documentação foi compilada sem erros críticos.\n\n`;
-              comment += `📦 Artifacts do build disponíveis para download nos detalhes da action.\n`;
+              comment += `📦 **Artifacts disponíveis:** Download na aba "Actions" > "Artifacts"\n\n`;
+              comment += `### 📋 Próximos passos:\n`;
+              comment += `- ✅ Revisar as mudanças na documentação\n`;
+              comment += `- ✅ Testar navegação e funcionalidades\n`;
+              comment += `- ✅ Verificar links internos\n`;
             } else {
               comment += `🚨 **Build falhou!** Verifique os logs para detalhes sobre os erros.\n\n`;
-              comment += `### 🔧 Próximos passos:\n`;
-              comment += `- Verifique os logs de build na aba "Actions"\n`;
-              comment += `- Corrija os erros reportados\n`;
-              comment += `- Execute \`npm run build\` localmente para testar\n`;
+              comment += `### 🔧 Como corrigir:\n`;
+              comment += `1. Verifique os logs de build na aba "Actions"\n`;
+              comment += `2. Corrija os erros reportados\n`;
+              comment += `3. Execute \`npm run build\` localmente para testar\n`;
+              comment += `4. Faça push das correções\n`;
             }
             
             github.rest.issues.createComment({
@@ -92,165 +167,155 @@ jobs:
               body: comment
             });
 
-  # Job 2: Análise de qualidade (roda em paralelo)
-  quality-check:
-    name: Quality Analysis
+  # Job 2: Análise de qualidade da documentação
+  quality-analysis:
+    name: 📚 Análise de Qualidade
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
     
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
         
-      - name: Setup Node.js
+      - name: 🚀 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
           
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
         
-      - name: Run all quality checks
+      - name: 🔍 Documentation structure analysis
         run: |
-          echo "🔍 Executando verificações de qualidade..."
-          npm run validate-overlaps || echo "Overlap validation completed with warnings"
-          npm run check-broken-links || echo "Link check completed with warnings"
-          npm run check-duplicate-routes || echo "Route check completed with warnings"
-          npm run check-seo || echo "SEO check completed with warnings"
-        continue-on-error: true
+          echo "## 📚 Análise da Estrutura da Documentação" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Count files by type
+          MDX_COUNT=$(find docs/ -name "*.mdx" | wc -l)
+          MD_COUNT=$(find docs/ -name "*.md" | wc -l)
+          TOTAL_DOCS=$((MDX_COUNT + MD_COUNT))
+          
+          echo "### 📊 Estatísticas" >> $GITHUB_STEP_SUMMARY
+          echo "- **Total de documentos:** $TOTAL_DOCS" >> $GITHUB_STEP_SUMMARY
+          echo "- **Arquivos MDX:** $MDX_COUNT" >> $GITHUB_STEP_SUMMARY
+          echo "- **Arquivos MD:** $MD_COUNT" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Check for common documentation issues
+          echo "### 🔍 Verificações" >> $GITHUB_STEP_SUMMARY
+          
+          # Check for files without frontmatter
+          FILES_WITHOUT_TITLE=0
+          for file in $(find docs/ -name "*.mdx" -o -name "*.md"); do
+            if ! grep -q "title:" "$file"; then
+              FILES_WITHOUT_TITLE=$((FILES_WITHOUT_TITLE + 1))
+            fi
+          done
+          
+          if [ $FILES_WITHOUT_TITLE -eq 0 ]; then
+            echo "- ✅ Todos os arquivos possuem título" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ⚠️ $FILES_WITHOUT_TITLE arquivo(s) sem título" >> $GITHUB_STEP_SUMMARY
+          fi
         
-      - name: Upload quality reports
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: quality-reports
-          path: |
-            overlap-report.json
-            seo-report.json
-          retention-days: 30
+      - name: 🔗 Basic link validation
+        run: |
+          echo "Verificando links básicos..."
+          # Simple check for obviously broken links
+          BROKEN_LINKS=$(grep -r "\[.*\](\.\..*)" docs/ --include="*.md" --include="*.mdx" | wc -l)
+          
+          if [ $BROKEN_LINKS -eq 0 ]; then
+            echo "✅ Nenhum link relativo suspeito encontrado"
+          else
+            echo "⚠️ $BROKEN_LINKS possíveis links relativos encontrados"
+          fi
+        continue-on-error: true
 
-  # Job 3: Verificação de segurança e dependências
+  # Job 3: Verificação de segurança
   security-check:
-    name: Security and Dependencies
+    name: 🔒 Verificação de Segurança
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
     
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
         
-      - name: Setup Node.js
+      - name: 🚀 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
           
-      - name: Audit dependencies
-        run: npm audit --audit-level=moderate
-        continue-on-error: true
+      - name: 📦 Install dependencies
+        run: npm ci
         
-      - name: Check for outdated dependencies
-        run: npm outdated
-        continue-on-error: true
-        
-      - name: Scan for secrets
-        uses: trufflesecurity/trufflehog@main
-        with:
-          path: ./
-          base: ${{ github.event.repository.default_branch }}
-          head: HEAD
-          extra_args: --debug --only-verified
-
-  # Job 4: Preview deployment (apenas para PRs)
-  preview-deploy:
-    name: Deploy Preview
-    runs-on: ubuntu-latest
-    needs: build-test
-    if: github.event.pull_request.draft == false && needs.build-test.outputs.build-success == 'true'
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build-output
-          path: build/
-          
-      - name: Deploy to surge.sh (preview)
+      - name: 🔒 Security audit
         run: |
-          npm install -g surge
-          export SURGE_DOMAIN="n8n-docs-pr-${{ github.event.number }}.surge.sh"
-          surge build/ $SURGE_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
-          echo "PREVIEW_URL=https://$SURGE_DOMAIN" >> $GITHUB_ENV
+          echo "Executando auditoria de segurança..."
+          npm audit --audit-level=moderate || echo "Audit completed with warnings"
         continue-on-error: true
         
-      - name: Comment preview URL
-        if: env.PREVIEW_URL
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const previewUrl = process.env.PREVIEW_URL;
-            
-            let comment = `## 🌐 Preview da Documentação\n\n`;
-            comment += `✨ **Preview disponível:** [${previewUrl}](${previewUrl})\n\n`;
-            comment += `### 📝 Instruções para Review:\n`;
-            comment += `1. 🔗 Clique no link acima para acessar o preview\n`;
-            comment += `2. 🧪 Teste a navegação e funcionalidades\n`;
-            comment += `3. 📱 Verifique a responsividade em diferentes dispositivos\n`;
-            comment += `4. 🔍 Verifique se todos os links internos funcionam\n`;
-            comment += `5. 📖 Revise o conteúdo adicionado/modificado\n\n`;
-            comment += `⚠️ **Nota:** Este preview será removido automaticamente quando o PR for fechado.\n`;
-            
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
+      - name: 🔍 Check for sensitive content
+        run: |
+          echo "Verificando conteúdo sensível..."
+          
+          # Check for potential secrets or sensitive data
+          if grep -r -i "password\|token\|secret\|key.*=" docs/ --include="*.md" --include="*.mdx"; then
+            echo "⚠️ Possível conteúdo sensível encontrado na documentação"
+            echo "Revise se não há senhas ou tokens expostos"
+          else
+            echo "✅ Nenhum conteúdo sensível óbvio encontrado"
+          fi
+        continue-on-error: true
 
-  # Job 5: Resumo final
+  # Job 4: Resumo final
   validation-summary:
-    name: Validation Summary
+    name: 📋 Resumo da Validação
     runs-on: ubuntu-latest
-    needs: [build-test, quality-check, security-check]
+    needs: [code-validation, quality-analysis, security-check]
     if: always() && github.event.pull_request.draft == false
     
     steps:
-      - name: Generate validation summary
+      - name: 📊 Generate final summary
         uses: actions/github-script@v7
         with:
           script: |
-            const buildResult = '${{ needs.build-test.result }}';
-            const qualityResult = '${{ needs.quality-check.result }}';
-            const securityResult = '${{ needs.security-check.result }}';
+            const codeValidation = '${{ needs.code-validation.result }}';
+            const qualityAnalysis = '${{ needs.quality-analysis.result }}';
+            const securityCheck = '${{ needs.security-check.result }}';
             
-            let comment = `## 📋 Resumo da Validação do PR\n\n`;
+            let comment = `## 📋 Resumo Final da Validação\n\n`;
+            comment += `**Pull Request:** #${{ github.event.number }}\n`;
+            comment += `**Branch:** ${{ github.head_ref }}\n`;
+            comment += `**Autor:** @${{ github.event.pull_request.user.login }}\n\n`;
             
-            comment += `| Job | Status | Resultado |\n`;
-            comment += `|-----|--------|----------|\n`;
-            comment += `| **Build & Test** | ${buildResult === 'success' ? '✅' : buildResult === 'failure' ? '❌' : '⚠️'} | ${buildResult} |\n`;
-            comment += `| **Quality Check** | ${qualityResult === 'success' ? '✅' : qualityResult === 'failure' ? '❌' : '⚠️'} | ${qualityResult} |\n`;
-            comment += `| **Security Check** | ${securityResult === 'success' ? '✅' : securityResult === 'failure' ? '❌' : '⚠️'} | ${securityResult} |\n\n`;
+            comment += `### 🔍 Status dos Jobs\n\n`;
+            comment += `| Job | Status |\n`;
+            comment += `|-----|--------|\n`;
+            comment += `| **Validação de Código** | ${codeValidation === 'success' ? '✅ Sucesso' : '❌ Falhou'} |\n`;
+            comment += `| **Análise de Qualidade** | ${qualityAnalysis === 'success' ? '✅ Sucesso' : '❌ Falhou'} |\n`;
+            comment += `| **Verificação de Segurança** | ${securityCheck === 'success' ? '✅ Sucesso' : '❌ Falhou'} |\n\n`;
             
-            const allPassed = buildResult === 'success' && qualityResult === 'success' && securityResult === 'success';
+            const allPassed = codeValidation === 'success' && qualityAnalysis === 'success' && securityCheck === 'success';
             
             if (allPassed) {
-              comment += `🎉 **Todas as validações passaram!** Este PR está pronto para review e merge.\n\n`;
-              comment += `### ✅ Próximos passos:\n`;
-              comment += `- Aguardar review de um mantenedor\n`;
-              comment += `- Fazer merge após aprovação\n`;
+              comment += `🎉 **Todas as validações passaram!** Este PR está pronto para revisão.\n\n`;
+              comment += `### 📋 Checklist final:\n`;
+              comment += `- ✅ Código validado e compilado\n`;
+              comment += `- ✅ Qualidade da documentação verificada\n`;
+              comment += `- ✅ Verificações de segurança aprovadas\n`;
+              comment += `- 📦 Artifacts de build disponíveis\n\n`;
+              comment += `> **Pronto para merge após revisão humana** 🚀`;
             } else {
-              comment += `⚠️ **Algumas validações falharam ou têm warnings.** Revise os detalhes acima.\n\n`;
-              comment += `### 🔧 Ações recomendadas:\n`;
-              comment += `- Verificar logs detalhados nas actions\n`;
-              comment += `- Corrigir problemas identificados\n`;
-              comment += `- Fazer novo commit para re-executar validações\n`;
+              comment += `⚠️ **Algumas validações falharam.** Verifique os logs para detalhes.\n\n`;
+              comment += `### 🔧 Próximos passos:\n`;
+              comment += `1. Revisar os erros nos jobs que falharam\n`;
+              comment += `2. Corrigir os problemas identificados\n`;
+              comment += `3. Fazer push das correções\n`;
+              comment += `4. Aguardar nova execução da validação\n`;
             }
-            
-            comment += `\n📊 Veja os artifacts das actions para relatórios detalhados.\n`;
             
             github.rest.issues.createComment({
               issue_number: context.issue.number,

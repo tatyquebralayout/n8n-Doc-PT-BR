@@ -436,11 +436,7 @@ const config: Config = {
         content:
           "n8n Brasil - Documentação não oficial em Português Brasileiro",
       },
-      // Adiciona a tag de verificação do Google apenas em produção
-      ...process.env.GSC_VERIFICATION_CODE ? [{
-        name: "google-site-verification",
-        content: process.env.GSC_VERIFICATION_CODE,
-      }] : [],
+      // Google Site Verification removido - não necessário para projeto open source
     ],
   },
 } satisfies Config;

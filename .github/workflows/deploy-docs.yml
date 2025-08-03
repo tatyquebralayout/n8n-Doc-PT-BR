@@ -1,4 +1,4 @@
-name: Deploy Docusaurus to GitHub Pages
+name: 🚀 Deploy Documentação
 
 on:
   push:
@@ -14,14 +14,14 @@ on:
       - 'package.json'
       - 'package-lock.json'
   
-  # Permite rodar este workflow manualmente pela aba Actions
+  # Permite execução manual do workflow
   workflow_dispatch:
     inputs:
       force_deploy:
-        description: 'Force deploy even if no changes detected'
+        description: 'Forçar deploy mesmo sem mudanças detectadas'
         required: false
-        default: 'false'
         type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -35,56 +35,72 @@ concurrency:
 jobs:
   # Job 1: Validação pré-deploy
   pre-deploy-validation:
-    name: Pre-Deploy Validation
+    name: 🔍 Validação Pré-Deploy
     runs-on: ubuntu-latest
     outputs:
       should-deploy: ${{ steps.validation.outputs.should-deploy }}
       
     steps:
-      - name: Checkout
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
         
-      - name: Set up Node
+      - name: 🚀 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: 'npm'
           
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
         
-      - name: Run pre-deploy validation
+      - name: 🔍 Pre-deploy validation
         id: validation
         run: |
-          echo "🔍 Executando validações pré-deploy..."
+          echo "🔍 Executando validações pré-deploy para n8n Documentation PT-BR..."
           
-          # Executar lint
+          # Test lint
+          echo "Validating code style..."
           npm run lint:check || {
             echo "❌ Lint check falhou"
             echo "should-deploy=false" >> $GITHUB_OUTPUT
             exit 0
           }
           
-          # Executar validação de overlaps
-          npm run validate-overlaps || {
-            echo "⚠️ Validação de overlaps encontrou problemas"
+          # Test TypeScript
+          echo "Validating TypeScript..."
+          npm run typecheck || {
+            echo "❌ TypeScript check falhou"
+            echo "should-deploy=false" >> $GITHUB_OUTPUT
+            exit 0
           }
           
-          # Tentar build
+          # Test build
+          echo "Testing build process..."
           npm run build || {
             echo "❌ Build falhou"
             echo "should-deploy=false" >> $GITHUB_OUTPUT
             exit 0
           }
           
+          # Validate critical pages exist
+          if [ ! -f "build/index.html" ]; then
+            echo "❌ Homepage não foi gerada"
+            echo "should-deploy=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          if [ ! -f "build/intro/index.html" ]; then
+            echo "❌ Página de introdução não foi gerada"
+            echo "should-deploy=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
           echo "✅ Todas as validações passaram"
           echo "should-deploy=true" >> $GITHUB_OUTPUT
-        env:
-          GSC_VERIFICATION_CODE: ${{ secrets.GSC_VERIFICATION_CODE }}
 
   # Job 2: Deploy principal
   deploy:
-    name: Deploy to GitHub Pages
+    name: 🚀 Deploy para GitHub Pages
     needs: pre-deploy-validation
     if: needs.pre-deploy-validation.outputs.should-deploy == 'true' || github.event.inputs.force_deploy == 'true'
     environment:
@@ -93,111 +109,175 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
         
-      - name: Set up Node
+      - name: 🚀 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: 'npm'
           
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm ci
         
-      - name: Generate build info
+      - name: 📝 Generate build info
         run: |
           mkdir -p static/build-info
           echo "{
+            \"project\": \"n8n Documentation PT-BR\",
             \"buildTime\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\",
             \"gitCommit\": \"$GITHUB_SHA\",
             \"gitBranch\": \"$GITHUB_REF_NAME\",
             \"buildNumber\": \"$GITHUB_RUN_NUMBER\",
-            \"workflow\": \"$GITHUB_WORKFLOW\"
+            \"workflow\": \"$GITHUB_WORKFLOW\",
+            \"environment\": \"production\",
+            \"version\": \"$(date +%Y.%m.%d)\",
+            \"url\": \"https://n8n-brasil.github.io/n8n-Doc-PT-BR/\"
           }" > static/build-info/build.json
         
-      - name: Build documentation
-        run: npm run build
-        env:
-          GSC_VERIFICATION_CODE: ${{ secrets.GSC_VERIFICATION_CODE }}
-          
-      - name: Generate sitemap
+      - name: 🛠️ Build documentation
         run: |
-          echo "Generating enhanced sitemap..."
-          # O Docusaurus já gera o sitemap, mas podemos adicionar informações extras
+          echo "🛠️ Building n8n Documentation PT-BR..."
+          npm run build
+          
+          echo "📊 Build statistics:"
+          echo "- Build size: $(du -sh build/ | cut -f1)"
+          echo "- Total files: $(find build -type f | wc -l)"
+          echo "- HTML files: $(find build -name "*.html" | wc -l)"
+          echo "- JS files: $(find build -name "*.js" | wc -l)"
+          echo "- CSS files: $(find build -name "*.css" | wc -l)"
+          
+      - name: 📄 Generate sitemap info
+        run: |
+          echo "📄 Checking sitemap generation..."
           if [ -f "build/sitemap.xml" ]; then
             echo "✅ Sitemap gerado com sucesso"
-            wc -l build/sitemap.xml
+            SITEMAP_URLS=$(grep -c "<url>" build/sitemap.xml)
+            echo "📊 Total de URLs no sitemap: $SITEMAP_URLS"
+          else
+            echo "⚠️ Sitemap não encontrado"
           fi
           
-      - name: Optimize assets
+      - name: ⚡ Optimize assets
         run: |
-          echo "🚀 Otimizando assets para produção..."
-          # Remover sourcemaps se existirem (para reduzir tamanho)
-          find build -name "*.map" -delete || true
-          # Mostrar tamanho final do build
-          du -sh build/
+          echo "⚡ Otimizando assets para produção..."
           
-      - name: Setup Pages
+          # Remove source maps se existirem (para reduzir tamanho)
+          find build -name "*.map" -delete || true
+          echo "🗑️ Source maps removidos"
+          
+          # Show final build size
+          BUILD_SIZE=$(du -sh build/ | cut -f1)
+          echo "📦 Tamanho final do build: $BUILD_SIZE"
+          
+          # Create deployment summary
+          echo "## 🚀 Deploy Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Project:** n8n Documentation PT-BR" >> $GITHUB_STEP_SUMMARY
+          echo "**Build Size:** $BUILD_SIZE" >> $GITHUB_STEP_SUMMARY
+          echo "**Files Generated:** $(find build -type f | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** $GITHUB_SHA" >> $GITHUB_STEP_SUMMARY
+          echo "**Build Time:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          
+      - name: ⚙️ Setup Pages
         uses: actions/configure-pages@v4
         
-      - name: Upload artifact
+      - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './build'
           
-      - name: Deploy to GitHub Pages
+      - name: 🌐 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         
-      - name: Post-deploy verification
+      - name: ✅ Post-deploy verification
         run: |
-          echo "🔍 Verificando deploy..."
+          echo "✅ Verificando deploy da documentação n8n PT-BR..."
           SITE_URL="${{ steps.deployment.outputs.page_url }}"
           
-          # Aguardar um pouco para o site ficar disponível
+          # Wait for site to be available
+          echo "⏳ Aguardando o site ficar disponível..."
           sleep 30
           
-          # Verificar se o site está respondendo
-          curl -f -s "$SITE_URL" > /dev/null && echo "✅ Site está respondendo" || echo "⚠️ Site pode não estar disponível ainda"
+          # Check if site is responding
+          if curl -f -s "$SITE_URL" > /dev/null; then
+            echo "✅ Site está respondendo corretamente"
+          else
+            echo "⚠️ Site pode não estar disponível ainda"
+          fi
           
-          # Verificar se o build.json está disponível
-          curl -f -s "${SITE_URL}build-info/build.json" > /dev/null && echo "✅ Build info disponível" || echo "⚠️ Build info não encontrado"
+          # Check if build info is available
+          if curl -f -s "${SITE_URL}build-info/build.json" > /dev/null; then
+            echo "✅ Build info disponível"
+          else
+            echo "⚠️ Build info não encontrado"
+          fi
           
-      - name: Create deployment summary
+          # Check specific Portuguese pages
+          if curl -f -s "${SITE_URL}intro/" > /dev/null; then
+            echo "✅ Página de introdução acessível"
+          else
+            echo "⚠️ Página de introdução pode ter problemas"
+          fi
+          
+      - name: 📋 Create deployment summary
         run: |
-          echo "## 🚀 Deploy Realizado com Sucesso!" >> $GITHUB_STEP_SUMMARY
+          echo "## 🎉 Deploy Realizado com Sucesso!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**URL do Site:** ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Commit:** \`$GITHUB_SHA\`" >> $GITHUB_STEP_SUMMARY
-          echo "**Data/Hora:** $(date -u)" >> $GITHUB_STEP_SUMMARY
-          echo "**Build Number:** #$GITHUB_RUN_NUMBER" >> $GITHUB_STEP_SUMMARY
+          echo "**🌐 URL da Documentação:** ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "**📝 Projeto:** n8n Documentation PT-BR (Não Oficial)" >> $GITHUB_STEP_SUMMARY
+          echo "**🚀 Commit:** \`$GITHUB_SHA\`" >> $GITHUB_STEP_SUMMARY
+          echo "**⏰ Data/Hora:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "**🔢 Build Number:** #$GITHUB_RUN_NUMBER" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### 📊 Estatísticas do Build" >> $GITHUB_STEP_SUMMARY
-          echo "- **Tamanho do build:** $(du -sh build/ | cut -f1)" >> $GITHUB_STEP_SUMMARY
-          echo "- **Arquivos gerados:** $(find build -type f | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Tamanho:** $(du -sh build/ | cut -f1)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Arquivos:** $(find build -type f | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Páginas HTML:** $(find build -name "*.html" | wc -l)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### 🔗 Links Úteis" >> $GITHUB_STEP_SUMMARY
-          echo "- [📖 Site da Documentação](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔗 Links Importantes" >> $GITHUB_STEP_SUMMARY
+          echo "- [📚 Documentação](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
           echo "- [🏠 Página Inicial](${{ steps.deployment.outputs.page_url }})" >> $GITHUB_STEP_SUMMARY
-          echo "- [🔍 Build Info](${{ steps.deployment.outputs.page_url }}build-info/build.json)" >> $GITHUB_STEP_SUMMARY
+          echo "- [📖 Introdução](${{ steps.deployment.outputs.page_url }}intro/)" >> $GITHUB_STEP_SUMMARY
+          echo "- [🤝 Como Contribuir](${{ steps.deployment.outputs.page_url }}contribuir/)" >> $GITHUB_STEP_SUMMARY
+          echo "- [ℹ️ Build Info](${{ steps.deployment.outputs.page_url }}build-info/build.json)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🇧🇷 Sobre o Projeto" >> $GITHUB_STEP_SUMMARY
+          echo "Esta é uma documentação **não oficial** do n8n em português brasileiro," >> $GITHUB_STEP_SUMMARY
+          echo "criada pela comunidade brasileira para democratizar o acesso à automação." >> $GITHUB_STEP_SUMMARY
 
   # Job 3: Limpeza pós-deploy  
   post-deploy-cleanup:
-    name: Post-Deploy Cleanup
+    name: 🧹 Limpeza Pós-Deploy
     needs: deploy
     if: always() && needs.deploy.result == 'success'
     runs-on: ubuntu-latest
     
     steps:
-      - name: Cleanup old preview deployments
+      - name: 🧹 Cleanup and optimization
         uses: actions/github-script@v7
         with:
           script: |
-            // Limpar deployments antigos do surge.sh se configurado
             console.log('🧹 Executando limpeza pós-deploy...');
             
-            // Aqui poderia adicionar lógica para limpar previews antigos
-            // ou notificar sistemas externos sobre o novo deploy
+            // Log deployment success
+            console.log('✅ Deploy da documentação n8n PT-BR realizado com sucesso');
+            console.log('🌐 Site disponível em: https://n8n-brasil.github.io/n8n-Doc-PT-BR/');
             
-            console.log('✅ Limpeza concluída');
+            // Could add logic here to:
+            // - Notify external systems about new deployment
+            // - Clear old caches
+            // - Update deployment tracking
+            // - Send notifications to Brazilian n8n community
+            
+            console.log('🎉 Limpeza concluída - Documentação atualizada!');
+            
+      - name: 📢 Deployment notification
+        run: |
+          echo "📢 Deploy notification:"
+          echo "✅ n8n Documentation PT-BR foi atualizada com sucesso!"
+          echo "🌐 Disponível em: https://n8n-brasil.github.io/n8n-Doc-PT-BR/"
+          echo "📝 Esta é uma documentação NÃO OFICIAL criada pela comunidade brasileira"
+          echo "🤝 Contribuições são bem-vindas: https://github.com/n8n-brasil/n8n-Doc-PT-BR"
