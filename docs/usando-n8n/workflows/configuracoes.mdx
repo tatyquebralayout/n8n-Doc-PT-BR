@@ -1,10 +1,6 @@
-# Configurações de Workflow
+#configuraes-de-workflow-as-configuraes de workflow permitem personalizar o comportamento, performance e aparência dos seus workflows no n8n. Esta seção aborda todas as opções de configuração disponíveis para otimizar seus workflows.
 
-As configurações de workflow permitem personalizar o comportamento, performance e aparência dos seus workflows no n8n. Esta seção aborda todas as opções de configuração disponíveis para otimizar seus workflows.
-
-## Visão Geral
-
-As configurações de workflow oferecem controle granular sobre como seus workflows funcionam, incluindo:
+#viso-geral-as-configuraes-de workflow oferecem controle granular sobre como seus workflows funcionam, incluindo:
 
 - **Configurações de execução** e performance
 - **Configurações de dados** e mapeamento
@@ -12,33 +8,26 @@ As configurações de workflow oferecem controle granular sobre como seus workfl
 - **Configurações de segurança** e permissões
 - **Configurações de notificação** e alertas
 
-## Acessando as Configurações
+#cor-acessando-as-configuraes
 
-### Interface Web
-
-Para acessar as configurações de um workflow:
+#interface-web-para-acessar-as configurações de um workflow:
 
 1. **Abra o workflow** no editor
 2. **Clique no ícone de configurações** (⚙️) no canto superior direito
 3. **Selecione "Workflow Settings"** no menu
 
-### Configurações Globais
-
-Algumas configurações podem ser definidas globalmente:
+#configuraes-globais-algumas-configuraes-podem ser definidas globalmente:
 
 ```bash
-# Configurações de ambiente
-export N8N_WORKFLOW_TIMEOUT=3600000
+#configuraes-de-ambiente-export-n8nworkflowtimeout3600000
 export N8N_WORKFLOW_MAX_EXECUTIONS=1000
 export N8N_WORKFLOW_SAVE_DATA_EXECUTION=true
 export N8N_WORKFLOW_SAVE_DATA_EXECUTION_ALL=false
 ```
 
-## Configurações de Execução
+#configuraes-de-execuo
 
-### Timeout de Execução
-
-Defina o tempo máximo que um workflow pode executar:
+#timeout-de-execuo-defina-o tempo máximo que um workflow pode executar:
 
 ```javascript
 // Configurar timeout no workflow
@@ -50,9 +39,7 @@ Defina o tempo máximo que um workflow pode executar:
 }
 ```
 
-### Limite de Execuções
-
-Configure limites para evitar sobrecarga:
+#limite-de-execues-configure-limites para evitar sobrecarga:
 
 ```javascript
 // Configurar limites de execução
@@ -66,9 +53,7 @@ Configure limites para evitar sobrecarga:
 }
 ```
 
-### Configurações de Performance
-
-Otimize a performance do workflow:
+#configuraes-de-performance-otimize-a performance do workflow:
 
 ```javascript
 // Configurações de performance
@@ -85,11 +70,9 @@ Otimize a performance do workflow:
 }
 ```
 
-## Configurações de Dados
+#configuraes-de-dados
 
-### Mapeamento de Dados
-
-Configure como os dados são processados:
+#mapeamento-de-dados-configure-como os dados são processados:
 
 ```javascript
 // Configurações de mapeamento
@@ -106,9 +89,7 @@ Configure como os dados são processados:
 }
 ```
 
-### Validação de Dados
-
-Configure validações automáticas:
+#validao-de-dados-configure-validaes automáticas:
 
 ```javascript
 // Configurações de validação
@@ -135,9 +116,7 @@ Configure validações automáticas:
 }
 ```
 
-### Cache de Dados
-
-Configure cache para melhorar performance:
+#cor-cache-de-dados-configure-cache para melhorar performance:
 
 ```javascript
 // Configurações de cache
@@ -154,11 +133,9 @@ Configure cache para melhorar performance:
 }
 ```
 
-## Configurações de Interface
+#configuraes-de-interface
 
-### Visualização do Workflow
-
-Personalize a aparência do workflow:
+#visualizao-do-workflow-personalize-a aparência do workflow:
 
 ```javascript
 // Configurações de visualização
@@ -177,9 +154,7 @@ Personalize a aparência do workflow:
 }
 ```
 
-### Configurações de Navegação
-
-Configure a navegação no editor:
+#configuraes-de-navegao-configure-a navegação no editor:
 
 ```javascript
 // Configurações de navegação
@@ -196,11 +171,9 @@ Configure a navegação no editor:
 }
 ```
 
-## Configurações de Segurança
+#configuraes-de-segurana
 
-### Controle de Acesso
-
-Configure permissões e acesso:
+#controle-de-acesso-configure-permisses e acesso:
 
 ```javascript
 // Configurações de segurança
@@ -218,9 +191,7 @@ Configure permissões e acesso:
 }
 ```
 
-### Configurações de Rede
-
-Configure acesso de rede:
+#configuraes-de-rede-configure-acesso de rede:
 
 ```javascript
 // Configurações de rede
@@ -238,11 +209,9 @@ Configure acesso de rede:
 }
 ```
 
-## Configurações de Notificação
+#configuraes-de-notificao
 
-### Alertas e Notificações
-
-Configure notificações automáticas:
+#alertas-e-notificaes-configure-notificaes automáticas:
 
 ```javascript
 // Configurações de notificação
@@ -269,9 +238,7 @@ Configure notificações automáticas:
 }
 ```
 
-### Configurações de Email
-
-Configure notificações por email:
+#configuraes-de-email-configure-notificaes por email:
 
 ```javascript
 // Configurações de email
@@ -299,11 +266,9 @@ Configure notificações por email:
 }
 ```
 
-## Configurações de Monitoramento
+#configuraes-de-monitoramento
 
-### Métricas e Analytics
-
-Configure coleta de métricas:
+#mtricas-e-analytics-configure-coleta de métricas:
 
 ```javascript
 // Configurações de monitoramento
@@ -333,9 +298,7 @@ Configure coleta de métricas:
 }
 ```
 
-### Logs e Debugging
-
-Configure logs detalhados:
+#logs-e-debugging-configure-logs detalhados:
 
 ```javascript
 // Configurações de logs
@@ -355,9 +318,9 @@ Configure logs detalhados:
 }
 ```
 
-## Configurações Avançadas
+#configuraes-avanadas
 
-### Configurações de Banco de Dados
+#configuraes-de-banco-de-dados
 
 Configure persistência de dados:
 
@@ -388,9 +351,7 @@ Configure persistência de dados:
 }
 ```
 
-### Configurações de Filas
-
-Configure processamento em fila:
+#configuraes-de-filas-configure-processamento em fila:
 
 ```javascript
 // Configurações de fila
@@ -413,11 +374,9 @@ Configure processamento em fila:
 }
 ```
 
-## Configurações Específicas para Brasil
+#configuraes-especficas-para-brasil
 
-### Configurações de LGPD
-
-Configure conformidade com LGPD:
+#configuraes-de-lgpd-configure-conformidade com LGPD:
 
 ```javascript
 // Configurações de LGPD
@@ -445,9 +404,7 @@ Configure conformidade com LGPD:
 }
 ```
 
-### Configurações de Moeda
-
-Configure para Real brasileiro:
+#configuraes-de-moeda-configure-para Real brasileiro:
 
 ```javascript
 // Configurações de moeda
@@ -472,19 +429,14 @@ Configure para Real brasileiro:
 }
 ```
 
-## Aplicando Configurações
+#aplicando-configuraes
 
-### Via Interface
-
-1. **Abra as configurações** do workflow
+#via-interface-1-abra-as configurações** do workflow
 2. **Navegue pelas abas** de configuração
 3. **Modifique os valores** conforme necessário
 4. **Clique em "Save"** para aplicar
 
-### Via API
-
-```javascript
-// Atualizar configurações via API
+#via-api-javascript-atualizar configurações via API
 const atualizarConfiguracoes = async (workflowId, configuracoes) => {
   const response = await fetch(`/api/v1/workflows/${workflowId}/settings`, {
     method: 'PUT',
@@ -514,44 +466,33 @@ const configuracoes = {
 await atualizarConfiguracoes('workflow-123', configuracoes);
 ```
 
-### Via Variáveis de Ambiente
-
-```bash
-# Configurações globais via ambiente
-export N8N_WORKFLOW_DEFAULT_TIMEOUT=1800000
+#via-variveis-de-ambiente-bash
+#configuraes-globais-via-ambiente-export N8N_WORKFLOW_DEFAULT_TIMEOUT=1800000
 export N8N_WORKFLOW_SAVE_EXECUTION_PROGRESS=true
 export N8N_WORKFLOW_NOTIFICATIONS_ON_ERROR=true
 export N8N_WORKFLOW_NOTIFICATIONS_EMAIL=admin@empresa.com
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### Configurações de Performance
-
-- **Configure timeouts adequados** para evitar travamentos
+#configuraes-de-performance-configure timeouts adequados** para evitar travamentos
 - **Use cache** para dados frequentemente acessados
 - **Limite execuções simultâneas** para evitar sobrecarga
 - **Monitore uso de recursos** regularmente
 
-### Configurações de Segurança
-
-- **Habilite autenticação** sempre que possível
+#configuraes-de-segurana-habilite autenticação** sempre que possível
 - **Criptografe dados sensíveis** automaticamente
 - **Configure logs de auditoria** para compliance
 - **Restrinja acesso** por usuário e role
 
-### Configurações de Monitoramento
-
-- **Configure alertas proativos** para problemas
+#configuraes-de-monitoramento-configure alertas proativos** para problemas
 - **Monitore métricas importantes** como tempo de execução
 - **Configure logs detalhados** para debugging
 - **Implemente dashboards** de monitoramento
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
-
-**Workflow não executa:**
+#problemas-comuns-workflow-no-executa
 - Verificar configurações de timeout
 - Verificar permissões de usuário
 - Verificar configurações de rede
@@ -566,14 +507,12 @@ export N8N_WORKFLOW_NOTIFICATIONS_EMAIL=admin@empresa.com
 - Verificar configurações de webhook
 - Verificar permissões de API
 
-## Recursos Adicionais
+#recursos-adicionais
 
-### Documentação Oficial
-- [Workflow Settings](https://docs.n8n.io/workflows/settings/)
+#documentao-oficial-workflow-settingshttpsdocsn8nioworkflowssettings
 - [Configuration Options](https://docs.n8n.io/hosting/configuration/)
 
-### Ferramentas Relacionadas
-- **n8n CLI**: Configuração via linha de comando
+#ferramentas-relacionadas-n8n-cli Configuração via linha de comando
 - **n8n API**: Configuração programática
 - **n8n Docker**: Configuração via variáveis de ambiente
 

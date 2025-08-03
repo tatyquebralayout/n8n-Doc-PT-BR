@@ -39,13 +39,7 @@ module.exports = {
     '/coverage/',
   ],
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': ['ts-jest', {
-      tsconfig: 'tsconfig.json',
-      jsx: 'react-jsx',
-      diagnostics: {
-        ignoreCodes: [1343],
-      },
-    }],
+    '^.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
   },
   transformIgnorePatterns: [
     '/node_modules/(?!(@docusaurus|@testing-library|ionicons)/)',

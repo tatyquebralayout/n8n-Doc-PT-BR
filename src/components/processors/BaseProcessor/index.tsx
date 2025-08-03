@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import IonicIcon from '@site/src/components/IonicIcon';
 import styles from './styles.module.css';
@@ -25,48 +25,49 @@ interface ProcessorState {
 const BaseProcessor: React.FC<BaseProcessorProps> = ({
   content,
   className,
-  onProcess,
-  onError,
+  // onProcess,
+  // onError,
   loadingText = 'Processando...',
   errorText = 'Erro ao processar',
   emptyText = 'Nenhum conteúdo para processar',
   children,
   dataTestId,
 }) => {
-  const [state, setState] = useState<ProcessorState>({
+  const [state] = useState<ProcessorState>({
     isProcessing: false,
     hasError: false,
     error: null,
     processingTime: 0,
   });
 
-  const startProcessing = () => {
-    setState(prev => ({
-      ...prev,
-      isProcessing: true,
-      hasError: false,
-      error: null,
-      processingTime: 0,
-    }));
-  };
+  // const startProcessing = () => {
+  //   setState(prev => ({
+  //     ...prev,
+  //     isProcessing: true,
+  //     hasError: false,
+  //     error: null,
+  //     processingTime: 0,
+  //   }));
+  // };
 
-  const finishProcessing = (processingTime: number) => {
-    setState(prev => ({
-      ...prev,
-      isProcessing: false,
-      processingTime,
-    }));
-  };
+  // const finishProcessing = (processingTime: number) => {
+  //   setState(prev => ({
+  //     ...prev,
+  //     isProcessing: false,
+  //     processingTime,
+  //   }));
+  // };
 
-  const handleError = (error: Error) => {
-    setState(prev => ({
-      ...prev,
-      isProcessing: false,
-      hasError: true,
-      error,
-    }));
-    onError?.(error);
-  };
+  // Função para tratamento de erro (mantida para uso futuro)
+  // const handleError = (error: Error) => {
+  //   setState(prev => ({
+  //     ...prev,
+  //     isProcessing: false,
+  //     hasError: true,
+  //     error,
+  //   }));
+  //   onError?.(error);
+  // };
 
   // Renderização de loading
   if (state.isProcessing) {

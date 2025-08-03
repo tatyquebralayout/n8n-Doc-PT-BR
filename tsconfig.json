@@ -31,7 +31,10 @@
     "docs",
     "docusaurus.config.ts",
     "sidebars.ts",
-    "@types"
+    "@types",
+    ".storybook/**/*",
+    "playwright.config.ts",
+    "tests/**/*"
   ],
   "exclude": [
     "node_modules",

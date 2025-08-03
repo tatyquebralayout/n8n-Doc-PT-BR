@@ -6,17 +6,15 @@ keywords: [n8n, desktop, instalação, local, desenvolvimento, windows, mac]
 ---
 
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalação Desktop
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-desktop
 
 Este guia detalha como **instalar n8n Desktop** para uso local e desenvolvimento, oferecendo uma experiência nativa e simplificada.
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que é o n8n Desktop?
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-o-que é o n8n Desktop?
 
 O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localmente sem necessidade de configurações complexas de servidor ou Docker. É ideal para usuários que preferem uma experiência mais simples e integrada ao sistema operacional.
 
-### **Principais Características:**
-
-- ✅ **Instalação simples** - Download e instalação direta
+#principais-caractersticas-instalao simples** - Download e instalação direta
 - ✅ **Interface nativa** - Integração com o sistema operacional
 - ✅ **Sem configuração** - Funciona imediatamente após instalação
 - ✅ **Sincronização** - Conecta com n8n Cloud
@@ -25,142 +23,109 @@ O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localment
 
 ---
 
-## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Pré-requisitos
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-pr-requisitos
 
-### **Requisitos do Sistema**
-
-- **Sistema Operacional**: Windows 10+, macOS 10.15+, Linux (Ubuntu 18.04+)
+#requisitos-do-sistema-sistema Operacional**: Windows 10+, macOS 10.15+, Linux (Ubuntu 18.04+)
 - **RAM**: Mínimo 4GB, recomendado 8GB+
 - **Disco**: 2GB livre para instalação
 - **Processador**: Dual-core ou superior
 - **Rede**: Conexão para download e atualizações
 
-### **Requisitos Específicos por SO**
+#requisitos-especficos-por-so
 
-#### **Windows**
-
-- Windows 10 ou superior (64-bit)
+#windows-windows-10-ou superior (64-bit)
 - .NET Framework 4.7.2 ou superior
 - Visual C++ Redistributable
 
-#### **macOS**
-
-- macOS 10.15 (Catalina) ou superior
+#macos-macos-1015-catalina ou superior
 - Processador Intel ou Apple Silicon
 
-#### **Linux**
-
-- Ubuntu 18.04+ ou distribuição compatível
+#linux-ubuntu-1804-ou distribuição compatível
 - GLIBC 2.17 ou superior
 
 ---
 
-## <IonicIcon name="download-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalação
+#ionicicon-namedownload-outline-style-fontsize-24px color: '#cor-ea4b71-instalao
 
-### **Windows**
+#Windows**
 
-#### **Download e Instalação**
-
-1. Acesse [n8n.io/desktop](https://n8n.io/desktop)
+#download-e-instalao-1-acesse [n8n.io/desktop](https://n8n.io/desktop)
 2. Baixe o instalador para Windows (.exe)
 3. Execute o arquivo baixado
 4. Siga o assistente de instalação
 5. Inicie o n8n Desktop
 
-#### **Instalação via Chocolatey**
-
-```powershell
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar Chocolatey (se necessário)
+#instalao-via-chocolatey-powershell
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-chocolatey (se necessário)
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar n8n Desktop
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-n8n Desktop
 choco install n8n-desktop
 ```
 
-#### **Instalação via Winget**
-
-```powershell
-winget install n8n.n8n-desktop
+#instalao-via-winget-powershell-winget install n8n.n8n-desktop
 ```
 
-### **macOS**
+#macOS**
 
-#### **Download e Instalação**
-
-1. Acesse [n8n.io/desktop](https://n8n.io/desktop)
+#download-e-instalao-1-acesse [n8n.io/desktop](https://n8n.io/desktop)
 2. Baixe o instalador para macOS (.dmg)
 3. Abra o arquivo .dmg
 4. Arraste o n8n para a pasta Applications
 5. Inicie o n8n Desktop
 
-#### **Instalação via Homebrew**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar Homebrew (se necessário)
+#instalao-via-homebrew-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-homebrew (se necessário)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar n8n Desktop
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-n8n Desktop
 brew install --cask n8n-desktop
 ```
 
-### **Linux**
+#Linux**
 
-#### **Ubuntu/Debian**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Adicionar repositório
+#ubuntudebian-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-repositrio
 wget -qO- https://packages.n8n.io/gpg.key | sudo apt-key add -
 echo "deb https://packages.n8n.io/ubuntu/ focal main" | sudo tee /etc/apt/sources.list.d/n8n.list
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizar e instalar
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-atualizar-e instalar
 sudo apt update
 sudo apt install n8n-desktop
 ```
 
-#### **Fedora/RHEL**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Adicionar repositório
+#cor-fedorarhel-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-repositrio
 sudo dnf config-manager --add-repo https://packages.n8n.io/fedora/n8n.repo
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar
-sudo dnf install n8n-desktop
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-sudo dnf install n8n-desktop
 ```
 
-#### **Snap (Ubuntu)**
-
-```bash
-sudo snap install n8n-desktop
+#snap-ubuntu-bash-sudo-snap install n8n-desktop
 ```
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Inicial
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-inicial
 
-### **Primeiro Acesso**
-
-1. **Inicie o n8n Desktop**
+#primeiro-acesso-1-inicie-o n8n Desktop**
 2. **Aguarde a inicialização** (pode levar alguns segundos)
 3. **Acesse a interface** - geralmente em `http://localhost:5678`
 4. **Crie sua conta** de administrador
 
-### **Configurações Básicas**
-
-```bash
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações padrão
+#configuraes-bsicas-bash
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-padro
 Porta: 5678
 Protocolo: http
 Host: localhost
 Timezone: Sistema operacional
 ```
 
-### **Configurações Avançadas**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Arquivo de configuração (opcional)
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows: %APPDATA%\n8n\config.json
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS: ~/Library/Application Support/n8n/config.json
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux: ~/.config/n8n/config.json
+#configuraes-avanadas-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-arquivo-de configuração (opcional)
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-windows-appdatan8nconfigjson
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-libraryapplication Support/n8n/config.json
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-confign8nconfigjson
 
 {
   "port": 5678,
@@ -173,27 +138,20 @@ Timezone: Sistema operacional
 
 ---
 
-## <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Sincronização com n8n Cloud
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-sincronizao-com n8n Cloud
 
-### **Conectar com n8n Cloud**
-
-1. **Abra o n8n Desktop**
+#conectar-com-n8n-cloud-1 **Abra o n8n Desktop**
 2. **Vá em Settings > Cloud**
 3. **Clique em "Connect to n8n Cloud"**
 4. **Faça login** com sua conta n8n Cloud
 5. **Escolha o workspace** para sincronizar
 
-### **Sincronização de Workflows**
-
-- **Upload**: Envie workflows locais para o Cloud
+#sincronizao-de-workflows-upload Envie workflows locais para o Cloud
 - **Download**: Baixe workflows do Cloud para local
 - **Sync**: Mantenha ambos sincronizados
 - **Backup**: Use o Cloud como backup automático
 
-### **Configurações de Sincronização**
-
-```json
-{
+#configuraes-de-sincronizao-json
   "cloudSync": {
     "enabled": true,
     "autoSync": true,
@@ -205,72 +163,44 @@ Timezone: Sistema operacional
 
 ---
 
-## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estrutura de Arquivos
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-estrutura-de Arquivos
 
-### **Localização dos Dados**
+#localizao-dos-dados-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-appdatan8n
 
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
-%APPDATA%\n8n\
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-libraryapplication Support/n8n/
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS
-~/Library/Application Support/n8n/
-
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux
-~/.config/n8n/
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-confign8n
 ```
 
-### **Diretórios Importantes**
+#diretrios-importantes-bash-n8n workflows/          #workflows-salvos-credentials        #credenciais-logs              #logs-da-aplicao-configjson        #configuraes-databasesqlite    #banco-de-dados-local
 
-```bash
-n8n/
-├── workflows/          # Workflows salvos
-├── credentials/        # Credenciais
-├── logs/              # Logs da aplicação
-├── config.json        # Configurações
-└── database.sqlite    # Banco de dados local
-```
+#cor-backup-manual-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-xcopy "%APPDATA%\n8n" "C:\backup\n8n" /E /I
 
-### **Backup Manual**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
-xcopy "%APPDATA%\n8n" "C:\backup\n8n" /E /I
-
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS/Linux
-cp -r ~/.config/n8n ~/backup/n8n
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-macoslinux-cp -r ~/.config/n8n ~/backup/n8n
 ```
 
 ---
 
-## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Desenvolvimento
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-desenvolvimento
 
-### **Modo Desenvolvedor**
-
-```bash
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Habilitar modo desenvolvedor
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows: n8n-desktop.exe --dev
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS: n8n-desktop --dev
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux: n8n-desktop --dev
+#modo-desenvolvedor-bash
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-habilitar-modo desenvolvedor
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-n8n-desktopexe --dev
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-n8n-desktop --dev
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-n8n-desktop --dev
 ```
 
-### **Logs de Desenvolvimento**
+#logs-de-desenvolvimento-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-appdatan8nlogsdesktoplog
 
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
-%APPDATA%\n8n\logs\desktop.log
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-libraryapplication Support/n8n/logs/desktop.log
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS
-~/Library/Application Support/n8n/logs/desktop.log
-
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux
-~/.config/n8n/logs/desktop.log
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-confign8nlogsdesktoplog
 ```
 
-### **Configuração para Desenvolvimento**
-
-```json
-{
+#configurao-para-desenvolvimento-json
   "development": {
     "enabled": true,
     "logLevel": "debug",
@@ -282,112 +212,91 @@ cp -r ~/.config/n8n ~/backup/n8n
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segurança
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana
 
-### **Configurações de Segurança**
-
-- **Autenticação local** - Conta de administrador
+#configuraes-de-segurana-autenticao local** - Conta de administrador
 - **Criptografia** - Dados criptografados localmente
 - **Firewall** - Use firewall do sistema operacional
 - **Atualizações** - Mantenha sempre atualizado
 
-### **Boas Práticas**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar firewall (Windows)
+#boas-prticas-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-firewall (Windows)
 netsh advfirewall firewall add rule name="n8n Desktop" dir=in action=allow protocol=TCP localport=5678
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar firewall (macOS)
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-firewall (macOS)
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add /Applications/n8n\ Desktop.app
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar firewall (Linux)
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-firewall (Linux)
 sudo ufw allow 5678/tcp
 ```
 
 ---
 
-## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
 
-### **Problemas Comuns**
+#problemas-comuns
 
-#### **Aplicação não inicia**
+#aplicao-no-inicia-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-windows-appdatan8nlogsdesktoplog
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-macos-libraryapplication Support/n8n/logs/desktop.log
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-confign8nlogsdesktoplog
 
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar logs
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows: %APPDATA%\n8n\logs\desktop.log
-# <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS: ~/Library/Application Support/n8n/logs/desktop.log
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux: ~/.config/n8n/logs/desktop.log
-
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Reinstalar aplicação
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Desinstale e baixe novamente do site oficial
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-reinstalar-aplicao
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-desinstale-e baixe novamente do site oficial
 ```
 
-#### **Porta já em uso**
+#porta-j-em-uso-bash
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-processo usando a porta
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-netstat -ano | findstr :5678
 
-```bash
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar processo usando a porta
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
-netstat -ano | findstr :5678
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-macoslinux-lsof -i :5678
 
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS/Linux
-lsof -i :5678
-
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Alterar porta na configuração
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-alterar-porta na configuração
 {
   "port": 5679
 }
 ```
 
-#### **Problemas de sincronização**
-
-```bash
-# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar conexão com internet
+#problemas-de-sincronizao-bash
+#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-conexo com internet
 ping cloud.n8n.io
 
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Limpar cache de sincronização
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Remova a pasta de cache e reconecte
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-limpar-cache de sincronização
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-remova-a pasta de cache e reconecte
 ```
 
-#### **Performance lenta**
+#performance-lenta-bash
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-recursos do sistema
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-windows-task Manager
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-activity Monitor
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-htop
 
-```bash
-# <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar recursos do sistema
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows: Task Manager
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS: Activity Monitor
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux: htop
-
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Aumentar memória disponível
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Feche outras aplicações
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-aumentar-memria disponível
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-feche-outras aplicações
 ```
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizações
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-atualizaes
 
-### **Atualizações Automáticas**
-
-- **Habilitadas por padrão**
+#atualizaes-automticas-habilitadas-por padrão**
 - **Verificação diária** de novas versões
 - **Download automático** de atualizações
 - **Instalação manual** requerida
 
-### **Atualizações Manuais**
+#atualizaes-manuais-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-verso atual
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-v-em Help > About
 
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar versão atual
-# <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Vá em Help > About
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-baixar-nova versão
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-acesse-n8niodesktop
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Baixar nova versão
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Acesse n8n.io/desktop
-
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar atualização
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Execute o novo instalador
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-atualizao
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-execute-o novo instalador
 ```
 
-### **Configurações de Atualização**
-
-```json
-{
+#configuraes-de-atualizao-json
   "updates": {
     "enabled": true,
     "checkInterval": 86400000,
@@ -399,32 +308,25 @@ ping cloud.n8n.io
 
 ---
 
-## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Suporte
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-suporte
 
-### **Recursos de Ajuda**
-
-- **Documentação oficial** - Guias detalhados
+#recursos-de-ajuda-documentao oficial** - Guias detalhados
 - **Community Forum** - Troca de experiências
 - **Discord** - Suporte em tempo real
 - **GitHub Issues** - Reportar bugs
 
-### **Logs para Suporte**
+#logs-para-suporte-bash
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-coletar-logs para suporte
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-copy "%APPDATA%\n8n\logs\*" "C:\temp\n8n-logs\"
 
-```bash
-# <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Coletar logs para suporte
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
-copy "%APPDATA%\n8n\logs\*" "C:\temp\n8n-logs\"
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-cp ~/Library/Application\ Support/n8n/logs/* ~/Desktop/n8n-logs/
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS
-cp ~/Library/Application\ Support/n8n/logs/* ~/Desktop/n8n-logs/
-
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Linux
-cp ~/.config/n8n/logs/* ~/Desktop/n8n-logs/
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-cp ~/.config/n8n/logs/* ~/Desktop/n8n-logs/
 ```
 
 ---
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você tem o n8n Desktop instalado:
 
@@ -432,9 +334,7 @@ Agora que você tem o n8n Desktop instalado:
 2. **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)** - Entenda os fundamentos
 3. **[Integrações](../../integracoes/)** - Conecte suas aplicações
 
-### **Outros Métodos de Instalação**
-
-- **[Docker](./docker)** - Containerização para produção
+#outros-mtodos-de-instalao **[Docker](./docker)** - Containerização para produção
 - **[NPM](./npm)** - Instalação local para desenvolvimento
 - **[Cloud](./cloud)** - Serviço hospedado oficial
 

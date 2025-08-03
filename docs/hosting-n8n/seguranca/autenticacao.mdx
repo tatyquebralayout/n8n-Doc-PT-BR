@@ -6,11 +6,11 @@ keywords: [n8n, autenticação, segurança, acesso, login, usuarios]
 ---
 
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Autenticação e Acesso
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-autenticao-e Acesso
 
 Este documento detalha como **configurar autenticação segura** no n8n, abordando métodos de login, integração com LDAP/Active Directory, SSO empresarial, autenticação de dois fatores, controle de sessão, e políticas de segurança que protegem o acesso à plataforma garantindo que apenas usuários autorizados possam criar, modificar ou executar workflows sensíveis em ambiente corporativo.
 
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você vai aprender
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
 
 - Métodos de autenticação disponíveis
 - Configuração de segurança avançada
@@ -20,24 +20,18 @@ Este documento detalha como **configurar autenticação segura** no n8n, abordan
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Métodos de Autenticação
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-mtodos-de Autenticação
 
-### Autenticação Básica
+#autenticao-bsica
 
-#### **Configuração Básica**
-
-```bash
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Variáveis de ambiente para autenticação básica
+#configurao-bsica-bash
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-variveis-de ambiente para autenticação básica
 N8N_BASIC_AUTH_ACTIVE=true
 N8N_BASIC_AUTH_USER=admin
 N8N_BASIC_AUTH_PASSWORD=senha_segura_complexa
 ```
 
-#### **Docker Compose**
-
-```yaml
-services:
-  n8n:
+#docker-compose-yaml-services-n8n
     image: n8nio/n8n:latest
     environment:
       - N8N_BASIC_AUTH_ACTIVE=true
@@ -47,10 +41,8 @@ services:
       - "5678:5678"
 ```
 
-#### **Política de Senhas**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar política de senhas forte
+#poltica-de-senhas-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-poltica de senhas forte
 N8N_PASSWORD_POLICY_MIN_LENGTH=12
 N8N_PASSWORD_POLICY_REQUIRE_UPPERCASE=true
 N8N_PASSWORD_POLICY_REQUIRE_LOWERCASE=true
@@ -58,34 +50,27 @@ N8N_PASSWORD_POLICY_REQUIRE_NUMBERS=true
 N8N_PASSWORD_POLICY_REQUIRE_SPECIAL_CHARS=true
 ```
 
-### Autenticação de Dois Fatores (2FA)
+#autenticao-de-dois-fatores-2fa
 
-#### **Configuração 2FA**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Ativar 2FA globalmente
+#configurao-2fa-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-ativar-2fa globalmente
 N8N_2FA_ENABLED=true
 N8N_2FA_REQUIRED=true
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de 2FA
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de 2FA
 N8N_2FA_ISSUER=n8n
 N8N_2FA_ALGORITHM=SHA1
 N8N_2FA_DIGITS=6
 N8N_2FA_PERIOD=30
 ```
 
-#### **Apps Compatíveis**
-
-- **Google Authenticator** - Mais popular
+#apps-compatveis-google-authenticator - Mais popular
 - **Microsoft Authenticator** - Integração com Azure
 - **Authy** - Backup na nuvem
 - **1Password** - Gerenciador de senhas
 - **Bitwarden** - Open source
 
-#### **Configuração por Usuário**
-
-```javascript
-// Ativar 2FA para usuário específico
+#configurao-por-usurio-javascript Ativar 2FA para usuário específico
 {
   "userId": "user123",
   "twoFactorEnabled": true,
@@ -98,12 +83,10 @@ N8N_2FA_PERIOD=30
 }
 ```
 
-### SSO (Single Sign-On)
+#sso-single-sign-on
 
-#### **SAML 2.0**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração SAML
+#saml-20-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-saml
 N8N_SAML_ENABLED=true
 N8N_SAML_ISSUER=https://seu-identity-provider.com
 N8N_SAML_ENTRY_POINT=https://seu-identity-provider.com/sso
@@ -112,10 +95,8 @@ N8N_SAML_PRIVATE_KEY=/path/to/private-key.pem
 N8N_SAML_SIGNATURE_ALGORITHM=SHA256
 ```
 
-#### **OAuth 2.0**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração OAuth 2.0
+#oauth-20-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-oauth 2.0
 N8N_OAUTH2_ENABLED=true
 N8N_OAUTH2_CLIENT_ID=seu_client_id
 N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
@@ -125,10 +106,8 @@ N8N_OAUTH2_USERINFO_URL=https://auth.provider.com/oauth/userinfo
 N8N_OAUTH2_SCOPE=openid profile email
 ```
 
-#### **OpenID Connect**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração OpenID Connect
+#openid-connect-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-openid Connect
 N8N_OIDC_ENABLED=true
 N8N_OIDC_ISSUER=https://accounts.google.com
 N8N_OIDC_CLIENT_ID=seu_client_id
@@ -136,12 +115,10 @@ N8N_OIDC_CLIENT_SECRET=seu_client_secret
 N8N_OIDC_SCOPE=openid profile email
 ```
 
-### LDAP/Active Directory
+#ldapactive-directory
 
-#### **Configuração LDAP**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração LDAP
+#configurao-ldap-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-ldap
 N8N_LDAP_ENABLED=true
 N8N_LDAP_SERVER_URL=ldap://ldap.empresa.com:389
 N8N_LDAP_BIND_DN=cn=admin,dc=empresa,dc=com
@@ -153,10 +130,8 @@ N8N_LDAP_EMAIL_ATTRIBUTE=mail
 N8N_LDAP_NAME_ATTRIBUTE=cn
 ```
 
-#### **Configuração Active Directory**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Active Directory
+#configurao-active-directory-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-active Directory
 N8N_LDAP_ENABLED=true
 N8N_LDAP_SERVER_URL=ldap://dc.empresa.com:389
 N8N_LDAP_BIND_DN=cn=admin,dc=empresa,dc=com
@@ -171,34 +146,27 @@ N8N_LDAP_GROUP_FILTER=(memberOf=cn=n8n-users,ou=groups,dc=empresa,dc=com)
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de Segurança
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de Segurança
 
-### Controle de Sessão
+#controle-de-sesso
 
-#### **Timeout de Sessão**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar timeout de sessão
-N8N_SESSION_TIMEOUT=3600  # 1 hora em segundos
-N8N_SESSION_SECRET=chave_secreta_muito_longa_e_complexa
+#timeout-de-sesso-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-timeout de sessão
+N8N_SESSION_TIMEOUT=3600  #id-1-hora-em-segundos-n8nsessionsecretchavesecretamuitolongaecomplexa
 N8N_SESSION_COOKIE_SECURE=true
 N8N_SESSION_COOKIE_HTTPONLY=true
 N8N_SESSION_COOKIE_SAMESITE=strict
 ```
 
-#### **Limite de Tentativas de Login**
+#limite-de-tentativas-de-login
 
 ```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar limite de tentativas
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-limite de tentativas
 N8N_MAX_LOGIN_ATTEMPTS=5
-N8N_LOGIN_ATTEMPT_TIMEOUT=900  # 15 minutos
-N8N_ACCOUNT_LOCKOUT_DURATION=1800  # 30 minutos
-```
+N8N_LOGIN_ATTEMPT_TIMEOUT=900  #id-15-minutos-n8naccountlockoutduration1800  #id-30-minutos
 
-#### **Configuração de Cookies**
-
-```bash
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de segurança de cookies
+#configurao-de-cookies-bash
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de segurança de cookies
 N8N_COOKIE_SECURE=true
 N8N_COOKIE_HTTPONLY=true
 N8N_COOKIE_SAMESITE=strict
@@ -206,20 +174,16 @@ N8N_COOKIE_DOMAIN=.seudominio.com
 N8N_COOKIE_PATH=/
 ```
 
-### Restrições de IP
+#restries-de-ip
 
-#### **Whitelist de IPs**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Permitir apenas IPs específicos
+#whitelist-de-ips-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-permitir-apenas IPs específicos
 N8N_ALLOWED_IPS=192.168.1.0/24,10.0.0.0/8,203.0.113.0/24
 N8N_BLOCKED_IPS=203.0.113.100,192.168.1.100
 ```
 
-#### **Configuração Nginx**
-
-```nginx
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Restrição por IP no Nginx
+#configurao-nginx-nginx
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-restrio-por IP no Nginx
 location / {
     allow 192.168.1.0/24;
     allow 10.0.0.0/8;
@@ -233,37 +197,33 @@ location / {
 }
 ```
 
-### Horários de Acesso
+#horrios-de-acesso
 
-#### **Configuração de Janelas de Tempo**
+#configurao-de-janelas-de-tempo
 
 ```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar horários de acesso
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-horrios de acesso
 N8N_ACCESS_HOURS_START=09:00
 N8N_ACCESS_HOURS_END=18:00
 N8N_ACCESS_TIMEZONE=America/Sao_Paulo
 N8N_ACCESS_DAYS=monday,tuesday,wednesday,thursday,friday
 ```
 
-#### **Script de Verificação**
-
-```bash
-#!/bin/bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> check-access-hours.sh
-
-CURRENT_TIME=$(date +%H:%M)
+#script-de-verificao-bash
+#bin/bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-check-access-hourssh-currenttimedate +%H:%M)
 CURRENT_DAY=$(date +%A | tr '[:upper:]' '[:lower:]')
 ALLOWED_START="09:00"
 ALLOWED_END="18:00"
 ALLOWED_DAYS="monday,tuesday,wednesday,thursday,friday"
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se é dia permitido
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se é dia permitido
 if [[ ! $ALLOWED_DAYS =~ $CURRENT_DAY ]]; then
     echo "Acesso negado: Fora dos dias permitidos"
     exit 1
 fi
 
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se está no horário permitido
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se está no horário permitido
 if [[ "$CURRENT_TIME" < "$ALLOWED_START" || "$CURRENT_TIME" > "$ALLOWED_END" ]]; then
     echo "Acesso negado: Fora do horário permitido"
     exit 1
@@ -275,14 +235,12 @@ exit 0
 
 ---
 
-## <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Sistemas Externos
+#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Sistemas Externos
 
-### Google Workspace
+#google-workspace
 
-#### **Configuração Google OAuth**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração para Google Workspace
+#configurao-google-oauth-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-para Google Workspace
 N8N_OAUTH2_ENABLED=true
 N8N_OAUTH2_CLIENT_ID=seu_google_client_id
 N8N_OAUTH2_CLIENT_SECRET=seu_google_client_secret
@@ -292,22 +250,18 @@ N8N_OAUTH2_USERINFO_URL=https://www.googleapis.com/oauth2/v2/userinfo
 N8N_OAUTH2_SCOPE=openid profile email
 ```
 
-#### **Configuração Google SAML**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração SAML com Google
+#configurao-google-saml-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-saml com Google
 N8N_SAML_ENABLED=true
 N8N_SAML_ISSUER=https://accounts.google.com/o/saml2?idpid=seu_idp_id
 N8N_SAML_ENTRY_POINT=https://accounts.google.com/o/saml2/idp?idpid=seu_idp_id
 N8N_SAML_CERT=/path/to/google_cert.pem
 ```
 
-### Microsoft Azure AD
+#microsoft-azure-ad
 
-#### **Configuração Azure AD**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Azure AD
+#configurao-azure-ad-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-azure AD
 N8N_OAUTH2_ENABLED=true
 N8N_OAUTH2_CLIENT_ID=seu_azure_client_id
 N8N_OAUTH2_CLIENT_SECRET=seu_azure_client_secret
@@ -317,22 +271,18 @@ N8N_OAUTH2_USERINFO_URL=https://graph.microsoft.com/v1.0/me
 N8N_OAUTH2_SCOPE=openid profile email User.Read
 ```
 
-#### **Configuração Azure AD SAML**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração SAML com Azure AD
+#configurao-azure-ad-saml-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-saml com Azure AD
 N8N_SAML_ENABLED=true
 N8N_SAML_ISSUER=https://sts.windows.net/seu_tenant_id/
 N8N_SAML_ENTRY_POINT=https://login.microsoftonline.com/seu_tenant_id/saml2
 N8N_SAML_CERT=/path/to/azure_cert.pem
 ```
 
-### GitHub Enterprise
+#github-enterprise
 
-#### **Configuração GitHub OAuth**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração GitHub Enterprise
+#configurao-github-oauth-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-github Enterprise
 N8N_OAUTH2_ENABLED=true
 N8N_OAUTH2_CLIENT_ID=seu_github_client_id
 N8N_OAUTH2_CLIENT_SECRET=seu_github_client_secret
@@ -344,14 +294,12 @@ N8N_OAUTH2_SCOPE=read:user user:email
 
 ---
 
-## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Monitoramento e Auditoria
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento-e Auditoria
 
-### Logs de Autenticação
+#logs-de-autenticao
 
-#### **Configuração de Logs**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar logs de autenticação
+#configurao-de-logs-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-logs de autenticação
 N8N_LOG_LEVEL=info
 N8N_LOG_FORMAT=json
 N8N_AUTH_LOG_ENABLED=true
@@ -359,10 +307,7 @@ N8N_AUTH_LOG_LEVEL=info
 N8N_AUTH_LOG_FILE=/var/log/n8n/auth.log
 ```
 
-#### **Eventos Monitorados**
-
-```javascript
-// Eventos de autenticação monitorados
+#eventos-monitorados-javascript-eventos de autenticação monitorados
 const authEvents = {
   login_success: "Login bem-sucedido",
   login_failed: "Tentativa de login falhou",
@@ -378,12 +323,10 @@ const authEvents = {
 };
 ```
 
-### Alertas de Segurança
+#alertas-de-segurana
 
-#### **Configuração de Alertas**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar alertas de segurança
+#configurao-de-alertas-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-alertas de segurança
 N8N_SECURITY_ALERTS_ENABLED=true
 N8N_SECURITY_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
 N8N_SECURITY_EMAIL_ALERTS=true
@@ -391,10 +334,7 @@ N8N_SECURITY_EMAIL_FROM=security@empresa.com
 N8N_SECURITY_EMAIL_TO=admin@empresa.com
 ```
 
-#### **Tipos de Alertas**
-
-```javascript
-// Configuração de alertas
+#tipos-de-alertas-javascript Configuração de alertas
 const securityAlerts = {
   failedLogins: {
     threshold: 5,
@@ -419,33 +359,27 @@ const securityAlerts = {
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Avançada
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-avanada
 
-### Proxy Reverso
+#proxy-reverso
 
-#### **Configuração Nginx com Autenticação**
-
-```nginx
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Nginx com autenticação
+#configurao-nginx-com-autenticao-nginx
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-nginx com autenticação
 server {
     listen 443 ssl http2;
     server_name seudominio.com;
 
-    # SSL Configuration
-    ssl_certificate /etc/letsencrypt/live/seudominio.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/seudominio.com/privkey.pem;
+    #ssl-configuration-sslcertificate-etcletsencryptliveseudominiocomfullchainpem-sslcertificatekey /etc/letsencrypt/live/seudominio.com/privkey.pem;
 
-    # Security Headers
-    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    #security-headers-addheader-strict-transport-security-max-age31536000 includeSubDomains" always;
     add_header X-Frame-Options DENY always;
     add_header X-Content-Type-Options nosniff always;
     add_header X-XSS-Protection "1; mode=block" always;
 
-    # Rate Limiting
-    limit_req_zone $binary_remote_addr zone=login:10m rate=5r/m;
+    #rate-limiting-limitreqzone-binaryremoteaddr-zonelogin10m rate=5r/m;
     limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
 
-    # Login endpoint com rate limiting
+    #login-endpoint-com-rate-limiting
     location /login {
         limit_req zone=login burst=3 nodelay;
         proxy_pass http://n8n_backend;
@@ -455,8 +389,7 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    # API endpoints
-    location /api/ {
+    #api-endpoints-location-api
         limit_req zone=api burst=20 nodelay;
         proxy_pass http://n8n_backend;
         proxy_set_header Host $host;
@@ -465,8 +398,7 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    # General proxy
-    location / {
+    #general-proxy-location
         proxy_pass http://n8n_backend;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -476,12 +408,10 @@ server {
 }
 ```
 
-### Headers de Segurança
+#headers-de-segurana
 
-#### **Configuração Completa de Headers**
-
-```nginx
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Headers de segurança completos
+#configurao-completa-de-headers-nginx
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-headers-de segurança completos
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
 add_header X-Frame-Options DENY always;
 add_header X-Content-Type-Options nosniff always;
@@ -493,35 +423,27 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Segurança
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Segurança
 
-### Autenticação
-
-- [ ] Autenticação básica configurada
+#autenticao-autenticao básica configurada
 - [ ] 2FA ativado para usuários críticos
 - [ ] Política de senhas forte implementada
 - [ ] SSO configurado (se aplicável)
 - [ ] LDAP/AD integrado (se aplicável)
 
-### Sessão
-
-- [ ] Timeout de sessão configurado
+#sesso-timeout de sessão configurado
 - [ ] Limite de tentativas de login definido
 - [ ] Cookies seguros configurados
 - [ ] Sessão secreta definida
 - [ ] Logout automático implementado
 
-### Rede
-
-- [ ] Restrições de IP configuradas
+#rede-restries de IP configuradas
 - [ ] Firewall configurado
 - [ ] VPN implementada (se necessário)
 - [ ] Acesso remoto seguro
 - [ ] Logs de acesso ativados
 
-### Monitoramento
-
-- [ ] Logs de autenticação ativados
+#monitoramento-logs de autenticação ativados
 - [ ] Alertas de segurança configurados
 - [ ] Auditoria de acesso implementada
 - [ ] Relatórios de segurança gerados
@@ -529,7 +451,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 
 ---
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você configurou a autenticação:
 

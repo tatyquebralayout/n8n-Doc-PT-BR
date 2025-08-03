@@ -5,11 +5,11 @@ sidebar_position: 1
 keywords: [n8n, manual trigger, execução manual, teste, desenvolvimento, workflow]
 ---
 
-# <IonicIcon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Manual Trigger
+#ionicicon-nameplay-circle-outline-style-fontsize-24px color: '#cor-ea4b71-manual-trigger
 
 O **Manual Trigger** é o node mais fundamental do n8n, permitindo executar workflows manualmente. É essencial para testes, desenvolvimento e execução sob demanda de automações.
 
-## O que é o Manual Trigger?
+#o-que-o-manual Trigger?
 
 O **Manual Trigger** permite:
 
@@ -20,7 +20,7 @@ O **Manual Trigger** permite:
 - **Executar workflows** sob demanda
 - **Criar workflows** independentes de eventos externos
 
-### Quando Usar o Manual Trigger
+#quando-usar-o-manual-trigger
 
 - **Desenvolvimento** e teste de workflows
 - **Execução manual** de automações
@@ -29,11 +29,9 @@ O **Manual Trigger** permite:
 - **Processamento** sob demanda
 - **Workflows** que não dependem de eventos
 
-## Configuração Básica
+#configurao-bsica
 
-### Estrutura do Manual Trigger
-
-```javascript
+#estrutura-do-manual-trigger-javascript
 // Manual Trigger - Estrutura básica
 {
   "name": "Manual Trigger",
@@ -49,12 +47,9 @@ O **Manual Trigger** permite:
 }
 ```
 
-### Configuração de Dados de Entrada
+#configurao-de-dados-de-entrada
 
-#### 1. Dados Simples
-
-```javascript
-// Dados básicos
+#id-1-dados-simples-javascript Dados básicos
 {
   "name": "nome",
   "value": "João Silva"
@@ -71,10 +66,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-#### 2. Dados Estruturados
-
-```javascript
-// Objeto complexo
+#id-2-dados-estruturados-javascript Objeto complexo
 {
   "name": "cliente",
   "value": {
@@ -87,9 +79,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-#### 3. Arrays de Dados
-
-```javascript
+#id-3-arrays-de-dados-javascript
 // Lista de itens
 {
   "name": "produtos",
@@ -108,9 +98,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-#### 4. Dados com Expressões
-
-```javascript
+#id-4-dados-com-expresses-javascript
 // Usar expressões para dados dinâmicos
 {
   "name": "data_atual",
@@ -128,9 +116,9 @@ O **Manual Trigger** permite:
 }
 ```
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### 1. Teste de Validação de Dados
+#id-1-teste-de-validao-de Dados
 
 ```javascript
 // Manual Trigger - Teste de validação
@@ -162,9 +150,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 2. Simulação de Pedido
-
-```javascript
+#id-2-simulao-de-pedido-javascript
 // Manual Trigger - Simular pedido
 {
   "name": "Simular Pedido",
@@ -203,9 +189,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 3. Teste de API
-
-```javascript
+#id-3-teste-de-api-javascript
 // Manual Trigger - Teste de API
 {
   "name": "Teste API",
@@ -232,9 +216,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 4. Simulação de Evento
-
-```javascript
+#id-4-simulao-de-evento-javascript
 // Manual Trigger - Simular evento
 {
   "name": "Simular Evento",
@@ -264,7 +246,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 5. Teste de Processamento em Lote
+#id-5-teste-de-processamento-em Lote
 
 ```javascript
 // Manual Trigger - Processamento em lote
@@ -307,9 +289,9 @@ O **Manual Trigger** permite:
 }
 ```
 
-## Casos de Uso Avançados
+#casos-de-uso-avanados
 
-### 1. Teste com Diferentes Cenários
+#id-1-teste-com-diferentes-cenrios
 
 ```javascript
 // Manual Trigger - Múltiplos cenários
@@ -356,7 +338,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 2. Simulação de Dados Reais
+#id-2-simulao-de-dados-reais
 
 ```javascript
 // Manual Trigger - Dados realistas
@@ -388,9 +370,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 3. Teste de Performance
-
-```javascript
+#id-3-teste-de-performance-javascript
 // Manual Trigger - Teste de performance
 {
   "name": "Teste Performance",
@@ -406,9 +386,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 4. Simulação de Erros
-
-```javascript
+#id-4-simulao-de-erros-javascript
 // Manual Trigger - Simular erros
 {
   "name": "Simular Erros",
@@ -447,12 +425,9 @@ O **Manual Trigger** permite:
 }
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Nomenclatura Descritiva
-
-```javascript
-// ✅ Bom: Nome descritivo
+#id-1-nomenclatura-descritiva-javascript ✅ Bom: Nome descritivo
 {
   "name": "Teste Validação Cliente VIP"
 }
@@ -463,10 +438,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 2. Documentação Clara
-
-```javascript
-// ✅ Bom: Descrição detalhada
+#id-2-documentao-clara-javascript ✅ Bom: Descrição detalhada
 {
   "description": "Testar validação de dados de cliente VIP com valores altos"
 }
@@ -477,10 +449,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 3. Dados Realistas
-
-```javascript
-// ✅ Bom: Dados que simulam produção
+#id-3-dados-realistas-javascript ✅ Bom: Dados que simulam produção
 {
   "value": {
     "nome": "João Silva",
@@ -499,10 +468,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 4. Múltiplos Cenários
-
-```javascript
-// ✅ Bom: Testar diferentes cenários
+#id-4-mltiplos-cenrios-javascript ✅ Bom: Testar diferentes cenários
 {
   "data": [
     { "name": "sucesso", "value": {...} },
@@ -519,41 +485,35 @@ O **Manual Trigger** permite:
 }
 ```
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Workflow não executa
-- Verifique se o Manual Trigger está conectado
+#workflow-no-executa-verifique se o Manual Trigger está conectado
 - Confirme se há dados de entrada
 - Teste com dados simples
 - Verifique logs de erro
 
-#### Dados não aparecem
-- Verifique a estrutura dos dados
+#cor-dados-no-aparecem-verifique a estrutura dos dados
 - Confirme se os campos estão corretos
 - Teste com dados básicos
 - Use Debug Helper
 
-#### Performance lenta
-- Reduza volume de dados de teste
+#performance-lenta-reduza-volume de dados de teste
 - Simplifique expressões
 - Use dados otimizados
 - Monitore recursos
 
-### Debug
-
-```javascript
-// Code Node - Debug de Manual Trigger
+#cor-debug-javascript-code-node - Debug de Manual Trigger
 ;
 
 // Usar após o Manual Trigger
 return { json: debugManualTrigger($json) };
 ```
 
-## Integração com Outros Nodes
+#integrao-com-outros-nodes
 
-### 1. Manual Trigger + Set Node
+#id-1-manual-trigger-set Node
 
 ```javascript
 // Manual Trigger - Dados básicos
@@ -583,7 +543,7 @@ return { json: debugManualTrigger($json) };
 }
 ```
 
-### 2. Manual Trigger + If Node
+#id-2-manual-trigger-if Node
 
 ```javascript
 // Manual Trigger - Dados de teste
@@ -603,7 +563,7 @@ return { json: debugManualTrigger($json) };
 }
 ```
 
-### 3. Manual Trigger + HTTP Request
+#id-3-manual-trigger-http Request
 
 ```javascript
 // Manual Trigger - Configuração de API
@@ -626,9 +586,7 @@ return { json: debugManualTrigger($json) };
 }
 ```
 
-## Próximos Passos
-
-- [Schedule Trigger](/integracoes/trigger-nodes/time-based/schedule-trigger) - Execução automática
+#prximos-passos-schedule-triggerintegracoestrigger-nodestime-basedschedule-trigger - Execução automática
 - [Webhook Trigger](/integracoes/trigger-nodes/event-based/webhook-trigger) - Receber dados externos
 - [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
 - [Set Node](/integracoes/builtin-nodes/data-processing/set) - Manipulação de dados

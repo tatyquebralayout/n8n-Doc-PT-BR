@@ -5,15 +5,13 @@ description: Implemente RAG (Retrieval-Augmented Generation) com arquivos no n8n
 keywords: [n8n, rag, arquivos, ia, retrieval, vector database, embeddings, busca semântica, automação Brasil, compliance LGPD, assistente de documentação, busca empresarial]
 ---
 
-# RAG com Arquivos no n8n: Busca Inteligente e Compliance para Empresas Brasileiras
+#rag-com-arquivos-no-n8n Busca Inteligente e Compliance para Empresas Brasileiras
 
 Este guia ensina como implementar RAG (Retrieval-Augmented Generation) com arquivos no n8n, criando sistemas de busca inteligente, assistentes de documentação, compliance LGPD e automação de conhecimento para empresas brasileiras.
 
-## O que é RAG?
+#o-que-rag-rag (Retrieval-Augmented Generation) é uma técnica que combina modelos de linguagem com fontes de dados externas para gerar respostas mais precisas e contextualizadas. Em vez de depender apenas do conhecimento interno do modelo, o RAG recupera documentos relevantes para fundamentar as respostas em conhecimento atualizado e específico do domínio.
 
-RAG (Retrieval-Augmented Generation) é uma técnica que combina modelos de linguagem com fontes de dados externas para gerar respostas mais precisas e contextualizadas. Em vez de depender apenas do conhecimento interno do modelo, o RAG recupera documentos relevantes para fundamentar as respostas em conhecimento atualizado e específico do domínio.
-
-## Caso de Uso: Assistente de Documentação Empresarial
+#caso-de-uso-assistente-de Documentação Empresarial
 
 Imagine uma empresa brasileira que possui milhares de documentos internos (manuais, políticas, procedimentos) e precisa de um assistente que possa responder perguntas específicas sobre esses documentos. O RAG permite criar um sistema que:
 
@@ -22,9 +20,7 @@ Imagine uma empresa brasileira que possui milhares de documentos internos (manua
 - **Gera respostas precisas** baseadas no contexto específico
 - **Mantém compliance** com dados sensíveis da empresa
 
-## Arquitetura do Workflow
-
-O workflow RAG com arquivos segue uma arquitetura em duas fases principais:
+#arquitetura-do-workflow-o-workflow RAG com arquivos segue uma arquitetura em duas fases principais:
 
 ```mermaid
 graph TD
@@ -43,23 +39,12 @@ graph TD
         I -->|Responde| F
     end
     
-    style A fill:#e3f2fd
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-    style D fill:#fff3e0
-    style E fill:#fce4ec
-    style F fill:#e0f2f1
-    style G fill:#f1f8e9
-    style H fill:#fff8e1
-    style I fill:#e8eaf6
-```
+    style A fill:#cor-e3f2fd-style-b-fill#cor-f3e5f5-style-c-fill#cor-e8f5e8-style-d-fill#cor-fff3e0-style-e-fill#cor-fce4ec-style-f-fill#cor-e0f2f1-style-g-fill#cor-f1f8e9-style-h-fill#cor-fff8e1-style-i-fill#cor-e8eaf6
 
-## Implementação Passo a Passo
-
-<details>
+#implementao-passo-a-passo-details
 <summary>Implementação Passo a Passo</summary>
 
-### Passo 1: Configurar o Vector Store
+#passo-1-configurar-o-vector Store
 
 Primeiro, configure um vector store para armazenar os embeddings dos seus documentos:
 
@@ -75,9 +60,7 @@ Primeiro, configure um vector store para armazenar os embeddings dos seus docume
 }
 ```
 
-### Passo 2: Processar Documentos
-
-Use o **Default Data Loader** para processar diferentes tipos de arquivo:
+#passo-2-processar-documentos-use o **Default Data Loader** para processar diferentes tipos de arquivo:
 
 ```json
 {
@@ -91,7 +74,7 @@ Use o **Default Data Loader** para processar diferentes tipos de arquivo:
 }
 ```
 
-### Passo 3: Configurar o Agente RAG
+#passo-3-configurar-o-agente RAG
 
 Configure um agente que usa o vector store como ferramenta:
 
@@ -126,18 +109,9 @@ graph TD
     E -->|Armazena| F[<IonicIcon name="folder-open-outline" /> Vector Store Insert<br/>Indexação Completa]
     F -->|Confirma| G[<IonicIcon name="checkmark-circle-outline" /> Success Response<br/>Documento Indexado]
     
-    style A fill:#e3f2fd
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-    style D fill:#fff3e0
-    style E fill:#fce4ec
-    style F fill:#f1f8e9
-    style G fill:#e0f2f1
-```
+    style A fill:#cor-e3f2fd-style-b-fill#cor-f3e5f5-style-c-fill#cor-e8f5e8-style-d-fill#cor-fff3e0-style-e-fill#cor-fce4ec-style-f-fill#cor-f1f8e9-style-g-fill#cor-e0f2f1-details
 
-</details>
-
-### Workflow 2: Interface de Chat
+#workflow-2-interface-de-chat
 
 ```mermaid
 graph TD
@@ -146,35 +120,24 @@ graph TD
     C -->|Recupera| D[<IonicIcon name="document-text-outline" /> Generate Response<br/>Resposta Contextualizada]
     D -->|Retorna| E[<IonicIcon name="send-outline" /> Return to User<br/>Resposta Final]
     
-    style A fill:#e3f2fd
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-    style D fill:#fff3e0
-    style E fill:#e0f2f1
-```
+    style A fill:#cor-e3f2fd-style-b-fill#cor-f3e5f5-style-c-fill#cor-e8f5e8-style-d-fill#cor-fff3e0-style-e-fill#cor-e0f2f1
 
-## Configurações Recomendadas
+#configuraes-recomendadas
 
-### Para Documentos Brasileiros
-
-- **Embedding Model**: `text-embedding-3-large` (melhor para português)
+#para-documentos-brasileiros-embedding Model**: `text-embedding-3-large` (melhor para português)
 - **Chunk Size**: 500-1000 caracteres
 - **Chunk Overlap**: 200 caracteres
 - **Metadata**: Incluir informações como departamento, data, autor
 
-### Para Compliance LGPD
-
-- **Criptografia**: Habilitar criptografia no vector store
+#para-compliance-lgpd-criptografia Habilitar criptografia no vector store
 - **Retenção**: Configurar políticas de retenção de dados
 - **Acesso**: Implementar controle de acesso baseado em roles
 
-## Exemplo Prático: Manual de Procedimentos
+#exemplo-prtico-manual-de-procedimentos
 
 Vamos implementar um sistema para um manual de procedimentos de uma empresa brasileira:
 
-### 1. Estrutura de Dados
-
-```json
+#id-1-estrutura-de-dados-json
 {
   "documento": "Manual de Procedimentos RH",
   "departamento": "Recursos Humanos",
@@ -185,10 +148,7 @@ Vamos implementar um sistema para um manual de procedimentos de uma empresa bras
 }
 ```
 
-### 2. Prompts Otimizados
-
-```javascript
-// Prompt para busca
+#id-2-prompts-otimizados-javascript Prompt para busca
 const searchPrompt = `
 Você é um assistente especializado em procedimentos empresariais brasileiros.
 Responda baseado APENAS nos documentos fornecidos.
@@ -206,28 +166,21 @@ Baseado nos documentos recuperados, forneça uma resposta clara e estruturada:
 `;
 ```
 
-## Monitoramento e Otimização
+#monitoramento-e-otimizao
 
-### Métricas Importantes
-
-- **Taxa de Recuperação**: Quantas perguntas encontram documentos relevantes
+#mtricas-importantes-taxa-de Recuperação**: Quantas perguntas encontram documentos relevantes
 - **Precisão das Respostas**: Avaliação da qualidade das respostas
 - **Tempo de Resposta**: Performance do sistema
 - **Uso de Tokens**: Custos de operação
 
-### Otimizações
-
-1. **Ajustar Chunk Size**: Teste diferentes tamanhos para seu tipo de documento
+#otimizaes-1-ajustar-chunk-size Teste diferentes tamanhos para seu tipo de documento
 2. **Melhorar Metadata**: Adicione tags e categorias mais específicas
 3. **Refinar Prompts**: Otimize os prompts para seu contexto específico
 4. **Implementar Cache**: Cache respostas frequentes para reduzir custos
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
-
-**Respostas Genéricas**
-- Verifique se o vector store tem dados suficientes
+#problemas-comuns-respostas-genricas Verifique se o vector store tem dados suficientes
 - Ajuste o número de chunks retornados
 - Melhore a qualidade dos prompts
 
@@ -241,17 +194,13 @@ Baseado nos documentos recuperados, forneça uma resposta clara e estruturada:
 - Implemente controle de acesso
 - Use criptografia no vector store
 
-## Próximos Passos
-
-1. **Implemente o workflow básico** com documentos de teste
+#prximos-passos-1-implemente-o workflow básico** com documentos de teste
 2. **Adicione seus documentos** e teste com perguntas reais
 3. **Otimize as configurações** baseado no feedback dos usuários
 4. **Implemente monitoramento** para acompanhar a performance
 5. **Expanda para outros tipos** de documento conforme necessário
 
-## Recursos Adicionais
-
-- [Tutorial de IA](/advanced-ai/tutorial-ai)
+#recursos-adicionais-tutorial-de IA](/advanced-ai/tutorial-ai)
 - [Templates de Workflow RAG](https://n8n.io/workflows/?categories=25)
 - [Compliance LGPD](/privacidade-seguranca/lgpd-compliance)
 

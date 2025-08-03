@@ -5,11 +5,11 @@ sidebar_position: 2
 keywords: [n8n, set node, manipulação, dados, transformação, campos, valores]
 ---
 
-# <IonicIcon name="add-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Set Node
+#ionicicon-nameadd-circle-outline-style-fontsize-24px color: '#cor-ea4b71-set-node
 
 O **Set Node** é um dos nodes mais versáteis do n8n para manipulação de dados. Ele permite adicionar, modificar ou remover campos dos dados que fluem através do workflow.
 
-## O que é o Set Node?
+#o-que-o-set Node?
 
 O **Set Node** permite:
 
@@ -20,7 +20,7 @@ O **Set Node** permite:
 - **Calcular** valores baseados em outros campos
 - **Formatar** dados para uso posterior
 
-### Quando Usar o Set Node
+#quando-usar-o-set-node
 
 - **Transformação** básica de dados
 - **Adição** de metadados (timestamps, IDs)
@@ -29,11 +29,9 @@ O **Set Node** permite:
 - **Limpeza** de dados (remoção de campos)
 - **Padronização** de estruturas de dados
 
-## Configuração Básica
+#configurao-bsica
 
-### Estrutura do Set Node
-
-```javascript
+#estrutura-do-set-node-javascript
 // Set Node - Estrutura básica
 {
   "mode": "keepOnlySet", // ou "keepAllSet", "keepOnlySet", "keepAllExceptSet"
@@ -60,29 +58,24 @@ O **Set Node** permite:
 }
 ```
 
-### Modos de Operação
+#modos-de-operao
 
-#### 1. Keep All Set
-- **Mantém** todos os campos existentes
+#id-1-keep-all-set **Mantém** todos os campos existentes
 - **Adiciona** novos campos especificados
 - **Modifica** campos existentes se especificados
 
-#### 2. Keep Only Set
-- **Remove** todos os campos existentes
+#id-2-keep-only-set **Remove** todos os campos existentes
 - **Mantém** apenas os campos especificados
 - **Adiciona** novos campos especificados
 
-#### 3. Keep All Except Set
+#id-3-keep-all-except-set
 - **Mantém** todos os campos existentes
 - **Remove** apenas os campos especificados
 - **Adiciona** novos campos especificados
 
-## Tipos de Valores
+#tipos-de-valores
 
-### 1. String
-
-```javascript
-// Adicionar campo de texto
+#id-1-string-javascript-adicionar campo de texto
 {
   "name": "status",
   "value": "ativo"
@@ -101,10 +94,7 @@ O **Set Node** permite:
 }
 ```
 
-### 2. Number
-
-```javascript
-// Adicionar número fixo
+#id-2-number-javascript-adicionar número fixo
 {
   "name": "quantidade",
   "value": 100
@@ -123,10 +113,7 @@ O **Set Node** permite:
 }
 ```
 
-### 3. Boolean
-
-```javascript
-// Valor booleano fixo
+#id-3-boolean-javascript-valor booleano fixo
 {
   "name": "processado",
   "value": true
@@ -145,10 +132,7 @@ O **Set Node** permite:
 }
 ```
 
-### 4. Object
-
-```javascript
-// Objeto simples
+#id-4-object-javascript-objeto simples
 {
   "name": "endereco",
   "value": {
@@ -170,10 +154,7 @@ O **Set Node** permite:
 }
 ```
 
-### 5. Array
-
-```javascript
-// Array simples
+#id-5-array-javascript-array simples
 {
   "name": "tags",
   "value": ["urgente", "importante", "cliente"]
@@ -192,12 +173,9 @@ O **Set Node** permite:
 }
 ```
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### 1. Adicionar Metadados
-
-```javascript
-// Set Node - Adicionar metadados
+#id-1-adicionar-metadados-javascript Set Node - Adicionar metadados
 {
   "mode": "keepAllSet",
   "values": {
@@ -227,9 +205,7 @@ O **Set Node** permite:
 }
 ```
 
-### 2. Formatação de Dados
-
-```javascript
+#id-2-formatao-de-dados-javascript
 // Set Node - Formatação de dados
 {
   "mode": "keepAllSet",
@@ -252,10 +228,7 @@ O **Set Node** permite:
 }
 ```
 
-### 3. Cálculos Financeiros
-
-```javascript
-// Set Node - Cálculos financeiros
+#id-3-clculos-financeiros-javascript Set Node - Cálculos financeiros
 {
   "mode": "keepAllSet",
   "values": {
@@ -281,9 +254,7 @@ O **Set Node** permite:
 }
 ```
 
-### 4. Validação e Classificação
-
-```javascript
+#id-4-validao-e-classificao-javascript
 // Set Node - Validação e classificação
 {
   "mode": "keepAllSet",
@@ -316,9 +287,7 @@ O **Set Node** permite:
 }
 ```
 
-### 5. Limpeza de Dados
-
-```javascript
+#id-5-limpeza-de-dados-javascript
 // Set Node - Limpeza de dados
 {
   "mode": "keepOnlySet",
@@ -357,9 +326,7 @@ O **Set Node** permite:
 }
 ```
 
-### 6. Agregação de Dados
-
-```javascript
+#id-6-agregao-de-dados-javascript
 // Set Node - Agregação de dados
 {
   "mode": "keepAllSet",
@@ -388,11 +355,9 @@ O **Set Node** permite:
 }
 ```
 
-## Casos de Uso Avançados
+#casos-de-uso-avanados
 
-### 1. Transformação de Estrutura
-
-```javascript
+#id-1-transformao-de-estrutura-javascript
 // Set Node - Transformar estrutura de dados
 {
   "mode": "keepOnlySet",
@@ -429,10 +394,7 @@ O **Set Node** permite:
 }
 ```
 
-### 2. Condicionais Avançadas
-
-```javascript
-// Set Node - Condicionais avançadas
+#id-2-condicionais-avanadas-javascript Set Node - Condicionais avançadas
 {
   "mode": "keepAllSet",
   "values": {
@@ -462,9 +424,7 @@ O **Set Node** permite:
 }
 ```
 
-### 3. Manipulação de Arrays
-
-```javascript
+#id-3-manipulao-de-arrays-javascript
 // Set Node - Manipulação de arrays
 {
   "mode": "keepAllSet",
@@ -497,11 +457,9 @@ O **Set Node** permite:
 }
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Nomenclatura de Campos
-
-```javascript
+#id-1-nomenclatura-de-campos-javascript
 // ✅ Bom: Nomes descritivos
 {
   "name": "data_processamento",
@@ -515,9 +473,7 @@ O **Set Node** permite:
 }
 ```
 
-### 2. Validação de Dados
-
-```javascript
+#id-2-validao-de-dados-javascript
 // ✅ Bom: Validar antes de usar
 {
   "name": "valor_formatado",
@@ -531,9 +487,7 @@ O **Set Node** permite:
 }
 ```
 
-### 3. Organização de Campos
-
-```javascript
+#id-3-organizao-de-campos-javascript
 // ✅ Bom: Agrupar campos relacionados
 {
   "mode": "keepAllSet",
@@ -551,10 +505,7 @@ O **Set Node** permite:
 }
 ```
 
-### 4. Performance
-
-```javascript
-// ✅ Bom: Cálculos eficientes
+#id-4-performance-javascript Bom: Cálculos eficientes
 {
   "name": "total",
   "value": "{{ $json.preco * $json.quantidade }}"
@@ -567,32 +518,26 @@ O **Set Node** permite:
 }
 ```
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Campo não aparece
-- Verifique se o modo está correto
+#campo-no-aparece-verifique se o modo está correto
 - Confirme se o nome do campo está correto
 - Teste com valor simples primeiro
 - Verifique se há erros de sintaxe
 
-#### Valor incorreto
-- Verifique a expressão usada
+#valor-incorreto-verifique-a expressão usada
 - Confirme se os campos de origem existem
 - Teste com dados de exemplo
 - Use Debug Helper para ver dados
 
-#### Performance lenta
-- Evite cálculos complexos
+#performance-lenta-evite-clculos complexos
 - Use expressões simples
 - Limite o número de campos
 - Considere usar Code Node para lógica complexa
 
-### Debug
-
-```javascript
-// Code Node - Debug de Set Node
+#cor-debug-javascript-code-node - Debug de Set Node
 : ${typeof v}`));
   console.log('========================');
   
@@ -603,9 +548,9 @@ O **Set Node** permite:
 return { json: debugSetNode($json) };
 ```
 
-## Integração com Outros Nodes
+#integrao-com-outros-nodes
 
-### 1. Set Node + If Node
+#id-1-set-node-if Node
 
 ```javascript
 // Set Node - Preparar dados para condição
@@ -629,7 +574,7 @@ return { json: debugSetNode($json) };
 }
 ```
 
-### 2. Set Node + HTTP Request
+#id-2-set-node-http Request
 
 ```javascript
 // Set Node - Preparar dados para API
@@ -660,9 +605,7 @@ return { json: debugSetNode($json) };
 }
 ```
 
-## Próximos Passos
-
-- [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
+#prximos-passos-code-nodeintegracoesbuiltin-nodescore-nodescode - Lógica customizada
 - [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
 - [Aggregate Node](/integracoes/builtin-nodes/data-processing/aggregate) - Agregação de dados
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões avançadas

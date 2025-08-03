@@ -5,118 +5,25 @@ description: Configure n8n para ambientes de produção robustos e seguros
 keywords: [n8n, configuração, variáveis, banco de dados, redis, ssl, https]
 ---
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração do n8n
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-do n8n
 
 Configure sua instância n8n para ambientes de produção com segurança, performance e escalabilidade. Esta seção abrange todas as configurações essenciais para um deploy robusto.
 
-## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você encontrará aqui
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você encontrará aqui
 
-- [Variáveis de Ambiente](#variaveis-de-ambiente): Configuração essencial e segurança
-- [Banco de Dados](#banco-de-dados): PostgreSQL, MySQL e otimizações
-- [Sistema de Filas](#sistema-de-filas): Redis e processamento distribuído
-- [SSL/HTTPS](#ssl-https): Segurança e certificados
-- [Conceitos Fundamentais](#conceitos-fundamentais): Arquitetura e componentes
-- [Checklist de Produção](#checklist-de-producao): Configurações essenciais
-
----
-
-## <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Variáveis de Ambiente {#variaveis-de-ambiente}
-
-**[Configuração Completa](./variaveis-ambiente)** – Variáveis essenciais, segurança, performance e separação de ambientes
-
-**Principais configurações:**
-- **N8N_BASIC_AUTH_ACTIVE**: Autenticação básica
-- **N8N_ENCRYPTION_KEY**: Chave de criptografia
-- **N8N_DATABASE_TYPE**: Tipo de banco de dados
-- **N8N_REDIS_URL**: URL do Redis para filas
-
----
-
-## <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Banco de Dados {#banco-de-dados}
-
-**[Configuração Completa](./database)** – PostgreSQL (recomendado), MySQL, otimizações e backup
-
-**Opções disponíveis:**
-- **PostgreSQL**: Recomendado para produção
-- **MySQL**: Alternativa compatível
-- **SQLite**: Apenas para desenvolvimento
-
----
-
-## <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Sistema de Filas {#sistema-de-filas}
-
-**[Configuração Completa](./queues)** – Redis, processamento distribuído, workers e escalabilidade
-
-**Benefícios:**
-- **Processamento paralelo** de workflows
-- **Escalabilidade horizontal** com múltiplos workers
-- **Resiliência** contra falhas
-- **Performance** otimizada
-
----
-
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> SSL/HTTPS {#ssl-https}
-
-**[Configuração Completa](./ssl-https)** – HTTPS seguro, certificados, Nginx e security headers
-
-**Segurança essencial:**
-- **Certificados SSL/TLS** para criptografia
-- **Security headers** para proteção
-- **Renovação automática** de certificados
-- **Configuração Nginx** para proxy reverso
-
----
-
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conceitos Fundamentais {#conceitos-fundamentais}
-
-### Arquitetura de Configuração
-
-O n8n utiliza uma arquitetura modular que permite:
-
-- **Separação de responsabilidades** entre componentes
-- **Escalabilidade independente** de cada serviço
-- **Configuração flexível** para diferentes ambientes
-- **Manutenção simplificada** com isolamento
-
-### Componentes Principais
-
-1. **Web Server**: Interface e API REST
-2. **Database**: Armazenamento persistente
-3. **Queue System**: Processamento assíncrono
-4. **File Storage**: Arquivos temporários
-5. **Reverse Proxy**: SSL e load balancing
-
-### Ambientes de Configuração
-
-- **Desenvolvimento**: Configuração mínima
-- **Teste**: Configuração similar à produção
-- **Produção**: Configuração completa e segura
-
----
-
-## <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Produção {#checklist-de-producao}
-
-### Segurança
-- [ ] **Autenticação configurada** (Basic Auth ou OAuth)
-- [ ] **HTTPS habilitado** com certificado válido
-- [ ] **Variáveis sensíveis** em variáveis de ambiente
-- [ ] **Firewall configurado** para portas necessárias
-
-### Performance
-- [ ] **Banco de dados otimizado** (PostgreSQL recomendado)
+- [Variáveis de Ambiente](#variaveis-de-ambiente-configurao-essencial-e-segurana-banco-de-dadosbanco-de-dados-postgresql-mysql-e-otimizaes-sistema-de-filassistema-de-filas-redis-e-processamento-distribudo-sslhttpsssl-https-segurana-e-certificados-conceitos-fundamentaisconceitos-fundamentais-arquitetura-e-componentes-checklist-de-produochecklist-de-producao-configuraes-essenciais-ionicicon-namekey-outline-style-fontsize-24px-color-cor-ea4b71-variveis-de-ambiente-variaveis-de-ambiente-configurao-completavariaveis-ambiente-variveis-essenciais-segurana-performance-e-separao-de-ambientes-principais-configuraes-n8nbasicauthactive-autenticao-bsica-n8nencryptionkey-chave-de-criptografia-n8ndatabasetype-tipo-de-banco-de-dados-n8nredisurl-url-do-redis-para-filas-ionicicon-nameserver-outline-style-fontsize-24px-color-cor-ea4b71-banco-de-dados-banco-de-dados-configurao-completadatabase-postgresql-recomendado-mysql-otimizaes-e-backup-opes-disponveis-postgresql-recomendado-para-produo-mysql-alternativa-compatvel-sqlite-apenas-para-desenvolvimento-ionicicon-namegit-network-outline-style-fontsize-24px-color-cor-ea4b71-sistema-de-filas-sistema-de-filas-configurao-completaqueues-redis-processamento-distribudo-workers-e-escalabilidade-benefcios-processamento-paralelo-de-workflows-escalabilidade-horizontal-com-mltiplos-workers-resilincia-contra-falhas-performance-otimizada-ionicicon-nameshield-checkmark-outline-style-fontsize-24px-color-cor-ea4b71-sslhttps-ssl-https-configurao-completassl-https-https-seguro-certificados-nginx-e-security-headers-segurana-essencial-certificados-ssltls-para-criptografia-security-headers-para-proteo-renovao-automtica-de-certificados-configurao-nginx-para-proxy-reverso-ionicicon-nameschool-outline-style-fontsize-24px-color-cor-ea4b71-conceitos-fundamentais-conceitos-fundamentais-arquitetura-de-configurao-o-n8n-utiliza-uma-arquitetura-modular-que-permite-separao-de-responsabilidades-entre-componentes-escalabilidade-independente-de-cada-servio-configurao-flexvel-para-diferentes-ambientes-manuteno-simplificada-com-isolamento-componentes-principais-1-web-server-interface-e-api-rest-2-database-armazenamento-persistente-3-queue-system-processamento-assncrono-4-file-storage-arquivos-temporrios-5-reverse-proxy-ssl-e-load-balancing-ambientes-de-configurao-desenvolvimento-configurao-mnima-teste-configurao-similar-produo-produo-configurao-completa-e-segura-ionicicon-namecheckmark-circle-outline-style-fontsize-24px-color-cor-ea4b71-checklist-de-produo-checklist-de-producao-segurana-autenticao-configurada-basic-auth-ou-oauth-https-habilitado-com-certificado-vlido-variveis-sensveis-em-variveis-de-ambiente-firewall-configurado-para-portas-necessrias-performance-banco-de-dados-otimizado-postgresql-recomendado)
 - [ ] **Redis configurado** para filas
 - [ ] **Logs configurados** para monitoramento
 - [ ] **Backup automatizado** implementado
 
-### Monitoramento
-- [ ] **Health checks** configurados
+#monitoramento-health checks** configurados
 - [ ] **Alertas** para falhas críticas
 - [ ] **Métricas** de performance coletadas
 - [ ] **Logs centralizados** para análise
 
 ---
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 1. **Configure [Variáveis de Ambiente](./variaveis-ambiente)** para sua instância
 2. **Configure [Banco de Dados](./database)** para produção
@@ -124,7 +31,7 @@ O n8n utiliza uma arquitetura modular que permite:
 
 ---
 
-## <IonicIcon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
+#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-relacionados
 
 - **[Instalação](../instalacao/)** – Instale antes de configurar
 - **[Segurança](../seguranca/)** – Proteja sua instância

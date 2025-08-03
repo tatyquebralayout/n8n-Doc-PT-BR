@@ -7,9 +7,9 @@ keywords: [reStructuredText, Sphinx, Docusaurus, híbrido, documentação, RST]
 
 import HybridProcessor from '@site/src/components/HybridProcessor';
 
-# Recursos Híbridos de Documentação
+#recursos-hbridos-de-documentao
 
-## <IonicIcon name="flask-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Visão Geral
+#ionicicon-nameflask-outline-style-fontsize-24px color: '#cor-ea4b71-viso-geral
 
 Esta página demonstra como podemos integrar funcionalidades avançadas do **reStructuredText** e **Sphinx** mantendo o **Docusaurus** como tema principal. Esta abordagem híbrida oferece o melhor dos três mundos: simplicidade do Markdown, poder do RST e funcionalidades especializadas do Sphinx.
 
@@ -19,11 +19,9 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
 
 ---
 
-## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Testes de Componentes
+#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-testes-de Componentes
 
-### Teste RST Simples
-
-<HybridProcessor type="rst" content={`
+#teste-rst-simples-hybridprocessor-typerst content={`
 .. note:: Teste de Nota
    Esta é uma nota de teste para verificar se o componente está funcionando.
 
@@ -31,9 +29,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
    Este é um aviso de teste.
 `} />
 
-### Teste Sphinx Simples
-
-<HybridProcessor type="sphinx" content={`
+#teste-sphinx-simples-hybridprocessor-typesphinx content={`
 .. n8n-workflow:: test-workflow
    :title: Workflow de Teste
    :description: Um workflow simples para teste
@@ -45,20 +41,16 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
       :config: { "method": "GET" }
 `} />
 
-### Teste de Detecção Automática
-
-<HybridProcessor content={`
+#teste-de-deteco-automtica-hybridprocessor content={`
 .. note:: Detecção Automática
    Este conteúdo deve ser detectado automaticamente como RST.
 `} />
 
 ---
 
-## <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Sintaxe reStructuredText Integrada
+#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-sintaxe-restructuredtext Integrada
 
-### Notas e Advertências Estruturadas
-
-<HybridProcessor content={`
+#notas-e-advertncias-estruturadas-hybridprocessor content={`
 .. note:: Nota importante
    Esta é uma nota usando sintaxe reStructuredText
    processada pelo docutils e renderizada no Docusaurus.
@@ -89,9 +81,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
    Use para micro-interações e melhorias.
 `} />
 
-### Blocos de Código Avançados
-
-<HybridProcessor content={`
+#blocos-de-cdigo-avanados-hybridprocessor content={`
 .. code-block:: javascript
    :caption: Exemplo de Workflow n8n
    :name: workflow-example
@@ -139,16 +129,12 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
                })
        return processed
    
-   # Exemplo de uso
-   webhook_data = requests.get('http://localhost:5678/webhook/test').json()
+   #exemplo-de-uso-webhookdata requests.get('http://localhost:5678/webhook/test').json()
    result = process_webhook_data(webhook_data)
    print(f"Processados {len(result)} itens")
 `} />
 
-### Tabelas Complexas
-
-<HybridProcessor content={`
-.. table:: Comparação de Integrações
+#tabelas-complexas-hybridprocessor-content table:: Comparação de Integrações
    :widths: 20 30 25 25
    :align: center
    :class: comparison-table
@@ -187,11 +173,9 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
 
 ---
 
-## <IonicIcon name="layers-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Workflows Sphinx Avançados
+#ionicicon-namelayers-outline-style-fontsize-24px color: '#cor-ea4b71-workflows-sphinx Avançados
 
-### Automação de E-commerce
-
-<HybridProcessor content={`
+#automao-de-e-commerce-hybridprocessor-content
 .. n8n-workflow:: ecommerce-automation
    :title: Automação Completa de E-commerce
    :description: Workflow para automação de vendas online com integração PIX
@@ -225,10 +209,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
       :service: n8n-nodes-base.whatsapp
 `} />
 
-### Conciliação Bancária
-
-<HybridProcessor content={`
-.. n8n-workflow:: financial-reconciliation
+#conciliao-bancria-hybridprocessor-content n8n-workflow:: financial-reconciliation
    :title: Conciliação Bancária Automática
    :description: Sistema de conciliação automática com APIs bancárias
    :nodes: 12
@@ -262,11 +243,9 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
 
 ---
 
-## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Diretivas Sphinx Customizadas
+#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-diretivas-sphinx Customizadas
 
-### Documentação de Workflows n8n
-
-<HybridProcessor content={`
+#documentao-de-workflows-n8n-hybridprocessor content={`
 .. n8n-workflow:: lead-processing-workflow
    :title: Workflow de Processamento de Leads
    :description: Automatiza o processamento completo de leads do formulário web até o CRM
@@ -340,9 +319,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
    
    .. workflow-step:: slack-notification
       :description: Notifica equipe de vendas sobre novo lead
-      :channel: "#leads"
-      :template: |
-         🎯 *Novo Lead Qualificado*
+      :channel: "#leads-template-novo Lead Qualificado*
          *Nome:* {name}
          *Email:* {email}
          *Empresa:* {company}
@@ -371,9 +348,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
       :config: { "operation": "insert", "table": "leads_backup" }
 `} />
 
-### Diagramas Técnicos com Graphviz
-
-<HybridProcessor content={`
+#diagramas-tcnicos-com-graphviz-hybridprocessor content={`
 .. graphviz:: n8n-architecture
    :caption: Arquitetura Completa de Workflow n8n
    :align: center
@@ -468,9 +443,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
    }
 `} />
 
-### Documentação de API Estruturada
-
-<HybridProcessor content={`
+#documentao-de-api-estruturada-hybridprocessor content={`
 .. http:post:: /api/v1/workflows/{id}/execute
    :synopsis: Executa um workflow específico do n8n
    
@@ -564,7 +537,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
       }
 `} />
 
-### Documentação de Endpoints de Webhook
+#documentao-de-endpoints-de-webhook
 
 <HybridProcessor content={`
 .. http:post:: /webhook/leads
@@ -631,11 +604,9 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
 
 ---
 
-## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Índices e Cross-References
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-ndices-e Cross-References
 
-### Índice Automático com Sphinx
-
-<HybridProcessor content={`
+#ndice-automtico-com-sphinx-hybridprocessor content={`
 .. index::
    single: n8n; introdução
    single: automação; plataformas
@@ -652,10 +623,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
    see: Sphinx; documentação técnica
 `} />
 
-### Referências Cruzadas
-
-<HybridProcessor content={`
-.. _workflow-examples: https://docs.n8n.io/workflows/
+#referncias-cruzadas-hybridprocessor-content _workflow-examples: https://docs.n8n.io/workflows/
 .. _api-reference: https://docs.n8n.io/api/
 .. _node-documentation: https://docs.n8n.io/nodes/
 
@@ -668,12 +636,9 @@ Para detalhes sobre nodes específicos, acesse :ref:\`node-documentation\`.
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Diagramas e Visualizações
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-diagramas-e Visualizações
 
-### Diagramas Graphviz
-
-<HybridProcessor content={`
-.. graphviz:: workflow-diagram
+#diagramas-graphviz-hybridprocessor-content graphviz:: workflow-diagram
    :caption: Fluxo de Automação de Vendas
    :align: center
 
@@ -747,12 +712,9 @@ Para detalhes sobre nodes específicos, acesse :ref:\`node-documentation\`.
 
 ---
 
-## <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Documentação de API
+#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-documentao-de API
 
-### Endpoints REST
-
-<HybridProcessor content={`
-.. http:get:: /api/v1/workflows
+#endpoints-rest-hybridprocessor-content http:get:: /api/v1/workflows
    :synopsis: Lista todos os workflows disponíveis
    
    :param limit: Número máximo de workflows a retornar
@@ -830,11 +792,9 @@ Para detalhes sobre nodes específicos, acesse :ref:\`node-documentation\`.
 
 ---
 
-## <IonicIcon name="calculator-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Matemática e Métricas
+#ionicicon-namecalculator-outline-style-fontsize-24px color: '#cor-ea4b71-matemtica-e Métricas
 
-### Equações e Fórmulas
-
-<HybridProcessor content={`
+#equaes-e-frmulas-hybridprocessor-content
 .. math::
    :label: eq:workflow-complexity
    
@@ -870,9 +830,7 @@ Para detalhes sobre nodes específicos, acesse :ref:\`node-documentation\`.
    - C_{maintenance} is the maintenance cost
 `} />
 
-### Estatísticas de Performance
-
-<HybridProcessor content={`
+#estatsticas-de-performance-hybridprocessor-content
 .. table:: Métricas de Execução
    :widths: 25 25 25 25
    :align: center
@@ -880,13 +838,13 @@ Para detalhes sobre nodes específicos, acesse :ref:\`node-documentation\`.
    +----------------+----------------+----------------+----------------+
    | Métrica        | Valor Atual    | Meta           | Status         |
    +================+================+================+================+
-   | Execuções/dia  | 1,250          | 1,000          | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Excedida    |
+   | Execuções/dia  | 1,250          | 1,000          | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-excedida    |
    +----------------+----------------+----------------+----------------+
-   | Tempo médio    | 2.3s           | < 3s           | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Dentro      |
+   | Tempo médio    | 2.3s           | < 3s           | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-dentro      |
    +----------------+----------------+----------------+----------------+
-   | Taxa de erro   | 0.5%           | < 1%           | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Dentro      |
+   | Taxa de erro   | 0.5%           | < 1%           | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-dentro      |
    +----------------+----------------+----------------+----------------+
-   | Uptime         | 99.8%          | > 99.5%        | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Dentro      |
+   | Uptime         | 99.8%          | > 99.5%        | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-dentro      |
    +----------------+----------------+----------------+----------------+
 
 .. rubric:: Análise de Custos
@@ -900,7 +858,7 @@ ROI estimado: 340% (baseado em economia de tempo manual)
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Benefícios da Abordagem Híbrida
+#ionicicon-namecheckmark-circle-outline-style-fontsize-24px color: '#cor-ea4b71-benefcios-da Abordagem Híbrida
 
 :::tip Vantagens da Integração Híbrida
 - **Markdown simples** para conteúdo básico e rápido
@@ -911,26 +869,23 @@ ROI estimado: 340% (baseado em economia de tempo manual)
 - **Compatibilidade total** com ecossistema existente
 :::
 
-### **Funcionalidades Disponíveis:**
+#funcionalidades-disponveis
 
-#### 1. **reStructuredText:**
-- ✅ Notas, avisos e advertências estruturadas
+#id-1-restructuredtext-notas avisos e advertências estruturadas
 - ✅ Blocos de código com syntax highlighting avançado
 - ✅ Tabelas complexas e alinhadas
 - ✅ Diretivas customizadas
 - ✅ Cross-references automáticos
 - ✅ Índices estruturados
 
-#### 2. **Sphinx:**
-- ✅ Diagramas técnicos (Graphviz)
+#id-2-sphinx-diagramas técnicos (Graphviz)
 - ✅ Documentação de API estruturada
 - ✅ Índices automáticos
 - ✅ Cross-references avançadas
 - ✅ Diretivas customizadas para n8n
 - ✅ Processamento de workflows
 
-#### 3. **Docusaurus:**
-- ✅ Tema visual consistente
+#id-3-docusaurus-tema visual consistente
 - ✅ Navegação e sidebar
 - ✅ Busca integrada
 - ✅ Responsividade
@@ -939,63 +894,52 @@ ROI estimado: 340% (baseado em economia de tempo manual)
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Como Usar
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-como-usar
 
-### **Para Autores de Conteúdo:**
-
-1. **Conteúdo Básico**: Use Markdown normalmente
+#para-autores-de-contedo-1 **Conteúdo Básico**: Use Markdown normalmente
 2. **Documentação Técnica**: Use blocos RST dentro de ```rst
 3. **Workflows n8n**: Use diretivas `.. n8n-workflow::`
 4. **Diagramas**: Use `.. graphviz::` para diagramas técnicos
 5. **APIs**: Use `.. http::` para documentação de endpoints
 
-### **Para Desenvolvedores:**
-
-1. **Componentes React**: Já implementados e funcionais
+#para-desenvolvedores-1-componentes-react Já implementados e funcionais
 2. **Processamento Automático**: Detecta automaticamente o tipo de conteúdo
 3. **Fallback Graceful**: Se RST falhar, mostra como código
 4. **Extensibilidade**: Fácil adicionar novas diretivas
 
-### **Para Administradores:**
-
-1. **Build Pipeline**: Processamento automático no build
+#para-administradores-1-build-pipeline Processamento automático no build
 2. **Performance**: Otimizado para não impactar velocidade
 3. **Compatibilidade**: Não quebra conteúdo existente
 4. **Manutenção**: Código modular e bem documentado
 
 ---
 
-## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Práticos
+#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Práticos
 
-### **1. Documentação de Workflows Complexos**
+#id-1-documentao-de-workflows-complexos
 - Workflows com múltiplos nós
 - Lógica de negócio detalhada
 - Configurações específicas
 - Exemplos de código
 
-### **2. Documentação de API**
-- Endpoints estruturados
+#id-2-documentao-de-api Endpoints estruturados
 - Parâmetros e respostas
 - Exemplos de uso
 - Códigos de erro
 
-### **3. Diagramas Arquiteturais**
-- Fluxos de dados
+#id-3-diagramas-arquiteturais-fluxos de dados
 - Arquitetura de sistemas
 - Relacionamentos entre componentes
 - Processos de negócio
 
-### **4. Guias Técnicos**
-- Tutoriais passo a passo
+#id-4-guias-tcnicos-tutoriais passo a passo
 - Configurações avançadas
 - Troubleshooting
 - Boas práticas
 
 ---
 
-## <IonicIcon name="heart-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Contribuição
-
-Esta funcionalidade híbrida é mantida pela comunidade brasileira de n8n. Para contribuir:
+#ionicicon-nameheart-outline-style-fontsize-24px color: '#cor-ea4b71-contribuio-esta funcionalidade híbrida é mantida pela comunidade brasileira de n8n. Para contribuir:
 
 - **Reportar bugs**: Use o sistema de issues do GitHub
 - **Sugerir melhorias**: Abra uma discussão na comunidade
@@ -1020,14 +964,13 @@ Esta funcionalidade é implementada através de componentes React customizados q
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conclusão e Funcionalidades Implementadas
+#ionicicon-namecheckmark-circle-outline-style-fontsize-24px color: '#cor-ea4b71-concluso-e Funcionalidades Implementadas
 
 Esta página demonstra o poder da abordagem híbrida combinando as melhores funcionalidades de três ecossistemas de documentação:
 
-### ✅ **Funcionalidades reStructuredText Implementadas**
+#funcionalidades-restructuredtext-implementadas
 
-#### **Admonitions (Notas e Avisos)**
-- `.. note::` - Notas informativas
+#admonitions-notas-e-avisos `.. note::` - Notas informativas
 - `.. warning::` - Avisos importantes
 - `.. tip::` - Dicas úteis
 - `.. important::` - Informações cruciais
@@ -1035,123 +978,105 @@ Esta página demonstra o poder da abordagem híbrida combinando as melhores func
 - `.. error::` - Demonstração de erros
 - `.. hint::` - Sugestões rápidas
 
-#### **Blocos de Código Avançados**
-- `.. code-block::` com suporte a múltiplas linguagens
+#blocos-de-cdigo-avanados `.. code-block::` com suporte a múltiplas linguagens
 - Atributos: `:caption:`, `:name:`, `:linenos:`, `:emphasize-lines:`
 - Destaque de sintaxe automático
 - Numeração de linhas
 - Destaque de linhas específicas
 
-#### **Tabelas Complexas**
-- `.. table::` com controle de larguras
+#tabelas-complexas-table com controle de larguras
 - Atributos: `:widths:`, `:align:`, `:class:`
 - Suporte a tabelas complexas com múltiplas colunas
 - Alinhamento personalizado
 - Classes CSS customizadas
 
-#### **Matemática e Fórmulas**
-- `.. math::` para equações matemáticas
+#matemtica-e-frmulas math::` para equações matemáticas
 - Suporte a LaTeX para fórmulas complexas
 - Labels para referências cruzadas
 - Fórmulas de complexidade, tempo de execução, custos
 
-### ✅ **Funcionalidades Sphinx Implementadas**
+#funcionalidades-sphinx-implementadas
 
-#### **Workflows n8n Detalhados**
-- `.. n8n-workflow::` para documentação de workflows
+#workflows-n8n-detalhados n8n-workflow::` para documentação de workflows
 - Atributos: `:title:`, `:description:`, `:nodes:`, `:executions:`
 - `.. workflow-step::` para documentar passos individuais
 - Suporte a código JavaScript/Python inline
 - Configurações de serviços e templates
 
-#### **Diagramas Graphviz**
-- `.. graphviz::` para diagramas de fluxo
+#diagramas-graphviz-graphviz para diagramas de fluxo
 - Suporte a subgraphs e clusters
 - Cores e estilos personalizados
 - Diagramas de arquitetura de sistema
 - Fluxos de automação visual
 
-#### **Documentação de API**
-- `.. http:get::`, `.. http:post::`, `.. http:put::` para endpoints
+#documentao-de-api http:get::`, `.. http:post::`, `.. http:put::` para endpoints
 - Parâmetros com tipos e descrições
 - Códigos de status HTTP
 - Exemplos de request/response em JSON
 - Synopsis e documentação completa
 
-### ✅ **Funcionalidades Híbridas Avançadas**
+#funcionalidades-hbridas-avanadas
 
-#### **Detecção Automática de Tipo**
-- Análise inteligente do conteúdo
+#deteco-automtica-de-tipo Análise inteligente do conteúdo
 - Identificação automática de RST vs Sphinx
 - Fallback graceful para Markdown
 - Logs de debug para troubleshooting
 
-#### **Estilos Visuais Integrados**
-- Componentes React customizados
+#estilos-visuais-integrados-componentes React customizados
 - CSS responsivo e moderno
 - Ícones Ionic integrados
 - Badges indicativos de tipo de processamento
 - Bordas coloridas para identificação visual
 
-#### **Compatibilidade Total**
-- Integração seamless com Docusaurus
+#compatibilidade-total-integrao-seamless com Docusaurus
 - Suporte a MDX para componentes React
 - Preservação de funcionalidades nativas do Docusaurus
 - Admonitions nativas do Docusaurus mantidas
 
-### 🚀 **Próximas Funcionalidades Planejadas**
+#prximas-funcionalidades-planejadas
 
-#### **reStructuredText Avançado**
-- `.. figure::` para imagens com legendas
+#restructuredtext-avanado-figure para imagens com legendas
 - `.. rubric::` para títulos de seção
 - `.. epigraph::` para citações
 - `.. bibliography::` para referências
 - `.. index::` para índices automáticos
 - `.. glossary::` para glossários
 
-#### **Sphinx Avançado**
-- `.. toctree::` para navegação hierárquica
+#sphinx-avanado-toctree para navegação hierárquica
 - `.. automodule::` para documentação automática de código
 - `.. autoclass::` para classes Python
 - `.. autofunction::` para funções
 - `.. versionadded::` e `.. versionchanged::` para changelog
 
-#### **Funcionalidades Experimentais**
-- Suporte a diagramas Mermaid
+#funcionalidades-experimentais-suporte-a diagramas Mermaid
 - Componentes customizados para casos específicos
 - Sistema de templates para workflows
 - Integração com APIs brasileiras (ViaCEP, Receita Federal)
 - Sistema de métricas e analytics
 
-### 💡 **Casos de Uso Ideais**
+#casos-de-uso-ideais
 
-#### **Documentação Técnica**
-- APIs REST com exemplos completos
+#documentao-tcnica-apis-rest com exemplos completos
 - Workflows complexos com diagramas
 - Arquiteturas de sistema
 - Guias de implementação passo a passo
 
-#### **Documentação Empresarial**
-- Relatórios com métricas e estatísticas
+#documentao-empresarial-relatrios-com métricas e estatísticas
 - Análises de custo e ROI
 - Comparações de tecnologias
 - Estudos de caso detalhados
 
-#### **Tutoriais Interativos**
-- Exemplos práticos e executáveis
+#tutoriais-interativos-exemplos-prticos e executáveis
 - Código com syntax highlighting
 - Fluxos de automação visual
 - Troubleshooting guiado
 
-#### **Referências e Glossários**
-- Índices automáticos
+#referncias-e-glossrios-ndices automáticos
 - Cross-references inteligentes
 - Glossários técnicos
 - Bibliografias estruturadas
 
-### 🎯 **Vantagens da Abordagem Híbrida**
-
-1. **Simplicidade do Markdown**: Fácil de escrever e manter
+#vantagens-da-abordagem-hbrida-1 **Simplicidade do Markdown**: Fácil de escrever e manter
 2. **Poder do reStructuredText**: Estrutura hierárquica e formatação rica
 3. **Funcionalidades do Sphinx**: Documentação técnica especializada
 4. **Tema do Docusaurus**: Interface moderna e responsiva
@@ -1163,9 +1088,9 @@ Esta abordagem híbrida oferece uma solução completa para documentação técn
 
 ---
 
-## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Funcionalidades Avançadas do reStructuredText
+#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-funcionalidades-avanadas do reStructuredText
 
-### <IonicIcon name="image-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Figuras e Imagens
+#ionicicon-nameimage-outline-style-fontsize-20px color: '#cor-10b981-figuras-e Imagens
 
 <HybridProcessor content={`
 .. figure:: /img/n8n_mono_claro.webp
@@ -1177,7 +1102,7 @@ Esta abordagem híbrida oferece uma solução completa para documentação técn
    Logo oficial do n8n em versão clara
 `} />
 
-### <IonicIcon name="text-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Rubricas e Títulos Especiais
+#ionicicon-nametext-outline-style-fontsize-20px color: '#cor-10b981-rubricas-e Títulos Especiais
 
 <HybridProcessor content={`
 .. rubric:: Título Especial sem Numeração
@@ -1185,7 +1110,7 @@ Esta abordagem híbrida oferece uma solução completa para documentação técn
 Este é um título especial que não aparece na numeração automática.
 `} />
 
-### <IonicIcon name="list-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Lista de Tabelas
+#ionicicon-namelist-outline-style-fontsize-20px color: '#cor-10b981-lista-de Tabelas
 
 <HybridProcessor content={`
 .. list-table:: Integrações Populares
@@ -1213,7 +1138,7 @@ Este é um título especial que não aparece na numeração automática.
      - Gerenciamento de tarefas
 `} />
 
-### <IonicIcon name="code-slash-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Código com Atributos Avançados
+#ionicicon-namecode-slash-outline-style-fontsize-20px color: '#cor-10b981-cdigo-com Atributos Avançados
 
 <HybridProcessor content={`
 .. code-block:: javascript
@@ -1244,7 +1169,7 @@ const workflow = {
 };
 `} />
 
-### <IonicIcon name="document-text-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Tópicos e Sidebars
+#ionicicon-namedocument-text-outline-style-fontsize-20px color: '#cor-10b981-tpicos-e Sidebars
 
 <HybridProcessor content={`
 .. topic:: Informação Importante
@@ -1263,7 +1188,7 @@ ou dicas especiais para o usuário.
 
 **Esta página demonstra o poder e a flexibilidade do sistema híbrido de documentação, combinando a simplicidade do Markdown com o poder expressivo do reStructuredText e Sphinx, mantendo o Docusaurus como base sólida e confiável.**
 
-### <IonicIcon name="analytics-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Tabelas com Alinhamento e Larguras
+#ionicicon-nameanalytics-outline-style-fontsize-20px color: '#cor-10b981-tabelas-com Alinhamento e Larguras
 
 <HybridProcessor content={`
 .. table:: Métricas de Performance
@@ -1274,13 +1199,13 @@ ou dicas especiais para o usuário.
    +----------------+----------------+----------------+----------------+
    | Métrica        | Valor Atual    | Meta           | Status         |
    +================+================+================+================+
-   | Execuções/dia  | 1,250          | 1,000          | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Excedida    |
+   | Execuções/dia  | 1,250          | 1,000          | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-excedida    |
    +----------------+----------------+----------------+----------------+
-   | Tempo médio    | 2.3s           | < 3s           | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Dentro      |
+   | Tempo médio    | 2.3s           | < 3s           | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-dentro      |
    +----------------+----------------+----------------+----------------+
-   | Taxa de erro   | 0.5%           | < 1%           | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Dentro      |
+   | Taxa de erro   | 0.5%           | < 1%           | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-dentro      |
    +----------------+----------------+----------------+----------------+
-   | Uptime         | 99.8%          | > 99.5%        | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Dentro      |
+   | Uptime         | 99.8%          | > 99.5%        | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-dentro      |
    +----------------+----------------+----------------+----------------+
 
 .. rubric:: Análise de Custos
@@ -1292,7 +1217,7 @@ Custo total mensal: R$ 5,625
 ROI estimado: 340% (baseado em economia de tempo manual)
 `} />
 
-### <IonicIcon name="git-compare-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Tabela de Comparação
+#ionicicon-namegit-compare-outline-style-fontsize-20px color: '#cor-10b981-tabela-de Comparação
 
 <HybridProcessor content={`
 .. table:: Comparação de Funcionalidades
@@ -1303,19 +1228,19 @@ ROI estimado: 340% (baseado em economia de tempo manual)
    +----------------+----------------+----------------+
    | Funcionalidade | Markdown       | RST/Sphinx    |
    +================+================+================+
-   | Simplicidade   | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Excelente   | <IonicIcon name="warning" style="color: #f59e0b; font-size: 16px;" /> Moderada   |
+   | Simplicidade   | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-excelente   | <IonicIcon name="warning" style="color: #cor-f59e0b-font-size-16px-moderada   |
    +----------------+----------------+----------------+
-   | Poder Expressivo| <IonicIcon name="warning" style="color: #f59e0b; font-size: 16px;" /> Limitado   | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Avançado   |
+   | Poder Expressivo| <IonicIcon name="warning" style="color: #cor-f59e0b-font-size-16px-limitado   | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-avanado   |
    +----------------+----------------+----------------+
-   | Integração     | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Nativa      | <IonicIcon name="construct" style="color: #6b7280; font-size: 16px;" /> Customizada |
+   | Integração     | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-nativa      | <IonicIcon name="construct" style="color: #cor-6b7280-font-size-16px-customizada |
    +----------------+----------------+----------------+
-   | Performance    | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Rápida      | <IonicIcon name="warning" style="color: #f59e0b; font-size: 16px;" /> Processamento|
+   | Performance    | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-rpida      | <IonicIcon name="warning" style="color: #cor-f59e0b-font-size-16px-processamento
    +----------------+----------------+----------------+
-   | Extensibilidade| <IonicIcon name="warning" style="color: #f59e0b; font-size: 16px;" /> Limitada    | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Infinita    |
+   | Extensibilidade| <IonicIcon name="warning" style="color: #cor-f59e0b-font-size-16px-limitada    | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-infinita    |
    +----------------+----------------+----------------+
 `} />
 
-### <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Tabela de Status
+#ionicicon-namecheckmark-circle-outline-style-fontsize-20px color: '#cor-10b981-tabela-de Status
 
 <HybridProcessor content={`
 .. table:: Status dos Componentes
@@ -1326,19 +1251,19 @@ ROI estimado: 340% (baseado em economia de tempo manual)
    +----------------+----------------+----------------+----------------+
    | Componente     | Status         | Versão         | Última Atualização |
    +================+================+================+================+
-   | RSTProcessor   | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Ativo       | 1.2.0          | 2024-01-15        |
+   | RSTProcessor   | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-ativo       | 1.2.0          | 2024-01-15        |
    +----------------+----------------+----------------+----------------+
-   | SphinxProcessor| <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Ativo       | 1.1.5          | 2024-01-14        |
+   | SphinxProcessor| <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-ativo       | 1.1.5          | 2024-01-14        |
    +----------------+----------------+----------------+----------------+
-   | HybridProcessor| <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Ativo       | 1.3.0          | 2024-01-16        |
+   | HybridProcessor| <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-ativo       | 1.3.0          | 2024-01-16        |
    +----------------+----------------+----------------+----------------+
-   | CSS Styles     | <IonicIcon name="checkmark-circle" style="color: #10b981; font-size: 16px;" /> Ativo       | 1.0.8          | 2024-01-13        |
+   | CSS Styles     | <IonicIcon name="checkmark-circle" style="color: #cor-10b981-font-size-16px-ativo       | 1.0.8          | 2024-01-13        |
    +----------------+----------------+----------------+----------------+
-   | Python Parser  | <IonicIcon name="warning" style="color: #f59e0b; font-size: 16px;" /> Manutenção  | 0.9.2          | 2024-01-10        |
+   | Python Parser  | <IonicIcon name="warning" style="color: #cor-f59e0b-font-size-16px-manuteno  | 0.9.2          | 2024-01-10        |
    +----------------+----------------+----------------+----------------+
 `} />
 
-### <IonicIcon name="trending-up-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Tabela de Tendências
+#ionicicon-nametrending-up-outline-style-fontsize-20px color: '#cor-10b981-tabela-de Tendências
 
 <HybridProcessor content={`
 .. table:: Análise de Tendências
@@ -1348,19 +1273,19 @@ ROI estimado: 340% (baseado em economia de tempo manual)
    +----------------+----------------+----------------+----------------+
    | Período        | Execuções      | Performance    | Tendência      |
    +================+================+================+================+
-   | Janeiro        | 1,250          | 95%            | <IonicIcon name="trending-up" style="color: #10b981; font-size: 16px;" /> Crescente   |
+   | Janeiro        | 1,250          | 95%            | <IonicIcon name="trending-up" style="color: #cor-10b981-font-size-16px-crescente   |
    +----------------+----------------+----------------+----------------+
-   | Fevereiro      | 1,380          | 97%            | <IonicIcon name="trending-up" style="color: #10b981; font-size: 16px;" /> Crescente   |
+   | Fevereiro      | 1,380          | 97%            | <IonicIcon name="trending-up" style="color: #cor-10b981-font-size-16px-crescente   |
    +----------------+----------------+----------------+----------------+
-   | Março          | 1,520          | 98%            | <IonicIcon name="trending-up" style="color: #10b981; font-size: 16px;" /> Crescente   |
+   | Março          | 1,520          | 98%            | <IonicIcon name="trending-up" style="color: #cor-10b981-font-size-16px-crescente   |
    +----------------+----------------+----------------+----------------+
-   | Abril          | 1,450          | 96%            | <IonicIcon name="trending-down" style="color: #ef4444; font-size: 16px;" /> Decrescente |
+   | Abril          | 1,450          | 96%            | <IonicIcon name="trending-down" style="color: #cor-ef4444-font-size-16px-decrescente |
    +----------------+----------------+----------------+----------------+
-   | Maio           | 1,680          | 99%            | <IonicIcon name="trending-up" style="color: #10b981; font-size: 16px;" /> Crescente   |
+   | Maio           | 1,680          | 99%            | <IonicIcon name="trending-up" style="color: #cor-10b981-font-size-16px-crescente   |
    +----------------+----------------+----------------+----------------+
 `} />
 
-### <IonicIcon name="calculator-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Equações Matemáticas
+#ionicicon-namecalculator-outline-style-fontsize-20px color: '#cor-10b981-equaes-matemticas
 
 <HybridProcessor content={`
 .. math::
@@ -1398,7 +1323,7 @@ ROI estimado: 340% (baseado em economia de tempo manual)
  - C_{maintenance} é o custo de manutenção
 `} />
 
-### <IonicIcon name="git-network-outline" style={{ fontSize: '20px', color: '#10b981' }} /> Diagramas Graphviz
+#ionicicon-namegit-network-outline-style-fontsize-20px color: '#cor-10b981-diagramas-graphviz
 
 <HybridProcessor content={`
 .. graphviz::

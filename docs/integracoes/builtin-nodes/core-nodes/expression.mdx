@@ -5,11 +5,11 @@ description: Use expressões JavaScript inline em outros nodes do n8n
 keywords: [n8n, expression, javascript, inline, expressões, variáveis]
 ---
 
-# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Expression Node
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-expression-node
 
 O **Expression Node** não é um node tradicional, mas sim um **sistema de expressões** que permite usar código JavaScript inline em outros nodes do n8n. É fundamental para acessar dados dinâmicos e criar valores calculados.
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Conceito Principal**
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-conceito-principal
 
 **Expression = "Código JavaScript Inline"**
 
@@ -22,29 +22,21 @@ As expressões permitem:
 
 > **💡 Dica:** As expressões são usadas em campos de outros nodes, não como um node separado.
 
-## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Sintaxe Básica**
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-sintaxe-bsica
 
-### **1. Estrutura das Expressões**
-
-```javascript
+#id-1-estrutura-das-expresses-javascript
 {{ expressão JavaScript }}
 ```
 
-### **2. Exemplos Simples**
-
-```javascript
-{{ $json.nome }}                    // Acessar campo 'nome'
+#id-2-exemplos-simples-javascript $json.nome }}                    // Acessar campo 'nome'
 {{ $json.preco * 1.1 }}            // Calcular com 10% de acréscimo
 {{ $json.ativo ? 'Sim' : 'Não' }}  // Condicional ternário
 {{ new Date().toISOString() }}     // Data/hora atual
 ```
 
-## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Variáveis Disponíveis**
+#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-variveis-disponveis
 
-### **Acesso a Dados**
-
-```javascript
-// Dados do item atual
+#cor-acesso-a-dados-javascript Dados do item atual
 $json                    // Dados JSON do item atual
 $binary                  // Dados binários (se houver)
 
@@ -61,10 +53,7 @@ $position                // Posição do item (0, 1, 2...)
 $index                   // Índice do item (1, 2, 3...)
 ```
 
-### **Exemplos de Uso**
-
-```javascript
-// Acessar dados do item atual
+#exemplos-de-uso-javascript Acessar dados do item atual
 {{ $json.email }}
 {{ $json.nome + ' ' + $json.sobrenome }}
 
@@ -76,9 +65,9 @@ $index                   // Índice do item (1, 2, 3...)
 {{ $workflow.name }}
 ```
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Casos de Uso Práticos**
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Práticos**
 
-### **1. HTTP Request - URL Dinâmica**
+#id-1-http-request-url Dinâmica**
 
 **Configuração:**
 
@@ -100,24 +89,24 @@ URL: {{ 'https://api.exemplo.com/usuarios/' + $json.id }}
 https://api.exemplo.com/usuarios/123
 ```
 
-### **2. Email - Assunto Dinâmico**
+#id-2-email-assunto-dinmico
 
 **Configuração:**
 
 ```
 To: {{ $json.email }}
-Subject: {{ 'Pedido #' + $json.numero_pedido + ' - ' + $json.status }}
+Subject: {{ 'Pedido #jsonnumeropedido + $json.status }}
 Body: |
   Olá {{ $json.nome }},
   
-  Seu pedido #{{ $json.numero_pedido }} foi {{ $json.status }}.
+  Seu pedido #jsonnumeropedido-foi-jsonstatus }}.
   
   Valor: R$ {{ $json.valor.toFixed(2) }}
   
   Obrigado!
 ```
 
-### **3. Set Node - Campos Calculados**
+#id-3-set-node-campos Calculados**
 
 **Configuração:**
 
@@ -132,7 +121,7 @@ Campo: categoria
 Valor: {{ $json.valor > 1000 ? 'premium' : 'standard' }}
 ```
 
-### **4. IF Node - Condições Dinâmicas**
+#id-4-if-node-condies Dinâmicas**
 
 **Configuração:**
 
@@ -150,7 +139,7 @@ Condição: {{ $json.valor > 500 && $json.ativo }}
 }}
 ```
 
-### **5. Schedule Trigger - Horário Dinâmico**
+#id-5-schedule-trigger-horrio Dinâmico**
 
 **Configuração:**
 
@@ -171,12 +160,9 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 0 9 * * *
 ```
 
-## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Expressões Avançadas**
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-expresses-avanadas
 
-### **Manipulação de Arrays**
-
-```javascript
-// Acessar primeiro elemento
+#manipulao-de-arrays-javascript Acessar primeiro elemento
 {{ $json.produtos[0].nome }}
 
 // Contar elementos
@@ -189,10 +175,7 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 {{ $json.produtos.reduce((total, p) => total + p.preco, 0).toFixed(2) }}
 ```
 
-### **Manipulação de Strings**
-
-```javascript
-// Capitalizar
+#manipulao-de-strings-javascript Capitalizar
 {{ $json.nome.charAt(0).toUpperCase() + $json.nome.slice(1) }}
 
 // Substituir caracteres
@@ -205,10 +188,7 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 {{ $json.titulo.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') }}
 ```
 
-### **Cálculos Matemáticos**
-
-```javascript
-// Cálculo com desconto
+#clculos-matemticos-javascript-clculo com desconto
 {{ ($json.preco * (1 - $json.desconto / 100)).toFixed(2) }}
 
 // Calcular impostos
@@ -221,10 +201,7 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 {{ ((($json.atual - $json.anterior) / $json.anterior) * 100).toFixed(1) + '%' }}
 ```
 
-### **Condicionais Complexas**
-
-```javascript
-// Múltiplas condições
+#condicionais-complexas-javascript-mltiplas condições
 {{ 
   $json.idade < 18 ? 'menor' : 
   $json.idade < 25 ? 'jovem' : 
@@ -243,10 +220,7 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 }}
 ```
 
-### **Formatação de Datas**
-
-```javascript
-// Data atual formatada
+#formatao-de-datas-javascript Data atual formatada
 {{ new Date().toLocaleDateString('pt-BR') }}
 
 // Data específica
@@ -264,12 +238,9 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 }}
 ```
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Validações e Tratamento de Erros**
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-validaes-e Tratamento de Erros**
 
-### **Validação de Campos**
-
-```javascript
-// Verificar se campo existe
+#validao-de-campos-javascript Verificar se campo existe
 {{ $json.email ? $json.email : 'Email não informado' }}
 
 // Valor padrão
@@ -286,10 +257,7 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 }}
 ```
 
-### **Tratamento de Erros**
-
-```javascript
-// Verificar se é número
+#tratamento-de-erros-javascript Verificar se é número
 {{ 
   !isNaN($json.valor) ? parseFloat($json.valor).toFixed(2) : 'valor inválido' 
 }}
@@ -305,12 +273,9 @@ Cron Expression: {{ '0 ' + $json.hora + ' * * *' }}
 }}
 ```
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Exemplos por Node**
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-por Node**
 
-### **HTTP Request Node**
-
-```javascript
-// URL dinâmica
+#http-request-node-javascript URL dinâmica
 {{ 'https://api.exemplo.com/' + $json.endpoint }}
 
 // Headers dinâmicos
@@ -325,20 +290,14 @@ Content-Type: {{ $json.tipo || 'application/json' }}
 }) }}
 ```
 
-### **Email Node**
-
-```javascript
-// Assunto personalizado
+#email-node-javascript-assunto personalizado
 {{ 'Notificação: ' + $json.tipo + ' - ' + $json.id }}
 
 // Corpo do email
 {{ `
 Olá ${$json.nome},
 
-Seu pedido #${$json.numero} foi ${$json.status}.
-
-Detalhes:
-- Produto: ${$json.produto}
+Seu pedido #jsonnumero-foi-jsonstatus-detalhes Produto: ${$json.produto}
 - Valor: R$ ${$json.valor.toFixed(2)}
 - Data: ${new Date($json.data).toLocaleDateString('pt-BR')}
 
@@ -346,10 +305,7 @@ Obrigado!
 ` }}
 ```
 
-### **Set Node**
-
-```javascript
-// Campo calculado
+#set-node-javascript-campo calculado
 nome_completo: {{ $json.primeiro_nome + ' ' + $json.ultimo_nome }}
 
 // Campo com formatação
@@ -362,10 +318,7 @@ status: {{ $json.ativo && $json.saldo > 0 ? 'ativo' : 'inativo' }}
 processado_em: {{ new Date().toISOString() }}
 ```
 
-### **IF Node**
-
-```javascript
-// Condição simples
+#if-node-javascript-condio simples
 {{ $json.valor > 1000 }}
 
 // Condição múltipla
@@ -375,19 +328,14 @@ processado_em: {{ new Date().toISOString() }}
 {{ $json.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}
 ```
 
-## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Limitações e Considerações**
+#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-limitaes-e Considerações**
 
-### **Limitações das Expressões:**
-
-- **Escopo limitado**: Apenas uma linha de código
+#limitaes-das-expresses-escopo limitado**: Apenas uma linha de código
 - **Sem loops**: Não podem conter loops complexos
 - **Sem funções**: Não podem definir funções
 - **Performance**: Expressões complexas podem impactar performance
 
-### **Boas Práticas:**
-
-```javascript
-// ✅ Bom: Expressão simples e clara
+#boas-prticas-javascript Bom: Expressão simples e clara
 {{ $json.nome + ' ' + $json.sobrenome }}
 
 // ✅ Bom: Validação com valor padrão
@@ -400,10 +348,7 @@ processado_em: {{ new Date().toISOString() }}
 {{ eval($json.expressao) }}  // Perigoso!
 ```
 
-### **Debugging:**
-
-```javascript
-// Usar console.log para debug (aparece nos logs do n8n)
+#cor-debugging-javascript-usar-consolelog para debug (aparece nos logs do n8n)
 {{ console.log('Dados:', $json) || $json.nome }}
 
 // Verificar tipo de dados
@@ -413,7 +358,7 @@ processado_em: {{ new Date().toISOString() }}
 {{ $json.hasOwnProperty('campo') }}
 ```
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Próximos Passos**
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você entende as expressões:
 

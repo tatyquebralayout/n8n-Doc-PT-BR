@@ -5,11 +5,11 @@ description: Entenda como os dados são estruturados no n8n
 keywords: [n8n, dados, estrutura, json, binary, array, objetos]
 ---
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estrutura de Dados
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-estrutura-de Dados
 
 No n8n, todos os dados passados entre nodes são um array de objetos. Eles seguem a seguinte estrutura:
 
-## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estrutura Básica
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-estrutura-bsica
 
 ```json
 [
@@ -40,19 +40,15 @@ No n8n, todos os dados passados entre nodes são um array de objetos. Eles segue
 ]
 ```
 
-## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Processamento de Itens de Dados
+#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-processamento-de Itens de Dados
 
 :::tip **Pular a chave `json` e sintaxe de array**
 A partir da versão 0.166.0, ao usar o Function node ou Code node, o n8n adiciona automaticamente a chave `json` se estiver faltando. Ele também envolve automaticamente seus itens em um array (`[]`) se necessário. Isso só acontece ao usar os Function ou Code nodes. Ao construir seus próprios nodes, você ainda deve garantir que o node retorne dados com a chave `json`.
 :::
 
-## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos Práticos
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-prticos
 
-### Dados Simples
-
-```json
-[
- {
+#cor-dados-simples-json
   "json": {
    "id": 1,
    "nome": "Produto A",
@@ -69,11 +65,7 @@ A partir da versão 0.166.0, ao usar o Function node ou Code node, o n8n adicion
 ]
 ```
 
-### Dados Aninhados
-
-```json
-[
- {
+#cor-dados-aninhados-json
   "json": {
    "cliente": {
     "id": "C001",
@@ -92,11 +84,7 @@ A partir da versão 0.166.0, ao usar o Function node ou Code node, o n8n adicion
 ]
 ```
 
-### Dados Binários
-
-```json
-[
- {
+#cor-dados-binrios-json
   "json": {
    "nome": "documento.pdf"
   },
@@ -112,7 +100,7 @@ A partir da versão 0.166.0, ao usar o Function node ou Code node, o n8n adicion
 ]
 ```
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Como os Dados Fluem
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-como-os Dados Fluem
 
 Cada node no n8n:
 
@@ -120,10 +108,7 @@ Cada node no n8n:
 2. **Processa** cada item individualmente (por padrão)
 3. **Retorna** dados no mesmo formato
 
-### Exemplo de Fluxo
-
-```mermaid
-graph LR
+#exemplo-de-fluxo-mermaid-graph LR
     A[Trigger] --> B[HTTP Request]
     B --> C[Transform Data]
     C --> D[Send Email]
@@ -134,23 +119,19 @@ graph LR
     D --> D1[Array de 5 emails enviados]
 ```
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de Execução
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de Execução
 
-### Execute Once
+#execute-once-para-situaes-onde você não quer que um node processe todos os itens recebidos, você pode ativar o parâmetro **Execute Once** na aba **Settings** do node. Isso é útil quando os dados de entrada contêm múltiplos itens e você quer processar apenas o primeiro.
 
-Para situações onde você não quer que um node processe todos os itens recebidos, você pode ativar o parâmetro **Execute Once** na aba **Settings** do node. Isso é útil quando os dados de entrada contêm múltiplos itens e você quer processar apenas o primeiro.
+#processamento-em-lote-alguns-nodes podem processar todos os itens de uma vez, enquanto outros processam item por item. Isso depende da configuração do node e do tipo de operação.
 
-### Processamento em Lote
-
-Alguns nodes podem processar todos os itens de uma vez, enquanto outros processam item por item. Isso depende da configuração do node e do tipo de operação.
-
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 1. **Entenda [Data Flow](./data-flow-nodes)** para ver como os dados se movem entre nodes
 2. **Aprenda [Transforming Data](./transformacoes-dados)** para modificar a estrutura dos dados
 3. **Explore [Data Mapping](./data-mapping-avancado)** para mapear dados entre nodes
 
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-relacionados
 
 - **[Data Flow](./data-flow-nodes)** - Como os dados fluem entre nodes
 - **[Transforming Data](./transformacoes-dados)** - Transformar estrutura de dados

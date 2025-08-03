@@ -5,15 +5,13 @@ description: Como criar loops e repetições em workflows n8n
 keywords: [n8n, loop, repetição, lógica, fluxo, iteração, array]
 ---
 
-# <IonicIcon name="repeat-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Looping no n8n
+#ionicicon-namerepeat-outline-style-fontsize-24px color: '#cor-ea4b71-looping-no n8n
 
 Looping é uma técnica fundamental para processar dados repetitivos, iterar sobre arrays e criar workflows dinâmicos. O n8n oferece várias estratégias para implementar loops eficientes e controlados.
 
-## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conceitos Fundamentais
+#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-conceitos-fundamentais
 
-### O que é Looping?
-
-Looping é o processo de **repetir operações** sobre um conjunto de dados, permitindo:
+#o-que-looping-looping é o processo de **repetir operações** sobre um conjunto de dados, permitindo:
 
 - **Processamento em lote**: Tratar múltiplos itens automaticamente
 - **Iteração sobre arrays**: Processar cada elemento de uma lista
@@ -21,17 +19,15 @@ Looping é o processo de **repetir operações** sobre um conjunto de dados, per
 - **Polling**: Verificar status periodicamente
 - **Processamento paralelo**: Executar operações simultaneamente
 
-### Tipos de Loops
-
-1. **For Loop**: Iteração sobre array com índice
+#tipos-de-loops-1-for Loop**: Iteração sobre array com índice
 2. **While Loop**: Repetição baseada em condição
 3. **ForEach Loop**: Processamento de cada elemento
 4. **Recursive Loop**: Chamadas recursivas
 5. **Parallel Loop**: Execução simultânea
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Implementação
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-implementao
 
-### 1. Split In Batches Node
+#id-1-split-in-batches-node
 
 O **Split In Batches** é a forma mais comum de criar loops.
 
@@ -56,7 +52,7 @@ O **Split In Batches** é a forma mais comum de criar loops.
 }
 ```
 
-### 2. Code Node para Loops Customizados
+#id-2-code-node-para-loops Customizados
 
 Para loops complexos, use o Code Node.
 
@@ -89,11 +85,9 @@ while (i < dados.length && dados[i].status !== 'erro') {
 return resultados;
 ```
 
-## <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Padrões de Loop
+#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-padres-de Loop
 
-### 1. Processamento de Array
-
-Processa cada elemento de um array.
+#id-1-processamento-de-array-processa cada elemento de um array.
 
 ```mermaid
 graph TD
@@ -132,9 +126,7 @@ const clientesProcessados = clientes.map(async cliente => {
 return await Promise.all(clientesProcessados);
 ```
 
-### 2. Retry com Backoff
-
-Tenta uma operação múltiplas vezes com delays crescentes.
+#id-2-retry-com-backoff-tenta uma operação múltiplas vezes com delays crescentes.
 
 ```mermaid
 graph TD
@@ -177,9 +169,7 @@ while (tentativa < maxTentativas) {
 return resultado;
 ```
 
-### 3. Polling
-
-Verifica status periodicamente até uma condição ser atendida.
+#id-3-polling-verifica-status-periodicamente até uma condição ser atendida.
 
 ```mermaid
 graph TD
@@ -222,9 +212,9 @@ while (tentativa < maxTentativas) {
 throw new Error(`Timeout: Job não foi concluído em ${maxTentativas * intervalo / 1000} segundos`);
 ```
 
-## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Práticos
+#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Práticos
 
-### 1. Processamento de Pedidos em Lote
+#id-1-processamento-de-pedidos-em Lote
 
 **Cenário**: Processar múltiplos pedidos de uma vez.
 
@@ -287,9 +277,7 @@ return {
 };
 ```
 
-### 2. Sincronização de Dados
-
-**Cenário**: Sincronizar dados entre sistemas diferentes.
+#id-2-sincronizao-de-dados-cenrio Sincronizar dados entre sistemas diferentes.
 
 ```mermaid
 graph TD
@@ -352,9 +340,7 @@ return {
 };
 ```
 
-### 3. Processamento Paralelo
-
-**Cenário**: Executar múltiplas operações simultaneamente.
+#id-3-processamento-paralelo-cenrio-executar múltiplas operações simultaneamente.
 
 ```mermaid
 graph TD
@@ -410,12 +396,9 @@ return {
 };
 ```
 
-## <IonicIcon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Expressões e Data Mapping
+#ionicicon-nameflash-outline-style-fontsize-24px color: '#cor-ea4b71-expresses-e Data Mapping
 
-### Loops Dinâmicos
-
-```javascript
-// Tamanho do batch baseado em dados
+#loops-dinmicos-javascript-tamanho do batch baseado em dados
 const batchSize = $json.items.length > 1000 ? 100 : 10;
 
 return {
@@ -423,10 +406,7 @@ return {
 };
 ```
 
-### Loops Condicionais
-
-```javascript
-// Loop baseado em condição
+#loops-condicionais-javascript-loop baseado em condição
 const dados = $json;
 const resultados = [];
 
@@ -440,10 +420,7 @@ for (const item of dados) {
 return resultados;
 ```
 
-### Loops com Controle
-
-```javascript
-// Loop com break condicional
+#loops-com-controle-javascript Loop com break condicional
 const dados = $json;
 const resultados = [];
 
@@ -461,11 +438,9 @@ for (const item of dados) {
 return resultados;
 ```
 
-## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tratamento de Erros
+#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-tratamento-de Erros
 
-### Loop com Error Handling
-
-```javascript
+#loop-com-error-handling-javascript
 // Loop com tratamento de erro individual
 const dados = $json;
 const resultados = [];
@@ -497,10 +472,7 @@ return {
 };
 ```
 
-### Loop com Retry
-
-```javascript
-// Loop com retry para itens que falham
+#loop-com-retry-javascript Loop com retry para itens que falham
 const dados = $json;
 const maxTentativas = 3;
 
@@ -537,11 +509,9 @@ const resultados = await Promise.all(
 return resultados;
 ```
 
-## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance e Otimização
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-e Otimização
 
-### Boas Práticas
-
-1. **Otimize Batch Size**
+#boas-prticas-1-otimize-batch Size**
    - Use batches apropriados para o volume de dados
    - Considere rate limits das APIs
    - Balanceie performance e uso de recursos
@@ -556,10 +526,7 @@ return resultados;
    - Use delays entre operações
    - Implemente backoff exponencial
 
-### Exemplo de Otimização
-
-```javascript
-// Loop otimizado com rate limiting
+#exemplo-de-otimizao-javascript Loop otimizado com rate limiting
 const dados = $json;
 const resultados = [];
 const rateLimit = 10; // operações por segundo
@@ -581,12 +548,9 @@ for (let i = 0; i < dados.length; i++) {
 return resultados;
 ```
 
-## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
 
-### Problemas Comuns
-
-**Erro: "Timeout"**
-- Reduza tamanho do batch
+#problemas-comuns-erro-timeout Reduza tamanho do batch
 - Implemente rate limiting
 - Use processamento paralelo
 
@@ -600,10 +564,7 @@ return resultados;
 - Use backoff exponencial
 - Distribua carga ao longo do tempo
 
-### Debugging
-
-```javascript
-// Loop com debugging
+#cor-debugging-javascript-loop-com debugging
 const dados = $json;
 const resultados = [];
 const debug = {
@@ -637,22 +598,16 @@ return {
 };
 ```
 
-## <IonicIcon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Outros Nós
+#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Outros Nós
 
-### Fluxo Típico
-
-```mermaid
-graph TD
+#fluxo-tpico-mermaid-graph-td
     A[HTTP Request] --> B[Split In Batches]
     B --> C[Code Node]
     C --> D[HTTP Request]
     D --> E[Consolidar]
 ```
 
-### Exemplo Completo
-
-```javascript
-// 1. HTTP Request - Buscar dados
+#exemplo-completo-javascript-1 HTTP Request - Buscar dados
 {
   "url": "https://api.exemplo.com/items",
   "method": "GET"
@@ -693,9 +648,7 @@ const consolidado = {
 return consolidado;
 ```
 
-## <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Referências
-
-- **[Split In Batches](../../integracoes/builtin-nodes/data-processing/split-in-batches)** - Nó específico para loops
+#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-referncias **[Split In Batches](../../integracoes/builtin-nodes/data-processing/split-in-batches)** - Nó específico para loops
 - **[Wait Node](../../integracoes/builtin-nodes/logic-control/wait)** - Delays em loops
 - **[Error Handling](./error-handling)** - Tratamento de erros em loops
 - **[Data Processing](../../integracoes/builtin-nodes/data-processing)** - Processamento de dados
@@ -706,6 +659,6 @@ return consolidado;
 Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
 :::
 
-> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Dica**: Use loops estrategicamente para processar dados em lote e criar workflows dinâmicos. Lembre-se de sempre implementar rate limiting e tratamento de erros para garantir robustez e performance.
+> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#cor-ea4b71-dica-use loops estrategicamente para processar dados em lote e criar workflows dinâmicos. Lembre-se de sempre implementar rate limiting e tratamento de erros para garantir robustez e performance.
 
 

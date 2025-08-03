@@ -5,11 +5,11 @@ sidebar_position: 3
 keywords: [n8n, aggregate node, agregação, agrupamento, dados, estatísticas, sum, count, average]
 ---
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Aggregate Node
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-aggregate-node
 
 O **Aggregate Node** é uma ferramenta poderosa do n8n para agrupar e agregar dados. Ele permite calcular estatísticas, somar valores, contar itens e criar resumos baseados em critérios específicos.
 
-## O que é o Aggregate Node?
+#o-que-o-aggregate Node?
 
 O **Aggregate Node** permite:
 
@@ -20,7 +20,7 @@ O **Aggregate Node** permite:
 - **Gerar** relatórios agregados
 - **Reduzir** volume de dados
 
-### Quando Usar o Aggregate Node
+#quando-usar-o-aggregate-node
 
 - **Relatórios** de vendas por período
 - **Estatísticas** de usuários por categoria
@@ -29,11 +29,9 @@ O **Aggregate Node** permite:
 - **Resumos** de transações financeiras
 - **Agregação** de métricas de negócio
 
-## Configuração Básica
+#configurao-bsica
 
-### Estrutura do Aggregate Node
-
-```javascript
+#estrutura-do-aggregate-node-javascript
 // Aggregate Node - Estrutura básica
 {
   "groupBy": ["categoria", "regiao"], // Campos para agrupar
@@ -52,12 +50,9 @@ O **Aggregate Node** permite:
 }
 ```
 
-### Campos de Agrupamento
+#campos-de-agrupamento
 
-#### 1. Agrupamento Simples
-
-```javascript
-// Agrupar por um campo
+#id-1-agrupamento-simples-javascript Agrupar por um campo
 {
   "groupBy": ["categoria"]
 }
@@ -68,9 +63,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-#### 2. Agrupamento com Expressões
-
-```javascript
+#id-2-agrupamento-com-expresses-javascript
 // Agrupar por data formatada
 {
   "groupBy": ["{{ $json.data.substring(0, 7) }}"] // YYYY-MM
@@ -87,12 +80,9 @@ O **Aggregate Node** permite:
 }
 ```
 
-### Operações de Agregação
+#operaes-de-agregao
 
-#### 1. Soma (Sum)
-
-```javascript
-// Somar valores numéricos
+#id-1-soma-sum-javascript Somar valores numéricos
 {
   "field": "valor",
   "operation": "sum",
@@ -107,10 +97,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-#### 2. Contagem (Count)
-
-```javascript
-// Contar todos os itens
+#id-2-contagem-count-javascript Contar todos os itens
 {
   "field": "id",
   "operation": "count",
@@ -125,10 +112,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-#### 3. Média (Average)
-
-```javascript
-// Calcular média
+#id-3-mdia-average-javascript Calcular média
 {
   "field": "valor",
   "operation": "average",
@@ -143,9 +127,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-#### 4. Mínimo e Máximo
-
-```javascript
+#id-4-mnimo-e-mximo-javascript
 // Valor mínimo
 {
   "field": "valor",
@@ -161,9 +143,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-#### 5. Primeiro e Último
-
-```javascript
+#id-5-primeiro-e-ltimo-javascript
 // Primeiro valor
 {
   "field": "nome",
@@ -179,9 +159,9 @@ O **Aggregate Node** permite:
 }
 ```
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### 1. Relatório de Vendas por Categoria
+#id-1-relatrio-de-vendas-por Categoria
 
 ```javascript
 // Aggregate Node - Vendas por categoria
@@ -239,7 +219,7 @@ O **Aggregate Node** permite:
 ]
 ```
 
-### 2. Estatísticas de Usuários por Região
+#id-2-estatsticas-de-usurios-por Região
 
 ```javascript
 // Aggregate Node - Usuários por região
@@ -270,7 +250,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-### 3. Análise de Performance por Período
+#id-3-anlise-de-performance-por Período
 
 ```javascript
 // Aggregate Node - Performance por mês
@@ -306,7 +286,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-### 4. Consolidação de Dados de Múltiplas Fontes
+#id-4-consolidao-de-dados-de Múltiplas Fontes
 
 ```javascript
 // Aggregate Node - Consolidação de dados
@@ -337,7 +317,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-### 5. Análise de Transações Financeiras
+#id-5-anlise-de-transaes-financeiras
 
 ```javascript
 // Aggregate Node - Análise financeira
@@ -368,9 +348,9 @@ O **Aggregate Node** permite:
 }
 ```
 
-## Casos de Uso Avançados
+#casos-de-uso-avanados
 
-### 1. Agregação com Condições Complexas
+#id-1-agregao-com-condies-complexas
 
 ```javascript
 // Aggregate Node - Condições complexas
@@ -401,10 +381,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-### 2. Agregação Temporal
-
-```javascript
-// Aggregate Node - Agregação temporal
+#id-2-agregao-temporal-javascript Aggregate Node - Agregação temporal
 {
   "groupBy": [
     "{{ $json.data.substring(0, 4) }}", // Ano
@@ -431,10 +408,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-### 3. Agregação Hierárquica
-
-```javascript
-// Aggregate Node - Agregação hierárquica
+#id-3-agregao-hierrquica-javascript Aggregate Node - Agregação hierárquica
 {
   "groupBy": [
     "pais",
@@ -462,7 +436,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-### 4. Agregação com Cálculos Personalizados
+#id-4-agregao-com-clculos-personalizados
 
 ```javascript
 // Aggregate Node - Cálculos personalizados
@@ -498,9 +472,9 @@ O **Aggregate Node** permite:
 }
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Escolha de Campos de Agrupamento
+#id-1-escolha-de-campos-de Agrupamento
 
 ```javascript
 // ✅ Bom: Campos com valores limitados
@@ -514,9 +488,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-### 2. Nomenclatura de Agregações
-
-```javascript
+#id-2-nomenclatura-de-agregaes-javascript
 // ✅ Bom: Nomes descritivos
 {
   "field": "valor",
@@ -532,10 +504,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-### 3. Performance
-
-```javascript
-// ✅ Bom: Agregações simples
+#id-3-performance-javascript Bom: Agregações simples
 {
   "field": "valor",
   "operation": "sum",
@@ -550,9 +519,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-### 4. Validação de Dados
-
-```javascript
+#id-4-validao-de-dados-javascript
 // ✅ Bom: Validar dados antes de agregar
 {
   "field": "{{ $json.valor && !isNaN($json.valor) ? $json.valor : 0 }}",
@@ -568,32 +535,27 @@ O **Aggregate Node** permite:
 }
 ```
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Agregação retorna valores incorretos
-- Verifique se os campos existem
+#agregao-retorna-valores-incorretos Verifique se os campos existem
 - Confirme se os tipos de dados estão corretos
 - Teste com dados de exemplo
 - Use Debug Helper para ver dados
 
-#### Performance lenta
-- Reduza o número de campos de agrupamento
+#performance-lenta-reduza-o número de campos de agrupamento
 - Simplifique as expressões
 - Use agregações básicas
 - Considere filtrar dados antes
 
-#### Campos de agrupamento não funcionam
+#campos-de-agrupamento-no-funcionam
 - Verifique se os campos têm valores
 - Confirme se as expressões estão corretas
 - Teste com agrupamento simples
 - Verifique se há valores nulos
 
-### Debug
-
-```javascript
-// Code Node - Debug de Aggregate Node
+#cor-debug-javascript-code-node - Debug de Aggregate Node
 ));
   console.log('Número de registros:', dados.length);
   console.log('Exemplo de registro:', dados[0]);
@@ -606,9 +568,9 @@ O **Aggregate Node** permite:
 return { json: debugAggregate($json) };
 ```
 
-## Integração com Outros Nodes
+#integrao-com-outros-nodes
 
-### 1. Aggregate Node + Set Node
+#id-1-aggregate-node-set Node
 
 ```javascript
 // Aggregate Node - Calcular estatísticas
@@ -646,7 +608,7 @@ return { json: debugAggregate($json) };
 }
 ```
 
-### 2. Aggregate Node + If Node
+#id-2-aggregate-node-if Node
 
 ```javascript
 // Aggregate Node - Agrupar por status
@@ -669,9 +631,7 @@ return { json: debugAggregate($json) };
 }
 ```
 
-## Próximos Passos
-
-- [Set Node](/integracoes/builtin-nodes/data-processing/set) - Manipulação de dados
+#prximos-passos-set-nodeintegracoesbuiltin-nodesdata-processingset - Manipulação de dados
 - [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
 - [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões avançadas

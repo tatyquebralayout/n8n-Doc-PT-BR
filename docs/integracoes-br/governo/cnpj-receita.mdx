@@ -5,11 +5,11 @@ sidebar_position: 1
 keywords: [n8n, cnpj, receita federal, empresa, validação, brasil, governo]
 ---
 
-# <IonicIcon name="business-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> CNPJ Receita Federal
+#ionicicon-namebusiness-outline-style-fontsize-24px color: '#cor-ea4b71-cnpj-receita Federal
 
 A **API de CNPJ da Receita Federal** permite consultar dados de empresas brasileiras através do CNPJ (Cadastro Nacional da Pessoa Jurídica). Esta integração permite validar e obter informações completas sobre empresas.
 
-## O que é a API de CNPJ?
+#o-que-a-api de CNPJ?
 
 A API de CNPJ da Receita Federal é um serviço que fornece dados oficiais de empresas brasileiras. Ela oferece:
 
@@ -19,9 +19,7 @@ A API de CNPJ da Receita Federal é um serviço que fornece dados oficiais de em
 - **Histórico** de alterações
 - **Situação cadastral** atualizada
 
-### Dados Retornados
-
-Para cada CNPJ consultado, a API retorna:
+#cor-dados-retornados-para-cada-cnpj consultado, a API retorna:
 
 ```json
 {
@@ -68,21 +66,15 @@ Para cada CNPJ consultado, a API retorna:
 }
 ```
 
-## Como Usar a API de CNPJ no n8n
+#como-usar-a-api-de CNPJ no n8n
 
-### 1. Configuração Básica
-
-**Node:** HTTP Request
+#id-1-configurao-bsica-node-http Request
 **Método:** GET
 **URL:** `https://receitaws.com.br/v1/cnpj/{{ $json.cnpj }}`
 
-### 2. Parâmetros
+#id-2-parmetros-cnpj-cnpj a ser consultado (formato: 00.000.000/0001-00 ou 00000000000100)
 
-- **cnpj**: CNPJ a ser consultado (formato: 00.000.000/0001-00 ou 00000000000100)
-
-### 3. Exemplo de Configuração
-
-```javascript
+#id-3-exemplo-de-configurao-javascript
 // Configuração do HTTP Request
 Method: GET
 URL: https://receitaws.com.br/v1/cnpj/{{ $json.cnpj }}
@@ -91,11 +83,9 @@ Headers: {
 }
 ```
 
-## Casos de Uso
+#casos-de-uso
 
-### 1. Validação de Empresas
-
-Validar se um CNPJ existe e está ativo:
+#id-1-validao-de-empresas-validar se um CNPJ existe e está ativo:
 
 ```javascript
 // Workflow: Validação de CNPJ
@@ -108,9 +98,7 @@ Webhook → HTTP Request (CNPJ) → If (CNPJ válido) → Set → HTTP Request (
 - **Set**: Formata dados da empresa
 - **HTTP Request**: Salva dados validados
 
-### 2. Due Diligence
-
-Análise completa de empresas para processos de due diligence:
+#id-2-due-diligence-anlise-completa de empresas para processos de due diligence:
 
 ```javascript
 // Workflow: Due Diligence
@@ -123,9 +111,7 @@ Manual Trigger → HTTP Request (CNPJ) → Code (Análise) → Relatório
 - **Code**: Análise de riscos e compliance
 - **Relatório**: Gera relatório completo
 
-### 3. Cadastro de Fornecedores
-
-Validar fornecedores durante processo de cadastro:
+#id-3-cadastro-de-fornecedores-validar fornecedores durante processo de cadastro:
 
 ```javascript
 // Workflow: Cadastro de Fornecedor
@@ -138,9 +124,7 @@ Webhook (Novo Fornecedor) → HTTP Request (CNPJ) → Validação → Aprovaçã
 - **Validação**: Verifica situação e dados
 - **Aprovação**: Aprova ou rejeita cadastro
 
-### 4. Relatórios Fiscais
-
-Gerar relatórios fiscais com dados oficiais:
+#id-4-relatrios-fiscais-gerar-relatrios fiscais com dados oficiais:
 
 ```javascript
 // Workflow: Relatório Fiscal
@@ -153,9 +137,9 @@ Schedule Trigger → HTTP Request (CNPJ) → Agregação → Relatório
 - **Agregação**: Consolida dados
 - **Relatório**: Gera relatório fiscal
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### Exemplo 1: Validação de CNPJ em E-commerce
+#exemplo-1-validao-de-cnpj em E-commerce
 
 **Cenário:** Validar CNPJ de empresa durante cadastro de marketplace.
 
@@ -188,7 +172,7 @@ Condition: $json.situacao === "ATIVA" && $json.tipo === "MATRIZ"
 }
 ```
 
-### Exemplo 2: Due Diligence Automatizada
+#exemplo-2-due-diligence-automatizada
 
 **Cenário:** Análise automática de empresas para investimento.
 
@@ -249,7 +233,7 @@ return {
 };
 ```
 
-### Exemplo 3: Cadastro de Fornecedores
+#exemplo-3-cadastro-de-fornecedores
 
 **Cenário:** Validar fornecedores automaticamente.
 
@@ -288,11 +272,9 @@ return {
 };
 ```
 
-## Tratamento de Erros
+#tratamento-de-erros
 
-### 1. CNPJ Não Encontrado
-
-Quando o CNPJ não existe:
+#id-1-cnpj-no-encontrado-quando o CNPJ não existe:
 
 ```json
 {
@@ -313,9 +295,7 @@ Condition: $json.erro !== undefined
 }
 ```
 
-### 2. Rate Limiting
-
-A API tem limites de uso:
+#id-2-rate-limiting-a-api tem limites de uso:
 
 ```javascript
 // Code - Tratamento de Rate Limit
@@ -330,9 +310,7 @@ try {
 }
 ```
 
-### 3. CNPJ Inválido
-
-Para CNPJs com formato inválido:
+#id-3-cnpj-invlido-para-cnpjs com formato inválido:
 
 ```javascript
 // Code - Validação de Formato
@@ -348,11 +326,9 @@ function validarCNPJ(cnpj) {
 }
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Formatação de CNPJ
-
-Sempre formate o CNPJ antes da consulta:
+#id-1-formatao-de-cnpj-sempre formate o CNPJ antes da consulta:
 
 ```javascript
 // Code - Formatação de CNPJ
@@ -360,9 +336,7 @@ const cnpj = $json.cnpj.replace(/\D/g, ''); // Remove caracteres não numéricos
 const cnpjFormatado = cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
 ```
 
-### 2. Cache de Consultas
-
-Implemente cache para CNPJs consultados frequentemente:
+#id-2-cache-de-consultas-implemente cache para CNPJs consultados frequentemente:
 
 ```javascript
 // Code - Cache Simples
@@ -385,9 +359,7 @@ await saveToCache(cacheKey, data);
 return { json: data };
 ```
 
-### 3. Validação de Dados
-
-Sempre valide os dados retornados:
+#id-3-validao-de-dados-sempre valide os dados retornados:
 
 ```javascript
 // Code - Validação de Dados
@@ -404,9 +376,7 @@ if (!cnpjRegex.test(data.cnpj)) {
 }
 ```
 
-### 4. Tratamento de Timeout
-
-Configure timeouts adequados:
+#id-4-tratamento-de-timeout-configure timeouts adequados:
 
 ```javascript
 // HTTP Request - Configuração
@@ -415,62 +385,49 @@ URL: https://receitaws.com.br/v1/cnpj/{{ $json.cnpj }}
 Timeout: 30000 // 30 segundos
 ```
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### API não responde
-- Verifique conectividade com internet
+#api-no-responde-verifique conectividade com internet
 - Confirme se a API está funcionando
 - Teste com CNPJ conhecido
 - Verifique formato do CNPJ
 
-#### CNPJ não encontrado
-- Confirme se o CNPJ existe
+#cnpj-no-encontrado-confirme se o CNPJ existe
 - Verifique formato (00.000.000/0001-00)
 - Teste com CNPJs de diferentes tipos
 - Consulte site da Receita Federal
 
-#### Rate limiting
-- Implemente delays entre consultas
+#rate-limiting-implemente-delays entre consultas
 - Use cache para consultas frequentes
 - Configure retry com backoff
 - Monitore limites da API
 
-### Debug
-
-1. **Use o node Debug Helper** para inspecionar dados
+#cor-debug-1-use-o-node Debug Helper** para inspecionar dados
 2. **Teste com CNPJs conhecidos** (ex: 00.000.000/0001-00)
 3. **Verifique formato** do CNPJ de entrada
 4. **Monitore logs** de erro
 5. **Teste a API diretamente** no navegador
 
-## Limitações e Considerações
+#limitaes-e-consideraes
 
-### Limitações da API
-
-- **Rate limiting**: Limite de consultas por minuto
+#limitaes-da-api-rate limiting**: Limite de consultas por minuto
 - **Dados da Receita**: Depende da atualização da Receita Federal
 - **CNPJ não encontrado**: Alguns CNPJs podem não estar disponíveis
 - **Formato fixo**: Apenas CNPJs brasileiros
 
-### Considerações de Performance
-
-- **Cache**: Implemente cache para consultas frequentes
+#consideraes-de-performance-cache Implemente cache para consultas frequentes
 - **Batch**: Evite múltiplas consultas simultâneas
 - **Timeout**: Configure timeouts adequados
 - **Retry**: Implemente retry logic para falhas
 
-### Compliance e Segurança
-
-- **LGPD**: Implemente conformidade com LGPD
+#compliance-e-segurana-lgpd Implemente conformidade com LGPD
 - **Auditoria**: Mantenha logs de consultas
 - **Acesso**: Controle acesso aos dados
 - **Retenção**: Configure políticas de retenção
 
-## Próximos Passos
-
-- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições HTTP
+#prximos-passos-http-requestintegracoesbuiltin-nodeshttp-requestshttp-request - Fazer requisições HTTP
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Integrações Brasileiras](/integracoes-br/index) - Outras integrações brasileiras

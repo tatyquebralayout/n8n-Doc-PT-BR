@@ -4,11 +4,11 @@ title: Debugging
 keywords: [n8n, debugging, troubleshooting, logs, execução, erros]
 ---
 
-# <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Debugging de Workflows
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-debugging-de Workflows
 
 O debugging é uma habilidade essencial para desenvolver workflows robustos e confiáveis no n8n. Esta seção aborda técnicas e ferramentas para identificar e resolver problemas em suas automações.
 
-## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que é Debugging?
+#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-o-que é Debugging?
 
 Debugging é o processo de identificar, analisar e corrigir problemas em workflows. No n8n, isso envolve:
 
@@ -18,76 +18,56 @@ Debugging é o processo de identificar, analisar e corrigir problemas em workflo
 - **Corrigir** problemas encontrados
 - **Validar** que a correção funciona
 
-### Por que Debugging é Importante?
+#por-que-debugging-importante
 
 - **Confiabilidade**: Workflows funcionam corretamente
 - **Performance**: Identifica gargalos e otimizações
 - **Manutenção**: Facilita atualizações futuras
 - **Produtividade**: Reduz tempo gasto com problemas
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Ferramentas de Debugging
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-ferramentas-de Debugging
 
-### Execution Log
+#execution-log-o-execution-log é sua principal ferramenta de debugging:
 
-O **Execution Log** é sua principal ferramenta de debugging:
-
-#### Como Acessar
-
-1. Execute o workflow
+#como-acessar-1-execute-o workflow
 2. Clique em **"View Execution"**
 3. Navegue pelas abas de cada node
 4. Analise os dados de entrada e saída
 
-#### Informações Disponíveis
-
-- **Input Data**: Dados recebidos pelo node
+#informaes-disponveis-input-data Dados recebidos pelo node
 - **Output Data**: Dados enviados pelo node
 - **Error Details**: Detalhes de erros (se houver)
 - **Performance**: Tempo de execução
 - **Status**: Estado da execução
 
-### Data Viewer
+#data-viewer-o-data-viewer permite visualizar dados em tempo real:
 
-O **Data Viewer** permite visualizar dados em tempo real:
-
-#### Recursos
-
-- **Estrutura de Dados**: Visualização hierárquica
+#recursos-estrutura-de-dados Visualização hierárquica
 - **Tipos de Dados**: Identificação automática
 - **Valores**: Dados reais em cada campo
 - **Filtros**: Busca e filtragem de dados
 
-#### Como Usar
-
-1. Clique em um node após execução
+#como-usar-1-clique-em um node após execução
 2. Abra a aba **"Output"**
 3. Use o **Data Viewer** para explorar dados
 4. Identifique problemas de estrutura
 
-### Step-by-Step Execution
+#step-by-step-execution-execute-workflows-node por node:
 
-Execute workflows node por node:
-
-#### Processo
-
-1. **Desative** nodes que não precisa testar
+#processo-1-desative-nodes-que não precisa testar
 2. **Execute** um node por vez
 3. **Verifique** dados de entrada e saída
 4. **Corrija** problemas encontrados
 5. **Ative** próximo node e repita
 
-#### Benefícios
-
-- **Isola problemas** em nodes específicos
+#benefcios-isola-problemas-em nodes específicos
 - **Valida dados** em cada etapa
 - **Testa lógica** incrementalmente
 - **Reduz complexidade** do debugging
 
-## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Técnicas de Debugging
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-tcnicas-de Debugging
 
-### 1. Logging com Expressões
-
-Use expressões JavaScript para logging:
+#id-1-logging-com-expresses-use expressões JavaScript para logging:
 
 ```javascript
 // Log simples
@@ -102,9 +82,7 @@ if ($json.status === 'error') {
 }
 ```
 
-### 2. Validação de Dados
-
-Valide dados em cada etapa:
+#id-2-validao-de-dados-valide dados em cada etapa:
 
 ```javascript
 // Verificar se campo existe
@@ -123,154 +101,118 @@ if (typeof $json.age !== 'number') {
 }
 ```
 
-### 3. Teste de Credenciais
-
-Teste conectividade separadamente:
+#id-3-teste-de-credenciais-teste conectividade separadamente:
 
 1. **Vá para Credentials**
 2. **Selecione a credencial**
 3. **Clique em "Test"**
 4. **Verifique** se a conexão funciona
 
-### 4. Simulação de Dados
-
-Use **Data Pinning** para testes:
+#id-4-simulao-de-dados-use **Data Pinning** para testes:
 
 1. **Execute** node com dados reais
 2. **Pine** os dados de saída
 3. **Desenvolva** lógica com dados fixos
 4. **Teste** sem pinning antes de publicar
 
-## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Problemas Comuns
+#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-problemas-comuns
 
-### Erros de Conectividade
+#erros-de-conectividade
 
-#### Sintomas
-
-- Timeout errors
-- Connection refused
+#sintomas-timeout-errors Connection refused
 - SSL certificate errors
 - Rate limiting
 
-#### Soluções
-
-1. **Verifique credenciais** estão corretas
+#solues-1-verifique-credenciais-esto corretas
 2. **Teste conectividade** de rede
 3. **Verifique rate limits** da API
 4. **Ajuste timeouts** se necessário
 
-### Erros de Dados
+#erros-de-dados
 
-#### Sintomas
-
-- Missing fields
-- Wrong data types
+#sintomas-missing-fields Wrong data types
 - Invalid formats
 - Null values
 
-#### Soluções
-
-1. **Valide estrutura** dos dados
+#solues-1-valide-estrutura-dos dados
 2. **Use transformações** para corrigir
 3. **Adicione validações** nos nodes
 4. **Trate valores nulos** adequadamente
 
-### Erros de Lógica
+#erros-de-lgica
 
-#### Sintomas
-
-- Workflow não executa como esperado
+#sintomas-workflow-no-executa como esperado
 - Condições não funcionam
 - Loops infinitos
 - Dados incorretos
 
-#### Soluções
-
-1. **Revise expressões** JavaScript
+#solues-1-revise-expresses-javascript
 2. **Teste condições** individualmente
 3. **Verifique ordem** de execução
 4. **Use step-by-step** execution
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Debugging Avançado
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-debugging-avanado
 
-### Performance Debugging
+#performance-debugging
 
-#### Identificar Gargalos
-
-1. **Analise tempos** de execução
+#identificar-gargalos-1-analise-tempos de execução
 2. **Identifique nodes** lentos
 3. **Verifique volume** de dados
 4. **Otimize queries** e requisições
 
-#### Técnicas de Otimização
-
-- **Processamento em lotes**
+#tcnicas-de-otimizao-processamento em lotes**
 - **Cache de dados**
 - **Filtros antecipados**
 - **Paralelização** quando possível
 
-### Debugging de Workflows Complexos
+#cor-debugging-de-workflows-complexos
 
-#### Estratégias
-
-1. **Quebre** em subworkflows
+#estratgias-1-quebre-em-subworkflows
 2. **Teste** cada parte separadamente
 3. **Use logs** estruturados
 4. **Documente** dependências
 
-#### Ferramentas
-
-- **Subworkflows** para modularização
+#ferramentas-subworkflows-para-modularizao
 - **Error triggers** para tratamento
 - **Data pinning** para desenvolvimento
 - **Version control** para mudanças
 
-## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Dicas Pro
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-dicas-pro
 
-### Workflow de Debugging
-
-1. **Reproduza** o problema consistentemente
+#workflow-de-debugging-1-reproduza o problema consistentemente
 2. **Isole** a causa raiz
 3. **Teste** soluções incrementais
 4. **Valide** que a correção funciona
 5. **Documente** a solução
 
-### Prevenção de Problemas
-
-- **Use validações** em nodes críticos
+#preveno-de-problemas-use validações** em nodes críticos
 - **Implemente error handling** robusto
 - **Teste** com dados variados
 - **Monitore** execuções em produção
 - **Mantenha logs** estruturados
 
-### Ferramentas Externas
-
-- **Browser DevTools** para expressões JavaScript
+#ferramentas-externas-browser-devtools para expressões JavaScript
 - **API testing tools** (Postman, Insomnia)
 - **Log aggregation** para produção
 - **Monitoring tools** para alertas
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 1. **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento robusto de erros
 2. **[Data Pinning](../../logica-e-dados/data/data-pinning)** - Desenvolvimento com dados fixos
 3. **[Performance Optimization](../../logica-e-dados/data/otimizacao-performance)** - Otimizar workflows
 
-## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Úteis
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-teis
 
-### Documentação Relacionada
-
-- **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros
+#documentao-relacionada-error-handlinglogica-e-dadosflow-logicerror-handling - Tratamento de erros
 - **[Execution Order](../../logica-e-dados/flow-logic/execution-order)** - Ordem de execução
 - **[Data Transformation](../../logica-e-dados/data/transformacoes-dados)** - Manipulação de dados
 
-### Links Externos
-
-- **[n8n Community](https://community.n8n.io/)** - Fórum para dúvidas
+#links-externos-n8n-communityhttpscommunityn8nio - Fórum para dúvidas
 - **[GitHub Issues](https://github.com/n8n-io/n8n/issues)** - Reportar bugs
 - **[Debugging Guide](https://docs.n8n.io/workflows/debugging/)** - Guia oficial
 
 ---
 
-**<IonicIcon name="bug-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> Debugging eficiente leva a workflows robustos!**
+**<IonicIcon name="bug-outline" style={{ fontSize: '16px', color: '#cor-ea4b71-debugging-eficiente leva a workflows robustos!**
 

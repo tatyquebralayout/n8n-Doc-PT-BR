@@ -7,9 +7,9 @@ keywords: [n8n, automação, workflow, introdução, guia, open source]
 
 import IonicIcon from '@site/src/components/IonicIcon';
 
-# Automação sem fricção
+#automao-sem-frico
 
-## <IonicIcon name="list-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você vai aprender aqui
+#ionicicon-namelist-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender aqui
 
 - **A História Por Trás da Solução** - Como Jan Oberhauser identificou e resolveu o problema universal de integração
 - **A Solução: n8n Como 'Tradutor Universal' Para Aplicações** - Como funciona na prática e por que é diferente
@@ -21,18 +21,18 @@ import IonicIcon from '@site/src/components/IonicIcon';
 
 ---
 
-## <IonicIcon name="alert-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O Problema: Quando Conectar Sistemas Vira Pesadelo
+#ionicicon-namealert-circle-outline-style-fontsize-24px color: '#cor-ea4b71-o-problema Quando Conectar Sistemas Vira Pesadelo
 
 São 18h de uma sexta-feira. Sua equipe acabou de fechar uma venda importante no CRM, mas o Slack permanece em silêncio. O relatório semanal que deveria chegar automaticamente na caixa de entrada do CEO não apareceu. E aqueles dados do formulário de contato do site? Ainda estão esperando alguém copiar manualmente para a planilha de leads.
 
 Essa história se repete em milhares de empresas brasileiras todos os dias. Não por falta de tecnologia, mas porque conectar sistemas ainda é como tentar fazer dois estranhos conversarem em idiomas diferentes - teoricamente possível, mas frustrantemente complexo na prática.
 
-### <span style={{color: '#ea4b71'}}>A Armadilha dos Três Caminhos Falhos</span>
+#span-stylecolor#cor-ea4b71a-armadilha-dos-trs-caminhos Falhos</span>
 
 Quando você precisa conectar sistemas, três opções aparecem como soluções óbvias. Cada uma promete resolver seu problema, mas todas acabam criando novos.
 
 <details>
-<summary><IonicIcon name="code-slash-outline" style={{ fontSize: '18px', color: '#dc2626' }} /> <strong>Caminho 1: A Pessoa Desenvolvedora Heroica (Scripts Customizados)</strong></summary>
+<summary><IonicIcon name="code-slash-outline" style={{ fontSize: '18px', color: '#cor-dc2626-strongcaminho-1 A Pessoa Desenvolvedora Heroica (Scripts Customizados)</strong></summary>
 
 **A promessa:** "Vamos fazer um script rapidinho que conecta o formulário com o CRM."
 
@@ -47,7 +47,7 @@ Agora você tem duas opções: contratar alguém para decifrar o código legado 
 </details>
 
 <details>
-<summary><IonicIcon name="warning-outline" style={{ fontSize: '18px', color: '#d97706' }} /> <strong>Caminho 2: A Simplicidade Enganosa (Ferramentas No-Code)</strong></summary>
+<summary><IonicIcon name="warning-outline" style={{ fontSize: '18px', color: '#cor-d97706-strongcaminho-2 A Simplicidade Enganosa (Ferramentas No-Code)</strong></summary>
 
 **A promessa:** "Sem código, sem complicação. Arraste e solte, pronto!"
 
@@ -62,7 +62,7 @@ E aquelas integrações brasileiras que você precisa? PIX, ViaCEP, consulta de 
 </details>
 
 <details>
-<summary><IonicIcon name="information-circle-outline" style={{ fontSize: '18px', color: '#2563eb' }} /> <strong>Caminho 3: O Martelo Para Parafusos (Soluções Enterprise)</strong></summary>
+<summary><IonicIcon name="information-circle-outline" style={{ fontSize: '18px', color: '#cor-2563eb-strongcaminho-3 O Martelo Para Parafusos (Soluções Enterprise)</strong></summary>
 
 **A promessa:** "Plataforma robusta que resolve tudo, do simples ao complexo."
 
@@ -76,7 +76,7 @@ A licença mínima custa R$ 15.000/ano para até 10 usuários, mas você só pre
 
 ---
 
-### <span style={{color: '#ea4b71'}}>O Padrão Universal de Frustração</span>
+#span-stylecolor#cor-ea4b71o-padro-universal-de-frustraospan
 
 Independente do caminho escolhido, o resultado é sempre o mesmo: você resolve um problema técnico e ganha três problemas organizacionais.
 
@@ -89,11 +89,11 @@ Independente do caminho escolhido, o resultado é sempre o mesmo: você resolve 
 Esta não é uma limitação técnica - é uma falha de design das ferramentas disponíveis. Elas foram construídas para resolver problemas de grandes corporações americanas ou para impressionar com simplicidade superficial, não para atender necessidades reais de empresas em crescimento.
 :::
 
-### <span style={{color: '#ea4b71'}}>Por Que Isso Acontece (E Por Que Importa)</span>
+#span-stylecolor#cor-ea4b71por-que-isso-acontece-e Por Que Importa)</span>
 
 O problema fundamental não é tecnológico - é de **arquitetura de soluções**. Precisamos de uma abordagem que seja:
 
-**<IonicIcon name="checkmark-circle-outline" style={{ fontSize: '18px', color: '#22c55e' }} /> Requisitos da Solução Ideal:**
+**<IonicIcon name="checkmark-circle-outline" style={{ fontSize: '18px', color: '#cor-22c55e-requisitos-da Solução Ideal:**
 
 - **Suficientemente poderosa** para lógica complexa quando necessário
 - **Suficientemente simples** para que qualquer pessoa da equipe possa entender e manter  
@@ -102,17 +102,15 @@ O problema fundamental não é tecnológico - é de **arquitetura de soluções*
 
 É exatamente essa lacuna que **[Jan Oberhauser](https://www.linkedin.com/in/janoberhauser/)** identificou em 2019 quando enfrentava os mesmos dilemas como pessoa desenvolvedora. Sua frustração com essa falsa escolha entre simplicidade limitada e complexidade desnecessária levou à criação de uma quarta opção.
 
-**<IonicIcon name="bulb" style={{ fontSize: '18px', color: '#fbbf24' }} /> Uma opção que não existia até então.**
+**<IonicIcon name="bulb" style={{ fontSize: '18px', color: '#cor-fbbf24-uma-opo que não existia até então.**
 
 ---
 
-## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> A Solução: n8n Como "Tradutor Universal" Para Aplicações
+#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-a-soluo n8n Como "Tradutor Universal" Para Aplicações
 
 **O n8n (pronuncia-se "n-eight-n") é uma plataforma de automação que funciona como um tradutor universal para aplicações** - ele entende a "linguagem" de mais de 400 serviços diferentes e os faz conversar entre si através de uma interface visual intuitiva.
 
-### <span style={{color: '#ea4b71'}}>Como Funciona na Prática</span>
-
-**Pense no n8n como um sistema de encanamento inteligente** para dados: ao invés de você construir tubulações customizadas entre cada sistema, o n8n fornece conectores padronizados que se adaptam às especificidades de cada aplicação.
+#span-stylecolor#cor-ea4b71como-funciona-na-prticaspan-pense no n8n como um sistema de encanamento inteligente** para dados: ao invés de você construir tubulações customizadas entre cada sistema, o n8n fornece conectores padronizados que se adaptam às especificidades de cada aplicação.
 
 ```mermaid
 graph LR
@@ -126,9 +124,7 @@ graph LR
 **Ao invés de:** Escrever código para conectar Formulário → CRM → Slack → Email → Analytics  
 **Você faz:** Arrasta blocos visuais, conecta com cliques, testa em tempo real, deploya automaticamente
 
-### <span style={{color: '#ea4b71'}}>Arquitetura</span>
-
-**<IonicIcon name="construct-outline" style={{ fontSize: '18px', color: '#ea4b71' }} /> Execução híbrida:** Interface visual para fluxo principal + código JavaScript/Python para lógica específica quando necessário.
+#span-stylecolor#cor-ea4b71arquiteturaspan-ionicicon-nameconstruct-outline-style-fontsize '18px', color: '#cor-ea4b71-execuo-hbrida Interface visual para fluxo principal + código JavaScript/Python para lógica específica quando necessário.
 
 ```javascript
 // Exemplo: Lógica customizada dentro de workflow visual
@@ -143,13 +139,13 @@ return [{
 }];
 ```
 
-**<IonicIcon name="cloud-outline" style={{ fontSize: '18px', color: '#ea4b71' }} /> Self-hosted + Cloud:** Controle total dos dados com opção de hosting gerenciado.
+**<IonicIcon name="cloud-outline" style={{ fontSize: '18px', color: '#cor-ea4b71-self-hosted Cloud:** Controle total dos dados com opção de hosting gerenciado.
 
 ---
 
-## <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Por Que o n8n Funciona Onde Outros Falham
+#ionicicon-namecheckmark-circle-outline-style-fontsize-24px color: '#cor-ea4b71-por-que o n8n Funciona Onde Outros Falham
 
-### <IonicIcon name="code-slash-outline" style={{ fontSize: '20px', color: '#ea4b71' }} /> 1. Para Pessoas Desenvolvedoras: Flexibilidade Sem Compromissos
+#ionicicon-namecode-slash-outline-style-fontsize-20px color: '#cor-ea4b71-1-para Pessoas Desenvolvedoras: Flexibilidade Sem Compromissos
 
 **Problema específico:** Alternar constantemente entre GUI limitada para automações simples e código complexo para lógica avançada.
 
@@ -160,9 +156,7 @@ return [{
 - **Versionamento de workflows** através de JSON exportável
 - **Webhooks nativos** sem configuração de infraestrutura
 
-#### <span style={{color: '#22c55e'}}>Progressive Code Examples</span>
-
-**Básico - Webhook Simples:**
+#span-stylecolor#cor-22c55eprogressive-code-examplesspan-bsico Webhook Simples:**
 ```javascript
 // Apenas receber dados
 return $input.all();
@@ -205,11 +199,11 @@ return [{
 }];
 ```
 
-**Checkpoint Intermediário:** <IonicIcon name="checkmark-circle" style={{ fontSize: '16px', color: '#22c55e' }} /> Se você já programa em JavaScript, pode começar imediatamente com nós de código customizados. Veja **[Integrações Avançadas](./integracoes/)** para exemplos práticos.
+**Checkpoint Intermediário:** <IonicIcon name="checkmark-circle" style={{ fontSize: '16px', color: '#cor-22c55e-se-voc já programa em JavaScript, pode começar imediatamente com nós de código customizados. Veja **[Integrações Avançadas](./integracoes/)** para exemplos práticos.
 
 ---
 
-### <IonicIcon name="people-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }} /> 2. Para Equipes de Negócio: Autonomia Sem Dependência
+#ionicicon-namepeople-circle-outline-style-fontsize-20px color: '#cor-ea4b71-2-para Equipes de Negócio: Autonomia Sem Dependência
 
 **Problema específico:** Dependência de TI para automações simples, mas necessidade de lógica mais sofisticada que ferramentas tradicionais oferecem.
 
@@ -219,11 +213,9 @@ return [{
 - **Colaboração** através de workflows compartilhados
 - **Debugging visual** mostra exatamente onde um processo falhou
 
-#### <span style={{color: '#22c55e'}}>Templates Prontos para Uso</span>
-
-**Básico - Notificação de Formulário:**
+#span-stylecolor#cor-22c55etemplates-prontos-para-usospan-bsico - Notificação de Formulário:**
 ```yaml
-# Template: Formulário → Email + Slack
+#template-formulrio-email Slack
 trigger: webhook
 action1: send-email
 action2: send-slack-message
@@ -231,7 +223,7 @@ action2: send-slack-message
 
 **Realístico - Onboarding de Cliente:**
 ```yaml
-# Template: CRM → Email → Slack → Google Sheets
+#template-crm-email Slack → Google Sheets
 trigger: new-customer-crm
 action1: send-welcome-email
 action2: notify-sales-team
@@ -241,7 +233,7 @@ condition: if-customer-type = 'enterprise'
 
 **Avançado - Relatório Semanal Automático:**
 ```yaml
-# Template: Múltiplas fontes → Consolidação → Distribuição
+#template-mltiplas-fontes-consolidao → Distribuição
 trigger: weekly-schedule
 action1: collect-google-analytics
 action2: collect-facebook-ads
@@ -250,11 +242,11 @@ action4: generate-report
 action5: send-to-stakeholders
 ```
 
-**Checkpoint de validação:** <IonicIcon name="checkmark-circle" style={{ fontSize: '16px', color: '#22c55e' }} /> Se você consegue criar uma planilha no Excel com fórmulas, consegue criar workflows no n8n. Veja **[Primeiro Workflow](./primeiros-passos/primeiro-workflow)** para começar.
+**Checkpoint de validação:** <IonicIcon name="checkmark-circle" style={{ fontSize: '16px', color: '#cor-22c55e-se-voc consegue criar uma planilha no Excel com fórmulas, consegue criar workflows no n8n. Veja **[Primeiro Workflow](./primeiros-passos/primeiro-workflow)** para começar.
 
 ---
 
-### <IonicIcon name="business-outline" style={{ fontSize: '20px', color: '#ea4b71' }} /> 3. Para Empresas: Controle Total Sem Vendor Lock-in
+#ionicicon-namebusiness-outline-style-fontsize-20px color: '#cor-ea4b71-3-para Empresas: Controle Total Sem Vendor Lock-in
 
 **Problema específico:** Vendor lock-in e custos crescentes por execução conforme automação escala.
 
@@ -264,9 +256,7 @@ action5: send-to-stakeholders
 - **Clustering** para alta disponibilidade em produção
 - **Audit logs** e monitoramento empresarial built-in
 
-#### <span style={{color: '#22c55e'}}>Comparação de Custos Reais</span>
-
-**Automação que executa 100K vezes/mês:**
+#span-stylecolor#cor-22c55ecomparao-de-custos-reaisspan-automao que executa 100K vezes/mês:**
 
 | Plataforma | Custo Mensal | Limitações |
 |------------|--------------|------------|
@@ -274,13 +264,13 @@ action5: send-to-stakeholders
 | Microsoft Power Automate | US$ 15/mês (R$ 78); Process/Hosted: até US$ 215/mês (R$ 1.120) | 100K actions, dependência Microsoft |
 | n8n self-hosted | US$ 5–50/mês pelo VPS (R$ 26–260) | Ilimitado, controle total, sem limite de tarefas |
 
-**Checkpoint Intermediário:** <IonicIcon name="checkmark-circle" style={{ fontSize: '16px', color: '#22c55e' }} /> Para implementação empresarial, consulte **[Deployment em Produção](./hosting-n8n/)** e **[Configuração de Segurança](./hosting-n8n/seguranca/)**.
+**Checkpoint Intermediário:** <IonicIcon name="checkmark-circle" style={{ fontSize: '16px', color: '#cor-22c55e-para-implementao empresarial, consulte **[Deployment em Produção](./hosting-n8n/)** e **[Configuração de Segurança](./hosting-n8n/seguranca/)**.
 
 ---
 
-## <IonicIcon name="checkmark-circle" style={{ fontSize: '20px', color: '#22c55e' }} /> Checkpoint Intermediário: Você Entendeu o Diferencial?
+#ionicicon-namecheckmark-circle-style-fontsize-20px color: '#cor-22c55e-checkpoint-intermedirio Você Entendeu o Diferencial?
 
-<IonicIcon name="bulb-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> **Antes de continuar, confirme que você entendeu:**
+<IonicIcon name="bulb-outline" style={{ fontSize: '16px', color: '#cor-ea4b71-antes-de continuar, confirme que você entendeu:**
 
 - [ ] **n8n combina simplicidade visual com poder de código** quando necessário
 - [ ] **Self-hosted elimina vendor lock-in** e custos crescentes
@@ -291,13 +281,11 @@ action5: send-to-stakeholders
 
 ---
 
-## <IonicIcon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Validação: Quem Já Usa e Por Quê
+#ionicicon-namepeople-outline-style-fontsize-24px color: '#cor-ea4b71-validao-quem Já Usa e Por Quê
 
 O n8n conquistou **123.000+ estrelas no GitHub** (julho de 2025) e é usado por milhares de organizações porque resolve problemas reais de integração:
 
-### <span style={{color: '#ea4b71'}}>Casos de Uso Validados</span>
-
-**E-commerce (Shopify + WooCommerce + ERP):**  
+#span-stylecolor#cor-ea4b71casos-de-uso-validadosspan-e-commerce (Shopify + WooCommerce + ERP):**  
 Automação de sincronização de produtos, estoque e pedidos entre Shopify e WooCommerce sem código customizado.
 
 **SaaS B2B (Onboarding automatizado):**  
@@ -309,9 +297,7 @@ Nodes nativos para Google Analytics, Facebook Ads e AdWords permitem coleta, con
 **Fintech (Compliance e monitoramento):**  
 Capaz de automatizar verificação de documentos, consultas a bureaus, decisões e notificações multicanais (e‑mail, SMS, Telegram).
 
-### <span style={{color: '#ea4b71'}}>Integrações Brasileiras Nativas</span>
-
-O n8n tem crescimento significativo no Brasil devido a integrações nativas com:
+#span-stylecolor#cor-ea4b71integraes-brasileiras-nativasspan-o-n8n tem crescimento significativo no Brasil devido a integrações nativas com:
 - **PIX** - Workflow oficial para gerar QR Code conforme padrão do Banco Central
 - **ViaCEP** - Nodes comunitários facilitam consulta de endereços via CEP
 - **Receita Federal (CNPJ/CPF)** - Scripts e nodes para validação disponíveis na comunidade
@@ -320,32 +306,32 @@ O n8n tem crescimento significativo no Brasil devido a integrações nativas com
 
 ---
 
-## <IonicIcon name="library-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estrutura Desta Documentação
+#ionicicon-namelibrary-outline-style-fontsize-24px color: '#cor-ea4b71-estrutura-desta Documentação
 
 Esta documentação segue uma progressão lógica do conceito à implementação avançada:
 
-### <IonicIcon name="flag" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Primeiros Passos**
+#ionicicon-nameflag-style-fontsize-18px color: '#cor-ea4b71-primeiros-passos
 Fundamentos sólidos para primeiro workflow funcional.
 
 **[Instalação](./primeiros-passos/guia-instalacao)** - Guia completo para todas as opções de deployment  
 **[Conceitos Fundamentais](./primeiros-passos/conceitos-fundamentais)** - Workflows, nodes, triggers, connections  
 **[Primeiro Workflow](./primeiros-passos/primeiro-workflow)** - Tutorial prático com caso real  
 
-### <IonicIcon name="construct" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Guias Práticos**
+#ionicicon-nameconstruct-style-fontsize-18px color: '#cor-ea4b71-guias-prticos
 Casos de uso reais com implementação completa.
 
 **[Interface e Navegação](./usando-n8n/interface/)** - Dominando o editor visual  
 **[Lógica e Fluxo de Dados](./logica-e-dados/)** - Condicionais, loops, error handling  
 **[Integrações Avançadas](./integracoes/)** - APIs customizadas, webhooks  
 
-### <IonicIcon name="book" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Referência Técnica**
+#ionicicon-namebook-style-fontsize-18px color: '#cor-ea4b71-referncia-tcnica
 Documentação completa para implementação em produção.
 
 **[API Reference](./api/)** - Documentação completa da REST API  
 **[Deployment em Produção](./hosting-n8n/)** - Clustering, monitoramento, backup  
 **[Criando Nodes Customizados](./integracoes/criar-nodes/)** - Desenvolvimento avançado  
 
-### <IonicIcon name="star" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Recursos Especializados**
+#ionicicon-namestar-style-fontsize-18px color: '#cor-ea4b71-recursos-especializados
 
 **[Integrações Brasileiras](./integracoes-br/)** - PIX, ViaCEP, Receita Federal  
 **[Casos de Uso Avançados](./comunidade/casos-uso-avancados/)** - E-commerce, SaaS, Fintech  
@@ -353,13 +339,11 @@ Documentação completa para implementação em produção.
 
 ---
 
-## <IonicIcon name="heart-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Nossa Comunidade Brasileira
+#ionicicon-nameheart-outline-style-fontsize-24px color: '#cor-ea4b71-nossa-comunidade Brasileira
 
 Este material é mantido pela **comunidade brasileira de n8n**, sem vínculo oficial com a empresa. Nosso objetivo é democratizar automação inteligente no Brasil, fornecendo recursos contextualizados e integrações específicas do mercado nacional.
 
-### Como Contribuir
-
-**<IonicIcon name="create-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> Melhorar a documentação:**  
+#como-contribuir-ionicicon-namecreate-outline-style fontSize: '16px', color: '#cor-ea4b71-melhorar-a documentação:**  
 - [Editar esta página no GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/edit/main/docs/intro.mdx)
 - [Reportar problemas ou sugestões](https://github.com/tatyquebralayout/n8n-Doc-pt-BR/issues/new)
 

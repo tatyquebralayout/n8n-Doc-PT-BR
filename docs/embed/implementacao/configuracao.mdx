@@ -6,17 +6,15 @@ keywords: [n8n, embed, configuração, parâmetros, customização, iframe, SSO,
 ---
 
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração do Embed
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-do Embed
 
 Este guia ensina como **configurar o n8n embarcado** em sua aplicação, cobrindo parâmetros essenciais, permissões, customização visual, integração com autenticação e exemplos práticos para diferentes cenários empresariais.
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Parâmetros de Configuração
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-parmetros-de Configuração
 
-### Parâmetros do Iframe
-
-| Parâmetro         | Descrição                                      | Exemplo                                  |
+#parmetros-do-iframe-parmetro         | Descrição                                      | Exemplo                                  |
 |------------------|------------------------------------------------|------------------------------------------|
 | `src`            | URL da instância n8n                            | `https://n8n.suaempresa.com/embed`       |
 | `workflowId`     | ID do workflow inicial                         | `?workflowId=123`                        |
@@ -27,10 +25,7 @@ Este guia ensina como **configurar o n8n embarcado** em sua aplicação, cobrind
 | `readonly`       | Modo somente leitura                           | `?readonly=true`                         |
 | `token`          | Token de autenticação (JWT, API Key)           | `?token=eyJ...`                          |
 
-#### **Exemplo de iframe**
-
-```html
-<iframe
+#exemplo-de-iframe-html-iframe
   src="https://n8n.suaempresa.com/embed?workflowId=123&mode=edit&theme=corporate&lang=pt-BR&hideSidebar=true"
   width="100%"
   height="800"
@@ -39,9 +34,7 @@ Este guia ensina como **configurar o n8n embarcado** em sua aplicação, cobrind
 ></iframe>
 ```
 
-### Segurança e CORS
-
-- Configure o header `X-Frame-Options: SAMEORIGIN` ou `ALLOW-FROM` para domínios confiáveis.
+#segurana-e-cors-configure o header `X-Frame-Options: SAMEORIGIN` ou `ALLOW-FROM` para domínios confiáveis.
 - Use `Content-Security-Policy` para restringir origens do iframe:
 
 ```nginx
@@ -56,11 +49,9 @@ N8N_CORS_ALLOW_ORIGIN=https://app.suaempresa.com
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Permissões e Controle de Acesso
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-permisses-e Controle de Acesso
 
-### RBAC e Restrições
-
-- Defina permissões por usuário/grupo via RBAC:
+#rbac-e-restries-defina permissões por usuário/grupo via RBAC:
 
 ```yaml
 N8N_USER_MANAGEMENT_DISABLED=false
@@ -80,9 +71,7 @@ N8N_RBAC_ENABLED=true
 }
 ```
 
-### Integração com SSO
-
-- **SAML**
+#integrao-com-sso-saml
 
 ```yaml
 N8N_SAML_ENABLED=true
@@ -112,18 +101,13 @@ N8N_LDAP_BASE_DN=dc=suaempresa,dc=com
 
 ---
 
-## <IonicIcon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Customização Visual
+#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-customizao-visual
 
-### Temas e Branding
-
-- Parâmetros de tema: `theme=light`, `theme=dark`, `theme=corporate`
+#temas-e-branding-parmetros de tema: `theme=light`, `theme=dark`, `theme=corporate`
 - Personalize cores, logo e fontes via variáveis de ambiente:
 
 ```yaml
-N8N_THEME_PRIMARY_COLOR=#ea4b71
-N8N_THEME_LOGO_URL=https://suaempresa.com/logo.png
-N8N_THEME_FONT_FAMILY=Inter, sans-serif
-```
+N8N_THEME_PRIMARY_COLOR=#cor-ea4b71-n8nthemelogourlhttpssuaempresacomlogopng-n8nthemefontfamilyinter-sans-serif
 
 - CSS customizado:
 
@@ -133,11 +117,9 @@ N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n_custom.css
 
 ---
 
-## <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Sistemas Externos
+#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Sistemas Externos
 
-### Comunicação Host ↔ Embed
-
-- Use `window.postMessage` para comunicação entre o host e o iframe embed:
+#comunicao-host-embed Use `window.postMessage` para comunicação entre o host e o iframe embed:
 
 ```js
 // No host
@@ -164,11 +146,9 @@ window.addEventListener('message', (event) => {
 
 ---
 
-## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos Práticos
+#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-prticos
 
-### Exemplo de Configuração Completa
-
-```html
+#exemplo-de-configurao-completa-html
 <iframe
   src="https://n8n.suaempresa.com/embed?workflowId=456&mode=view&theme=dark&lang=pt-BR&readonly=true&token=eyJ..."
   width="100%"
@@ -179,9 +159,7 @@ window.addEventListener('message', (event) => {
 ></iframe>
 ```
 
-### Parâmetros Dinâmicos via URL
-
-```js
+#parmetros-dinmicos-via-url-js
 const params = new URLSearchParams({
   workflowId: '789',
   mode: 'edit',
@@ -195,7 +173,7 @@ iframe.src = `https://n8n.suaempresa.com/embed?${params.toString()}`;
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Configuração
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Configuração
 
 - [ ] Definir domínios permitidos (CORS e CSP)
 - [ ] Configurar autenticação (API Key, SSO, OAuth, LDAP)

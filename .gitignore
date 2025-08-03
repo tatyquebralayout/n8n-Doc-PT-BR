@@ -146,3 +146,18 @@ fix-missing-braces.js
 remove-title-quotes.js
 .markdownlint.json
 
+# Relatórios e arquivos de análise local (não enviar para open source)
+RELATORIO_MELHORIAS.md
+RELATORIO_PROBLEMAS_WORKFLOWS.md
+monitoring-report.json
+performance-report.json
+optimization-report.json
+
+# Scripts de desenvolvimento local (não essenciais para produção)
+scripts/optimize-dependencies.js
+scripts/performance-optimizer.js
+scripts/performance-monitor.js
+scripts/fix-broken-anchors.js
+scripts/demo-improvements.js
+scripts/optimize-images.js
+

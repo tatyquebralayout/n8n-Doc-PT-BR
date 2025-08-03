@@ -1,5 +1,5 @@
 ﻿:::info
-<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }} /> Esta página da documentação foi validada tecnicamente e didaticamente.
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#cor-17a2b8-esta-pgina da documentação foi validada tecnicamente e didaticamente.
 :::
 
 ---
@@ -9,11 +9,11 @@ description: Como conectar nodes e entender o fluxo de dados no n8n
 keywords: [n8n, conexões, nodes, fluxo, dados, workflow]
 ---
 
-# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conexões entre Nodes
+#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-conexes-entre Nodes
 
 As conexões são a base de qualquer workflow no n8n, definindo como os dados fluem de um node para outro e criando a lógica de execução da sua automação.
 
-## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que são Conexões?
+#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-o-que são Conexões?
 
 Conexões são linhas que conectam nodes, definindo:
 
@@ -22,17 +22,15 @@ Conexões são linhas que conectam nodes, definindo:
 - **Lógica condicional** do workflow
 - **Tratamento de erros** e exceções
 
-### Tipos de Conexões
+#tipos-de-conexes
 
-#### Main Connection (Conexão Principal)
-
-A conexão padrão que transporta dados de sucesso:
+#main-connection-conexo-principal-a conexão padrão que transporta dados de sucesso:
 
 - **Cor**: Azul (padrão)
 - **Função**: Passa dados de um node para outro
 - **Uso**: Fluxo normal de execução
 
-#### Error Connection (Conexão de Erro)
+#error-connection-conexo-de-erro
 
 Trata falhas e exceções:
 
@@ -40,42 +38,32 @@ Trata falhas e exceções:
 - **Função**: Captura erros e falhas
 - **Uso**: Tratamento de exceções
 
-#### Optional Connection (Conexão Opcional)
-
-Conexões que podem ou não ser executadas:
+#optional-connection-conexo-opcional-conexes que podem ou não ser executadas:
 
 - **Cor**: Cinza
 - **Função**: Fluxos condicionais
 - **Uso**: Lógica alternativa
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Como Criar Conexões
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-como-criar Conexões
 
-### Método Visual
-
-1. **Clique** no ponto de saída de um node
+#mtodo-visual-1-clique-no ponto de saída de um node
 2. **Arraste** até o ponto de entrada de outro node
 3. **Solte** para criar a conexão
 
-### Método Rápido
-
-1. **Selecione** o node de origem
+#mtodo-rpido-1-selecione-o node de origem
 2. **Pressione** `Ctrl/Cmd + K`
 3. **Digite** o nome do node de destino
 4. **Pressione** `Enter`
 
-### Múltiplas Conexões
-
-Um node pode ter múltiplas conexões de saída:
+#mltiplas-conexes-um-node-pode ter múltiplas conexões de saída:
 
 - **Conexões paralelas**: Execução simultânea
 - **Conexões condicionais**: Baseadas em condições
 - **Conexões de erro**: Para tratamento de falhas
 
-## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tipos de Fluxo
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-tipos-de Fluxo
 
-### Fluxo Linear
-
-A forma mais simples de conexão:
+#fluxo-linear-a-forma-mais simples de conexão:
 
 ```
 Trigger → Node A → Node B → Node C
@@ -86,9 +74,7 @@ Trigger → Node A → Node B → Node C
 - Dados passam de um para outro
 - Falha em qualquer node para o workflow
 
-### Fluxo Paralelo
-
-Múltiplas conexões saindo do mesmo node:
+#fluxo-paralelo-mltiplas-conexes-saindo do mesmo node:
 
 ```
 Trigger → Node A → Node B
@@ -101,9 +87,7 @@ Trigger → Node A → Node B
 - Cada ramo processa independentemente
 - Útil para operações independentes
 
-### Fluxo Condicional
-
-Conexões baseadas em condições:
+#fluxo-condicional-conexes-baseadas-em condições:
 
 ```
 Trigger → IF Node → Node A (se verdadeiro)
@@ -115,9 +99,7 @@ Trigger → IF Node → Node A (se verdadeiro)
 - Fluxos alternativos
 - Lógica de negócio complexa
 
-### Fluxo de Erro
-
-Tratamento de falhas e exceções:
+#fluxo-de-erro-tratamento-de falhas e exceções:
 
 ```
 Trigger → Node A → Node B (sucesso)
@@ -129,12 +111,9 @@ Trigger → Node A → Node B (sucesso)
 - Permite recuperação
 - Logging de falhas
 
-## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Padrões de Conexão
+#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-padres-de Conexão
 
-### Padrão Try-Catch
-
-```mermaid
-graph LR
+#padro-try-catch-mermaid-graph-lr
     A[Trigger] --> B[Try Node]
     B --> C[Success Node]
     B --> D[Error Handler]
@@ -142,10 +121,7 @@ graph LR
     D --> F[Notify Admin]
 ```
 
-### Padrão Fan-Out
-
-```mermaid
-graph LR
+#padro-fan-out-mermaid-graph-lr
     A[Trigger] --> B[Split Data]
     B --> C[Process A]
     B --> D[Process B]
@@ -155,20 +131,14 @@ graph LR
     E --> F
 ```
 
-### Padrão Pipeline
-
-```mermaid
-graph LR
+#padro-pipeline-mermaid-graph-lr
     A[Trigger] --> B[Extract]
     B --> C[Transform]
     C --> D[Load]
     D --> E[Notify]
 ```
 
-### Padrão Circuit Breaker
-
-```mermaid
-graph LR
+#padro-circuit-breaker-mermaid-graph LR
     A[Trigger] --> B[Check Status]
     B --> C[Process]
     B --> D[Fallback]
@@ -176,11 +146,9 @@ graph LR
     C --> F[Error Handler]
 ```
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de Conexão
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de Conexão
 
-### Condições de Conexão
-
-Defina quando uma conexão deve ser executada:
+#condies-de-conexo-defina-quando uma conexão deve ser executada:
 
 ```javascript
 // Executar apenas se status for 'ativo'
@@ -193,9 +161,7 @@ Defina quando uma conexão deve ser executada:
 {{ $json.email && $json.email.includes('@') }}
 ```
 
-### Múltiplas Condições
-
-Combine condições com operadores lógicos:
+#mltiplas-condies-combine-condies-com operadores lógicos:
 
 ```javascript
 // E lógico (AND)
@@ -208,10 +174,7 @@ Combine condições com operadores lógicos:
 {{ !$json.processado }}
 ```
 
-### Expressões Complexas
-
-```javascript
-// Verificar múltiplos campos
+#expresses-complexas-javascript-verificar múltiplos campos
 {{ $json.nome && $json.email && $json.telefone }}
 
 // Validação de dados
@@ -221,55 +184,42 @@ Combine condições com operadores lógicos:
 {{ typeof $json.valor === 'number' && $json.valor > 0 }}
 ```
 
-## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Problemas Comuns
+#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-problemas-comuns
 
-### Conexões Circulares
-
-**Problema:** Workflow entra em loop infinito
+#conexes-circulares-problema-workflow-entra em loop infinito
 
 **Solução:**
 - Evite conectar um node de volta a si mesmo
 - Use condições para quebrar loops
 - Implemente contadores de iteração
 
-### Conexões Perdidas
-
-**Problema:** Dados não chegam ao destino
+#conexes-perdidas-problema-dados-no chegam ao destino
 
 **Solução:**
 - Verifique se a conexão está ativa
 - Confirme condições de conexão
 - Teste com dados de exemplo
 
-### Performance
-
-**Problema:** Workflow lento ou travado
+#performance-problema-workflow-lento-ou travado
 
 **Solução:**
 - Limite conexões paralelas excessivas
 - Use filtros para reduzir volume de dados
 - Implemente timeouts adequados
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Debugging de Conexões
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-debugging-de Conexões
 
-### Verificar Fluxo
-
-1. **Execute step by step** para ver o caminho dos dados
+#verificar-fluxo-1-execute-step by step** para ver o caminho dos dados
 2. **Verifique dados** em cada node
 3. **Analise logs** de execução
 4. **Teste condições** individualmente
 
-### Ferramentas de Debug
-
-- **Execution Log**: Histórico completo
+#ferramentas-de-debug-execution Log**: Histórico completo
 - **Data Viewer**: Visualizar dados em cada step
 - **Connection Tester**: Validar conexões
 - **Performance Monitor**: Identificar gargalos
 
-### Logs de Conexão
-
-```javascript
-// Log no início de cada node
+#logs-de-conexo-javascript Log no início de cada node
 {{ console.log('Iniciando processamento:', $json.id) }}
 
 // Log de dados importantes
@@ -279,49 +229,39 @@ Combine condições com operadores lógicos:
 {{ console.log('Condição avaliada:', $json.status === 'ativo') }}
 ```
 
-## <IonicIcon name="trending-up-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Otimização
+#ionicicon-nametrending-up-outline-style-fontsize-24px color: '#cor-ea4b71-otimizao
 
-### Reduzir Complexidade
-
-- **Simplifique** workflows muito complexos
+#reduzir-complexidade-simplifique-workflows muito complexos
 - **Use subworkflows** para modularizar
 - **Elimine** conexões desnecessárias
 - **Documente** fluxos complexos
 
-### Melhorar Performance
-
-- **Processe em lotes** quando possível
+#melhorar-performance-processe-em lotes** quando possível
 - **Use filtros** para reduzir dados
 - **Implemente cache** para dados repetitivos
 - **Monitore** uso de recursos
 
-### Manutenibilidade
-
-- **Nomeie nodes** de forma descritiva
+#manutenibilidade-nomeie-nodes-de forma descritiva
 - **Use comentários** para explicar lógica
 - **Organize** workflows logicamente
 - **Version controle** suas mudanças
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 1. **[Execution Order](./flow-logic/execution-order)** - Entender ordem de execução
 2. **[Error Handling](./flow-logic/error-handling)** - Tratamento robusto de erros
 3. **[Subworkflows](./flow-logic/subworkflows)** - Modularização de workflows
 
-## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Úteis
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-teis
 
-### Documentação Relacionada
-
-- **[Execution Order](./flow-logic/execution-order)** - Ordem de execução
+#documentao-relacionada-execution-orderflow-logicexecution-order - Ordem de execução
 - **[Error Handling](./flow-logic/error-handling)** - Tratamento de erros
 - **[Subworkflows](./flow-logic/subworkflows)** - Workflows modulares
 
-### Links Externos
-
-- **[n8n Workflows](https://docs.n8n.io/workflows/)** - Documentação oficial
+#links-externos-n8n-workflowshttpsdocsn8nioworkflows - Documentação oficial
 - **[n8n Community](https://community.n8n.io/)** - Fórum para dúvidas
 - **[Workflow Examples](https://docs.n8n.io/workflows/examples/)** - Exemplos práticos
 
 ---
 
-**<IonicIcon name="git-network-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> Conexões bem estruturadas criam workflows eficientes e confiáveis!** 
+**<IonicIcon name="git-network-outline" style={{ fontSize: '16px', color: '#cor-ea4b71-conexes-bem estruturadas criam workflows eficientes e confiáveis!** 

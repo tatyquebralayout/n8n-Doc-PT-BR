@@ -5,11 +5,11 @@ sidebar_position: 1
 keywords: [n8n, if node, condições, lógica, decisões, operadores, controle de fluxo]
 ---
 
-# <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> If Node
+#ionicicon-namecheckmark-circle-outline-style-fontsize-24px color: '#cor-ea4b71-if-node
 
 O **If Node** é um dos nodes mais importantes do n8n para controle de fluxo. Ele permite criar condições e tomar decisões baseadas em dados, direcionando o workflow por diferentes caminhos.
 
-## O que é o If Node?
+#o-que-o-if Node?
 
 O **If Node** permite:
 
@@ -20,7 +20,7 @@ O **If Node** permite:
 - **Implementar lógica de negócio** complexa
 - **Criar workflows dinâmicos** e inteligentes
 
-### Quando Usar o If Node
+#quando-usar-o-if-node
 
 - **Validação** de dados de entrada
 - **Classificação** de itens por critérios
@@ -29,11 +29,9 @@ O **If Node** permite:
 - **Tratamento de erros** condicional
 - **Lógica de negócio** baseada em regras
 
-## Configuração Básica
+#configurao-bsica
 
-### Estrutura do If Node
-
-```javascript
+#estrutura-do-if-node-javascript
 // If Node - Estrutura básica
 {
   "condition": "{{ $json.valor > 100 }}",
@@ -42,12 +40,9 @@ O **If Node** permite:
 }
 ```
 
-### Tipos de Condições
+#tipos-de-condies
 
-#### 1. Condição Simples
-
-```javascript
-// Verificar se campo existe
+#id-1-condio-simples-javascript Verificar se campo existe
 {{ $json.nome }}
 
 // Verificar se valor é verdadeiro
@@ -57,10 +52,7 @@ O **If Node** permite:
 {{ $json.email && $json.email.length > 0 }}
 ```
 
-#### 2. Comparações Numéricas
-
-```javascript
-// Maior que
+#id-2-comparaes-numricas-javascript Maior que
 {{ $json.valor > 100 }}
 
 // Menor que
@@ -79,9 +71,7 @@ O **If Node** permite:
 {{ $json.preco <= 1000 }}
 ```
 
-#### 3. Comparações de String
-
-```javascript
+#id-3-comparaes-de-string-javascript
 // Igual a (case sensitive)
 {{ $json.categoria === 'Premium' }}
 
@@ -101,9 +91,7 @@ O **If Node** permite:
 {{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}
 ```
 
-#### 4. Condições com Arrays
-
-```javascript
+#id-4-condies-com-arrays-javascript
 // Verificar se array contém valor
 {{ $json.tags.includes('urgente') }}
 
@@ -120,9 +108,7 @@ O **If Node** permite:
 {{ $json.status.some(s => s === 'erro') }}
 ```
 
-#### 5. Condições com Datas
-
-```javascript
+#id-5-condies-com-datas-javascript
 // Verificar se data é hoje
 {{ $json.data === $today }}
 
@@ -140,11 +126,9 @@ O **If Node** permite:
 {{ [0, 6].includes(new Date($json.data).getDay()) }}
 ```
 
-## Operadores Lógicos
+#operadores-lgicos
 
-### 1. Operador AND (&&)
-
-```javascript
+#id-1-operador-and-javascript
 // Múltiplas condições (todas devem ser verdadeiras)
 {{ $json.ativo && $json.saldo > 0 && $json.email }}
 
@@ -152,9 +136,7 @@ O **If Node** permite:
 {{ $json.idade >= 18 && $json.cpf && $json.email.includes('@') }}
 ```
 
-### 2. Operador OR (||)
-
-```javascript
+#id-2-operador-or-javascript
 // Múltiplas condições (pelo menos uma deve ser verdadeira)
 {{ $json.categoria === 'Premium' || $json.valor > 1000 }}
 
@@ -162,9 +144,7 @@ O **If Node** permite:
 {{ $json.status === 'ativo' || $json.status === 'pendente' }}
 ```
 
-### 3. Operador NOT (!)
-
-```javascript
+#id-3-operador-not-javascript
 // Negar condição
 {{ !$json.inativo }}
 
@@ -172,9 +152,7 @@ O **If Node** permite:
 {{ !$json.erro && $json.dados }}
 ```
 
-### 4. Combinação de Operadores
-
-```javascript
+#id-4-combinao-de-operadores-javascript
 // Condição complexa
 {{ ($json.ativo && $json.saldo > 0) || $json.admin }}
 
@@ -182,11 +160,9 @@ O **If Node** permite:
 {{ ($json.idade >= 18 && $json.cpf) || $json.categoria === 'VIP' }}
 ```
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### 1. Validação de Dados
-
-```javascript
+#id-1-validao-de-dados-javascript
 // If Node - Validação de cliente
 {
   "condition": "{{ $json.nome && $json.email && $json.cpf && $json.idade >= 18 }}",
@@ -205,9 +181,7 @@ O **If Node** permite:
 - Enviar notificação
 - Solicitar dados corretos
 
-### 2. Classificação por Valor
-
-```javascript
+#id-2-classificao-por-valor-javascript
 // If Node - Classificação de pedido
 {
   "condition": "{{ $json.valor_total > 1000 }}",
@@ -226,9 +200,7 @@ O **If Node** permite:
 - Aplicar desconto padrão
 - Enviar confirmação
 
-### 3. Filtragem por Status
-
-```javascript
+#id-3-filtragem-por-status-javascript
 // If Node - Filtragem por status
 {
   "condition": "{{ $json.status === 'aprovado' }}",
@@ -247,9 +219,7 @@ O **If Node** permite:
 - Enviar lembrança
 - Monitorar status
 
-### 4. Tratamento de Erros
-
-```javascript
+#id-4-tratamento-de-erros-javascript
 // If Node - Tratamento de erro
 {
   "condition": "{{ $json.erro || $json.status === 'falha' }}",
@@ -268,9 +238,7 @@ O **If Node** permite:
 - Salvar resultado
 - Enviar confirmação
 
-### 5. Roteamento por Categoria
-
-```javascript
+#id-5-roteamento-por-categoria-javascript
 // If Node - Roteamento por categoria
 {
   "condition": "{{ $json.categoria === 'financeiro' }}",
@@ -289,9 +257,9 @@ O **If Node** permite:
 - Aprovação automática
 - Processamento direto
 
-## Workflows Complexos
+#workflows-complexos
 
-### 1. Múltiplos If Nodes em Sequência
+#id-1-mltiplos-if-nodes-em Sequência
 
 ```
 Manual Trigger → If (Validação) → If (Classificação) → If (Processamento)
@@ -301,7 +269,7 @@ Manual Trigger → If (Validação) → If (Classificação) → If (Processamen
                 Validação Falhou    Standard              Aguardar
 ```
 
-### 2. If Node com Switch Node
+#id-2-if-node-com-switch Node
 
 ```javascript
 // Switch Node - Múltiplas condições
@@ -324,7 +292,7 @@ Manual Trigger → If (Validação) → If (Classificação) → If (Processamen
 }
 ```
 
-### 3. If Node com Merge
+#id-3-if-node-com-merge
 
 ```
 If Node A → Processamento A
@@ -334,21 +302,16 @@ If Node B → Processamento B
 Merge Node → Resultado Final
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Condições Claras
-
-```javascript
-// ✅ Bom: Condição clara e legível
+#id-1-condies-claras-javascript ✅ Bom: Condição clara e legível
 {{ $json.ativo && $json.saldo > 0 }}
 
 // ❌ Evitar: Condição confusa
 {{ $json.a && $json.s > 0 }}
 ```
 
-### 2. Validação de Dados
-
-```javascript
+#id-2-validao-de-dados-javascript
 // ✅ Bom: Validar antes de usar
 {{ $json.valor && typeof $json.valor === 'number' && $json.valor > 0 }}
 
@@ -356,20 +319,14 @@ Merge Node → Resultado Final
 {{ $json.valor > 0 }}
 ```
 
-### 3. Condições Simples
-
-```javascript
-// ✅ Bom: Condições simples
+#id-3-condies-simples-javascript ✅ Bom: Condições simples
 {{ $json.status === 'ativo' }}
 
 // ❌ Evitar: Condições muito complexas
 {{ $json.status === 'ativo' && $json.saldo > 0 && $json.email && $json.cpf && $json.idade >= 18 }}
 ```
 
-### 4. Nomenclatura Descritiva
-
-```javascript
-// ✅ Bom: Nomes descritivos
+#id-4-nomenclatura-descritiva-javascript ✅ Bom: Nomes descritivos
 "Cliente Válido"
 "Pedido Premium"
 "Processamento Urgente"
@@ -380,10 +337,7 @@ Merge Node → Resultado Final
 "Option 1"
 ```
 
-### 5. Documentação
-
-```javascript
-// ✅ Bom: Documentar condições
+#id-5-documentao-javascript Bom: Documentar condições
 // Condição: Verifica se cliente tem dados obrigatórios e idade mínima
 {{ $json.nome && $json.email && $json.cpf && $json.idade >= 18 }}
 
@@ -391,43 +345,36 @@ Merge Node → Resultado Final
 {{ $json.a && $json.b && $json.c }}
 ```
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Condição sempre verdadeira
-- Verifique se está usando operadores corretos
+#condio-sempre-verdadeira-verifique se está usando operadores corretos
 - Confirme se os campos existem
 - Teste com dados de exemplo
 - Use Debug Helper para inspecionar dados
 
-#### Condição sempre falsa
-- Verifique se os valores estão corretos
+#condio-sempre-falsa-verifique se os valores estão corretos
 - Confirme se os tipos de dados estão corretos
 - Teste com valores simples
 - Verifique se há espaços em branco
 
-#### Workflow não segue caminho esperado
+#workflow-no-segue-caminho-esperado
 - Verifique a lógica da condição
 - Confirme se os dados estão corretos
 - Teste com diferentes cenários
 - Use Debug Helper para ver dados
 
-### Debug
-
-```javascript
-// Code Node - Debug de condição
+#cor-debug-javascript-code-node - Debug de condição
 ;
 
 // Usar no If Node
 {{ debugCondicao($json, '$json.ativo && $json.saldo > 0') }}
 ```
 
-## Exemplos Avançados
+#exemplos-avanados
 
-### 1. Validação de Email
-
-```javascript
+#id-1-validao-de-email-javascript
 // If Node - Validação de email
 {
   "condition": "{{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}",
@@ -436,9 +383,7 @@ Merge Node → Resultado Final
 }
 ```
 
-### 2. Verificação de CPF
-
-```javascript
+#id-2-verificao-de-cpf-javascript
 // If Node - Verificação de CPF
 {
   "condition": "{{ /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test($json.cpf) }}",
@@ -447,9 +392,7 @@ Merge Node → Resultado Final
 }
 ```
 
-### 3. Classificação de Cliente
-
-```javascript
+#id-3-classificao-de-cliente-javascript
 // If Node - Classificação de cliente
 {
   "condition": "{{ $json.valor_total > 10000 || $json.categoria === 'VIP' }}",
@@ -458,9 +401,7 @@ Merge Node → Resultado Final
 }
 ```
 
-### 4. Verificação de Horário
-
-```javascript
+#id-4-verificao-de-horrio-javascript
 // If Node - Verificação de horário comercial
 {
   "condition": "{{ new Date().getHours() >= 8 && new Date().getHours() <= 18 && new Date().getDay() >= 1 && new Date().getDay() <= 5 }}",
@@ -469,7 +410,7 @@ Merge Node → Resultado Final
 }
 ```
 
-### 5. Validação de Dados Obrigatórios
+#id-5-validao-de-dados-obrigatrios
 
 ```javascript
 // If Node - Validação de dados obrigatórios
@@ -480,9 +421,7 @@ Merge Node → Resultado Final
 }
 ```
 
-## Próximos Passos
-
-- [Switch Node](/integracoes/builtin-nodes/logic-control/switch) - Múltiplas condições
+#prximos-passos-switch-nodeintegracoesbuiltin-nodeslogic-controlswitch - Múltiplas condições
 - [Merge Node](/integracoes/builtin-nodes/logic-control/merge) - Combinar dados
 - [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões em condições

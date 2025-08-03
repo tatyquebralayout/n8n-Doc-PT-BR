@@ -1,10 +1,6 @@
-﻿# Visualização de Schema
+﻿#visualizao-de-schema-a-visualizao de schema é fundamental para entender a estrutura dos dados que fluem através dos workflows. Esta seção aborda como visualizar, interpretar e trabalhar com schemas de dados no n8n.
 
-A visualização de schema é fundamental para entender a estrutura dos dados que fluem através dos workflows. Esta seção aborda como visualizar, interpretar e trabalhar com schemas de dados no n8n.
-
-## Visão Geral
-
-Schemas definem a estrutura, tipos e validação dos dados. No n8n, entender o schema dos dados é essencial para:
+#viso-geral-schemas-definem-a estrutura, tipos e validação dos dados. No n8n, entender o schema dos dados é essencial para:
 
 - **Mapeamento correto** de dados entre nodes
 - **Validação de entrada** e saída
@@ -12,11 +8,9 @@ Schemas definem a estrutura, tipos e validação dos dados. No n8n, entender o s
 - **Documentação** de workflows
 - **Integração** com APIs externas
 
-## Tipos de Schema
+#tipos-de-schema
 
-### Schema JSON
-
-O formato mais comum para definição de schemas:
+#schema-json-o-formato-mais comum para definição de schemas:
 
 ```json
 {
@@ -72,9 +66,7 @@ O formato mais comum para definição de schemas:
 }
 ```
 
-### Schema de API
-
-Schemas específicos para APIs REST:
+#schema-de-api-schemas-especficos para APIs REST:
 
 ```json
 {
@@ -96,11 +88,7 @@ Schemas específicos para APIs REST:
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Cliente"
-                  }
-                }
-              }
-            }
+                    "$ref": "#componentsschemascliente
           }
         }
       }
@@ -122,11 +110,9 @@ Schemas específicos para APIs REST:
 }
 ```
 
-## Visualização no n8n
+#visualizao-no-n8n
 
-### Schema Preview
-
-O n8n oferece visualização automática de schemas:
+#schema-preview-o-n8n-oferece visualização automática de schemas:
 
 ```javascript
 // Acessar schema de um node
@@ -140,9 +126,7 @@ const tipos = extrairTipos(schema);
 console.log('Tipos encontrados:', tipos);
 ```
 
-### Ferramentas de Visualização
-
-Use ferramentas externas para melhor visualização:
+#ferramentas-de-visualizao-use-ferramentas externas para melhor visualização:
 
 ```javascript
 // Gerar documentação do schema
@@ -177,11 +161,9 @@ Use ferramentas externas para melhor visualização:
 };
 ```
 
-## Schemas Comuns no Brasil
+#schemas-comuns-no-brasil
 
-### Schema de Pessoa Física
-
-```json
+#schema-de-pessoa-fsica-json
 {
   "type": "object",
   "properties": {
@@ -257,9 +239,7 @@ Use ferramentas externas para melhor visualização:
 }
 ```
 
-### Schema de Pessoa Jurídica
-
-```json
+#schema-de-pessoa-jurdica-json
 {
   "type": "object",
   "properties": {
@@ -326,9 +306,7 @@ Use ferramentas externas para melhor visualização:
 }
 ```
 
-### Schema de Nota Fiscal
-
-```json
+#schema-de-nota-fiscal-json
 {
   "type": "object",
   "properties": {
@@ -400,12 +378,9 @@ Use ferramentas externas para melhor visualização:
 }
 ```
 
-## Validação de Schema
+#validao-de-schema
 
-### Validação Automática
-
-```javascript
-// Validar dados contra schema
+#validao-automtica-javascript-validar dados contra schema
 );
   
   const validate = ajv.compile(schema);
@@ -438,10 +413,7 @@ const resultado = validarContraSchema(cliente, schemaCliente);
 console.log('Validação:', resultado);
 ```
 
-### Validação Customizada
-
-```javascript
-// Validações específicas para dados brasileiros
+#validao-customizada-javascript-validaes específicas para dados brasileiros
 const validacoesBR = {
   cpf: (valor) => {
     if (!valor) return false;
@@ -499,12 +471,9 @@ const validacoesBR = {
 };
 ```
 
-## Transformação de Schema
+#transformao-de-schema
 
-### Conversão de Formatos
-
-```javascript
-// Converter schema JSON para TypeScript
+#converso-de-formatos-javascript Converter schema JSON para TypeScript
 ${obrigatorio}: ${tipo};\n`;
     });
   }
@@ -531,10 +500,7 @@ ${obrigatorio}: ${tipo};\n`;
 };
 ```
 
-### Geração de Exemplos
-
-```javascript
-// Gerar exemplos baseados no schema
+#gerao-de-exemplos-javascript Gerar exemplos baseados no schema
 ;
     
     Object.entries(schema.properties).forEach(([nome, prop]) => {
@@ -575,9 +541,9 @@ ${obrigatorio}: ${tipo};\n`;
 };
 ```
 
-## Integração com APIs
+#integrao-com-apis
 
-### Schema de Resposta de API
+#schema-de-resposta-de-api
 
 ```javascript
 // Definir schema de resposta
@@ -613,10 +579,7 @@ const schemaRespostaAPI = {
 ;
 ```
 
-### Mapeamento de Schema
-
-```javascript
-// Mapear dados entre schemas diferentes
+#mapeamento-de-schema-javascript Mapear dados entre schemas diferentes
 ;
   
   const dadosMapeados = {};
@@ -640,12 +603,9 @@ const schemaRespostaAPI = {
 };
 ```
 
-## Ferramentas de Visualização
+#ferramentas-de-visualizao
 
-### JSON Schema Viewer
-
-```javascript
-import SchemaViewer from '@site/src/components/SchemaViewer';
+#json-schema-viewer-javascript-import SchemaViewer from '@site/src/components/SchemaViewer';
 
 // Exemplo de uso do componente SchemaViewer
 const schemaExemplo = {
@@ -660,10 +620,7 @@ const schemaExemplo = {
 <SchemaViewer schema={schemaExemplo} />
 ```
 
-### Documentação Automática
-
-```javascript
-// Gerar documentação do schema
+#documentao-automtica-javascript-gerar documentação do schema
 ;
   
   if (schema.properties) {
@@ -686,44 +643,34 @@ const schemaExemplo = {
 };
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### Design de Schema
-
-- **Use nomes descritivos** para propriedades
+#design-de-schema-use nomes descritivos** para propriedades
 - **Documente sempre** com descrições claras
 - **Defina validações** apropriadas
 - **Mantenha consistência** entre schemas relacionados
 - **Use tipos específicos** quando possível
 
-### Validação
-
-- **Valide dados de entrada** sempre
+#validao-valide-dados-de entrada** sempre
 - **Use validações customizadas** para regras de negócio
 - **Teste com dados reais** e edge cases
 - **Monitore erros** de validação
 - **Documente regras** de validação
 
-### Performance
-
-- **Cache schemas** frequentemente usados
+#performance-cache-schemas-frequentemente usados
 - **Otimize validações** para grandes volumes
 - **Use validação lazy** quando apropriado
 - **Monitore tempo** de validação
 - **Considere validação parcial** para dados grandes
 
-## Recursos Adicionais
+#recursos-adicionais
 
-### Ferramentas Úteis
-
-- **JSON Schema Validator**: Validação online de schemas
+#ferramentas-teis-json-schema Validator**: Validação online de schemas
 - **JSON Schema Generator**: Geração automática de schemas
 - **Swagger Editor**: Editor visual para OpenAPI
 - **JSON Schema Viewer**: Visualização de schemas
 
-### Bibliotecas
-
-- **Ajv**: Validador JSON Schema para JavaScript
+#bibliotecas-ajv-validador-json Schema para JavaScript
 - **jsonschema**: Validador Python
 - **json-schema**: Validador Java
 - **JSON.NET**: Validador .NET

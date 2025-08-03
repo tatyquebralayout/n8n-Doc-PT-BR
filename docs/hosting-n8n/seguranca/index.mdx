@@ -6,17 +6,15 @@ keywords: [n8n, segurança, autenticação, backup, lgpd, compliance]
 ---
 
 :::warning
-<IonicIcon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }} /> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+<IonicIcon name="time-outline" style={{ fontSize: '18px', color: '#cor-f59e0b-esta-pgina ainda está em processo de validação. O conteúdo pode sofrer alterações.
 :::
 
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segurança
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana-bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todos os aspectos essenciais para proteger sua instalação n8n em ambiente de produção, desde autenticação básica até estratégias avançadas de disaster recovery.
 
-Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todos os aspectos essenciais para proteger sua instalação n8n em ambiente de produção, desde autenticação básica até estratégias avançadas de disaster recovery.
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você encontrará aqui
 
-## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você encontrará aqui
-
-### 🔐 **Autenticação e Controle de Acesso**
+#autenticao-e-controle-de-acesso
 
 - **Métodos de autenticação** seguros e robustos
 - **Integração com sistemas empresariais** (LDAP, Active Directory, SSO)
@@ -24,7 +22,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 - **Controle de sessão** e políticas de timeout
 - **Restrições de IP** e acesso geográfico
 
-### 👥 **Gerenciamento de Usuários e Permissões**
+#gerenciamento-de-usurios-e-permisses
 
 - **Sistema RBAC** (Role-Based Access Control) completo
 - **Permissões granulares** por workflow e credencial
@@ -32,17 +30,13 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 - **Templates organizacionais** para diferentes tamanhos de empresa
 - **Auditoria completa** de atividades e mudanças
 
-### 💾 **Backup e Recuperação**
-
-- **Estratégia 3-2-1** para proteção máxima de dados
+#cor-backup-e-recuperao-estratgia 3-2-1** para proteção máxima de dados
 - **Scripts automatizados** para backup contínuo
 - **Backup na nuvem** (AWS S3, Google Cloud Storage)
 - **Disaster recovery** e planos de continuidade
 - **Testes de restauração** automatizados
 
-### 📊 **Monitoramento e Observabilidade**
-
-- **Métricas essenciais** de sistema e aplicação
+#monitoramento-e-observabilidade-mtricas essenciais** de sistema e aplicação
 - **Sistema de alertas** proativos e inteligentes
 - **Dashboards** de monitoramento em tempo real
 - **Logs estruturados** e centralização
@@ -50,11 +44,9 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 
 ---
 
-## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conceitos Fundamentais
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-conceitos-fundamentais
 
-### Princípio do Menor Privilégio
-
-**Dê apenas as permissões necessárias** para cada usuário realizar suas funções específicas. Isso minimiza o risco de acesso não autorizado e limita o impacto de comprometimentos.
+#princpio-do-menor-privilgio-d apenas as permissões necessárias** para cada usuário realizar suas funções específicas. Isso minimiza o risco de acesso não autorizado e limita o impacto de comprometimentos.
 
 ```javascript
 // ❌ Ruim - Privilégios excessivos
@@ -70,9 +62,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 }
 ```
 
-### Defesa em Profundidade
-
-**Múltiplas camadas de segurança** que protegem contra diferentes tipos de ameaças:
+#cor-defesa-em-profundidade-mltiplas-camadas de segurança** que protegem contra diferentes tipos de ameaças:
 
 1. **Autenticação forte** (2FA, biometria)
 2. **Controle de acesso granular** (RBAC)
@@ -80,9 +70,7 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 4. **Monitoramento contínuo** (logs, alertas)
 5. **Backup e recuperação** (disaster recovery)
 
-### Zero Trust
-
-**Nunca confie, sempre verifique** - cada acesso deve ser autenticado e autorizado, independentemente da origem:
+#zero-trust-nunca-confie-sempre verifique** - cada acesso deve ser autenticado e autorizado, independentemente da origem:
 
 - **Verificação contínua** de identidade
 - **Acesso baseado em contexto** (localização, horário, dispositivo)
@@ -91,11 +79,9 @@ Bem-vindo ao guia completo de **segurança para n8n**! Esta seção abrange todo
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tópicos de Segurança
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-tpicos-de Segurança
 
-### [Autenticação e Acesso](./autenticacao)
-
-Configure métodos de autenticação seguros e controle de acesso robusto:
+#autenticao-e-acessoautenticacao-configure-mtodos de autenticação seguros e controle de acesso robusto:
 
 - **Autenticação básica** com políticas de senha forte
 - **2FA (Autenticação de dois fatores)** para proteção adicional
@@ -106,9 +92,7 @@ Configure métodos de autenticação seguros e controle de acesso robusto:
 
 **[→ Ver Autenticação e Acesso](./autenticacao)**
 
-### [Usuários e Permissões](./usuarios-permissoes)
-
-Implemente controle granular de acesso com sistema RBAC:
+#usurios-e-permissesusuarios-permissoes-implemente-controle granular de acesso com sistema RBAC:
 
 - **Roles padrão** (Owner, Admin, Editor, Viewer)
 - **Roles customizados** para necessidades específicas
@@ -119,9 +103,7 @@ Implemente controle granular de acesso com sistema RBAC:
 
 **[→ Ver Usuários e Permissões](./usuarios-permissoes)**
 
-### [Backup e Recovery](./backup-recovery)
-
-Proteja seus dados com estratégias robustas de backup:
+#cor-backup-e-recoverybackup-recovery-proteja-seus dados com estratégias robustas de backup:
 
 - **Estratégia 3-2-1** (3 cópias, 2 mídias, 1 fora do local)
 - **Scripts automatizados** para PostgreSQL, MySQL, workflows
@@ -132,9 +114,7 @@ Proteja seus dados com estratégias robustas de backup:
 
 **[→ Ver Backup e Recovery](./backup-recovery)**
 
-### [Monitoramento e Alertas](./monitoring)
-
-Monitore a saúde e performance do seu n8n:
+#monitoramento-e-alertasmonitoring-monitore-a saúde e performance do seu n8n:
 
 - **Métricas essenciais** de sistema e aplicação
 - **Sistema de alertas** proativos e inteligentes
@@ -145,9 +125,7 @@ Monitore a saúde e performance do seu n8n:
 
 **[→ Ver Monitoramento e Alertas](./monitoring)**
 
-### [Privacidade e Segurança](./privacy-security)
-
-Garanta conformidade com LGPD e proteção de dados pessoais:
+#privacidade-e-seguranaprivacy-security-garanta-conformidade com LGPD e proteção de dados pessoais:
 
 - **Conformidade LGPD** e princípios de proteção de dados
 - **Mapeamento de dados pessoais** e finalidades de processamento
@@ -160,9 +138,9 @@ Garanta conformidade com LGPD e proteção de dados pessoais:
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Implementação por Fase
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-implementao-por Fase
 
-### Fase 1: Fundamentos (Semana 1-2)
+#fase-1-fundamentos-semana-1-2
 
 **Configuração básica de segurança:**
 
@@ -172,7 +150,7 @@ Garanta conformidade com LGPD e proteção de dados pessoais:
 - [ ] Logs de acesso ativados
 - [ ] Backup básico configurado
 
-### Fase 2: Controle de Acesso (Semana 3-4)
+#fase-2-controle-de-acesso (Semana 3-4)
 
 **Implementação de RBAC e permissões:**
 
@@ -182,7 +160,7 @@ Garanta conformidade com LGPD e proteção de dados pessoais:
 - [ ] Auditoria de acesso ativada
 - [ ] 2FA implementado para admins
 
-### Fase 3: Backup e Recuperação (Semana 5-6)
+#fase-3-backup-e-recuperao (Semana 5-6)
 
 **Estratégia robusta de proteção de dados:**
 
@@ -192,7 +170,7 @@ Garanta conformidade com LGPD e proteção de dados pessoais:
 - [ ] Testes de backup realizados
 - [ ] Plano de DR documentado
 
-### Fase 4: Monitoramento (Semana 7-8)
+#fase-4-monitoramento-semana-7-8
 
 **Observabilidade e alertas:**
 
@@ -204,38 +182,30 @@ Garanta conformidade com LGPD e proteção de dados pessoais:
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Segurança
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Segurança
 
-### Autenticação
-
-- [ ] HTTPS configurado e funcionando
+#autenticao-https configurado e funcionando
 - [ ] Autenticação básica ativada
 - [ ] 2FA implementado para usuários críticos
 - [ ] Política de senhas forte definida
 - [ ] Timeout de sessão configurado
 - [ ] Restrições de IP implementadas (se necessário)
 
-### Controle de Acesso
-
-- [ ] Sistema RBAC implementado
+#controle-de-acesso ] Sistema RBAC implementado
 - [ ] Roles e permissões definidos
 - [ ] Princípio do menor privilégio aplicado
 - [ ] Auditoria de acesso ativada
 - [ ] Revisão regular de permissões
 - [ ] Procedimentos de onboarding/offboarding
 
-### Proteção de Dados
-
-- [ ] Estratégia de backup 3-2-1 implementada
+#proteo-de-dados ] Estratégia de backup 3-2-1 implementada
 - [ ] Backup automatizado funcionando
 - [ ] Backup na nuvem configurado
 - [ ] Testes de restauração realizados
 - [ ] Criptografia em repouso ativada
 - [ ] Retenção de dados definida
 
-### Monitoramento
-
-- [ ] Métricas essenciais coletadas
+#monitoramento-mtricas essenciais coletadas
 - [ ] Sistema de alertas configurado
 - [ ] Dashboards de monitoramento criados
 - [ ] Logs centralizados e estruturados
@@ -244,11 +214,9 @@ Garanta conformidade com LGPD e proteção de dados pessoais:
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Cenários de Risco
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-cenrios-de Risco
 
-### Riscos de Segurança
-
-| Risco | Impacto | Mitigação |
+#riscos-de-segurana-risco | Impacto | Mitigação |
 |-------|---------|-----------|
 | **Credenciais comprometidas** | Alto | 2FA, rotação de senhas, monitoramento |
 | **Acesso não autorizado** | Alto | RBAC, auditoria, restrições de IP |
@@ -256,9 +224,7 @@ Garanta conformidade com LGPD e proteção de dados pessoais:
 | **Downtime** | Alto | Monitoramento, alertas, redundância |
 | **Conformidade** | Médio | Logs, auditoria, políticas documentadas |
 
-### Medidas de Proteção
-
-- **Detecção precoce** através de monitoramento contínuo
+#medidas-de-proteo-deteco precoce** através de monitoramento contínuo
 - **Resposta rápida** com alertas automatizados
 - **Recuperação eficiente** com backups testados
 - **Prevenção proativa** com políticas de segurança
@@ -266,7 +232,7 @@ Garanta conformidade com LGPD e proteção de dados pessoais:
 
 ---
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você entende os fundamentos de segurança:
 
@@ -277,27 +243,20 @@ Agora que você entende os fundamentos de segurança:
 
 ---
 
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Úteis
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-teis
 
-### Documentação Oficial
-
-- [Documentação n8n](https://docs.n8n.io/)
+#documentao-oficial-documentao-n8nhttpsdocsn8nio
 - [Segurança n8n](https://docs.n8n.io/hosting/security/)
 - [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
 - [Backup e Restore](https://docs.n8n.io/hosting/backup-restore/)
 
-### Ferramentas Recomendadas
-
-- **Grafana** - Dashboards de monitoramento
+#ferramentas-recomendadas-grafana Dashboards de monitoramento
 - **Prometheus** - Coleta de métricas
 - **ELK Stack** - Centralização de logs
 - **AWS S3** - Backup na nuvem
 - **Google Cloud Storage** - Backup na nuvem
 
-### Comunidade
-
-- [Discord n8n](https://discord.gg/n8n)
-- [GitHub n8n](https://github.com/n8n-io/n8n)
+#comunidade-discord-n8nhttpsdiscordggn8n [GitHub n8n](https://github.com/n8n-io/n8n)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/n8n)
 
 ---

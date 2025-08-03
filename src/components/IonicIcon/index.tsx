@@ -12,7 +12,7 @@ import React from 'react';
  * <IonicIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
  */
 
-const ALLOWED_SIZES = [16, 20, 24, 32, 48, 64];
+// const ALLOWED_SIZES = [16, 20, 24, 32, 48, 64];
 
 interface IonicIconProps {
   name: string;

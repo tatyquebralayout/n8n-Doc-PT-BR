@@ -5,11 +5,11 @@ sidebar_position: 2
 keywords: [n8n, switch node, múltiplas condições, roteamento, lógica, decisões, fluxo]
 ---
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Switch Node
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-switch-node
 
 O **Switch Node** é uma ferramenta avançada do n8n para controle de fluxo com múltiplas condições. Ele permite criar workflows dinâmicos com vários caminhos baseados em diferentes critérios.
 
-## O que é o Switch Node?
+#o-que-o-switch Node?
 
 O **Switch Node** permite:
 
@@ -20,7 +20,7 @@ O **Switch Node** permite:
 - **Criar workflows escaláveis** e organizados
 - **Reduzir complexidade** de múltiplos If Nodes
 
-### Quando Usar o Switch Node
+#quando-usar-o-switch-node
 
 - **Classificação** de dados por múltiplos critérios
 - **Roteamento** para diferentes processos
@@ -29,11 +29,9 @@ O **Switch Node** permite:
 - **Workflows** com muitas condições
 - **Lógica de negócio** complexa
 
-## Configuração Básica
+#configurao-bsica
 
-### Estrutura do Switch Node
-
-```javascript
+#estrutura-do-switch-node-javascript
 // Switch Node - Estrutura básica
 {
   "rules": [
@@ -54,12 +52,9 @@ O **Switch Node** permite:
 }
 ```
 
-### Tipos de Condições
+#tipos-de-condies
 
-#### 1. Condições Simples
-
-```javascript
-// Verificar valor exato
+#id-1-condies-simples-javascript Verificar valor exato
 {
   "condition": "{{ $json.status === 'ativo' }}",
   "output": "Cliente Ativo"
@@ -78,10 +73,7 @@ O **Switch Node** permite:
 }
 ```
 
-#### 2. Condições Numéricas
-
-```javascript
-// Faixas de valor
+#id-2-condies-numricas-javascript Faixas de valor
 {
   "condition": "{{ $json.valor > 10000 }}",
   "output": "Valor Alto"
@@ -100,9 +92,7 @@ O **Switch Node** permite:
 }
 ```
 
-#### 3. Condições de String
-
-```javascript
+#id-3-condies-de-string-javascript
 // Verificar início de string
 {
   "condition": "{{ $json.email.startsWith('admin') }}",
@@ -128,9 +118,7 @@ O **Switch Node** permite:
 }
 ```
 
-#### 4. Condições com Arrays
-
-```javascript
+#id-4-condies-com-arrays-javascript
 // Verificar se array contém valor
 {
   "condition": "{{ $json.tags.includes('importante') }}",
@@ -150,9 +138,7 @@ O **Switch Node** permite:
 }
 ```
 
-#### 5. Condições com Datas
-
-```javascript
+#id-5-condies-com-datas-javascript
 // Verificar se é hoje
 {
   "condition": "{{ $json.data === $today }}",
@@ -172,11 +158,9 @@ O **Switch Node** permite:
 }
 ```
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### 1. Classificação de Clientes
-
-```javascript
+#id-1-classificao-de-clientes-javascript
 // Switch Node - Classificação de clientes
 {
   "rules": [
@@ -201,9 +185,7 @@ O **Switch Node** permite:
 }
 ```
 
-### 2. Roteamento de Pedidos
-
-```javascript
+#id-2-roteamento-de-pedidos-javascript
 // Switch Node - Roteamento de pedidos
 {
   "rules": [
@@ -228,9 +210,7 @@ O **Switch Node** permite:
 }
 ```
 
-### 3. Validação de Dados
-
-```javascript
+#id-3-validao-de-dados-javascript
 // Switch Node - Validação de dados
 {
   "rules": [
@@ -255,9 +235,7 @@ O **Switch Node** permite:
 }
 ```
 
-### 4. Processamento por Região
-
-```javascript
+#id-4-processamento-por-regio-javascript
 // Switch Node - Processamento por região
 {
   "rules": [
@@ -286,9 +264,7 @@ O **Switch Node** permite:
 }
 ```
 
-### 5. Análise de Performance
-
-```javascript
+#id-5-anlise-de-performance-javascript
 // Switch Node - Análise de performance
 {
   "rules": [
@@ -313,11 +289,9 @@ O **Switch Node** permite:
 }
 ```
 
-## Casos de Uso Avançados
+#casos-de-uso-avanados
 
-### 1. Múltiplas Condições Aninhadas
-
-```javascript
+#id-1-mltiplas-condies-aninhadas-javascript
 // Switch Node - Condições complexas
 {
   "rules": [
@@ -346,10 +320,7 @@ O **Switch Node** permite:
 }
 ```
 
-### 2. Roteamento Dinâmico
-
-```javascript
-// Switch Node - Roteamento dinâmico
+#id-2-roteamento-dinmico-javascript Switch Node - Roteamento dinâmico
 {
   "rules": [
     {
@@ -373,9 +344,7 @@ O **Switch Node** permite:
 }
 ```
 
-### 3. Validação em Etapas
-
-```javascript
+#id-3-validao-em-etapas-javascript
 // Switch Node - Validação em etapas
 {
   "rules": [
@@ -400,9 +369,7 @@ O **Switch Node** permite:
 }
 ```
 
-### 4. Análise de Tendências
-
-```javascript
+#id-4-anlise-de-tendncias-javascript
 // Switch Node - Análise de tendências
 {
   "rules": [
@@ -431,9 +398,9 @@ O **Switch Node** permite:
 }
 ```
 
-## Workflows Complexos
+#workflows-complexos
 
-### 1. Switch Node com Merge
+#id-1-switch-node-com-merge
 
 ```
 Switch Node → Processamento A → Merge Node
@@ -443,9 +410,7 @@ Switch Node → Processamento B → Merge Node
 Switch Node → Processamento C → Merge Node
 ```
 
-### 2. Switch Node Aninhado
-
-```javascript
+#id-2-switch-node-aninhado-javascript
 // Primeiro Switch - Categoria
 {
   "rules": [
@@ -476,7 +441,7 @@ Switch Node → Processamento C → Merge Node
 }
 ```
 
-### 3. Switch Node com Paralelização
+#id-3-switch-node-com-paralelizao
 
 ```
 Switch Node → Processamento Paralelo A
@@ -486,11 +451,9 @@ Switch Node → Processamento Paralelo B
 Switch Node → Processamento Paralelo C
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Ordem das Condições
-
-```javascript
+#id-1-ordem-das-condies-javascript
 // ✅ Bom: Condições mais específicas primeiro
 {
   "rules": [
@@ -524,9 +487,7 @@ Switch Node → Processamento Paralelo C
 }
 ```
 
-### 2. Nomenclatura de Saídas
-
-```javascript
+#id-2-nomenclatura-de-sadas-javascript
 // ✅ Bom: Nomes descritivos
 {
   "output": "Processamento_Urgente_Alto_Valor"
@@ -538,10 +499,7 @@ Switch Node → Processamento Paralelo C
 }
 ```
 
-### 3. Condições Simples
-
-```javascript
-// ✅ Bom: Condições claras
+#id-3-condies-simples-javascript ✅ Bom: Condições claras
 {
   "condition": "{{ $json.status === 'ativo' && $json.valor > 1000 }}"
 }
@@ -552,9 +510,7 @@ Switch Node → Processamento Paralelo C
 }
 ```
 
-### 4. Uso do Default
-
-```javascript
+#id-4-uso-do-default-javascript
 // ✅ Bom: Sempre definir default
 {
   "rules": [...],
@@ -567,41 +523,36 @@ Switch Node → Processamento Paralelo C
 }
 ```
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Dados não seguem caminho esperado
+#cor-dados-no-seguem-caminho-esperado
 - Verifique a ordem das condições
 - Confirme se os dados estão corretos
 - Teste com dados de exemplo
 - Use Debug Helper para ver dados
 
-#### Condições não funcionam
-- Verifique sintaxe das expressões
+#condies-no-funcionam-verifique sintaxe das expressões
 - Confirme se os campos existem
 - Teste condições individualmente
 - Verifique tipos de dados
 
-#### Performance lenta
-- Reduza número de condições
+#performance-lenta-reduza-nmero de condições
 - Simplifique expressões
 - Use condições eficientes
 - Considere usar If Nodes separados
 
-### Debug
-
-```javascript
-// Code Node - Debug de Switch Node
+#cor-debug-javascript-code-node - Debug de Switch Node
 ;
 
 // Usar antes do Switch Node
 return { json: debugSwitch($json) };
 ```
 
-## Integração com Outros Nodes
+#integrao-com-outros-nodes
 
-### 1. Switch Node + Set Node
+#id-1-switch-node-set Node
 
 ```javascript
 // Switch Node - Classificar dados
@@ -633,7 +584,7 @@ return { json: debugSwitch($json) };
 }
 ```
 
-### 2. Switch Node + HTTP Request
+#id-2-switch-node-http Request
 
 ```javascript
 // Switch Node - Rotear para APIs diferentes
@@ -659,9 +610,7 @@ return { json: debugSwitch($json) };
 }
 ```
 
-## Próximos Passos
-
-- [If Node](/integracoes/builtin-nodes/logic-control/if) - Condições simples
+#prximos-passos-if-nodeintegracoesbuiltin-nodeslogic-controlif - Condições simples
 - [Merge Node](/integracoes/builtin-nodes/logic-control/merge) - Combinar dados
 - [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões em condições

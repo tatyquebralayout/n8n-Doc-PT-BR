@@ -7,15 +7,15 @@ keywords: [n8n, instalação, docker, npm, setup, self-hosted]
 ---
 
 :::info
-<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }} /> Esta página da documentação foi validada tecnicamente e didaticamente.
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#cor-17a2b8-esta-pgina da documentação foi validada tecnicamente e didaticamente.
 :::
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '32px', color: '#ea4b71' }} /> Instalação Self-hosted do n8n
+#ionicicon-namesettings-outline-style-fontsize-32px color: '#cor-ea4b71-instalao-self-hosted do n8n
 
 Esta página detalha os métodos de instalação **self-hosted** do n8n, incluindo Docker (recomendado) e npm. Para uma visão geral de todos os métodos, consulte o [Guia de Instalação – Visão Panorâmica](./guia-instalacao).
 
 :::warning **Conhecimento Técnico Necessário**
-<IonicIcon name="alert-triangle-outline" style={{ fontSize: '16px', color: '#f59e0b' }} /> O self-hosting do n8n requer conhecimento técnico, incluindo:
+<IonicIcon name="alert-triangle-outline" style={{ fontSize: '16px', color: '#cor-f59e0b-o-self-hosting do n8n requer conhecimento técnico, incluindo:
 
 * Configuração e gerenciamento de servidores e containers
 * Gerenciamento de recursos de aplicação e escalabilidade
@@ -27,49 +27,41 @@ O n8n recomenda self-hosting apenas para usuários experientes. Erros podem leva
 
 
 :::note **Versões do n8n**
-<IonicIcon name="time-outline" style={{ fontSize: '16px', color: '#3b82f6' }} /> O n8n lança uma nova versão menor na maioria das semanas. A versão `latest` é para uso em produção. `next` é a versão mais recente e deve ser tratada como beta: pode ser instável.
+<IonicIcon name="time-outline" style={{ fontSize: '16px', color: '#cor-3b82f6-o-n8n lança uma nova versão menor na maioria das semanas. A versão `latest` é para uso em produção. `next` é a versão mais recente e deve ser tratada como beta: pode ser instável.
 
 **Versão atual `latest`**: 1.101.1  
 **Versão atual `next`**: 1.102.1
 :::
 
-## <IonicIcon name="list-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Pré-requisitos
+#ionicicon-namelist-outline-style-fontsize-24px color: '#cor-ea4b71-pr-requisitos
 
-### Para Instalação via npm
-- **Node.js**: Versão entre 20.19 e 24.x, inclusive
+#para-instalao-via-npm **Node.js**: Versão entre 20.19 e 24.x, inclusive
 - **npm**: Versão mais recente
 
-### Para Instalação via Docker
-- **Docker Desktop** (Windows/Mac) ou **Docker Engine** (Linux)
+#para-instalao-via-docker **Docker Desktop** (Windows/Mac) ou **Docker Engine** (Linux)
 - **Docker Compose** (opcional, para configurações avançadas)
 
 :::note **Usuários Linux**
-<IonicIcon name="desktop-outline" style={{ fontSize: '16px', color: '#3b82f6' }} /> O Docker Desktop está disponível para Mac e Windows. Usuários Linux devem instalar o [Docker Engine](https://docs.docker.com/engine/install/) e [Docker Compose](https://docs.docker.com/compose/install/) individualmente para sua distribuição.
+<IonicIcon name="desktop-outline" style={{ fontSize: '16px', color: '#cor-3b82f6-o-docker Desktop está disponível para Mac e Windows. Usuários Linux devem instalar o [Docker Engine](https://docs.docker.com/engine/install/) e [Docker Compose](https://docs.docker.com/compose/install/) individualmente para sua distribuição.
 :::
 
-## <IonicIcon name="download-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Métodos de Instalação
+#ionicicon-namedownload-outline-style-fontsize-24px color: '#cor-ea4b71-mtodos-de Instalação
 
-### Comparação dos Métodos
-
-| Método | Facilidade | Recursos | Manutenção | Recomendado para |
+#comparao-dos-mtodos-mtodo | Facilidade | Recursos | Manutenção | Recomendado para |
 |--------|------------|----------|------------|------------------|
 | **Docker** | ⭐⭐⭐⭐⭐ | Completo | Fácil | Produção |
 | **npm** | ⭐⭐⭐ | Básico | Moderada | Desenvolvimento |
 | **npx** | ⭐⭐ | Limitado | N/A | Teste |
 
-### Docker (Recomendado)
+#docker-recomendado-o-docker-oferece as seguintes vantagens:
 
-O Docker oferece as seguintes vantagens:
+* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#cor-10b981-instala-o n8n em um ambiente limpo
+* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#cor-10b981-configurao-mais fácil para seu banco de dados preferido
+* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#cor-10b981-evita-problemas devido a diferentes sistemas operacionais
+* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#cor-10b981-evita-problemas de compatibilidade
+* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#cor-10b981-facilita-a migração para novos hosts ou ambientes
 
-* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Instala o n8n em um ambiente limpo
-* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Configuração mais fácil para seu banco de dados preferido
-* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Evita problemas devido a diferentes sistemas operacionais
-* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Evita problemas de compatibilidade
-* <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> Facilita a migração para novos hosts ou ambientes
-
-#### Instalação Básica
-
-```bash title="Criar volume para persistência"
+#instalao-bsica-bash-titlecriar-volume para persistência"
 docker volume create n8n_data
 ```
 
@@ -88,11 +80,9 @@ Após a execução, você pode acessar o n8n abrindo: [http://localhost:5678](ht
 
 
 <details>
-<summary><IonicIcon name="settings-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> <strong>Configurações Avançadas do Docker</strong> <IonicIcon name="chevron-down-outline" style={{ fontSize: '14px', color: '#6b7280' }} /></summary>
+<summary><IonicIcon name="settings-outline" style={{ fontSize: '16px', color: '#cor-6b7280-strongconfiguraes-avanadas do Docker</strong> <IonicIcon name="chevron-down-outline" style={{ fontSize: '14px', color: '#cor-6b7280-summary
 
-#### Usando com PostgreSQL
-
-Por padrão, o n8n usa SQLite para salvar credenciais, execuções passadas e workflows. O n8n também suporta PostgreSQL, configurável usando variáveis de ambiente.
+#usando-com-postgresql-por-padro o n8n usa SQLite para salvar credenciais, execuções passadas e workflows. O n8n também suporta PostgreSQL, configurável usando variáveis de ambiente.
 
 Para usar o n8n com PostgreSQL, execute os seguintes comandos, substituindo os placeholders pelos seus valores reais:
 
@@ -113,9 +103,7 @@ docker run -it --rm \
 docker.n8n.io/n8nio/n8n
 ```
 
-#### Configurando Fuso Horário
-
-Para definir o fuso horário que o n8n deve usar, você pode definir a variável de ambiente `GENERIC_TIMEZONE`. Nós orientados a agendamento, como o Schedule Trigger, usam isso para determinar o fuso horário correto.
+#configurando-fuso-horrio-para-definir o fuso horário que o n8n deve usar, você pode definir a variável de ambiente `GENERIC_TIMEZONE`. Nós orientados a agendamento, como o Schedule Trigger, usam isso para determinar o fuso horário correto.
 
 ```bash title="Configurar fuso horário"
 docker volume create n8n_data
@@ -133,13 +121,9 @@ docker.n8n.io/n8nio/n8n
 
 ---
 
-### npm
+#npm-npm-uma-forma rápida de começar com o n8n na sua máquina local.
 
-npm é uma forma rápida de começar com o n8n na sua máquina local.
-
-#### Testar com npx
-
-Você pode testar o n8n sem instalá-lo usando npx:
+#testar-com-npx-voc-pode testar o n8n sem instalá-lo usando npx:
 
 ```bash title="Teste rápido com npx"
 npx n8n
@@ -149,9 +133,7 @@ Este comando baixará tudo que é necessário para iniciar o n8n. Você pode ent
 
 
 
-#### Instalar Globalmente com npm
-
-Para instalar o n8n globalmente, use npm:
+#instalar-globalmente-com-npm-para instalar o n8n globalmente, use npm:
 
 ```bash title="Instalação via npm"
 npm install n8n -g
@@ -173,20 +155,14 @@ Após a instalação, inicie o n8n executando:
 
 ```bash title="Iniciar n8n"
 n8n
-# ou
-n8n start
-```
+#ou-n8n-start
 
-## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Inicial
+#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-inicial
 
-### Primeiro Acesso
+#primeiro-acesso-aps-a-instalao acesse `http://localhost:5678` e você verá a tela de configuração inicial.
 
-Após a instalação, acesse `http://localhost:5678` e você verá a tela de configuração inicial.
-
-### Criar Conta de Administrador
-
-:::warning **Importante**
-<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#f59e0b' }} /> Na primeira execução, você deve criar uma conta de administrador para proteger sua instância.
+#criar-conta-de-administrador-warning **Importante**
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#cor-f59e0b-na-primeira execução, você deve criar uma conta de administrador para proteger sua instância.
 :::
 
 1. Preencha os dados do administrador:
@@ -197,27 +173,22 @@ Após a instalação, acesse `http://localhost:5678` e você verá a tela de con
 2. Clique em **Criar Conta**
 
 <details>
-<summary><IonicIcon name="options-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> <strong>Configurações Avançadas</strong> <IonicIcon name="chevron-down-outline" style={{ fontSize: '14px', color: '#6b7280' }} /></summary>
+<summary><IonicIcon name="options-outline" style={{ fontSize: '16px', color: '#cor-6b7280-strongconfiguraes-avanadasstrong <IonicIcon name="chevron-down-outline" style={{ fontSize: '14px', color: '#cor-6b7280-summary
 
-### Configurações Avançadas
+#configuraes-avanadas
 
-#### Variáveis de Ambiente
-
-Você pode configurar o n8n usando variáveis de ambiente:
+#variveis-de-ambiente-voc-pode configurar o n8n usando variáveis de ambiente:
 
 ```bash title="Variáveis de ambiente básicas"
-# Porta da aplicação
-N8N_PORT=5678
+#porta-da-aplicao-n8nport5678
 
-# URL base (importante para webhooks)
+#url-base-importante-para-webhooks
 N8N_PROTOCOL=https
 N8N_HOST=seu-dominio.com
 
-# Fuso horário
-GENERIC_TIMEZONE=America/Sao_Paulo
+#fuso-horrio-generictimezoneamericasaopaulo
 
-# Banco de dados (opcional)
-DB_TYPE=postgresdb
+#banco-de-dados-opcional-dbtypepostgresdb
 DB_POSTGRESDB_HOST=localhost
 DB_POSTGRESDB_PORT=5432
 DB_POSTGRESDB_DATABASE=n8n
@@ -225,7 +196,7 @@ DB_POSTGRESDB_USER=n8n
 DB_POSTGRESDB_PASSWORD=senha_segura
 ```
 
-#### Docker Compose (Recomendado para produção)
+#docker-compose-recomendado-para-produo
 
 Crie um arquivo `docker-compose.yml`:
 
@@ -269,54 +240,43 @@ docker-compose up -d
 
 </details>
 
-## <IonicIcon name="search-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificando a Instalação
+#ionicicon-namesearch-outline-style-fontsize-24px color: '#cor-ea4b71-verificando-a Instalação
 
-### Interface Web
+#interface-web-acesse-httplocalhost5678-e verifique se a interface carrega corretamente.
 
-Acesse `http://localhost:5678` e verifique se a interface carrega corretamente.
-
-### Verificar Status (Docker)
-
-Se estiver usando Docker, você pode verificar o status do container:
+#verificar-status-docker-se-estiver usando Docker, você pode verificar o status do container:
 
 ```bash title="Verificar status do container"
 docker ps
 ```
 
-### Verificar Logs (Docker)
-
-Para ver os logs em tempo real:
+#verificar-logs-docker-para-ver os logs em tempo real:
 
 ```bash title="Ver logs do container"
 docker logs -f n8n
 ```
 
-### Teste Básico
-
-1. Clique em **"+ Adicionar primeiro passo"**
+#teste-bsico-1-clique-em **"+ Adicionar primeiro passo"**
 2. Procure por **"Manual Trigger"**
 3. Clique em **"Executar Workflow"**
 4. Você deve ver uma execução bem-sucedida
 
 
 
-## <IonicIcon name="refresh-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizando o n8n
+#ionicicon-namerefresh-outline-style-fontsize-24px color: '#cor-ea4b71-atualizando-o n8n
 
-### Atualização via Docker
-
-Para atualizar o n8n no Docker:
+#atualizao-via-docker-para-atualizar o n8n no Docker:
 
 ```bash title="Atualizar n8n no Docker"
-# 1. Baixar a versão mais recente
+#id-1-baixar-a-verso-mais recente
 docker pull docker.n8n.io/n8nio/n8n
 
-# 2. Parar o container atual
+#id-2-parar-o-container-atual
 docker stop <container_id>
 
-# 3. Remover o container
-docker rm <container_id>
+#id-3-remover-o-container-docker rm <container_id>
 
-# 4. Iniciar com a nova imagem
+#id-4-iniciar-com-a-nova imagem
 docker run -it --rm \
 --name n8n \
 -p 5678:5678 \
@@ -324,19 +284,14 @@ docker run -it --rm \
 docker.n8n.io/n8nio/n8n
 ```
 
-### Atualização via npm
-
-```bash title="Atualizar n8n via npm"
-# Atualizar para a versão mais recente
+#atualizao-via-npm-bash-titleatualizar n8n via npm"
+#atualizar-para-a-verso-mais recente
 npm update -g n8n
 
-# Instalar a versão next
-npm install -g n8n@next
+#instalar-a-verso-next-npm install -g n8n@next
 ```
 
-### Revertendo uma Atualização
-
-Se precisar reverter uma atualização:
+#revertendo-uma-atualizao-se-precisar reverter uma atualização:
 
 1. Instale a versão anterior desejada
 2. Se a atualização envolveu migração de banco de dados:
@@ -344,86 +299,63 @@ Se precisar reverter uma atualização:
    - Execute `n8n db:revert` na versão atual para reverter o banco
 
 :::info **Backup Recomendado**
-<IonicIcon name="cloud-upload-outline" style={{ fontSize: '16px', color: '#3b82f6' }} /> Sempre faça backup dos seus dados antes de atualizar o n8n em produção.
+<IonicIcon name="cloud-upload-outline" style={{ fontSize: '16px', color: '#cor-3b82f6-sempre-faa backup dos seus dados antes de atualizar o n8n em produção.
 :::
 
-## <IonicIcon name="medical-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Solução de Problemas
+#ionicicon-namemedical-outline-style-fontsize-24px color: '#cor-ea4b71-soluo-de Problemas
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Porta já em uso
-
-```bash title="Resolver conflito de porta"
-# Verificar qual processo está usando a porta 5678
+#porta-j-em-uso-bash title="Resolver conflito de porta"
+#verificar-qual-processo-est-usando a porta 5678
 netstat -tulpn | grep 5678
 
-# Usar uma porta diferente
-N8N_PORT=5679 n8n start
+#usar-uma-porta-diferente-n8nport5679 n8n start
 ```
 
-#### Problemas de permissão (Linux/Mac)
-
-```bash title="Corrigir permissões (Linux/Mac)"
-# Dar permissões corretas
-sudo chown -R $(whoami) ~/.n8n
+#problemas-de-permisso-linuxmac-bash title="Corrigir permissões (Linux/Mac)"
+#dar-permisses-corretas-sudo-chown -R $(whoami) ~/.n8n
 ```
 
-#### Erro de memória
-
-```bash title="Aumentar memória do Node.js"
-# Aumentar limite de memória do Node.js
+#erro-de-memria-bash-titleaumentar memória do Node.js"
+#aumentar-limite-de-memria-do Node.js
 NODE_OPTIONS="--max-old-space-size=4096" n8n start
 ```
 
-#### Problemas no Windows
+#problemas-no-windows-se-voc está enfrentando problemas no Windows, certifique-se de que seu ambiente Node.js está configurado corretamente. Siga o [guia da Microsoft para instalar NodeJS no Windows](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
 
-Se você está enfrentando problemas no Windows, certifique-se de que seu ambiente Node.js está configurado corretamente. Siga o [guia da Microsoft para instalar NodeJS no Windows](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-
-### Logs
-
-Para debugar problemas, verifique os logs:
+#logs-para-debugar-problemas-verifique os logs:
 
 ```bash title="Verificar logs detalhados"
-# Logs mais detalhados
-N8N_LOG_LEVEL=debug n8n start
+#logs-mais-detalhados-n8nlogleveldebug-n8n start
 
-# Com Docker
-docker logs container_id
+#com-docker-docker-logs-containerid
 ```
 
 <details>
-<summary><IonicIcon name="analytics-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> <strong>Comandos de Diagnóstico Avançados</strong> <IonicIcon name="chevron-down-outline" style={{ fontSize: '14px', color: '#6b7280' }} /></summary>
+<summary><IonicIcon name="analytics-outline" style={{ fontSize: '16px', color: '#cor-6b7280-strongcomandos-de Diagnóstico Avançados</strong> <IonicIcon name="chevron-down-outline" style={{ fontSize: '14px', color: '#cor-6b7280-summary
 
-### Comandos de Diagnóstico Avançados
+#comandos-de-diagnstico-avanados
 
-#### Verificar Recursos do Sistema
-
-```bash title="Verificar uso de recursos"
-# Verificar uso de CPU e memória
+#verificar-recursos-do-sistema-bash title="Verificar uso de recursos"
+#verificar-uso-de-cpu-e memória
 docker stats n8n
 
-# Verificar espaço em disco
-df -h
+#verificar-espao-em-disco-df -h
 ```
 
-#### Verificar Conectividade
-
-```bash title="Testar conectividade"
-# Testar se a porta está acessível
+#verificar-conectividade-bash-titletestar-conectividade
+#testar-se-a-porta-est acessível
 curl -I http://localhost:5678
 
-# Verificar se o container está respondendo
+#verificar-se-o-container-est respondendo
 docker exec n8n curl -I http://localhost:5678
 ```
 
-#### Verificar Configurações
+#verificar-configuraes-bash-titleverificar-configuraes
+#verificar-variveis-de-ambiente-docker exec n8n env | grep N8N
 
-```bash title="Verificar configurações"
-# Verificar variáveis de ambiente
-docker exec n8n env | grep N8N
-
-# Verificar arquivos de configuração
-docker exec n8n ls -la /home/node/.n8n
+#verificar-arquivos-de-configurao-docker exec n8n ls -la /home/node/.n8n
 ```
 
 </details>
@@ -437,19 +369,17 @@ Se encontrar problemas, consulte:
 - [GitHub Issues](https://github.com/n8n-io/n8n/issues)
 - [Fórum da Comunidade](https://community.n8n.io/c/questions/12)
 
-## <IonicIcon name="arrow-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que o n8n está instalado e funcionando:
 
-- [x] <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#10b981' }} /> **Instalação concluída**
-- [ ] <IonicIcon name="book-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> **[Conceitos Fundamentais](./conceitos-fundamentais)** - Entenda os fundamentos
-- [ ] <IonicIcon name="play-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> **[Primeiro Workflow](./primeiro-workflow)** - Crie seu primeiro fluxo
-- [ ] <IonicIcon name="link-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> **[Conectar Aplicações](./conectar-aplicacoes)** - Integre suas ferramentas
+- [x] <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '16px', color: '#cor-10b981-instalao-concluda
+- [ ] <IonicIcon name="book-outline" style={{ fontSize: '16px', color: '#cor-6b7280-conceitos-fundamentaisconceitos-fundamentais - Entenda os fundamentos
+- [ ] <IonicIcon name="play-outline" style={{ fontSize: '16px', color: '#cor-6b7280-primeiro-workflowprimeiro-workflow - Crie seu primeiro fluxo
+- [ ] <IonicIcon name="link-outline" style={{ fontSize: '16px', color: '#cor-6b7280-conectar-aplicaesconectar-aplicacoes - Integre suas ferramentas
 
-### Outros Métodos de Instalação
-
-- <IonicIcon name="cloud-outline" style={{ fontSize: '16px', color: '#3b82f6' }} /> **[n8n Cloud](./instalacao-cloud)** - Instalação via serviço hospedado
-- <IonicIcon name="code-outline" style={{ fontSize: '16px', color: '#6b7280' }} /> **[Self-hosted (Auto-hospedado)](./instalacao-self-hosted)** - Para desenvolvimento e produção
+#outros-mtodos-de-instalao <IonicIcon name="cloud-outline" style={{ fontSize: '16px', color: '#cor-3b82f6-n8n-cloudinstalacao-cloud - Instalação via serviço hospedado
+- <IonicIcon name="code-outline" style={{ fontSize: '16px', color: '#cor-6b7280-self-hosted-auto-hospedadoinstalacao-self-hosted - Para desenvolvimento e produção
 
 ---
 

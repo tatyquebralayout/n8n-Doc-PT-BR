@@ -5,11 +5,11 @@ description: Como integrar n8n com Slack para automação de comunicação e not
 keywords: [n8n, slack, integração, comunicação, notificações, mensagens, automação]
 ---
 
-# <IonicIcon name="chatbubbles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração Slack
+#ionicicon-namechatbubbles-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-slack
 
 O **Slack** é uma das plataformas de comunicação mais populares para equipes, e a integração com n8n permite automatizar notificações, criar bots inteligentes e melhorar a colaboração através de workflows automatizados.
 
-## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Visão Geral
+#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-viso-geral
 
 A integração n8n-Slack oferece:
 
@@ -20,16 +20,16 @@ A integração n8n-Slack oferece:
 - **Monitoramento e alertas** em tempo real
 - **Sincronização de dados** entre Slack e outros sistemas
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao
 
-### 1. Criar App no Slack
+#id-1-criar-app-no-slack
 
 1. Acesse [api.slack.com/apps](https://api.slack.com/apps)
 2. Clique em **"Create New App"**
 3. Escolha **"From scratch"**
 4. Digite o nome do app e selecione o workspace
 
-### 2. Configurar Permissões (OAuth Scopes)
+#id-2-configurar-permisses-oauth-scopes
 
 Adicione os seguintes escopos:
 
@@ -44,14 +44,14 @@ Adicione os seguintes escopos:
 **User Token Scopes:**
 - `chat:write` - Enviar mensagens como usuário
 
-### 3. Instalar App no Workspace
+#id-3-instalar-app-no-workspace
 
 1. Vá para **"OAuth & Permissions"**
 2. Clique em **"Install to Workspace"**
 3. Autorize o app
 4. Copie o **Bot User OAuth Token**
 
-### 4. Configurar Credenciais no n8n
+#id-4-configurar-credenciais-no-n8n
 
 1. No n8n, vá para **Settings > Credentials**
 2. Clique em **"Add Credential"**
@@ -59,11 +59,9 @@ Adicione os seguintes escopos:
 4. Cole o Bot Token
 5. Teste a conexão
 
-## <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Nós Disponíveis
+#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-ns-disponveis
 
-### 1. Slack Trigger
-
-Dispara workflows baseados em eventos do Slack.
+#id-1-slack-trigger-dispara-workflows baseados em eventos do Slack.
 
 **Eventos disponíveis:**
 - `message` - Nova mensagem em canal
@@ -84,9 +82,7 @@ Dispara workflows baseados em eventos do Slack.
 }
 ```
 
-### 2. Send Message
-
-Envia mensagens para canais ou usuários.
+#id-2-send-message-envia-mensagens para canais ou usuários.
 
 **Tipos de mensagem:**
 - **Text**: Mensagem simples
@@ -96,18 +92,14 @@ Envia mensagens para canais ou usuários.
 **Exemplo básico:**
 ```json
 {
-  "channel": "#geral",
-  "text": "Olá! Esta é uma mensagem automática do n8n."
+  "channel": "#geral-text-ol-esta uma mensagem automática do n8n."
 }
 ```
 
 **Exemplo com blocos:**
 ```json
 {
-  "channel": "#alertas",
-  "blocks": [
-    {
-      "type": "header",
+  "channel": "#alertas-blocks-type "header",
       "text": {
         "type": "plain_text",
         "text": "🚨 Alerta do Sistema"
@@ -137,23 +129,20 @@ Envia mensagens para canais ou usuários.
 }
 ```
 
-### 3. Upload File
-
-Envia arquivos para o Slack.
+#id-3-upload-file-envia-arquivos para o Slack.
 
 **Configuração:**
 ```json
 {
-  "channel": "#documentos",
-  "file": "{{ $binary.data }}",
+  "channel": "#documentos-file-binarydata
   "filename": "relatorio.pdf",
   "title": "Relatório Mensal"
 }
 ```
 
-## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Práticos
+#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Práticos
 
-### 1. Sistema de Notificações de Monitoramento
+#id-1-sistema-de-notificaes-de Monitoramento
 
 **Cenário**: Alertas automáticos quando sistemas críticos falham.
 
@@ -169,10 +158,7 @@ graph TD
 **Configuração do Slack Node:**
 ```json
 {
-  "channel": "#monitoramento",
-  "blocks": [
-    {
-      "type": "section",
+  "channel": "#monitoramento-blocks-type "section",
       "text": {
         "type": "mrkdwn",
         "text": "⚠️ *Sistema Offline*\n\nO sistema {{ $json.system }} não está respondendo.\n\n*Detalhes:*\n• Status: {{ $json.status }}\n• Última verificação: {{ $now }}\n• Tentativa: {{ $runIndex + 1 }}"
@@ -195,7 +181,7 @@ graph TD
 }
 ```
 
-### 2. Bot de Aprovação de Despesas
+#id-2-bot-de-aprovao-de Despesas
 
 **Cenário**: Sistema que envia solicitações de aprovação via Slack.
 
@@ -222,10 +208,7 @@ graph TD
 **Configuração da Mensagem:**
 ```json
 {
-  "channel": "#aprovacoes",
-  "blocks": [
-    {
-      "type": "section",
+  "channel": "#aprovacoes-blocks-type "section",
       "text": {
         "type": "mrkdwn",
         "text": "💰 *Nova Solicitação de Despesa*\n\n*Solicitante:* {{ $json.solicitante }}\n*Valor:* R$ {{ $json.valor }}\n*Descrição:* {{ $json.descricao }}"
@@ -242,9 +225,7 @@ graph TD
 }
 ```
 
-### 3. Integração com CRM
-
-**Cenário**: Notificações automáticas quando novos leads são criados.
+#id-3-integrao-com-crm-cenrio Notificações automáticas quando novos leads são criados.
 
 ```mermaid
 graph TD
@@ -256,10 +237,7 @@ graph TD
 **Configuração:**
 ```json
 {
-  "channel": "#vendas",
-  "blocks": [
-    {
-      "type": "section",
+  "channel": "#vendas-blocks-type "section",
       "text": {
         "type": "mrkdwn",
         "text": "🎯 *Novo Lead Capturado*\n\n*Nome:* {{ $json.nome }}\n*Email:* {{ $json.email }}\n*Telefone:* {{ $json.telefone }}\n*Origem:* {{ $json.origem }}"
@@ -282,9 +260,7 @@ graph TD
 }
 ```
 
-### 4. Relatórios Automáticos
-
-**Cenário**: Envio diário de relatórios de performance.
+#id-4-relatrios-automticos-cenrio-envio diário de relatórios de performance.
 
 ```mermaid
 graph TD
@@ -297,10 +273,7 @@ graph TD
 **Configuração:**
 ```json
 {
-  "channel": "#relatorios",
-  "blocks": [
-    {
-      "type": "section",
+  "channel": "#relatorios-blocks-type "section",
       "text": {
         "type": "mrkdwn",
         "text": "📊 *Relatório Diário - {{ $now.format('DD/MM/YYYY') }}*\n\n*Resumo:*\n• Vendas: R$ {{ $json.vendas }}\n• Leads: {{ $json.leads }}\n• Conversões: {{ $json.conversoes }}%"
@@ -310,44 +283,29 @@ graph TD
 }
 ```
 
-## <IonicIcon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Expressões e Data Mapping
+#ionicicon-nameflash-outline-style-fontsize-24px color: '#cor-ea4b71-expresses-e Data Mapping
 
-### Mensagens Dinâmicas
-
-```javascript
-// Mensagem com dados dinâmicos
+#mensagens-dinmicas-javascript-mensagem com dados dinâmicos
 {
   "channel": "{{ $json.canal }}",
-  "text": "Olá {{ $json.usuario }}, seu pedido #{{ $json.pedido_id }} foi processado com sucesso!"
+  "text": "Olá {{ $json.usuario }}, seu pedido #jsonpedidoid-foi-processado-com sucesso!"
 }
 
 // Mensagem condicional
 {
-  "channel": "#alertas",
-  "text": "{{ $json.status === 'error' ? '❌ Erro detectado' : '✅ Operação concluída' }}"
+  "channel": "#alertas-text-jsonstatus 'error' ? '❌ Erro detectado' : '✅ Operação concluída' }}"
 }
 ```
 
-### Canais Dinâmicos
-
-```javascript
-// Canal baseado no tipo de alerta
+#canais-dinmicos-javascript-canal baseado no tipo de alerta
 {
-  "channel": "{{ $json.severidade === 'critico' ? '#alertas-criticos' : '#notificacoes' }}"
-}
-
-// Canal baseado no departamento
+  "channel": "{{ $json.severidade === 'critico' ? '#alertas-criticos#notificacoes-canal baseado no departamento
 {
-  "channel": "{{ $json.departamento === 'vendas' ? '#vendas' : '#suporte' }}"
-}
-```
+  "channel": "{{ $json.departamento === 'vendas' ? '#vendas#suporte
 
-## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tratamento de Erros
+#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-tratamento-de Erros
 
-### Retry com Backoff
-
-```javascript
-// Configuração de retry para Slack
+#retry-com-backoff-javascript Configuração de retry para Slack
 {
   "maxTries": 3,
   "waitBetweenTries": 5000,
@@ -355,55 +313,38 @@ graph TD
 }
 ```
 
-### Fallback para Email
-
-```mermaid
-graph TD
+#fallback-para-email-mermaid-graph TD
     A[Slack - Send Message] --> B{Sucesso?}
     B -->|Não| C[Email - Send]
     B -->|Sim| D[Log Success]
 ```
 
-## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas
 
-### 1. Organização de Canais
+#id-1-organizao-de-canais **#monitoramento-alertas-de-sistema
+- **#notificacoes-notificaes-gerais **#vendas-atividades-comerciais **#suporte-tickets-e-suporte
+- **#relatorios-relatrios-automticos
 
-- **#monitoramento** - Alertas de sistema
-- **#notificacoes** - Notificações gerais
-- **#vendas** - Atividades comerciais
-- **#suporte** - Tickets e suporte
-- **#relatorios** - Relatórios automáticos
-
-### 2. Formatação de Mensagens
-
-- Use **negrito** para títulos importantes
+#id-2-formatao-de-mensagens Use **negrito** para títulos importantes
 - Use emojis para categorizar mensagens
 - Mantenha mensagens concisas e objetivas
 - Inclua links para ações rápidas
 
-### 3. Rate Limiting
-
-```javascript
-// Respeitar limites do Slack
+#id-3-rate-limiting-javascript Respeitar limites do Slack
 {
   "waitBetweenMessages": 1000,  // 1 segundo entre mensagens
   "maxMessagesPerMinute": 50
 }
 ```
 
-### 4. Privacidade e Segurança
-
-- Não envie dados sensíveis via Slack
+#id-4-privacidade-e-segurana Não envie dados sensíveis via Slack
 - Use canais privados para informações confidenciais
 - Configure permissões adequadas nos canais
 - Monitore logs de acesso
 
-## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
 
-### Problemas Comuns
-
-**Erro: "channel_not_found"**
-- Verifique se o canal existe
+#problemas-comuns-erro-channelnotfound Verifique se o canal existe
 - Confirme se o bot tem acesso ao canal
 - Use ID do canal em vez do nome
 
@@ -417,10 +358,7 @@ graph TD
 - Reduza a frequência de envio
 - Use webhooks em vez de polling
 
-### Debugging
-
-```javascript
-// Log para debugging
+#cor-debugging-javascript-log-para debugging
 console.log('Slack Debug:', {
   channel: $json.channel,
   message: $json.text,
@@ -429,12 +367,9 @@ console.log('Slack Debug:', {
 });
 ```
 
-## <IonicIcon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Outros Nós
+#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Outros Nós
 
-### Fluxo Completo
-
-```mermaid
-graph TD
+#fluxo-completo-mermaid-graph-td
     A[Webhook] --> B[Processar Dados]
     B --> C[Code Node]
     C --> D[Slack - Send Message]
@@ -442,9 +377,7 @@ graph TD
     E --> F[Email - Backup]
 ```
 
-### Exemplo de Workflow Completo
-
-```javascript
+#exemplo-de-workflow-completo-javascript
 // 1. Webhook - Receber dados
 {
   "url": "/webhook/lead",
@@ -460,10 +393,7 @@ return {
   ...lead,
   score,
   prioridade,
-  canal: score > 80 ? '#leads-quentes' : '#leads-frios'
-};
-
-// 3. Slack - Enviar notificação
+  canal: score > 80 ? '#leads-quentes#leads-frios-3-slack - Enviar notificação
 {
   "channel": "{{ $json.canal }}",
   "blocks": [
@@ -485,9 +415,7 @@ return {
 }
 ```
 
-## <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Referências
-
-- **[Webhook Trigger](../../integracoes/trigger-nodes/event-based/webhook-trigger)** - Triggers baseados em webhooks
+#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-referncias **[Webhook Trigger](../../integracoes/trigger-nodes/event-based/webhook-trigger)** - Triggers baseados em webhooks
 - **[HTTP Request](../../integracoes/builtin-nodes/http-requests/http-request)** - Requisições HTTP customizadas
 - **[Code Node](../../integracoes/builtin-nodes/core-nodes/code)** - Lógica customizada
 - **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros
@@ -498,5 +426,5 @@ return {
 Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
 :::
 
-> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Dica**: Use a integração Slack para criar uma ponte entre seus sistemas automatizados e sua equipe. Mantenha as mensagens relevantes e organizadas para maximizar a eficiência da comunicação.
+> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#cor-ea4b71-dica-use a integração Slack para criar uma ponte entre seus sistemas automatizados e sua equipe. Mantenha as mensagens relevantes e organizadas para maximizar a eficiência da comunicação.
 

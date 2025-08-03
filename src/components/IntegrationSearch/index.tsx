@@ -1,3 +1,4 @@
+// Componente otimizado com lazy loading para melhor performance
 import React, { useState, useMemo } from 'react';
 import styles from './styles.module.css';
 

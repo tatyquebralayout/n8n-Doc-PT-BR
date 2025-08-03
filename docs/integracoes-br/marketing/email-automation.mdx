@@ -1,8 +1,8 @@
-﻿# <IonicIcon name="mail-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Automação de Email
+﻿#ionicicon-namemail-outline-style-fontsize-24px color: '#cor-ea4b71-automao-de Email
 
 A automação de email permite criar campanhas inteligentes e personalizadas, automatizando o envio de mensagens baseado em comportamentos, eventos e segmentação de audiência.
 
-## O que você encontrará aqui
+#o-que-voc-encontrar-aqui
 
 Esta documentação abrange:
 
@@ -12,11 +12,9 @@ Esta documentação abrange:
 - **Templates**: Criação de emails personalizados
 - **Analytics**: Métricas e relatórios
 
-## Conceitos Fundamentais
+#conceitos-fundamentais
 
-### Automação de Email Marketing
-
-A automação de email permite:
+#automao-de-email-marketing-a automação de email permite:
 
 - **Campanhas baseadas em eventos**: Envio automático por ações
 - **Sequências de nurture**: Fluxos de relacionamento
@@ -24,19 +22,15 @@ A automação de email permite:
 - **A/B Testing**: Otimização de campanhas
 - **Analytics avançados**: Métricas de performance
 
-### Tipos de Automação
-
-1. **Welcome Series**: Boas-vindas para novos inscritos
+#tipos-de-automao-1-welcome Series**: Boas-vindas para novos inscritos
 2. **Abandoned Cart**: Recuperação de carrinhos abandonados
 3. **Re-engagement**: Reativação de usuários inativos
 4. **Birthday/Anniversary**: Celebrações personalizadas
 5. **Educational**: Conteúdo educativo e informativo
 
-## Plataformas Suportadas
+#plataformas-suportadas
 
-### Serviços Brasileiros
-
-1. **RD Station**
+#servios-brasileiros-1-rd-station
    - Automações nativas
    - Integração com CRM
    - Analytics avançados
@@ -56,22 +50,15 @@ A automação de email permite:
    - Automações simples
    - Templates otimizados
 
-## Configuração Básica
+#configurao-bsica
 
-### Credenciais Necessárias
-
-```json
-{
-  "apiKey": "sua_api_key",
+#credenciais-necessrias-json-apikey "sua_api_key",
   "accountId": "seu_account_id",
   "baseUrl": "https://api.plataforma.com"
 }
 ```
 
-### Exemplo de Automação
-
-```javascript
-// Configuração de workflow de boas-vindas
+#exemplo-de-automao-javascript Configuração de workflow de boas-vindas
 {
   "trigger": "new_subscriber",
   "delay": "1_hour",
@@ -86,11 +73,9 @@ A automação de email permite:
 }
 ```
 
-## Casos de Uso Comuns
+#casos-de-uso-comuns
 
-### 1. Sequência de Boas-vindas
-
-```mermaid
+#id-1-sequncia-de-boas-vindas-mermaid
 graph LR
     A[Novo Inscrito] --> B[Email 1: Boas-vindas]
     B --> C[Delay: 2 dias]
@@ -99,9 +84,7 @@ graph LR
     E --> F[Email 3: Primeira oferta]
 ```
 
-### 2. Recuperação de Carrinho
-
-```mermaid
+#id-2-recuperao-de-carrinho-mermaid
 graph LR
     A[Carrinho Abandonado] --> B[Email 1: Lembrete]
     B --> C[Delay: 1 dia]
@@ -110,48 +93,36 @@ graph LR
     E --> F[Email 3: Última chance]
 ```
 
-### 3. Re-engagement
-
-```mermaid
-graph LR
+#id-3-re-engagement-mermaid-graph-lr
     A[Usuário Inativo] --> B[Verificar Última Interação]
     B --> C[Email Personalizado]
     C --> D[Monitorar Abertura]
     D --> E[Segmentar por Resposta]
 ```
 
-## Workflows Práticos
+#workflows-prticos
 
-### Workflow: Onboarding de Clientes
-
-1. **Trigger**: Cliente faz primeira compra
+#workflow-onboarding-de-clientes-1 **Trigger**: Cliente faz primeira compra
 2. **Email 1**: Confirmação e próximos passos
 3. **Email 2**: Tutorial de uso do produto
 4. **Email 3**: Solicitar feedback
 5. **Email 4**: Oferta de produtos relacionados
 
-### Workflow: Nurture de Leads
-
-1. **Trigger**: Lead se inscreve no blog
+#workflow-nurture-de-leads-1 **Trigger**: Lead se inscreve no blog
 2. **Email 1**: Boas-vindas e conteúdo gratuito
 3. **Email 2**: Apresentação da empresa
 4. **Email 3**: Casos de sucesso
 5. **Email 4**: Agendamento de demonstração
 
-## Segmentação Avançada
+#segmentao-avanada
 
-### Critérios de Segmentação
-
-- **Comportamento**: Aberturas, cliques, compras
+#critrios-de-segmentao-comportamento Aberturas, cliques, compras
 - **Demográficos**: Idade, localização, empresa
 - **Engajamento**: Frequência de interação
 - **Histórico**: Produtos comprados, páginas visitadas
 - **Preferências**: Categorias de interesse
 
-### Exemplo de Segmentação
-
-```javascript
-{
+#exemplo-de-segmentao-javascript
   "segment": "high_value_customers",
   "conditions": [
     {
@@ -168,37 +139,27 @@ graph LR
 }
 ```
 
-## Templates e Personalização
+#templates-e-personalizao
 
-### Variáveis Dinâmicas
-
-```html
-<h1>Olá {{ first_name }}!</h1>
+#variveis-dinmicas-html-h1ol first_name }}!</h1>
 <p>Vimos que você se interessou por {{ product_name }}.</p>
 <p>Como cliente desde {{ join_date }}, você tem {{ loyalty_points }} pontos.</p>
 ```
 
-### Responsividade
-
-- **Mobile-first**: Design otimizado para dispositivos móveis
+#responsividade-mobile-first-design-otimizado para dispositivos móveis
 - **Compatibilidade**: Testado em diferentes clientes de email
 - **Acessibilidade**: Seguindo padrões WCAG
 - **Performance**: Otimização de imagens e código
 
-## Analytics e Métricas
+#analytics-e-mtricas
 
-### KPIs Principais
-
-- **Taxa de Abertura**: Percentual de emails abertos
+#kpis-principais-taxa-de Abertura**: Percentual de emails abertos
 - **Taxa de Clique**: Percentual de cliques em links
 - **Taxa de Conversão**: Conversões geradas por campanha
 - **Taxa de Cancelamento**: Unsubscribes por campanha
 - **ROI**: Retorno sobre investimento
 
-### Relatórios Automáticos
-
-```javascript
-// Configuração de relatório semanal
+#relatrios-automticos-javascript-configurao de relatório semanal
 {
   "schedule": "weekly",
   "metrics": [
@@ -211,16 +172,12 @@ graph LR
 }
 ```
 
-## Próximos Passos
-
-- [Integração WhatsApp](/integracoes-br/communication/whatsapp) - Campanhas multicanal
+#prximos-passos-integrao-whatsappintegracoes-brcommunicationwhatsapp - Campanhas multicanal
 - [Integração CRM](/integracoes-br/financeiro/crm-integration) - Gestão de leads
 - [Análise de Dados](/logica-e-dados/data/agregacoes-estatisticas) - Relatórios avançados
 - [A/B Testing](/logica-e-dados/data/data-mapping-avancado) - Otimização de campanhas
 
-## Recursos Relacionados
-
-- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer chamadas para APIs
+#recursos-relacionados-http-requestintegracoesbuiltin-nodeshttp-requestshttp-request - Fazer chamadas para APIs
 - [Expressões n8n](/logica-e-dados/expressoes) - Personalizar conteúdo
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Monitoramento](/usando-n8n/monitoring/configurar-alertas) - Alertas de performance 

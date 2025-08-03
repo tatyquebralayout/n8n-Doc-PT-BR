@@ -5,11 +5,11 @@ sidebar_position: 1
 keywords: [n8n, code node, javascript, programação, automação, lógica, customização]
 ---
 
-# <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Code Node
+#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-code-node
 
 O **Code Node** é um dos nodes mais poderosos do n8n, permitindo executar código JavaScript customizado dentro de seus workflows. Ele oferece controle total sobre a lógica de processamento e manipulação de dados.
 
-## O que é o Code Node?
+#o-que-o-code Node?
 
 O **Code Node** permite:
 
@@ -20,7 +20,7 @@ O **Code Node** permite:
 - **Processar dados** em tempo real
 - **Criar funções** reutilizáveis
 
-### Quando Usar o Code Node
+#quando-usar-o-code-node
 
 - **Transformações complexas** de dados
 - **Validações avançadas** que outros nodes não suportam
@@ -29,11 +29,9 @@ O **Code Node** permite:
 - **Processamento** de dados em lotes
 - **Cálculos** matemáticos complexos
 
-## Sintaxe Básica
+#sintaxe-bsica
 
-### Estrutura do Code Node
-
-```javascript
+#estrutura-do-code-node-javascript
 // Code Node - Estrutura básica
 const dados = $json; // Dados de entrada
 
@@ -44,10 +42,7 @@ const resultado = processarDados(dados);
 return { json: resultado };
 ```
 
-### Acesso a Dados
-
-```javascript
-// Acessar dados do item atual
+#cor-acesso-a-dados-javascript Acessar dados do item atual
 const dados = $json;
 
 // Acessar dados de nodes específicos
@@ -63,10 +58,7 @@ const primeiroItem = $input.first();
 const itemEspecifico = $input.item[0];
 ```
 
-### Retorno de Dados
-
-```javascript
-// Retorno simples
+#retorno-de-dados-javascript Retorno simples
 return { json: { mensagem: "Sucesso" } };
 
 // Retorno com múltiplos items
@@ -87,11 +79,9 @@ return {
 };
 ```
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### 1. Transformação de Dados
-
-```javascript
+#id-1-transformao-de-dados-javascript
 // Code Node - Transformação de dados
 const dados = $json;
 
@@ -108,9 +98,7 @@ const dadosTransformados = {
 return { json: dadosTransformados };
 ```
 
-### 2. Validação de Dados
-
-```javascript
+#id-2-validao-de-dados-javascript
 // Code Node - Validação avançada
 const dados = $json;
 
@@ -153,9 +141,7 @@ return {
 };
 ```
 
-### 3. Processamento em Lotes
-
-```javascript
+#id-3-processamento-em-lotes-javascript
 // Code Node - Processamento em lotes
 const items = $input.all();
 
@@ -179,9 +165,7 @@ const resultados = items.map(item => {
 return resultados;
 ```
 
-### 4. Integração com APIs
-
-```javascript
+#id-4-integrao-com-apis-javascript
 // Code Node - Integração com API
 const dados = $json;
 
@@ -229,10 +213,7 @@ try {
 }
 ```
 
-### 5. Cálculos Matemáticos
-
-```javascript
-// Code Node - Cálculos financeiros
+#id-5-clculos-matemticos-javascript Code Node - Cálculos financeiros
 const dados = $json;
 
 // Funções de cálculo
@@ -252,9 +233,7 @@ const resultado = {
 return { json: resultado };
 ```
 
-### 6. Manipulação de Arrays
-
-```javascript
+#id-6-manipulao-de-arrays-javascript
 // Code Node - Manipulação de arrays
 const dados = $json;
 
@@ -288,12 +267,9 @@ return {
 };
 ```
 
-## Funções Avançadas
+#funes-avanadas
 
-### 1. Funções Assíncronas
-
-```javascript
-// Code Node - Funções assíncronas
+#id-1-funes-assncronas-javascript Code Node - Funções assíncronas
 ;
 };
 
@@ -302,9 +278,7 @@ const resultado = await processarDadosAssincrono($json);
 return { json: resultado };
 ```
 
-### 2. Tratamento de Erros
-
-```javascript
+#id-2-tratamento-de-erros-javascript
 // Code Node - Tratamento de erros
 ;
   } catch (error) {
@@ -323,9 +297,7 @@ const resultado = await processarComTratamento($json);
 return { json: resultado };
 ```
 
-### 3. Cache e Memória
-
-```javascript
+#id-3-cache-e-memria-javascript
 // Code Node - Cache simples
 const cache = new Map();
 
@@ -353,9 +325,7 @@ const resultado = processarComCache($json.id, $json);
 return { json: resultado };
 ```
 
-### 4. Validação de Schema
-
-```javascript
+#id-4-validao-de-schema-javascript
 // Code Node - Validação de schema
 ' é obrigatório`);
       continue;
@@ -419,11 +389,9 @@ return {
 };
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Estrutura do Código
-
-```javascript
+#id-1-estrutura-do-cdigo-javascript
 // Code Node - Estrutura organizada
 const dados = $json;
 
@@ -460,20 +428,14 @@ try {
 }
 ```
 
-### 2. Performance
-
-```javascript
-// Code Node - Otimizações de performance
+#id-2-performance-javascript-code Node - Otimizações de performance
 
   
   return resultados;
 };
 ```
 
-### 3. Logging
-
-```javascript
-// Code Node - Logging estruturado
+#id-3-logging-javascript-code Node - Logging estruturado
 ;
   
   console.log(JSON.stringify(log, null, 2));
@@ -483,39 +445,32 @@ try {
 logEstruturado('INFO', 'Iniciando processamento', $json);
 ```
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Código não executa
-- Verifique sintaxe JavaScript
+#cdigo-no-executa-verifique sintaxe JavaScript
 - Confirme se não há erros de referência
 - Teste com código simples
 - Verifique logs de erro
 
-#### Performance lenta
-- Otimize loops e operações
+#performance-lenta-otimize-loops e operações
 - Use cache quando possível
 - Processe em lotes
 - Monitore uso de memória
 
-#### Dados não aparecem
-- Verifique se está retornando dados
+#cor-dados-no-aparecem-verifique se está retornando dados
 - Confirme estrutura do retorno
 - Use Debug Helper
 - Teste com dados simples
 
-### Debug
-
-1. **Use console.log** para debug
+#cor-debug-1-use-consolelog-para debug
 2. **Teste com dados simples**
 3. **Verifique Execution History**
 4. **Use Debug Helper**
 5. **Monitore performance**
 
-## Próximos Passos
-
-- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões JavaScript
+#prximos-passos-expresses-n8nlogica-e-dadosexpressoes - Usar expressões JavaScript
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Debugging](/logica-e-dados/flow-logic/debugging) - Técnicas de debug
 - [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Integrar com APIs

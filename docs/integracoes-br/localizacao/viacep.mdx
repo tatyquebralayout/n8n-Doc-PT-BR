@@ -5,11 +5,9 @@ sidebar_position: 1
 keywords: [n8n, viacep, cep, endereço, brasil, localização, api]
 ---
 
-# <IonicIcon name="location-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> ViaCEP
+#ionicicon-namelocation-outline-style-fontsize-24px color: '#cor-ea4b71-viacep-o **ViaCEP** é uma API gratuita que permite consultar endereços brasileiros através do CEP. Esta integração permite que você valide e complete endereços automaticamente em seus workflows n8n.
 
-O **ViaCEP** é uma API gratuita que permite consultar endereços brasileiros através do CEP. Esta integração permite que você valide e complete endereços automaticamente em seus workflows n8n.
-
-## O que é o ViaCEP?
+#o-que-o-viacep
 
 O ViaCEP é um serviço que fornece dados de endereços brasileiros baseado no CEP (Código de Endereçamento Postal). Ele é mantido pelos Correios e oferece:
 
@@ -19,9 +17,7 @@ O ViaCEP é um serviço que fornece dados de endereços brasileiros baseado no C
 - **Sem necessidade** de cadastro
 - **Alta disponibilidade** e confiabilidade
 
-### Dados Retornados
-
-Para cada CEP consultado, o ViaCEP retorna:
+#cor-dados-retornados-para-cada-cep consultado, o ViaCEP retorna:
 
 ```json
 {
@@ -38,31 +34,23 @@ Para cada CEP consultado, o ViaCEP retorna:
 }
 ```
 
-## Como Usar o ViaCEP no n8n
+#como-usar-o-viacep-no n8n
 
-### 1. Configuração Básica
-
-**Node:** HTTP Request
+#id-1-configurao-bsica-node-http Request
 **Método:** GET
 **URL:** `https://viacep.com.br/ws/{{ $json.cep }}/json/`
 
-### 2. Parâmetros
+#id-2-parmetros-cep-cep a ser consultado (formato: 00000-000 ou 00000000)
 
-- **cep**: CEP a ser consultado (formato: 00000-000 ou 00000000)
-
-### 3. Exemplo de Configuração
-
-```javascript
+#id-3-exemplo-de-configurao-javascript
 // Configuração do HTTP Request
 Method: GET
 URL: https://viacep.com.br/ws/{{ $json.cep }}/json/
 ```
 
-## Casos de Uso
+#casos-de-uso
 
-### 1. Validação de Endereços
-
-Validar se um CEP existe e retorna dados válidos:
+#id-1-validao-de-endereos-validar se um CEP existe e retorna dados válidos:
 
 ```javascript
 // Workflow: Validação de CEP
@@ -75,7 +63,7 @@ Webhook → HTTP Request (ViaCEP) → If (CEP válido) → Set → HTTP Request 
 - **Set**: Formata dados do endereço
 - **HTTP Request**: Salva dados validados
 
-### 2. Preenchimento Automático de Formulários
+#id-2-preenchimento-automtico-de-formulrios
 
 Completar formulários com dados do CEP:
 
@@ -90,9 +78,7 @@ Manual Trigger → HTTP Request (ViaCEP) → Set → HTTP Request (Enviar Formul
 - **Set**: Mapeia dados para formulário
 - **HTTP Request**: Envia formulário preenchido
 
-### 3. Cálculo de Frete
-
-Usar dados do CEP para calcular frete:
+#id-3-clculo-de-frete-usar dados do CEP para calcular frete:
 
 ```javascript
 // Workflow: Cálculo de Frete
@@ -105,9 +91,7 @@ Webhook (Pedido) → HTTP Request (ViaCEP) → HTTP Request (API Frete) → Noti
 - **HTTP Request**: Calcula frete com dados do endereço
 - **Notificação**: Envia resultado para cliente
 
-### 4. Segmentação Geográfica
-
-Classificar clientes por região:
+#id-4-segmentao-geogrfica-classificar-clientes por região:
 
 ```javascript
 // Workflow: Segmentação Geográfica
@@ -120,9 +104,9 @@ Webhook (Novo Cliente) → HTTP Request (ViaCEP) → Switch (Por UF) → Process
 - **Switch**: Direciona por estado (UF)
 - **Processamento**: Aplica regras específicas da região
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### Exemplo 1: Validação de CEP em E-commerce
+#exemplo-1-validao-de-cep em E-commerce
 
 **Cenário:** Validar CEP durante checkout de e-commerce.
 
@@ -152,7 +136,7 @@ Condition: $json.erro === undefined
 }
 ```
 
-### Exemplo 2: Preenchimento de Formulário de Cadastro
+#exemplo-2-preenchimento-de-formulrio de Cadastro
 
 **Cenário:** Preencher automaticamente campos de endereço.
 
@@ -185,7 +169,7 @@ URL: https://viacep.com.br/ws/{{ $json.cep }}/json/
 }
 ```
 
-### Exemplo 3: Sistema de Delivery
+#exemplo-3-sistema-de-delivery
 
 **Cenário:** Validar endereço para delivery.
 
@@ -209,11 +193,9 @@ Condition: $('ViaCEP').json.localidade === "São Paulo" &&
            $('ViaCEP').json.bairro === "Vila Olímpia")
 ```
 
-## Tratamento de Erros
+#tratamento-de-erros
 
-### 1. CEP Não Encontrado
-
-Quando o CEP não existe, o ViaCEP retorna:
+#id-1-cep-no-encontrado-quando o CEP não existe, o ViaCEP retorna:
 
 ```json
 {
@@ -234,9 +216,7 @@ Condition: $json.erro === true
 }
 ```
 
-### 2. CEP Inválido
-
-Para CEPs com formato inválido:
+#id-2-cep-invlido-para-ceps com formato inválido:
 
 ```javascript
 // Code - Validação de Formato
@@ -246,9 +226,7 @@ if (cep.length !== 8) {
 }
 ```
 
-### 3. Rate Limiting
-
-O ViaCEP tem limites de uso:
+#id-3-rate-limiting-o-viacep tem limites de uso:
 
 ```javascript
 // Code - Tratamento de Rate Limit
@@ -263,11 +241,9 @@ try {
 }
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Formatação de CEP
-
-Sempre formate o CEP antes da consulta:
+#id-1-formatao-de-cep-sempre formate o CEP antes da consulta:
 
 ```javascript
 // Code - Formatação de CEP
@@ -275,9 +251,7 @@ const cep = $json.cep.replace(/\D/g, ''); // Remove caracteres não numéricos
 const cepFormatado = cep.replace(/^(\d{5})(\d{3})$/, '$1-$2'); // Adiciona hífen
 ```
 
-### 2. Cache de Consultas
-
-Implemente cache para CEPs consultados frequentemente:
+#id-2-cache-de-consultas-implemente cache para CEPs consultados frequentemente:
 
 ```javascript
 // Code - Cache Simples
@@ -300,9 +274,7 @@ await saveToCache(cacheKey, data);
 return { json: data };
 ```
 
-### 3. Validação de Dados
-
-Sempre valide os dados retornados:
+#id-3-validao-de-dados-sempre valide os dados retornados:
 
 ```javascript
 // Code - Validação de Dados
@@ -319,9 +291,7 @@ if (!cepRegex.test(data.cep)) {
 }
 ```
 
-### 4. Tratamento de Timeout
-
-Configure timeouts adequados:
+#id-4-tratamento-de-timeout-configure timeouts adequados:
 
 ```javascript
 // HTTP Request - Configuração
@@ -330,64 +300,51 @@ URL: https://viacep.com.br/ws/{{ $json.cep }}/json/
 Timeout: 10000 // 10 segundos
 ```
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### API não responde
-- Verifique conectividade com internet
+#api-no-responde-verifique conectividade com internet
 - Confirme se o ViaCEP está funcionando
 - Teste com CEP conhecido (ex: 01001-000)
 - Verifique formato do CEP
 
-#### CEP não encontrado
-- Confirme se o CEP existe
+#cep-no-encontrado-confirme se o CEP existe
 - Verifique formato (00000-000)
 - Teste com CEPs de diferentes regiões
 - Consulte site dos Correios
 
-#### Dados incompletos
-- Verifique se todos os campos estão sendo retornados
+#cor-dados-incompletos-verifique-se todos os campos estão sendo retornados
 - Confirme se o CEP é válido
 - Teste com diferentes CEPs
 - Implemente validação de dados
 
-### Debug
-
-1. **Use o node Debug Helper** para inspecionar dados
+#cor-debug-1-use-o-node Debug Helper** para inspecionar dados
 2. **Teste com CEPs conhecidos** (ex: 01001-000, 20040-007)
 3. **Verifique formato** do CEP de entrada
 4. **Monitore logs** de erro
 5. **Teste a API diretamente** no navegador
 
-## Limitações e Considerações
+#limitaes-e-consideraes
 
-### Limitações do ViaCEP
-
-- **Rate limiting**: Limite de consultas por minuto
+#limitaes-do-viacep-rate limiting**: Limite de consultas por minuto
 - **Dados dos Correios**: Depende da atualização dos Correios
 - **CEP não encontrado**: Alguns CEPs podem não existir
 - **Formato fixo**: Apenas CEPs brasileiros
 
-### Considerações de Performance
-
-- **Cache**: Implemente cache para consultas frequentes
+#consideraes-de-performance-cache Implemente cache para consultas frequentes
 - **Batch**: Evite múltiplas consultas simultâneas
 - **Timeout**: Configure timeouts adequados
 - **Retry**: Implemente retry logic para falhas
 
-### Alternativas
-
-Para casos específicos, considere:
+#alternativas-para-casos-especficos-considere
 
 - **APIs pagas**: Maior confiabilidade e suporte
 - **Bases locais**: Para consultas muito frequentes
 - **APIs alternativas**: Outras fontes de dados de endereço
 - **Validação local**: Para CEPs conhecidos
 
-## Próximos Passos
-
-- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições HTTP
+#prximos-passos-http-requestintegracoesbuiltin-nodeshttp-requestshttp-request - Fazer requisições HTTP
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Integrações Brasileiras](/integracoes-br/index) - Outras integrações brasileiras

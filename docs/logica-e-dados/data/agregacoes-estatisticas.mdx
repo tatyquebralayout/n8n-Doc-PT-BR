@@ -6,17 +6,15 @@ keywords: [n8n, agregações, estatísticas, cálculos, análise de dados, métr
 ---
 
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Agregações e Estatísticas
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-agregaes-e Estatísticas
 
 Aprenda técnicas avançadas para calcular estatísticas, criar agregações e gerar análises de dados que forneçam insights valiosos para seus workflows.
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 1 | Estatísticas Básicas
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-1 Estatísticas Básicas
 
-### Métricas de Tendência Central
-
-**Calcular médias, medianas e modas:**
+#mtricas-de-tendncia-central-calcular médias, medianas e modas:**
 
 ```javascript
 // Média aritmética
@@ -46,9 +44,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas.map(v => v.valor)) }}
 ```
 
-### Medidas de Dispersão
-
-**Calcular variância e desvio padrão:**
+#medidas-de-disperso-calcular-varincia e desvio padrão:**
 
 ```javascript
 // Variância
@@ -69,11 +65,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 2 | Agregações por Grupo
+#ionicicon-namepeople-outline-style-fontsize-24px color: '#cor-ea4b71-2 Agregações por Grupo
 
-### Agrupar por Categoria
-
-**Exemplo: Análise de vendas por categoria:**
+#agrupar-por-categoria-exemplo-anlise de vendas por categoria:**
 
 ```javascript
 // Agregar vendas por categoria
@@ -100,9 +94,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas) }}
 ```
 
-### Agregações Temporais
-
-**Análise por período:**
+#agregaes-temporais-anlise-por-perodo
 
 ```javascript
 // Agregar por mês
@@ -132,11 +124,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 3 | Análises de Distribuição
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-3 Análises de Distribuição
 
-### Distribuição de Frequências
-
-**Criar histogramas e distribuições:**
+#distribuio-de-frequncias-criar-histogramas e distribuições:**
 
 ```javascript
 // Distribuição de valores por faixa
@@ -156,9 +146,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas.map(v => v.valor)) }}
 ```
 
-### Percentis e Quartis
-
-**Calcular percentis para análise:**
+#percentis-e-quartis-calcular-percentis para análise:**
 
 ```javascript
 // Calcular percentis
@@ -181,11 +169,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 4 | Análises de Tendência
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-4 Análises de Tendência
 
-### Crescimento e Decrescimento
-
-**Calcular taxas de crescimento:**
+#crescimento-e-decrescimento-calcular-taxas de crescimento:**
 
 ```javascript
 // Taxa de crescimento mensal
@@ -218,11 +204,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas) }}
 ```
 
-### Sazonalidade
-
-**Identificar padrões sazonais:**
-
-```javascript
+#sazonalidade-identificar-padres-sazonais-javascript
 // Análise de sazonalidade por dia da semana
 {{ (function(vendas) {
   const porDia = vendas.reduce((acc, venda) => {
@@ -243,11 +225,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 5 | Análises de Clientes
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-5 Análises de Clientes
 
-### Segmentação RFM
-
-**Análise RFM (Recency, Frequency, Monetary):**
+#segmentao-rfm-anlise-rfm-recency Frequency, Monetary):**
 
 ```javascript
 // Análise RFM de clientes
@@ -276,9 +256,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.clientes) }}
 ```
 
-### Ranking e Top Performers
-
-**Identificar melhores clientes:**
+#ranking-e-top-performers-identificar melhores clientes:**
 
 ```javascript
 // Top 10 clientes por valor
@@ -298,11 +276,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 6 | Métricas de Performance
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-6 Métricas de Performance
 
-### KPIs de Negócio
-
-**Calcular indicadores-chave:**
+#kpis-de-negcio-calcular-indicadores-chave
 
 ```javascript
 // KPIs de vendas
@@ -322,9 +298,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 })($json.vendas) }}
 ```
 
-### Análise de Churn
-
-**Calcular taxa de abandono:**
+#anlise-de-churn-calcular-taxa de abandono:**
 
 ```javascript
 // Análise de churn
@@ -354,11 +328,9 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 7 | Relatórios Automatizados
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-7 Relatórios Automatizados
 
-### Resumo Executivo
-
-**Gerar relatório resumido:**
+#resumo-executivo-gerar-relatrio-resumido
 
 ```javascript
 // Relatório executivo de vendas
@@ -400,7 +372,7 @@ Aprenda técnicas avançadas para calcular estatísticas, criar agregações e g
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 8 | Próximos passos
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-8 Próximos passos
 
 1. **[Integração com APIs](./integracao-apis)** - Mapeamento de respostas
 2. **[Otimização de Performance](./otimizacao-performance)** - Melhorar eficiência

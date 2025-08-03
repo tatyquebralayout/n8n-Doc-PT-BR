@@ -6,99 +6,81 @@ keywords: [n8n, npm, instalação, nodejs, customização, desenvolvimento]
 ---
 
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalação via NPM
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-via NPM
 
 Este guia detalha como **instalar n8n via npm** para máximo controle e customização, ideal para desenvolvimento, testes e ambientes personalizados.
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Quando Usar NPM?
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-quando-usar NPM?
 
-### **Cenários Ideais:**
-
-- 🧪 **Desenvolvimento** - Criar e testar nodes customizados
+#cenrios-ideais-desenvolvimento - Criar e testar nodes customizados
 - 🔬 **Experimentos** - Testar integrações rapidamente
 - 📚 **Aprendizado** - Estudar o n8n sem configurações complexas
 - 🚀 **Demonstrações** - Apresentar funcionalidades offline
 - 🔧 **Debug** - Investigar problemas localmente
 
-### **Limitações:**
-
-- ⚠️ **Sem HTTPS** - Webhooks externos podem não funcionar
+#limitaes-sem-https - Webhooks externos podem não funcionar
 - 🔒 **Segurança básica** - Não recomendado para produção
 - 📊 **Performance limitada** - Sem otimizações de produção
 - 💾 **Dados locais** - Sem backup automático
 
 ---
 
-## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Pré-requisitos
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-pr-requisitos
 
-### **Node.js e npm**
+#nodejs-e-npm-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-verses
+node --version  #deve-ser-2019 24.x
+npm --version   #qualquer-verso-recente
 
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar versões
-node --version  # Deve ser ≥ 20.19 ≤ 24.x
-npm --version   # Qualquer versão recente
-
-# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar Node.js (se necessário)
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Ubuntu/Debian
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-nodejs (se necessário)
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-ubuntudebian-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> macOS
-brew install node
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-brew install node
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Windows
-# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Baixar de https://nodejs.org/
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-baixar-de https://nodejs.org/
 ```
 
-### **Requisitos do Sistema**
-
-- **RAM**: Mínimo 2GB, recomendado 4GB+
+#requisitos-do-sistema-ram Mínimo 2GB, recomendado 4GB+
 - **Disco**: 1GB livre para instalação
 - **Rede**: Conexão para download de dependências
 - **Porta**: 5678 disponível (ou configurável)
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalação Rápida
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-rpida
 
-### **1. Instalação Global (Recomendado)**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar n8n globalmente
+#id-1-instalao-global-recomendado-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-n8n globalmente
 npm install n8n -g
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar instalação
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-instalao
 n8n --version
 ```
 
-### **2. Primeira Execução**
-
-```bash
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Iniciar n8n
+#id-2-primeira-execuo-bash
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-iniciar-n8n
 n8n
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Ou com comando explícito
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-ou-com comando explícito
 n8n start
 ```
 
-### **3. Acessar Interface**
-
-Abra seu navegador e acesse: `http://localhost:5678`
+#id-3-acessar-interface-abra-seu navegador e acesse: `http://localhost:5678`
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Avançada
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-avanada
 
-### **Variáveis de Ambiente**
-
-```bash
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações básicas
+#variveis-de-ambiente-bash
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-bsicas
 export N8N_PORT=5678
 export N8N_PROTOCOL=http
 export N8N_HOST=localhost
 export GENERIC_TIMEZONE=America/Sao_Paulo
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Executar com configurações
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-executar-com configurações
 N8N_PORT=5678 \
 N8N_PROTOCOL=http \
 N8N_HOST=localhost \
@@ -106,13 +88,10 @@ GENERIC_TIMEZONE=America/Sao_Paulo \
 n8n start
 ```
 
-### **Arquivo .env**
-
-Crie um arquivo `.env` no diretório onde executa o n8n:
+#arquivo-env-crie-um-arquivo `.env` no diretório onde executa o n8n:
 
 ```bash
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> .env
-N8N_PORT=5678
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-env-n8nport5678
 N8N_PROTOCOL=http
 N8N_HOST=localhost
 GENERIC_TIMEZONE=America/Sao_Paulo
@@ -120,60 +99,52 @@ N8N_LOG_LEVEL=info
 N8N_USER_MANAGEMENT_DISABLED=false
 ```
 
-### **Configuração de Túnel (Webhooks)**
-
-Para receber webhooks externos:
+#configurao-de-tnel-webhooks-para receber webhooks externos:
 
 ```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar ngrok
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-ngrok
 npm install -g ngrok
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Em um terminal, iniciar túnel
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-em-um terminal, iniciar túnel
 ngrok http 5678
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Em outro terminal, iniciar n8n com túnel
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-em-outro terminal, iniciar n8n com túnel
 n8n start --tunnel
 ```
 
 ---
 
-## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Desenvolvimento
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-desenvolvimento
 
-### **Instalação para Desenvolvimento**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Clonar repositório
+#instalao-para-desenvolvimento-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-clonar-repositrio
 git clone https://github.com/n8n-io/n8n.git
 cd n8n
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar dependências
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-dependncias
 npm install
 
-# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Executar em modo desenvolvimento
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-executar-em modo desenvolvimento
 npm run dev
 ```
 
-### **Criar Nodes Customizados**
-
-```bash
-# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar estrutura de node
+#criar-nodes-customizados-bash
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-criar-estrutura de node
 mkdir my-custom-node
 cd my-custom-node
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Inicializar projeto
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-inicializar-projeto
 npm init -y
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar dependências do n8n
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-dependncias do n8n
 npm install n8n-core n8n-workflow
 
-# <IonicIcon name="folder-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estrutura básica
+#ionicicon-namefolder-outline-style-fontsize-24px color: '#cor-ea4b71-estrutura-bsica
 mkdir src
 touch src/MyNode.ts
 ```
 
-### **Exemplo de Node Customizado**
-
-```typescript
+#exemplo-de-node-customizado-typescript
 // src/MyNode.ts
 import { IExecuteFunctions } from 'n8n-core';
 import { INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
@@ -228,125 +199,104 @@ export class MyNode implements INodeType {
 
 ---
 
-## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Debug e Troubleshooting
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-debug-e Troubleshooting
 
-### **Logs Detalhados**
-
-```bash
-# <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Logs de debug
+#logs-detalhados-bash
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-logs-de debug
 N8N_LOG_LEVEL=debug n8n start
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Logs específicos
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-logs-especficos
 N8N_LOG_LEVEL=error n8n start
 
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Salvar logs em arquivo
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-salvar-logs em arquivo
 N8N_LOG_LEVEL=debug n8n start > n8n.log 2>&1
 ```
 
-### **Problemas Comuns**
+#problemas-comuns
 
-#### **Porta já em uso**
-
-```bash
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar processo usando a porta
+#porta-j-em-uso-bash
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-processo usando a porta
 netstat -tulpn | grep 5678
 lsof -i :5678
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Usar porta diferente
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-usar-porta diferente
 N8N_PORT=5679 n8n start
 ```
 
-#### **Permissões (Linux/Mac)**
-
-```bash
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Corrigir permissões
+#permisses-linuxmac-bash
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-corrigir-permisses
 sudo chown -R $(whoami) ~/.n8n
 chmod -R 755 ~/.n8n
 ```
 
-#### **Erro de memória**
-
-```bash
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Aumentar limite de memória
+#erro-de-memria-bash
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-aumentar-limite de memória
 NODE_OPTIONS="--max-old-space-size=4096" n8n start
 ```
 
-#### **Problemas de rede**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar conectividade
+#problemas-de-rede-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-conectividade
 curl -I http://localhost:5678
 
-# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Testar webhooks
+#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-testar-webhooks
 curl -X POST http://localhost:5678/webhook/test
 ```
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizações
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-atualizaes
 
-### **Atualizar n8n**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar versão atual
+#atualizar-n8n-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-verso atual
 n8n --version
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizar para última versão
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-atualizar-para última versão
 npm update -g n8n
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Atualizar para versão específica
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-atualizar-para versão específica
 npm install -g n8n@1.100.0
 ```
 
-### **Gerenciar Versões**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Listar versões instaladas
+#gerenciar-verses-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-listar-verses instaladas
 npm list -g n8n
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar versão específica
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-verso específica
 npm install -g n8n@1.99.0
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Voltar para versão anterior
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-voltar-para versão anterior
 npm install -g n8n@1.98.0
 ```
 
 ---
 
-## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estrutura de Arquivos
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-estrutura-de Arquivos
 
-### **Diretórios Importantes**
-
-```bash
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Dados do n8n
+#diretrios-importantes-bash
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-dados-do n8n
 ~/.n8n/
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Workflows salvos
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-workflows-salvos
 ~/.n8n/workflows/
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Credenciais
-~/.n8n/credentials/
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-credenciais-n8ncredentials
 
-# <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Logs
-~/.n8n/logs/
+#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-logs-n8nlogs
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-~/.n8n/config/
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-n8nconfig
 ```
 
-### **Backup Manual**
-
-```bash
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup dos dados
+#cor-backup-manual-bash
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-backup-dos dados
 tar -czf n8n-backup-$(date +%Y%m%d).tar.gz ~/.n8n/
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup específico de workflows
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-backup-especfico de workflows
 cp -r ~/.n8n/workflows/ ./backup-workflows/
 ```
 
 ---
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você tem o n8n rodando localmente:
 
@@ -354,9 +304,7 @@ Agora que você tem o n8n rodando localmente:
 2. **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)** - Entenda os fundamentos
 3. **[Desenvolver Nodes Customizados](../../integracoes/criar-nodes/tutorial-desenvolvimento)** - Crie suas próprias integrações
 
-### **Outros Métodos de Instalação**
-
-- **[Docker](./docker)** - Containerização para produção
+#outros-mtodos-de-instalao **[Docker](./docker)** - Containerização para produção
 - **[Cloud](./cloud)** - Serviço hospedado oficial
 - **[Desktop](./desktop)** - Aplicação desktop
 

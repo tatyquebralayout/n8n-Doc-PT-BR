@@ -1,5 +1,5 @@
 ﻿:::info
-<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }} /> Esta página da documentação foi validada tecnicamente e didaticamente.
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#cor-17a2b8-esta-pgina da documentação foi validada tecnicamente e didaticamente.
 :::
 
 ---
@@ -9,13 +9,11 @@ sidebar_position: 1
 keywords: [n8n, expressões, javascript, sintaxe, funções, dados, dinâmicos]
 ---
 
-# <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Expressões n8n
+#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-expresses-n8n
 
 As **Expressões n8n** são fórmulas JavaScript que permitem usar dados dinâmicos, fazer cálculos e manipular informações em seus workflows. Elas são fundamentais para criar automações inteligentes e flexíveis.
 
-## O que são Expressões?
-
-Expressões são trechos de código JavaScript que:
+#o-que-so-expresses-expresses são trechos de código JavaScript que:
 
 - **Acessam dados** de nodes anteriores
 - **Fazem cálculos** e transformações
@@ -23,19 +21,15 @@ Expressões são trechos de código JavaScript que:
 - **Formatam dados** para saída
 - **Validam informações** em tempo real
 
-### Sintaxe Básica
-
-As expressões no n8n usam a sintaxe `{{ }}`:
+#sintaxe-bsica-as-expresses-no n8n usam a sintaxe `{{ }}`:
 
 ```javascript
 {{ expressão_javascript_aqui }}
 ```
 
-## Acesso a Dados
+#cor-acesso-a-dados
 
-### Dados do Item Atual
-
-Para acessar dados do item atual:
+#cor-dados-do-item-atual-para acessar dados do item atual:
 
 ```javascript
 // Acessar campo específico
@@ -51,9 +45,7 @@ Para acessar dados do item atual:
 {{ $json['campo-dinamico'] }}
 ```
 
-### Dados de Nodes Específicos
-
-Para acessar dados de nodes anteriores:
+#cor-dados-de-nodes-especficos-para acessar dados de nodes anteriores:
 
 ```javascript
 // Dados do node "HTTP Request"
@@ -66,7 +58,7 @@ Para acessar dados de nodes anteriores:
 {{ $('Node A').json.valor + $('Node B').json.valor }}
 ```
 
-### Dados de Todos os Items
+#cor-dados-de-todos-os-items
 
 Para trabalhar com múltiplos items:
 
@@ -84,12 +76,9 @@ Para trabalhar com múltiplos items:
 {{ $input.last() }}
 ```
 
-## Funções de Data e Hora
+#funes-de-data-e-hora
 
-### Data Atual
-
-```javascript
-// Data atual em ISO
+#data-atual-javascript-data atual em ISO
 {{ $now.toISOString() }}
 
 // Data formatada
@@ -102,10 +91,7 @@ Para trabalhar com múltiplos items:
 {{ $now.toFormat('dd \'de\' MMMM \'de\' yyyy') }}
 ```
 
-### Cálculos com Datas
-
-```javascript
-// Adicionar dias
+#clculos-com-datas-javascript Adicionar dias
 {{ $now.plus({ days: 7 }).toISOString() }}
 
 // Subtrair horas
@@ -118,10 +104,7 @@ Para trabalhar com múltiplos items:
 {{ DateTime.fromISO('2024-01-15').toFormat('dd/MM/yyyy') }}
 ```
 
-### Formatação de Datas
-
-```javascript
-// Formato brasileiro
+#formatao-de-datas-javascript Formato brasileiro
 {{ $now.toFormat('dd/MM/yyyy') }}
 
 // Com dia da semana
@@ -134,12 +117,9 @@ Para trabalhar com múltiplos items:
 {{ $now.toRelative() }}
 ```
 
-## Manipulação de Texto
+#manipulao-de-texto
 
-### Operações Básicas
-
-```javascript
-// Concatenar strings
+#operaes-bsicas-javascript-concatenar strings
 {{ $json.nome + ' ' + $json.sobrenome }}
 
 // Converter para maiúsculo
@@ -152,10 +132,7 @@ Para trabalhar com múltiplos items:
 {{ $json.texto.charAt(0).toUpperCase() + $json.texto.slice(1) }}
 ```
 
-### Busca e Substituição
-
-```javascript
-// Verificar se contém texto
+#busca-e-substituio-javascript Verificar se contém texto
 {{ $json.texto.includes('palavra') }}
 
 // Substituir texto
@@ -171,10 +148,7 @@ Para trabalhar com múltiplos items:
 {{ $json.texto.split(',') }}
 ```
 
-### Validação de Texto
-
-```javascript
-// Verificar se está vazio
+#validao-de-texto-javascript Verificar se está vazio
 {{ $json.texto.length === 0 }}
 
 // Verificar se não está vazio
@@ -187,12 +161,9 @@ Para trabalhar com múltiplos items:
 {{ /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test($json.cpf) }}
 ```
 
-## Cálculos Matemáticos
+#clculos-matemticos
 
-### Operações Básicas
-
-```javascript
-// Soma
+#operaes-bsicas-javascript-soma
 {{ $json.valor1 + $json.valor2 }}
 
 // Subtração
@@ -208,10 +179,7 @@ Para trabalhar com múltiplos items:
 {{ $json.numero % 2 }}
 ```
 
-### Funções Matemáticas
-
-```javascript
-// Arredondar
+#funes-matemticas-javascript-arredondar
 {{ Math.round($json.valor) }}
 
 // Arredondar para cima
@@ -230,10 +198,7 @@ Para trabalhar com múltiplos items:
 {{ Math.sqrt($json.valor) }}
 ```
 
-### Cálculos Financeiros
-
-```javascript
-// Calcular desconto
+#clculos-financeiros-javascript-calcular desconto
 {{ $json.valor * (1 - $json.desconto / 100) }}
 
 // Calcular juros
@@ -246,12 +211,9 @@ Para trabalhar com múltiplos items:
 {{ ($json.parte / $json.total) * 100 }}
 ```
 
-## Arrays e Objetos
+#arrays-e-objetos
 
-### Manipulação de Arrays
-
-```javascript
-// Tamanho do array
+#manipulao-de-arrays-javascript Tamanho do array
 {{ $json.itens.length }}
 
 // Primeiro elemento
@@ -270,10 +232,7 @@ Para trabalhar com múltiplos items:
 {{ $json.itens.reduce((sum, item) => sum + item.valor, 0) }}
 ```
 
-### Manipulação de Objetos
-
-```javascript
-// Chaves do objeto
+#manipulao-de-objetos-javascript Chaves do objeto
 {{ Object.keys($json) }}
 
 // Valores do objeto
@@ -289,12 +248,9 @@ Para trabalhar com múltiplos items:
 {{ { ...$json, novoCampo: 'valor' } }}
 ```
 
-## Condições e Lógica
+#condies-e-lgica
 
-### Operadores de Comparação
-
-```javascript
-// Igualdade
+#operadores-de-comparao-javascript Igualdade
 {{ $json.valor === 100 }}
 
 // Desigualdade
@@ -313,10 +269,7 @@ Para trabalhar com múltiplos items:
 {{ $json.valor <= 100 }}
 ```
 
-### Operadores Lógicos
-
-```javascript
-// E lógico
+#operadores-lgicos-javascript-e lógico
 {{ $json.ativo && $json.valor > 0 }}
 
 // OU lógico
@@ -329,10 +282,7 @@ Para trabalhar com múltiplos items:
 {{ $json.idade >= 18 && $json.ativo && $json.saldo > 0 }}
 ```
 
-### Operador Ternário
-
-```javascript
-// Condição simples
+#operador-ternrio-javascript-condio simples
 {{ $json.valor > 100 ? 'Alto' : 'Baixo' }}
 
 // Condição aninhada
@@ -342,12 +292,9 @@ Para trabalhar com múltiplos items:
 {{ $json.ativo ? $json.nome : 'Usuário Inativo' }}
 ```
 
-## Funções Personalizadas
+#funes-personalizadas
 
-### Funções Simples
-
-```javascript
-// Função para formatar CPF
+#funes-simples-javascript-funo para formatar CPF
 {{ (function(cpf) {
   return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
 })($json.cpf) }}
@@ -365,9 +312,7 @@ Para trabalhar com múltiplos items:
 })($json.data_nascimento) }}
 ```
 
-### Funções com Múltiplos Parâmetros
-
-```javascript
+#funes-com-mltiplos-parmetros-javascript
 // Função para calcular desconto
 {{ (function(valor, desconto) {
   return valor * (1 - desconto / 100);
@@ -379,9 +324,9 @@ Para trabalhar com múltiplos items:
 })($json.logradouro, $json.numero, $json.bairro, $json.cidade, $json.estado) }}
 ```
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### Exemplo 1: Validação de Dados
+#exemplo-1-validao-de-dados
 
 ```javascript
 // Validar dados de cliente
@@ -394,9 +339,7 @@ Para trabalhar com múltiplos items:
 }
 ```
 
-### Exemplo 2: Cálculos Financeiros
-
-```javascript
+#exemplo-2-clculos-financeiros-javascript
 // Calcular valores de venda
 {
   "subtotal": {{ $json.quantidade * $json.preco_unitario }},
@@ -407,7 +350,7 @@ Para trabalhar com múltiplos items:
 }
 ```
 
-### Exemplo 3: Formatação de Dados
+#exemplo-3-formatao-de-dados
 
 ```javascript
 // Formatar dados para relatório
@@ -420,9 +363,7 @@ Para trabalhar com múltiplos items:
 }
 ```
 
-### Exemplo 4: Lógica Condicional
-
-```javascript
+#exemplo-4-lgica-condicional-javascript
 // Classificar cliente por valor
 {
   "categoria": {{ 
@@ -440,12 +381,9 @@ Para trabalhar com múltiplos items:
 }
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Performance
-
-```javascript
-// ✅ Bom: Cache de valores calculados
+#id-1-performance-javascript Bom: Cache de valores calculados
 {{ (function() {
   const valor = $json.valor;
   const desconto = $json.desconto;
@@ -461,19 +399,14 @@ Para trabalhar com múltiplos items:
 {{ $json.valor * ($json.desconto / 100) }}
 ```
 
-### 2. Legibilidade
-
-```javascript
-// ✅ Bom: Expressões claras
+#id-2-legibilidade-javascript Bom: Expressões claras
 {{ $json.ativo && $json.saldo > 0 ? 'Cliente Ativo' : 'Cliente Inativo' }}
 
 // ❌ Evitar: Expressões complexas
 {{ $json.ativo===true&&$json.saldo>0?'Cliente Ativo':'Cliente Inativo' }}
 ```
 
-### 3. Tratamento de Erros
-
-```javascript
+#id-3-tratamento-de-erros-javascript
 // ✅ Bom: Validação de dados
 {{ $json.valor && !isNaN($json.valor) ? $json.valor * 1.1 : 0 }}
 
@@ -481,10 +414,7 @@ Para trabalhar com múltiplos items:
 {{ $json.valor * 1.1 }}
 ```
 
-### 4. Reutilização
-
-```javascript
-// ✅ Bom: Funções reutilizáveis
+#id-4-reutilizao-javascript Bom: Funções reutilizáveis
 {{ (function(valor, desconto) {
   return valor * (1 - desconto / 100);
 })($json.valor, $json.desconto) }}
@@ -493,42 +423,34 @@ Para trabalhar com múltiplos items:
 {{ $json.valor * (1 - $json.desconto / 100) }}
 ```
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Expressão não funciona
-- Verifique a sintaxe JavaScript
+#expresso-no-funciona-verifique a sintaxe JavaScript
 - Confirme se os campos existem
 - Teste com dados de exemplo
 - Use Debug Helper para inspecionar dados
 
-#### Dados não aparecem
-- Verifique se o node anterior tem dados
+#cor-dados-no-aparecem-verifique se o node anterior tem dados
 - Confirme o nome dos campos
 - Teste com `{{ $json }}` para ver todos os dados
 - Verifique se há erros de sintaxe
 
-#### Performance lenta
-- Evite cálculos complexos em loops
+#performance-lenta-evite-clculos complexos em loops
 - Use cache para valores calculados
 - Simplifique expressões quando possível
 - Monitore tempo de execução
 
-### Debug
-
-1. **Use Debug Helper** para ver dados
+#cor-debug-1-use-debug-helper para ver dados
 2. **Teste expressões** em partes menores
 3. **Use console.log** para debug
 4. **Verifique logs** de erro
 5. **Teste com dados simples**
 
-## Funções Úteis
+#funes-teis
 
-### Funções de String
-
-```javascript
-// Verificar se string está vazia
+#funes-de-string-javascript Verificar se string está vazia
 {{ $json.texto && $json.texto.trim().length > 0 }}
 
 // Extrair domínio de email
@@ -541,10 +463,7 @@ Para trabalhar com múltiplos items:
 {{ $json.texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '') }}
 ```
 
-### Funções de Array
-
-```javascript
-// Verificar se array contém valor
+#funes-de-array-javascript Verificar se array contém valor
 {{ $json.itens.includes('item') }}
 
 // Encontrar item em array
@@ -557,10 +476,7 @@ Para trabalhar com múltiplos items:
 {{ $json.itens.reduce((sum, item) => sum + item.valor, 0) }}
 ```
 
-### Funções de Data
-
-```javascript
-// Verificar se é fim de semana
+#funes-de-data-javascript Verificar se é fim de semana
 {{ [0, 6].includes($now.weekday) }}
 
 // Verificar se é feriado (exemplo)
@@ -580,9 +496,7 @@ Para trabalhar com múltiplos items:
 })($json.data_inicio, $json.data_fim) }}
 ```
 
-## Próximos Passos
-
-- [HTTP Request](../integracoes/builtin-nodes/http-requests/http-request) - Usar expressões em requisições
+#prximos-passos-http-requestintegracoesbuiltin-nodeshttp-requestshttp-request - Usar expressões em requisições
 - [Code Node](../integracoes/builtin-nodes/core-nodes/code) - JavaScript avançado
 - [Tratamento de Erros](./flow-logic/error-handling) - Lidar com falhas
 - [Data Processing](../integracoes/builtin-nodes/data-processing/index) - Processar dados

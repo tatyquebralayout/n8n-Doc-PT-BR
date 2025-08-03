@@ -5,13 +5,13 @@ description: Como combinar e mesclar dados de múltiplas fontes no n8n
 keywords: [n8n, merge, combinar, dados, junção, sincronização, join]
 ---
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Merging de Dados
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-merging-de Dados
 
 O merging de dados é uma técnica fundamental para combinar informações de múltiplas fontes, criar visões unificadas e consolidar dados dispersos. O n8n oferece várias estratégias para realizar merges eficientes e precisos.
 
-## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conceitos Fundamentais
+#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-conceitos-fundamentais
 
-### O que é Merging de Dados?
+#o-que-merging-de Dados?
 
 Merging é o processo de **combinar dados** de diferentes fontes em um resultado único, permitindo:
 
@@ -21,19 +21,15 @@ Merging é o processo de **combinar dados** de diferentes fontes em um resultado
 - **Relatórios**: Criar visões unificadas de informações
 - **Integração**: Conectar sistemas diferentes
 
-### Tipos de Merge
-
-1. **Concatenation**: Juntar dados sequencialmente
+#tipos-de-merge-1-concatenation Juntar dados sequencialmente
 2. **Join**: Combinar baseado em chaves comuns
 3. **Union**: Unir datasets similares
 4. **Intersection**: Manter apenas dados comuns
 5. **Enrichment**: Adicionar dados de fontes externas
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Implementação
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-implementao
 
-### 1. Merge Node
-
-O **Merge Node** é a forma mais direta de combinar dados.
+#id-1-merge-node-o-merge Node** é a forma mais direta de combinar dados.
 
 **Configuração básica:**
 ```json
@@ -53,7 +49,7 @@ O **Merge Node** é a forma mais direta de combinar dados.
 }
 ```
 
-### 2. Code Node para Merge Customizado
+#id-2-code-node-para-merge Customizado
 
 Para merges complexos, use o Code Node.
 
@@ -87,11 +83,9 @@ const usuariosComPedidos = usuarios.map(usuario => {
 return usuariosComPedidos;
 ```
 
-## <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Padrões de Merge
+#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-padres-de Merge
 
-### 1. Merge por Posição
-
-Combina dados baseado na posição nos arrays.
+#id-1-merge-por-posio-combina dados baseado na posição nos arrays.
 
 ```mermaid
 graph TD
@@ -122,9 +116,7 @@ const resultado = clientes.map((cliente, index) => ({
 return resultado;
 ```
 
-### 2. Merge por Chave
-
-Combina dados baseado em chaves comuns.
+#id-2-merge-por-chave-combina dados baseado em chaves comuns.
 
 ```mermaid
 graph TD
@@ -164,9 +156,7 @@ const clientesComPedidos = clientes.map(cliente => {
 return clientesComPedidos;
 ```
 
-### 3. Merge com Enriquecimento
-
-Adiciona dados de fontes externas.
+#id-3-merge-com-enriquecimento-adiciona dados de fontes externas.
 
 ```mermaid
 graph TD
@@ -214,9 +204,9 @@ const clientesEnriquecidos = await Promise.all(
 return clientesEnriquecidos;
 ```
 
-## <IonicIcon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Práticos
+#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Práticos
 
-### 1. Relatório de Vendas Consolidado
+#id-1-relatrio-de-vendas-consolidado
 
 **Cenário**: Consolidar dados de vendas de múltiplas plataformas.
 
@@ -267,9 +257,7 @@ const relatorio = {
 return relatorio;
 ```
 
-### 2. Sincronização de Clientes
-
-**Cenário**: Sincronizar dados de clientes entre CRM e sistema financeiro.
+#id-2-sincronizao-de-clientes-cenrio Sincronizar dados de clientes entre CRM e sistema financeiro.
 
 ```mermaid
 graph TD
@@ -331,7 +319,7 @@ return {
 };
 ```
 
-### 3. Merge de Dados de Monitoramento
+#id-3-merge-de-dados-de Monitoramento
 
 **Cenário**: Consolidar alertas de diferentes sistemas de monitoramento.
 
@@ -388,12 +376,9 @@ const resumo = {
 return resumo;
 ```
 
-## <IonicIcon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Expressões e Data Mapping
+#ionicicon-nameflash-outline-style-fontsize-24px color: '#cor-ea4b71-expresses-e Data Mapping
 
-### Merge Dinâmico
-
-```javascript
-// Merge baseado em configuração
+#merge-dinmico-javascript-merge baseado em configuração
 const configuracao = $('Config Node').json;
 const dados = $json;
 
@@ -409,10 +394,7 @@ const resultado = configuracao.fontes.map(fonte => {
 return resultado;
 ```
 
-### Merge Condicional
-
-```javascript
-// Merge apenas se dados existirem
+#merge-condicional-javascript-merge apenas se dados existirem
 const dados1 = $('Fonte 1').json;
 const dados2 = $('Fonte 2').json;
 
@@ -429,9 +411,9 @@ if (dados2 && dados2.length > 0) {
 return resultado;
 ```
 
-## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tratamento de Erros
+#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-tratamento-de Erros
 
-### Merge com Tratamento de Erros
+#merge-com-tratamento-de-erros
 
 ```javascript
 // Merge com validação de dados
@@ -459,10 +441,7 @@ return {
 };
 ```
 
-### Merge com Fallback
-
-```javascript
-// Merge com dados de fallback
+#merge-com-fallback-javascript Merge com dados de fallback
 const dadosPrincipais = $('Fonte Principal').json;
 const dadosFallback = $('Fonte Fallback').json;
 
@@ -477,11 +456,9 @@ const resultado = mergeComFallback(dadosPrincipais, dadosFallback);
 return resultado;
 ```
 
-## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance e Otimização
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-e Otimização
 
-### Boas Práticas
-
-1. **Otimize Consultas**
+#boas-prticas-1-otimize-consultas
    - Use filtros para reduzir volume de dados
    - Implemente paginação quando necessário
    - Cache dados frequentemente acessados
@@ -496,10 +473,7 @@ return resultado;
    - Identifique gargalos
    - Use merge incremental quando possível
 
-### Exemplo de Otimização
-
-```javascript
-// Merge otimizado com cache
+#exemplo-de-otimizao-javascript Merge otimizado com cache
 const cacheKey = `merge_${$json.timestamp}`;
 const cached = await cache.get(cacheKey);
 
@@ -516,11 +490,9 @@ await cache.set(cacheKey, resultado, 300); // 5 minutos
 return resultado;
 ```
 
-## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
 
-### Problemas Comuns
-
-**Erro: "Dados não compatíveis"**
+#problemas-comuns-erro-dados-no compatíveis"**
 - Verifique estrutura dos dados
 - Normalize dados antes do merge
 - Use validação de schema
@@ -535,10 +507,7 @@ return resultado;
 - Use chaves únicas
 - Valide dados antes do merge
 
-### Debugging
-
-```javascript
-// Debug de merge
+#cor-debugging-javascript-debug-de merge
 const debug = {
   "dados_entrada": {
     "fonte1": $('Fonte 1').json?.length || 0,
@@ -556,12 +525,9 @@ return {
 };
 ```
 
-## <IonicIcon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração com Outros Nós
+#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Outros Nós
 
-### Fluxo Típico
-
-```mermaid
-graph TD
+#fluxo-tpico-mermaid-graph-td
     A[HTTP Request 1] --> D[Merge Node]
     B[HTTP Request 2] --> D
     C[HTTP Request 3] --> D
@@ -569,10 +535,7 @@ graph TD
     E --> F[Database]
 ```
 
-### Exemplo Completo
-
-```javascript
-// 1. HTTP Request - Buscar clientes
+#exemplo-completo-javascript-1 HTTP Request - Buscar clientes
 {
   "url": "https://api.exemplo.com/clientes",
   "method": "GET"
@@ -613,16 +576,14 @@ return relatorio;
 }
 ```
 
-## <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Referências
-
-- **[Merge Node](../../integracoes/builtin-nodes/logic-control/merge)** - Nó específico para merge
+#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-referncias **[Merge Node](../../integracoes/builtin-nodes/logic-control/merge)** - Nó específico para merge
 - **[Data Mapping](../../logica-e-dados/data/data-mapping-avancado)** - Mapeamento avançado de dados
 - **[Aggregate Node](../../integracoes/builtin-nodes/data-processing/aggregate)** - Agregação de dados
 - **[Set Node](../../integracoes/builtin-nodes/data-processing/set)** - Transformação de dados
 
 ---
 
-> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }} /> **Dica**: Use merge de dados para criar visões unificadas e consolidadas de informações dispersas. Lembre-se de sempre validar e normalizar dados antes do merge para garantir consistência e qualidade.
+> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#cor-ea4b71-dica-use merge de dados para criar visões unificadas e consolidadas de informações dispersas. Lembre-se de sempre validar e normalizar dados antes do merge para garantir consistência e qualidade.
 
 ---
 

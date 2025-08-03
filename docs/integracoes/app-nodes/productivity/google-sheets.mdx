@@ -5,11 +5,11 @@ description: Integração completa do n8n com Google Sheets para automação de 
 keywords: [n8n, google sheets, planilhas, automação, integração]
 ---
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Google Sheets
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-google-sheets
 
 A integração do Google Sheets é uma das mais populares do n8n, permitindo automatizar completamente suas planilhas e dados.
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você pode fazer
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você pode fazer
 
 - **Ler dados** de planilhas existentes
 - **Criar novas linhas** automaticamente
@@ -18,40 +18,29 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 - **Criar novas planilhas** programaticamente
 - **Gerenciar permissões** de acesso
 
-## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Pré-requisitos
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-pr-requisitos
 
-### 1. Conta Google
-
-- Conta Google ativa
+#id-1-conta-google-conta Google ativa
 - Acesso ao Google Sheets
 
-### 2. Credenciais OAuth2
-
-- Criar projeto no Google Cloud Console
+#id-2-credenciais-oauth2-criar projeto no Google Cloud Console
 - Ativar Google Sheets API
 - Configurar OAuth2 credentials
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Rápida
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-rpida
 
-### 1. Criar Credencial
-
-1. **Vá em:** Credentials → Add new
+#id-1-criar-credencial-1-v em:** Credentials → Add new
 2. **Escolha:** Google OAuth2 API
 3. **Configure:** Client ID e Client Secret
 4. **Autorize:** Sua conta Google
 
-### 2. Adicionar Node
-
-1. **Busque:** "Google Sheets" no menu de nodes
+#id-2-adicionar-node-1-busque "Google Sheets" no menu de nodes
 2. **Arrastar:** Para o canvas
 3. **Conectar:** Sua credencial OAuth2
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Operações Disponíveis
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-operaes-disponveis
 
-### Read (Ler Dados)
-
-```json
-{
+#read-ler-dados-json
 "operation": "read",
 "documentId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
 "sheetName": "Class Data",
@@ -59,10 +48,7 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 }
 ```
 
-### Append (Adicionar Linha)
-
-```json
-{
+#append-adicionar-linha-json
 "operation": "append",
 "documentId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
 "sheetName": "Sheet1",
@@ -72,10 +58,7 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 }
 ```
 
-### Update (Atualizar Dados)
-
-```json
-{
+#update-atualizar-dados-json
 "operation": "update",
 "documentId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
 "sheetName": "Sheet1",
@@ -84,10 +67,7 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 }
 ```
 
-### Clear (Limpar Dados)
-
-```json
-{
+#clear-limpar-dados-json
 "operation": "clear",
 "documentId": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
 "sheetName": "Sheet1",
@@ -95,63 +75,45 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 }
 ```
 
-## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Populares
+#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Populares
 
-### Lead Capture
-
-```
-Webhook → Validação → Google Sheets (Append)
+#lead-capture-webhook Validação → Google Sheets (Append)
 ```
 
 **Cenário:** Formulário no site salva leads automaticamente
 
-### Relatórios Automáticos
-
-```
-Schedule → API Call → Transform → Google Sheets
+#relatrios-automticos-schedule API Call → Transform → Google Sheets
 ```
 
 **Cenário:** Relatórios diários de vendas
 
-### E-commerce Sync
-
-```
-Shopify Webhook → Google Sheets → Email Notification
+#e-commerce-sync-shopify-webhook → Google Sheets → Email Notification
 ```
 
 **Cenário:** Novos pedidos salvos em planilha
 
-### CRM Integration
-
-```
-Google Sheets → CRM API → Slack Notification
+#crm-integration-google-sheets → CRM API → Slack Notification
 ```
 
 **Cenário:** Sincronizar dados entre sistemas
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Dicas e Truques
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-dicas-e Truques
 
-### Performance
-
-- **Use ranges específicos** em vez de ler planilha inteira
+#performance-use-ranges-especficos em vez de ler planilha inteira
 - **Batch operations** para múltiplas linhas
 - **Cache data** quando possível
 
-### Segurança
-
-- **Permissions mínimas** nas credenciais OAuth2
+#segurana-permissions-mnimas-nas credenciais OAuth2
 - **Validate data** antes de escrever
 - **Use service accounts** para produção
 
-### Responsividade
-
-- **Error handling** para conexões lentas
+#responsividade-error-handling-para conexões lentas
 - **Retry logic** para operações falhadas
 - **Timeout settings** apropriados
 
-## <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações Avançadas
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-avanadas
 
-### Service Account (Recomendado para Produção)
+#service-account-recomendado-para-produo
 
 :::caution
 Nunca compartilhe sua chave privada real. O exemplo abaixo é **fictício** e serve apenas para fins de documentação.
@@ -167,11 +129,7 @@ Nunca compartilhe sua chave privada real. O exemplo abaixo é **fictício** e se
 }
 ```
 
-### Batch Updates
-
-```json
-{
-"operation": "batchUpdate",
+#batch-updates-json-operation "batchUpdate",
 "requests": [
 {
 "updateCells": {
@@ -186,33 +144,24 @@ Nunca compartilhe sua chave privada real. O exemplo abaixo é **fictício** e se
 }
 ```
 
-## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
 
-### Erro: Invalid credentials
-
-```bash
-Verificar Client ID e Secret
+#erro-invalid-credentials-bash-verificar Client ID e Secret
 Reautorizar no OAuth2
 Confirmar APIs habilitadas
 ```
 
-### Erro: Permission denied
-
-```bash
-Verificar permissões da planilha
+#erro-permission-denied-bash-verificar permissões da planilha
 Confirmar email do service account
 Testar com editor permissions
 ```
 
-### Erro: Quota exceeded
-
-```bash
-Implementar rate limiting
+#erro-quota-exceeded-bash-implementar rate limiting
 Usar batch operations
 Considerar service account
 ```
 
-## <IonicIcon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Links Úteis
+#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-links-teis
 
 - **[Google Sheets API](https://developers.google.com/sheets/api)** - Documentação oficial
 - **[Google Cloud Console](https://console.cloud.google.com)** - Gerenciar credenciais

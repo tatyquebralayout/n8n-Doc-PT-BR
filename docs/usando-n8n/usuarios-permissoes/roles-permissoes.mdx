@@ -1,5 +1,5 @@
 ﻿:::warning
-<IonicIcon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }} /> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
+<IonicIcon name="time-outline" style={{ fontSize: '18px', color: '#cor-f59e0b-esta-pgina ainda está em processo de validação. O conteúdo pode sofrer alterações.
 :::
 
 ---
@@ -9,11 +9,11 @@ description: Configure roles e permissões granulares para controlar acesso a wo
 keywords: [n8n, roles, permissões, controle de acesso, segurança, usuários, workflows]
 ---
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Roles e Permissões
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-roles-e Permissões
 
 O sistema de roles e permissões do n8n permite controlar com precisão o que cada usuário pode fazer. Neste guia, você aprenderá a configurar permissões granulares para workflows, credenciais e recursos.
 
-## <IonicIcon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você aprenderá
+#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você aprenderá
 
 - **Sistema de roles** do n8n
 - **Tipos de permissões** disponíveis
@@ -21,11 +21,9 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 - **Boas práticas** de segurança
 - **Auditoria** e monitoramento
 
-## <IonicIcon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Sistema de Roles
+#ionicicon-namepeople-outline-style-fontsize-24px color: '#cor-ea4b71-sistema-de Roles
 
-### 1. Roles Padrão
-
-**Owner (Proprietário)**:
+#id-1-roles-padro-owner-proprietrio
 
 - Acesso total ao sistema
 - Pode gerenciar todos os usuários
@@ -52,11 +50,7 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 - Não pode executar ou modificar
 - Acesso somente leitura
 
-### 2. Roles Customizados
-
-**Desenvolvedor**:
-
-- Pode criar e editar workflows
+#id-2-roles-customizados-desenvolvedor Pode criar e editar workflows
 - Acesso a credenciais de desenvolvimento
 - Pode executar workflows de teste
 - Não pode acessar dados de produção
@@ -75,11 +69,9 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 - Acesso limitado a credenciais
 - Não pode criar workflows
 
-## <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tipos de Permissões
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-tipos-de Permissões
 
-### 1. Permissões de Workflow
-
-**Criar**:
+#id-1-permisses-de-workflow-criar
 
 - Pode criar novos workflows
 - Pode importar workflows
@@ -109,9 +101,7 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 - Pode arquivar workflows
 - Pode limpar histórico
 
-### 2. Permissões de Credenciais
-
-**Criar**:
+#id-2-permisses-de-credenciais-criar
 
 - Pode adicionar novas credenciais
 - Pode importar credenciais
@@ -141,9 +131,7 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 - Pode revogar acesso
 - Pode limpar histórico
 
-### 3. Permissões de Sistema
-
-**Usuários**:
+#id-3-permisses-de-sistema-usurios
 
 - Pode gerenciar usuários
 - Pode criar/editar roles
@@ -161,11 +149,9 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 - Pode configurar alertas
 - Pode visualizar métricas
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração de Permissões
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-de Permissões
 
-### 1. Configuração por Usuário
-
-**Interface do n8n**:
+#id-1-configurao-por-usurio-interface do n8n**:
 
 1. Acesse **Settings** → **Users**
 2. Selecione o usuário
@@ -176,8 +162,7 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 **Configuração via API**:
 
 ```bash
-# Atualizar role do usuário
-curl -X PUT "https://your-n8n.com/api/v1/users/123" \
+#atualizar-role-do-usurio-curl -X PUT "https://your-n8n.com/api/v1/users/123" \
   -H "Authorization: Bearer YOUR_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -190,9 +175,7 @@ curl -X PUT "https://your-n8n.com/api/v1/users/123" \
   }'
 ```
 
-### 2. Configuração por Workflow
-
-**Permissões granulares**:
+#id-2-configurao-por-workflow-permisses granulares**:
 
 ```json
 {
@@ -212,9 +195,7 @@ curl -X PUT "https://your-n8n.com/api/v1/users/123" \
 }
 ```
 
-### 3. Configuração por Credencial
-
-**Controle de acesso**:
+#id-3-configurao-por-credencial-controle de acesso**:
 
 ```json
 {
@@ -233,9 +214,9 @@ curl -X PUT "https://your-n8n.com/api/v1/users/123" \
 }
 ```
 
-## <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas
+#ionicicon-namecheckmark-circle-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas
 
-### 1. Princípio do Menor Privilégio
+#id-1-princpio-do-menor-privilgio
 
 **Recomendações**:
 
@@ -244,9 +225,7 @@ curl -X PUT "https://your-n8n.com/api/v1/users/123" \
 - **Remova permissões** quando não mais necessárias
 - **Use roles temporários** para tarefas específicas
 
-### 2. Estrutura de Roles
-
-**Hierarquia recomendada**:
+#id-2-estrutura-de-roles-hierarquia recomendada**:
 
 ```
 Owner (1 usuário)
@@ -257,18 +236,16 @@ Owner (1 usuário)
 └── Viewer (stakeholders)
 ```
 
-### 3. Segurança
-
-**Medidas de segurança**:
+#id-3-segurana-medidas-de-segurana
 
 - **Auditoria regular** de permissões
 - **Logs detalhados** de ações
 - **Notificações** de mudanças críticas
 - **Backup** de configurações de permissões
 
-## <IonicIcon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos Práticos
+#ionicicon-nameplay-circle-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-prticos
 
-### Exemplo 1: Configuração para Startup
+#exemplo-1-configurao-para-startup
 
 **Estrutura de equipe pequena**:
 
@@ -295,7 +272,7 @@ Owner (1 usuário)
 }
 ```
 
-### Exemplo 2: Configuração para Empresa
+#exemplo-2-configurao-para-empresa
 
 **Estrutura corporativa**:
 
@@ -322,9 +299,7 @@ Owner (1 usuário)
 }
 ```
 
-### Exemplo 3: Workflow Específico
-
-**Permissões granulares por workflow**:
+#exemplo-3-workflow-especfico-permisses granulares por workflow**:
 
 ```json
 {
@@ -345,11 +320,9 @@ Owner (1 usuário)
 }
 ```
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Auditoria e Monitoramento
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-auditoria-e Monitoramento
 
-### 1. Logs de Auditoria
-
-**Eventos monitorados**:
+#id-1-logs-de-auditoria-eventos monitorados**:
 
 - **Criação/edição** de workflows
 - **Execução** de workflows
@@ -360,35 +333,25 @@ Owner (1 usuário)
 **Configuração de logs**:
 
 ```bash
-# Habilitar logs de auditoria
-N8N_AUDIT_LOGS_ENABLED=true
+#habilitar-logs-de-auditoria-n8nauditlogsenabledtrue
 N8N_AUDIT_LOGS_LEVEL=info
-N8N_AUDIT_LOGS_RETENTION=90 # dias
-```
+N8N_AUDIT_LOGS_RETENTION=90 #dias
 
-### 2. Alertas de Segurança
-
-**Alertas configurar**:
+#id-2-alertas-de-segurana-alertas configurar**:
 
 - **Tentativas de acesso** não autorizado
 - **Mudanças** em permissões críticas
 - **Execução** de workflows sensíveis
 - **Criação** de credenciais
 
-### 3. Relatórios
-
-**Relatórios úteis**:
-
-- **Usuários ativos** e suas permissões
+#id-3-relatrios-relatrios-teis **Usuários ativos** e suas permissões
 - **Workflows** por usuário/role
 - **Credenciais** utilizadas
 - **Atividade** de execução
 
-## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
+#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
 
-### Problemas Comuns
-
-**Usuário não consegue acessar**:
+#problemas-comuns-usurio-no-consegue acessar**:
 
 - Verifique role atribuído
 - Confirme permissões específicas
@@ -409,24 +372,17 @@ N8N_AUDIT_LOGS_RETENTION=90 # dias
 - Verifique agendamento
 - Teste execução manual
 
-### Debugging
-
-**Ferramentas úteis**:
-
-```bash
-# Verificar permissões do usuário
-curl -X GET "https://your-n8n.com/api/v1/users/me" \
+#cor-debugging-ferramentas-teis-bash
+#verificar-permisses-do-usurio-curl -X GET "https://your-n8n.com/api/v1/users/me" \
   -H "Authorization: Bearer USER_TOKEN"
 
-# Listar workflows acessíveis
-curl -X GET "https://your-n8n.com/api/v1/workflows" \
+#listar-workflows-acessveis-curl-x GET "https://your-n8n.com/api/v1/workflows" \
   -H "Authorization: Bearer USER_TOKEN"
 
-# Verificar logs de auditoria
-tail -f /var/log/n8n/audit.log
+#verificar-logs-de-auditoria-tail -f /var/log/n8n/audit.log
 ```
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 1. **Audite permissões** atuais dos usuários
 2. **Configure roles** apropriados para sua equipe
@@ -434,7 +390,7 @@ tail -f /var/log/n8n/audit.log
 4. **Configure monitoramento** e alertas
 5. **Documente políticas** de acesso
 
-## <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-relacionados
 
 - **[Criar e Editar Usuários](./criar-editar-usuarios)** - Gerenciamento de usuários
 - **[Autenticação](./autenticacao)** - Métodos de login
@@ -444,5 +400,5 @@ tail -f /var/log/n8n/audit.log
 
 ---
 
-**<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> Pronto para controlar? Comece configurando roles apropriados para sua equipe!**
+**<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#cor-ea4b71-pronto-para controlar? Comece configurando roles apropriados para sua equipe!**
 

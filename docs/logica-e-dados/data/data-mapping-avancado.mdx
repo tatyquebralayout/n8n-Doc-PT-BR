@@ -6,17 +6,15 @@ keywords: [n8n, data mapping, transformação, expressões, funções, manipula�
 ---
 
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Data Mapping Avançado
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-data-mapping Avançado
 
 Aprenda técnicas avançadas de mapeamento e transformação de dados para criar workflows mais poderosos e eficientes no n8n.
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 1 | Expressões Avançadas
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-1 Expressões Avançadas
 
-### Funções Matemáticas
-
-**Operações matemáticas complexas:**
+#funes-matemticas-operaes-matemticas-complexas
 
 ```javascript
 // Soma com validação
@@ -32,9 +30,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ Math.round($json.valor * 100) / 100 }}
 ```
 
-### Manipulação de Strings
-
-**Transformações de texto avançadas:**
+#manipulao-de-strings-transformaes-de texto avançadas:**
 
 ```javascript
 // Capitalizar primeira letra
@@ -52,11 +48,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 2 | Lógica Condicional
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-2 Lógica Condicional
 
-### Operadores Ternários
-
-**Condições em uma linha:**
+#operadores-ternrios-condies-em-uma linha:**
 
 ```javascript
 // Status baseado em valor
@@ -72,11 +66,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ $json.score > 90 ? 'Excelente' : $json.score > 70 ? 'Bom' : 'Regular' }}
 ```
 
-### Validações Complexas
-
-**Verificações avançadas:**
-
-```javascript
+#validaes-complexas-verificaes-avanadas-javascript
 // Validar email
 {{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) ? 'Válido' : 'Inválido' }}
 
@@ -92,11 +82,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 3 | Manipulação de Arrays
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-3 Manipulação de Arrays
 
-### Filtros Avançados
-
-**Filtrar dados complexos:**
+#filtros-avanados-filtrar-dados-complexos
 
 ```javascript
 // Filtrar por valor
@@ -112,9 +100,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ $json.pedidos.filter(pedido => new Date(pedido.data) > new Date('2024-01-01')) }}
 ```
 
-### Transformações de Array
-
-**Modificar arrays:**
+#transformaes-de-array-modificar-arrays
 
 ```javascript
 // Mapear propriedades
@@ -135,11 +121,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 4 | Funções Customizadas
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-4 Funções Customizadas
 
-### Funções JavaScript
-
-**Criar funções reutilizáveis:**
+#funes-javascript-criar-funes-reutilizveis
 
 ```javascript
 // Função para formatar moeda
@@ -169,9 +153,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 })($json.titulo) }}
 ```
 
-### Bibliotecas Externas
-
-**Usar bibliotecas JavaScript:**
+#bibliotecas-externas-usar-bibliotecas-javascript
 
 ```javascript
 // Usar moment.js para datas
@@ -186,11 +168,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="location-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 5 | Mapeamento de Objetos Complexos
+#ionicicon-namelocation-outline-style-fontsize-24px color: '#cor-ea4b71-5 Mapeamento de Objetos Complexos
 
-### Objetos Aninhados
-
-**Acessar dados profundos:**
+#objetos-aninhados-acessar-dados-profundos
 
 ```javascript
 // Acesso seguro a propriedades
@@ -211,9 +191,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 })) }}
 ```
 
-### Transformações de Estrutura
-
-**Reorganizar dados:**
+#transformaes-de-estrutura-reorganizar-dados
 
 ```javascript
 // Converter array para objeto
@@ -243,11 +221,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 6 | Manipulação de Datas
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-6 Manipulação de Datas
 
-### Formatação de Datas
-
-**Formatos brasileiros:**
+#formatao-de-datas-formatos-brasileiros
 
 ```javascript
 // Data brasileira
@@ -268,9 +244,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ new Date($json.data).toLocaleDateString('pt-BR', { weekday: 'long' }) }}
 ```
 
-### Cálculos de Tempo
-
-**Operações temporais:**
+#clculos-de-tempo-operaes-temporais
 
 ```javascript
 // Diferença em dias
@@ -295,11 +269,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 7 | Validação e Sanitização
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-7 Validação e Sanitização
 
-### Validações de Dados
-
-**Verificar integridade:**
+#validaes-de-dados-verificar-integridade
 
 ```javascript
 // Validar campos obrigatórios
@@ -323,9 +295,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ /@empresa\.com\.br$/.test($json.email) }}
 ```
 
-### Sanitização de Dados
-
-**Limpar dados:**
+#sanitizao-de-dados-limpar-dados
 
 ```javascript
 // Remover espaços extras
@@ -347,7 +317,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 8 | Próximos passos
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-8 Próximos passos
 
 1. **[Transformações de Dados](./transformacoes-dados)** - Técnicas de transformação
 2. **[Agregações e Estatísticas](./agregacoes-estatisticas)** - Cálculos complexos

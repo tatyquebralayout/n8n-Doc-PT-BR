@@ -6,11 +6,11 @@ keywords: [n8n, performance, otimização, eficiência, produção, tuning]
 ---
 
 
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Otimização de Performance
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-otimizao-de Performance
 
 Este documento detalha como **otimizar performance do n8n** para máxima eficiência, incluindo configuração de workers, ajuste de timeouts, otimização de queries de banco, gerenciamento de memória, monitoramento de recursos, e técnicas avançadas de tuning que maximizam throughput e minimizam latência em workflows de alta demanda para operações empresariais críticas.
 
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você vai aprender
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
 
 - Configuração de workers otimizada
 - Ajuste de timeouts e limites
@@ -20,11 +20,9 @@ Este documento detalha como **otimizar performance do n8n** para máxima eficiê
 
 ---
 
-## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Por que Otimizar Performance?
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-por-que Otimizar Performance?
 
-### Impacto da Performance
-
-**Performance Baixa:**
+#impacto-da-performance-performance-baixa
 
 - ❌ **Workflows lentos** - Execuções demoram muito
 - ❌ **Timeout de execuções** - Falhas por tempo limite
@@ -40,9 +38,7 @@ Este documento detalha como **otimizar performance do n8n** para máxima eficiê
 - ✅ **Experiência fluida** - Interface rápida e responsiva
 - ✅ **Custos reduzidos** - Menos servidores necessários
 
-### Quando Otimizar
-
-**Otimize performance quando:**
+#quando-otimizar-otimize-performance-quando
 
 - Workflows demoram **mais de 30 segundos**
 - Sistema fica **lento com muitos usuários**
@@ -52,50 +48,38 @@ Este documento detalha como **otimizar performance do n8n** para máxima eficiê
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração de Workers
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-de Workers
 
-### Otimização de Workers
+#otimizao-de-workers
 
-#### **Configuração Base**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração otimizada para workers
+#configurao-base-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-otimizada para workers
 EXECUTIONS_PROCESS=worker
 EXECUTIONS_MODE=regular
 
-# <IonicIcon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de concorrência
-EXECUTIONS_TIMEOUT=300000  # 5 minutos
-EXECUTIONS_TIMEOUT_MAX=3600000  # 1 hora
-EXECUTIONS_DATA_SAVE_ON_ERROR=all
-EXECUTIONS_DATA_SAVE_ON_SUCCESS=all
-```
+#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de concorrência
+EXECUTIONS_TIMEOUT=300000  #id-5-minutos-executionstimeoutmax3600000  #id-1-hora-executionsdatasaveonerrorall-executionsdatasaveonsuccessall
 
-#### **Configuração Avançada**
-
-```bash
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações avançadas de performance
+#configurao-avanada-bash
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-avanadas de performance
 EXECUTIONS_DATA_PRUNE=true
-EXECUTIONS_DATA_MAX_AGE=168  # 7 dias
-EXECUTIONS_DATA_PRUNE_TIMEOUT=3600  # 1 hora
+EXECUTIONS_DATA_MAX_AGE=168  #id-7-dias-executionsdataprunetimeout3600  #id-1-hora
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de retry
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de retry
 EXECUTIONS_RETRY_ON_ERROR=true
 EXECUTIONS_RETRY_ON_FAILURE=true
 EXECUTIONS_RETRY_ATTEMPTS=3
-EXECUTIONS_RETRY_DELAY=5000  # 5 segundos
-```
+EXECUTIONS_RETRY_DELAY=5000  #id-5-segundos
 
-### Múltiplos Workers
+#mltiplos-workers
 
-#### **Docker Compose com Workers Otimizados**
+#docker-compose-com-workers-otimizados
 
 ```yaml
 version: '3.8'
 
 services:
-  # Worker principal
-  n8n-main:
-    image: n8nio/n8n:latest
+  #worker-principal-n8n-main-image-n8nion8nlatest
     restart: unless-stopped
     ports:
       - "5678:5678"
@@ -125,8 +109,7 @@ services:
     networks:
       - n8n_network
 
-  # Workers de execução otimizados
-  n8n-worker-1:
+  #workers-de-execuo-otimizados-n8n-worker-1
     image: n8nio/n8n:latest
     restart: unless-stopped
     environment:
@@ -184,8 +167,7 @@ services:
     networks:
       - n8n_network
 
-  # Banco de dados otimizado
-  postgres:
+  #banco-de-dados-otimizado-postgres
     image: postgres:15
     restart: unless-stopped
     environment:
@@ -207,9 +189,7 @@ services:
     networks:
       - n8n_network
 
-  # Redis otimizado
-  redis:
-    image: redis:7-alpine
+  #redis-otimizado-redis-image-redis7-alpine
     restart: unless-stopped
     command: redis-server --appendonly yes --maxmemory 1gb --maxmemory-policy allkeys-lru
     volumes:
@@ -236,50 +216,42 @@ networks:
 
 ---
 
-## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Otimização de Timeouts
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-otimizao-de Timeouts
 
-### Configuração de Timeouts
+#configurao-de-timeouts
 
-#### **Timeouts por Tipo de Operação**
+#timeouts-por-tipo-de-operao
 
 ```bash
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Timeouts para operações simples (30 segundos)
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-para operações simples (30 segundos)
 EXECUTIONS_TIMEOUT=30000
 
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Timeouts para operações complexas (5 minutos)
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-para operações complexas (5 minutos)
 EXECUTIONS_TIMEOUT_MAX=300000
 
-# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Timeouts para webhooks (2 minutos)
+#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-para webhooks (2 minutos)
 WEBHOOK_TIMEOUT=120000
 
-# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Timeouts de conexão HTTP (10 segundos)
+#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-de conexão HTTP (10 segundos)
 HTTP_TIMEOUT=10000
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Timeouts de banco de dados (30 segundos)
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-de banco de dados (30 segundos)
 DB_TIMEOUT=30000
 ```
 
-#### **Configuração Avançada de Timeouts**
+#configurao-avanada-de-timeouts-bash
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-especficas por tipo de workflow
+EXECUTIONS_TIMEOUT_SIMPLE=30000    #operaes-simples-executionstimeoutcomplex300000  #operaes-complexas-executionstimeoutwebhook120000  #webhooks-executionstimeoutapi60000       #apis-externas
 
-```bash
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações específicas por tipo de workflow
-EXECUTIONS_TIMEOUT_SIMPLE=30000    # Operações simples
-EXECUTIONS_TIMEOUT_COMPLEX=300000  # Operações complexas
-EXECUTIONS_TIMEOUT_WEBHOOK=120000  # Webhooks
-EXECUTIONS_TIMEOUT_API=60000       # APIs externas
-
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de retry com backoff
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de retry com backoff
 EXECUTIONS_RETRY_BACKOFF=exponential
 EXECUTIONS_RETRY_BACKOFF_FACTOR=2
 EXECUTIONS_RETRY_MAX_DELAY=300000
 ```
 
-### Estratégias de Timeout
+#estratgias-de-timeout
 
-#### **Timeout Adaptativo**
-
-```javascript
-// Estratégia de timeout baseada no tipo de operação
+#timeout-adaptativo-javascript-estratgia de timeout baseada no tipo de operação
 const timeoutStrategies = {
   simple: 30000,      // 30s para operações simples
   complex: 300000,    // 5min para operações complexas
@@ -296,56 +268,38 @@ function getTimeoutForOperation(type) {
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Otimização de Banco de Dados
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-otimizao-de Banco de Dados
 
-### PostgreSQL Otimizado
+#postgresql-otimizado
 
-#### **postgresql.conf - Otimizações**
+#postgresqlconf-otimizaes-bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-etcpostgresql15mainpostgresqlconf
 
-```bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> /etc/postgresql/15/main/postgresql.conf
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-memria-sharedbuffers = 1GB              #id-25-da-ram-effectivecachesize 3GB        #id-75-da-ram-workmem 16MB                   #para-queries-complexas-maintenanceworkmem 256MB      #para-manuteno
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Memória
-shared_buffers = 1GB              # 25% da RAM
-effective_cache_size = 3GB        # 75% da RAM
-work_mem = 16MB                   # Para queries complexas
-maintenance_work_mem = 256MB      # Para manutenção
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-conexes-maxconnections = 200             #ajuste-conforme-necessidade-maxworkerprocesses 8          #para-paralelizao-maxparallelworkers-8          #para-queries-paralelas-maxparallelworkerspergather 4
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conexões
-max_connections = 200             # Ajuste conforme necessidade
-max_worker_processes = 8          # Para paralelização
-max_parallel_workers = 8          # Para queries paralelas
-max_parallel_workers_per_gather = 4
-
-# <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Logs
-log_destination = 'stderr'
+#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-logs-logdestination = 'stderr'
 logging_collector = on
 log_directory = 'log'
 log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
 log_rotation_age = 1d
 log_rotation_size = 100MB
-log_min_duration_statement = 1000  # Log queries > 1s
+log_min_duration_statement = 1000  #log-queries-1s
 
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance
-random_page_cost = 1.1            # Para SSDs
-effective_io_concurrency = 200    # Para SSDs
-checkpoint_completion_target = 0.9
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-randompagecost = 1.1            #para-ssds-effectiveioconcurrency-200    #para-ssds-checkpointcompletiontarget-09
 wal_buffers = 32MB
 checkpoint_segments = 32
 checkpoint_timeout = 5min
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Autovacuum
-autovacuum = on
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-autovacuum-autovacuum = on
 autovacuum_max_workers = 3
 autovacuum_naptime = 1min
 autovacuum_vacuum_threshold = 50
 autovacuum_analyze_threshold = 50
 ```
 
-#### **Índices Otimizados**
-
-```sql
--- Índices para melhorar performance
+#ndices-otimizados-sql-ndices para melhorar performance
 CREATE INDEX CONCURRENTLY idx_executions_created_at ON executions(created_at);
 CREATE INDEX CONCURRENTLY idx_executions_workflow_id ON executions(workflow_id);
 CREATE INDEX CONCURRENTLY idx_executions_status ON executions(status);
@@ -360,15 +314,11 @@ CREATE INDEX CONCURRENTLY idx_webhook_entity ON webhook_entity(webhook_id);
 CREATE INDEX CONCURRENTLY idx_webhook_entity_path ON webhook_entity(path);
 ```
 
-### Manutenção de Banco
+#manuteno-de-banco
 
-#### **Script de Manutenção**
-
-```bash
-#!/bin/bash
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> database-maintenance.sh
-
-DB_HOST="localhost"
+#script-de-manuteno-bash
+#bin/bash
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-database-maintenancesh-dbhostlocalhost
 DB_PORT="5432"
 DB_NAME="n8n"
 DB_USER="n8n"
@@ -376,22 +326,20 @@ DB_USER="n8n"
 echo "=== Manutenção do Banco de Dados ==="
 echo
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Vacuum e analyze
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-vacuum-e analyze
 echo "1. Executando VACUUM e ANALYZE..."
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME -c "VACUUM ANALYZE;"
 echo
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Reindex
-echo "2. Reindexando tabelas..."
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-reindex-echo "2. Reindexando tabelas..."
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME -c "REINDEX DATABASE $DB_NAME;"
 echo
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estatísticas
-echo "3. Atualizando estatísticas..."
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-estatsticas-echo "3. Atualizando estatísticas..."
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME -c "ANALYZE;"
 echo
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Limpeza de execuções antigas
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-limpeza-de execuções antigas
 echo "4. Limpando execuções antigas..."
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME -c "
 DELETE FROM executions 
@@ -404,30 +352,25 @@ echo "Manutenção concluída!"
 
 ---
 
-## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Gerenciamento de Memória
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-gerenciamento-de Memória
 
-### Configuração de Memória
+#configurao-de-memria
 
-#### **Limites de Memória Node.js**
-
-```bash
-# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar limites de memória para Node.js
+#limites-de-memria-nodejs-bash
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-limites de memória para Node.js
 NODE_OPTIONS="--max-old-space-size=4096 --max-semi-space-size=512"
 
-# <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Para containers Docker
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-para-containers Docker
 docker run -e NODE_OPTIONS="--max-old-space-size=4096" n8nio/n8n
 ```
 
-#### **Configuração de Memória Redis**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Redis otimizada
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> redis.conf
-maxmemory 1gb
+#configurao-de-memria-redis-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-redis otimizada
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-redisconf-maxmemory 1gb
 maxmemory-policy allkeys-lru
 maxmemory-samples 10
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de persistência
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de persistência
 save 900 1
 save 300 10
 save 60 10000
@@ -435,28 +378,26 @@ appendonly yes
 appendfsync everysec
 ```
 
-### Monitoramento de Memória
+#monitoramento-de-memria
 
-#### **Script de Monitoramento de Memória**
+#script-de-monitoramento-de-memria
 
 ```bash
-#!/bin/bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> memory-monitor.sh
-
-echo "=== Monitoramento de Memória ==="
+#bin/bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-memory-monitorsh-echo "=== Monitoramento de Memória ==="
 echo
 
-# <IonicIcon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Memória do sistema
+#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-memria-do sistema
 echo "1. Memória do Sistema:"
 free -h
 echo
 
-# <IonicIcon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Memória dos containers
+#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-memria-dos containers
 echo "2. Memória dos Containers:"
 docker stats --no-stream --format "table {{.Container}}\t{{.MemUsage}}\t{{.MemPerc}}"
 echo
 
-# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Memória do Node.js
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-memria-do Node.js
 echo "3. Memória do Node.js:"
 for container in n8n-main n8n-worker-1 n8n-worker-2; do
     echo "=== $container ==="
@@ -469,12 +410,12 @@ for container in n8n-main n8n-worker-1 n8n-worker-2; do
 done
 echo
 
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Memória Redis
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-memria-redis
 echo "4. Memória Redis:"
 redis-cli info memory | grep -E "(used_memory_human|maxmemory_human)"
 echo
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Alertas de memória
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-alertas-de memória
 MEMORY_THRESHOLD=85
 for container in n8n-main n8n-worker-1 n8n-worker-2; do
     MEMORY_PERC=$(docker stats --no-stream --format "{{.MemPerc}}" $container | sed 's/%//')
@@ -486,25 +427,21 @@ done
 
 ---
 
-## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Monitoramento de Performance
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento-de Performance
 
-### Métricas de Performance
+#mtricas-de-performance
 
-#### **Script de Métricas**
-
-```bash
-#!/bin/bash
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> performance-metrics.sh
-
-echo "=== Métricas de Performance ==="
+#script-de-mtricas-bash
+#bin/bash
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-metricssh-echo "=== Métricas de Performance ==="
 echo
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> CPU e memória
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-cpu-e memória
 echo "1. Uso de Recursos:"
 docker stats --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"
 echo
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Execuções por minuto
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-execues-por minuto
 echo "2. Execuções por Minuto:"
 EXECUTIONS_PER_MIN=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT COUNT(*) FROM executions 
@@ -512,7 +449,7 @@ WHERE created_at > NOW() - INTERVAL '1 minute';")
 echo "Execuções no último minuto: $EXECUTIONS_PER_MIN"
 echo
 
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tempo médio de execução
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-tempo-mdio de execução
 echo "3. Tempo Médio de Execução:"
 AVG_EXECUTION_TIME=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT AVG(EXTRACT(EPOCH FROM (finished_at - started_at))) 
@@ -522,7 +459,7 @@ AND created_at > NOW() - INTERVAL '1 hour';")
 echo "Tempo médio (última hora): ${AVG_EXECUTION_TIME}s"
 echo
 
-# <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Taxa de erro
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-taxa-de erro
 echo "4. Taxa de Erro:"
 ERROR_RATE=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT 
@@ -534,7 +471,7 @@ WHERE created_at > NOW() - INTERVAL '1 hour';")
 echo "Taxa de erro (última hora): ${ERROR_RATE}%"
 echo
 
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Filas Redis
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-filas-redis
 echo "5. Status das Filas:"
 echo "Jobs na fila: $(redis-cli llen n8n:queue:jobs)"
 echo "Webhooks na fila: $(redis-cli llen n8n:queue:webhooks)"
@@ -542,22 +479,19 @@ echo "Jobs processados: $(redis-cli get n8n:stats:processed || echo '0')"
 echo "Jobs falharam: $(redis-cli get n8n:stats:failed || echo '0')"
 ```
 
-### Alertas de Performance
+#alertas-de-performance
 
-#### **Configuração de Alertas**
+#configurao-de-alertas-bash
+#bin/bash
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-alertssh
 
-```bash
-#!/bin/bash
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> performance-alerts.sh
-
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-webhookurlhttpshooksslackcomservicesyourwebhookurl
 CPU_THRESHOLD=80
 MEMORY_THRESHOLD=85
 ERROR_RATE_THRESHOLD=5
 EXECUTION_TIME_THRESHOLD=60
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar CPU
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-cpu
 for container in n8n-main n8n-worker-1 n8n-worker-2; do
     CPU_USAGE=$(docker stats --no-stream --format "{{.CPUPerc}}" $container | sed 's/%//')
     if (( $(echo "$CPU_USAGE > $CPU_THRESHOLD" | bc -l) )); then
@@ -567,7 +501,7 @@ for container in n8n-main n8n-worker-1 n8n-worker-2; do
     fi
 done
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar memória
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-memria
 for container in n8n-main n8n-worker-1 n8n-worker-2; do
     MEMORY_USAGE=$(docker stats --no-stream --format "{{.MemPerc}}" $container | sed 's/%//')
     if (( $(echo "$MEMORY_USAGE > $MEMORY_THRESHOLD" | bc -l) )); then
@@ -577,7 +511,7 @@ for container in n8n-main n8n-worker-1 n8n-worker-2; do
     fi
 done
 
-# <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar taxa de erro
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-taxa de erro
 ERROR_RATE=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT ROUND((COUNT(CASE WHEN status = 'error' THEN 1 END) * 100.0 / COUNT(*)), 2)
 FROM executions 
@@ -589,7 +523,7 @@ if (( $(echo "$ERROR_RATE > $ERROR_RATE_THRESHOLD" | bc -l) )); then
       -d "{\"text\":\"🚨 Taxa de erro alta: ${ERROR_RATE}%\"}"
 fi
 
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar tempo de execução
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-tempo de execução
 AVG_TIME=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT AVG(EXTRACT(EPOCH FROM (finished_at - started_at)))
 FROM executions 
@@ -605,13 +539,11 @@ fi
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Técnicas Avançadas de Tuning
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-tcnicas-avanadas de Tuning
 
-### Otimização de Workflows
+#otimizao-de-workflows
 
-#### **Boas Práticas de Performance**
-
-```javascript
+#boas-prticas-de-performance-javascript
 // 1. Usar batch processing para grandes volumes
 const batchSize = 100;
 const items = await getItems();
@@ -650,48 +582,44 @@ async function retryWithBackoff(fn, maxRetries = 3) {
 }
 ```
 
-### Otimização de Rede
+#otimizao-de-rede
 
-#### **Configuração de Rede**
+#configurao-de-rede-bash
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-otimizaes-de rede para Linux
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-etcsysctlconf
 
-```bash
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Otimizações de rede para Linux
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> /etc/sysctl.conf
-
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Buffer sizes
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-buffer-sizes
 net.core.rmem_max = 16777216
 net.core.wmem_max = 16777216
 net.core.rmem_default = 262144
 net.core.wmem_default = 262144
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> TCP optimizations
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-tcp-optimizations
 net.ipv4.tcp_rmem = 4096 65536 16777216
 net.ipv4.tcp_wmem = 4096 65536 16777216
 net.ipv4.tcp_congestion_control = bbr
 net.ipv4.tcp_window_scaling = 1
 net.ipv4.tcp_timestamps = 1
 
-# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Connection tracking
+#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-connection-tracking
 net.netfilter.nf_conntrack_max = 262144
 net.netfilter.nf_conntrack_tcp_timeout_established = 86400
 ```
 
 ---
 
-## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### **Performance lenta**
-
-```bash
-# <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar uso de recursos
+#performance-lenta-bash
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-uso de recursos
 docker stats --no-stream
 
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar logs de performance
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs de performance
 docker logs n8n-main | grep -E "(slow|timeout|error)"
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar queries lentas no banco
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-queries lentas no banco
 psql -h localhost -U n8n -d n8n -c "
 SELECT query, mean_time, calls 
 FROM pg_stat_statements 
@@ -699,64 +627,52 @@ ORDER BY mean_time DESC
 LIMIT 10;"
 ```
 
-#### **Memory leaks**
-
-```bash
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar uso de memória
+#memory-leaks-bash
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-uso de memória
 docker exec n8n-main node -e "
 const mem = process.memoryUsage();
 console.log('RSS:', Math.round(mem.rss / 1024 / 1024) + 'MB');
 console.log('Heap Used:', Math.round(mem.heapUsed / 1024 / 1024) + 'MB');
 "
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar garbage collection
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-garbage collection
 docker exec n8n-main node --trace-gc -e "console.log('GC test')"
 ```
 
-#### **Timeouts frequentes**
-
-```bash
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar configurações de timeout
+#timeouts-frequentes-bash
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-configuraes de timeout
 docker exec n8n-main env | grep -E "(TIMEOUT|EXECUTIONS)"
 
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar logs de timeout
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs de timeout
 docker logs n8n-main | grep -i timeout
 
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Ajustar timeouts se necessário
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Editar variáveis de ambiente e reiniciar
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-ajustar-timeouts se necessário
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-editar-variveis de ambiente e reiniciar
 ```
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Produção
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Produção
 
-### Configuração
-
-- [ ] Workers configurados adequadamente
+#configurao-workers configurados adequadamente
 - [ ] Timeouts otimizados
 - [ ] Banco de dados otimizado
 - [ ] Redis configurado
 - [ ] Memória configurada
 
-### Performance
-
-- [ ] Métricas sendo coletadas
+#performance-mtricas sendo coletadas
 - [ ] Alertas configurados
 - [ ] Monitoramento ativo
 - [ ] Logs estruturados
 - [ ] Backup de configurações
 
-### Monitoramento
-
-- [ ] Dashboard de performance
+#monitoramento-dashboard de performance
 - [ ] Alertas funcionando
 - [ ] Logs centralizados
 - [ ] Métricas históricas
 - [ ] Relatórios automáticos
 
-### Manutenção
-
-- [ ] Scripts de manutenção
+#manuteno-scripts de manutenção
 - [ ] Limpeza automática
 - [ ] Backup regular
 - [ ] Testes de performance
@@ -764,7 +680,7 @@ docker logs n8n-main | grep -i timeout
 
 ---
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você otimizou a performance:
 

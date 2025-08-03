@@ -16,7 +16,7 @@ interface SchemaViewerProps {
 
 const SchemaViewer: React.FC<SchemaViewerProps> = ({ schema }) => {
   const renderizarPropriedade = (nome: string, prop: SchemaProperty, nivel: number = 0) => {
-    const indentacao = '  '.repeat(nivel);
+    // const indentacao = '  '.repeat(nivel);
     
     return (
       <div key={nome} style={{ marginLeft: nivel * 20 }}>

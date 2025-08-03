@@ -1,5 +1,5 @@
 ﻿:::info
-<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#17a2b8' }} /> Esta página da documentação foi validada tecnicamente e didaticamente.
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#cor-17a2b8-esta-pgina da documentação foi validada tecnicamente e didaticamente.
 :::
 
 ---
@@ -9,37 +9,35 @@ description: Perguntas frequentes sobre n8n - respostas rápidas para dúvidas c
 keywords: [n8n, faq, perguntas frequentes, dúvidas, troubleshooting]
 ---
 
-# <IonicIcon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> FAQ - Perguntas Frequentes
+#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-faq Perguntas Frequentes
 
 Encontre respostas rápidas para as perguntas mais comuns sobre o n8n. Se sua dúvida não estiver aqui, consulte nossa [comunidade](../comunidade/index.mdx) ou [GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR).
 
-## <IonicIcon name="rocket-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Primeiros Passos
+#ionicicon-namerocket-outline-style-fontsize-24px color: '#cor-ea4b71-primeiros-passos
 
-### O que é o n8n?
+#o-que-o-n8n
 
 Para uma explicação completa, **[consulte nossa seção de Conceitos Fundamentais](./conceitos-fundamentais)**. Em resumo, o n8n é uma plataforma de automação de workflow open-source que permite conectar diferentes aplicações e serviços através de uma interface visual.
 
-### O n8n é gratuito?
-
-Sim! O n8n é totalmente gratuito e open-source. Você pode usar todos os recursos sem custo, incluindo:
+#o-n8n-gratuito-sim O n8n é totalmente gratuito e open-source. Você pode usar todos os recursos sem custo, incluindo:
 
 - Workflows ilimitados
 - Execuções ilimitadas
 - Todos os nodes disponíveis
 - Self-hosting completo
 
-### Preciso de conhecimento técnico para usar o n8n?
+#preciso-de-conhecimento-tcnico-para usar o n8n?
 
 Não necessariamente. O n8n foi projetado para ser intuitivo com sua interface visual. Você pode começar criando workflows simples arrastando e soltando nodes, mesmo sem conhecimento de programação.
 
-### Qual a diferença entre n8n Cloud e Self-hosted?
+#qual-a-diferena-entre-n8n Cloud e Self-hosted?
 
 - **n8n Cloud**: Serviço gerenciado pela equipe n8n, sem necessidade de configuração de servidor
 - **Self-hosted**: Você instala e gerencia o n8n em seu próprio servidor, com controle total sobre dados e configuração
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalação e Configuração
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-e Configuração
 
-### Qual método de instalação é recomendado?
+#qual-mtodo-de-instalao recomendado?
 
 Para iniciantes, recomendamos:
 
@@ -47,7 +45,7 @@ Para iniciantes, recomendamos:
 2. **Docker** - Para self-hosting, mais fácil de gerenciar
 3. **npm** - Para desenvolvedores que preferem controle total
 
-### Posso instalar o n8n no Windows?
+#posso-instalar-o-n8n-no Windows?
 
 Sim! O n8n funciona perfeitamente no Windows. Você pode usar:
 
@@ -55,14 +53,14 @@ Sim! O n8n funciona perfeitamente no Windows. Você pode usar:
 - WSL2 (Windows Subsystem for Linux)
 - Instalação direta via npm
 
-### Quais são os requisitos mínimos?
+#quais-so-os-requisitos-mnimos
 
 - **CPU**: 1 core
 - **RAM**: 1GB (recomendado 2GB+)
 - **Armazenamento**: 1GB livre
 - **Node.js**: Versão 16 ou superior
 
-### Como faço backup dos meus workflows?
+#como-fao-backup-dos-meus workflows?
 
 Os workflows são salvos automaticamente. Para backup manual:
 
@@ -70,13 +68,11 @@ Os workflows são salvos automaticamente. Para backup manual:
 - Use a API para backup completo
 - Faça backup do banco de dados (se self-hosted)
 
-## <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Workflows
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-workflows
 
-### Quantos workflows posso criar?
+#quantos-workflows-posso-criar-no há limite! Você pode criar quantos workflows quiser, tanto no n8n Cloud quanto self-hosted.
 
-Não há limite! Você pode criar quantos workflows quiser, tanto no n8n Cloud quanto self-hosted.
-
-### Posso agendar workflows para execução automática?
+#posso-agendar-workflows-para-execuo automática?
 
 Sim! Use o **Schedule Trigger** para executar workflows em intervalos específicos:
 
@@ -84,7 +80,7 @@ Sim! Use o **Schedule Trigger** para executar workflows em intervalos específic
 - Em horários específicos
 - Com expressões cron personalizadas
 
-### Como faço para que workflows falhem graciosamente?
+#como-fao-para-que-workflows falhem graciosamente?
 
 Use o **Error Trigger** para capturar erros e:
 
@@ -93,7 +89,7 @@ Use o **Error Trigger** para capturar erros e:
 - Executar workflows de recuperação
 - Registrar logs de erro
 
-### Posso compartilhar workflows com outros usuários?
+#posso-compartilhar-workflows-com-outros usuários?
 
 Sim! Você pode:
 
@@ -102,16 +98,16 @@ Sim! Você pode:
 - Usar controle de versão (Git)
 - Publicar na comunidade n8n
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segurança e Credenciais
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana-e Credenciais
 
-### Como o n8n protege minhas credenciais?
+#como-o-n8n-protege-minhas credenciais?
 
 - Credenciais são criptografadas no banco de dados
 - Senhas nunca são exibidas em texto plano
 - Suporte a variáveis de ambiente
 - Integração com gerenciadores de segredos
 
-### Posso usar o n8n com dados sensíveis?
+#posso-usar-o-n8n-com dados sensíveis?
 
 Sim, mas recomendamos:
 
@@ -120,11 +116,9 @@ Sim, mas recomendamos:
 - Usar HTTPS em produção
 - Configurar firewalls adequados
 
-### O n8n suporta 2FA?
+#o-n8n-suporta-2fa-sim O n8n suporta autenticação de dois fatores para maior segurança.
 
-Sim! O n8n suporta autenticação de dois fatores para maior segurança.
-
-### Como gerencio permissões de usuários?
+#como-gerencio-permisses-de-usurios
 
 O n8n oferece:
 
@@ -133,18 +127,16 @@ O n8n oferece:
 - Controle de acesso por credenciais
 - Logs de auditoria
 
-## <IonicIcon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Nodes e Integrações
+#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-nodes-e Integrações
 
-### Quantos nodes estão disponíveis?
-
-O n8n possui centenas de nodes, incluindo:
+#quantos-nodes-esto-disponveis-o n8n possui centenas de nodes, incluindo:
 
 - **Built-in nodes**: HTTP, Code, Logic, etc.
 - **App nodes**: Integrações com serviços populares
 - **Community nodes**: Criados pela comunidade
 - **Custom nodes**: Que você pode criar
 
-### Posso criar meus próprios nodes?
+#posso-criar-meus-prprios-nodes
 
 Sim! Você pode:
 
@@ -153,7 +145,7 @@ Sim! Você pode:
 - Usar nodes privados em sua instalação
 - Contribuir para o projeto oficial
 
-### O n8n suporta APIs brasileiras?
+#o-n8n-suporta-apis-brasileiras
 
 Sim! O n8n pode integrar com qualquer API, incluindo:
 
@@ -162,7 +154,7 @@ Sim! O n8n pode integrar com qualquer API, incluindo:
 - APIs de e-commerce locais
 - Serviços de pagamento brasileiros
 
-### Como faço para integrar com sistemas legados?
+#como-fao-para-integrar-com sistemas legados?
 
 Use os nodes:
 
@@ -171,9 +163,9 @@ Use os nodes:
 - **Code** para lógica customizada
 - **Database** para sistemas legados
 
-## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance e Escalabilidade
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-e Escalabilidade
 
-### Quantas execuções simultâneas o n8n suporta?
+#quantas-execues-simultneas-o-n8n suporta?
 
 Depende da sua configuração:
 
@@ -181,47 +173,39 @@ Depende da sua configuração:
 - **Self-hosted**: Limitado apenas pelos recursos do servidor
 - **Clustering**: Para alta disponibilidade
 
-### Como otimizo a performance dos workflows?
+#como-otimizo-a-performance-dos workflows?
 
 - Use **Split In Batches** para grandes volumes
 - Implemente **caching** quando possível
 - Evite loops desnecessários
 - Use **queues** para processamento assíncrono
 
-### Posso escalar horizontalmente?
-
-Sim! O n8n suporta:
+#posso-escalar-horizontalmente-sim-o n8n suporta:
 
 - Múltiplas instâncias
 - Load balancing
 - Clustering com Redis
 - Execuções distribuídas
 
-### Como monitoro a performance?
-
-Use:
+#como-monitoro-a-performance-use
 
 - **Execution Logs** para análise detalhada
 - **Metrics** para monitoramento
 - **Alertas** para problemas
 - **Dashboard** para visão geral
 
-## <IonicIcon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Suporte e Comunidade
+#ionicicon-namepeople-outline-style-fontsize-24px color: '#cor-ea4b71-suporte-e Comunidade
 
-### Onde posso obter ajuda?
-
-- **[Documentação oficial](https://docs.n8n.io)**
+#onde-posso-obter-ajuda **[Documentação oficial](https://docs.n8n.io)**
 - **[Comunidade n8n](https://community.n8n.io)**
 - **[Discord brasileiro](https://discord.gg/n8nbrasil)**
 - **[GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR)**
 
-### Como reporto bugs?
-
-- Use o [GitHub Issues](https://github.com/n8n-io/n8n/issues)
+#como-reporto-bugs-use o [GitHub Issues](https://github.com/n8n-io/n8n/issues)
 - Inclua logs e passos para reproduzir
 - Descreva seu ambiente (versão, OS, etc.)
 
-### Posso contribuir para o projeto?
+#posso-contribuir-para-o-projeto
 
 Sim! Você pode:
 
@@ -231,16 +215,14 @@ Sim! Você pode:
 - Traduzir documentação
 - Criar nodes customizados
 
-### Existe treinamento oficial?
-
-- **Documentação completa** em português
+#existe-treinamento-oficial-documentao completa** em português
 - **Vídeos tutoriais** na comunidade
 - **Cursos online** da comunidade
 - **Workshops** presenciais
 
-## <IonicIcon name="business-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Enterprise e Negócios
+#ionicicon-namebusiness-outline-style-fontsize-24px color: '#cor-ea4b71-enterprise-e Negócios
 
-### O n8n é adequado para empresas?
+#o-n8n-adequado-para empresas?
 
 Sim! Muitas empresas usam o n8n para:
 
@@ -249,20 +231,18 @@ Sim! Muitas empresas usam o n8n para:
 - ETL e processamento de dados
 - Automação de marketing
 
-### Existe suporte empresarial?
-
-- **n8n Cloud** oferece suporte premium
+#existe-suporte-empresarial-n8n Cloud** oferece suporte premium
 - **Comunidade ativa** para self-hosted
 - **Consultores** especializados disponíveis
 
-### Como implemento o n8n na minha empresa?
+#como-implemento-o-n8n-na minha empresa?
 
 1. **Comece pequeno** com projetos piloto
 2. **Treine a equipe** com documentação
 3. **Estabeleça processos** de desenvolvimento
 4. **Monitore e otimize** continuamente
 
-### Quais são os custos de manutenção?
+#quais-so-os-custos-de manutenção?
 
 - **n8n Cloud**: Preço por execução
 - **Self-hosted**: Custos de infraestrutura
@@ -271,5 +251,5 @@ Sim! Muitas empresas usam o n8n para:
 
 ---
 
-**<IonicIcon name="help-circle-outline" style={{ fontSize: '16px', color: '#ea4b71' }} /> Não encontrou sua resposta? Entre em contato conosco na [comunidade](../comunidade/index.mdx)!**
+**<IonicIcon name="help-circle-outline" style={{ fontSize: '16px', color: '#cor-ea4b71-no-encontrou sua resposta? Entre em contato conosco na [comunidade](../comunidade/index.mdx)!**
 

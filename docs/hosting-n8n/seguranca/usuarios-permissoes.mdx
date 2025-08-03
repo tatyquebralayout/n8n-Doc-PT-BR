@@ -6,11 +6,11 @@ keywords: [n8n, usuários, permissões, rbac, controle acesso, roles]
 ---
 
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Usuários e Permissões
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-usurios-e Permissões
 
 Este documento detalha **gerenciamento de usuários e permissões** no n8n, incluindo criação de roles customizados, controle granular de acesso, permissões por workflow, segregação de ambientes, auditoria de ações, e implementação de RBAC (Role-Based Access Control) que garante princípio de menor privilégio e conformidade com políticas de segurança empresarial em organizações de grande porte.
 
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você vai aprender
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
 
 - Sistema RBAC (Role-Based Access Control)
 - Controle granular de permissões
@@ -20,14 +20,11 @@ Este documento detalha **gerenciamento de usuários e permissões** no n8n, incl
 
 ---
 
-## <IonicIcon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Sistema RBAC
+#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-sistema-rbac
 
-### Roles Padrão
+#roles-padro
 
-#### **Owner (Proprietário)**
-
-```javascript
-// Role com acesso total ao sistema
+#owner-proprietrio-javascript-role com acesso total ao sistema
 const ownerRole = {
   name: "owner",
   description: "Acesso total ao sistema",
@@ -42,10 +39,7 @@ const ownerRole = {
 };
 ```
 
-#### **Admin (Administrador)**
-
-```javascript
-// Role para administração do sistema
+#admin-administrador-javascript-role para administração do sistema
 const adminRole = {
   name: "admin",
   description: "Gerenciamento de usuários e configurações",
@@ -60,10 +54,7 @@ const adminRole = {
 };
 ```
 
-#### **Editor (Editor)**
-
-```javascript
-// Role para criação e edição de workflows
+#editor-editor-javascript-role para criação e edição de workflows
 const editorRole = {
   name: "editor",
   description: "Criar e editar workflows",
@@ -75,10 +66,7 @@ const editorRole = {
 };
 ```
 
-#### **Viewer (Visualizador)**
-
-```javascript
-// Role para apenas visualização
+#viewer-visualizador-javascript-role para apenas visualização
 const viewerRole = {
   name: "viewer",
   description: "Apenas visualizar workflows",
@@ -89,12 +77,9 @@ const viewerRole = {
 };
 ```
 
-### Roles Customizados
+#roles-customizados
 
-#### **Criar Role Customizado**
-
-```javascript
-// Exemplo: Role para equipe de marketing
+#criar-role-customizado-javascript Exemplo: Role para equipe de marketing
 const marketingRole = {
   name: "marketing",
   description: "Acesso a workflows de marketing",
@@ -136,14 +121,11 @@ const financeRole = {
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Controle Granular de Acesso
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-controle-granular de Acesso
 
-### Permissões por Workflow
+#permisses-por-workflow
 
-#### **Configuração de Permissões**
-
-```javascript
-// Configurar permissões específicas por workflow
+#configurao-de-permisses-javascript Configurar permissões específicas por workflow
 {
   "workflowId": "abc123",
   "name": "Workflow de Vendas",
@@ -164,10 +146,7 @@ const financeRole = {
 }
 ```
 
-#### **Permissões por Tag**
-
-```javascript
-// Configurar permissões baseadas em tags
+#permisses-por-tag-javascript Configurar permissões baseadas em tags
 {
   "tagPermissions": {
     "marketing": {
@@ -194,9 +173,9 @@ const financeRole = {
 }
 ```
 
-### Permissões por Credencial
+#permisses-por-credencial
 
-#### **Controle de Acesso a Credenciais**
+#controle-de-acesso-a-credenciais
 
 ```javascript
 // Configurar acesso a credenciais
@@ -219,10 +198,7 @@ const financeRole = {
 }
 ```
 
-#### **Credenciais Sensíveis**
-
-```javascript
-// Configuração para credenciais sensíveis
+#credenciais-sensveis-javascript-configurao para credenciais sensíveis
 {
   "credentialId": "cred456",
   "name": "Database Admin",
@@ -244,14 +220,11 @@ const financeRole = {
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segregação de Ambientes
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-segregao-de Ambientes
 
-### Ambientes Separados
+#ambientes-separados
 
-#### **Configuração de Ambientes**
-
-```javascript
-// Configuração para múltiplos ambientes
+#configurao-de-ambientes-javascript Configuração para múltiplos ambientes
 const environments = {
   development: {
     name: "Development",
@@ -289,10 +262,7 @@ const environments = {
 };
 ```
 
-#### **Isolamento de Dados**
-
-```javascript
-// Configuração de isolamento
+#isolamento-de-dados-javascript Configuração de isolamento
 {
   "dataIsolation": {
     "development": {
@@ -316,14 +286,12 @@ const environments = {
 
 ---
 
-## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Auditoria e Monitoramento
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-auditoria-e Monitoramento
 
-### Logs de Auditoria
+#logs-de-auditoria
 
-#### **Configuração de Auditoria**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar logs de auditoria
+#configurao-de-auditoria-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-logs de auditoria
 N8N_AUDIT_ENABLED=true
 N8N_AUDIT_LOG_LEVEL=info
 N8N_AUDIT_LOG_FILE=/var/log/n8n/audit.log
@@ -331,10 +299,7 @@ N8N_AUDIT_RETENTION_DAYS=90
 N8N_AUDIT_MASK_SENSITIVE_DATA=true
 ```
 
-#### **Eventos Auditados**
-
-```javascript
-// Eventos que são registrados na auditoria
+#eventos-auditados-javascript-eventos que são registrados na auditoria
 const auditEvents = {
   // Autenticação
   "auth.login": "Login de usuário",
@@ -373,12 +338,9 @@ const auditEvents = {
 };
 ```
 
-### Alertas de Segurança
+#alertas-de-segurana
 
-#### **Configuração de Alertas**
-
-```javascript
-// Configurar alertas de segurança
+#configurao-de-alertas-javascript Configurar alertas de segurança
 {
   "securityAlerts": {
     "permissionEscalation": {
@@ -406,10 +368,7 @@ const auditEvents = {
 }
 ```
 
-#### **Notificações**
-
-```javascript
-// Configuração de notificações
+#notificaes-javascript-configurao-de notificações
 {
   "notifications": {
     "email": {
@@ -421,10 +380,7 @@ const auditEvents = {
     "slack": {
       "enabled": true,
       "webhook": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
-      "channel": "#security-alerts"
-    },
-    "webhook": {
-      "enabled": true,
+      "channel": "#security-alerts-webhook-enabled true,
       "url": "https://sistema-seguranca.empresa.com/webhook",
       "headers": {
         "Authorization": "Bearer token_seguranca"
@@ -436,14 +392,11 @@ const auditEvents = {
 
 ---
 
-## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Templates de Roles Organizacionais
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-templates-de Roles Organizacionais
 
-### Startup (10-50 funcionários)
+#startup-10-50-funcionrios
 
-#### **Roles Essenciais**
-
-```javascript
-// Configuração para startup
+#roles-essenciais-javascript-configurao para startup
 const startupRoles = {
   founder: {
     name: "Founder",
@@ -474,12 +427,9 @@ const startupRoles = {
 };
 ```
 
-### Empresa Média (50-500 funcionários)
+#empresa-mdia-50-500-funcionrios
 
-#### **Roles Departamentais**
-
-```javascript
-// Configuração para empresa média
+#roles-departamentais-javascript-configurao para empresa média
 const mediumCompanyRoles = {
   // TI
   it_admin: {
@@ -558,12 +508,9 @@ const mediumCompanyRoles = {
 };
 ```
 
-### Empresa Grande (500+ funcionários)
+#empresa-grande-500-funcionrios
 
-#### **Roles Corporativos**
-
-```javascript
-// Configuração para empresa grande
+#roles-corporativos-javascript-configurao para empresa grande
 const largeCompanyRoles = {
   // Administração
   system_admin: {
@@ -661,35 +608,27 @@ const largeCompanyRoles = {
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Implementação
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Implementação
 
-### Configuração Inicial
-
-- [ ] Roles padrão configuradas
+#configurao-inicial Roles padrão configuradas
 - [ ] Roles customizados criados
 - [ ] Usuários atribuídos às roles
 - [ ] Permissões granulares definidas
 - [ ] Restrições de acesso configuradas
 
-### Segurança
-
-- [ ] Princípio do menor privilégio aplicado
+#segurana-princpio do menor privilégio aplicado
 - [ ] Auditoria ativada
 - [ ] Alertas configurados
 - [ ] Logs de acesso ativados
 - [ ] Backup de configurações
 
-### Monitoramento
-
-- [ ] Métricas de acesso coletadas
+#monitoramento-mtricas de acesso coletadas
 - [ ] Relatórios de auditoria gerados
 - [ ] Alertas funcionando
 - [ ] Dashboard de monitoramento
 - [ ] Revisão regular de permissões
 
-### Documentação
-
-- [ ] Política de acesso documentada
+#documentao-poltica de acesso documentada
 - [ ] Procedimentos de onboarding
 - [ ] Procedimentos de offboarding
 - [ ] Matriz de responsabilidades
@@ -697,7 +636,7 @@ const largeCompanyRoles = {
 
 ---
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você configurou usuários e permissões:
 

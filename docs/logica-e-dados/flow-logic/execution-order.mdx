@@ -5,15 +5,13 @@ description: Entenda como o n8n determina a ordem de execução dos nodes
 keywords: [n8n, execução, ordem, sequência, workflow, nodes]
 ---
 
-# <IonicIcon name="play-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Ordem de Execução
+#ionicicon-nameplay-forward-outline-style-fontsize-24px color: '#cor-ea4b71-ordem-de Execução
 
 O n8n determina a ordem de execução dos nodes baseado nas conexões que você cria no workflow. Entender como isso funciona é fundamental para criar workflows eficientes e previsíveis.
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Como a Ordem é Determinada
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-como-a Ordem é Determinada
 
-### Fluxo Sequencial
-
-Por padrão, o n8n executa os nodes em **ordem sequencial** baseado nas conexões:
+#fluxo-sequencial-por-padro-o n8n executa os nodes em **ordem sequencial** baseado nas conexões:
 
 ```mermaid
 graph LR
@@ -27,9 +25,7 @@ graph LR
     D --> D1[4º]
 ```
 
-### Execução Paralela
-
-Quando múltiplos nodes não dependem um do outro, eles podem executar em **paralelo**:
+#execuo-paralela-quando-mltiplos-nodes não dependem um do outro, eles podem executar em **paralelo**:
 
 ```mermaid
 graph LR
@@ -43,31 +39,23 @@ graph LR
     E --> F[Process Result]
 ```
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Tipos de Conexões
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-tipos-de Conexões
 
-### Conexão Simples
-
-- Um node conecta diretamente ao próximo
+#conexo-simples-um-node conecta diretamente ao próximo
 - Execução sequencial garantida
 - Dados fluem de um para o outro
 
-### Conexões Múltiplas
-
-- Um node pode conectar a múltiplos nodes
+#conexes-mltiplas-um-node pode conectar a múltiplos nodes
 - Todos os nodes conectados executam
 - Útil para processamento paralelo
 
-### Conexões Condicionais
-
-- Usando nodes como IF ou Switch
+#conexes-condicionais-usando-nodes como IF ou Switch
 - Apenas o caminho condicional executará
 - Permite lógica de decisão no workflow
 
-## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos de Ordem de Execução
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-de Ordem de Execução
 
-### Exemplo 1: Fluxo Linear
-
-```mermaid
+#exemplo-1-fluxo-linear-mermaid
 graph LR
     A[Webhook] --> B[Get Data]
     B --> C[Process Data]
@@ -81,9 +69,7 @@ graph LR
     E --> E1[5º: Notifica]
 ```
 
-### Exemplo 2: Processamento Paralelo
-
-```mermaid
+#exemplo-2-processamento-paralelo-mermaid
 graph LR
     A[Trigger] --> B[Get Users]
     A --> C[Get Products]
@@ -101,9 +87,7 @@ graph LR
     F --> F1[Processa resultado]
 ```
 
-### Exemplo 3: Fluxo Condicional
-
-```mermaid
+#exemplo-3-fluxo-condicional-mermaid
 graph LR
     A[Trigger] --> B[Check Condition]
     B --> C[Process A]
@@ -120,53 +104,41 @@ graph LR
     F --> F1[4º: Finaliza]
 ```
 
-## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Considerações Importantes
+#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-consideraes-importantes
 
-### Dependências
-
-- Nodes só executam quando **todos os inputs** estão prontos
+#dependncias-nodes-s-executam quando **todos os inputs** estão prontos
 - Se um node falha, os nodes dependentes não executam
 - Use **Error Handling** para tratar falhas
 
-### Performance
-
-- **Execução paralela** pode melhorar performance
+#performance-execuo-paralela-pode melhorar performance
 - **Execução sequencial** é mais previsível
 - Monitore tempo de execução de cada node
 
-### Recursos
-
-- Cada execução consome recursos do sistema
+#recursos-cada-execuo-consome recursos do sistema
 - Muitas execuções paralelas podem sobrecarregar
 - Use **Rate Limiting** quando necessário
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Boas Práticas
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas
 
-### Para Workflows Simples
-
-1. **Mantenha fluxo linear** quando possível
+#para-workflows-simples-1-mantenha fluxo linear** quando possível
 2. **Use nomes descritivos** para nodes
 3. **Documente dependências** importantes
 
-### Para Workflows Complexos
-
-1. **Separe em sub-workflows** para melhor organização
+#para-workflows-complexos-1-separe em sub-workflows** para melhor organização
 2. **Use Merge nodes** para combinar fluxos paralelos
 3. **Implemente error handling** em pontos críticos
 
-### Para Performance
-
-1. **Execute em paralelo** quando possível
+#para-performance-1-execute-em paralelo** quando possível
 2. **Use Execute Once** para operações únicas
 3. **Monitore logs** para identificar gargalos
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 1. **Aprenda sobre [Error Handling](./error-handling)** para tratar falhas
 2. **Explore [Merging](./merging)** para combinar fluxos
 3. **Entenda [Subworkflows](./subworkflows)** para organização
 
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-relacionados
 
 - **[Error Handling](./error-handling)** - Tratamento de erros
 - **[Merging](./merging)** - Combinar fluxos de dados

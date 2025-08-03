@@ -5,64 +5,52 @@ sidebar_position: 1
 keywords: [n8n, primeiro, workflow, tutorial, guia, automação, iniciante]
 ---
 
-# <IonicIcon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Primeiro Workflow
+#ionicicon-nameplay-circle-outline-style-fontsize-24px color: '#cor-ea4b71-primeiro-workflow
 
 Este guia te levará do zero ao seu primeiro workflow funcional no n8n. Vamos criar uma automação simples que demonstra os conceitos fundamentais da plataforma.
 
-## Pré-requisitos
-
-Antes de começar, certifique-se de que você tem:
+#pr-requisitos-antes-de-comear-certifique-se de que você tem:
 
 - **n8n instalado** e funcionando
 - **Acesso à interface web** do n8n
 - **Conhecimento básico** de conceitos de automação
 - **Dados de exemplo** para testar
 
-## Passo 1: Acessar o n8n
+#passo-1-acessar-o-n8n
 
-### 1.1 Abrir o n8n
-
-1. **Abra seu navegador** e acesse o n8n
+#id-11-abrir-o-n8n-1 **Abra seu navegador** e acesse o n8n
 2. **Faça login** com suas credenciais
 3. **Clique em "New Workflow"** no menu lateral
 4. **Dê um nome** ao seu workflow (ex: "Meu Primeiro Workflow")
 
-### 1.2 Interface Básica
-
-A interface do n8n é dividida em:
+#id-12-interface-bsica-a-interface do n8n é dividida em:
 
 - **Menu lateral**: Navegação e configurações
 - **Área de trabalho**: Onde você constrói workflows
 - **Painel de propriedades**: Configurações dos nodes
 - **Barra de ferramentas**: Ações e execução
 
-## Passo 2: Criar um Trigger
+#passo-2-criar-um-trigger
 
-### 2.1 Adicionar Manual Trigger
-
-1. **Clique no botão "+"** na área de trabalho
+#id-21-adicionar-manual-trigger-1 **Clique no botão "+"** na área de trabalho
 2. **Procure por "Manual"** na lista de nodes
 3. **Selecione "Manual Trigger"**
 4. **Arraste para a área** de trabalho
 
-### 2.2 Configurar o Trigger
-
-1. **Clique no node** Manual Trigger
+#id-22-configurar-o-trigger-1 **Clique no node** Manual Trigger
 2. **No painel de propriedades**, configure:
    - **Name**: "Início"
    - **Description**: "Inicia o workflow manualmente"
 3. **Clique em "Save"**
 
-## Passo 3: Adicionar um Node de Processamento
+#passo-3-adicionar-um-node de Processamento
 
-### 3.1 Adicionar Set Node
-
-1. **Clique no "+"** ao lado do Manual Trigger
+#id-31-adicionar-set-node-1 **Clique no "+"** ao lado do Manual Trigger
 2. **Procure por "Set"** na lista
 3. **Selecione "Set"**
 4. **Conecte** ao Manual Trigger
 
-### 3.2 Configurar o Set Node
+#id-32-configurar-o-set-node
 
 1. **Clique no node Set**
 2. **Configure as propriedades**:
@@ -86,34 +74,26 @@ A interface do n8n é dividida em:
 
 3. **Clique em "Save"**
 
-## Passo 4: Adicionar Saída
+#passo-4-adicionar-sada
 
-### 4.1 Adicionar Debug Helper
-
-1. **Clique no "+"** ao lado do Set node
+#id-41-adicionar-debug-helper-1 **Clique no "+"** ao lado do Set node
 2. **Procure por "Debug"**
 3. **Selecione "Debug Helper"**
 4. **Conecte** ao Set node
 
-### 4.2 Configurar Debug Helper
-
-1. **Clique no node Debug Helper**
+#id-42-configurar-debug-helper-1 **Clique no node Debug Helper**
 2. **Configure**:
    - **Name**: "Resultado"
    - **Description**: "Mostra o resultado do processamento"
 3. **Clique em "Save"**
 
-## Passo 5: Testar o Workflow
+#passo-5-testar-o-workflow
 
-### 5.1 Executar o Workflow
-
-1. **Clique em "Execute Workflow"** na barra de ferramentas
+#id-51-executar-o-workflow-1 **Clique em "Execute Workflow"** na barra de ferramentas
 2. **Aguarde** a execução
 3. **Verifique** os resultados no Debug Helper
 
-### 5.2 Verificar Resultados
-
-No Debug Helper, você deve ver:
+#id-52-verificar-resultados-no-debug Helper, você deve ver:
 
 ```json
 {
@@ -123,39 +103,29 @@ No Debug Helper, você deve ver:
 }
 ```
 
-## Passo 6: Salvar e Ativar
+#passo-6-salvar-e-ativar
 
-### 6.1 Salvar o Workflow
-
-1. **Clique em "Save"** na barra de ferramentas
+#id-61-salvar-o-workflow-1 **Clique em "Save"** na barra de ferramentas
 2. **Digite um nome** para o workflow
 3. **Clique em "Save"**
 
-### 6.2 Ativar o Workflow
-
-1. **Clique no toggle** "Active" na barra de ferramentas
+#id-62-ativar-o-workflow-1 **Clique no toggle** "Active" na barra de ferramentas
 2. **Confirme** a ativação
 3. **O workflow** agora está ativo e pode ser executado
 
-## Exemplo Prático: Workflow de Notificação
+#exemplo-prtico-workflow-de-notificao
 
 Vamos criar um workflow mais prático que envia uma notificação.
 
-### Estrutura do Workflow
-
-```
-Manual Trigger → Set → HTTP Request → Debug Helper
+#estrutura-do-workflow-manual Trigger → Set → HTTP Request → Debug Helper
 ```
 
-### Configuração Detalhada
+#configurao-detalhada
 
-#### 1. Manual Trigger
-- **Name**: "Iniciar Notificação"
+#id-1-manual-trigger-name "Iniciar Notificação"
 - **Description**: "Inicia o processo de notificação"
 
-#### 2. Set Node
-```javascript
-{
+#id-2-set-node-javascript
   "titulo": "Notificação do n8n",
   "mensagem": "Este é um teste do meu primeiro workflow!",
   "timestamp": "{{ $now.toISOString() }}",
@@ -163,8 +133,7 @@ Manual Trigger → Set → HTTP Request → Debug Helper
 }
 ```
 
-#### 3. HTTP Request (Webhook)
-- **Method**: POST
+#id-3-http-request-webhook **Method**: POST
 - **URL**: `https://webhook.site/seu-webhook-id`
 - **Headers**: 
   ```json
@@ -182,40 +151,31 @@ Manual Trigger → Set → HTTP Request → Debug Helper
   }
   ```
 
-#### 4. Debug Helper
-- **Name**: "Resultado"
+#id-4-debug-helper-name "Resultado"
 - **Description**: "Mostra o resultado da notificação"
 
-## Conceitos Fundamentais
+#conceitos-fundamentais
 
-### 1. Nodes
-
-**Nodes** são os blocos de construção dos workflows:
+#id-1-nodes-nodes-so-os blocos de construção dos workflows:
 
 - **Trigger Nodes**: Iniciam workflows
 - **Regular Nodes**: Processam dados
 - **Output Nodes**: Geram resultados
 
-### 2. Connections
-
-**Connections** ligam os nodes:
+#id-2-connections-connections-ligam-os nodes:
 
 - **Dados fluem** de um node para outro
 - **Cada node** recebe dados do anterior
 - **Dados são processados** em sequência
 
-### 3. Data Flow
-
-**O fluxo de dados** funciona assim:
+#id-3-data-flow-o-fluxo de dados** funciona assim:
 
 1. **Trigger** inicia o workflow
 2. **Dados** são passados para o próximo node
 3. **Cada node** processa os dados
 4. **Resultado** é passado adiante
 
-### 4. Expressions
-
-**Expressions** permitem usar dados dinâmicos:
+#id-4-expressions-expressions-permitem-usar dados dinâmicos:
 
 ```javascript
 // Usar dados do node anterior
@@ -228,11 +188,9 @@ Manual Trigger → Set → HTTP Request → Debug Helper
 {{ $('Nome do Node').json.campo }}
 ```
 
-## Próximos Passos
+#prximos-passos
 
-### 1. Explorar Mais Nodes
-
-Experimente outros nodes:
+#id-1-explorar-mais-nodes-experimente outros nodes:
 
 - **HTTP Request**: Fazer chamadas para APIs
 - **Code**: Executar código JavaScript
@@ -240,7 +198,7 @@ Experimente outros nodes:
 - **Switch**: Múltiplas condições
 - **Merge**: Combinar dados
 
-### 2. Criar Workflows Mais Complexos
+#id-2-criar-workflows-mais-complexos
 
 Tente criar workflows que:
 
@@ -249,94 +207,73 @@ Tente criar workflows que:
 - **Salvem dados** em planilhas
 - **Notifiquem** sobre eventos
 
-### 3. Usar Templates
-
-Explore templates prontos:
+#id-3-usar-templates-explore-templates prontos:
 
 1. **Vá para "Templates"** no menu lateral
 2. **Procure** por templates interessantes
 3. **Importe** e adapte para suas necessidades
 4. **Estude** como funcionam
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Workflow não executa
-- Verifique se está ativo
+#workflow-no-executa-verifique se está ativo
 - Confirme se todos os nodes estão conectados
 - Verifique se há erros de configuração
 - Monitore os logs de execução
 
-#### Dados não aparecem
-- Use o Debug Helper para inspecionar dados
+#cor-dados-no-aparecem-use o Debug Helper para inspecionar dados
 - Verifique se os campos estão configurados corretamente
 - Confirme se as expressões estão corretas
 - Teste com dados de exemplo
 
-#### Node não funciona
-- Verifique a configuração do node
+#node-no-funciona-verifique a configuração do node
 - Confirme se as credenciais estão corretas
 - Teste com dados simples
 - Consulte a documentação do node
 
-### Debug
-
-1. **Use o Debug Helper** frequentemente
+#cor-debug-1-use-o-debug Helper** frequentemente
 2. **Configure logging** detalhado
 3. **Teste nodes** individualmente
 4. **Monitore execuções**
 5. **Verifique logs** de erro
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Nomenclatura
-
-- **Use nomes descritivos** para workflows
+#id-1-nomenclatura-use-nomes descritivos** para workflows
 - **Nomeie nodes** de forma clara
 - **Documente** o propósito de cada node
 - **Mantenha** consistência na nomenclatura
 
-### 2. Organização
-
-- **Agrupe nodes** relacionados
+#id-2-organizao-agrupe-nodes relacionados
 - **Use comentários** para explicar lógica
 - **Mantenha workflows** organizados
 - **Evite workflows** muito complexos
 
-### 3. Teste
-
-- **Teste frequentemente** durante o desenvolvimento
+#id-3-teste-teste-frequentemente durante o desenvolvimento
 - **Use dados de exemplo** realistas
 - **Valide resultados** esperados
 - **Configure alertas** para falhas
 
-## Recursos Adicionais
+#recursos-adicionais
 
-### 1. Documentação
-
-- **Guia oficial**: [docs.n8n.io](https://docs.n8n.io)
+#id-1-documentao-guia-oficial [docs.n8n.io](https://docs.n8n.io)
 - **Exemplos**: Templates e casos de uso
 - **Comunidade**: Fóruns e grupos
 - **Vídeos**: Tutoriais em vídeo
 
-### 2. Comunidade
-
-- **Fórum oficial**: [community.n8n.io](https://community.n8n.io)
+#id-2-comunidade-frum-oficial [community.n8n.io](https://community.n8n.io)
 - **GitHub**: Issues e discussões
 - **Discord**: Chat em tempo real
 - **Redes sociais**: Twitter, LinkedIn
 
-### 3. Templates
-
-- **Marketplace**: Templates oficiais
+#id-3-templates-marketplace-templates oficiais
 - **Comunidade**: Templates compartilhados
 - **GitHub**: Repositórios de templates
 - **Blogs**: Templates em artigos
 
-## Conclusão
-
-Parabéns! Você criou seu primeiro workflow no n8n. Agora você tem uma base sólida para:
+#concluso-parabns-voc-criou-seu primeiro workflow no n8n. Agora você tem uma base sólida para:
 
 - **Criar workflows** mais complexos
 - **Automatizar processos** do dia a dia
@@ -345,9 +282,7 @@ Parabéns! Você criou seu primeiro workflow no n8n. Agora você tem uma base s�
 
 Continue explorando, experimentando e aprendendo. O n8n oferece infinitas possibilidades de automação!
 
-## Próximos Passos
-
-- [Conceitos Fundamentais](./conceitos-fundamentais) - Entender fundamentos
+#prximos-passos-conceitos-fundamentaisconceitos-fundamentais - Entender fundamentos
 - [Conectar Aplicações](./conectar-aplicacoes) - Integrar sistemas
 - [Expressões n8n](../logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Templates](../integracoes/templates) - Usar templates prontos

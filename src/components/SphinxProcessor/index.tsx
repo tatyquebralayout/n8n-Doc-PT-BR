@@ -66,7 +66,6 @@ const SphinxProcessor: React.FC<SphinxProcessorProps> = ({ content, className })
       let currentEndpoint: HTTPEndpoint | null = null;
       let inWorkflowStep = false;
       let inDiagramContent = false;
-      let inEndpointContent = false;
 
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i].trim();
@@ -118,7 +117,7 @@ const SphinxProcessor: React.FC<SphinxProcessorProps> = ({ content, className })
           } else if (line.startsWith(':config:')) {
             try {
               currentStep.config = JSON.parse(line.replace(':config:', '').trim());
-            } catch (e) {
+            } catch {
               // Ignore invalid JSON
             }
           } else if (line.startsWith(':code:')) {
@@ -204,7 +203,6 @@ const SphinxProcessor: React.FC<SphinxProcessorProps> = ({ content, className })
         } else if (currentEndpoint && line.startsWith('.. sourcecode::')) {
           const langMatch = line.match(/\.\. sourcecode::\s*(\w+)/);
           if (langMatch) {
-            inEndpointContent = true;
             // Parse example content
             let exampleContent = '';
             let j = i + 1;
@@ -219,7 +217,6 @@ const SphinxProcessor: React.FC<SphinxProcessorProps> = ({ content, className })
             });
           }
         } else if (currentEndpoint && line.startsWith('..')) {
-          inEndpointContent = false;
           setEndpoints(prev => [...prev, currentEndpoint!]);
           currentEndpoint = null;
         }

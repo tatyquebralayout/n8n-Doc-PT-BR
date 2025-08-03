@@ -1,8 +1,8 @@
-﻿# <IonicIcon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Integração CRM
+﻿#ionicicon-namepeople-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-crm
 
 A integração CRM permite conectar o n8n com sistemas de gestão de relacionamento com clientes populares no Brasil, automatizando processos de vendas, marketing e atendimento ao cliente.
 
-## O que você encontrará aqui
+#o-que-voc-encontrar-aqui
 
 Esta documentação abrange:
 
@@ -12,30 +12,24 @@ Esta documentação abrange:
 - **Sincronização de dados**: Manter dados atualizados entre sistemas
 - **Casos de uso avançados**: Integrações complexas
 
-## Conceitos Fundamentais
+#conceitos-fundamentais
 
-### CRM (Customer Relationship Management)
-
-CRM é um sistema que gerencia todas as interações e relacionamentos com clientes, incluindo:
+#crm-customer-relationship-management-crm é um sistema que gerencia todas as interações e relacionamentos com clientes, incluindo:
 
 - **Gestão de leads**: Captura e qualificação de prospects
 - **Pipeline de vendas**: Acompanhamento de oportunidades
 - **Atendimento ao cliente**: Suporte e tickets
 - **Marketing**: Campanhas e segmentação
 
-### Integração n8n-CRM
-
-O n8n permite automatizar processos CRM através de:
+#integrao-n8n-crm-o-n8n-permite automatizar processos CRM através de:
 
 - **APIs REST**: Conexão direta com APIs dos CRMs
 - **Webhooks**: Receber notificações em tempo real
 - **Sincronização**: Manter dados consistentes entre sistemas
 
-## Sistemas CRM Suportados
+#sistemas-crm-suportados
 
-### CRMs Brasileiros
-
-1. **RD Station CRM**
+#crms-brasileiros-1-rd-station CRM**
    - API REST completa
    - Webhooks para eventos
    - Integração com marketing digital
@@ -55,22 +49,15 @@ O n8n permite automatizar processos CRM através de:
    - Customização extensiva
    - Integração com ecossistema
 
-## Configuração Básica
+#configurao-bsica
 
-### Credenciais Necessárias
-
-```json
-{
-  "apiKey": "sua_api_key",
+#credenciais-necessrias-json-apikey "sua_api_key",
   "baseUrl": "https://api.crm.com",
   "version": "v1"
 }
 ```
 
-### Exemplo de Conexão
-
-```javascript
-// Configuração do node HTTP Request
+#exemplo-de-conexo-javascript Configuração do node HTTP Request
 {
   "method": "POST",
   "url": "{{ $credentials.crm.baseUrl }}/contacts",
@@ -81,11 +68,9 @@ O n8n permite automatizar processos CRM através de:
 }
 ```
 
-## Casos de Uso Comuns
+#casos-de-uso-comuns
 
-### 1. Captura de Leads
-
-```mermaid
+#id-1-captura-de-leads-mermaid
 graph LR
     A[Formulário Web] --> B[Validar Dados]
     B --> C[Criar Lead no CRM]
@@ -93,51 +78,39 @@ graph LR
     D --> E[Notificar Vendedor]
 ```
 
-### 2. Sincronização de Oportunidades
-
-```mermaid
+#id-2-sincronizao-de-oportunidades-mermaid
 graph LR
     A[CRM Principal] --> B[Verificar Mudanças]
     B --> C[Atualizar CRM Secundário]
     C --> D[Registrar Log]
 ```
 
-### 3. Automação de Follow-up
-
-```mermaid
+#id-3-automao-de-follow-up-mermaid
 graph LR
     A[Lead Criado] --> B[Agendar Follow-up]
     B --> C[Enviar Lembrete]
     C --> D[Atualizar Status]
 ```
 
-## Workflows Práticos
+#workflows-prticos
 
-### Workflow: Lead Qualification
-
-1. **Trigger**: Novo lead no formulário
+#workflow-lead-qualification-1-trigger Novo lead no formulário
 2. **Validação**: Verificar dados obrigatórios
 3. **Enriquecimento**: Buscar informações adicionais
 4. **Qualificação**: Aplicar regras de scoring
 5. **Distribuição**: Atribuir ao vendedor correto
 
-### Workflow: Pipeline Management
-
-1. **Monitoramento**: Verificar mudanças de status
+#workflow-pipeline-management-1-monitoramento Verificar mudanças de status
 2. **Notificações**: Alertar responsáveis
 3. **Relatórios**: Gerar dashboards automáticos
 4. **Follow-up**: Agendar próximos contatos
 
-## Próximos Passos
-
-- [Automação de Marketing](/integracoes-br/marketing/email-automation) - Campanhas automáticas
+#prximos-passos-automao-de Marketing](/integracoes-br/marketing/email-automation) - Campanhas automáticas
 - [Integração Financeira](/integracoes-br/financeiro/nfe-integracao) - Faturamento automático
 - [Análise de Dados](/logica-e-dados/data/agregacoes-estatisticas) - Relatórios avançados
 - [Webhooks](/integracoes/webhooks) - Eventos em tempo real
 
-## Recursos Relacionados
-
-- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer chamadas para APIs
+#recursos-relacionados-http-requestintegracoesbuiltin-nodeshttp-requestshttp-request - Fazer chamadas para APIs
 - [Expressões n8n](/logica-e-dados/expressoes) - Processar dados dinamicamente
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Credenciais](/usando-n8n/credenciais/criar-editar) - Gerenciar autenticação 

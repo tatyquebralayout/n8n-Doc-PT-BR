@@ -5,15 +5,13 @@ sidebar_position: 1
 keywords: [n8n, lógica, controle, fluxo, condições, decisões, if, switch, merge]
 ---
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Controle de Lógica
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-controle-de Lógica
 
 Os nodes de **Controle de Lógica** são fundamentais para criar workflows inteligentes e dinâmicos no n8n. Eles permitem que você controle o fluxo de execução, tome decisões baseadas em condições e combine dados de diferentes fontes.
 
-## Nodes Disponíveis
+#nodes-disponveis
 
-### <IonicIcon name="checkmark-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }} /> If
-
-O node **If** permite criar condições e tomar decisões baseadas em valores ou expressões, direcionando o fluxo do workflow.
+#ionicicon-namecheckmark-circle-outline-style-fontsize-20px color: '#cor-ea4b71-if-o node **If** permite criar condições e tomar decisões baseadas em valores ou expressões, direcionando o fluxo do workflow.
 
 **Principais funcionalidades:**
 - Avaliar condições simples e complexas
@@ -31,9 +29,7 @@ O node **If** permite criar condições e tomar decisões baseadas em valores ou
 
 [Ver documentação completa →](/integracoes/builtin-nodes/logic-control/if)
 
-### <IonicIcon name="git-network-outline" style={{ fontSize: '20px', color: '#ea4b71' }} /> Switch
-
-O node **Switch** permite direcionar dados para múltiplos caminhos baseado em diferentes condições, criando fluxos complexos.
+#ionicicon-namegit-network-outline-style-fontsize-20px color: '#cor-ea4b71-switch-o node **Switch** permite direcionar dados para múltiplos caminhos baseado em diferentes condições, criando fluxos complexos.
 
 **Principais funcionalidades:**
 - Múltiplos caminhos de saída
@@ -51,9 +47,7 @@ O node **Switch** permite direcionar dados para múltiplos caminhos baseado em d
 
 [Ver documentação completa →](/integracoes/builtin-nodes/logic-control/switch)
 
-### <IonicIcon name="git-merge-outline" style={{ fontSize: '20px', color: '#ea4b71' }} /> Merge
-
-O node **Merge** permite combinar dados de múltiplas fontes em um único fluxo, unindo informações relacionadas.
+#ionicicon-namegit-merge-outline-style-fontsize-20px color: '#cor-ea4b71-merge-o node **Merge** permite combinar dados de múltiplas fontes em um único fluxo, unindo informações relacionadas.
 
 **Principais funcionalidades:**
 - Combinar dados de diferentes nodes
@@ -71,11 +65,9 @@ O node **Merge** permite combinar dados de múltiplas fontes em um único fluxo,
 
 [Ver documentação completa →](/integracoes/builtin-nodes/logic-control/merge)
 
-## Conceitos Fundamentais
+#conceitos-fundamentais
 
-### Fluxo de Controle
-
-O **fluxo de controle** determina como os dados se movem através do workflow, baseado em condições e decisões.
+#fluxo-de-controle-o-fluxo de controle** determina como os dados se movem através do workflow, baseado em condições e decisões.
 
 **Tipos de fluxo:**
 - **Sequencial**: Execução linha por linha
@@ -83,9 +75,7 @@ O **fluxo de controle** determina como os dados se movem através do workflow, b
 - **Paralelo**: Execução simultânea
 - **Convergente**: Múltiplos caminhos se unem
 
-### Condições e Expressões
-
-As **condições** são expressões que avaliam para verdadeiro ou falso, determinando o caminho do fluxo.
+#condies-e-expresses-as-condies são expressões que avaliam para verdadeiro ou falso, determinando o caminho do fluxo.
 
 **Tipos de condições:**
 - **Comparações**: `==`, `!=`, `>`, `<`, `>=`, `<=`
@@ -94,20 +84,16 @@ As **condições** são expressões que avaliam para verdadeiro ou falso, determ
 - **Vazio**: Verificar se valor está vazio
 - **Regex**: Padrões de texto
 
-### Estruturas de Decisão
-
-As **estruturas de decisão** permitem criar lógica complexa no workflow:
+#estruturas-de-deciso-as-estruturas de decisão** permitem criar lógica complexa no workflow:
 
 1. **If-Then-Else**: Decisão binária
 2. **Switch-Case**: Múltiplas opções
 3. **Nested Conditions**: Condições aninhadas
 4. **Parallel Processing**: Processamento paralelo
 
-## Padrões de Controle
+#padres-de-controle
 
-### 1. Validação e Filtragem
-
-```
+#id-1-validao-e-filtragem
 Dados de Entrada → Validação → Dados Válidos → Processamento
                 ↓
             Dados Inválidos → Tratamento de Erro
@@ -119,9 +105,7 @@ Dados de Entrada → Validação → Dados Válidos → Processamento
 3. **If** node confirma se dados estão completos
 4. Dados válidos seguem para processamento
 
-### 2. Roteamento por Tipo
-
-```
+#id-2-roteamento-por-tipo
 Dados de Entrada → Switch → Tipo A → Processamento A
                 ↓        → Tipo B → Processamento B
                           → Tipo C → Processamento C
@@ -133,10 +117,7 @@ Dados de Entrada → Switch → Tipo A → Processamento A
 3. Pedidos urgentes vão para processamento prioritário
 4. Pedidos especiais vão para aprovação manual
 
-### 3. Processamento Paralelo
-
-```
-Dados de Entrada → Divisão → Processamento A → Merge → Resultado
+#id-3-processamento-paralelo-dados de Entrada → Divisão → Processamento A → Merge → Resultado
                 ↓         → Processamento B ↗
 ```
 
@@ -146,9 +127,7 @@ Dados de Entrada → Divisão → Processamento A → Merge → Resultado
 3. **HTTP Request** busca histórico de compras
 4. **Merge** node combina as informações
 
-### 4. Fluxo de Aprovação
-
-```
+#id-4-fluxo-de-aprovao
 Solicitação → Validação → Aprovado → Processamento
            ↓           → Rejeitado → Notificação
 ```
@@ -159,9 +138,9 @@ Solicitação → Validação → Aprovado → Processamento
 3. **Switch** node direciona para diferentes níveis de aprovação
 4. **Merge** node consolida resultado final
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### Exemplo 1: Sistema de Notificações
+#exemplo-1-sistema-de-notificaes
 
 **Cenário:** Enviar notificações diferentes baseado no tipo de evento.
 
@@ -176,7 +155,7 @@ Webhook → If (tipo_evento) → Email → Slack → Merge → Log
 - **Switch** node: `$json.canal` (email, sms, slack)
 - **Merge** node: Combina resultados de todos os canais
 
-### Exemplo 2: Processamento de Pedidos
+#exemplo-2-processamento-de-pedidos
 
 **Cenário:** Processar pedidos de forma diferente baseado no valor e tipo.
 
@@ -191,7 +170,7 @@ Pedido → If (valor > 1000) → Aprovação Manual → Merge → Confirmação
 - **Switch** node: `$json.tipo_pedido` (normal, premium, express)
 - **Merge** node: Unifica resultado final
 
-### Exemplo 3: Sistema de Monitoramento
+#exemplo-3-sistema-de-monitoramento
 
 **Cenário:** Monitorar diferentes serviços e alertar baseado na severidade.
 
@@ -207,68 +186,54 @@ Monitor → Switch (serviço) → Verificação A → Merge → Análise
 - **If** node: `$json.status === "down"`
 - **Merge** node: Consolida status de todos os serviços
 
-## Boas Práticas
+#boas-prticas
 
-### Estruturação de Condições
-
-1. **Use nomes descritivos** para condições
+#estruturao-de-condies-1-use nomes descritivos** para condições
 2. **Simplifique lógica complexa** em múltiplos nodes
 3. **Documente regras de negócio** nos comentários
 4. **Teste todas as condições** com dados reais
 5. **Mantenha condições legíveis** e organizadas
 
-### Performance
-
-1. **Evite condições aninhadas** excessivas
+#performance-1-evite-condies-aninhadas excessivas
 2. **Use Switch** para múltiplas opções
 3. **Otimize ordem das condições** (mais prováveis primeiro)
 4. **Processe em paralelo** quando possível
 5. **Monitore tempo de execução**
 
-### Manutenção
-
-1. **Use variáveis** para valores reutilizáveis
+#manuteno-1-use-variveis-para valores reutilizáveis
 2. **Centralize lógica comum** em nodes separados
 3. **Implemente logging** para debug
 4. **Configure alertas** para falhas
 5. **Documente fluxos complexos**
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Condições não funcionam
-- Verifique sintaxe das expressões
+#condies-no-funcionam-verifique sintaxe das expressões
 - Confirme tipos de dados
 - Use o node Debug Helper
 - Teste condições individualmente
 
-#### Fluxo inesperado
-- Verifique ordem das condições
+#fluxo-inesperado-verifique-ordem das condições
 - Confirme valores de entrada
 - Valide lógica de decisão
 - Use logs para rastrear fluxo
 
-#### Merge não funciona
-- Verifique se todos os inputs estão conectados
+#merge-no-funciona-verifique se todos os inputs estão conectados
 - Confirme estrutura dos dados
 - Valide configuração do merge
 - Teste com dados de exemplo
 
-### Debug
-
-1. **Use o node Debug Helper** para inspecionar dados
+#cor-debug-1-use-o-node Debug Helper** para inspecionar dados
 2. **Configure logging detalhado**
 3. **Teste condições individualmente**
 4. **Valide dados de entrada**
 5. **Monitore fluxo de execução**
 
-## Expressões Avançadas
+#expresses-avanadas
 
-### Operadores de Comparação
-
-```javascript
-// Comparações básicas
+#operadores-de-comparao-javascript Comparações básicas
 $json.valor > 100
 $json.status === "ativo"
 $json.email !== ""
@@ -278,10 +243,7 @@ $json.tags.includes("urgente")
 $json.categorias.indexOf("tecnologia") > -1
 ```
 
-### Operadores Lógicos
-
-```javascript
-// AND lógico
+#operadores-lgicos-javascript-and lógico
 $json.valor > 100 && $json.status === "ativo"
 
 // OR lógico
@@ -291,10 +253,7 @@ $json.tipo === "urgente" || $json.prioridade === "alta"
 !$json.processado
 ```
 
-### Verificações de Existência
-
-```javascript
-// Verificar se campo existe
+#verificaes-de-existncia-javascript Verificar se campo existe
 $json.hasOwnProperty("email")
 
 // Verificar se valor não é nulo
@@ -304,10 +263,7 @@ $json.valor != null
 $json.items.length > 0
 ```
 
-### Expressões Complexas
-
-```javascript
-// Múltiplas condições
+#expresses-complexas-javascript-mltiplas condições
 ($json.valor > 1000 && $json.cliente_tipo === "premium") || 
 ($json.valor > 5000 && $json.cliente_tipo === "normal")
 
@@ -318,9 +274,7 @@ $json.items.length > 0
 new Date($json.data_vencimento) > new Date()
 ```
 
-## Próximos Passos
-
-- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões avançadas
+#prximos-passos-expresses-n8nlogica-e-dadosexpressoes - Usar expressões avançadas
 - [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index) - Processar dados
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Fluxo de Execução](/logica-e-dados/flow-logic/execution-order) - Controlar ordem

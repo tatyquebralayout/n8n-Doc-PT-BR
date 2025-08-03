@@ -6,11 +6,11 @@ keywords: [n8n, database, banco de dados, postgresql, mysql, configuração]
 ---
 
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração de Database
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-de Database
 
 Este documento explica como **configurar banco de dados** para n8n em ambiente de produção, abordando escolha entre PostgreSQL e MySQL, configuração de conexões, otimização de performance, backup e recovery, migrações entre versões, e estratégias de escalabilidade que garantem armazenamento confiável e eficiente de workflows, execuções, e credenciais em implementações empresariais robustas.
 
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você vai aprender
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
 
 - Escolha entre PostgreSQL e MySQL
 - Configuração de conexões
@@ -20,13 +20,9 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Escolha do Banco de Dados
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-escolha-do Banco de Dados
 
-### PostgreSQL (Recomendado)
-
-**Vantagens:**
-
-- ✅ **Melhor performance** para workloads complexos
+#postgresql-recomendado-vantagens **Melhor performance** para workloads complexos
 - ✅ **Suporte completo** a JSON e arrays
 - ✅ **Transações ACID** robustas
 - ✅ **Recursos avançados** (views, procedures, triggers)
@@ -40,11 +36,7 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 - Alto volume de dados
 - Requisitos de compliance
 
-### MySQL (Alternativa)
-
-**Vantagens:**
-
-- ✅ **Fácil configuração** e manutenção
+#mysql-alternativa-vantagens **Fácil configuração** e manutenção
 - ✅ **Ampla adoção** na comunidade
 - ✅ **Boa performance** para workloads simples
 - ✅ **Recursos de replicação** nativos
@@ -56,11 +48,7 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 - Equipes com experiência em MySQL
 - Infraestrutura existente MySQL
 
-### SQLite (Desenvolvimento)
-
-**Vantagens:**
-
-- ✅ **Zero configuração** - arquivo único
+#sqlite-desenvolvimento-vantagens **Zero configuração** - arquivo único
 - ✅ **Portátil** - funciona em qualquer lugar
 - ✅ **Ideal para desenvolvimento** e testes
 
@@ -72,48 +60,42 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração PostgreSQL
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-postgresql
 
-### Instalação Rápida
+#instalao-rpida
 
-#### **Ubuntu/Debian**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar PostgreSQL
+#ubuntudebian-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-postgresql
 sudo apt update
 sudo apt install postgresql postgresql-contrib
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Iniciar serviço
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-iniciar-servio
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 
-# <IonicIcon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar usuário e banco
+#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-criar-usurio e banco
 sudo -u postgres createuser --interactive n8n
 sudo -u postgres createdb n8n
 ```
 
-#### **CentOS/RHEL**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar PostgreSQL
+#centosrhel-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-postgresql
 sudo yum install postgresql-server postgresql-contrib
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Inicializar banco
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-inicializar-banco
 sudo postgresql-setup initdb
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Iniciar serviço
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-iniciar-servio
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 
-# <IonicIcon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar usuário e banco
+#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-criar-usurio e banco
 sudo -u postgres createuser --interactive n8n
 sudo -u postgres createdb n8n
 ```
 
-#### **Docker**
-
-```bash
-# <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Executar PostgreSQL com Docker
+#docker-bash
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-executar-postgresql com Docker
 docker run -d \
   --name postgres-n8n \
   -e POSTGRES_DB=n8n \
@@ -124,57 +106,41 @@ docker run -d \
   postgres:15
 ```
 
-### Configuração Avançada
+#configurao-avanada
 
-#### **postgresql.conf - Otimizações**
+#postgresqlconf-otimizaes-bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-etcpostgresql15mainpostgresqlconf
 
-```bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> /etc/postgresql/15/main/postgresql.conf
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-memria-sharedbuffers = 256MB          #id-25-da-ram-effectivecachesize 1GB      #id-75-da-ram-workmem 4MB                  #para-queries-complexas-maintenanceworkmem 64MB     #para-manuteno
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Memória
-shared_buffers = 256MB          # 25% da RAM
-effective_cache_size = 1GB      # 75% da RAM
-work_mem = 4MB                  # Para queries complexas
-maintenance_work_mem = 64MB     # Para manutenção
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-conexes-maxconnections = 100           #ajuste-conforme-necessidade-maxworkerprocesses 8        #para-paralelizao
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conexões
-max_connections = 100           # Ajuste conforme necessidade
-max_worker_processes = 8        # Para paralelização
-
-# <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Logs
-log_destination = 'stderr'
+#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-logs-logdestination = 'stderr'
 logging_collector = on
 log_directory = 'log'
 log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
 log_rotation_age = 1d
 log_rotation_size = 100MB
 
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance
-random_page_cost = 1.1          # Para SSDs
-effective_io_concurrency = 200  # Para SSDs
-checkpoint_completion_target = 0.9
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-randompagecost = 1.1          #para-ssds-effectiveioconcurrency-200  #para-ssds-checkpointcompletiontarget-09
 wal_buffers = 16MB
 ```
 
-#### **pg_hba.conf - Segurança**
+#pghbaconf-segurana-bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-etcpostgresql15mainpghbaconf
 
-```bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> /etc/postgresql/15/main/pg_hba.conf
-
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conexões locais
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-conexes-locais
 local   all             postgres                                peer
 local   all             all                                     md5
 
-# <IonicIcon name="repeat-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conexões de rede (ajuste IPs conforme necessário)
+#ionicicon-namerepeat-outline-style-fontsize-24px color: '#cor-ea4b71-conexes-de rede (ajuste IPs conforme necessário)
 host    n8n             n8n             127.0.0.1/32            md5
 host    n8n             n8n             ::1/128                 md5
 host    n8n             n8n             192.168.1.0/24          md5
 ```
 
-### Variáveis de Ambiente
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração PostgreSQL
+#variveis-de-ambiente-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-postgresql
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=localhost
 DB_POSTGRESDB_PORT=5432
@@ -182,7 +148,7 @@ DB_POSTGRESDB_DATABASE=n8n
 DB_POSTGRESDB_USER=n8n
 DB_POSTGRESDB_PASSWORD=senha_segura
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações avançadas
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-avanadas
 DB_POSTGRESDB_SCHEMA=public
 DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED=false
 DB_POSTGRESDB_SSL_CA=/path/to/ca-certificate.crt
@@ -192,21 +158,19 @@ DB_POSTGRESDB_SSL_KEY=/path/to/client-key.key
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração MySQL
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-mysql
 
-### Instalação Rápida
+#instalao-rpida
 
-#### **Ubuntu/Debian**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar MySQL
+#ubuntudebian-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-mysql
 sudo apt update
 sudo apt install mysql-server
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração inicial
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-inicial
 sudo mysql_secure_installation
 
-# <IonicIcon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar usuário e banco
+#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-criar-usurio e banco
 sudo mysql -u root -p
 ```
 
@@ -219,10 +183,8 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-#### **Docker**
-
-```bash
-# <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Executar MySQL com Docker
+#docker-bash
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-executar-mysql com Docker
 docker run -d \
   --name mysql-n8n \
   -e MYSQL_DATABASE=n8n \
@@ -234,40 +196,30 @@ docker run -d \
   mysql:8.0
 ```
 
-### Configuração Avançada
+#configurao-avanada
 
-#### **my.cnf - Otimizações**
-
-```ini
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> /etc/mysql/mysql.conf.d/mysqld.cnf
-
-[mysqld]
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Memória
-innodb_buffer_pool_size = 1G
+#mycnf-otimizaes-ini
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-etcmysqlmysqlconfdmysqldcnf-mysqld
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-memria-innodbbufferpoolsize = 1G
 innodb_log_file_size = 256M
 innodb_log_buffer_size = 16M
 key_buffer_size = 256M
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Conexões
-max_connections = 200
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-conexes-maxconnections = 200
 max_connect_errors = 1000
 
-# <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Logs
-log_error = /var/log/mysql/error.log
+#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-logs-logerror = /var/log/mysql/error.log
 slow_query_log = 1
 slow_query_log_file = /var/log/mysql/slow.log
 long_query_time = 2
 
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance
-innodb_flush_log_at_trx_commit = 2
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-innodbflushlogattrxcommit = 2
 innodb_flush_method = O_DIRECT
 innodb_file_per_table = 1
 ```
 
-### Variáveis de Ambiente
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração MySQL
+#variveis-de-ambiente-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-mysql
 DB_TYPE=mysqldb
 DB_MYSQLDB_HOST=localhost
 DB_MYSQLDB_PORT=3306
@@ -275,7 +227,7 @@ DB_MYSQLDB_DATABASE=n8n
 DB_MYSQLDB_USER=n8n
 DB_MYSQLDB_PASSWORD=senha_segura
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações avançadas
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-avanadas
 DB_MYSQLDB_CHARSET=utf8mb4
 DB_MYSQLDB_SSL_REJECT_UNAUTHORIZED=false
 DB_MYSQLDB_SSL_CA=/path/to/ca-certificate.crt
@@ -285,14 +237,11 @@ DB_MYSQLDB_SSL_KEY=/path/to/client-key.key
 
 ---
 
-## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Otimização de Performance
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-otimizao-de Performance
 
-### PostgreSQL
+#PostgreSQL
 
-#### **Índices Recomendados**
-
-```sql
--- Índices para melhorar performance
+#ndices-recomendados-sql-ndices para melhorar performance
 CREATE INDEX idx_executions_workflow_id ON executions(workflow_id);
 CREATE INDEX idx_executions_started_at ON executions(started_at);
 CREATE INDEX idx_executions_finished_at ON executions(finished_at);
@@ -302,10 +251,7 @@ CREATE INDEX idx_executions_status ON executions(status);
 CREATE INDEX idx_workflows_name ON workflows USING gin(to_tsvector('portuguese', name));
 ```
 
-#### **Configurações de Performance**
-
-```sql
--- Configurar estatísticas
+#configuraes-de-performance-sql Configurar estatísticas
 ALTER DATABASE n8n SET default_statistics_target = 100;
 ALTER DATABASE n8n SET random_page_cost = 1.1;
 ALTER DATABASE n8n SET effective_io_concurrency = 200;
@@ -314,12 +260,9 @@ ALTER DATABASE n8n SET effective_io_concurrency = 200;
 VACUUM ANALYZE;
 ```
 
-### MySQL
+#MySQL
 
-#### **Índices Recomendados**
-
-```sql
--- Índices para melhorar performance
+#ndices-recomendados-sql-ndices para melhorar performance
 CREATE INDEX idx_executions_workflow_id ON executions(workflow_id);
 CREATE INDEX idx_executions_started_at ON executions(started_at);
 CREATE INDEX idx_executions_finished_at ON executions(finished_at);
@@ -329,10 +272,7 @@ CREATE INDEX idx_executions_status ON executions(status);
 CREATE FULLTEXT INDEX idx_workflows_name ON workflows(name);
 ```
 
-#### **Configurações de Performance**
-
-```sql
--- Configurar engine
+#configuraes-de-performance-sql Configurar engine
 ALTER TABLE executions ENGINE=InnoDB;
 ALTER TABLE workflows ENGINE=InnoDB;
 
@@ -343,120 +283,106 @@ OPTIMIZE TABLE workflows;
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup e Recovery
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-backup-e Recovery
 
-### Backup Automático
+#cor-backup-automtico
 
-#### **PostgreSQL - Script de Backup**
+#postgresql-script-de-backup
 
 ```bash
-#!/bin/bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-postgres.sh
-
-DATE=$(date +%Y%m%d_%H%M%S)
+#bin/bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-backup-postgressh-datedate +%Y%m%d_%H%M%S)
 BACKUP_DIR="/backups/postgres"
 DB_NAME="n8n"
 DB_USER="n8n"
 BACKUP_FILE="$BACKUP_DIR/n8n_$DATE.sql"
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar diretório se não existir
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-diretrio se não existir
 mkdir -p $BACKUP_DIR
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup completo
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-completo
 pg_dump -h localhost -U $DB_USER -d $DB_NAME > $BACKUP_FILE
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Comprimir backup
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-comprimir-backup
 gzip $BACKUP_FILE
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Manter apenas últimos 7 backups
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-manter-apenas últimos 7 backups
 find $BACKUP_DIR -name "*.sql.gz" -mtime +7 -delete
 
 echo "Backup criado: $BACKUP_FILE.gz"
 ```
 
-#### **MySQL - Script de Backup**
+#mysql-script-de-backup
 
 ```bash
-#!/bin/bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-mysql.sh
-
-DATE=$(date +%Y%m%d_%H%M%S)
+#bin/bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-backup-mysqlsh-datedate +%Y%m%d_%H%M%S)
 BACKUP_DIR="/backups/mysql"
 DB_NAME="n8n"
 DB_USER="n8n"
 BACKUP_FILE="$BACKUP_DIR/n8n_$DATE.sql"
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar diretório se não existir
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-diretrio se não existir
 mkdir -p $BACKUP_DIR
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup completo
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-completo
 mysqldump -h localhost -u $DB_USER -p$DB_PASSWORD $DB_NAME > $BACKUP_FILE
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Comprimir backup
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-comprimir-backup
 gzip $BACKUP_FILE
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Manter apenas últimos 7 backups
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-manter-apenas últimos 7 backups
 find $BACKUP_DIR -name "*.sql.gz" -mtime +7 -delete
 
 echo "Backup criado: $BACKUP_FILE.gz"
 ```
 
-### Restauração
+#Restauração
 
-#### **PostgreSQL - Restaurar Backup**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Descomprimir backup
+#postgresql-restaurar-backup-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-descomprimir-backup
 gunzip n8n_20241201_120000.sql.gz
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Restaurar backup
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-restaurar-backup
 psql -h localhost -U n8n -d n8n < n8n_20241201_120000.sql
 ```
 
-#### **MySQL - Restaurar Backup**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Descomprimir backup
+#mysql-restaurar-backup-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-descomprimir-backup
 gunzip n8n_20241201_120000.sql.gz
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Restaurar backup
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-restaurar-backup
 mysql -h localhost -u n8n -p n8n < n8n_20241201_120000.sql
 ```
 
-### Cron Jobs
-
-```bash
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Adicionar ao crontab
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup diário às 2h da manhã
+#cron-jobs-bash
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-ao crontab
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-dirio às 2h da manhã
 0 2 * * * /path/to/backup-postgres.sh
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup semanal completo
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-semanal completo
 0 2 * * 0 /path/to/backup-postgres-full.sh
 ```
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Escalabilidade
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-escalabilidade
 
-### Replicação
+#Replicação
 
-#### **PostgreSQL - Replicação Master-Slave**
-
-```bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Master (postgresql.conf)
+#postgresql-replicao-master-slave-bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-master-postgresqlconf
 wal_level = replica
 max_wal_senders = 3
 wal_keep_segments = 64
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Slave (recovery.conf)
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-slave-recoveryconf
 standby_mode = 'on'
 primary_conninfo = 'host=master_ip port=5432 user=replicator password=senha'
 restore_command = 'cp /var/lib/postgresql/wal/%f %p'
 ```
 
-#### **MySQL - Replicação Master-Slave**
-
-```sql
+#mysql-replicao-master-slave-sql
 -- Master
 GRANT REPLICATION SLAVE ON *.* TO 'replicator'@'%' IDENTIFIED BY 'senha';
 
@@ -469,12 +395,10 @@ CHANGE MASTER TO
   MASTER_LOG_POS=154;
 ```
 
-### Cloud Databases
+#cloud-databases
 
-#### **AWS RDS PostgreSQL**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração RDS
+#aws-rds-postgresql-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-rds
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=seu-cluster.cluster-xyz.us-east-1.rds.amazonaws.com
 DB_POSTGRESDB_PORT=5432
@@ -484,10 +408,8 @@ DB_POSTGRESDB_PASSWORD=senha_segura
 DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED=false
 ```
 
-#### **Google Cloud SQL**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Cloud SQL
+#google-cloud-sql-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-cloud SQL
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=/cloudsql/project:region:instance
 DB_POSTGRESDB_PORT=5432
@@ -498,12 +420,9 @@ DB_POSTGRESDB_PASSWORD=senha_segura
 
 ---
 
-## <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Docker Compose
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-docker-compose
 
-### PostgreSQL Completo
-
-```yaml
-version: '3.8'
+#postgresql-completo-yaml-version-38
 
 services:
   n8n:
@@ -564,12 +483,9 @@ networks:
 
 ---
 
-## <IonicIcon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Monitoramento
+#ionicicon-nameeye-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento
 
-### Métricas PostgreSQL
-
-```sql
--- Queries lentas
+#mtricas-postgresql-sql-queries lentas
 SELECT query, mean_time, calls, total_time
 FROM pg_stat_statements
 ORDER BY mean_time DESC
@@ -586,10 +502,7 @@ FROM pg_stat_activity
 WHERE state = 'active';
 ```
 
-### Métricas MySQL
-
-```sql
--- Status do servidor
+#mtricas-mysql-sql-status do servidor
 SHOW STATUS LIKE 'Connections';
 SHOW STATUS LIKE 'Threads_connected';
 SHOW STATUS LIKE 'Slow_queries';
@@ -603,35 +516,27 @@ LIMIT 10;
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Produção
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Produção
 
-### Configuração
-
-- [ ] PostgreSQL 15+ ou MySQL 8.0+ instalado
+#configurao-postgresql 15+ ou MySQL 8.0+ instalado
 - [ ] Usuário dedicado criado para n8n
 - [ ] Banco de dados criado com charset UTF-8
 - [ ] Variáveis de ambiente configuradas
 - [ ] Conexão testada e funcionando
 
-### Performance
-
-- [ ] Índices criados nas tabelas principais
+#performance-ndices criados nas tabelas principais
 - [ ] Configurações de memória otimizadas
 - [ ] Logs de queries lentas ativados
 - [ ] Estatísticas atualizadas regularmente
 - [ ] Vacuum/Analyze configurado
 
-### Backup
-
-- [ ] Script de backup automático configurado
+#cor-backup-script de backup automático configurado
 - [ ] Backup testado e funcionando
 - [ ] Retenção de backups definida
 - [ ] Backup em localização segura
 - [ ] Procedimento de restauração documentado
 
-### Segurança
-
-- [ ] Senha forte configurada
+#segurana-senha forte configurada
 - [ ] Acesso restrito por IP (se aplicável)
 - [ ] SSL configurado (se necessário)
 - [ ] Usuário com privilégios mínimos
@@ -639,7 +544,7 @@ LIMIT 10;
 
 ---
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você configurou o banco de dados:
 

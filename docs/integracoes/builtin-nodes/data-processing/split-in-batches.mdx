@@ -5,11 +5,11 @@ description: Divida dados em lotes para processamento eficiente em workflows n8n
 keywords: [n8n, split, batches, lotes, processamento, dados, performance]
 ---
 
-# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Split In Batches Node
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-split-in Batches Node
 
 O **Split In Batches Node** é essencial para processar grandes volumes de dados de forma eficiente, dividindo-os em lotes menores que podem ser processados sequencialmente ou em paralelo.
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Conceito Principal**
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-conceito-principal
 
 **Split In Batches = "Dividir Dados em Lotes"**
 
@@ -22,31 +22,23 @@ O Split In Batches Node é uma **AÇÃO** que:
 
 > **💡 Dica:** Use este node quando tiver muitos dados para processar ou quando APIs têm limites de rate limiting.
 
-## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Configurações Principais**
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-principais
 
-### **1. Batch Size**
-
-```
-Número de itens por lote (ex: 100, 500, 1000)
+#id-1-batch-size-nmero de itens por lote (ex: 100, 500, 1000)
 ```
 
-### **2. Options**
-
-```
-Wait Between Batches - Aguardar entre lotes
+#id-2-options-wait-between Batches - Aguardar entre lotes
 Batch Size - Tamanho do lote
 Reset - Reiniciar contador de lotes
 ```
 
-### **3. Wait Between Batches**
-
-```
+#id-3-wait-between-batches
 Delay (ms) - Tempo de espera entre lotes
 ```
 
-## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Exemplos Práticos**
+#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-prticos
 
-### **Exemplo 1: Processar Lista de Emails**
+#exemplo-1-processar-lista-de Emails**
 
 **Entrada (1000 emails):**
 
@@ -73,7 +65,7 @@ Wait Between Batches: 1000ms (1 segundo)
 - ...
 - **Lote 10**: Emails 901-1000
 
-### **Exemplo 2: Enviar Notificações em Lotes**
+#exemplo-2-enviar-notificaes-em Lotes**
 
 **Workflow:**
 
@@ -96,7 +88,7 @@ URL: https://api.notificacao.com/batch
 Body: {{ JSON.stringify($json) }}
 ```
 
-### **Exemplo 3: Processar Produtos de E-commerce**
+#exemplo-3-processar-produtos-de E-commerce**
 
 **Entrada (5000 produtos):**
 
@@ -121,9 +113,9 @@ Wait Between Batches: 500ms
 - Sincronizar estoque
 - Enviar para API externa
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Casos de Uso Comuns**
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Comuns**
 
-### **1. Rate Limiting de APIs**
+#id-1-rate-limiting-de-apis
 
 **Problema:** API tem limite de 100 requisições por minuto
 **Solução:** Dividir em lotes de 100 com delay de 60 segundos
@@ -134,7 +126,7 @@ Batch Size: 100
 Wait Between Batches: 60000ms (60 segundos)
 ```
 
-### **2. Processamento de Arquivos Grandes**
+#id-2-processamento-de-arquivos-grandes
 
 **Problema:** Arquivo CSV com 10.000 linhas
 **Solução:** Processar em lotes de 500 linhas
@@ -145,7 +137,7 @@ Batch Size: 500
 Wait Between Batches: 1000ms
 ```
 
-### **3. Envio de Emails em Massa**
+#id-3-envio-de-emails-em Massa**
 
 **Problema:** Enviar 5.000 emails sem sobrecarregar servidor
 **Solução:** Enviar em lotes de 100 com delay
@@ -156,9 +148,7 @@ Batch Size: 100
 Wait Between Batches: 5000ms (5 segundos)
 ```
 
-### **4. Sincronização de Dados**
-
-**Problema:** Sincronizar 20.000 registros com sistema externo
+#id-4-sincronizao-de-dados-problema Sincronizar 20.000 registros com sistema externo
 **Solução:** Processar em lotes de 1.000
 
 ```javascript
@@ -167,11 +157,9 @@ Batch Size: 1000
 Wait Between Batches: 2000ms
 ```
 
-## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Configurações Avançadas**
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-avanadas
 
-### **Wait Between Batches**
-
-**Delay Fixo:**
+#wait-between-batches-delay-fixo
 
 ```
 Wait Between Batches: 1000ms
@@ -189,9 +177,7 @@ Wait Between Batches: {{ $json.batch_number * 1000 }}ms
 Wait Between Batches: {{ Math.ceil(60000 / 100) }}ms  // 100 req/min
 ```
 
-### **Batch Size Dinâmico**
-
-**Baseado no tipo de dados:**
+#batch-size-dinmico-baseado-no tipo de dados:**
 
 ```
 Batch Size: {{ $json.tipo === 'email' ? 100 : 500 }}
@@ -209,9 +195,9 @@ Batch Size: {{ $json.api_limit || 100 }}
 Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
 ```
 
-## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Otimização de Performance**
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-otimizao-de Performance**
 
-### **Escolhendo o Tamanho do Lote**
+#escolhendo-o-tamanho-do-lote
 
 | Cenário | Tamanho Recomendado | Justificativa |
 |---------|-------------------|---------------|
@@ -221,19 +207,14 @@ Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
 | **Sincronização** | 1000-2000 | Máxima velocidade |
 | **Arquivos Grandes** | 500-1000 | Balance entre memória e velocidade |
 
-### **Configuração de Delays**
-
-| Tipo de Operação | Delay Recomendado | Razão |
+#configurao-de-delays-tipo de Operação | Delay Recomendado | Razão |
 |------------------|-------------------|-------|
 | **APIs Externas** | 1000-5000ms | Rate limiting |
 | **Envio de Emails** | 2000-10000ms | Evitar spam |
 | **Processamento Local** | 100-500ms | Otimização |
 | **Sincronização** | 500-2000ms | Balance |
 
-### **Monitoramento de Performance**
-
-```javascript
-// Adicionar métricas ao lote
+#monitoramento-de-performance-javascript Adicionar métricas ao lote
 {
   "batch_number": 1,
   "batch_size": 100,
@@ -244,11 +225,9 @@ Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
 }
 ```
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Tratamento de Erros**
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-tratamento-de Erros**
 
-### **Erro em um Lote**
-
-**Configuração de Retry:**
+#erro-em-um-lote-configurao de Retry:**
 
 ```
 Max Tries: 3
@@ -268,9 +247,7 @@ if ($json.error) {
 }
 ```
 
-### **Recuperação de Falhas**
-
-**Workflow com Error Handling:**
+#recuperao-de-falhas-workflow-com Error Handling:**
 
 ```
 Split In Batches → HTTP Request → Error Trigger → Log Error → Continue
@@ -282,9 +259,9 @@ Split In Batches → HTTP Request → Error Trigger → Log Error → Continue
 Continue on Fail: true
 ```
 
-## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Exemplos de Workflows**
+#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-de Workflows**
 
-### **Workflow 1: Envio de Newsletter**
+#workflow-1-envio-de-newsletter
 
 ```
 Manual Trigger → Split In Batches (100) → Email Node → Wait (2s) → Continue
@@ -296,7 +273,7 @@ Manual Trigger → Split In Batches (100) → Email Node → Wait (2s) → Conti
 - **Wait**: 2 segundos entre lotes
 - **Email Node**: Template personalizado
 
-### **Workflow 2: Sincronização de Produtos**
+#workflow-2-sincronizao-de-produtos
 
 ```
 Schedule Trigger → HTTP Request (buscar produtos) → Split In Batches (500) → HTTP Request (atualizar) → Wait (1s) → Continue
@@ -308,7 +285,7 @@ Schedule Trigger → HTTP Request (buscar produtos) → Split In Batches (500) �
 - **Wait**: 1 segundo entre lotes
 - **HTTP Request**: API de atualização
 
-### **Workflow 3: Processamento de Arquivos**
+#workflow-3-processamento-de-arquivos
 
 ```
 Webhook (upload arquivo) → CSV Parser → Split In Batches (1000) → Process Data → Wait (500ms) → Continue
@@ -320,26 +297,19 @@ Webhook (upload arquivo) → CSV Parser → Split In Batches (1000) → Process 
 - **Wait**: 500ms entre lotes
 - **Process Data**: Transformação de dados
 
-## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Limitações e Considerações**
+#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-limitaes-e Considerações**
 
-### **Limitações Técnicas**
-
-- **Memória**: Cada lote é mantido em memória
+#limitaes-tcnicas-memria-cada lote é mantido em memória
 - **Timeout**: Workflows têm timeout total
 - **Rate Limiting**: APIs externas podem ter limites
 - **Concorrência**: Processamento sequencial por padrão
 
-### **Considerações de Design**
-
-- **Tamanho do lote**: Balance entre performance e memória
+#consideraes-de-design-tamanho do lote**: Balance entre performance e memória
 - **Delays**: Evitar sobrecarregar sistemas externos
 - **Error handling**: Tratar falhas em lotes individuais
 - **Monitoramento**: Acompanhar progresso dos lotes
 
-### **Boas Práticas**
-
-```javascript
-// ✅ Bom: Tamanho de lote apropriado
+#boas-prticas-javascript Bom: Tamanho de lote apropriado
 Batch Size: 100  // Para APIs com rate limiting
 
 // ✅ Bom: Delay adequado
@@ -352,7 +322,7 @@ Batch Size: 10000  // Pode causar timeout
 Wait Between Batches: 0ms  // Pode sobrecarregar API
 ```
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> **Próximos Passos**
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você entende o Split In Batches Node:
 

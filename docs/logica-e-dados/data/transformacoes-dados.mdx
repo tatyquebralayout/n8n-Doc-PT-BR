@@ -5,23 +5,19 @@ description: Como transformar dados no n8n para diferentes formatos e estruturas
 keywords: [n8n, transformar, dados, estrutura, formatos, nodes]
 ---
 
-# <IonicIcon name="swap-horizontal-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Transformando Dados
+#ionicicon-nameswap-horizontal-outline-style-fontsize-24px color: '#cor-ea4b71-transformando-dados
 
 O n8n usa uma [estrutura de dados predefinida](./data-structure) que permite que todos os nodes processem dados de entrada corretamente. Seus dados de entrada podem ter uma estrutura diferente, caso em que você precisará transformá-los para permitir que cada item seja processado individualmente.
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Quando Transformar Dados
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-quando-transformar Dados
 
-### Estrutura Incompatível
-
-Por exemplo, quando um node [HTTP Request](../integracoes/builtin-nodes/http-requests/http-request) retorna dados incompatíveis com a estrutura de dados do n8n, você pode ver que apenas um item foi retornado, mesmo que a API tenha retornado múltiplos registros.
+#estrutura-incompatvel-por-exemplo-quando um node [HTTP Request](../integracoes/builtin-nodes/http-requests/http-request) retorna dados incompatíveis com a estrutura de dados do n8n, você pode ver que apenas um item foi retornado, mesmo que a API tenha retornado múltiplos registros.
 
 Para transformar esse tipo de estrutura na estrutura de dados do n8n, você pode usar os nodes de transformação de dados:
 
-## <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Nodes de Transformação
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-nodes-de Transformação
 
-### [Aggregate](../integracoes/builtin-nodes/data-processing/aggregate)
-
-Agrupa itens separados, ou porções deles, em itens individuais.
+#aggregateintegracoesbuiltin-nodesdata-processingaggregate-agrupa-itens-separados-ou porções deles, em itens individuais.
 
 **Exemplo:**
 
@@ -40,9 +36,7 @@ Agrupa itens separados, ou porções deles, em itens individuais.
 ]
 ```
 
-### Limit
-
-Remove itens além de um número máximo definido.
+#limit-remove-itens-alm-de um número máximo definido.
 
 **Exemplo:**
 
@@ -51,9 +45,7 @@ Remove itens além de um número máximo definido.
 // Saída (apenas os primeiros 5 itens)
 ```
 
-### Remove Duplicates
-
-Identifica e remove itens que são idênticos em todos os campos ou um subconjunto de campos.
+#remove-duplicates-identifica-e-remove itens que são idênticos em todos os campos ou um subconjunto de campos.
 
 **Exemplo:**
 
@@ -72,9 +64,7 @@ Identifica e remove itens que são idênticos em todos os campos ou um subconjun
 ]
 ```
 
-### Sort
-
-Organiza listas em uma ordem desejada ou gera uma seleção aleatória.
+#sort-organiza-listas-em-uma ordem desejada ou gera uma seleção aleatória.
 
 **Exemplo:**
 
@@ -94,9 +84,7 @@ Organiza listas em uma ordem desejada ou gera uma seleção aleatória.
 ]
 ```
 
-### Split Out
-
-Separa um único item de dados contendo uma lista em múltiplos itens.
+#split-out-separa-um-nico item de dados contendo uma lista em múltiplos itens.
 
 **Exemplo:**
 
@@ -114,9 +102,7 @@ Separa um único item de dados contendo uma lista em múltiplos itens.
 ]
 ```
 
-### Summarize
-
-Agrega itens juntos, de maneira similar às tabelas dinâmicas do Excel.
+#summarize-agrega-itens-juntos-de maneira similar às tabelas dinâmicas do Excel.
 
 **Exemplo:**
 
@@ -135,7 +121,7 @@ Agrega itens juntos, de maneira similar às tabelas dinâmicas do Excel.
 ]
 ```
 
-## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Transformação com Code Node
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-transformao-com Code Node
 
 Para transformações mais complexas, você pode usar o [Code node](../integracoes/builtin-nodes/core-nodes/code):
 
@@ -160,7 +146,7 @@ const transformedItems = items.map(item => {
 return transformedItems;
 ```
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Transformação com Set Node
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-transformao-com Set Node
 
 O [Set node](../integracoes/builtin-nodes/data-processing/set) permite adicionar, modificar ou remover campos:
 
@@ -182,11 +168,9 @@ O [Set node](../integracoes/builtin-nodes/data-processing/set) permite adicionar
 ["campo_antigo", "dados_temporarios"]
 ```
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Casos de Uso Comuns
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Comuns
 
-### Normalizar Dados de APIs
-
-```mermaid
+#normalizar-dados-de-apis-mermaid
 graph LR
     A[HTTP Request] --> B[Code Node]
     B --> C[Set Node]
@@ -198,7 +182,7 @@ graph LR
     D --> D1[Dados padronizados]
 ```
 
-### Agregar Dados de Múltiplas Fontes
+#agregar-dados-de-mltiplas-fontes
 
 ```mermaid
 graph LR
@@ -209,9 +193,7 @@ graph LR
     E --> F[Resumo]
 ```
 
-### Limpar e Validar Dados
-
-```mermaid
+#limpar-e-validar-dados-mermaid
 graph LR
     A[Dados Brutos] --> B[Remove Duplicates]
     B --> C[Filter]
@@ -219,33 +201,27 @@ graph LR
     D --> E[Dados Limpos]
 ```
 
-## <IonicIcon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Considerações Importantes
+#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-consideraes-importantes
 
-### Performance
-
-- **Transformações simples:** Use nodes especializados (Set, Aggregate, etc.)
+#performance-transformaes-simples-use nodes especializados (Set, Aggregate, etc.)
 - **Transformações complexas:** Use Code node
 - **Grandes volumes:** Considere processamento em lotes
 
-### Validação
-
-- Sempre teste transformações com dados reais
+#validao-sempre-teste-transformaes com dados reais
 - Verifique se a estrutura de saída está correta
 - Monitore logs para erros de transformação
 
-### Manutenção
-
-- Documente transformações complexas
+#manuteno-documente-transformaes-complexas
 - Use nomes descritivos para campos
 - Mantenha consistência nas transformações
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 1. **Aprenda [Data Mapping](./data-mapping-avancado)** para mapeamento avançado
 2. **Explore [Data Structure](./data-structure)** para entender a estrutura fundamental
 3. **Entenda [Data Flow](./data-flow-nodes)** para fluxo de dados
 
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recursos Relacionados
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-relacionados
 
 - **[Data Structure](./data-structure)** - Estrutura fundamental dos dados
 - **[Data Mapping](./data-mapping-avancado)** - Mapeamento avançado de dados

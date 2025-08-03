@@ -6,11 +6,11 @@ keywords: [n8n, backup, recovery, restauração, continuidade, dados]
 ---
 
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup e Recovery
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-e Recovery
 
 Este documento ensina como **implementar backup e recovery** para n8n, incluindo backup automático de workflows, export/import de credenciais, versionamento de configurações, recuperação point-in-time, testes de restauração, e estratégias de disaster recovery que garantem proteção completa dos dados críticos e continuidade operacional mesmo em cenários catastróficos de perda de dados ou infraestrutura.
 
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você vai aprender
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
 
 - Estratégias de backup 3-2-1
 - Scripts de automação
@@ -20,48 +20,28 @@ Este documento ensina como **implementar backup e recovery** para n8n, incluindo
 
 ---
 
-## <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estratégia de Backup 3-2-1
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-estratgia-de Backup 3-2-1
 
-### Princípio 3-2-1
+#princpio-3-2-1
 
-#### **Definição da Estratégia**
-
-- **3 cópias** dos dados (original + 2 backups)
+#cor-definio-da-estratgia-3 cópias** dos dados (original + 2 backups)
 - **2 tipos** de mídia diferentes (disco + nuvem)
 - **1 cópia** fora do local (backup remoto)
 
-#### **Implementação**
-
-```bash
-# <IonicIcon name="folder-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estrutura de backup 3-2-1
+#implementao-bash
+#ionicicon-namefolder-outline-style-fontsize-24px color: '#cor-ea4b71-estrutura-de backup 3-2-1
 /backups/n8n/
-├── local/                    # Backup local (disco)
-│   ├── daily/               # Backups diários
-│   ├── weekly/              # Backups semanais
-│   └── monthly/             # Backups mensais
-├── cloud/                   # Backup na nuvem
-│   ├── s3/                  # Amazon S3
-│   ├── gcs/                 # Google Cloud Storage
-│   └── azure/               # Azure Blob Storage
-└── offsite/                 # Backup fora do local
-    ├── remote-server/       # Servidor remoto
-    └── tape/                # Fita (se aplicável)
-```
+├── local/                    #cor-backup-local-disco daily/               #cor-backups-dirios-weekly              #cor-backups-semanais-monthly             #cor-backups-mensais-cloud                   #cor-backup-na-nuvem s3/                  #amazon-s3-gcs                 #google-cloud-storage azure/               #azure-blob-storage-offsite                 #cor-backup-fora-do-local remote-server/       #servidor-remoto-tape                #fita-se-aplicvel
 
----
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de Banco de Dados
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de Banco de Dados
+#PostgreSQL
 
-### PostgreSQL
+#script-de-backup-postgresql-bash
+#bin/bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-backup-postgressh
 
-#### **Script de Backup PostgreSQL**
-
-```bash
-#!/bin/bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-postgres.sh
-
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-DB_HOST="localhost"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-dbhostlocalhost
 DB_PORT="5432"
 DB_NAME="n8n"
 DB_USER="n8n"
@@ -71,31 +51,26 @@ DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_FILE="$BACKUP_DIR/n8n_db_$DATE.sql"
 RETENTION_DAYS=30
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar diretório se não existir
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-diretrio se não existir
 mkdir -p $BACKUP_DIR
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup completo
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-completo
 echo "Iniciando backup do PostgreSQL..."
 pg_dump -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME > $BACKUP_FILE
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se o backup foi bem-sucedido
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se o backup foi bem-sucedido
 if [ $? -eq 0 ]; then
     echo "Backup criado com sucesso: $BACKUP_FILE"
     
-    # Comprimir backup
-    gzip $BACKUP_FILE
-    echo "Backup comprimido: $BACKUP_FILE.gz"
+    #comprimir-backup-gzip-backupfile-echo "Backup comprimido: $BACKUP_FILE.gz"
     
-    # Calcular tamanho do backup
-    BACKUP_SIZE=$(du -h "$BACKUP_FILE.gz" | cut -f1)
+    #calcular-tamanho-do-backup-backupsizedu -h "$BACKUP_FILE.gz" | cut -f1)
     echo "Tamanho do backup: $BACKUP_SIZE"
     
-    # Remover backups antigos
-    find $BACKUP_DIR -name "*.sql.gz" -mtime +$RETENTION_DAYS -delete
+    #remover-backups-antigos-find-backupdir -name "*.sql.gz" -mtime +$RETENTION_DAYS -delete
     echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
     
-    # Log do backup
-    echo "$(date): Backup PostgreSQL criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
+    #log-do-backup-echo-date Backup PostgreSQL criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
     
 else
     echo "ERRO: Falha no backup do PostgreSQL"
@@ -103,21 +78,18 @@ else
 fi
 ```
 
-#### **Backup Incremental**
+#cor-backup-incremental-bash
+#bin/bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-backup-postgres-incrementalsh
 
-```bash
-#!/bin/bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-postgres-incremental.sh
-
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-DB_HOST="localhost"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-dbhostlocalhost
 DB_PORT="5432"
 DB_NAME="n8n"
 DB_USER="n8n"
 BACKUP_DIR="/backups/n8n/database/incremental"
 DATE=$(date +%Y%m%d_%H%M%S)
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup incremental usando WAL
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-incremental usando WAL
 pg_basebackup -h $DB_HOST -p $DB_PORT -U $DB_USER \
   -D $BACKUP_DIR/base_$DATE \
   -Ft -z -P
@@ -125,16 +97,13 @@ pg_basebackup -h $DB_HOST -p $DB_PORT -U $DB_USER \
 echo "Backup incremental criado: $BACKUP_DIR/base_$DATE"
 ```
 
-### MySQL
+#MySQL
 
-#### **Script de Backup MySQL**
+#script-de-backup-mysql-bash
+#bin/bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-backup-mysqlsh
 
-```bash
-#!/bin/bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-mysql.sh
-
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-DB_HOST="localhost"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-dbhostlocalhost
 DB_PORT="3306"
 DB_NAME="n8n"
 DB_USER="n8n"
@@ -144,10 +113,10 @@ DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_FILE="$BACKUP_DIR/n8n_db_$DATE.sql"
 RETENTION_DAYS=30
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar diretório se não existir
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-diretrio se não existir
 mkdir -p $BACKUP_DIR
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup completo
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-completo
 echo "Iniciando backup do MySQL..."
 mysqldump -h $DB_HOST -P $DB_PORT -u $DB_USER -p$DB_PASSWORD \
   --single-transaction \
@@ -156,24 +125,19 @@ mysqldump -h $DB_HOST -P $DB_PORT -u $DB_USER -p$DB_PASSWORD \
   --events \
   $DB_NAME > $BACKUP_FILE
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se o backup foi bem-sucedido
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se o backup foi bem-sucedido
 if [ $? -eq 0 ]; then
     echo "Backup criado com sucesso: $BACKUP_FILE"
     
-    # Comprimir backup
-    gzip $BACKUP_FILE
-    echo "Backup comprimido: $BACKUP_FILE.gz"
+    #comprimir-backup-gzip-backupfile-echo "Backup comprimido: $BACKUP_FILE.gz"
     
-    # Calcular tamanho do backup
-    BACKUP_SIZE=$(du -h "$BACKUP_FILE.gz" | cut -f1)
+    #calcular-tamanho-do-backup-backupsizedu -h "$BACKUP_FILE.gz" | cut -f1)
     echo "Tamanho do backup: $BACKUP_SIZE"
     
-    # Remover backups antigos
-    find $BACKUP_DIR -name "*.sql.gz" -mtime +$RETENTION_DAYS -delete
+    #remover-backups-antigos-find-backupdir -name "*.sql.gz" -mtime +$RETENTION_DAYS -delete
     echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
     
-    # Log do backup
-    echo "$(date): Backup MySQL criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
+    #log-do-backup-echo-date Backup MySQL criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
     
 else
     echo "ERRO: Falha no backup do MySQL"
@@ -183,51 +147,45 @@ fi
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de Workflows e Credenciais
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de Workflows e Credenciais
 
-### Backup via API
+#cor-backup-via-api
 
-#### **Script de Backup de Workflows**
+#script-de-backup-de-workflows
 
 ```bash
-#!/bin/bash
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-workflows.sh
+#bin/bash
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-backup-workflowssh
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-N8N_URL="https://seu-n8n.com"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-n8nurlhttpsseu-n8ncom
 API_KEY="sua_api_key"
 BACKUP_DIR="/backups/n8n/workflows"
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_FILE="$BACKUP_DIR/workflows_$DATE.json"
 RETENTION_DAYS=30
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar diretório se não existir
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-diretrio se não existir
 mkdir -p $BACKUP_DIR
 
-# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de workflows via API
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de workflows via API
 echo "Iniciando backup de workflows..."
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" \
   | jq '.' > $BACKUP_FILE
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se o backup foi bem-sucedido
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se o backup foi bem-sucedido
 if [ $? -eq 0 ]; then
     echo "Backup de workflows criado: $BACKUP_FILE"
     
-    # Comprimir backup
-    gzip $BACKUP_FILE
-    echo "Backup comprimido: $BACKUP_FILE.gz"
+    #comprimir-backup-gzip-backupfile-echo "Backup comprimido: $BACKUP_FILE.gz"
     
-    # Calcular tamanho do backup
-    BACKUP_SIZE=$(du -h "$BACKUP_FILE.gz" | cut -f1)
+    #calcular-tamanho-do-backup-backupsizedu -h "$BACKUP_FILE.gz" | cut -f1)
     echo "Tamanho do backup: $BACKUP_SIZE"
     
-    # Remover backups antigos
-    find $BACKUP_DIR -name "*.json.gz" -mtime +$RETENTION_DAYS -delete
+    #remover-backups-antigos-find-backupdir -name "*.json.gz" -mtime +$RETENTION_DAYS -delete
     echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
     
-    # Log do backup
-    echo "$(date): Backup de workflows criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
+    #log-do-backup-echo-date Backup de workflows criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
     
 else
     echo "ERRO: Falha no backup de workflows"
@@ -235,47 +193,41 @@ else
 fi
 ```
 
-#### **Script de Backup de Credenciais**
+#script-de-backup-de-credenciais
 
 ```bash
-#!/bin/bash
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-credentials.sh
+#bin/bash
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-backup-credentialssh
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-N8N_URL="https://seu-n8n.com"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-n8nurlhttpsseu-n8ncom
 API_KEY="sua_api_key"
 BACKUP_DIR="/backups/n8n/credentials"
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_FILE="$BACKUP_DIR/credentials_$DATE.json"
 RETENTION_DAYS=30
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar diretório se não existir
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-diretrio se não existir
 mkdir -p $BACKUP_DIR
 
-# <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de credenciais via API
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de credenciais via API
 echo "Iniciando backup de credenciais..."
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/credentials" \
   | jq '.' > $BACKUP_FILE
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se o backup foi bem-sucedido
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se o backup foi bem-sucedido
 if [ $? -eq 0 ]; then
     echo "Backup de credenciais criado: $BACKUP_FILE"
     
-    # Comprimir backup
-    gzip $BACKUP_FILE
-    echo "Backup comprimido: $BACKUP_FILE.gz"
+    #comprimir-backup-gzip-backupfile-echo "Backup comprimido: $BACKUP_FILE.gz"
     
-    # Calcular tamanho do backup
-    BACKUP_SIZE=$(du -h "$BACKUP_FILE.gz" | cut -f1)
+    #calcular-tamanho-do-backup-backupsizedu -h "$BACKUP_FILE.gz" | cut -f1)
     echo "Tamanho do backup: $BACKUP_SIZE"
     
-    # Remover backups antigos
-    find $BACKUP_DIR -name "*.json.gz" -mtime +$RETENTION_DAYS -delete
+    #remover-backups-antigos-find-backupdir -name "*.json.gz" -mtime +$RETENTION_DAYS -delete
     echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
     
-    # Log do backup
-    echo "$(date): Backup de credenciais criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
+    #log-do-backup-echo-date Backup de credenciais criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
     
 else
     echo "ERRO: Falha no backup de credenciais"
@@ -283,51 +235,47 @@ else
 fi
 ```
 
-### Backup de Volumes Docker
+#cor-backup-de-volumes-docker
 
-#### **Script de Backup de Volumes**
+#script-de-backup-de-volumes
 
 ```bash
-#!/bin/bash
-# <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-docker-volumes.sh
+#bin/bash
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-backup-docker-volumessh
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-VOLUME_NAME="n8n_data"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-volumenamen8ndata
 BACKUP_DIR="/backups/n8n/volumes"
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_FILE="$BACKUP_DIR/n8n_volume_$DATE.tar.gz"
 RETENTION_DAYS=30
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar diretório se não existir
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-diretrio se não existir
 mkdir -p $BACKUP_DIR
 
-# <IonicIcon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Parar container n8n
+#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-parar-container n8n
 echo "Parando container n8n..."
 docker stop n8n
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup do volume
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-do volume
 echo "Iniciando backup do volume Docker..."
 docker run --rm -v $VOLUME_NAME:/data -v $BACKUP_DIR:/backup \
   alpine tar czf /backup/n8n_volume_$DATE.tar.gz -C /data .
 
-# <IonicIcon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Reiniciar container n8n
+#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-reiniciar-container n8n
 echo "Reiniciando container n8n..."
 docker start n8n
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se o backup foi bem-sucedido
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se o backup foi bem-sucedido
 if [ $? -eq 0 ]; then
     echo "Backup do volume criado: $BACKUP_FILE"
     
-    # Calcular tamanho do backup
-    BACKUP_SIZE=$(du -h "$BACKUP_FILE" | cut -f1)
+    #calcular-tamanho-do-backup-backupsizedu -h "$BACKUP_FILE" | cut -f1)
     echo "Tamanho do backup: $BACKUP_SIZE"
     
-    # Remover backups antigos
-    find $BACKUP_DIR -name "*.tar.gz" -mtime +$RETENTION_DAYS -delete
+    #remover-backups-antigos-find-backupdir -name "*.tar.gz" -mtime +$RETENTION_DAYS -delete
     echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
     
-    # Log do backup
-    echo "$(date): Backup de volume criado - $BACKUP_FILE ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
+    #log-do-backup-echo-date Backup de volume criado - $BACKUP_FILE ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
     
 else
     echo "ERRO: Falha no backup do volume"
@@ -337,47 +285,46 @@ fi
 
 ---
 
-## <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup na Nuvem
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-backup-na Nuvem
 
-### Amazon S3
+#amazon-s3
 
-#### **Script de Backup para S3**
+#script-de-backup-para-s3
 
 ```bash
-#!/bin/bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-to-s3.sh
+#bin/bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-to-s3sh
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-S3_BUCKET="n8n-backups"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-s3bucketn8n-backups
 S3_REGION="us-east-1"
 BACKUP_DIR="/backups/n8n"
 DATE=$(date +%Y%m%d_%H%M%S)
 RETENTION_DAYS=90
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup completo para S3
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-completo para S3
 echo "Iniciando backup para S3..."
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de banco de dados
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de banco de dados
 aws s3 cp $BACKUP_DIR/database/n8n_db_$DATE.sql.gz \
   s3://$S3_BUCKET/database/n8n_db_$DATE.sql.gz \
   --region $S3_REGION
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de workflows
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de workflows
 aws s3 cp $BACKUP_DIR/workflows/workflows_$DATE.json.gz \
   s3://$S3_BUCKET/workflows/workflows_$DATE.json.gz \
   --region $S3_REGION
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de credenciais
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de credenciais
 aws s3 cp $BACKUP_DIR/credentials/credentials_$DATE.json.gz \
   s3://$S3_BUCKET/credentials/credentials_$DATE.json.gz \
   --region $S3_REGION
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de volumes
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de volumes
 aws s3 cp $BACKUP_DIR/volumes/n8n_volume_$DATE.tar.gz \
   s3://$S3_BUCKET/volumes/n8n_volume_$DATE.tar.gz \
   --region $S3_REGION
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar lifecycle para remoção automática
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-lifecycle para remoção automática
 aws s3api put-bucket-lifecycle-configuration \
   --bucket $S3_BUCKET \
   --lifecycle-configuration '{
@@ -398,40 +345,39 @@ aws s3api put-bucket-lifecycle-configuration \
 echo "Backup para S3 concluído"
 ```
 
-### Google Cloud Storage
+#google-cloud-storage
 
-#### **Script de Backup para GCS**
+#script-de-backup-para-gcs
 
 ```bash
-#!/bin/bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> backup-to-gcs.sh
+#bin/bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-to-gcssh
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-GCS_BUCKET="n8n-backups"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-gcsbucketn8n-backups
 BACKUP_DIR="/backups/n8n"
 DATE=$(date +%Y%m%d_%H%M%S)
 RETENTION_DAYS=90
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup completo para GCS
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-completo para GCS
 echo "Iniciando backup para Google Cloud Storage..."
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de banco de dados
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de banco de dados
 gsutil cp $BACKUP_DIR/database/n8n_db_$DATE.sql.gz \
   gs://$GCS_BUCKET/database/n8n_db_$DATE.sql.gz
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de workflows
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de workflows
 gsutil cp $BACKUP_DIR/workflows/workflows_$DATE.json.gz \
   gs://$GCS_BUCKET/workflows/workflows_$DATE.json.gz
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de credenciais
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de credenciais
 gsutil cp $BACKUP_DIR/credentials/credentials_$DATE.json.gz \
   gs://$GCS_BUCKET/credentials/credentials_$DATE.json.gz
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de volumes
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de volumes
 gsutil cp $BACKUP_DIR/volumes/n8n_volume_$DATE.tar.gz \
   gs://$GCS_BUCKET/volumes/n8n_volume_$DATE.tar.gz
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar lifecycle para remoção automática
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-lifecycle para remoção automática
 gsutil lifecycle set lifecycle.json gs://$GCS_BUCKET
 
 echo "Backup para GCS concluído"
@@ -439,18 +385,15 @@ echo "Backup para GCS concluído"
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Recuperação e Restauração
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-recuperao-e Restauração
 
-### Restauração PostgreSQL
+#restaurao-postgresql
 
-#### **Script de Restauração**
+#script-de-restaurao-bash
+#bin/bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-restore-postgressh
 
-```bash
-#!/bin/bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> restore-postgres.sh
-
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-DB_HOST="localhost"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-dbhostlocalhost
 DB_PORT="5432"
 DB_NAME="n8n"
 DB_USER="n8n"
@@ -461,7 +404,7 @@ if [ -z "$BACKUP_FILE" ]; then
     exit 1
 fi
 
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se o arquivo existe
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se o arquivo existe
 if [ ! -f "$BACKUP_FILE" ]; then
     echo "ERRO: Arquivo de backup não encontrado: $BACKUP_FILE"
     exit 1
@@ -469,36 +412,34 @@ fi
 
 echo "Iniciando restauração do PostgreSQL..."
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Parar n8n
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-parar-n8n
 echo "Parando n8n..."
 docker stop n8n
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Fazer backup antes da restauração
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-fazer-backup antes da restauração
 echo "Criando backup de segurança..."
 pg_dump -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME > \
   /backups/n8n/pre_restore_backup_$(date +%Y%m%d_%H%M%S).sql
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Descomprimir backup se necessário
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-descomprimir-backup se necessário
 if [[ "$BACKUP_FILE" == *.gz ]]; then
     echo "Descomprimindo backup..."
     gunzip -c "$BACKUP_FILE" > "${BACKUP_FILE%.gz}"
     BACKUP_FILE="${BACKUP_FILE%.gz}"
 fi
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Restaurar backup
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-restaurar-backup
 echo "Restaurando backup..."
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME < "$BACKUP_FILE"
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se a restauração foi bem-sucedida
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se a restauração foi bem-sucedida
 if [ $? -eq 0 ]; then
     echo "Restauração concluída com sucesso"
     
-    # Reiniciar n8n
-    echo "Reiniciando n8n..."
+    #reiniciar-n8n-echo-reiniciando-n8n
     docker start n8n
     
-    # Log da restauração
-    echo "$(date): Restauração PostgreSQL concluída - $BACKUP_FILE" >> /var/log/n8n/restore.log
+    #log-da-restaurao-echo-date Restauração PostgreSQL concluída - $BACKUP_FILE" >> /var/log/n8n/restore.log
     
 else
     echo "ERRO: Falha na restauração"
@@ -506,16 +447,15 @@ else
 fi
 ```
 
-### Restauração de Workflows
+#restaurao-de-workflows
 
-#### **Script de Restauração de Workflows**
+#script-de-restaurao-de-workflows
 
 ```bash
-#!/bin/bash
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> restore-workflows.sh
+#bin/bash
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-restore-workflowssh
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-N8N_URL="https://seu-n8n.com"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-n8nurlhttpsseu-n8ncom
 API_KEY="sua_api_key"
 BACKUP_FILE="$1"
 
@@ -524,7 +464,7 @@ if [ -z "$BACKUP_FILE" ]; then
     exit 1
 fi
 
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se o arquivo existe
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se o arquivo existe
 if [ ! -f "$BACKUP_FILE" ]; then
     echo "ERRO: Arquivo de backup não encontrado: $BACKUP_FILE"
     exit 1
@@ -532,14 +472,14 @@ fi
 
 echo "Iniciando restauração de workflows..."
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Descomprimir backup se necessário
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-descomprimir-backup se necessário
 if [[ "$BACKUP_FILE" == *.gz ]]; then
     echo "Descomprimindo backup..."
     gunzip -c "$BACKUP_FILE" > "${BACKUP_FILE%.gz}"
     BACKUP_FILE="${BACKUP_FILE%.gz}"
 fi
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Restaurar workflows
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-restaurar-workflows
 echo "Restaurando workflows..."
 jq -c '.[]' "$BACKUP_FILE" | while read workflow; do
     curl -X POST \
@@ -557,20 +497,18 @@ done
 
 echo "Restauração de workflows concluída"
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Log da restauração
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-log-da restauração
 echo "$(date): Restauração de workflows concluída - $BACKUP_FILE" >> /var/log/n8n/restore.log
 ```
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Disaster Recovery
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-disaster-recovery
 
-### Plano de Disaster Recovery
+#plano-de-disaster-recovery
 
-#### **Cenários de Recuperação**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Cenários de DR documentados
+#cenrios-de-recuperao-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-cenrios-de DR documentados
 DR_SCENARIOS=(
     "Perda de servidor principal"
     "Corrupção de banco de dados"
@@ -581,63 +519,53 @@ DR_SCENARIOS=(
 )
 ```
 
-#### **RTO e RPO**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Objetivos de Recuperação
-RTO_PRIMARY=4      # 4 horas para recuperação
-RTO_SECONDARY=24   # 24 horas para recuperação secundária
-RPO_PRIMARY=1      # 1 hora de perda de dados máxima
-RPO_SECONDARY=24   # 24 horas de perda de dados máxima
+#rto-e-rpo-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-objetivos-de Recuperação
+RTO_PRIMARY=4      #id-4-horas-para-recuperao-rtosecondary24   #id-24-horas-para-recuperao-secundria
+RPO_PRIMARY=1      #id-1-hora-de-perda-de dados máxima
+RPO_SECONDARY=24   #id-24-horas-de-perda-de dados máxima
 ```
 
-### Recuperação de Infraestrutura
+#recuperao-de-infraestrutura
 
-#### **Script de Recuperação Completa**
+#script-de-recuperao-completa-bash
+#bin/bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-disaster-recoverysh
 
-```bash
-#!/bin/bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> disaster-recovery.sh
-
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-PRIMARY_SERVER="n8n-primary.empresa.com"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-primaryservern8n-primaryempresacom
 BACKUP_SERVER="n8n-backup.empresa.com"
 S3_BUCKET="n8n-backups"
 LATEST_BACKUP=$(aws s3 ls s3://$S3_BUCKET/database/ | sort | tail -1 | awk '{print $4}')
 
 echo "Iniciando Disaster Recovery..."
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 1. Verificar conectividade
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-1-verificar conectividade
 echo "Verificando conectividade..."
 if ! ping -c 3 $PRIMARY_SERVER > /dev/null; then
     echo "Servidor primário indisponível, iniciando DR..."
     
-    # 2. Provisionar servidor de backup
+    #id-2-provisionar-servidor-de-backup
     echo "Provisionando servidor de backup..."
-    # Aqui você incluiria comandos para provisionar infraestrutura
+    #aqui-voc-incluiria-comandos-para provisionar infraestrutura
     
-    # 3. Restaurar banco de dados
+    #id-3-restaurar-banco-de-dados
     echo "Restaurando banco de dados..."
     aws s3 cp s3://$S3_BUCKET/database/$LATEST_BACKUP /tmp/
     gunzip /tmp/$LATEST_BACKUP
     psql -h localhost -U n8n -d n8n < /tmp/${LATEST_BACKUP%.gz}
     
-    # 4. Restaurar workflows
-    echo "Restaurando workflows..."
+    #id-4-restaurar-workflows-echo-restaurando workflows..."
     aws s3 cp s3://$S3_BUCKET/workflows/ /tmp/workflows/ --recursive
     
-    # 5. Configurar DNS
-    echo "Atualizando DNS..."
-    # Comandos para atualizar DNS
+    #id-5-configurar-dns-echo-atualizando DNS..."
+    #comandos-para-atualizar-dns
     
-    # 6. Verificar funcionalidade
-    echo "Verificando funcionalidade..."
+    #id-6-verificar-funcionalidade-echo-verificando funcionalidade..."
     curl -f https://$BACKUP_SERVER/healthz
     
     if [ $? -eq 0 ]; then
         echo "Disaster Recovery concluído com sucesso"
-        # Notificar equipe
-        curl -X POST $WEBHOOK_URL \
+        #notificar-equipe-curl-x-post $WEBHOOK_URL \
           -H "Content-type: application/json" \
           -d '{"text":"✅ Disaster Recovery concluído - n8n disponível em backup"}'
     else
@@ -651,18 +579,15 @@ fi
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Testes de Restauração
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-testes-de Restauração
 
-### Script de Teste
+#script-de-teste
 
-#### **Teste Automatizado de Restauração**
+#teste-automatizado-de-restaurao-bash
+#bin/bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-test-restoresh
 
-```bash
-#!/bin/bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> test-restore.sh
-
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-TEST_ENV="test-restore"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-testenvtest-restore
 BACKUP_FILE="$1"
 TEST_DB="n8n_test"
 
@@ -673,7 +598,7 @@ fi
 
 echo "Iniciando teste de restauração..."
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 1. Criar ambiente de teste
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-1-criar ambiente de teste
 echo "Criando ambiente de teste..."
 docker run -d --name $TEST_ENV \
   -e DB_TYPE=postgresdb \
@@ -682,27 +607,26 @@ docker run -d --name $TEST_ENV \
   -p 5679:5678 \
   n8nio/n8n:latest
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 2. Aguardar inicialização
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-2-aguardar inicialização
 echo "Aguardando inicialização..."
 sleep 30
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 3. Restaurar backup
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-3-restaurar backup
 echo "Restaurando backup de teste..."
 gunzip -c "$BACKUP_FILE" | psql -h localhost -U n8n -d $TEST_DB
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 4. Verificar restauração
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-4-verificar restauração
 echo "Verificando restauração..."
 WORKFLOW_COUNT=$(curl -s http://localhost:5679/api/v1/workflows | jq '. | length')
 echo "Workflows restaurados: $WORKFLOW_COUNT"
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 5. Testar funcionalidade
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-5-testar funcionalidade
 echo "Testando funcionalidade..."
 curl -f http://localhost:5679/healthz
 
 if [ $? -eq 0 ]; then
     echo "✅ Teste de restauração PASSOU"
-    # Limpar ambiente de teste
-    docker stop $TEST_ENV
+    #limpar-ambiente-de-teste-docker stop $TEST_ENV
     docker rm $TEST_ENV
     psql -h localhost -U n8n -c "DROP DATABASE $TEST_DB;"
 else
@@ -713,53 +637,48 @@ fi
 
 ---
 
-## <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Automação com Cron
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-automao-com Cron
 
-### Configuração de Cron Jobs
+#configurao-de-cron-jobs
 
-#### **Crontab Configuração**
+#crontab-configurao-bash
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-ao crontab (crontab -e)
 
-```bash
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Adicionar ao crontab (crontab -e)
-
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup diário às 2h da manhã
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-dirio às 2h da manhã
 0 2 * * * /path/to/backup-postgres.sh
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup semanal completo aos domingos às 3h
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-semanal completo aos domingos às 3h
 0 3 * * 0 /path/to/backup-complete.sh
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup de workflows a cada 6 horas
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de workflows a cada 6 horas
 0 */6 * * * /path/to/backup-workflows.sh
 
-# <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Backup para nuvem diário às 4h
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-backup-para nuvem diário às 4h
 0 4 * * * /path/to/backup-to-s3.sh
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Teste de restauração semanal aos sábados às 5h
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-teste-de restauração semanal aos sábados às 5h
 0 5 * * 6 /path/to/test-restore.sh
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Limpeza de backups antigos diariamente às 6h
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-limpeza-de backups antigos diariamente às 6h
 0 6 * * * /path/to/cleanup-old-backups.sh
 ```
 
-#### **Script de Limpeza**
+#script-de-limpeza-bash
+#bin/bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-cleanup-old-backupssh
 
-```bash
-#!/bin/bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> cleanup-old-backups.sh
-
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações
-BACKUP_DIR="/backups/n8n"
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-backupdirbackupsn8n
 RETENTION_DAYS=30
 CLOUD_RETENTION_DAYS=90
 
 echo "Iniciando limpeza de backups antigos..."
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Limpar backups locais
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-limpar-backups locais
 find $BACKUP_DIR -name "*.sql.gz" -mtime +$RETENTION_DAYS -delete
 find $BACKUP_DIR -name "*.json.gz" -mtime +$RETENTION_DAYS -delete
 find $BACKUP_DIR -name "*.tar.gz" -mtime +$RETENTION_DAYS -delete
 
-# <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Limpar backups na nuvem (S3)
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-limpar-backups na nuvem (S3)
 aws s3 ls s3://n8n-backups/ --recursive | \
   awk '$1 < "'$(date -d "$CLOUD_RETENTION_DAYS days ago" +%Y-%m-%d)'" {print $4}' | \
   xargs -I {} aws s3 rm s3://n8n-backups/{}
@@ -769,35 +688,27 @@ echo "Limpeza concluída"
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Backup
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Backup
 
-### Configuração
-
-- [ ] Estratégia 3-2-1 implementada
+#configurao-estratgia 3-2-1 implementada
 - [ ] Scripts de backup criados
 - [ ] Automação com cron configurada
 - [ ] Backup na nuvem configurado
 - [ ] Retenção de backups definida
 
-### Recuperação
-
-- [ ] Scripts de restauração criados
+#recuperao-scripts de restauração criados
 - [ ] Testes de restauração realizados
 - [ ] Plano de DR documentado
 - [ ] RTO e RPO definidos
 - [ ] Procedimentos de recuperação testados
 
-### Monitoramento
-
-- [ ] Logs de backup configurados
+#monitoramento-logs de backup configurados
 - [ ] Alertas de falha configurados
 - [ ] Métricas de backup coletadas
 - [ ] Relatórios de backup gerados
 - [ ] Verificação de integridade implementada
 
-### Documentação
-
-- [ ] Procedimentos documentados
+#documentao-procedimentos documentados
 - [ ] Contatos de emergência definidos
 - [ ] Matriz de responsabilidades
 - [ ] Plano de comunicação
@@ -805,7 +716,7 @@ echo "Limpeza concluída"
 
 ---
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você implementou backup e recovery:
 

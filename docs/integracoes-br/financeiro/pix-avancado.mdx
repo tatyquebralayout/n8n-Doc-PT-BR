@@ -6,17 +6,15 @@ keywords: [n8n, pix, pagamentos, recebimentos, automação, banco central, qr co
 ---
 
 
-# <IonicIcon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> PIX Avançado
+#ionicicon-namecard-outline-style-fontsize-24px color: '#cor-ea4b71-pix-avanado
 
 Aprenda a implementar integrações avançadas com PIX para automatizar pagamentos, recebimentos e gestão financeira no contexto brasileiro.
 
 ---
 
-## <IonicIcon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 1 | Tipos de PIX
+#ionicicon-namecard-outline-style-fontsize-24px color: '#cor-ea4b71-1 Tipos de PIX
 
-### PIX por Chave
-
-**Integração com chaves PIX:**
+#pix-por-chave-integrao-com chaves PIX:**
 
 ```javascript
 // Gerar QR Code PIX
@@ -30,9 +28,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-### PIX por QR Code
-
-**QR Code estático e dinâmico:**
+#pix-por-qr-code-qr Code estático e dinâmico:**
 
 ```javascript
 // QR Code Estático
@@ -55,11 +51,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 2 | Workflows de Pagamento
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-2 Workflows de Pagamento
 
-### Criar Cobrança PIX
-
-**Exemplo: Workflow de cobrança automática:**
+#criar-cobrana-pix-exemplo-workflow de cobrança automática:**
 
 ```javascript
 // Workflow: Cobrança PIX Automática
@@ -87,9 +81,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 ]
 ```
 
-### Monitorar Pagamentos
-
-**Workflow de monitoramento:**
+#monitorar-pagamentos-workflow-de-monitoramento
 
 ```javascript
 // Monitorar pagamentos PIX
@@ -111,11 +103,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 3 | APIs de Bancos Brasileiros
+#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-3 APIs de Bancos Brasileiros
 
-### Open Banking
-
-**Integração com Open Banking:**
+#open-banking-integrao-com-open Banking:**
 
 ```javascript
 // Configuração Open Banking
@@ -137,9 +127,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-### APIs Específicas
-
-**Exemplos de APIs bancárias:**
+#apis-especficas-exemplos-de-apis bancárias:**
 
 | Banco | API | Endpoint | Autenticação |
 |-------|-----|----------|--------------|
@@ -150,11 +138,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 4 | Segurança e Compliance
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-4 Segurança e Compliance
 
-### LGPD e Segurança
-
-**Requisitos de segurança:**
+#lgpd-e-segurana-requisitos-de segurança:**
 
 ```javascript
 // Políticas de segurança PIX
@@ -178,12 +164,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-### Validações
-
-**Validações obrigatórias:**
-
-```javascript
-// Validar dados PIX
+#validaes-validaes-obrigatrias-javascript Validar dados PIX
 {{ (function(dados) {
   const erros = [];
   
@@ -211,11 +192,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 5 | Casos de Uso Empresariais
+#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-5 Casos de Uso Empresariais
 
-### E-commerce
-
-**Automação para lojas online:**
+#e-commerce-automao-para-lojas-online
 
 ```javascript
 // Workflow E-commerce PIX
@@ -227,8 +206,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
       "acao": "Gerar cobrança PIX",
       "dados": {
         "valor": "{{ $json.total }}",
-        "descricao": "Pedido #{{ $json.id }}",
-        "expiracao": "30 minutos"
+        "descricao": "Pedido #jsonid-expiracao-30-minutos
       }
     },
     {
@@ -250,11 +228,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-### B2B
-
-**Pagamentos entre empresas:**
-
-```javascript
+#cor-b2b-pagamentos-entre-empresas-javascript
 // Workflow B2B PIX
 {
   "trigger": "Fatura vencida",
@@ -284,11 +258,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 6 | Relatórios e Analytics
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-6 Relatórios e Analytics
 
-### Métricas de PIX
-
-**KPIs importantes:**
+#mtricas-de-pix-kpis-importantes
 
 ```javascript
 // Métricas PIX
@@ -309,9 +281,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 })($json.transacoes_pix) }}
 ```
 
-### Análise Temporal
-
-**Padrões de pagamento:**
+#anlise-temporal-padres-de-pagamento
 
 ```javascript
 // Análise temporal PIX
@@ -339,7 +309,7 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 7 | Próximos passos
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-7 Próximos passos
 
 1. **[Integração com Nota Fiscal](./nfe-integracao)** - Automatizar NFe
 2. **[Conciliação Bancária](./conciliacao-bancaria)** - Automatizar conciliação

@@ -63,9 +63,6 @@ export default defineConfig({
     timeout: 10000, // 10 segundos para expectativas
   },
 
-  // Configurações de retry
-  retries: process.env.CI ? 2 : 1,
-
   // Configurações de output
   outputDir: 'test-results/',
 }); 

@@ -1,16 +1,12 @@
-﻿# Criação de Dados de Teste
+﻿#criao-de-dados-de-teste
 
 A criação de dados de teste (mocking) é essencial para desenvolver e testar workflows sem depender de dados reais ou APIs externas. Esta seção aborda como gerar dados sintéticos realistas para diferentes cenários de teste.
 
-## Visão Geral
+#viso-geral-dados-de-teste permitem desenvolver workflows de forma segura e eficiente, simulando cenários reais sem comprometer dados de produção ou sistemas externos. O n8n oferece ferramentas integradas e suporte para bibliotecas externas de geração de dados.
 
-Dados de teste permitem desenvolver workflows de forma segura e eficiente, simulando cenários reais sem comprometer dados de produção ou sistemas externos. O n8n oferece ferramentas integradas e suporte para bibliotecas externas de geração de dados.
+#tipos-de-dados-de-teste
 
-## Tipos de Dados de Teste
-
-### Dados Pessoais
-
-Gere dados pessoais realistas para testes:
+#cor-dados-pessoais-gere-dados-pessoais realistas para testes:
 
 ```javascript
 // Gerar dados de usuário brasileiro
@@ -40,9 +36,7 @@ Gere dados pessoais realistas para testes:
 };
 ```
 
-### Dados Comerciais
-
-Crie dados de negócios para testes:
+#cor-dados-comerciais-crie-dados-de negócios para testes:
 
 ```javascript
 // Gerar dados de empresa brasileira
@@ -74,9 +68,7 @@ Crie dados de negócios para testes:
 };
 ```
 
-### Dados Financeiros
-
-Simule dados financeiros para testes:
+#cor-dados-financeiros-simule-dados-financeiros para testes:
 
 ```javascript
 // Gerar dados de transação financeira
@@ -106,11 +98,9 @@ Simule dados financeiros para testes:
 };
 ```
 
-## Bibliotecas de Mocking
+#bibliotecas-de-mocking
 
-### Faker.js
-
-Use a biblioteca Faker.js para dados realistas:
+#fakerjs-use-a-biblioteca-fakerjs para dados realistas:
 
 ```javascript
 // Configurar Faker.js para português brasileiro
@@ -120,31 +110,17 @@ const { faker } = require('@faker-js/faker/locale/pt_BR');
 const pessoa = {
   nome: faker.person.fullName(),
   email: faker.internet.email(),
-  telefone: faker.phone.number('(##) #####-####'),
-  cpf: faker.helpers.replaceSymbolWithNumber('###.###.###-##'),
-  endereco: {
-    rua: faker.location.street(),
-    numero: faker.location.buildingNumber(),
+  telefone: faker.phone.number('(#-#cpf-fakerhelpersreplacesymbolwithnumber#-#endereco-rua-fakerlocationstreet-numero faker.location.buildingNumber(),
     bairro: faker.location.county(),
     cidade: faker.location.city(),
     estado: faker.location.state(),
-    cep: faker.location.zipCode('#####-###')
-  }
-};
-
-// Gerar dados de empresa
-const empresa = {
+    cep: faker.location.zipCode('#-#gerar-dados-de-empresa-const empresa = {
   razaoSocial: faker.company.name(),
-  cnpj: faker.helpers.replaceSymbolWithNumber('##.###.###/####-##'),
-  email: faker.internet.email(),
-  website: faker.internet.url(),
-  setor: faker.company.buzzNoun()
+  cnpj: faker.helpers.replaceSymbolWithNumber('#-#email-fakerinternetemail-website-fakerinterneturl-setor faker.company.buzzNoun()
 };
 ```
 
-### Chance.js
-
-Use Chance.js para dados mais específicos:
+#chancejs-use-chancejs-para-dados mais específicos:
 
 ```javascript
 const Chance = require('chance');
@@ -170,12 +146,9 @@ const dadosEspecificos = {
 };
 ```
 
-## Cenários de Teste Comuns
+#cenrios-de-teste-comuns
 
-### E-commerce
-
-```javascript
-// Gerar dados de e-commerce
+#e-commerce-javascript-gerar-dados de e-commerce
 , () => ({
         produto: gerarProduto(),
         quantidade: Math.floor(Math.random() * 5) + 1,
@@ -191,10 +164,7 @@ const dadosEspecificos = {
 };
 ```
 
-### CRM
-
-```javascript
-// Gerar dados de CRM
+#crm-javascript-gerar-dados de CRM
 ,
     oportunidades: Array.from({length: Math.floor(Math.random() * 3) + 1}, () => ({
       id: gerarUUID(),
@@ -207,10 +177,7 @@ const dadosEspecificos = {
 };
 ```
 
-### ERP
-
-```javascript
-// Gerar dados de ERP
+#erp-javascript-gerar-dados de ERP
 )),
       estoque: Math.floor(Math.random() * 1000),
       fornecedor: faker.company.name()
@@ -218,26 +185,20 @@ const dadosEspecificos = {
     fornecedor: {
       codigo: gerarCodigoFornecedor(),
       razaoSocial: faker.company.name(),
-      cnpj: faker.helpers.replaceSymbolWithNumber('##.###.###/####-##'),
-      contato: faker.person.fullName(),
-      email: faker.internet.email(),
-      telefone: faker.phone.number()
+      cnpj: faker.helpers.replaceSymbolWithNumber('#-#contato-fakerpersonfullname-email-fakerinternetemail-telefone faker.phone.number()
     },
     cliente: {
       codigo: gerarCodigoCliente(),
       nome: faker.person.fullName(),
       tipo: ['PF', 'PJ'][Math.floor(Math.random() * 2)],
-      documento: Math.random() > 0.5 ? faker.helpers.replaceSymbolWithNumber('###.###.###-##') : faker.helpers.replaceSymbolWithNumber('##.###.###/####-##'),
-      email: faker.internet.email(),
-      telefone: faker.phone.number()
-    }
+      documento: Math.random() > 0.5 ? faker.helpers.replaceSymbolWithNumber('#-#faker.helpers.replaceSymbolWithNumber('#-#email-fakerinternetemail-telefone-fakerphonenumber
   };
 };
 ```
 
-## Workflows de Teste
+#workflows-de-teste
 
-### Workflow: Geração de Dados de Teste
+#workflow-gerao-de-dados-de Teste
 
 ```mermaid
 graph TD
@@ -251,9 +212,7 @@ graph TD
     H --> D
 ```
 
-### Workflow: Teste de Performance
-
-```mermaid
+#workflow-teste-de-performance-mermaid
 graph TD
     A[Schedule Trigger] --> B[Code: Gerar Carga]
     B --> C[HTTP Request: Load Test]
@@ -263,19 +222,16 @@ graph TD
     F --> G[Send Alert if Issues]
 ```
 
-## Configuração de Ambiente de Teste
+#configurao-de-ambiente-de-teste
 
-### Variáveis de Ambiente
-
-```bash
-# Configurar ambiente de teste
-export N8N_ENVIRONMENT=test
+#variveis-de-ambiente-bash
+#configurar-ambiente-de-teste-export N8N_ENVIRONMENT=test
 export N8N_DATABASE_URL=postgresql://test:test@localhost:5432/n8n_test
 export N8N_MOCK_DATA_ENABLED=true
 export N8N_TEST_API_URL=https://api-test.exemplo.com
 ```
 
-### Configuração de Dados de Teste
+#configurao-de-dados-de-teste
 
 ```javascript
 // Configurar dados de teste
@@ -298,12 +254,9 @@ export N8N_TEST_API_URL=https://api-test.exemplo.com
 };
 ```
 
-## Validação de Dados de Teste
+#validao-de-dados-de-teste
 
-### Validação de Formato
-
-```javascript
-// Validar formato de dados brasileiros
+#validao-de-formato-javascript Validar formato de dados brasileiros
 
   
   // Validar CNPJ
@@ -347,10 +300,7 @@ $/.test(cpf)) return false;
 };
 ```
 
-### Validação de Consistência
-
-```javascript
-// Validar consistência de dados
+#validao-de-consistncia-javascript Validar consistência de dados
 
   
   // Verificar se pedido tem itens
@@ -370,44 +320,34 @@ $/.test(cpf)) return false;
 };
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### Segurança
-
-- **Nunca use dados reais** em ambiente de teste
+#segurana-nunca-use-dados reais** em ambiente de teste
 - **Mascare dados sensíveis** sempre que possível
 - **Use dados sintéticos** realistas mas não identificáveis
 - **Limpe dados de teste** regularmente
 - **Isole ambiente de teste** da produção
 
-### Qualidade
-
-- **Valide dados gerados** antes do uso
+#qualidade-valide-dados-gerados antes do uso
 - **Mantenha consistência** entre diferentes tipos de dados
 - **Use padrões realistas** para o contexto brasileiro
 - **Documente formatos** de dados esperados
 - **Teste com diferentes volumes** de dados
 
-### Performance
-
-- **Gere dados em lotes** para grandes volumes
+#performance-gere-dados-em lotes** para grandes volumes
 - **Use cache** para dados frequentemente acessados
 - **Otimize geração** de dados complexos
 - **Monitore uso de memória** durante geração
 - **Limpe dados antigos** regularmente
 
-## Recursos Adicionais
+#recursos-adicionais
 
-### Bibliotecas Úteis
-
-- **Faker.js**: Geração de dados realistas
+#bibliotecas-teis-fakerjs-gerao de dados realistas
 - **Chance.js**: Dados mais específicos e controlados
 - **JSON Schema Faker**: Baseado em schemas JSON
 - **TestData-Generator**: Dados estruturados
 
-### Ferramentas de Teste
-
-- **Postman**: Testes de API com dados mock
+#ferramentas-de-teste-postman Testes de API com dados mock
 - **Insomnia**: Alternativa ao Postman
 - **JMeter**: Testes de carga
 - **Artillery**: Testes de performance

@@ -6,35 +6,29 @@ keywords: [n8n, credenciais, compartilhamento, equipe, colaboração, segurança
 ---
 
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Compartilhamento de Credenciais
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-compartilhamento-de Credenciais
 
 Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o controle de acesso e a segurança dos dados.
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 1 | Por que Compartilhar Credenciais?
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-1 Por que Compartilhar Credenciais?
 
-### Benefícios
-
-- **Colaboração em equipe**: Múltiplos usuários podem usar as mesmas integrações
+#benefcios-colaborao-em-equipe Múltiplos usuários podem usar as mesmas integrações
 - **Centralização**: Uma única fonte de verdade para credenciais
 - **Controle de acesso**: Gerenciar quem pode usar quais credenciais
 - **Auditoria**: Rastrear quem usou cada credencial
 
-### Considerações de Segurança
-
-- **Princípio do menor privilégio**: Compartilhe apenas o necessário
+#consideraes-de-segurana-princpio do menor privilégio**: Compartilhe apenas o necessário
 - **Monitoramento**: Acompanhe o uso das credenciais
 - **Renovação**: Mantenha credenciais atualizadas
 - **Isolamento**: Separe credenciais por ambiente (dev/prod)
 
 ---
 
-## <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 2 | Configurando Compartilhamento
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-2 Configurando Compartilhamento
 
-### Passo a Passo
-
-1. **Acesse a credencial** que deseja compartilhar
+#passo-a-passo-1-acesse a credencial** que deseja compartilhar
 2. **Clique em "Compartilhar"** ou "Configurações"
 3. **Selecione usuários** ou grupos
 4. **Defina permissões**:
@@ -44,9 +38,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 5. **Configure notificações** (opcional)
 6. **Salve as configurações**
 
-### Tipos de Permissão
-
-| Permissão | Pode Usar | Pode Editar | Pode Compartilhar | Pode Excluir |
+#tipos-de-permisso-permisso | Pode Usar | Pode Editar | Pode Compartilhar | Pode Excluir |
 |-----------|-----------|-------------|-------------------|--------------|
 | **Leitura** | ✅ | ❌ | ❌ | ❌ |
 | **Escrita** | ✅ | ✅ | ❌ | ❌ |
@@ -54,11 +46,9 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 3 | Cenários de Uso
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-3 Cenários de Uso
 
-### Equipe de Marketing
-
-**Credenciais compartilhadas:**
+#equipe-de-marketing-credenciais-compartilhadas
 
 - Google Analytics
 - Facebook Ads
@@ -71,11 +61,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 - Acesso de leitura para todos
 - Apenas líderes com acesso de escrita
 
-### Equipe Financeira
-
-**Credenciais compartilhadas:**
-
-- Stripe
+#equipe-financeira-credenciais-compartilhadas Stripe
 - PayPal
 - QuickBooks
 - Banco de dados contábil
@@ -86,9 +72,7 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 - Acesso restrito a membros da equipe
 - Auditoria rigorosa de uso
 
-### Equipe de Desenvolvimento
-
-**Credenciais compartilhadas:**
+#equipe-de-desenvolvimento-credenciais-compartilhadas
 
 - GitHub
 - AWS/Google Cloud
@@ -103,38 +87,30 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 4 | Boas Práticas de Segurança
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-4 Boas Práticas de Segurança
 
-### Controle de Acesso
-
-- ✅ **Audite regularmente** quem tem acesso
+#controle-de-acesso **Audite regularmente** quem tem acesso
 - ✅ **Remova acessos** de usuários que saíram
 - ✅ **Use grupos** para facilitar gerenciamento
 - ✅ **Documente** o propósito de cada credencial
 - ❌ **Não compartilhe** credenciais pessoais
 - ❌ **Evite** credenciais com privilégios excessivos
 
-### Rotação e Renovação
-
-- **Tokens OAuth**: Renove a cada 90 dias
+#rotao-e-renovao-tokens OAuth**: Renove a cada 90 dias
 - **API Keys**: Rotacione a cada 6 meses
 - **Senhas**: Mude a cada 3 meses
 - **Certificados**: Renove antes da expiração
 
-### Monitoramento
-
-- **Logs de acesso**: Monitore quem usa cada credencial
+#monitoramento-logs-de-acesso Monitore quem usa cada credencial
 - **Alertas**: Configure notificações para uso suspeito
 - **Relatórios**: Gere relatórios mensais de uso
 - **Auditoria**: Revise permissões trimestralmente
 
 ---
 
-## <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 5 | Configurações Avançadas
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-5 Configurações Avançadas
 
-### Expiração Automática
-
-Configure credenciais para expirar automaticamente:
+#expirao-automtica-configure-credenciais-para expirar automaticamente:
 
 ```json
 {
@@ -144,9 +120,7 @@ Configure credenciais para expirar automaticamente:
 }
 ```
 
-### Restrições de IP
-
-Limite o acesso por endereço IP:
+#restries-de-ip-limite-o acesso por endereço IP:
 
 ```json
 {
@@ -160,9 +134,7 @@ Limite o acesso por endereço IP:
 }
 ```
 
-### Horários de Acesso
-
-Defina janelas de tempo para uso:
+#horrios-de-acesso-defina-janelas de tempo para uso:
 
 ```json
 {
@@ -177,11 +149,9 @@ Defina janelas de tempo para uso:
 
 ---
 
-## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 6 | Troubleshooting
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-6 Troubleshooting
 
-### Problemas Comuns
-
-**"Credencial não encontrada"**
+#problemas-comuns-credencial-no-encontrada
 
 - Verifique se a credencial foi compartilhada
 - Confirme se você tem permissão de leitura
@@ -201,7 +171,7 @@ Defina janelas de tempo para uso:
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> 7 | Próximos passos
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-7 Próximos passos
 
 1. **[Boas Práticas](./boas-praticas)** - Manter segurança
 2. **[Usar Credenciais em Workflows](../execucoes/componentes-execucoes)** - Aplicar na prática

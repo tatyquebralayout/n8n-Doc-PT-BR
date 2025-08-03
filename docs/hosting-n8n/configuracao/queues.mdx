@@ -6,11 +6,11 @@ keywords: [n8n, queues, filas, redis, bull, processamento, escalabilidade]
 ---
 
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração de Filas
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-de Filas
 
 Este documento detalha como **configurar sistema de filas** para processamento escalável no n8n, incluindo setup do Redis, configuração de workers, gerenciamento de jobs, tratamento de falhas, monitoramento de performance, e estratégias de distribuição de carga que permitem processar grandes volumes de workflows simultaneamente sem degradar a performance do sistema principal.
 
-## <IonicIcon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> O que você vai aprender
+#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
 
 - Configuração do Redis para filas
 - Setup de workers distribuídos
@@ -20,11 +20,9 @@ Este documento detalha como **configurar sistema de filas** para processamento e
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Por que usar Filas?
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-por-que usar Filas?
 
-### Benefícios das Filas
-
-**Sem Filas (Processamento Síncrono):**
+#benefcios-das-filas-sem-filas (Processamento Síncrono):**
 
 - ❌ **Bloqueio** - Um workflow trava todos os outros
 - ❌ **Timeout** - Execuções longas causam timeouts
@@ -39,9 +37,7 @@ Este documento detalha como **configurar sistema de filas** para processamento e
 - ✅ **Performance** - Melhor utilização de recursos
 - ✅ **Monitoramento** - Visibilidade completa do processamento
 
-### Quando Usar Filas
-
-**Use filas quando:**
+#quando-usar-filas-use-filas quando:**
 
 - Processa **muitos workflows** simultaneamente
 - Tem **execuções longas** (>30 segundos)
@@ -51,45 +47,39 @@ Este documento detalha como **configurar sistema de filas** para processamento e
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Redis
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-redis
 
-### Instalação Rápida
+#instalao-rpida
 
-#### **Ubuntu/Debian**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar Redis
+#ubuntudebian-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-redis
 sudo apt update
 sudo apt install redis-server
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Iniciar serviço
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-iniciar-servio
 sudo systemctl start redis-server
 sudo systemctl enable redis-server
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar status
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-status
 sudo systemctl status redis-server
 redis-cli ping
 ```
 
-#### **CentOS/RHEL**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Instalar Redis
+#centosrhel-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-redis
 sudo yum install redis
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Iniciar serviço
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-iniciar-servio
 sudo systemctl start redis
 sudo systemctl enable redis
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar status
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-status
 sudo systemctl status redis
 redis-cli ping
 ```
 
-#### **Docker**
-
-```bash
-# <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Executar Redis com Docker
+#docker-bash
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-executar-redis com Docker
 docker run -d \
   --name redis-n8n \
   -p 6379:6379 \
@@ -97,65 +87,54 @@ docker run -d \
   redis:7-alpine redis-server --appendonly yes
 ```
 
-### Configuração Avançada
+#configurao-avanada
 
-#### **redis.conf - Otimizações**
+#redisconf-otimizaes-bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-etcredisredisconf
 
-```bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> /etc/redis/redis.conf
-
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Memória
-maxmemory 512mb
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-memria-maxmemory 512mb
 maxmemory-policy allkeys-lru
 
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Persistência
-save 900 1
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-persistncia-save 900 1
 save 300 10
 save 60 10000
 appendonly yes
 appendfsync everysec
 
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance
-tcp-keepalive 300
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-tcp-keepalive 300
 timeout 0
 tcp-backlog 511
 
-# <IonicIcon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Logs
-loglevel notice
+#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-logs-loglevel notice
 logfile /var/log/redis/redis-server.log
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segurança
-requirepass senha_redis_segura
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana-requirepass senha_redis_segura
 bind 127.0.0.1
 ```
 
-#### **Configuração de Segurança**
-
-```bash
-# <IonicIcon name="person-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar usuário dedicado
+#configurao-de-segurana-bash
+#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-criar-usurio dedicado
 sudo adduser --system --group --no-create-home redis
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar permissões
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-permisses
 sudo chown redis:redis /var/lib/redis
 sudo chmod 750 /var/lib/redis
 
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurar firewall
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-firewall
 sudo ufw allow from 192.168.1.0/24 to any port 6379
 ```
 
-### Variáveis de Ambiente
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração básica Redis
+#variveis-de-ambiente-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-bsica Redis
 REDIS_URL=redis://localhost:6379
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Com autenticação
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-com-autenticao
 REDIS_URL=redis://:senha_redis@localhost:6379
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Com SSL/TLS
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-com-ssltls
 REDIS_URL=rediss://:senha_redis@localhost:6380
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações avançadas
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-avanadas
 REDIS_PREFIX=n8n
 REDIS_DB=0
 REDIS_TIMEOUT=30000
@@ -163,33 +142,26 @@ REDIS_TIMEOUT=30000
 
 ---
 
-## <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração n8n
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-n8n
 
-### Variáveis de Ambiente
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração de filas
+#variveis-de-ambiente-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-de filas
 REDIS_URL=redis://localhost:6379
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Modo de execução
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-modo-de execução
 EXECUTIONS_PROCESS=main
 EXECUTIONS_MODE=regular
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de workers
-EXECUTIONS_TIMEOUT=300000  # 5 minutos
-EXECUTIONS_TIMEOUT_MAX=3600000  # 1 hora
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de workers
+EXECUTIONS_TIMEOUT=300000  #id-5-minutos-executionstimeoutmax3600000  #id-1-hora
 
-# <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Retry e falhas
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-retry-e falhas
 EXECUTIONS_RETRY_ON_ERROR=true
 EXECUTIONS_RETRY_ON_FAILURE=true
 EXECUTIONS_RETRY_ATTEMPTS=3
-EXECUTIONS_RETRY_DELAY=5000  # 5 segundos
-```
+EXECUTIONS_RETRY_DELAY=5000  #id-5-segundos
 
-### Docker Compose
-
-```yaml
-version: '3.8'
+#docker-compose-yaml-version-38
 
 services:
   n8n:
@@ -198,30 +170,23 @@ services:
     ports:
       - "5678:5678"
     environment:
-      # Configurações básicas
-      - N8N_PROTOCOL=https
-      - N8N_HOST=seudominio.com
+      #configuraes-bsicas-n8nprotocolhttps N8N_HOST=seudominio.com
       - GENERIC_TIMEZONE=America/Sao_Paulo
       
-      # Banco de dados
-      - DB_TYPE=postgresdb
+      #banco-de-dados-dbtypepostgresdb
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_DATABASE=n8n
       - DB_POSTGRESDB_USER=n8n
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
       
-      # Redis para filas
-      - REDIS_URL=redis://redis:6379
+      #redis-para-filas-redisurlredisredis6379
       
-      # Configurações de execução
-      - EXECUTIONS_PROCESS=main
+      #configuraes-de-execuo-executionsprocessmain
       - EXECUTIONS_MODE=regular
       - EXECUTIONS_TIMEOUT=300000
       - EXECUTIONS_TIMEOUT_MAX=3600000
       
-      # Segurança
-      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
-      - N8N_BASIC_AUTH_ACTIVE=true
+      #segurana-n8nencryptionkeyn8nencryptionkey-n8nbasicauthactivetrue
       - N8N_BASIC_AUTH_USER=admin
       - N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD}
     volumes:
@@ -277,48 +242,40 @@ networks:
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Workers Distribuídos
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-workers-distribudos
 
-### Configuração de Workers
+#configurao-de-workers
 
-#### **Worker Principal (Main)**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração para worker principal
+#worker-principal-main-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-para worker principal
 EXECUTIONS_PROCESS=main
 EXECUTIONS_MODE=regular
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Este worker processa:
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> - Execuções manuais
-# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> - Webhooks
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> - Interface de usuário
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> - Gerenciamento de workflows
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-este-worker processa:
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-execues manuais
+#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-webhooks
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-interface de usuário
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-gerenciamento de workflows
 ```
 
-#### **Workers de Execução**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração para workers de execução
+#workers-de-execuo-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-para workers de execução
 EXECUTIONS_PROCESS=worker
 EXECUTIONS_MODE=regular
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Este worker processa apenas:
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> - Execuções de workflows
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> - Jobs da fila
-# <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> - Retry de falhas
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-este-worker processa apenas:
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-execues de workflows
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-jobs da fila
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-retry de falhas
 ```
 
-### Múltiplos Workers
+#mltiplos-workers
 
-#### **Docker Compose com Workers**
-
-```yaml
+#docker-compose-com-workers-yaml
 version: '3.8'
 
 services:
-  # Worker principal
-  n8n-main:
-    image: n8nio/n8n:latest
+  #worker-principal-n8n-main-image-n8nion8nlatest
     restart: unless-stopped
     ports:
       - "5678:5678"
@@ -338,9 +295,7 @@ services:
     networks:
       - n8n_network
 
-  # Workers de execução
-  n8n-worker-1:
-    image: n8nio/n8n:latest
+  #workers-de-execuo-n8n-worker-1-image n8nio/n8n:latest
     restart: unless-stopped
     environment:
       - EXECUTIONS_PROCESS=worker
@@ -409,14 +364,11 @@ networks:
 
 ---
 
-## <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Gerenciamento de Jobs
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-gerenciamento-de Jobs
 
-### Tipos de Jobs
+#tipos-de-jobs
 
-#### **Execuções de Workflow**
-
-```javascript
-// Job de execução de workflow
+#execues-de-workflow-javascript Job de execução de workflow
 {
   id: 'workflow-execution-123',
   type: 'workflow',
@@ -431,10 +383,7 @@ networks:
 }
 ```
 
-#### **Webhooks**
-
-```javascript
-// Job de webhook
+#webhooks-javascript-job-de webhook
 {
   id: 'webhook-456',
   type: 'webhook',
@@ -449,23 +398,16 @@ networks:
 }
 ```
 
-### Retry e Falhas
+#retry-e-falhas
 
-#### **Configuração de Retry**
-
-```bash
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configurações de retry
+#configurao-de-retry-bash
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de retry
 EXECUTIONS_RETRY_ON_ERROR=true
 EXECUTIONS_RETRY_ON_FAILURE=true
 EXECUTIONS_RETRY_ATTEMPTS=3
-EXECUTIONS_RETRY_DELAY=5000  # 5 segundos
-EXECUTIONS_RETRY_BACKOFF=exponential  # exponential, linear
-```
+EXECUTIONS_RETRY_DELAY=5000  #id-5-segundos-executionsretrybackoffexponential  #exponential-linear
 
-#### **Tratamento de Falhas**
-
-```javascript
-// Estratégias de retry
+#tratamento-de-falhas-javascript Estratégias de retry
 const retryStrategies = {
   exponential: (attempt) => Math.pow(2, attempt) * 1000, // 1s, 2s, 4s
   linear: (attempt) => attempt * 1000, // 1s, 2s, 3s
@@ -475,44 +417,38 @@ const retryStrategies = {
 
 ---
 
-## <IonicIcon name="eye-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Monitoramento
+#ionicicon-nameeye-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento
 
-### Métricas Redis
+#mtricas-redis
 
-#### **Comandos de Monitoramento**
-
-```bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Status do Redis
+#comandos-de-monitoramento-bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-status-do Redis
 redis-cli info
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estatísticas de memória
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-estatsticas-de memória
 redis-cli info memory
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Estatísticas de comandos
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-estatsticas-de comandos
 redis-cli info stats
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Lista de chaves
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-lista-de chaves
 redis-cli keys "*"
 
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Monitorar comandos em tempo real
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-monitorar-comandos em tempo real
 redis-cli monitor
 
-# <IonicIcon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar jobs na fila
+#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-jobs na fila
 redis-cli llen n8n:queue:jobs
 redis-cli llen n8n:queue:webhooks
 ```
 
-#### **Script de Monitoramento**
-
-```bash
-#!/bin/bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> monitor-redis.sh
-
-REDIS_HOST="localhost"
+#script-de-monitoramento-bash
+#bin/bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-monitor-redissh-redishostlocalhost
 REDIS_PORT="6379"
 REDIS_PASSWORD="senha_redis"
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Métricas básicas
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-mtricas-bsicas
 echo "=== Status Redis ==="
 redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD info server | grep uptime_in_seconds
 
@@ -526,34 +462,28 @@ echo "Jobs processados: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASS
 echo "Jobs falharam: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD get n8n:stats:failed)"
 ```
 
-### Alertas
+#Alertas
 
-#### **Script de Alertas**
-
-```bash
-#!/bin/bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> redis-alerts.sh
-
-REDIS_HOST="localhost"
+#script-de-alertas-bash
+#bin/bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-redis-alertssh-redishostlocalhost
 REDIS_PORT="6379"
 REDIS_PASSWORD="senha_redis"
 
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se Redis está respondendo
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se Redis está respondendo
 if ! redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD ping > /dev/null 2>&1; then
     echo "ALERTA: Redis não está respondendo!"
-    # Enviar notificação
-    curl -X POST https://hooks.slack.com/services/YOUR/WEBHOOK/URL \
+    #enviar-notificao-curl-x-post https://hooks.slack.com/services/YOUR/WEBHOOK/URL \
       -H "Content-type: application/json" \
       -d '{"text":"🚨 Redis não está respondendo!"}'
     exit 1
 fi
 
-# <IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar fila muito grande
+#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-fila muito grande
 QUEUE_SIZE=$(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD llen n8n:queue:jobs)
 if [ $QUEUE_SIZE -gt 1000 ]; then
     echo "ALERTA: Fila muito grande ($QUEUE_SIZE jobs)"
-    # Enviar notificação
-    curl -X POST https://hooks.slack.com/services/YOUR/WEBHOOK/URL \
+    #enviar-notificao-curl-x-post https://hooks.slack.com/services/YOUR/WEBHOOK/URL \
       -H "Content-type: application/json" \
       -d "{\"text\":\"⚠️ Fila muito grande: $QUEUE_SIZE jobs\"}"
 fi
@@ -561,117 +491,98 @@ fi
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Escalabilidade
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-escalabilidade
 
-### Cluster Redis
+#cluster-redis
 
-#### **Redis Sentinel**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Sentinel
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> sentinel.conf
-port 26379
+#redis-sentinel-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-sentinel
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-sentinelconf-port 26379
 sentinel monitor mymaster 127.0.0.1 6379 2
 sentinel down-after-milliseconds mymaster 5000
 sentinel failover-timeout mymaster 10000
 sentinel parallel-syncs mymaster 1
 ```
 
-#### **Redis Cluster**
-
-```bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Criar cluster Redis
+#redis-cluster-bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-criar-cluster Redis
 redis-cli --cluster create \
   127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 \
   127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 \
   --cluster-replicas 1
 ```
 
-### Cloud Redis
+#cloud-redis
 
-#### **AWS ElastiCache**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração ElastiCache
+#aws-elasticache-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-elasticache
 REDIS_URL=redis://seu-cluster.xyz.cache.amazonaws.com:6379
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Com autenticação
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-com-autenticao
 REDIS_URL=redis://:senha@seu-cluster.xyz.cache.amazonaws.com:6379
 ```
 
-#### **Google Cloud Memorystore**
-
-```bash
-# <IonicIcon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Configuração Memorystore
+#google-cloud-memorystore-bash
+#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-memorystore
 REDIS_URL=redis://10.0.0.1:6379
 
-# <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Com autenticação
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-com-autenticao
 REDIS_URL=redis://:senha@10.0.0.1:6379
 ```
 
 ---
 
-## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Troubleshooting
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### **Redis não conecta**
-
-```bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se Redis está rodando
+#redis-no-conecta-bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se Redis está rodando
 sudo systemctl status redis-server
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar porta
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-porta
 netstat -tlnp | grep 6379
 
-# <IonicIcon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Testar conexão
+#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-testar-conexo
 redis-cli ping
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar logs
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs
 sudo tail -f /var/log/redis/redis-server.log
 ```
 
-#### **Jobs não processam**
-
-```bash
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar se workers estão rodando
+#jobs-no-processam-bash
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se workers estão rodando
 docker ps | grep n8n
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar logs dos workers
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs dos workers
 docker logs n8n-worker-1
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar fila
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-fila
 redis-cli llen n8n:queue:jobs
 
-# <IonicIcon name="key-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar configurações
+#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-configuraes
 docker exec n8n-worker-1 env | grep EXECUTIONS
 ```
 
-#### **Performance lenta**
-
-```bash
-# <IonicIcon name="server-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar uso de memória Redis
+#performance-lenta-bash
+#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-uso de memória Redis
 redis-cli info memory
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar comandos lentos
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-comandos lentos
 redis-cli slowlog get 10
 
-# <IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Verificar estatísticas
+#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-estatsticas
 redis-cli info stats
 
-# <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Limpar cache se necessário
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-limpar-cache se necessário
 redis-cli flushdb
 ```
 
-### Scripts de Diagnóstico
+#scripts-de-diagnstico
 
-#### **Diagnóstico Completo**
-
-```bash
-#!/bin/bash
-# <IonicIcon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> diagnose-queues.sh
-
-echo "=== Diagnóstico de Filas n8n ==="
+#diagnstico-completo-bash
+#bin/bash
+#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-diagnose-queuessh-echo "=== Diagnóstico de Filas n8n ==="
 echo
 
 echo "1. Status do Redis:"
@@ -708,35 +619,27 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Produção
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Produção
 
-### Configuração
-
-- [ ] Redis instalado e configurado
+#configurao-redis instalado e configurado
 - [ ] Autenticação Redis configurada
 - [ ] Variáveis de ambiente configuradas
 - [ ] Conexão Redis testada
 - [ ] Workers configurados corretamente
 
-### Performance
-
-- [ ] Configurações de memória otimizadas
+#performance-configuraes de memória otimizadas
 - [ ] Persistência Redis configurada
 - [ ] Workers distribuídos adequadamente
 - [ ] Timeouts configurados
 - [ ] Retry policies definidas
 
-### Monitoramento
-
-- [ ] Scripts de monitoramento configurados
+#monitoramento-scripts de monitoramento configurados
 - [ ] Alertas configurados
 - [ ] Métricas sendo coletadas
 - [ ] Logs estruturados
 - [ ] Dashboard de monitoramento
 
-### Segurança
-
-- [ ] Senha Redis configurada
+#segurana-senha Redis configurada
 - [ ] Acesso restrito por IP
 - [ ] SSL/TLS configurado (se necessário)
 - [ ] Backup Redis configurado
@@ -744,7 +647,7 @@ docker logs --tail 20 n8n-main 2>&1 | grep -E "(ERROR|WARN|worker|queue)"
 
 ---
 
-## <IonicIcon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Próximos Passos
+#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
 
 Agora que você configurou as filas:
 

@@ -5,11 +5,11 @@ sidebar_position: 2
 keywords: [n8n, schedule trigger, agendamento, cron, execução automática, tempo, automação]
 ---
 
-# <IonicIcon name="time-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Schedule Trigger
+#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-schedule-trigger
 
 O **Schedule Trigger** é uma ferramenta essencial do n8n para automação baseada em tempo. Ele permite executar workflows automaticamente em horários específicos, criando automações verdadeiramente independentes de intervenção humana.
 
-## O que é o Schedule Trigger?
+#o-que-o-schedule Trigger?
 
 O **Schedule Trigger** permite:
 
@@ -20,7 +20,7 @@ O **Schedule Trigger** permite:
 - **Gerar relatórios** automáticos
 - **Manter sistemas** atualizados
 
-### Quando Usar o Schedule Trigger
+#quando-usar-o-schedule-trigger
 
 - **Backup** automático de dados
 - **Sincronização** periódica entre sistemas
@@ -29,11 +29,9 @@ O **Schedule Trigger** permite:
 - **Monitoramento** contínuo de sistemas
 - **Processamento** em lotes programados
 
-## Configuração Básica
+#configurao-bsica
 
-### Estrutura do Schedule Trigger
-
-```javascript
+#estrutura-do-schedule-trigger-javascript
 // Schedule Trigger - Estrutura básica
 {
   "rule": {
@@ -54,12 +52,9 @@ O **Schedule Trigger** permite:
 }
 ```
 
-### Tipos de Agendamento
+#tipos-de-agendamento
 
-#### 1. Agendamento Simples
-
-```javascript
-// Executar todos os dias às 9h
+#id-1-agendamento-simples-javascript Executar todos os dias às 9h
 {
   "rule": {
     "interval": [
@@ -88,9 +83,7 @@ O **Schedule Trigger** permite:
 }
 ```
 
-#### 2. Agendamento com Cron
-
-```javascript
+#id-2-agendamento-com-cron-javascript
 // Executar às 8h, 12h e 18h todos os dias
 {
   "rule": {
@@ -113,10 +106,7 @@ O **Schedule Trigger** permite:
 }
 ```
 
-#### 3. Agendamento Avançado
-
-```javascript
-// Executar a cada 2 horas durante horário comercial
+#id-3-agendamento-avanado-javascript Executar a cada 2 horas durante horário comercial
 {
   "rule": {
     "interval": [
@@ -136,12 +126,9 @@ O **Schedule Trigger** permite:
 }
 ```
 
-## Exemplos Práticos
+#exemplos-prticos
 
-### 1. Backup Diário
-
-```javascript
-// Schedule Trigger - Backup diário às 2h da manhã
+#id-1-backup-dirio-javascript Schedule Trigger - Backup diário às 2h da manhã
 {
   "rule": {
     "interval": [
@@ -166,9 +153,7 @@ O **Schedule Trigger** permite:
 Schedule Trigger → Database (exportar dados) → Cloud Storage (salvar backup) → Email (notificar conclusão)
 ```
 
-### 2. Sincronização de Dados
-
-```javascript
+#id-2-sincronizao-de-dados-javascript
 // Schedule Trigger - Sincronizar a cada 15 minutos
 {
   "rule": {
@@ -187,10 +172,7 @@ Schedule Trigger → Database (exportar dados) → Cloud Storage (salvar backup)
 Schedule Trigger → API Externa (buscar dados) → Database (atualizar) → Log (registrar mudanças)
 ```
 
-### 3. Relatório Semanal
-
-```javascript
-// Schedule Trigger - Relatório toda segunda às 8h
+#id-3-relatrio-semanal-javascript Schedule Trigger - Relatório toda segunda às 8h
 {
   "rule": {
     "cronExpression": "0 8 * * 1"
@@ -206,10 +188,7 @@ Schedule Trigger → API Externa (buscar dados) → Database (atualizar) → Log
 Schedule Trigger → Database (consultar dados da semana) → Code (processar relatório) → Email (enviar relatório)
 ```
 
-### 4. Limpeza Mensal
-
-```javascript
-// Schedule Trigger - Limpeza no primeiro dia do mês às 3h
+#id-4-limpeza-mensal-javascript Schedule Trigger - Limpeza no primeiro dia do mês às 3h
 {
   "rule": {
     "cronExpression": "0 3 1 * *"
@@ -222,10 +201,7 @@ Schedule Trigger → Database (consultar dados da semana) → Code (processar re
 Schedule Trigger → Database (identificar dados antigos) → Delete (remover dados) → Log (registrar limpeza)
 ```
 
-### 5. Monitoramento Contínuo
-
-```javascript
-// Schedule Trigger - Monitorar a cada 5 minutos
+#id-5-monitoramento-contnuo-javascript Schedule Trigger - Monitorar a cada 5 minutos
 {
   "rule": {
     "interval": [
@@ -243,12 +219,9 @@ Schedule Trigger → Database (identificar dados antigos) → Delete (remover da
 Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Slack (alertar se erro)
 ```
 
-## Casos de Uso Avançados
+#casos-de-uso-avanados
 
-### 1. Agendamento Condicional
-
-```javascript
-// Code Node - Verificar se deve executar
+#id-1-agendamento-condicional-javascript Code Node - Verificar se deve executar
 ;
 
 // Schedule Trigger - A cada hora
@@ -271,10 +244,7 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 }
 ```
 
-### 2. Agendamento Dinâmico
-
-```javascript
-// Code Node - Calcular próximo agendamento
+#id-2-agendamento-dinmico-javascript Code Node - Calcular próximo agendamento
  else if (diaSemana === 6) { // Sábado
     proximaExecucao.setDate(proximaExecucao.getDate() + 2);
   }
@@ -299,9 +269,7 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 }
 ```
 
-### 3. Agendamento com Retry
-
-```javascript
+#id-3-agendamento-com-retry-javascript
 // Schedule Trigger - Executar a cada 30 minutos
 {
   "rule": {
@@ -331,7 +299,7 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 };
 ```
 
-### 4. Agendamento com Dados Dinâmicos
+#id-4-agendamento-com-dados-dinmicos
 
 ```javascript
 // Schedule Trigger - Executar a cada hora
@@ -353,12 +321,9 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 };
 ```
 
-## Expressões Cron
+#expresses-cron
 
-### Sintaxe Básica
-
-```javascript
-// Formato: minuto hora dia mês dia_semana
+#sintaxe-bsica-javascript-formato minuto hora dia mês dia_semana
 "0 9 * * *"     // Todos os dias às 9h
 "0 */2 * * *"   // A cada 2 horas
 "0 8 * * 1-5"   // Segunda a sexta às 8h
@@ -366,10 +331,7 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 "0 12 * * 0"    // Domingo ao meio-dia
 ```
 
-### Exemplos Comuns
-
-```javascript
-// Backup diário às 2h
+#exemplos-comuns-javascript-backup diário às 2h
 "0 2 * * *"
 
 // Limpeza semanal no domingo às 3h
@@ -388,11 +350,9 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 "0 2 1 1,4,7,10 *"
 ```
 
-## Boas Práticas
+#boas-prticas
 
-### 1. Escolha de Horários
-
-```javascript
+#id-1-escolha-de-horrios-javascript
 // ✅ Bom: Horários de baixo tráfego
 {
   "cronExpression": "0 2 * * *"  // 2h da manhã
@@ -404,10 +364,7 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 }
 ```
 
-### 2. Frequência Adequada
-
-```javascript
-// ✅ Bom: Frequência baseada na necessidade
+#id-2-frequncia-adequada-javascript ✅ Bom: Frequência baseada na necessidade
 {
   "cronExpression": "0 */6 * * *"  // A cada 6 horas
 }
@@ -418,10 +375,7 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 }
 ```
 
-### 3. Timezone Correto
-
-```javascript
-// ✅ Bom: Especificar timezone
+#id-3-timezone-correto-javascript ✅ Bom: Especificar timezone
 {
   "rule": {
     "cronExpression": "0 9 * * *"
@@ -439,9 +393,7 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 }
 ```
 
-### 4. Tratamento de Erros
-
-```javascript
+#id-4-tratamento-de-erros-javascript
 // ✅ Bom: Implementar tratamento de erros
  catch (error) {
     console.error('Erro na execução:', error.message);
@@ -457,32 +409,26 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 };
 ```
 
-## Troubleshooting
+#Troubleshooting
 
-### Problemas Comuns
+#problemas-comuns
 
-#### Workflow não executa
-- Verifique se o Schedule Trigger está ativo
+#workflow-no-executa-verifique se o Schedule Trigger está ativo
 - Confirme se o timezone está correto
 - Teste com agendamento simples
 - Verifique logs de execução
 
-#### Execução em horário errado
-- Verifique configuração de timezone
+#execuo-em-horrio-errado Verifique configuração de timezone
 - Confirme sintaxe da expressão cron
 - Teste com horário específico
 - Use Debug Helper para verificar
 
-#### Execução duplicada
-- Verifique se não há múltiplos Schedule Triggers
+#execuo-duplicada-verifique-se não há múltiplos Schedule Triggers
 - Confirme se o workflow não está sendo executado por outros meios
 - Implemente controle de concorrência
 - Use locks ou flags
 
-### Debug
-
-```javascript
-// Code Node - Debug de Schedule Trigger
+#cor-debug-javascript-code-node - Debug de Schedule Trigger
 ;
 };
 
@@ -490,9 +436,9 @@ Schedule Trigger → HTTP Request (verificar status) → If (status ok?) → Sla
 return { json: debugSchedule() };
 ```
 
-## Integração com Outros Nodes
+#integrao-com-outros-nodes
 
-### 1. Schedule Trigger + Set Node
+#id-1-schedule-trigger-set Node
 
 ```javascript
 // Schedule Trigger - Executar diariamente às 8h
@@ -524,7 +470,7 @@ return { json: debugSchedule() };
 }
 ```
 
-### 2. Schedule Trigger + If Node
+#id-2-schedule-trigger-if Node
 
 ```javascript
 // Schedule Trigger - Executar a cada hora
@@ -547,7 +493,7 @@ return { json: debugSchedule() };
 }
 ```
 
-### 3. Schedule Trigger + HTTP Request
+#id-3-schedule-trigger-http Request
 
 ```javascript
 // Schedule Trigger - Executar a cada 15 minutos
@@ -577,9 +523,7 @@ return { json: debugSchedule() };
 }
 ```
 
-## Próximos Passos
-
-- [Manual Trigger](/integracoes/trigger-nodes/time-based/manual-trigger) - Execução manual
+#prximos-passos-manual-triggerintegracoestrigger-nodestime-basedmanual-trigger - Execução manual
 - [Webhook Trigger](/integracoes/trigger-nodes/event-based/webhook-trigger) - Eventos externos
 - [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
 - [Set Node](/integracoes/builtin-nodes/data-processing/set) - Manipulação de dados

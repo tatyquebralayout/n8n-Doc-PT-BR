@@ -6,15 +6,15 @@ keywords: [n8n, embed, implantação, deployment, produção, iframe, SSO, segur
 ---
 
 
-# <IonicIcon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Implantação do Embed
+#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-implantao-do Embed
 
 Este guia explica como **implantar o n8n embarcado** em ambiente de produção, cobrindo segurança, autenticação, performance, monitoramento, exemplos de deployment e troubleshooting para garantir integração robusta e segura com sua aplicação.
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Segurança e Boas Práticas
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana-e Boas Práticas
 
-### Checklist de Segurança para Iframes
+#checklist-de-segurana-para-iframes
 
 - Use `X-Frame-Options: SAMEORIGIN` ou `ALLOW-FROM` para restringir domínios
 - Implemente `Content-Security-Policy` para limitar origens do embed
@@ -22,9 +22,7 @@ Este guia explica como **implantar o n8n embarcado** em ambiente de produção, 
 - Restrinja tokens de autenticação por tempo e escopo
 - Valide permissões do usuário a cada requisição
 
-#### **Exemplo de headers Nginx**
-
-```nginx
+#exemplo-de-headers-nginx-nginx
 add_header X-Frame-Options "ALLOW-FROM https://app.suaempresa.com" always;
 add_header Content-Security-Policy "frame-ancestors 'self' https://app.suaempresa.com" always;
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
@@ -32,11 +30,9 @@ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" alway
 
 ---
 
-## <IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> SSO e Autenticação
+#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-sso-e Autenticação
 
-### Passos para SSO Empresarial
-
-- Configure SAML, OAuth2 ou LDAP conforme o sistema da empresa
+#passos-para-sso-empresarial Configure SAML, OAuth2 ou LDAP conforme o sistema da empresa
 - Mapeie usuários e permissões automaticamente
 - Use tokens JWT ou API Key para autenticação do embed
 - Exemplo de configuração SAML:
@@ -59,19 +55,15 @@ N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
 
 ---
 
-## <IonicIcon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Performance e Otimização
+#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-e Otimização
 
-### Recomendações
-
-- Use lazy loading para carregar o embed apenas quando necessário
+#recomendaes-use-lazy-loading para carregar o embed apenas quando necessário
 - Ative cache de assets estáticos (CSS, JS, imagens)
 - Monitore o tempo de carregamento do iframe
 - Utilize CDN para servir arquivos estáticos do n8n
 - Limite o número de workflows carregados por vez
 
-#### **Exemplo de cache Nginx**
-
-```nginx
+#exemplo-de-cache-nginx-nginx
 location ~* \.(js|css|png|jpg|svg)$ {
   expires 30d;
   add_header Cache-Control "public, max-age=2592000";
@@ -80,11 +72,9 @@ location ~* \.(js|css|png|jpg|svg)$ {
 
 ---
 
-## <IonicIcon name="bug-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Monitoramento e Troubleshooting
+#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento-e Troubleshooting
 
-### Logs e Alertas
-
-- Ative logs de acesso e auditoria no backend do n8n
+#logs-e-alertas-ative logs de acesso e auditoria no backend do n8n
 - Configure alertas para falhas de autenticação e erros de integração
 - Use webhooks para notificar eventos críticos (ex: workflow.error, workflow.saved)
 - Exemplo de webhook para monitoramento:
@@ -99,20 +89,16 @@ location ~* \.(js|css|png|jpg|svg)$ {
 }
 ```
 
-### Estratégias de Fallback
-
-- Exiba mensagens de erro amigáveis no embed
+#estratgias-de-fallback-exiba mensagens de erro amigáveis no embed
 - Implemente retry automático para falhas temporárias
 - Redirecione para tela de login em caso de sessão expirada
 - Mantenha logs detalhados para análise de incidentes
 
 ---
 
-## <IonicIcon name="cloud-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Exemplos de Deployment
+#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-de Deployment
 
-### Docker Compose para Produção
-
-```yaml
+#docker-compose-para-produo-yaml
 version: '3.8'
 services:
   n8n:
@@ -123,9 +109,7 @@ services:
       - N8N_PORT=5678
       - N8N_USER_MANAGEMENT_DISABLED=false
       - N8N_RBAC_ENABLED=true
-      - N8N_THEME_PRIMARY_COLOR=#ea4b71
-      - N8N_THEME_LOGO_URL=https://suaempresa.com/logo.png
-      - N8N_SAML_ENABLED=true
+      - N8N_THEME_PRIMARY_COLOR=#cor-ea4b71-n8nthemelogourlhttpssuaempresacomlogopng-n8nsamlenabledtrue
       - N8N_SAML_ISSUER=https://sso.suaempresa.com
       - N8N_SAML_ENTRY_POINT=https://sso.suaempresa.com/sso
       - N8N_SAML_CERT=/path/to/certificate.pem
@@ -149,9 +133,7 @@ volumes:
   pg_data:
 ```
 
-### Proxy Reverso com Nginx
-
-```nginx
+#proxy-reverso-com-nginx-nginx
 server {
     listen 443 ssl http2;
     server_name n8n.suaempresa.com;
@@ -176,7 +158,7 @@ server {
 }
 ```
 
-### CI/CD para Automação de Deployment
+#cicd-para-automao-de-deployment
 
 - Use GitHub Actions, GitLab CI ou outra ferramenta para automatizar build e deploy
 - Exemplo de job para deploy automático:
@@ -195,7 +177,7 @@ jobs:
 
 ---
 
-## <IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} /> Checklist de Produção
+#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Produção
 
 - [ ] HTTPS obrigatório e certificado válido
 - [ ] Domínios permitidos configurados (CORS e CSP)
