@@ -74,9 +74,9 @@ class OverlapValidator {
       }
     }
     
-    // Verificar se existe docs/intro.md
-    if (!fs.existsSync('docs/intro.md')) {
-      this.addIssue('error', 'MISSING_INTRO', 'Arquivo intro.md é obrigatório');
+    // Verificar se existe docs/intro.mdx ou docs/intro.md
+    if (!fs.existsSync('docs/intro.mdx') && !fs.existsSync('docs/intro.md')) {
+      this.addIssue('error', 'MISSING_INTRO', 'Arquivo intro.mdx ou intro.md é obrigatório');
     }
   }
 

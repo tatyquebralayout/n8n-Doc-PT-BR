@@ -1,0 +1,62 @@
+---
+title: Sistema de Validação de Overlaps
+description: Visão geral do sistema implementado para evitar redundâncias na documentação
+sidebar_label: Sistema de Overlaps
+---
+
+# Sistema de Validação de Overlaps
+
+## Visão Geral
+
+O sistema de validação de overlaps foi implementado para evitar redundâncias na documentação e garantir uma estrutura organizada e eficiente.
+
+## Componentes Implementados
+
+### 1. Arquivo de Configuração Centralizado
+
+O arquivo `sidebars.json` centraliza a lógica de estrutura de navegação e facilita a detecção de overlaps.
+
+**Características:**
+- Estrutura hierárquica completa
+- Palavras-chave de monitoramento
+- Seções críticas definidas
+- Regras de validação estabelecidas
+
+### 2. Guidelines no CONTRIBUTING.md
+
+Estabelece diretrizes claras para verificar overlaps antes de merges.
+
+**Conteúdo implementado:**
+- Verificação prévia de conteúdo
+- Critérios de decisão
+- Processo de verificação
+- Regras de organização
+- Resolução de conflitos
+
+### 3. Script de Validação Automatizada
+
+Detecta automaticamente problemas de estrutura e conteúdo.
+
+**Funcionalidades:**
+- Validação de estrutura
+- Detecção de palavras-chave
+- Análise de similaridade
+- Geração de relatórios
+
+## Como Usar
+
+### Para Novos Contribuidores
+
+1. Leia o CONTRIBUTING.md
+2. Consulte o sidebars.json
+3. Execute a validação com `npm run validate-overlaps`
+4. Siga o checklist pré-merge
+
+### Para Mantenedores
+
+1. Execute validações regulares
+2. Revise relatórios
+3. Atualize configuração
+4. Monitore CI/CD
+
+*Sistema em desenvolvimento - mais detalhes serão adicionados em breve.*

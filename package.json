@@ -64,6 +64,7 @@
     "@mdx-js/react": "^3.1.0",
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
+    "@types/react-responsive": "^8.0.8",
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "docutils": "^1.2.1",
@@ -81,13 +82,13 @@
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.16.0",
     "react-rating-stars-component": "^2.2.0",
+    "react-responsive": "^10.0.1",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "restructured": "^0.0.11",
     "sphinx": "^0.1.2"
   },
   "devDependencies": {
-    "@docusaurus/tsconfig": "^3.8.1",
     "@octokit/rest": "^22.0.0",
     "@types/react": "^18.3.12",
     "@typescript-eslint/eslint-plugin": "^8.36.0",

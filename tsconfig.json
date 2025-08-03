@@ -8,8 +8,9 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -22,8 +23,7 @@
       "./@types",
       "./node_modules/@types"
     ],
-    "types": [],
-    "allowSyntheticDefaultImports": true
+    "types": []
   },
   "include": [
     "src",

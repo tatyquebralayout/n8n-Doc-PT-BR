@@ -5,12 +5,14 @@ on:
     branches: [ main, master ]
     paths:
       - 'docs/**'
+      - 'sidebars.ts'
       - 'sidebars.json'
       - 'scripts/validate-overlaps.js'
   push:
     branches: [ main, master ]
     paths:
       - 'docs/**'
+      - 'sidebars.ts'
       - 'sidebars.json'
       - 'scripts/validate-overlaps.js'
 

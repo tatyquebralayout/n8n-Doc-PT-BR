@@ -11,8 +11,14 @@ import RSTProcessor from '@site/src/components/RSTProcessor';
 import SphinxProcessor from '@site/src/components/SphinxProcessor';
 import HybridProcessor from '@site/src/components/HybridProcessor';
 
+interface CustomCodeBlockProps {
+  children: React.ReactNode;
+  className?: string;
+  [key: string]: any;
+}
+
 // Componente customizado para processar blocos de código RST/Sphinx
-const CustomCodeBlock = ({ children, className, ...props }) => {
+const CustomCodeBlock: React.FC<CustomCodeBlockProps> = ({ children, className, ...props }) => {
   // Extrair a linguagem do className (ex: "language-rst", "language-sphinx")
   const language = className?.replace('language-', '') || '';
   
