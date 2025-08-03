@@ -153,13 +153,17 @@ Google Sheets → CRM API → Slack Notification
 
 ### Service Account (Recomendado para Produção)
 
+:::caution
+Nunca compartilhe sua chave privada real. O exemplo abaixo é **fictício** e serve apenas para fins de documentação.
+:::
+
 ```json
 {
-"type": "service_account",
-"project_id": "seu-projeto",
-"private_key_id": "key-id",
-"private_key": "-----BEGIN PRIVATE KEY-----\n...\n",
-"client_email": "service@projeto.iam.gserviceaccount.com"
+  "type": "service_account",
+  "project_id": "exemplo-projeto",
+  "private_key_id": "exemplo-key-id",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nEXEMPLO-NAO-USE\n-----END PRIVATE KEY-----\n",
+  "client_email": "service@exemplo-projeto.iam.gserviceaccount.com"
 }
 ```
 

@@ -75,7 +75,11 @@ const config: Config = {
             '**/_*/**',
             '**/*.test.{js,jsx,ts,tsx}',
             '**/__tests__/**',
+            // Temporariamente excluir arquivos MDX problemáticos
+            '**/contribuir/esta-documentacao/**/*.mdx',
+            '**/contribuir/n8n-oficial/**/*.mdx',
           ],
+
         },
         blog: false, // Desabilitar blog padrão para usar nossa página customizada
         pages: {
