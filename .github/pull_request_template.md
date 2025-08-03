@@ -66,7 +66,7 @@ Fixes #(número da issue)
 
 ## 🔗 Links Úteis
 
-- [Preview do deploy](#) (será adicionado automaticamente pelo CI)
+- [Build artifacts](#) (disponível após o CI executar)
 - [Relatório de qualidade](#) (será gerado pelo CI)
 - [Documentação relevante](link)
 
