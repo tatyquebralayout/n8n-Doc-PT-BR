@@ -35,6 +35,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          GSC_VERIFICATION_CODE: ${{ secrets.GSC_VERIFICATION_CODE }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
@@ -43,4 +45,4 @@ jobs:
           path: './build'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
