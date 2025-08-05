@@ -45,4 +45,5 @@ const TagList: React.FC<TagListProps> = ({
   );
 };
 
-export default TagList; 
+export default TagList;
+export type { TagListProps }; 

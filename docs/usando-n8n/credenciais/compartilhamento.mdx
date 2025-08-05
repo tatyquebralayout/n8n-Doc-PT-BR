@@ -5,30 +5,19 @@ description: Como compartilhar credenciais de forma segura com sua equipe no n8n
 keywords: [n8n, credenciais, compartilhamento, equipe, colaboração, segurança]
 ---
 
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-compartilhamento-de Credenciais
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Compartilhamento de Credenciais
 
 Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o controle de acesso e a segurança dos dados.
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-1 Por que Compartilhar Credenciais?
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Como Compartilhar
 
-#benefcios-colaborao-em-equipe Múltiplos usuários podem usar as mesmas integrações
-- **Centralização**: Uma única fonte de verdade para credenciais
-- **Controle de acesso**: Gerenciar quem pode usar quais credenciais
-- **Auditoria**: Rastrear quem usou cada credencial
+### Passo a Passo
 
-#consideraes-de-segurana-princpio do menor privilégio**: Compartilhe apenas o necessário
-- **Monitoramento**: Acompanhe o uso das credenciais
-- **Renovação**: Mantenha credenciais atualizadas
-- **Isolamento**: Separe credenciais por ambiente (dev/prod)
-
----
-
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-2 Configurando Compartilhamento
-
-#passo-a-passo-1-acesse a credencial** que deseja compartilhar
+1. **Acesse a credencial** que deseja compartilhar
 2. **Clique em "Compartilhar"** ou "Configurações"
 3. **Selecione usuários** ou grupos
 4. **Defina permissões**:
@@ -38,7 +27,9 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 5. **Configure notificações** (opcional)
 6. **Salve as configurações**
 
-#tipos-de-permisso-permisso | Pode Usar | Pode Editar | Pode Compartilhar | Pode Excluir |
+### Tipos de Permissão
+
+| Permissão | Pode Usar | Pode Editar | Pode Compartilhar | Pode Excluir |
 |-----------|-----------|-------------|-------------------|--------------|
 | **Leitura** | ✅ | ❌ | ❌ | ❌ |
 | **Escrita** | ✅ | ✅ | ❌ | ❌ |
@@ -46,71 +37,10 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-3 Cenários de Uso
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Configurações Avançadas
 
-#equipe-de-marketing-credenciais-compartilhadas
-
-- Google Analytics
-- Facebook Ads
-- Mailchimp
-- HubSpot
-
-**Estratégia:**
-
-- Uma credencial por plataforma
-- Acesso de leitura para todos
-- Apenas líderes com acesso de escrita
-
-#equipe-financeira-credenciais-compartilhadas Stripe
-- PayPal
-- QuickBooks
-- Banco de dados contábil
-
-**Estratégia:**
-
-- Credenciais separadas por ambiente
-- Acesso restrito a membros da equipe
-- Auditoria rigorosa de uso
-
-#equipe-de-desenvolvimento-credenciais-compartilhadas
-
-- GitHub
-- AWS/Google Cloud
-- Slack
-- Jira
-
-**Estratégia:**
-
-- Credenciais por projeto
-- Rotação regular de tokens
-- Monitoramento de uso
-
----
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-4 Boas Práticas de Segurança
-
-#controle-de-acesso **Audite regularmente** quem tem acesso
-- ✅ **Remova acessos** de usuários que saíram
-- ✅ **Use grupos** para facilitar gerenciamento
-- ✅ **Documente** o propósito de cada credencial
-- ❌ **Não compartilhe** credenciais pessoais
-- ❌ **Evite** credenciais com privilégios excessivos
-
-#rotao-e-renovao-tokens OAuth**: Renove a cada 90 dias
-- **API Keys**: Rotacione a cada 6 meses
-- **Senhas**: Mude a cada 3 meses
-- **Certificados**: Renove antes da expiração
-
-#monitoramento-logs-de-acesso Monitore quem usa cada credencial
-- **Alertas**: Configure notificações para uso suspeito
-- **Relatórios**: Gere relatórios mensais de uso
-- **Auditoria**: Revise permissões trimestralmente
-
----
-
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-5 Configurações Avançadas
-
-#expirao-automtica-configure-credenciais-para expirar automaticamente:
+### Expiração Automática
 
 ```json
 {
@@ -120,7 +50,9 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 }
 ```
 
-#restries-de-ip-limite-o acesso por endereço IP:
+### Restrições de IP
+
+**Limite o acesso por endereço IP:**
 
 ```json
 {
@@ -134,7 +66,9 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 }
 ```
 
-#horrios-de-acesso-defina-janelas de tempo para uso:
+### Horários de Acesso
+
+**Defina janelas de tempo para uso:**
 
 ```json
 {
@@ -149,43 +83,44 @@ Aprenda como compartilhar credenciais de forma segura com sua equipe, mantendo o
 
 ---
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-6 Troubleshooting
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Troubleshooting
 
-#problemas-comuns-credencial-no-encontrada
+### Problemas Comuns
 
+**"Credencial não encontrada"**
 - Verifique se a credencial foi compartilhada
 - Confirme se você tem permissão de leitura
 - Tente recarregar a página
 
 **"Acesso negado"**
-
 - Solicite permissão ao administrador
 - Verifique se a credencial não expirou
 - Confirme se está no IP permitido
 
 **"Token expirado"**
-
 - Renove o token OAuth
 - Verifique se o refresh token ainda é válido
 - Entre em contato com o administrador
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-7 Próximos passos
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Boas Práticas
 
-1. **[Boas Práticas](./boas-praticas)** - Manter segurança
-2. **[Usar Credenciais em Workflows](../execucoes/componentes-execucoes)** - Aplicar na prática
-3. **[Gerenciar Usuários](../usuarios-permissoes)** - Configurar equipe
+### Segurança
 
-> *O compartilhamento seguro de credenciais é fundamental para o trabalho em equipe. Sempre priorize a segurança!*
+- **Compartilhe apenas o necessário**
+- **Use grupos** em vez de usuários individuais
+- **Revise permissões** regularmente
+- **Monitore acessos** suspeitos
 
----
+### Organização
 
-:::tip **Dica Pro**
-Crie uma política de credenciais para sua organização. Documente regras claras sobre compartilhamento, rotação e monitoramento.
-:::
+- **Documente** o propósito de cada compartilhamento
+- **Use convenções** de nomenclatura consistentes
+- **Mantenha inventário** atualizado
+- **Faça auditorias** periódicas
 
-:::warning **Importante**
-Nunca compartilhe credenciais por email, chat ou outros canais não seguros. Use sempre o sistema de compartilhamento do n8n.
-:::
-
+<IonicIcon name="bulb-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
+**Dica**: Use o princípio do menor privilégio - compartilhe apenas as permissões necessárias para cada usuário.

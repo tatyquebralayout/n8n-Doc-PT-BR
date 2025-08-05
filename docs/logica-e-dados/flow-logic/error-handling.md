@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: Tratamento de Erros
+description: Guia completo para tratamento de erros em workflows n8n
 sidebar_label: Tratamento de Erros
 ---
 
@@ -92,7 +93,7 @@ Tratar erros adequadamente garante:
       "conditions": {
         "string": [
           {
-            "value1": "={{ $json.error }}",
+            "value1": "={{$json.error}}",
             "operation": "exists"
           }
         ]
@@ -152,8 +153,7 @@ if (currentAttempt < maxAttempts) {
   // Calcular delay exponencial
   const delay = Math.pow(2, currentAttempt) * 1000;
   
-  // Aguardar antes da próxima tentativa
-  await new Promise(resolve => setTimeout(resolve, delay));
+  // Aguardar antes da próxima tentativa  await new Promise(resolve => setTimeout(resolve, delay));
   
   // Lançar erro para forçar retry
   throw new Error(`Retry attempt ${currentAttempt}`);
@@ -224,9 +224,9 @@ try {
     "type": "n8n-nodes-base.errorTrigger",
     "name": "Error Handler",
     "parameters": {
-      "errorMessage": "={{ $json.error.message }}",
-      "errorType": "={{ $json.error.type }}",
-      "nodeName": "={{ $json.error.node }}"
+      "errorMessage": "={{$json.error.message}}",
+      "errorType": "={{$json.error.type}}",
+      "nodeName": "={{$json.error.node}}"
     }
   }
 }
@@ -257,15 +257,15 @@ graph TD
         "string": [
           {
             "name": "errorTimestamp",
-            "value": "={{ $now }}"
+            "value": "={{$now}}"
           },
           {
             "name": "workflowName",
-            "value": "={{ $workflow.name }}"
+            "value": "={{$workflow.name}}"
           },
           {
             "name": "executionId",
-            "value": "={{ $execution.id }}"
+            "value": "={{$execution.id}}"
           },
           {
             "name": "errorSeverity",
@@ -305,11 +305,11 @@ graph TD
         "parameters": [
           {
             "name": "error",
-            "value": "={{ $json.error }}"
+            "value": "={{$json.error}}"
           },
           {
             "name": "context",
-            "value": "={{ $json.context }}"
+            "value": "={{$json.context}}"
           }
         ]
       }
@@ -348,8 +348,7 @@ try {
     const retryCount = $execution.attempt || 1;
     const delay = Math.pow(2, retryCount) * 1000;
     
-    if (retryCount < 3) {
-      await new Promise(resolve => setTimeout(resolve, delay));
+    if (retryCount < 3) {      await new Promise(resolve => setTimeout(resolve, delay));
       throw new Error('Retry network operation');
     }
   }

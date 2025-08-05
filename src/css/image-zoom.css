@@ -1,0 +1,62 @@
+/* Estilos para Image Zoom */
+[data-zoomable] {
+  cursor: zoom-in;
+  transition: transform 0.2s ease-in-out;
+}
+
+[data-zoomable]:hover {
+  transform: scale(1.02);
+}
+
+/* Estilos para o overlay do zoom */
+.medium-zoom-overlay {
+  z-index: 1000;
+}
+
+.medium-zoom-image {
+  z-index: 1001;
+}
+
+/* Estilos para imagens em Markdown */
+.markdown img[data-zoomable] {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para imagens em artigos */
+.article img[data-zoomable] {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Estilos para imagens em documentação */
+.docs-wrapper img[data-zoomable] {
+  border: 1px solid #e1e5e9;
+  border-radius: 6px;
+}
+
+/* Estilos para modo escuro */
+[data-theme='dark'] .docs-wrapper img[data-zoomable] {
+  border-color: #404040;
+}
+
+/* Indicador visual de zoom */
+[data-zoomable]::after {
+  content: '🔍';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+[data-zoomable]:hover::after {
+  opacity: 1;
+} 

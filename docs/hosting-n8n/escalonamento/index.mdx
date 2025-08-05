@@ -5,179 +5,22 @@ description: Escale sua instância n8n para alta disponibilidade e performance
 keywords: [n8n, escalonamento, clustering, load balancing, performance]
 ---
 
-:::info
-<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#cor-17a2b8-esta-pgina da documentação foi validada tecnicamente e didaticamente.
-:::
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
+# Escalonamento
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-escalonamento-esta seção contém guias completos para **escalar n8n em produção** com alta disponibilidade, performance otimizada e tolerância a falhas. Aprenda a implementar clustering, balanceamento de carga, otimização de performance e arquiteturas distribuídas para operações empresariais críticas.
+Esta seção contém guias completos para **escalar n8n em produção** com alta disponibilidade, performance otimizada e tolerância a falhas. Aprenda a implementar clustering, balanceamento de carga, otimização de performance e arquiteturas distribuídas para operações empresariais críticas.
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai encontrar
-
-#load-balancingload-balancing-balanceamento-de-carga para n8n em produção**
-
-- Configuração de nginx como load balancer
-- Estratégias de distribuição de carga
-- Health checks e failover
-- Monitoramento de performance
-- Configurações de segurança
-
- **[Ver guia completo →](./load-balancing)**
-
-#clusteringclustering-implementao-de-clustering-para alta disponibilidade**
-
-- Arquiteturas de cluster para n8n
-- Configuração de múltiplas instâncias
-- Balanceamento de carga inteligente
-- Failover automático
-- Monitoramento de cluster
-
- **[Ver guia completo →](./clustering)**
-
-#otimizao-de-performanceperformance-tcnicas-avanadas para máxima eficiência**
-
-- Configuração de workers otimizada
-- Ajuste de timeouts e limites
-- Otimização de banco de dados
-- Gerenciamento de memória
-- Monitoramento de performance
-
- **[Ver guia completo →](./performance)**
+<IonicIcon name="sparkles-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-por-que Escalar?
-
-#benefcios-do-escalonamento-sem-escalonamento
-
-- ❌ **Ponto único de falha** - Se o servidor cair, tudo para
-- ❌ **Limitação de performance** - Apenas um servidor processando
-- ❌ **Sem escalabilidade** - Não pode adicionar servidores
-- ❌ **Downtime durante manutenção** - Atualizações param o serviço
-- ❌ **Experiência ruim** - Sistema lento com muitos usuários
-
-**Com Escalonamento:**
-
-- ✅ **Alta disponibilidade** - Falhas não afetam o serviço
-- ✅ **Performance melhorada** - Múltiplos servidores processando
-- ✅ **Escalabilidade horizontal** - Adicione servidores conforme necessário
-- ✅ **Zero downtime** - Manutenção sem interrupção
-- ✅ **Experiência fluida** - Sistema sempre responsivo
-
-#quando-escalar-considere-escalar-quando
-
-- Tem **muitos usuários simultâneos**
-- Precisa de **99.9%+ de disponibilidade**
-- Processa **workflows críticos de negócio**
-- Quer **escalabilidade automática**
-- Precisa de **manutenção sem downtime**
-- Workflows demoram **mais de 30 segundos**
-
----
-
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-arquitetura-de Escalonamento
-
-#viso-geral-da-arquitetura-mermaid
-graph TD
-    A[Load Balancer] --> B[n8n Instance 1]
-    A --> C[n8n Instance 2]
-    A --> D[n8n Instance 3]
-    
-    B --> E[Shared Database]
-    C --> E
-    D --> E
-    
-    B --> F[Redis Cluster]
-    C --> F
-    D --> F
-    
-    style A fill:#cor-ffebee-style-b-fill#cor-e8f5e8-style-c-fill#cor-e8f5e8-style-d-fill#cor-e8f5e8-style-e-fill#cor-fff3e0-style-f-fill#cor-e1f5fe
-
-#componentes-principais
-
-#load-balancer-nginxhaproxy Distribui requisições entre instâncias
-- **Health Checks** - Monitora saúde das instâncias
-- **Failover** - Remove instâncias com problemas automaticamente
-
-#instncias-n8n-worker-principal - Interface de usuário e gerenciamento
-- **Workers de Execução** - Processamento de workflows
-- **Configuração Compartilhada** - Banco de dados e Redis
-
-#infraestrutura-compartilhada-banco-de Dados** - PostgreSQL com replicação
-- **Redis Cluster** - Filas e cache distribuído
-- **Monitoramento** - Métricas e alertas centralizados
-
----
-
-#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-guia-de Implementação
-
-#ordem-recomendada-1-load-balancingload-balancing - Configure balanceamento de carga básico
-2. **[Clustering](./clustering)** - Implemente múltiplas instâncias
-3. **[Performance](./performance)** - Otimize para máxima eficiência
-4. **[Monitoramento](../seguranca/monitoring)** - Configure alertas e métricas
-
-#pr-requisitos-docker-e-docker Compose** instalados
-- **Pelo menos 4GB de RAM** disponível
-- **2+ vCPUs** para processamento
-- **Domínio** configurado com SSL
-- **Backup** configurado
-
----
-
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento-e Alertas
-
-#mtricas-essenciais-cpu-e Memória** - Uso de recursos por instância
-- **Tempo de Execução** - Performance dos workflows
-- **Taxa de Erro** - Estabilidade do sistema
-- **Conexões Ativas** - Carga distribuída
-- **Filas Redis** - Status do processamento
-
-#alertas-recomendados-cpu 80%** - Alta utilização de processamento
-- **Memória > 85%** - Pouca memória disponível
-- **Taxa de Erro > 5%** - Muitas falhas
-- **Tempo de Execução > 60s** - Workflows lentos
-- **Instância Offline** - Falha de servidor
-
----
-
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Produção
-
-#configurao-load balancer configurado
-- [ ] Múltiplas instâncias ativas
-- [ ] Banco de dados compartilhado
-- [ ] Redis cluster funcionando
-- [ ] SSL/TLS configurado
-
-#performance-workers otimizados
-- [ ] Timeouts configurados
-- [ ] Rate limiting aplicado
-- [ ] Monitoramento ativo
-- [ ] Alertas funcionando
-
-#segurana-acesso restrito por IP
-- [ ] Secrets gerenciados
-- [ ] Logs de auditoria
-- [ ] Backup configurado
-- [ ] Recuperação testada
-
----
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você entende o escalonamento:
-
-1. **[Load Balancing](./load-balancing)** - Comece com balanceamento de carga
-2. **[Clustering](./clustering)** - Implemente múltiplas instâncias
-3. **[Performance](./performance)** - Otimize para máxima eficiência
-4. **[Segurança](../seguranca/autenticacao)** - Configure autenticação avançada
+- **[Load Balancing](./load-balancing)** - Configuração de balanceamento de carga com nginx e HAProxy
+- **[Clustering](./clustering)** - Implementação de clustering para alta disponibilidade
+- **[Performance](./performance)** - Otimização de performance e monitoramento
 
 ---
 
 :::tip **Dica Pro**
-Comece com uma configuração simples de 2-3 instâncias e escale conforme necessário. Monitore sempre a performance e ajuste as configurações.
+Sempre teste configurações de escalonamento em ambiente de desenvolvimento antes de aplicar em produção. Monitore a performance e ajuste conforme necessário.
 :::
-
-:::warning **Importante**
-Sempre teste o escalonamento em ambiente de desenvolvimento antes de aplicar em produção. Falhas de configuração podem causar interrupção total do serviço.
-:::
-

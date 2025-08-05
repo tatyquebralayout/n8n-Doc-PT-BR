@@ -1,7 +1,8 @@
 ---
 title: Em breve
+description: Seção de trigger nodes baseados em tempo em construção
 ---
 
-# Em breve
 
-Esta se��o est� em constru��o.
+
+Esta seção está em construção.

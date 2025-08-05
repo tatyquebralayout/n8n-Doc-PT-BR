@@ -1,38 +1,49 @@
 ﻿---
-sidebar_position: 6
+sidebar_position: 7
 title: Data Pinning
 description: Como usar data pinning para desenvolvimento e debugging de workflows
 keywords: [n8n, data pinning, desenvolvimento, debugging, dados fixos]
 ---
 
-#ionicicon-namepin-outline-style-fontsize-24px color: '#cor-ea4b71-data-pinning
+<IonicIcon name="pin-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Data Pinning
 
 O **Data Pinning** é uma funcionalidade poderosa do n8n que permite congelar temporariamente os dados de saída de um node durante o desenvolvimento e teste de workflows.
 
-#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-o-que é Data Pinning?
+---
+
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Visão Geral
 
 Data Pinning permite que você "fixe" os dados de saída de um node específico, fazendo com que o n8n use esses dados fixos em vez de fazer uma nova requisição ao serviço externo. Isso é especialmente útil durante o desenvolvimento, quando você quer trabalhar com dados previsíveis e consistentes.
 
-#benefcios-desenvolvimento-mais-rpido Não precisa fazer requisições repetidas
+### Benefícios do Data Pinning
+
+- **Desenvolvimento mais rápido**: Não precisa fazer requisições repetidas
 - **Dados consistentes**: Trabalha com dados previsíveis
 - **Debugging facilitado**: Isola problemas em nodes específicos
 - **Testes confiáveis**: Valida lógica sem depender de APIs externas
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-como-usar Data Pinning
+---
 
-#id-1-executar-o-node-primeiro execute o node que você quer pinar para obter dados reais:
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Como Usar Data Pinning
 
-1. Clique no node
+### 1. Executar o Node
+
+1. Abra o node que você quer pinar
 2. Clique em "Execute Node"
 3. Aguarde a execução completar
 
-#id-2-pinar-os-dados-aps a execução bem-sucedida:
+### 2. Pinar os Dados
 
-1. No painel de resultados, clique no ícone de pin (📌)
+Após a execução bem-sucedida:
+
+1. No painel de resultados, clique no ícone de pin
 2. Os dados ficarão "fixos" para este node
 3. O ícone de pin ficará destacado
 
-#id-3-trabalhar-com-dados-fixos
+### 3. Trabalhar com Dados Fixos
 
 Agora, sempre que executar o workflow:
 
@@ -40,9 +51,14 @@ Agora, sempre que executar o workflow:
 - Não fará requisições ao serviço externo
 - Os dados permanecerão consistentes
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso
+---
 
-#desenvolvimento-de-workflows-javascript Exemplo: Trabalhar com dados de API fixos
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Exemplo Prático
+
+### Dados Pinados de Usuários
+
+```json
 {
   "users": [
     {
@@ -59,49 +75,65 @@ Agora, sempre que executar o workflow:
 }
 ```
 
-#cor-debugging-de-lgica-quando-voc está testando a lógica de um workflow:
+### Cenários de Uso
+
+Quando você está testando a lógica de um workflow:
 
 1. **Pine dados de entrada** para ter consistência
 2. **Teste diferentes cenários** com dados variados
 3. **Valide transformações** sem depender de APIs
 
-#testes-de-performance-teste com grandes volumes** de dados
+### Testes de Performance
+
+- **Teste com grandes volumes** de dados
 - **Valide limites** de processamento
 - **Otimize performance** sem custos de API
 
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-consideraes-importantes
+---
 
-#em-produo-data-pinning é ignorado** em execuções de produção
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Considerações Importantes
+
+### Em Produção
+
+- **Data pinning é ignorado** em execuções de produção
 - **Sempre faz requisições reais** aos serviços
 - **Não afeta performance** de workflows em produção
 
-#limitaes-dados-podem-ficar desatualizados** durante desenvolvimento
+### Limitações
+
+- **Dados podem ficar desatualizados** durante desenvolvimento
 - **Não testa conectividade** real com serviços
 - **Pode mascarar problemas** de API
 
-#boas-prticas-1-use-apenas para desenvolvimento**
+### Boas Práticas
+
+1. **Use apenas para desenvolvimento**
 2. **Teste sem pinning** antes de publicar
 3. **Documente dados pinados** para referência
 4. **Remova pins** quando não precisar mais
 
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
+---
 
-1. **[Transformações de Dados](./transformacoes-dados)** - Manipular dados pinados
-2. **[Error Handling](../flow-logic/error-handling)** - Tratar erros em workflows
-3. **[Debugging](../flow-logic/debugging)** - Técnicas avançadas de debug
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Próximos passos
 
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-dicas-pro
+1. **[Schema Preview](./schema-preview)** - Entenda a estrutura dos dados
+2. **[Otimização de Performance](./otimizacao-performance)** - Melhore eficiência
+3. **[Visualização de Dados](./visualizacao-dados)** - Crie dashboards
 
-#workflow-de-desenvolvimento-1-pine dados de entrada** para consistência
-2. **Desenvolva lógica** com dados fixos
-3. **Teste sem pinning** para validação
-4. **Publique workflow** apenas após testes completos
-
-#cor-debugging-eficiente-pine-dados em pontos críticos** do workflow
-- **Use dados representativos** do mundo real
-- **Teste edge cases** com dados variados
-- **Documente cenários** de teste
+> *Agora você domina o Data Pinning. Use essa funcionalidade para acelerar o desenvolvimento e debugging de seus workflows!*
 
 ---
 
-**<IonicIcon name="pin-outline" style={{ fontSize: '16px', color: '#cor-ea4b71-data-pinning acelera seu desenvolvimento!** 
+:::tip **Dica Pro**
+Use data pinning para testar diferentes cenários de dados sem precisar configurar múltiplas APIs ou serviços externos.
+:::
+
+:::warning **Importante**
+Sempre teste seus workflows sem data pinning antes de colocá-los em produção para garantir que funcionem corretamente com dados reais.
+:::
+
+:::info **Recurso Adicional**
+Combine data pinning com dados de teste (mocking) para criar ambientes de desenvolvimento mais eficientes e previsíveis.
+:::

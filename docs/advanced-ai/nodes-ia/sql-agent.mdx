@@ -1,19 +1,203 @@
 ---
 sidebar_position: 6
-title: SQL Agent
+title: "SQL Agent"
 description: Como usar o node SQL Agent para consultas inteligentes
 keywords: [n8n, sql agent, banco de dados, consultas inteligentes, automação de dados, IA para SQL, queries automáticas, análise de dados]
 ---
 
-import { Icon } from '@iconify/react';
-import IonicIcon from '@site/src/components/IonicIcon';
-
-#sql-agent-no-n8n-consultas Inteligentes com IA em Bancos de Dados
+## SQL Agent no n8n: Consultas Inteligentes com IA em Bancos de Dados
 
 Este documento descreve o **Agente SQL (SQL Agent)**, uma ferramenta de IA que pode interagir com bancos de dados.
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-node-sql Agent
+## O que é o SQL Agent?
 
-Este documento explica como **usar agentes SQL** para consultas inteligentes em bancos de dados, incluindo geração automática de queries, otimização de consultas, interpretação de linguagem natural, análise de dados complexos, e criação de interfaces que permitem usuários não-técnicos extrair insights de dados através de perguntas em português convertidas automaticamente em SQL eficiente e seguro.
+O SQL Agent é um agente de IA especializado que permite realizar consultas em bancos de dados usando linguagem natural. Ele converte perguntas em português em queries SQL otimizadas e seguras.
 
-**Em construção:** Este conteúdo incluirá exemplos com bases de dados brasileiras e queries otimizadas.
+## Funcionalidades Principais
+
+### Consultas em Linguagem Natural
+
+- Perguntas em português
+- Conversão automática para SQL
+- Otimização de queries
+
+### Análise Inteligente
+
+- Interpretação de dados complexos
+- Geração de insights
+- Relatórios automáticos
+
+### Segurança e Performance
+
+- Validação de queries
+- Prevenção de SQL injection
+- Otimização de performance
+
+## Configuração Básica
+
+### 1. Conexão com Banco de Dados
+
+```javascript
+// Exemplo de configuração de conexão
+const dbConfig = {
+  type: "postgresql",
+  host: "localhost",
+  port: 5432,
+  database: "empresa_db",
+  username: "user",
+  password: "password"
+};
+```
+
+### 2. Configuração do Agente
+
+- Defina o modelo de IA
+- Configure o schema do banco
+- Estabeleça limites de consulta
+
+### 3. Prompts de Sistema
+
+- Instruções sobre o banco
+- Regras de segurança
+- Formato de resposta
+
+## Casos de Uso
+
+### Análise de Vendas
+
+- Relatórios de performance
+- Análise de tendências
+- Segmentação de clientes
+
+### Gestão Financeira
+
+- Relatórios de receita
+- Análise de custos
+- Projeções financeiras
+
+### Suporte ao Cliente
+
+- Análise de tickets
+- Métricas de atendimento
+- Relatórios de satisfação
+
+## Configurações Avançadas
+
+### Schema Inteligente
+
+```javascript
+// Exemplo de schema para consultas
+const schema = {
+  tables: {
+    customers: {
+      columns: ["id", "name", "email", "created_at"],
+      description: "Tabela de clientes"
+    },
+    orders: {
+      columns: ["id", "customer_id", "amount", "status"],
+      description: "Tabela de pedidos"
+    }
+  },
+  relationships: [
+    "customers.id = orders.customer_id"
+  ]
+};
+```
+
+### Queries Otimizadas
+
+- Cache de consultas frequentes
+- Índices inteligentes
+- Particionamento de dados
+
+### Segurança
+
+- Validação de permissões
+- Sanitização de inputs
+- Logs de auditoria
+
+## Integração com Outros Nodes
+
+### ReAct Agent
+
+- Use SQL Agent como ferramenta
+- Combine com outras análises
+- Implemente lógica complexa
+
+### Code Node
+
+- Processe resultados de queries
+- Implemente transformações
+- Valide dados retornados
+
+### HTTP Request
+
+- Envie dados para APIs
+- Integre com sistemas externos
+- Sincronize dados
+
+## Exemplos Práticos
+
+### Relatório de Vendas
+
+```javascript
+// Pergunta em português
+const question = "Quais foram os 10 clientes que mais compraram no último mês?";
+
+// Query gerada automaticamente
+const query = `
+  SELECT c.name, SUM(o.amount) as total
+  FROM customers c
+  JOIN orders o ON c.id = o.customer_id
+  WHERE o.created_at >= NOW() - INTERVAL '1 month'
+  GROUP BY c.id, c.name
+  ORDER BY total DESC
+  LIMIT 10
+`;
+```
+
+### Análise de Tendências
+
+```javascript
+// Pergunta em português
+const question = "Como evoluiu a receita nos últimos 6 meses?";
+
+// Query gerada automaticamente
+const query = `
+  SELECT 
+    DATE_TRUNC('month', created_at) as month,
+    SUM(amount) as revenue
+  FROM orders
+  WHERE created_at >= NOW() - INTERVAL '6 months'
+  GROUP BY month
+  ORDER BY month
+`;
+```
+
+## Troubleshooting
+
+### Problemas Comuns
+
+- **Query Lenta**: Otimize índices e estrutura
+- **Erro de Sintaxe**: Verifique schema e permissões
+- **Dados Incorretos**: Valide mapeamento de tabelas
+
+### Otimizações
+
+- Use índices apropriados
+- Implemente cache de queries
+- Monitore performance
+
+:::tip **Dica**
+Comece com consultas simples e expanda gradualmente. Teste extensivamente com dados brasileiros.
+:::
+
+## Próximos Passos
+
+- [ReAct Agent](./react-agent) - Agentes inteligentes
+- [OpenAI Chat](./openai-chat) - Modelos de IA
+- [Tutorial de IA](../tutorial-ai) - Casos de uso reais
+
+---
+
+**Em desenvolvimento:** Este conteúdo incluirá exemplos com bases de dados brasileiras e queries otimizadas.

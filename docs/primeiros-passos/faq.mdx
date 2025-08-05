@@ -1,255 +1,114 @@
-﻿:::info
-<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#cor-17a2b8-esta-pgina da documentação foi validada tecnicamente e didaticamente.
-:::
-
----
-title: FAQ
-sidebar_position: 7
-description: Perguntas frequentes sobre n8n - respostas rápidas para dúvidas comuns
-keywords: [n8n, faq, perguntas frequentes, dúvidas, troubleshooting]
+﻿---
+sidebar_position: 5
+title: FAQ - Perguntas Frequentes
+description: Encontre respostas rápidas para as perguntas mais comuns sobre o n8n
+keywords: [n8n, faq, perguntas frequentes, dúvidas, ajuda, troubleshooting]
 ---
 
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-faq Perguntas Frequentes
+<IonicIcon name="help-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## FAQ - Perguntas Frequentes
 
 Encontre respostas rápidas para as perguntas mais comuns sobre o n8n. Se sua dúvida não estiver aqui, consulte nossa [comunidade](../comunidade/index.mdx) ou [GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR).
 
-#ionicicon-namerocket-outline-style-fontsize-24px color: '#cor-ea4b71-primeiros-passos
+---
 
-#o-que-o-n8n
+<IonicIcon name="rocket-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Para uma explicação completa, **[consulte nossa seção de Conceitos Fundamentais](./conceitos-fundamentais)**. Em resumo, o n8n é uma plataforma de automação de workflow open-source que permite conectar diferentes aplicações e serviços através de uma interface visual.
+## Perguntas Básicas
 
-#o-n8n-gratuito-sim O n8n é totalmente gratuito e open-source. Você pode usar todos os recursos sem custo, incluindo:
+### O que é o n8n?
 
-- Workflows ilimitados
-- Execuções ilimitadas
-- Todos os nodes disponíveis
-- Self-hosting completo
+O n8n é uma plataforma de automação de workflows que permite conectar diferentes aplicações e serviços através de uma interface visual intuitiva.
 
-#preciso-de-conhecimento-tcnico-para usar o n8n?
+### O n8n é gratuito?
 
-Não necessariamente. O n8n foi projetado para ser intuitivo com sua interface visual. Você pode começar criando workflows simples arrastando e soltando nodes, mesmo sem conhecimento de programação.
+Sim, o n8n é open-source e gratuito para uso local. Existe também uma versão cloud paga com recursos adicionais.
 
-#qual-a-diferena-entre-n8n Cloud e Self-hosted?
+### Preciso de conhecimento técnico?
 
-- **n8n Cloud**: Serviço gerenciado pela equipe n8n, sem necessidade de configuração de servidor
-- **Self-hosted**: Você instala e gerencia o n8n em seu próprio servidor, com controle total sobre dados e configuração
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-e Configuração
-
-#qual-mtodo-de-instalao recomendado?
-
-Para iniciantes, recomendamos:
-
-1. **n8n Cloud** - Mais simples, sem configuração
-2. **Docker** - Para self-hosting, mais fácil de gerenciar
-3. **npm** - Para desenvolvedores que preferem controle total
-
-#posso-instalar-o-n8n-no Windows?
-
-Sim! O n8n funciona perfeitamente no Windows. Você pode usar:
-
-- Docker Desktop
-- WSL2 (Windows Subsystem for Linux)
-- Instalação direta via npm
-
-#quais-so-os-requisitos-mnimos
-
-- **CPU**: 1 core
-- **RAM**: 1GB (recomendado 2GB+)
-- **Armazenamento**: 1GB livre
-- **Node.js**: Versão 16 ou superior
-
-#como-fao-backup-dos-meus workflows?
-
-Os workflows são salvos automaticamente. Para backup manual:
-
-- Exporte workflows individuais via interface
-- Use a API para backup completo
-- Faça backup do banco de dados (se self-hosted)
-
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-workflows
-
-#quantos-workflows-posso-criar-no há limite! Você pode criar quantos workflows quiser, tanto no n8n Cloud quanto self-hosted.
-
-#posso-agendar-workflows-para-execuo automática?
-
-Sim! Use o **Schedule Trigger** para executar workflows em intervalos específicos:
-
-- A cada minuto, hora, dia
-- Em horários específicos
-- Com expressões cron personalizadas
-
-#como-fao-para-que-workflows falhem graciosamente?
-
-Use o **Error Trigger** para capturar erros e:
-
-- Enviar notificações
-- Tentar novamente automaticamente
-- Executar workflows de recuperação
-- Registrar logs de erro
-
-#posso-compartilhar-workflows-com-outros usuários?
-
-Sim! Você pode:
-
-- Exportar workflows como JSON
-- Compartilhar via URL (n8n Cloud)
-- Usar controle de versão (Git)
-- Publicar na comunidade n8n
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana-e Credenciais
-
-#como-o-n8n-protege-minhas credenciais?
-
-- Credenciais são criptografadas no banco de dados
-- Senhas nunca são exibidas em texto plano
-- Suporte a variáveis de ambiente
-- Integração com gerenciadores de segredos
-
-#posso-usar-o-n8n-com dados sensíveis?
-
-Sim, mas recomendamos:
-
-- Usar self-hosting para dados críticos
-- Implementar autenticação forte
-- Usar HTTPS em produção
-- Configurar firewalls adequados
-
-#o-n8n-suporta-2fa-sim O n8n suporta autenticação de dois fatores para maior segurança.
-
-#como-gerencio-permisses-de-usurios
-
-O n8n oferece:
-
-- Roles personalizáveis
-- Permissões granulares por workflow
-- Controle de acesso por credenciais
-- Logs de auditoria
-
-#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-nodes-e Integrações
-
-#quantos-nodes-esto-disponveis-o n8n possui centenas de nodes, incluindo:
-
-- **Built-in nodes**: HTTP, Code, Logic, etc.
-- **App nodes**: Integrações com serviços populares
-- **Community nodes**: Criados pela comunidade
-- **Custom nodes**: Que você pode criar
-
-#posso-criar-meus-prprios-nodes
-
-Sim! Você pode:
-
-- Criar nodes customizados em JavaScript/TypeScript
-- Publicar na comunidade n8n
-- Usar nodes privados em sua instalação
-- Contribuir para o projeto oficial
-
-#o-n8n-suporta-apis-brasileiras
-
-Sim! O n8n pode integrar com qualquer API, incluindo:
-
-- APIs governamentais (Receita Federal, etc.)
-- Serviços financeiros brasileiros
-- APIs de e-commerce locais
-- Serviços de pagamento brasileiros
-
-#como-fao-para-integrar-com sistemas legados?
-
-Use os nodes:
-
-- **HTTP Request** para APIs REST
-- **Webhook** para receber dados
-- **Code** para lógica customizada
-- **Database** para sistemas legados
-
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-e Escalabilidade
-
-#quantas-execues-simultneas-o-n8n suporta?
-
-Depende da sua configuração:
-
-- **n8n Cloud**: Até 100 execuções simultâneas
-- **Self-hosted**: Limitado apenas pelos recursos do servidor
-- **Clustering**: Para alta disponibilidade
-
-#como-otimizo-a-performance-dos workflows?
-
-- Use **Split In Batches** para grandes volumes
-- Implemente **caching** quando possível
-- Evite loops desnecessários
-- Use **queues** para processamento assíncrono
-
-#posso-escalar-horizontalmente-sim-o n8n suporta:
-
-- Múltiplas instâncias
-- Load balancing
-- Clustering com Redis
-- Execuções distribuídas
-
-#como-monitoro-a-performance-use
-
-- **Execution Logs** para análise detalhada
-- **Metrics** para monitoramento
-- **Alertas** para problemas
-- **Dashboard** para visão geral
-
-#ionicicon-namepeople-outline-style-fontsize-24px color: '#cor-ea4b71-suporte-e Comunidade
-
-#onde-posso-obter-ajuda **[Documentação oficial](https://docs.n8n.io)**
-- **[Comunidade n8n](https://community.n8n.io)**
-- **[Discord brasileiro](https://discord.gg/n8nbrasil)**
-- **[GitHub](https://github.com/tatyquebralayout/n8n-Doc-pt-BR)**
-
-#como-reporto-bugs-use o [GitHub Issues](https://github.com/n8n-io/n8n/issues)
-- Inclua logs e passos para reproduzir
-- Descreva seu ambiente (versão, OS, etc.)
-
-#posso-contribuir-para-o-projeto
-
-Sim! Você pode:
-
-- Reportar bugs
-- Sugerir melhorias
-- Contribuir código
-- Traduzir documentação
-- Criar nodes customizados
-
-#existe-treinamento-oficial-documentao completa** em português
-- **Vídeos tutoriais** na comunidade
-- **Cursos online** da comunidade
-- **Workshops** presenciais
-
-#ionicicon-namebusiness-outline-style-fontsize-24px color: '#cor-ea4b71-enterprise-e Negócios
-
-#o-n8n-adequado-para empresas?
-
-Sim! Muitas empresas usam o n8n para:
-
-- Automação de processos internos
-- Integração de sistemas
-- ETL e processamento de dados
-- Automação de marketing
-
-#existe-suporte-empresarial-n8n Cloud** oferece suporte premium
-- **Comunidade ativa** para self-hosted
-- **Consultores** especializados disponíveis
-
-#como-implemento-o-n8n-na minha empresa?
-
-1. **Comece pequeno** com projetos piloto
-2. **Treine a equipe** com documentação
-3. **Estabeleça processos** de desenvolvimento
-4. **Monitore e otimize** continuamente
-
-#quais-so-os-custos-de manutenção?
-
-- **n8n Cloud**: Preço por execução
-- **Self-hosted**: Custos de infraestrutura
-- **Desenvolvimento**: Tempo da equipe
-- **Treinamento**: Investimento inicial
+Não necessariamente. O n8n oferece uma interface visual que facilita a criação de workflows, mas conhecimentos básicos de programação podem ser úteis para casos avançados.
 
 ---
 
-**<IonicIcon name="help-circle-outline" style={{ fontSize: '16px', color: '#cor-ea4b71-no-encontrou sua resposta? Entre em contato conosco na [comunidade](../comunidade/index.mdx)!**
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
+## Instalação e Configuração
+
+### Qual método de instalação escolher?
+
+- **Iniciantes**: n8n Cloud (mais fácil)
+- **Desenvolvedores**: Instalação local via npm
+- **Empresas**: Self-hosted (mais controle)
+
+### Posso migrar entre métodos de instalação?
+
+Sim, você pode exportar seus workflows e migrar entre diferentes métodos de instalação.
+
+### Quais são os requisitos mínimos?
+
+- **Local**: Node.js 16+ e 2GB RAM
+- **Self-hosted**: Servidor com Docker ou Node.js
+- **Cloud**: Apenas um navegador
+
+---
+
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Workflows e Automação
+
+### Quantos workflows posso criar?
+
+Não há limite no número de workflows que você pode criar.
+
+### Posso agendar execuções?
+
+Sim, o n8n suporta agendamento de workflows usando cron expressions.
+
+### Como faço backup dos meus workflows?
+
+Você pode exportar workflows individualmente ou fazer backup completo da instância.
+
+---
+
+<IonicIcon name="shield-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Segurança e Privacidade
+
+### Meus dados ficam seguros?
+
+Sim, o n8n oferece várias opções de segurança, incluindo criptografia e controle de acesso.
+
+### Posso usar em ambiente corporativo?
+
+Sim, o n8n é adequado para uso corporativo com recursos de segurança avançados.
+
+### Como gerencio credenciais?
+
+O n8n oferece gerenciamento seguro de credenciais com criptografia.
+
+---
+
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Próximos passos
+
+1. **[Guia de Instalação](./guia-instalacao)** - Escolha o método de instalação
+2. **[Criar Primeiro Workflow](./criar-primeiro-workflow)** - Aprenda a criar workflows
+3. **[Conectar Aplicações](./conectar-aplicacoes)** - Integre diferentes serviços
+
+> *Não encontrou sua resposta? Entre em contato com nossa comunidade para obter ajuda adicional!*
+
+---
+
+:::tip **Dica Pro**
+Use a busca da documentação para encontrar respostas específicas sobre funcionalidades.
+:::
+
+:::warning **Importante**
+Sempre teste seus workflows em ambiente de desenvolvimento antes de usar em produção.
+:::
+
+:::info **Recurso Adicional**
+Consulte a documentação oficial do n8n para informações mais detalhadas e atualizadas.
+:::

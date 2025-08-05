@@ -5,147 +5,46 @@ description: Como instalar n8n usando npm para máximo controle e customização
 keywords: [n8n, npm, instalação, nodejs, customização, desenvolvimento]
 ---
 
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-via NPM
+# Instalação via NPM
 
 Este guia detalha como **instalar n8n via npm** para máximo controle e customização, ideal para desenvolvimento, testes e ambientes personalizados.
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-quando-usar NPM?
+## <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Instalação Básica
 
-#cenrios-ideais-desenvolvimento - Criar e testar nodes customizados
-- 🔬 **Experimentos** - Testar integrações rapidamente
-- 📚 **Aprendizado** - Estudar o n8n sem configurações complexas
-- 🚀 **Demonstrações** - Apresentar funcionalidades offline
-- 🔧 **Debug** - Investigar problemas localmente
-
-#limitaes-sem-https - Webhooks externos podem não funcionar
-- 🔒 **Segurança básica** - Não recomendado para produção
-- 📊 **Performance limitada** - Sem otimizações de produção
-- 💾 **Dados locais** - Sem backup automático
-
----
-
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-pr-requisitos
-
-#nodejs-e-npm-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-verses
-node --version  #deve-ser-2019 24.x
-npm --version   #qualquer-verso-recente
-
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-nodejs (se necessário)
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-ubuntudebian-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-brew install node
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-baixar-de https://nodejs.org/
-```
-
-#requisitos-do-sistema-ram Mínimo 2GB, recomendado 4GB+
-- **Disco**: 1GB livre para instalação
-- **Rede**: Conexão para download de dependências
-- **Porta**: 5678 disponível (ou configurável)
-
----
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-rpida
-
-#id-1-instalao-global-recomendado-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-n8n globalmente
-npm install n8n -g
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-instalao
-n8n --version
-```
-
-#id-2-primeira-execuo-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-iniciar-n8n
-n8n
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-ou-com comando explícito
-n8n start
-```
-
-#id-3-acessar-interface-abra-seu navegador e acesse: `http://localhost:5678`
-
----
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-avanada
-
-#variveis-de-ambiente-bash
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-bsicas
-export N8N_PORT=5678
-export N8N_PROTOCOL=http
-export N8N_HOST=localhost
-export GENERIC_TIMEZONE=America/Sao_Paulo
-
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-executar-com configurações
-N8N_PORT=5678 \
-N8N_PROTOCOL=http \
-N8N_HOST=localhost \
-GENERIC_TIMEZONE=America/Sao_Paulo \
-n8n start
-```
-
-#arquivo-env-crie-um-arquivo `.env` no diretório onde executa o n8n:
+### Pré-requisitos
 
 ```bash
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-env-n8nport5678
-N8N_PROTOCOL=http
-N8N_HOST=localhost
-GENERIC_TIMEZONE=America/Sao_Paulo
-N8N_LOG_LEVEL=info
-N8N_USER_MANAGEMENT_DISABLED=false
+# Node.js 18+ e npm
+node --version
+npm --version
+
+# Instalar n8n globalmente
+npm install -g n8n
+
+# Ou instalar localmente
+npm install n8n
 ```
 
-#configurao-de-tnel-webhooks-para receber webhooks externos:
+### Executar n8n
 
 ```bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-ngrok
-npm install -g ngrok
+# Executar globalmente
+n8n start
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-em-um terminal, iniciar túnel
-ngrok http 5678
+# Executar localmente
+npx n8n start
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-em-outro terminal, iniciar n8n com túnel
+# Com configurações customizadas
 n8n start --tunnel
 ```
 
----
+## <IonicIcon name="code-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Desenvolvimento de Nodes Customizados
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-desenvolvimento
+### Estrutura de um Node
 
-#instalao-para-desenvolvimento-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-clonar-repositrio
-git clone https://github.com/n8n-io/n8n.git
-cd n8n
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-dependncias
-npm install
-
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-executar-em modo desenvolvimento
-npm run dev
-```
-
-#criar-nodes-customizados-bash
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-criar-estrutura de node
-mkdir my-custom-node
-cd my-custom-node
-
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-inicializar-projeto
-npm init -y
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-dependncias do n8n
-npm install n8n-core n8n-workflow
-
-#ionicicon-namefolder-outline-style-fontsize-24px color: '#cor-ea4b71-estrutura-bsica
-mkdir src
-touch src/MyNode.ts
-```
-
-#exemplo-de-node-customizado-typescript
-// src/MyNode.ts
+```typescript
 import { IExecuteFunctions } from 'n8n-core';
 import { INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
 
@@ -199,134 +98,37 @@ export class MyNode implements INodeType {
 
 ---
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-debug-e Troubleshooting
+## <IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Debug e Troubleshooting
 
-#logs-detalhados-bash
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-logs-de debug
-N8N_LOG_LEVEL=debug n8n start
+### Logs Detalhados
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-logs-especficos
-N8N_LOG_LEVEL=error n8n start
+```bash
+# Habilitar logs detalhados
+DEBUG=n8n:* n8n start
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-salvar-logs em arquivo
-N8N_LOG_LEVEL=debug n8n start > n8n.log 2>&1
-```
-
-#problemas-comuns
-
-#porta-j-em-uso-bash
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-processo usando a porta
-netstat -tulpn | grep 5678
-lsof -i :5678
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-usar-porta diferente
-N8N_PORT=5679 n8n start
-```
-
-#permisses-linuxmac-bash
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-corrigir-permisses
-sudo chown -R $(whoami) ~/.n8n
-chmod -R 755 ~/.n8n
-```
-
-#erro-de-memria-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-aumentar-limite de memória
+# Aumentar memória heap
 NODE_OPTIONS="--max-old-space-size=4096" n8n start
 ```
 
-#problemas-de-rede-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-conectividade
+### Problemas de Rede
+
+```bash
+# Verificar conectividade
 curl -I http://localhost:5678
 
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-testar-webhooks
-curl -X POST http://localhost:5678/webhook/test
+# Verificar portas em uso
+netstat -tulpn | grep 5678
+
+# Configurar proxy
+n8n start --proxy http://proxy:8080
 ```
 
----
+### Problemas de Permissão
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-atualizaes
+```bash
+# Corrigir permissões no Linux
+sudo chown -R $USER:$USER ~/.n8n
 
-#atualizar-n8n-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-verso atual
-n8n --version
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-atualizar-para última versão
-npm update -g n8n
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-atualizar-para versão específica
-npm install -g n8n@1.100.0
+# Corrigir permissões no Windows
+icacls "%USERPROFILE%\.n8n" /grant "%USERNAME%":(OI)(CI)F
 ```
-
-#gerenciar-verses-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-listar-verses instaladas
-npm list -g n8n
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-verso específica
-npm install -g n8n@1.99.0
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-voltar-para versão anterior
-npm install -g n8n@1.98.0
-```
-
----
-
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-estrutura-de Arquivos
-
-#diretrios-importantes-bash
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-dados-do n8n
-~/.n8n/
-
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-workflows-salvos
-~/.n8n/workflows/
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-credenciais-n8ncredentials
-
-#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-logs-n8nlogs
-
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-n8nconfig
-```
-
-#cor-backup-manual-bash
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-backup-dos dados
-tar -czf n8n-backup-$(date +%Y%m%d).tar.gz ~/.n8n/
-
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-backup-especfico de workflows
-cp -r ~/.n8n/workflows/ ./backup-workflows/
-```
-
----
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você tem o n8n rodando localmente:
-
-1. **[Criar Primeiro Workflow](../../../primeiros-passos/primeiro-workflow)** - Aprenda a construir workflows
-2. **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)** - Entenda os fundamentos
-3. **[Desenvolver Nodes Customizados](../../integracoes/criar-nodes/tutorial-desenvolvimento)** - Crie suas próprias integrações
-
-#outros-mtodos-de-instalao **[Docker](./docker)** - Containerização para produção
-- **[Cloud](./cloud)** - Serviço hospedado oficial
-- **[Desktop](./desktop)** - Aplicação desktop
-
----
-
-:::tip **Dica Pro**
-Use a instalação npm para **prototipagem rápida** e **desenvolvimento**. Quando estiver pronto para produção, migre para **n8n Cloud** ou **Self-hosted**.
-:::
-
-:::info **Desenvolvimento Local**
-Para desenvolvimento de nodes customizados, a instalação npm é essencial. Você pode testar suas integrações rapidamente sem configurações complexas.
-:::
-
-:::warning **Limitações**
-Lembre-se: a instalação npm é para **desenvolvimento e testes**. Para produção, use **n8n Cloud** ou **Self-hosted** com configurações adequadas de segurança.
-:::
-
----
-
-**Links úteis:**
-
-- [Documentação oficial n8n](https://docs.n8n.io/)
-- [Repositório n8n no GitHub](https://github.com/n8n-io/n8n)
-- [Pacote n8n no npm](https://www.npmjs.com/package/n8n)
-

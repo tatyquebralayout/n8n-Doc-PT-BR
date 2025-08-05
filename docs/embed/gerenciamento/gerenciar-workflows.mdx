@@ -5,33 +5,23 @@ description: Como gerenciar e controlar workflows em n8n embarcado
 keywords: [n8n, embed, workflows, gerenciamento, controle, permissões]
 ---
 
+import IonicIcon from '@site/src/components/IonicIcon';
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-gerenciar-workflows Embarcados
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Gerenciar Workflows Embarcados
 
 Este documento detalha como **gerenciar workflows em n8n embarcado**, incluindo controle de acesso granular, versionamento integrado, backup automático, sincronização com sistemas externos, auditoria de mudanças, e estratégias de governança que garantem controle total sobre automações criadas dentro do ambiente embarcado mantendo compliance e segurança empresarial.
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
+<IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-- Gerenciamento via API REST
-- Controle de acesso e permissões
-- Versionamento de workflows
-- Auditoria e logs
-- Backup e recovery
+## API de Workflows
 
----
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-gerenciamento-via API REST
+### Criar Novo Workflow
 
-#endpoints-principais-o-n8n-oferece uma API REST completa para gerenciar workflows programaticamente:
-
-#workflows-bash
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-listar-todos os workflows
-GET /api/v1/workflows
-
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-obter-workflow específico
-GET /api/v1/workflows/{id}
-
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-criar-novo workflow
+```bash
 POST /api/v1/workflows
 Content-Type: application/json
 
@@ -41,75 +31,92 @@ Content-Type: application/json
   "nodes": [...],
   "connections": {...}
 }
+```
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-atualizar-workflow
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Atualizar Workflow
+
+```bash
 PUT /api/v1/workflows/{id}
+```
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-excluir-workflow
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Excluir Workflow
+
+```bash
 DELETE /api/v1/workflows/{id}
+```
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-ativardesativar-workflow
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Ativar/Desativar Workflow
+
+```bash
 PATCH /api/v1/workflows/{id}
 {
   "active": true
 }
 ```
 
-#execues-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-listar-execues
+---
+
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Execuções
+
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Listar Execuções
+
+```bash
 GET /api/v1/executions
+```
 
-#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-executar-workflow manualmente
-POST /api/v1/workflows/{id}/trigger
-Content-Type: application/json
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
+### Exemplo de Response
+
+```json
 {
   "data": {
     "campo1": "valor1",
     "campo2": "valor2"
   }
 }
+```
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-obter-detalhes da execução
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Obter Detalhes da Execução
+
+```bash
 GET /api/v1/executions/{id}
+```
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-parar-execuo em andamento
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Parar Execução em Andamento
+
+```bash
 POST /api/v1/executions/{id}/stop
-```
-
-#Autenticação
-
-#api-key-recomendado-bash
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-gerar-api Key
-curl -X POST "https://seu-n8n.com/api/v1/auth/api-key" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "API Key para Embed",
-    "scopes": ["workflow:read", "workflow:write", "execution:read"]
-  }'
-
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-usar-api Key
-curl -H "X-N8N-API-KEY: sua_api_key" \
-  https://seu-n8n.com/api/v1/workflows
-```
-
-#oauth-20-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-oauth 2.0
-{
-  "client_id": "seu_client_id",
-  "client_secret": "seu_client_secret",
-  "authorization_url": "https://seu-n8n.com/oauth/authorize",
-  "token_url": "https://seu-n8n.com/oauth/token"
-}
 ```
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-controle-de Acesso e Permissões
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#sistema-rbac-o-n8n-implementa Role-Based Access Control (RBAC) para controle granular de acesso:
+## Controle de Acesso e Permissões
 
-#roles-disponveis-javascript-roles padrão do n8n
+### Sistema RBAC
+
+O n8n implementa Role-Based Access Control (RBAC) para controle granular de acesso:
+
+#### Roles Disponíveis
+
+```javascript
+// Roles padrão do n8n
 const roles = {
   owner: {
     description: "Acesso total ao sistema",
@@ -140,7 +147,10 @@ const roles = {
 }
 ```
 
-#permisses-por-workflow-javascript Configurar permissões específicas por workflow
+#### Permissões por Workflow
+
+```javascript
+// Configurar permissões específicas por workflow
 {
   "workflowId": "abc123",
   "permissions": {
@@ -151,32 +161,36 @@ const roles = {
 }
 ```
 
-#integrao-com-sistemas-externos
+### Integração com Sistemas Externos
 
-#samlsso-yaml
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-saml
+#### SAML/SSO
+
+```yaml
 N8N_SAML_ENABLED=true
 N8N_SAML_ISSUER=https://seu-identity-provider.com
 N8N_SAML_ENTRY_POINT=https://seu-identity-provider.com/sso
 N8N_SAML_CERT=/path/to/certificate.pem
 ```
 
-#ldapactive-directory-yaml
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-ldap
+#### LDAP/Active Directory
+
+```yaml
 N8N_LDAP_ENABLED=true
-N8N_LDAP_SERVER_URL=ldap://ldap.empresa.com:389
-N8N_LDAP_BIND_DN=cn=admin,dc=empresa,dc=com
+N8N_LDAP_SERVER_URL=ldap://ldap.suaempresa.com:389
+N8N_LDAP_BIND_DN=cn=admin,dc=suaempresa,dc=com
 N8N_LDAP_BIND_PASSWORD=senha_ldap
-N8N_LDAP_BASE_DN=dc=empresa,dc=com
+N8N_LDAP_BASE_DN=dc=suaempresa,dc=com
 ```
 
 ---
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-versionamento-de Workflows
+<IonicIcon name="sparkles-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#histrico-automtico-o-n8n-mantm histórico completo de versões automaticamente:
+## Versionamento e Controle de Versões
 
-#verses-automticas-javascript-cada salvamento gera uma nova versão
+### Histórico de Versões
+
+```json
 {
   "workflowId": "abc123",
   "versions": [
@@ -198,23 +212,46 @@ N8N_LDAP_BASE_DN=dc=empresa,dc=com
 }
 ```
 
-#api-de-versionamento-bash
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-listar-verses de um workflow
+### API de Versionamento
+
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+#### Listar Versões de um Workflow
+
+```bash
 GET /api/v1/workflows/{id}/versions
+```
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-obter-verso específica
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+#### Obter Versão Específica
+
+```bash
 GET /api/v1/workflows/{id}/versions/{version}
+```
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-restaurar-verso anterior
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+#### Restaurar Versão Anterior
+
+```bash
 POST /api/v1/workflows/{id}/versions/{version}/restore
+```
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-comparar-verses
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+#### Comparar Versões
+
+```bash
 GET /api/v1/workflows/{id}/versions/compare?from=3&to=5
 ```
 
-#documentao-de-mudanas
+### Documentação de Mudanças
 
-#comentrios-de-verso-javascript Adicionar comentário ao salvar
+#### Comentários de Versão
+
+```javascript
+// Adicionar comentário ao salvar
 {
   "name": "Workflow de Vendas",
   "versionComment": "Adicionada validação de CPF e integração com CRM",
@@ -223,19 +260,28 @@ GET /api/v1/workflows/{id}/versions/compare?from=3&to=5
 }
 ```
 
-#changelog-automtico-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-gerar-changelog entre versões
+#### Changelog Automático
+
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+```bash
+# Gerar changelog entre versões
 curl -X GET "https://seu-n8n.com/api/v1/workflows/{id}/changelog?from=1&to=5" \
   -H "X-N8N-API-KEY: sua_api_key"
 ```
 
 ---
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-auditoria-e Logs
+<IonicIcon name="sparkles-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#logs-de-atividade
+## Auditoria e Logs
 
-#eventos-auditados-javascript-tipos de eventos registrados
+### Logs de Atividade
+
+#### Eventos Auditados
+
+```javascript
+// Tipos de eventos registrados
 const auditEvents = {
   "workflow.created": "Workflow criado",
   "workflow.updated": "Workflow atualizado",
@@ -248,23 +294,20 @@ const auditEvents = {
 }
 ```
 
-#api-de-auditoria-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-obter-logs de atividade
+### API de Auditoria
+
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+```bash
+# Obter logs de atividade
 GET /api/v1/audit-logs?start=2024-01-01&end=2024-01-31
-
-#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-filtrar-por usuário
-GET /api/v1/audit-logs?user=usuario@empresa.com
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-filtrar-por tipo de evento
-GET /api/v1/audit-logs?event=workflow.updated
-
-#ionicicon-namecloud-download-outline-style-fontsize-24px color: '#cor-ea4b71-exportar-logs
-GET /api/v1/audit-logs/export?format=csv
 ```
 
-#alertas-de-segurana
+<IonicIcon name="person-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-de-alertas-javascript Configurar alertas para atividades suspeitas
+### Alertas de Segurança
+
+```javascript
 {
   "securityAlerts": {
     "failedLogins": {
@@ -285,10 +328,12 @@ GET /api/v1/audit-logs/export?format=csv
 }
 ```
 
-#integrao-com-sistemas-de-monitoramento
+### Integração com Sistemas de Monitoramento
+
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ```bash
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-webhook-para alertas
+# Webhook para alertas
 POST /webhook/security-alerts
 {
   "event": "workflow.deleted",
@@ -301,62 +346,57 @@ POST /webhook/security-alerts
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-backup-e Recovery
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#cor-backup-automtico
+## Backup e Recovery Automático
 
-#script-de-backup-bash
-#bin/bash
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-backup-workflowssh-datedate +%Y%m%d_%H%M%S)
+### Script de Backup
+
+```bash
+#!/bin/bash
+
 BACKUP_DIR="/backups/n8n"
 API_KEY="sua_api_key"
 N8N_URL="https://seu-n8n.com"
+DATE=$(date +%Y%m%d_%H%M%S)
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-diretrio de backup
-mkdir -p $BACKUP_DIR
-
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de workflows
+# Backup de workflows
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" \
   | jq '.' > "$BACKUP_DIR/workflows_$DATE.json"
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-backup-de credenciais
+# Backup de credenciais
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/credentials" \
   | jq '.' > "$BACKUP_DIR/credentials_$DATE.json"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-comprimir-backup
+# Criar arquivo compactado
 tar -czf "$BACKUP_DIR/n8n_backup_$DATE.tar.gz" \
   "$BACKUP_DIR/workflows_$DATE.json" \
   "$BACKUP_DIR/credentials_$DATE.json"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-manter-apenas últimos 30 backups
+# Limpar backups antigos (mais de 30 dias)
 find $BACKUP_DIR -name "n8n_backup_*.tar.gz" -mtime +30 -delete
 
 echo "Backup criado: $BACKUP_DIR/n8n_backup_$DATE.tar.gz"
 ```
 
-#cron-job-para-backup-bash
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-ao crontab
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-dirio às 2h da manhã
-0 2 * * * /path/to/backup-workflows.sh
+### Cron Job para Backup
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-semanal completo
-0 2 * * 0 /path/to/backup-workflows-full.sh
+```bash
+# Adicionar ao crontab
+0 2 * * * /path/to/backup-script.sh
 ```
 
-#Restauração
+### Script de Restore
 
-#restaurar-workflows-bash
-#bin/bash
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-restore-workflowssh-backupfile1
+```bash
+#!/bin/bash
+
 API_KEY="sua_api_key"
 N8N_URL="https://seu-n8n.com"
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-extrair-backup
-tar -xzf $BACKUP_FILE
-
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-restaurar-workflows
+# Restaurar workflows
 jq -c '.[]' workflows_*.json | while read workflow; do
   curl -X POST \
     -H "X-N8N-API-KEY: $API_KEY" \
@@ -370,12 +410,13 @@ echo "Workflows restaurados com sucesso"
 
 ---
 
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-sincronizao-e Integração
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#Webhooks
+## Sincronização com Sistemas Externos
 
-#sincronizao-com-sistemas-externos-javascript
-// Webhook para sincronizar workflows
+### Webhook para Sincronização
+
+```json
 {
   "url": "https://sistema-externo.com/webhook/n8n",
   "method": "POST",
@@ -396,26 +437,24 @@ echo "Workflows restaurados com sucesso"
 }
 ```
 
-#integrao-com-git
+### Integração com Git
 
-#sincronizao-com-repositrio-bash
-#bin/bash
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-sync-with-gitsh-workflowdirtmpn8n-workflows
+#### Sincronização com Repositório
+
+```bash
+#!/bin/bash
+
+WORKFLOW_DIR="/tmp/n8n-workflows"
 GIT_REPO="https://github.com/empresa/n8n-workflows.git"
 API_KEY="sua_api_key"
 N8N_URL="https://seu-n8n.com"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-clonar-repositrio
-git clone $GIT_REPO $WORKFLOW_DIR
-
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-baixar-workflows atuais
+# Baixar workflows
 curl -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" \
   | jq '.' > "$WORKFLOW_DIR/workflows.json"
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-commit-e push
-cd $WORKFLOW_DIR
-git add .
+# Commit e push
 git commit -m "Sync workflows $(date)"
 git push origin main
 
@@ -424,19 +463,24 @@ echo "Workflows sincronizados com Git"
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#nomenclatura-e-documentao
+## Nomenclatura e Organização
 
-#padres-de-nomenclatura-javascript Estrutura recomendada para nomes de workflows
-const namingPatterns = {
+### Convenções de Nomenclatura
+
+```javascript
+{
   "departamento.funcionalidade.acao": "marketing.leads.enviar-email",
   "sistema.integracao.processo": "crm.salesforce.sincronizar-contatos",
   "ambiente.tipo.workflow": "prod.vendas.processar-pedidos"
 }
 ```
 
-#documentao-de-workflows-javascript Metadados para documentação
+### Documentação de Workflows
+
+```javascript
+// Metadados para documentação
 {
   "name": "Processar Pedidos de Venda",
   "description": "Workflow para processar pedidos vindos do e-commerce",
@@ -450,9 +494,15 @@ const namingPatterns = {
 }
 ```
 
-#Segurança
+---
 
-#proteo-de-dados-sensveis-javascript
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Segurança
+
+### Proteção de Dados Sensíveis
+
+```javascript
 // Configurações de segurança
 {
   "security": {
@@ -472,7 +522,10 @@ const namingPatterns = {
 }
 ```
 
-#monitoramento-de-performance-javascript Métricas de monitoramento
+### Monitoramento de Performance
+
+```javascript
+// Métricas de monitoramento
 {
   "monitoring": {
     "executionTime": {
@@ -493,7 +546,9 @@ const namingPatterns = {
 
 ---
 
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
+<IonicIcon name="arrow-forward-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Próximos passos
 
 Agora que você entende o gerenciamento de workflows embarcados:
 

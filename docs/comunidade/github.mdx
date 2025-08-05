@@ -5,49 +5,62 @@ description: Explore projetos, nodes e ferramentas open-source da comunidade bra
 keywords: [n8n, github, repositórios, código, projetos, brasil, open-source]
 ---
 
+import IonicIcon from '@site/src/components/IonicIcon';
 import CardGrid from '@site/src/components/CardGrid';
 import RepoCard from '@site/src/components/RepoCard';
 import HighlightCard from '@site/src/components/HighlightCard';
 
-#ionicicon-namepeople-outline-style-fontsize-32px color: '#cor-ea4b71-repositrios-da Comunidade
+<IonicIcon name="people-outline" style={{fontSize: '32px', color: '#ea4b71'}} />
+
+## Repositórios da Comunidade
 
 Uma curadoria de projetos de código aberto, nodes customizados e ferramentas criadas e mantidas pela comunidade brasileira do n8n.
 
 <CardGrid>
   <RepoCard
-    repoUrl="https://github.com/tatyquebralayout/n8n-Doc-pt-BR"
-    icon="book-outline"
-  />
+    name="n8n Documentação PT-BR"
+    description="Documentação em português brasileiro para n8n"
+    url="https://github.com/tatyquebralayout/n8n-Doc-pt-BR"
+    language="Markdown"
+    topics={["documentation", "n8n", "portuguese"]} />
   <RepoCard
-    repoUrl="https://github.com/n8n-io/n8n"
-    icon="extension-puzzle-outline"
-  />
+    name="n8n"
+    description="Workflow automation tool"
+    url="https://github.com/n8n-io/n8n"
+    language="TypeScript"
+    topics={["automation", "workflow", "nodejs"]} />
   <RepoCard
-    repoUrl="https://github.com/strapi/strapi"
-    icon="cloud-upload-outline"
-  />
+    name="Strapi"
+    description="Headless CMS"
+    url="https://github.com/strapi/strapi"
+    language="JavaScript"
+    topics={["cms", "headless", "api"]} />
   <RepoCard
-    repoUrl="https://github.com/payloadcms/payload"
-    icon="server-outline"
-  />
+    name="Payload CMS"
+    description="Modern TypeScript CMS"
+    url="https://github.com/payloadcms/payload"
+    language="TypeScript"
+    topics={["cms", "typescript", "headless"]} />
   <RepoCard
-    repoUrl="https://github.com/n8n-io/n8n-nodes-starter"
-    icon="play-circle-outline"
-  />
+    name="n8n Nodes Starter"
+    description="Template para criar nodes n8n"
+    url="https://github.com/n8n-io/n8n-nodes-starter"
+    language="TypeScript"
+    topics={["n8n", "nodes", "template"]} />
   <RepoCard
-    repoUrl="https://github.com/PostHog/posthog"
-    icon="analytics-outline"
-  />
+    name="PostHog"
+    description="Product analytics platform"
+    url="https://github.com/PostHog/posthog"
+    language="TypeScript"
+    topics={["analytics", "product", "open-source"]} />
 </CardGrid>
 
 ---
 
 <HighlightCard
-  icon="add-circle-outline"
-  category="Contribuição"
   title="Adicione seu Projeto à Curadoria"
   description="Seu projeto é incrível e a comunidade precisa conhecê-lo! Clique aqui para abrir uma issue em nosso GitHub e submeter seu repositório para avaliação."
-  link="https://github.com/tatyquebralayout/n8n-Doc-pt-BR/issues/new?assignees=&labels=curadoria&template=sugestao-de-repositorio&title=%5BCURADORIA%5D%3A+Adicionar+o+repositório+SEU-REPO-AQUI"
-  buttonText="Abrir uma issue"
-/> 
-
+  icon="add-circle-outline"
+  badge="Contribuição"
+  href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR/issues/new?assignees=&labels=curadoria&template=sugestao-de-repositorio&title=%5BCURADORIA%5D%3A+Adicionar+o+repositório+SEU-REPO-AQUI"
+  tags={["contribuição", "comunidade"]} />

@@ -5,37 +5,35 @@ description: Como dividir e distribuir dados em workflows n8n usando conditional
 keywords: [n8n, split, dividir, dados, distribuição, conditionals, if, switch, ramificação]
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Admonition from '@theme/Admonition';
-import CodeBlock from '@theme/CodeBlock';
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Splitting de Workflows: Criando Lógica Condicional no n8n**
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-splitting-de Workflows: Criando Lógica Condicional no n8n
+<IonicIcon name="grid-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender nesta página
-
-<Admonition type="info" title="📚 Objetivos de Aprendizado">
+:::info **📚 Objetivos de Aprendizado**
 1. **Definir** o que é *splitting* (ramificação condicional) no n8n
 2. **Identificar** por que e quando aplicar essa técnica
 3. **Conhecer** os nós essenciais – **IF**, **Switch** e **Merge** – e suas configurações críticas
 4. **Construir** um fluxo multi‑ramo, passo a passo, a partir de um fluxo linear
 5. **Controlar** a ordem de execução, paralelismo e a opção **Always Output Data**
 6. **Aplicar** boas práticas e evitar armadilhas comuns em ambientes de produção
-</Admonition>
+:::
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-entendendo-o Conceito de Splitting
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-<Admonition type="tip" title="💡 Analogia Prática">
+## Por que e Quando Usar Splitting?
+
+:::tip **💡 Analogia Prática**
 Splitting em workflows é como criar um **ponto de decisão** em um processo automatizado. Imagine que você é um gerente de atendimento ao cliente que precisa distribuir tickets de suporte: tickets simples vão para o nível 1, problemas técnicos vão para especialistas, e reclamações urgentes vão direto para supervisores.
 
 **No n8n, splitting funciona exatamente assim** - você cria pontos onde o workflow "decide" qual caminho seguir baseado em condições específicas.
-</Admonition>
+:::
 
-#o-que-splitting-de Workflow?
+## O que é Splitting de Workflow?
 
-No n8n, um [workflow](../primeiros-passos/primeiro-workflow) percorre naturalmente um **único caminho sequencial**. *Splitting* transforma esse caminho em **ramificações paralelas**: cada item é avaliado por um nó condicional ([*IF*](../integracoes/builtin-nodes/logic-control/if) ou [*Switch*](../integracoes/builtin-nodes/logic-control/switch)) e roteado ao ramo que corresponde aos seus dados.
+No n8n, um [workflow](../primeiros-passos/primeiro-workflow) percorre naturalmente um **único caminho sequencial**. *Splitting* transforma esse caminho em **ramificações paralelas**: cada item é avaliado por um nó condicional ([*IF*](../../integracoes/builtin-nodes/logic-control/if) ou [*Switch*](../../integracoes/builtin-nodes/logic-control/switch)) e roteado ao ramo que corresponde aos seus dados.
 
-<Admonition type="warning" title="⚠️ Importante: Não confunda com Split Out">
+:::warning **⚠️ Importante: Não confunda com Split Out**
 **Splitting** ≠ **Split Out**
 
 - **Split Out**: Quebra uma lista em itens individuais para [processamento em loop](./looping)
@@ -53,13 +51,10 @@ graph TD
     
     D --> H[Caminho A]
     D --> I[Caminho B]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-f3e5f5-style-f-fill#cor-f3e5f5-style-g-fill#cor-f3e5f5-style-h-fill#cor-e8f5e8-style-i-fill#cor-e8f5e8-admonition
+```
+:::
 
-#por-que-e-quando-usar Splitting?
-
-<Tabs>
-<TabItem value="beneficios" label="Benefícios" default>
+## Por que e Quando Usar Splitting?
 
 | **Situação** | **Benefício do Splitting** |
 |-------------|---------------------------|
@@ -69,16 +64,15 @@ graph TD
 | **Aprovações corporativas** | Automação de fluxos de aprovação baseados em valor e categoria |
 | **Triagem de leads** | Distribuição automática para equipes especializadas |
 
-</TabItem>
-<TabItem value="comparacao" label="Antes vs Depois">
+### Antes vs Depois
 
 **Workflow Linear**
 
 ```mermaid
 graph LR
     A[Entrada] --> B[Processamento] --> C[Saída]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-f3e5f5-style-c-fill#cor-e8f5e8-limitaes-todos os itens seguem o mesmo caminho
+```
+
 - Não há personalização baseada em dados
 - Lógica rígida e inflexível
 - Retrabalho e atrasos
@@ -94,37 +88,29 @@ graph TD
     C -->|Falso| E[Caminho B]
     D --> F[Resultado A]
     E --> G[Resultado B]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-fff3e0-style-c-fill#cor-ffebee-style-d-fill#cor-e8f5e8-style-e-fill#cor-e8f5e8-style-f-fill#cor-f1f8e9-style-g-fill#cor-f1f8e9-vantagens-lgica adaptativa baseada em dados
+```
+
 - Múltiplos caminhos de processamento
 - Automação inteligente e personalizada
 - Escalabilidade aumentada
 - Eliminação de lógica manual
 
-</TabItem>
-</Tabs>
-
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-ns-essenciais para Splitting
-
-<Tabs>
-<TabItem value="comparativo" label="Comparativo Rápido" default>
+<IonicIcon name="sparkles-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Nós Essenciais para Splitting
 
 | **Nó** | **Finalidade** | **Saídas** | **Dicas Rápidas** |
 |--------|---------------|------------|------------------|
-| **[IF](../integracoes/builtin-nodes/logic-control/if)** | Decisão binária | `true`, `false` | Combine condições com **AND/OR**; ative **Always Output Data** se for fazer [merge](./merging) depois |
-| **[Switch](../integracoes/builtin-nodes/logic-control/switch)** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** ([lógica JavaScript](../referencia/recursos/glossario)) |
+| **[IF](../../integracoes/builtin-nodes/logic-control/if)** | Decisão binária | `true`, `false` | Combine condições com **AND/OR**; ative **Always Output Data** se for fazer [merge](./merging) depois |
+| **[Switch](../../integracoes/builtin-nodes/logic-control/switch)** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** ([lógica JavaScript](../referencia/recursos/glossario)) |
 | **[Merge](./merging)** | Reunir ramificações | — | Estratégias *Wait → All* ou *Merge By Key* garantem dados completos |
 
-</TabItem>
-<TabItem value="if" label="Node IF">
-
-#node-if-decises-simples-simno
+### Node IF - Decisões Simples
 
 **Quando usar**: Para condições binárias simples onde você precisa de apenas dois caminhos.
 
-<Admonition type="tip" title="Exemplo prático">
+:::tip **Exemplo prático**
 "Se o valor do pedido for maior que R$ 1000, envie para aprovação manual. Caso contrário, processe automaticamente."
-</Admonition>
+:::
 
 ```mermaid
 graph TD
@@ -133,181 +119,31 @@ graph TD
     B -->|Não| D[Processamento Automático]
     C --> E[Aguardar Aprovação]
     D --> F[Pedido Processado]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-f3e5f5-style-f-fill#cor-f1f8e9-configuraes-crticas **Always Output Data**: Garante que mesmo ramos "vazios" produzam dados
-- **Combine Conditions**: Use AND/OR para lógicas complexas
-- **Data Type**: Certifique-se de comparar tipos compatíveis - veja [transformações de dados](../data/transformacoes-dados)
+```
 
-<CodeBlock language="javascript" title="Lógica do node IF">
-{`// Lógica do node IF
+**Lógica do node IF:**
+
+```javascript
+// Lógica do node IF
 if (valor_pedido > 1000) {
     // Caminho "true" - Aprovação manual
     enviarParaAprovacao();
 } else {
     // Caminho "false" - Processamento automático
     processarAutomaticamente();
-}`}
-</CodeBlock>
-
-<details>
-<summary> Copie e cole este template na dashboard do n8n: </summary>
-<CodeBlock language="json" title="Exemplo de Condicional IF">
-{`
-{
-  "name": "1 - Node IF Simples (Exemplo)",
-  "nodes": [
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        0,
-        0
-      ],
-      "id": "cc141f51-104f-4418-8855-7d60d0f5bf37",
-      "name": "Pedido Recebido (Clique)"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "a3c56011-c465-4d36-865d-ea19ed69533e",
-              "leftValue": "={{ $json.valor_pedido }}",
-              "rightValue": 1000,
-              "operator": {
-                "type": "number",
-                "operation": "gt"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        440,
-        0
-      ],
-      "id": "9c878dfe-3b58-421a-af0b-28b854f5627c",
-      "name": "Valor > R$ 1000 "
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        800,
-        -120
-      ],
-      "id": "05194991-a2f7-476b-9d38-86caffa0228a",
-      "name": "Processamento Automático"
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        800,
-        140
-      ],
-      "id": "82a80168-402c-4045-8a31-9880ac4be86c",
-      "name": "Aprovação Manual"
-    },
-    {
-      "parameters": {
-        "mode": "raw",
-        "jsonOutput": "{\n  \"valor_pedido\": 1500\n}\n",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        220,
-        0
-      ],
-      "id": "6693b086-a4a5-4be4-a2dd-ad9d863d0410",
-      "name": "Valor do Pedido"
-    }
-  ],
-  "pinData": {},
-  "connections": {
-    "Pedido Recebido (Clique)": {
-      "main": [
-        [
-          {
-            "node": "Valor do Pedido",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Valor > R$ 1000 ": {
-      "main": [
-        [
-          {
-            "node": "Processamento Automático",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Aprovação Manual",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Valor do Pedido": {
-      "main": [
-        [
-          {
-            "node": "Valor > R$ 1000 ",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    }
-  },
-  "active": false,
-  "settings": {
-    "executionOrder": "v1"
-  },
-  "versionId": "9f87682e-bf1b-4d70-8256-3137f28ffa9a",
-  "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "5d478e0a2f4e8d45c4e0abcf4fbfa908e6f06b0598ed1dff66e5f3280b44e520"
-  },
-  "id": "EJZFhzQGa087iUZQ",
-  "tags": []
 }
-`}
-</CodeBlock>
-</details>
+```
 
-</TabItem>
-<TabItem value="switch" label="Node Switch">
+### Node Switch - Decisões Múltiplas
 
-#node-switch-decises-mltiplas-quando usar**: Para múltiplas condições onde você precisa de vários caminhos diferentes.
+**Quando usar**: Para múltiplas condições onde você precisa de vários caminhos diferentes.
 
-<Admonition type="tip" title="Exemplo prático: Classificar leads por origem">
+:::tip **Exemplo prático: Classificar leads por origem**
 - Google Ads → Equipe de Marketing Pago
 - Redes Sociais → Equipe de Social Media  
 - Website → Equipe de Vendas Inbound
 - Indicação → Equipe de Relacionamento
-</Admonition>
+:::
 
 ```mermaid
 graph TD
@@ -323,14 +159,12 @@ graph TD
     E --> J[Funil de Vendas]
     F --> K[Follow-up Personalizado]
     G --> L[Análise Manual]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-f3e5f5-style-f-fill#cor-fce4ec-style-g-fill#cor-f1f8e9-modos-de-operao
+```
 
-- **Rules**: Comparação direta (mais simples)
-- **Expression**: [Lógica JavaScript](/referencia/recursos/glossario) (mais flexível)
+**Lógica do node Switch:**
 
-<CodeBlock language="javascript" title="Lógica do node Switch">
-{`// Lógica do node Switch
+```javascript
+// Lógica do node Switch
 switch (origem_lead) {
     case "google_ads":
         // Caminho 1
@@ -351,13 +185,12 @@ switch (origem_lead) {
     default:
         // Caminho padrão
         enviarParaTriagem();
-}`}
-</CodeBlock>
+}
+```
 
-</TabItem>
-<TabItem value="merge" label="Node Merge">
+### Node Merge - Reunindo Ramificações
 
-#node-merge-reunindo-ramificaes-quando usar**: Quando diferentes caminhos precisam convergir para uma ação final comum.
+**Quando usar**: Quando diferentes caminhos precisam convergir para uma ação final comum.
 
 ```mermaid
 graph TD
@@ -370,32 +203,29 @@ graph TD
     
     E --> F[Processar Pagamento]
     F --> G[Enviar Confirmação]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-fce4ec-style-f-fill#cor-f3e5f5-style-g-fill#cor-f1f8e9-estratgias-de-merge
+```
 
 - **Wait → All**: Aguarda todos os ramos terminarem
 - **Merge By Key**: Combina dados baseado em chaves específicas
 - **Append**: Adiciona dados sequencialmente
 
-Saiba mais sobre [manipulação de dados](/logica-e-dados/data/data-mapping-avancado).
+<IonicIcon name="bulb-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Implementação Prática - Exemplo Completo
 
-</TabItem>
-</Tabs>
-
-#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-implementao-prtica Exemplo Completo
-
-#cenrio-sistema-de-aprovao-de Despesas
+### Cenário: Sistema de Aprovação de Despesas
 
 Vamos criar um workflow que automatiza a aprovação de despesas corporativas com base em valor e categoria:
 
-<Admonition type="info" title="Regras de negócio">
+:::info **Regras de negócio**
 - Despesas até R$ 500: Aprovação automática
 - Despesas R$ 501-2000: Aprovação do supervisor
 - Despesas acima de R$ 2000: Aprovação da diretoria
 - Categoria "Viagem": Sempre vai para RH (independente do valor)
-</Admonition>
+:::
 
-#diagrama-completo-do-workflow-mermaid
+### Diagrama Completo do Workflow
+
+```mermaid
 graph TD
     A[Webhook: Despesa Recebida] --> B[Extrair Dados]
     B --> C{Categoria = Viagem?}
@@ -413,18 +243,16 @@ graph TD
     I --> M[Decisão RH]
     K --> N[Decisão Supervisor]
     L --> O[Decisão Diretoria]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-fff3e0-style-c-fill#cor-ffebee-style-e-fill#cor-ffebee-style-d-fill#cor-f3e5f5-style-f-fill#cor-e8f5e8-style-g-fill#cor-fff3e0-style-h-fill#cor-fce4ec-style-j-fill#cor-f1f8e9
+```
 
-#construo-passo-a-passo-tabs
-<TabItem value="passo1" label="1. Webhook/Trigger" default>
+### Construção Passo a Passo
 
-#id-1-webhooktrigger-receber-dados
+#### 1. Webhook/Trigger - Receber Dados
 
 **Objetivo**: O usuário envia um ticket de despesa, disparando o workflow.
 
-<CodeBlock language="json" title="Dados de entrada">
-{`{
+```json
+{
   "funcionario": "João Silva",
   "valor": 1500.00,
   "categoria": "Material de Escritório",
@@ -432,18 +260,15 @@ graph TD
   "data": "2024-01-15",
   "prioridade": "normal",
   "plano_suporte": "Premium"
-}`}
-</CodeBlock>
+}
+```
 
-</TabItem>
-<TabItem value="passo2" label="2. Extrair Dados">
-
-#id-2-setfunction-extrair-dados Essenciais
+#### 2. Set Function - Extrair Dados Essenciais
 
 **Objetivo**: Extrair `priority`, `supportPlan`, `description`, `valor`, `categoria`.
 
-<CodeBlock language="javascript" title="Extração de dados">
-{`// Extrair dados essenciais
+```javascript
+// Extrair dados essenciais
 const dados = {
   funcionario: $json.funcionario,
   valor: parseFloat($json.valor),
@@ -453,31 +278,24 @@ const dados = {
   data: $json.data
 };
 
-return dados;`}
-</CodeBlock>
+return dados;
+```
 
-</TabItem>
-<TabItem value="passo3" label="3. IF Categoria">
-
-#id-3-if-categoria-verificar se é Viagem
+#### 3. IF Categoria - Verificar se é Viagem
 
 ```mermaid
 graph LR
     A[Dados da Despesa] --> B{Categoria = Viagem?}
     B -->|Sim| C[Aprovação RH]
     B -->|Não| D[Análise por Valor]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-f3e5f5-style-d-fill#cor-fff3e0-configurao-do-if Node "Verificar Categoria"**:
+```
 
-- **Condition**: `{{ $json.categoria === "viagem" }}`
+- **Condition**: `{{$json.categoria === "viagem"}}`
 - **Always Output Data**: ✅ Ativado
 - **true** → Caminho RH
 - **false** → Continua análise por valor
 
-</TabItem>
-<TabItem value="passo4" label="4. Switch Valor">
-
-#id-4-switch-valor-anlise por Valor
+#### 4. Switch Valor - Análise por Valor
 
 ```mermaid
 graph TD
@@ -485,82 +303,67 @@ graph TD
     B -->|≤ R$ 500| C[Aprovação Automática]
     B -->|R$ 501-2000| D[Supervisor]
     B -->|> R$ 2000| E[Diretoria]
-    
-    style A fill:#cor-fff3e0-style-b-fill#cor-ffebee-style-c-fill#cor-e8f5e8-style-d-fill#cor-fff3e0-style-e-fill#cor-fce4ec-configurao-do-switch Node "Análise por Valor"**:
+```
 
-- **Rule 1**: `{{ $json.valor <= 500 }}` → **Aprovação Automática**
-- **Rule 2**: `{{ $json.valor > 500 && $json.valor <= 2000 }}` → **Supervisor**
-- **Rule 3**: `{{ $json.valor > 2000 }}` → **Diretoria**
+- **Rule 1**: `{{$json.valor <= 500}}` → **Aprovação Automática**- **Rule 2**: `{{$json.valor > 500 && $json.valor <= 2000}}` → **Supervisor**- **Rule 3**: `{{$json.valor > 2000}}` → **Diretoria**
 
-</TabItem>
-<TabItem value="passo5" label="5. Ações Finais">
+#### 5. Ações Finais - Processar Cada Caminho
 
-#id-5-aes-finais-processar Cada Caminho
-
-<Tabs>
-<TabItem value="rh" label="Caminho RH" default>
-
-**Caminho RH (Viagens)**:
+**Caminho RH (Viagens):**
 
 ```mermaid
 graph LR
     A[Despesa de Viagem] --> B[Análise RH]
     B --> C[Verificar Política]
     C --> D[Decisão Final]
-    
-    style A fill:#cor-f3e5f5-style-b-fill#cor-f3e5f5-style-c-fill#cor-f3e5f5-style-d-fill#cor-f1f8e9-codeblock-languagejavascript-titlenode Enviar para RH">
-{`{
+```
+
+```json
+{
   "aprovador": "RH",
   "mensagem": "Despesa de viagem para análise de política corporativa",
   "prioridade": "normal",
   "sla": "2 dias úteis"
-}`}
-</CodeBlock>
+}
+```
 
-</TabItem>
-<TabItem value="automatico" label="Aprovação Automática">
-
-**Caminho Aprovação Automática**:
+**Caminho Aprovação Automática:**
 
 ```mermaid
 graph LR
     A[Despesa ≤ R$ 500] --> B[Aprovação Automática]
     B --> C[Despesa Aprovada]
-    
-    style A fill:#cor-e8f5e8-style-b-fill#cor-e8f5e8-style-c-fill#cor-f1f8e9-codeblock-languagejavascript-titlenode Aprovar Automaticamente">
-{`{
+```
+
+```json
+{
   "status": "aprovado",
   "aprovador": "sistema",
-  "data_aprovacao": "{{ $now }}",
+  "data_aprovacao": "{{$now}}",
   "observacao": "Aprovação automática - valor dentro do limite"
-}`}
-</CodeBlock>
+}
+```
 
-</TabItem>
-<TabItem value="supervisor" label="Supervisor">
-
-**Caminho Supervisor**:
+**Caminho Supervisor:**
 
 ```mermaid
 graph LR
     A[Despesa R$ 501-2000] --> B[Enviar Email]
     B --> C[Aguardar Resposta]
     C --> D[Processar Decisão]
-    
-    style A fill:#cor-fff3e0-style-b-fill#cor-fff3e0-style-c-fill#cor-fff3e0-style-d-fill#cor-f1f8e9-codeblock-languagejavascript-titlenode Enviar para Supervisor">
-{`{
+```
+
+```json
+{
   "aprovador": "supervisor",
   "email_destino": "supervisor@empresa.com",
   "template": "aprovacao_supervisor",
-  "dados_despesa": "{{ $json }}",
+  "dados_despesa": "{{$json}}",
   "sla": "1 dia útil"
-}`}
-</CodeBlock>
+}
+```
 
-</TabItem>
-<TabItem value="diretoria" label="Diretoria">
-
-**Caminho Diretoria**:
+**Caminho Diretoria:**
 
 ```mermaid
 graph LR
@@ -568,25 +371,20 @@ graph LR
     B --> C[Notificar Assistente]
     C --> D[Aguardar Decisão]
     D --> E[Processar Resultado]
-    
-    style A fill:#cor-fce4ec-style-b-fill#cor-fce4ec-style-c-fill#cor-fce4ec-style-d-fill#cor-fce4ec-style-e-fill#cor-f1f8e9-codeblock-languagejavascript-titlenode Enviar para Diretoria">
-{`{
+```
+
+```json
+{
   "aprovador": "diretoria",
   "email_destino": "diretoria@empresa.com",
   "template": "aprovacao_diretoria",
   "urgencia": "alta",
-  "dados_despesa": "{{ $json }}",
+  "dados_despesa": "{{$json}}",
   "sla": "4 horas"
-}`}
-</CodeBlock>
+}
+```
 
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="passo6" label="6. Merge (Opcional)">
-
-#id-6-mergemerging-reunir-resultados
+#### 6. Merge (Opcional) - Reunir Resultados
 
 **Objetivo**: Se etapas posteriores exigirem o conjunto completo de itens, configure *Wait → All*.
 
@@ -603,22 +401,17 @@ graph LR
 - Enviar notificação final
 - Encerrar execução
 
-</TabItem>
-</Tabs>
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Lógica de Execução e Controle
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-lgica-de Execução e Controle
+### Entendendo a Ordem de Execução
 
-#entendendo-a-ordem-de-execuo
-
-<Tabs>
-<TabItem value="ordem" label="Ordem de Execução" default>
-
-<Admonition type="info" title="Como o n8n executa ramificações">
+:::info **Como o n8n executa ramificações**
 - **Ordem**: O n8n executa o primeiro ramo que finalizar
 - **Paralelismo**: Ramos são executados em paralelo por padrão
 - **Sincronização**: Use **Merge** se precisar aguardar todos os ramos
 - **Timeout**: Configure timeouts para evitar execuções infinitas
-</Admonition>
+:::
 
 ```mermaid
 graph TD
@@ -634,24 +427,24 @@ graph TD
     F --> I[Merge]
     G --> I
     H --> I
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-f3e5f5-style-i-fill#cor-fce4ec-tabitem-tabitem-valuealways-output label="Always Output Data">
+```
 
-#always-output-data-funo-garante que mesmo um ramo "vazio" produza um item, evitando falhas na junção.
+### Always Output Data
 
-<Admonition type="warning" title="Quando usar Always Output Data">
+Garante que mesmo um ramo "vazio" produza um item, evitando falhas na junção.
+
+:::warning **Quando usar Always Output Data**
 ✅ **Use quando:**
 - Vai fazer [merge](./merging) depois
 - Precisa garantir continuidade do fluxo
 - Alguns ramos podem não ter dados
 
 ❌ **Não use quando:**
-
 - Quer que ramos vazios parem a execução
 - Dados vazios causariam problemas downstream
-</Admonition>
+:::
 
-**Exemplo prático**:
+**Exemplo prático:**
 
 ```javascript
 // Sem Always Output Data
@@ -668,436 +461,102 @@ if (condicao_raramente_verdadeira) {
 }
 ```
 
-#sintaxe-javascript-em-expresses-admonition type="tip" title="💡 Boas Práticas para Expressões">
+### Sintaxe JavaScript em Expressões
+
+:::tip **💡 Boas Práticas para Expressões**
 **Sintaxe Recomendada:**
+
 ```javascript
 // ✅ Sintaxe padrão (mais limpa)
-{{ $json.valor > 1000 }}
+{{$json.valor > 1000}}
 
 // ✅ Sintaxe com brackets (necessária para propriedades especiais)
-{{ $json["valor-especial"] > 1000 }}
+{{$json["valor-especial"] > 1000}}
 
 // ✅ Tratamento de tipos
-{{ parseInt($json.valor) > 1000 }}
+{{parseInt($json.valor) > 1000}}
 
 // ✅ Tratamento de valores nulos/undefined
-{{ ($json.valor || 0) > 1000 }}
+{{($json.valor || 0) > 1000}}
 
 // ✅ Verificação de existência
-{{ $json.valor !== undefined && $json.valor > 1000 }}
-
+{{$json.valor !== undefined && $json.valor > 1000}}
 ```
 
 **Evite:**
+
 ```javascript
 // ❌ Pode causar erros com propriedades undefined
-{{ $json.valor_inexistente > 1000 }}
+{{$json.valor_inexistente > 1000}}
 
 // ❌ Sem tratamento de tipos
-{{ $json.valor_string > 1000 }}
+{{$json.valor_string > 1000}}
 
 // ❌ Sem verificações de segurança
-{{ $json.nested.deep.property }}
+{{$json.nested.deep.property}}
 ```
+:::
 
-</Admonition>
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Troubleshooting - Problemas Comuns
 
-</TabItem>
-<TabItem value="paralelismo" label="Paralelismo">
+### Problema: Workflow Para na Condição
 
-#paralelismo-e-performance-em-instncias self-hosted**: Habilite [filas Redis/RabbitMQ](/hosting-n8n/configuracao/queues) para processar ramos em paralelo.
-
-```mermaid
-graph TD
-    A[Entrada] --> B[Distribuidor]
-    B --> C[Fila Redis/RabbitMQ]
-    
-    C --> D[Worker 1]
-    C --> E[Worker 2]
-    C --> F[Worker 3]
-    
-    D --> G[Processamento Paralelo]
-    E --> H[Processamento Paralelo]
-    F --> I[Processamento Paralelo]
-    
-    G --> J[Resultado]
-    H --> J
-    I --> J
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-e8f5e8-style-f-fill#cor-e8f5e8-style-j-fill#cor-f1f8e9-configurao-para-alta performance**:
-
-- **Queue Mode**: Ativado
-- **Concurrent Executions**: 10-50 (baseado na capacidade)
-- **Timeout**: Configurado por tipo de processo
-- **Retry Policy**: Configurada para falhas temporárias
-
-#performance-em-produo-admonition-typetip title="Configurações Otimizadas para Produção">
-**Processamento Distribuído:**
-- **Concurrent Executions**: 10-50 baseado na capacidade do servidor
-- **Queue Mode**: Para processamento distribuído e alta concorrência
-- **Worker Scaling**: Ajuste conforme demanda
-
-**Estratégia de Timeout:**
-
-- **Timeout Strategy**: 30s operações simples, 5min complexas
-- **Connection Timeout**: 10s para APIs externas
-- **Retry Backoff**: Exponencial com jitter
-
-**Monitoramento:**
-
-- **Métricas de Performance**: Latência, throughput, taxa de erro
-- **Alertas**: Para timeouts e falhas de execução
-- **Logs Estruturados**: Para debugging e análise
-</Admonition>
-
-#monitoramento-de-splitting-admonition-typeinfo title="Métricas Essenciais para Workflows com Splitting">
-**Eficiência de Roteamento:**
-- **Split Efficiency**: % de dados que seguem o caminho esperado
-- **Route Distribution**: Distribuição de itens por ramo
-- **Condition Accuracy**: Taxa de acerto das condições
-
-**Performance por Ramo:**
-
-- **Branch Performance**: Tempo médio por ramo de execução
-- **Bottleneck Detection**: Identificação de gargalos específicos
-- **Parallel Efficiency**: Eficácia do processamento paralelo
-
-**Qualidade e Confiabilidade:**
-
-- **Error Rate**: Falhas por tipo de condição
-- **Retry Success Rate**: Taxa de sucesso nas reexecuções
-- **Data Quality**: Integridade dos dados em cada ramo
-</Admonition>
-
-```mermaid
-graph TD
-    A[Workflow com Splitting] --> B[Coleta de Métricas]
-    B --> C[Split Efficiency]
-    B --> D[Branch Performance]
-    B --> E[Error Rate]
-    
-    C --> F[Dashboard de Monitoramento]
-    D --> F
-    E --> F
-    
-    F --> G[Alertas Automáticos]
-    F --> H[Relatórios de Performance]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-fff3e0-style-c-fill#cor-e8f5e8-style-d-fill#cor-f3e5f5-style-e-fill#cor-fce4ec-style-f-fill#cor-ffebee-style-g-fill#cor-ffcdd2-style-h-fill#cor-f1f8e9-tabitem-tabs
-
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-padres-avanados de Splitting
-
-<Tabs>
-<TabItem value="sequencial" label="Splitting Sequencial" default>
-
-#splitting-sequencial-cascata-para-lgicas mais complexas, você pode encadear múltiplos splits - veja mais sobre [subworkflows](/logica-e-dados/flow-logic/subworkflows):
-
-<Tabs>
-<TabItem value="visao-geral" label="Visão Geral" default>
-
-**Conceito Simplificado:**
-
-```mermaid
-graph TD
-    A[Entrada] --> B[Switch 1]
-    B --> C[Switch 2]
-    C --> D[Switch 3]
-    D --> E[Ação Final]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-f1f8e9-estrutura-em-cascata
-
-- **Nível 1**: Categorização inicial
-- **Nível 2**: Refinamento por prioridade
-- **Nível 3**: Decisão final por contexto
-
-</TabItem>
-<TabItem value="exemplo-pratico" label="Exemplo Prático">
-
-**Sistema de Suporte Técnico - Passo a Passo:**
-
-**1. Primeiro Split - Categoria:**
-
-```mermaid
-graph LR
-    A[Ticket] --> B{Tipo}
-    B -->|Software| C[Ramo Software]
-    B -->|Hardware| D[Ramo Hardware]
-    B -->|Rede| E[Ramo Rede]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-f3e5f5-2-segundo-split - Criticidade:**
-
-```mermaid
-graph LR
-    A[Cada Ramo] --> B{Criticidade}
-    B -->|Baixa| C[Normal]
-    B -->|Média| D[Prioritário]
-    B -->|Alta| E[Urgente]
-    
-    style A fill:#cor-fff3e0-style-b-fill#cor-ffebee-style-c-fill#cor-e8f5e8-style-d-fill#cor-fff3e0-style-e-fill#cor-fce4ec-3-terceiro-split - Cliente:**
-
-```mermaid
-graph LR
-    A[Cada Prioridade] --> B{Cliente}
-    B -->|VIP| C[Atendimento Premium]
-    B -->|Standard| D[Atendimento Padrão]
-    
-    style A fill:#cor-e8f5e8-style-b-fill#cor-ffebee-style-c-fill#cor-fce4ec-style-d-fill#cor-f1f8e9-tabitem-tabitem-valuefluxo-completo label="Fluxo Completo">
-
-**Exemplo de um Caminho Completo:**
-
-```mermaid
-graph TD
-    A[Ticket: Software + Alta + VIP] --> B[Switch 1: Software]
-    B --> C[Switch 2: Criticidade Alta]
-    C --> D[Switch 3: Cliente VIP]
-    D --> E[Ação: Especialista + SLA 1h]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-fff3e0-style-c-fill#cor-fce4ec-style-d-fill#cor-ffebee-style-e-fill#cor-f1f8e9-resultado-final **Software** → **Alta Criticidade** → **Cliente VIP** = **Especialista com SLA de 1 hora**
-
-</TabItem>
-</Tabs>
-
-<Admonition type="tip" title="Exemplo: Sistema de suporte técnico">
-**Estrutura de Decisão em 3 Níveis:**
-1. **Primeiro Split**: Tipo de problema (Software/Hardware/Rede)
-2. **Segundo Split**: Criticidade (Baixa/Média/Alta)
-3. **Terceiro Split**: Cliente (VIP/Standard)
-
-**Resultado**: 18 combinações possíveis (3 × 3 × 2) com tratamento específico para cada uma
-</Admonition>
-
-</TabItem>
-<TabItem value="paralelo" label="Splitting Paralelo">
-
-#splitting-paralelo-quando-voc-precisa executar múltiplas verificações simultaneamente:
-
-```mermaid
-graph TD
-    A[Entrada] --> B[Split Paralelo]
-    B --> C[Verificação de Segurança]
-    B --> D[Verificação de Compliance]
-    B --> E[Verificação de Orçamento]
-    
-    C --> F[Resultado Segurança]
-    D --> G[Resultado Compliance]
-    E --> H[Resultado Orçamento]
-    
-    F --> I[Merge]
-    G --> I
-    H --> I
-    
-    I --> J[Decisão Final]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-f3e5f5-style-f-fill#cor-fff3e0-style-g-fill#cor-e8f5e8-style-h-fill#cor-f3e5f5-style-i-fill#cor-fce4ec-style-j-fill#cor-f1f8e9-tabitem-tabitem-valuemerge label="Splitting com Merge">
-
-#splitting-com-mergelogica-e-dadosflow-logicmerging-aps-dividir o fluxo, você pode reunir os caminhos usando um **[Merge node](/logica-e-dados/flow-logic/merging)**:
-
-**Quando usar**: Quando diferentes caminhos precisam convergir para uma ação final comum.
-
-**Modos de Merge Disponíveis:**
-
-- **Append**: Concatena todos os dados de entrada
-- **Keep Key Matches**: Mantém apenas itens com chaves correspondentes  
-- **Remove Key Matches**: Remove itens duplicados por chave
-- **Pass-through**: Passa dados do primeiro input que chegar
-
-```mermaid
-graph TD
-    A[Pedido] --> B{Cliente VIP?}
-    B -->|Sim| C[Desconto VIP 15%]
-    B -->|Não| D[Desconto Padrão 5%]
-    
-    C --> E[Merge]
-    D --> E
-    
-    E --> F[Processar Pagamento]
-    F --> G[Enviar Confirmação]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-fce4ec-style-f-fill#cor-f3e5f5-style-g-fill#cor-f1f8e9-codeblock-languagejavascript-titleexemplo Processar pedido">
-{`// Exemplo: Processar pedido
-Pedido → IF (Cliente VIP?)
-           ├── TRUE → Desconto VIP →
-           └── FALSE → Desconto Padrão →
-                                        ↘
-                                     Merge → Processar Pagamento`}
-</CodeBlock>
-
-</TabItem>
-</Tabs>
-
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-debugging-ferramentas e Técnicas
-
-#cor-debugging-de-condies-admonition-typetip title="🔍 Técnicas de Debug para Splitting">
-**1. Adicione um Edit Fields (Set) antes do split:**
-```javascript
-{
-  "debug_valor": "{{ $json.categoria }}",
-  "debug_tipo": "{{ typeof $json.categoria }}",
-  "debug_condicao": "{{ $json.categoria === 'urgente' }}",
-  "debug_timestamp": "{{ new Date().toISOString() }}"
-}
-```
-
-**2. Use [Expression Editor](/referencia/recursos/glossario) para testar condições:**
-
-- Teste expressões isoladamente
-- Verifique tipos de dados
-- Confirme valores antes de aplicar no workflow
-
-**3. Ative logging no [Code node](/integracoes/builtin-nodes/core-nodes/code):**
-
-```javascript
-// Log detalhado para debug
-console.log('Splitting Debug:', {
-  item: $input.item,
-  condition: $input.item.json.categoria === 'urgente',
-  itemIndex: $itemIndex,
-  timestamp: new Date().toISOString()
-});
-
-return $input.item;
-```
-
-</Admonition>
-
-#ferramentas-de-debugging-ferramentas-built-in
-
-- **Execution History**: Visualize dados em cada node
-- **[Debug Helper](/integracoes/builtin-nodes/core-nodes/debug-helper)**: Insira breakpoints visuais
-- **Data Pinning**: Congele dados para testes consistentes
-
-**Ferramentas Externas:**
-
-- **Webhook.site**: Para inspecionar payloads HTTP
-- **Postman**: Para testes manuais de APIs
-- **Browser DevTools**: Para debugging de expressões JavaScript
-
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting-problemas Comuns
-
-<Tabs>
-<TabItem value="problema1" label="Workflow Para na Condição" default>
-
-#problema-workflow-para-na-condio
-
-<Admonition type="warning" title="Sintomas">
+:::warning **Sintomas**
 O workflow executa até o node de splitting e não continua.
-</Admonition>
+:::
 
 ```mermaid
 graph TD
     A[Dados] --> B{Condição}
     B -.->|Problema| C[❌ Execução Para]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-ffcdd2-diagnstico-1-verifique se a condição está retornando o valor esperado
-2. Teste a expressão no **Expression Editor**
-3. Confirme se há dados na entrada do node
+```
 
 **Solução**:
-<Tabs>
-<TabItem value="incorreto" label="❌ Incorreto" default>
 
-<CodeBlock language="javascript" title="Expressão incorreta">
-{`{{ $json.valor > "1000" }}  // Comparando número com string`}
-</CodeBlock>
+**❌ Incorreto:**
+```javascript
+{{$json.valor > "1000"}}  // Comparando número com string
+```
 
-</TabItem>
-<TabItem value="correto" label="✅ Correto">
+**✅ Correto:**
+```javascript
+{{$json.valor > 1000}}    // Comparando número com número
+```
 
-<CodeBlock language="javascript" title="Expressão correta">
-{`{{ $json.valor > 1000 }}    // Comparando número com número`}
-</CodeBlock>
+### Problema: Caminho Errado Sendo Executado
 
-Saiba mais sobre [expressões JavaScript](/referencia/recursos/glossario) e [tipos de dados](/logica-e-dados/data/transformacoes-dados).
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="problema2" label="Caminho Errado">
-
-#problema-caminho-errado-sendo-executado
-
-<Admonition type="warning" title="Sintomas">
+:::warning **Sintomas**
 Os dados seguem por um caminho diferente do esperado.
-</Admonition>
+:::
 
 ```mermaid
 graph TD
     A[Dados] --> B{Condição}
     B -->|Esperado| C[Caminho Correto]
     B -.->|Problema| D[❌ Caminho Errado]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-e8f5e8-style-d-fill#cor-ffcdd2-diagnstico-codeblock-languagejavascript title="Debug: Adicione um node 'Edit Fields' antes do split">
-{`{
-  "debug_valor": "{{ $json.valor }}",
-  "debug_tipo": "{{ typeof $json.valor }}",
-  "debug_condicao": "{{ $json.valor > 1000 }}"
-}`}
-</CodeBlock>
+```
+
+**Debug com Set Node:**
+
+```json
+{
+  "debug_valor": "{{$json.valor}}",
+  "debug_tipo": "{{typeof $json.valor}}",
+  "debug_condicao": "{{$json.valor > 1000}}"
+}
+```
 
 **Soluções comuns**:
 
-- Converta tipos: `{{ parseInt($json.valor) > 1000 }}`
-- Trate valores nulos: `{{ ($json.valor || 0) > 1000 }}`
-- Use trim para strings: `{{ $json.categoria.trim() === "Viagem" }}`
+- Converta tipos: `{{parseInt($json.valor) > 1000}}`
+- Trate valores nulos: `{{($json.valor || 0) > 1000}}`
+- Use trim para strings: `{{$json.categoria.trim() === "Viagem"}}`
 
-Para mais informações sobre [tratamento de erros](/logica-e-dados/flow-logic/error-handling).
+<IonicIcon name="bulb-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Casos de Uso Comuns
 
-#problema-erro-em-ramificao-especfica
-
-<Admonition type="danger" title="Sintomas">
-Uma ramificação falha mas o workflow continua nas outras.
-</Admonition>
-
-```mermaid
-graph TD
-    A[Dados] --> B{Switch}
-    B --> C[Ramificação 1 ✅]
-    B --> D[Ramificação 2 ❌]
-    B --> E[Ramificação 3 ✅]
-    
-    D --> F[Error Trigger]
-    F --> G[Tratamento de Erro]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-e8f5e8-style-d-fill#cor-ffcdd2-style-e-fill#cor-e8f5e8-style-f-fill#cor-ffeaa7-style-g-fill#cor-fdcb6e-soluo-use-error Trigger**](/integracoes/builtin-nodes/core-nodes/error-trigger) para capturar erros em ramificações:
-
-- **Error Trigger** captura falhas de qualquer node do workflow
-- Configure **Error Workflow** específico para tratar falhas de splitting
-- Use **Continue On Fail** em nodes críticos para não quebrar outras ramificações
-
-</TabItem>
-<TabItem value="problema3" label="Multiple Output Branches">
-
-#problema-multiple-output-branches-admonition type="warning" title="Sintomas">
-Switch node criando saídas inesperadas.
-</Admonition>
-
-```mermaid
-graph TD
-    A[Switch Node] --> B[Output Esperado]
-    A --> C[Output Esperado]
-    A -.-> D[❌ Output Inesperado]
-    A -.-> E[❌ Output Inesperado]
-    
-    style A fill:#cor-ffebee-style-b-fill#cor-e8f5e8-style-c-fill#cor-e8f5e8-style-d-fill#cor-ffcdd2-style-e-fill#cor-ffcdd2-soluo-configure-adequadamente o **Mode**:
-
-- **"Rules"**: Para múltiplas regras independentes
-- **"Expression"**: Para lógica JavaScript personalizada
-
-**Configurações Importantes:**
-
-- **Send data to all matching outputs**: Controla se dados vão para todos os outputs que atendem as condições
-- **Fallback Output**: Define comportamento para dados que não atendem nenhuma regra
-
-</TabItem>
-</Tabs>
-
-#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Comuns
-
-<Tabs>
-<TabItem value="ecommerce" label="E-commerce" default>
-
-#id-1-e-commerce-processamento-de-pedidos
+### E-commerce - Processamento de Pedidos
 
 ```mermaid
 graph TD
@@ -1116,13 +575,9 @@ graph TD
     I --> G
     J -->|Aprovado| G
     J -->|Rejeitado| K[Pedido Cancelado]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-e8f5e8-style-d-fill#cor-fff3e0-style-e-fill#cor-f3e5f5-style-f-fill#cor-fce4ec-style-g-fill#cor-f1f8e9-style-k-fill#cor-ffcdd2-para-integrar-com APIs de pagamento brasileiras, consulte nossa seção sobre [integrações BR](/integracoes-br).
+```
 
-</TabItem>
-<TabItem value="marketing" label="Marketing">
-
-#id-2-marketing-segmentao-de-leads
+### Marketing - Segmentação de Leads
 
 ```mermaid
 graph TD
@@ -1133,15 +588,13 @@ graph TD
     D -->|Alto R$ 10k+| E[Vendas Premium]
     D -->|Médio R$ 1-10k| F[Vendas Standard]
     D -->|Baixo < R$ 1k| G[Marketing Nurturing]
-    
-    C --> H[Account Manager]
+        C --> H[Account Manager]
     E --> I[Consultor Senior]
     F --> J[Consultor Pleno]
     G --> K[Sequência de Emails]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-d-fill#cor-ffebee-style-c-fill#cor-fce4ec-style-e-fill#cor-fff3e0-style-f-fill#cor-e8f5e8-style-g-fill#cor-f3e5f5-tabitem-tabitem-valuesuporte label="Suporte">
+```
 
-#id-3-suporte-triagem-de-tickets
+### Suporte - Triagem de Tickets
 
 ```mermaid
 graph TD
@@ -1155,18 +608,14 @@ graph TD
     D --> H[Resposta em 4h]
     E --> I[Resposta em 24h]
     F --> J[Análise Humana]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fce4ec-style-d-fill#cor-fff3e0-style-e-fill#cor-e8f5e8-style-f-fill#cor-f3e5f5-style-g-fill#cor-ffcdd2-style-h-fill#cor-fff3e0-style-i-fill#cor-f1f8e9-para-automatizar-respostas considere usar [Slack](/integracoes/app-nodes/communication/slack) ou [Gmail](/integracoes/app-nodes/communication/gmail).
+```
 
-</TabItem>
-</Tabs>
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Boas Práticas e Armadilhas
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas e Armadilhas
+### ✅ Boas Práticas Essenciais
 
-<Tabs>
-<TabItem value="boas-praticas" label="✅ Boas Práticas" default>
-
-#boas-prticas-essenciais-admonition-typetip title="🎯 Práticas Recomendadas">
+:::tip **🎯 Práticas Recomendadas**
 **Nomenclatura e Documentação:**
 - **Nomeie nós de forma autoexplicativa** (`IF Urgente?`, `SW Plano Suporte`)
 - **Documente regras no Description** do nó para facilitar auditorias
@@ -1183,18 +632,11 @@ graph TD
 - **Teste cenários extremos** (valores nulos, caminhos sem saída) antes de mover para produção
 - **Valide tipos de dados** antes de fazer comparações
 - **Configure timeouts** apropriados para cada tipo de processo
-</Admonition>
+:::
 
-```mermaid
-graph TD
-    A[Planejamento] --> B[Nomenclatura Clara]
-    B --> C[Documentação]
-    C --> D[Testes Abrangentes]
-    D --> E[Deploy Seguro]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-fff3e0-style-c-fill#cor-e8f5e8-style-d-fill#cor-f3e5f5-style-e-fill#cor-f1f8e9-tabitem-tabitem-valuearmadilhas label="❌ Armadilhas Comuns">
+### ❌ Armadilhas a Evitar
 
-#armadilhas-a-evitar-admonition-typedanger title="🚨 Cuidados Importantes">
+:::danger **🚨 Cuidados Importantes**
 **Problemas de Estrutura:**
 - **Não aninhhe IFs excessivamente**: Torna o workflow difícil de manter
 - **Evite splitting excessivo**: Máximo 3-4 níveis de profundidade
@@ -1211,189 +653,33 @@ graph TD
 - **Não crie nodes desnecessários**: Use Switch ao invés de múltiplos IFs
 - **Não deixe execuções infinitas**: Configure timeouts
 - **Não ignore recursos de paralelismo**: Use filas quando apropriado
-</Admonition>
+:::
 
-```mermaid
-graph TD
-    A[❌ Estrutura Ruim] --> B[Difícil Manutenção]
-    C[❌ Dados Mal Tratados] --> D[Execuções Quebradas]
-    E[❌ Performance Ignorada] --> F[Sistema Lento]
-    
-    style A fill:#cor-ffcdd2-style-b-fill#cor-ffcdd2-style-c-fill#cor-ffcdd2-style-d-fill#cor-ffcdd2-style-e-fill#cor-ffcdd2-style-f-fill#cor-ffcdd2-tabitem-tabitem-valueperformance label="Performance">
+<IonicIcon name="arrow-forward-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Próximos Passos
 
-#otimizao-de-performance-estratgias-de Otimização:**
-
-- **Minimize nodes desnecessários**: Use Switch ao invés de múltiplos IFs sequenciais
-- **Cache resultados**: Para condições computacionalmente caras
-- **Use paralelismo**: Configure [filas Redis/RabbitMQ](/hosting-n8n/configuracao/queues) para alta concorrência
-
-```mermaid
-graph LR
-    A[❌ Múltiplos IFs] --> B[✅ Um Switch]
-    C[❌ Processamento Sequencial] --> D[✅ Processamento Paralelo]
-    
-    style A fill:#cor-ffcdd2-style-b-fill#cor-e8f5e8-style-c-fill#cor-ffcdd2-style-d-fill#cor-e8f5e8-configuraes-recomendadas-admonition type="info" title="🌐 n8n Cloud vs Self-hosted">
-**n8n Cloud:**
-- **Timeout**: Limitado pela configuração da instância
-- **Concorrência**: Baseado no plano contratado
-- **Paralelismo**: Automático até o limite do plano
-
-**Self-hosted:**
-
-- **Timeout**: 30s para operações simples, 5min para complexas
-- **Retry Policy**: 3 tentativas com backoff exponencial
-- **Memory Limit**: Ajuste baseado no volume de dados
-- **[Queue Mode](/hosting-n8n/configuracao/queues)**: Redis/RabbitMQ para alta concorrência
-- **Worker Scaling**: Múltiplos workers para processamento distribuído
-</Admonition>
-
-#migrao-de-if-mltiplos-para Switch
-
-<Admonition type="tip" title="Refatoração para Melhor Performance">
-**Cenário Comum**: Workflows com múltiplos IFs aninhados que se tornaram difíceis de manter.
-
-**Antes: Múltiplos IFs Aninhados**
-
-```javascript
-// ❌ Estrutura complexa e difícil de manter
-IF (categoria === "software") {
-  IF (prioridade === "alta") {
-    IF (cliente === "vip") {
-      // Ação específica
-    } else {
-      // Outra ação
-    }
-  } else {
-    // Mais IFs...
-  }
-}
-```
-
-**Depois: Um Switch Organizado**
-
-```javascript
-// ✅ Estrutura clara e eficiente
-SWITCH (categoria + "_" + prioridade + "_" + cliente) {
-  case "software_alta_vip":
-    // Ação específica
-    break;
-  case "software_alta_standard":
-    // Outra ação
-    break;
-  default:
-    // Ação padrão
-}
-```
-
-**Benefícios da Migração:**
-
-- **Manutenibilidade**: Código mais limpo e fácil de entender
-- **Performance**: Menos overhead de processamento
-- **Escalabilidade**: Fácil adição de novos casos
-- **Debugging**: Mais simples identificar problemas
-
-Para padrões mais complexos, considere usar [subworkflows](/logica-e-dados/flow-logic/subworkflows).
-</Admonition>
-
-```mermaid
-graph TD
-    A[IFs Múltiplos Aninhados] --> B[Análise de Padrões]
-    B --> C[Identificar Combinações]
-    C --> D[Criar Switch Unificado]
-    D --> E[Testar Migração]
-    E --> F[Deploy Otimizado]
-    
-    A --> G[❌ Difícil Manutenção]
-    A --> H[❌ Performance Baixa]
-    
-    F --> I[✅ Código Limpo]
-    F --> J[✅ Performance Melhor]
-    
-    style A fill:#cor-ffcdd2-style-g-fill#cor-ffcdd2-style-h-fill#cor-ffcdd2-style-f-fill#cor-e8f5e8-style-i-fill#cor-e8f5e8-style-j-fill#cor-e8f5e8-tabitem-tabitem-valuemanutencao label="🔧 Manutenibilidade">
-
-#cor-facilitar-manuteno-nomenclatura-consistente-mermaid
-graph LR
-    A[❌ Nome Genérico: IF] --> B[✅ Nome Descritivo: IF Cliente VIP]
-    
-    style A fill:#cor-ffcdd2-style-b-fill#cor-e8f5e8-documentao-estruturada **Description**: Explique o propósito do nó
-- **Notes**: Adicione contexto de negócio
-- **Version Control**: Documente mudanças importantes
-
-**Modularização:**
-
-```mermaid
-graph TD
-    A[Regras Centralizadas] --> B[Node de Configuração]
-    B --> C[Switch Dinâmico]
-    C --> D[Fácil Manutenção]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-fff3e0-style-c-fill#cor-e8f5e8-style-d-fill#cor-f1f8e9-tabitem-tabs
-
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Sub-workflows
-
-#splitting-execute-sub-workflow-para lógicas complexas, combine splitting com [**Execute Sub-workflow**](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow):
-
-```mermaid
-graph TD
-    A[Trigger Principal] --> B{Switch por Categoria}
-    B -->|Financeiro| C[Sub-workflow Financeiro]
-    B -->|RH| D[Sub-workflow RH]
-    B -->|TI| E[Sub-workflow TI]
-    
-    C --> F[Resultado Financeiro]
-    D --> G[Resultado RH]  
-    E --> H[Resultado TI]
-    
-    F --> I[Merge Final]
-    G --> I
-    H --> I
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-ffebee-style-c-fill#cor-fff3e0-style-d-fill#cor-e8f5e8-style-e-fill#cor-f3e5f5-style-f-fill#cor-fff3e0-style-g-fill#cor-e8f5e8-style-h-fill#cor-f3e5f5-style-i-fill#cor-fce4ec-vantagens-modularidade Cada sub-workflow é independente e reutilizável
-- **Manutenção**: Easier debugging e atualizações
-- **Performance**: Sub-workflows podem rodar em paralelo
-- **Organização**: Separa lógica complexa em componentes menores
-
-**Configuração:**
-
-1. **Workflow Principal**: Contém o splitting logic
-2. **Sub-workflows**: Cada um com lógica específica de categoria
-3. **Error Handling**: Cada sub-workflow pode ter seu próprio tratamento de erro
-4. **[Workflow Trigger](/integracoes/builtin-nodes/core-nodes/workflow-trigger)**: Para comunicação entre workflows
-
-<CodeBlock language="javascript" title="Exemplo: Dados passados para sub-workflow">
-{`// No Execute Sub-workflow node:
-{
-  "categoria": "{{ $json.categoria }}",
-  "dados_originais": "{{ $json }}",
-  "workflow_origem": "{{ $workflow.name }}",
-  "timestamp": "{{ new Date().toISOString() }}"
-}`}
-</CodeBlock>
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-<Admonition type="info" title="Agora que você domina splitting básico, explore:">
+:::info **Agora que você domina splitting básico, explore:**
 1. **[Merge Nodes](/logica-e-dados/flow-logic/merging)**: Como reunir fluxos divididos
 2. **[Error Handling](/logica-e-dados/flow-logic/error-handling)**: Tratamento de erros em fluxos condicionais  
 3. **[Looping](/logica-e-dados/flow-logic/looping)**: Lógica de repetição em workflows
 4. **[Sub-workflows](/logica-e-dados/flow-logic/subworkflows)**: Workflows aninhados
 5. **[Waiting](/logica-e-dados/flow-logic/waiting)**: Controle de tempo e aguardo
 6. **[Execute Sub-workflow](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)**: Modularização avançada
-</Admonition>
+:::
 
-#exerccio-prtico-admonition-typetip-titledesafio
+:::tip **Desafio**
 **Crie um workflow de aprovação de férias que:**
 - Funcionários CLT: Máximo 30 dias, aprovação do supervisor
 - Funcionários PJ: Sem limite, apenas notificação
 - Períodos de alta temporada: Sempre requer aprovação da diretoria
 - Solicitações com menos de 30 dias de antecedência: Aprovação expressa
 
-*Dica*: Use [Switch aninhados](/integracoes/builtin-nodes/logic-control) e considere múltiplas condições simultâneas.
-</Admonition>
+*Dica*: Use [Switch aninhados](../../integracoes/builtin-nodes/logic-control) e considere múltiplas condições simultâneas.
+:::
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-resumo-rpido
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-<Admonition type="success" title="🎯 Pontos-Chave para Dominar Splitting">
+:::success **🎯 Pontos-Chave para Dominar Splitting**
 **Conceitos Fundamentais:**
 - **Splitting** = usar **IF** e **Switch** para criar múltiplos caminhos de execução
 - Escolha **IF** para decisões binárias; **Switch** para múltiplos casos
@@ -1417,34 +703,19 @@ graph TD
 - O n8n executa ramos em **paralelo** por padrão
 - Use **Merge** se precisar aguardar todos os ramos
 - Configure **filas Redis/RabbitMQ** para processamento distribuído
-</Admonition>
-
-#fluxo-de-aprendizado-recomendado-mermaid
-graph TD
-    A[1. Entender Conceitos] --> B[2. Praticar IF/Switch]
-    B --> C[3. Implementar Merge]
-    C --> D[4. Otimizar Performance]
-    D --> E[5. Aplicar em Produção]
-    
-    A --> F[Splitting vs Split Out]
-    B --> G[Always Output Data]
-    C --> H[Estratégias de Merge]
-    D --> I[Paralelismo]
-    E --> J[Monitoramento]
-    
-    style A fill:#cor-e1f5fe-style-b-fill#cor-fff3e0-style-c-fill#cor-e8f5e8-style-d-fill#cor-f3e5f5-style-e-fill#cor-f1f8e9-style-f-fill#cor-fce4ec-style-g-fill#cor-fce4ec-style-h-fill#cor-fce4ec-style-i-fill#cor-fce4ec-style-j-fill#cor-fce4ec-com-esses-fundamentos você está pronto para projetar workflows n8n que se adaptam dinamicamente a qualquer cenário de negócios, mantendo o código enxuto e a manutenção simples.
+:::
 
 ---
 
-<Admonition type="note" title="📚 Recursos Adicionais">
+:::note **📚 Recursos Adicionais**
 - [Documentação Oficial - Switch Node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.switch/)
 - [Documentação Oficial - IF Node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.if/)
 - [Documentação Oficial - Merge Node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.merge/)
-- [Error Trigger Node](/integracoes/builtin-nodes/core-nodes/error-trigger)
-- [Execute Sub-workflow Node](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)
+- [Error Trigger Node](../../integracoes/builtin-nodes/core-nodes/error-trigger)
+- [Execute Sub-workflow Node](../../integracoes/builtin-nodes/core-nodes/execute-sub-workflow)
 - [Expressões JavaScript no n8n](/referencia/recursos/glossario)
 - [Exemplos de Workflows](/catalogo)
 - [Integrações Brasileiras](/integracoes-br)
 - [Guia de Instalação](/hosting-n8n/instalacao)
-</Admonition>
+:::
 

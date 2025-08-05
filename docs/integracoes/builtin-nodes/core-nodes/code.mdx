@@ -5,11 +5,11 @@ sidebar_position: 1
 keywords: [n8n, code node, javascript, programação, automação, lógica, customização]
 ---
 
-#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-code-node
+<IonicIcon name="code-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O **Code Node** é um dos nodes mais poderosos do n8n, permitindo executar código JavaScript customizado dentro de seus workflows. Ele oferece controle total sobre a lógica de processamento e manipulação de dados.
 
-#o-que-o-code Node?
+## O que é o Code Node?
 
 O **Code Node** permite:
 
@@ -20,7 +20,7 @@ O **Code Node** permite:
 - **Processar dados** em tempo real
 - **Criar funções** reutilizáveis
 
-#quando-usar-o-code-node
+## Quando usar o Code Node
 
 - **Transformações complexas** de dados
 - **Validações avançadas** que outros nodes não suportam
@@ -29,9 +29,11 @@ O **Code Node** permite:
 - **Processamento** de dados em lotes
 - **Cálculos** matemáticos complexos
 
-#sintaxe-bsica
+## Sintaxe Básica
 
-#estrutura-do-code-node-javascript
+### Estrutura do Code Node
+
+```javascript
 // Code Node - Estrutura básica
 const dados = $json; // Dados de entrada
 
@@ -42,7 +44,10 @@ const resultado = processarDados(dados);
 return { json: resultado };
 ```
 
-#cor-acesso-a-dados-javascript Acessar dados do item atual
+### Acessando Dados
+
+```javascript
+// Acessar dados do item atual
 const dados = $json;
 
 // Acessar dados de nodes específicos
@@ -58,7 +63,10 @@ const primeiroItem = $input.first();
 const itemEspecifico = $input.item[0];
 ```
 
-#retorno-de-dados-javascript Retorno simples
+## Retorno de Dados
+
+```javascript
+// Retorno simples
 return { json: { mensagem: "Sucesso" } };
 
 // Retorno com múltiplos items
@@ -79,9 +87,11 @@ return {
 };
 ```
 
-#exemplos-prticos
+## Exemplos Práticos
 
-#id-1-transformao-de-dados-javascript
+### Transformação de Dados
+
+```javascript
 // Code Node - Transformação de dados
 const dados = $json;
 
@@ -98,12 +108,15 @@ const dadosTransformados = {
 return { json: dadosTransformados };
 ```
 
-#id-2-validao-de-dados-javascript
+### Validação de Dados
+
+```javascript
 // Code Node - Validação avançada
 const dados = $json;
 
 // Função de validação
-
+function validarDados(dados) {
+  const erros = [];
   
   // Validar email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -117,7 +130,7 @@ const dados = $json;
   }
   
   return erros;
-};
+}
 
 // Executar validação
 const erros = validarDados(dados);
@@ -141,7 +154,9 @@ return {
 };
 ```
 
-#id-3-processamento-em-lotes-javascript
+### Processamento em Lotes
+
+```javascript
 // Code Node - Processamento em lotes
 const items = $input.all();
 
@@ -165,12 +180,19 @@ const resultados = items.map(item => {
 return resultados;
 ```
 
-#id-4-integrao-com-apis-javascript
+### Integração com APIs
+
+```javascript
 // Code Node - Integração com API
 const dados = $json;
 
 // Função para fazer requisição
-: ${response.statusText}`);
+async function fazerRequisicao(url, options) {
+  try {
+    const response = await fetch(url, options);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.statusText}`);
     }
     
     return await response.json();
@@ -178,7 +200,7 @@ const dados = $json;
     console.error('Erro na requisição:', error.message);
     throw error;
   }
-};
+}
 
 // Processar dados
 try {
@@ -213,13 +235,21 @@ try {
 }
 ```
 
-#id-5-clculos-matemticos-javascript Code Node - Cálculos financeiros
+### Cálculos Matemáticos
+
+```javascript
+// Code Node - Cálculos financeiros
 const dados = $json;
 
 // Funções de cálculo
-;
+function calcularJurosCompostos(principal, taxa, tempo) {
+  return principal * Math.pow(1 + taxa / 100, tempo);
+}
 
-;
+function calcularParcelas(valor, numParcelas, taxaJuros) {
+  const taxaMensal = taxaJuros / 100 / 12;
+  return valor * (taxaMensal * Math.pow(1 + taxaMensal, numParcelas)) / (Math.pow(1 + taxaMensal, numParcelas) - 1);
+}
 
 // Aplicar cálculos
 const resultado = {
@@ -233,23 +263,35 @@ const resultado = {
 return { json: resultado };
 ```
 
-#id-6-manipulao-de-arrays-javascript
+### Manipulação de Arrays
+
+```javascript
 // Code Node - Manipulação de arrays
 const dados = $json;
 
 // Funções de manipulação
+function filtrarDados(items, criterio) {
+  return items.filter(item => item.valor > criterio);
+}
 
-  });
-};
-
-
+function agruparPorCategoria(items) {
+  return items.reduce((acc, item) => {
+    if (!acc[item.categoria]) {
+      acc[item.categoria] = [];
+    }
     acc[item.categoria].push(item);
     return acc;
   }, {});
-};
+}
 
-;
-};
+function calcularEstatisticas(items) {
+  const valores = items.map(item => item.valor);
+  return {
+    media: valores.reduce((sum, val) => sum + val, 0) / valores.length,
+    maximo: Math.max(...valores),
+    minimo: Math.min(...valores)
+  };
+}
 
 // Aplicar manipulações
 const dadosFiltrados = filtrarDados(dados.items, dados.criterio);
@@ -267,20 +309,41 @@ return {
 };
 ```
 
-#funes-avanadas
+## Funções Avançadas
 
-#id-1-funes-assncronas-javascript Code Node - Funções assíncronas
-;
-};
+### Funções Assíncronas
+
+```javascript
+// Code Node - Funções assíncronas
+async function processarDadosAssincrono(dados) {
+  // Simular processamento assíncrono
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  
+  return {
+    ...dados,
+    processado_async: true,
+    timestamp: new Date().toISOString()
+  };
+}
 
 // Executar função assíncrona
 const resultado = await processarDadosAssincrono($json);
 return { json: resultado };
 ```
 
-#id-2-tratamento-de-erros-javascript
+### Tratamento de Erros
+
+```javascript
 // Code Node - Tratamento de erros
-;
+async function processarComTratamento(dados) {
+  try {
+    // Processamento que pode falhar
+    const resultado = await processarDados(dados);
+    return {
+      sucesso: true,
+      dados: resultado,
+      timestamp: new Date().toISOString()
+    };
   } catch (error) {
     console.error('Erro no processamento:', error.message);
     
@@ -291,17 +354,31 @@ return { json: resultado };
       timestamp: new Date().toISOString()
     };
   }
-};
+}
 
 const resultado = await processarComTratamento($json);
 return { json: resultado };
 ```
 
-#id-3-cache-e-memria-javascript
+### Cache e Memória
+
+```javascript
 // Code Node - Cache simples
 const cache = new Map();
 
-;
+function processarComCache(chave, dados) {
+  // Verificar cache
+  if (cache.has(chave)) {
+    const cacheData = cache.get(chave);
+    const tempoCache = new Date() - cacheData.timestamp;
+    
+    // Cache válido por 5 minutos
+    if (tempoCache < 5 * 60 * 1000) {
+      return {
+        ...cacheData.dados,
+        origem: 'cache',
+        timestamp_cache: cacheData.timestamp.toISOString()
+      };
     }
   }
   
@@ -319,15 +396,25 @@ const cache = new Map();
     origem: 'processamento',
     timestamp_processamento: new Date().toISOString()
   };
-};
+}
 
 const resultado = processarComCache($json.id, $json);
 return { json: resultado };
 ```
 
-#id-4-validao-de-schema-javascript
+### Validação de Schema
+
+```javascript
 // Code Node - Validação de schema
-' é obrigatório`);
+function validarSchema(dados, schema) {
+  const erros = [];
+  
+  for (const [campo, regras] of Object.entries(schema)) {
+    const valor = dados[campo];
+    
+    // Verificar se é obrigatório
+    if (regras.obrigatorio && (valor === undefined || valor === null || valor === '')) {
+      erros.push(`Campo '${campo}' é obrigatório`);
       continue;
     }
     
@@ -355,14 +442,14 @@ return { json: resultado };
   }
   
   return erros;
-};
+}
 
 // Schema de validação
 const schema = {
   nome: { obrigatorio: true, tipo: 'string', min: 2, max: 100 },
-  email: { 
-    obrigatorio: true, 
-    tipo: 'string', 
+  email: {
+    obrigatorio: true,
+    tipo: 'string',
     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   },
   idade: { obrigatorio: true, tipo: 'number', min: 18, max: 120 }
@@ -389,24 +476,35 @@ return {
 };
 ```
 
-#boas-prticas
+## Boas Práticas
 
-#id-1-estrutura-do-cdigo-javascript
+### Estrutura do Código
+
+```javascript
 // Code Node - Estrutura organizada
 const dados = $json;
 
 // 1. Validação de entrada
-
+function validarEntrada(dados) {
+  if (!dados || typeof dados !== 'object') {
+    throw new Error('Dados inválidos');
+  }
   return dados;
-};
+}
 
 // 2. Funções de processamento
-;
+function processarDados(dados) {
+  // Lógica de processamento aqui
+  return dados;
+}
 
 // 3. Validação de saída
-
+function validarSaida(resultado) {
+  if (!resultado) {
+    throw new Error('Resultado inválido');
+  }
   return resultado;
-};
+}
 
 // 4. Execução principal
 try {
@@ -428,52 +526,90 @@ try {
 }
 ```
 
-#id-2-performance-javascript-code Node - Otimizações de performance
+### Performance
 
-  
-  return resultados;
-};
+```javascript
+// Code Node - Otimizações de performance
+const items = $input.all();
+
+// Usar Map para lookup rápido
+const lookup = new Map();
+items.forEach(item => {
+  lookup.set(item.json.id, item.json);
+});
+
+// Processar em lotes para melhor performance
+const resultados = [];
+const batchSize = 100;
+
+for (let i = 0; i < items.length; i += batchSize) {
+  const batch = items.slice(i, i + batchSize);
+  const batchResults = batch.map(item => {
+    // Processamento do item
+    return { json: item.json };
+  });
+  resultados.push(...batchResults);
+}
+
+return resultados;
 ```
 
-#id-3-logging-javascript-code Node - Logging estruturado
-;
+### Logging
+
+```javascript
+// Code Node - Logging estruturado
+function logEstruturado(nivel, mensagem, dados) {
+  const log = {
+    nivel: nivel,
+    mensagem: mensagem,
+    timestamp: new Date().toISOString(),
+    dados: dados
+  };
   
   console.log(JSON.stringify(log, null, 2));
-};
+}
 
 // Usar logging
 logEstruturado('INFO', 'Iniciando processamento', $json);
 ```
 
-#Troubleshooting
+## Troubleshooting
 
-#problemas-comuns
+### Problemas Comuns
 
-#cdigo-no-executa-verifique sintaxe JavaScript
+#### Código não executa
+
+- **Verifique sintaxe JavaScript**
 - Confirme se não há erros de referência
 - Teste com código simples
 - Verifique logs de erro
 
-#performance-lenta-otimize-loops e operações
+#### Performance lenta
+
+- **Otimize loops e operações**
 - Use cache quando possível
 - Processe em lotes
 - Monitore uso de memória
 
-#cor-dados-no-aparecem-verifique se está retornando dados
+#### Dados não retornam
+
+- **Verifique se está retornando dados**
 - Confirme estrutura do retorno
 - Use Debug Helper
 - Teste com dados simples
 
-#cor-debug-1-use-consolelog-para debug
+### Dicas de Debug
+
+1. **Use console.log para debug**
 2. **Teste com dados simples**
 3. **Verifique Execution History**
 4. **Use Debug Helper**
 5. **Monitore performance**
 
-#prximos-passos-expresses-n8nlogica-e-dadosexpressoes - Usar expressões JavaScript
+## Próximos Passos
+
+- [Expressões JavaScript](/logica-e-dados/expressoes) - Usar expressões JavaScript
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Debugging](/logica-e-dados/flow-logic/debugging) - Técnicas de debug
 - [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Integrar com APIs
 - [Data Processing](/integracoes/builtin-nodes/data-processing/index) - Processar dados
-
-

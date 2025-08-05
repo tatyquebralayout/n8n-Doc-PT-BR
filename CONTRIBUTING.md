@@ -13,6 +13,7 @@ Nossa documentação funciona como um hub centralizado de conhecimento onde cada
 ### Estrutura Hierárquica Clara
 
 A organização segue uma hierarquia lógica que facilita a navegação e localização de informações:
+
 - **Primeiros Passos**: Conceitos básicos e instalação
 - **Usando n8n**: Funcionalidades principais e interface
 - **Lógica e Dados**: Processamento e manipulação de dados
@@ -32,11 +33,13 @@ Antes de criar nova documentação, **sempre** verifique:
 ### 2. Critérios de Decisão para Novos Conteúdos
 
 **Criar novo conteúdo quando:**
+
 - É um tópico completamente novo e não coberto
 - Adiciona valor significativo a um tópico existente
 - Aborda um aspecto específico não detalhado anteriormente
 
 **NÃO criar quando:**
+
 - O tópico já existe em outra seção
 - A informação pode ser integrada a conteúdo existente
 - Cria redundância desnecessária
@@ -81,12 +84,14 @@ grep -r "\[.*\]" docs/ | grep -v "http"
 #### Evitar Redundâncias Específicas
 
 **❌ NÃO fazer:**
+
 - Criar múltiplos arquivos "Em breve" com conteúdo idêntico
 - Usar a mesma estrutura para páginas em construção
 - Repetir explicações básicas em nodes relacionados
 - Usar palavras-chave excessivamente (mais de 5 vezes por arquivo)
 
 **✅ FAZER:**
+
 - Usar templates padronizados para páginas em construção
 - Criar conteúdo único para cada node, mesmo que relacionados
 - Referenciar conteúdo existente ao invés de duplicar
@@ -95,12 +100,14 @@ grep -r "\[.*\]" docs/ | grep -v "http"
 #### Evitar Duplicações Comuns
 
 **❌ Problemas frequentes:**
+
 - Documentar autenticação em múltiplas seções
 - Criar guias de instalação duplicados
 - Explicar conceitos básicos em várias seções
 - Documentar webhooks em locais diferentes
 
 **✅ Soluções:**
+
 - Centralizar autenticação em "Usando n8n > Credenciais"
 - Manter um único guia de instalação em "Primeiros Passos"
 - Referenciar conceitos básicos ao invés de repetir
@@ -149,7 +156,7 @@ Quando overlaps são identificados:
 
 ### Organização de Diretórios
 
-```
+```bash
 docs/
 ├── intro.md                    # Página inicial
 ├── primeiros-passos/           # Conceitos básicos e instalação
@@ -208,7 +215,7 @@ docs/
 
 ## Recursos Úteis
 
-### Ferramentas de Verificação
+### Recursos e Ferramentas
 
 - **Estrutura**: `sidebars.json` - Configuração centralizada
 - **Busca**: Funcionalidade de busca do repositório

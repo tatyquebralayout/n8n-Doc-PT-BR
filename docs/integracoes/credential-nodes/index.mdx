@@ -5,19 +5,27 @@ description: Autenticação e credenciais para integrações
 keywords: [n8n, credential nodes, autenticação, credenciais, oauth]
 ---
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-credenciais-as **Credenciais** são informações de autenticação que permitem que o n8n se conecte com APIs e serviços externos de forma segura. Elas são essenciais para qualquer integração que requeira autenticação.
+<IonicIcon name="key-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#o-que-so-credenciais-credenciais são dados sensíveis (como chaves de API, tokens, usuários e senhas) que são armazenados de forma segura no n8n e usados para autenticar com serviços externos.
+As **Credenciais** são informações de autenticação que permitem que o n8n se conecte com APIs e serviços externos de forma segura. Elas são essenciais para qualquer integração que requeira autenticação.
 
-#tipos-de-informaes-armazenadas **Chaves de API**: Tokens de acesso para APIs
+## O que são Credenciais
+
+Credenciais são dados sensíveis (como chaves de API, tokens, usuários e senhas) que são armazenados de forma segura no n8n e usados para autenticar com serviços externos.
+
+## Tipos de Informações Armazenadas
+
+- **Chaves de API**: Tokens de acesso para APIs
 - **Usuários e senhas**: Credenciais básicas
 - **Tokens OAuth**: Tokens de autenticação OAuth
 - **Certificados**: Certificados SSL/TLS
 - **Configurações**: URLs base, endpoints, etc.
 
-#tipos-de-credenciais
+## Tipos de Credenciais
 
-#id-1-credenciais-predefinidas-credenciais-especficas para integrações suportadas pelo n8n:
+### Credenciais Predefinidas
+
+Credenciais específicas para integrações suportadas pelo n8n:
 
 - **Configuração otimizada** para cada serviço
 - **Validação automática** de formato
@@ -26,13 +34,16 @@ keywords: [n8n, credential nodes, autenticação, credenciais, oauth]
 - **Suporte oficial** disponível
 
 **Exemplos:**
+
 - Google Sheets
 - Slack
 - GitHub
 - Salesforce
 - WhatsApp Business API
 
-#id-2-credenciais-genricas-credenciais-para serviços não suportados oficialmente:
+### Credenciais Genéricas
+
+Credenciais para serviços não suportados oficialmente:
 
 - **Flexibilidade total** de configuração
 - **Múltiplos métodos** de autenticação
@@ -41,15 +52,18 @@ keywords: [n8n, credential nodes, autenticação, credenciais, oauth]
 - **Adaptação a qualquer serviço**
 
 **Métodos disponíveis:**
+
 - Basic Auth
 - Header Auth
 - OAuth1
 - OAuth2
 - Custom Auth
 
-#mtodos-de-autenticao
+## Métodos de Autenticação
 
-#id-1-api-key-autenticao-via chave de API no header:
+### API Key
+
+Autenticação via chave de API no header:
 
 ```javascript
 // Exemplo de configuração
@@ -58,12 +72,15 @@ Value: sua-chave-api-aqui
 ```
 
 **Casos de uso:**
+
 - APIs REST simples
 - Serviços de terceiros
 - APIs internas
 - Webhooks seguros
 
-#id-2-bearer-token-autenticao-via token no header Authorization:
+### Bearer Token
+
+Autenticação via token no header Authorization:
 
 ```javascript
 // Exemplo de configuração
@@ -72,12 +89,15 @@ Value: Bearer seu-token-aqui
 ```
 
 **Casos de uso:**
+
 - APIs OAuth2
 - JWT tokens
 - APIs modernas
 - Serviços cloud
 
-#id-3-basic-auth-autenticao-bsica com usuário e senha:
+### Basic Auth
+
+Autenticação básica com usuário e senha:
 
 ```javascript
 // Exemplo de configuração
@@ -86,12 +106,15 @@ Password: sua-senha
 ```
 
 **Casos de uso:**
+
 - APIs legadas
 - Sistemas internos
 - FTP/SFTP
 - Bancos de dados
 
-#id-4-oauth2-fluxo-oauth2-completo
+### OAuth2
+
+Fluxo OAuth2 completo:
 
 ```javascript
 // Exemplo de configuração
@@ -103,12 +126,15 @@ Client Secret: seu-client-secret
 ```
 
 **Casos de uso:**
+
 - Google APIs
 - Microsoft APIs
 - Redes sociais
 - APIs modernas
 
-#id-5-custom-auth-autenticao-customizada
+### Custom Auth
+
+Autenticação customizada:
 
 ```javascript
 // Exemplo de configuração
@@ -119,14 +145,15 @@ Headers: {
 ```
 
 **Casos de uso:**
+
 - APIs com autenticação única
 - Sistemas proprietários
 - Integrações customizadas
 - APIs internas
 
-#como-configurar-credenciais
+## Como Configurar Credenciais
 
-#id-1-acessar-gerenciador-de-credenciais
+### Acessar Gerenciador de Credenciais
 
 1. **Clique no ícone de credenciais** no menu lateral
 2. **Selecione "Add Credential"** para criar nova credencial
@@ -134,7 +161,9 @@ Headers: {
 4. **Preencha os campos** necessários
 5. **Teste a conexão** antes de salvar
 
-#id-2-configurar-credenciais-predefinidas-para serviços suportados:
+### Configurar Credenciais Predefinidas
+
+Para serviços suportados:
 
 1. **Selecione o serviço** na lista
 2. **Siga as instruções** específicas do serviço
@@ -142,7 +171,9 @@ Headers: {
 4. **Teste a conexão**
 5. **Salve a credencial**
 
-#id-3-configurar-credenciais-genricas-para serviços não suportados:
+### Configurar Credenciais Genéricas
+
+Para serviços não suportados:
 
 1. **Escolha o método** de autenticação
 2. **Configure parâmetros** específicos
@@ -150,7 +181,9 @@ Headers: {
 4. **Teste com a API**
 5. **Valide a configuração**
 
-#id-4-testar-credenciais-sempre-teste antes de usar:
+### Testar Credenciais
+
+Sempre teste antes de usar:
 
 1. **Use o botão "Test"** na configuração
 2. **Verifique logs** de erro
@@ -158,119 +191,158 @@ Headers: {
 4. **Valide formato** dos dados
 5. **Teste com dados reais**
 
-#boas-prticas-de-segurana
+## Boas Práticas de Segurança
 
-#id-1-armazenamento-seguro-nunca compartilhe** credenciais em texto plano
+### Armazenamento Seguro
+
+Nunca compartilhe credenciais em texto plano:
+
 - **Use variáveis de ambiente** quando possível
 - **Rotacione credenciais** regularmente
 - **Monitore uso** das credenciais
 - **Implemente auditoria** de acesso
 
-#id-2-controle-de-acesso **Limite permissões** ao mínimo necessário
+### Controle de Acesso
+
+Limite permissões ao mínimo necessário:
+
 - **Use credenciais específicas** para cada ambiente
 - **Implemente autenticação** de dois fatores
 - **Monitore tentativas** de acesso
 - **Configure alertas** para uso anômalo
 
-#id-3-gerenciamento-de-credenciais **Documente** todas as credenciais
+### Gerenciamento de Credenciais
+
+Documente todas as credenciais:
+
 - **Mantenha inventário** atualizado
 - **Configure expiração** quando possível
 - **Implemente backup** seguro
 - **Treine equipe** em segurança
 
-#exemplos-prticos
+## Exemplos Práticos
 
-#exemplo-1-configurar-api-do Google Sheets
+### Exemplo 1: Configurar API do Google Sheets
 
 **Tipo:** Google Sheets
 **Método:** OAuth2
 
 **Configuração:**
+
 1. Criar projeto no Google Cloud Console
 2. Habilitar Google Sheets API
 3. Criar credenciais OAuth2
 4. Configurar URLs de redirecionamento
 5. Testar conexão
 
-#exemplo-2-configurar-api-do Slack
+### Exemplo 2: Configurar API do Slack
 
 **Tipo:** Slack
 **Método:** Bearer Token
 
 **Configuração:**
+
 1. Criar app no Slack
 2. Gerar token de bot
 3. Configurar permissões
 4. Adicionar token no n8n
 5. Testar envio de mensagem
 
-#exemplo-3-configurar-api-customizada
+### Exemplo 3: Configurar API Customizada
 
 **Tipo:** Generic API
 **Método:** Header Auth
 
 **Configuração:**
+
 1. Obter chave de API do serviço
 2. Configurar header de autenticação
 3. Definir URL base da API
 4. Testar endpoint de exemplo
 5. Validar resposta
 
-#Troubleshooting
+## Troubleshooting
 
-#problemas-comuns
+### Problemas Comuns
 
-#credencial-no-funciona-verifique se a credencial está correta
+#### Credencial não funciona
+
+Verifique se a credencial está correta:
+
 - Confirme se a API está acessível
 - Teste com ferramentas externas (Postman)
 - Verifique logs de erro
 - Confirme permissões da API
 
-#erro-de-autenticao-verifique formato da credencial
+#### Erro de autenticação
+
+Verifique formato da credencial:
+
 - Confirme se não expirou
 - Valide permissões necessárias
 - Teste com credencial de teste
 - Consulte documentação da API
 
-#token-expirado-configure-refresh token quando possível
+#### Token expirado
+
+Configure refresh token quando possível:
+
 - Implemente renovação automática
 - Monitore expiração de tokens
 - Configure alertas de expiração
 - Mantenha backup de credenciais
 
-#rate-limiting-implemente-delays entre requisições
+#### Rate limiting
+
+Implemente delays entre requisições:
+
 - Use paginação quando disponível
 - Configure retry com backoff
 - Monitore limites da API
 - Otimize uso de recursos
 
-#cor-debug-1-use-logs-detalhados para identificar problemas
+### Estratégias de Debug
+
+1. **Use logs detalhados** para identificar problemas
 2. **Teste credenciais** individualmente
 3. **Verifique configuração** de rede
 4. **Confirme formato** dos dados
 5. **Monitore uso** de recursos
 
-#integrao-com-sistemas-brasileiros
+## Integração com Sistemas Brasileiros
 
-#e-commerce-nuvemshop-api-de pedidos e produtos
+### E-commerce
+
+**NuvemShop API** de pedidos e produtos:
+
 - **WooCommerce**: API de vendas
 - **Mercado Livre**: API de anúncios e vendas
 
-#pagamentos-pagseguro-api-de pagamentos
+### Pagamentos
+
+**PagSeguro API** de pagamentos:
+
 - **Mercado Pago**: API de transações
 - **PayPal**: API de pagamentos
 
-#comunicao-whatsapp-business-api API de mensagens
+### Comunicação
+
+**WhatsApp Business API** de mensagens:
+
 - **Telegram Bot API**: API de bots
 - **Slack**: API de comunicação
 
-#governo-receita-federal-api de CNPJ
+### Governo
+
+**Receita Federal API** de CNPJ:
+
 - **Correios**: API de rastreamento
 - **Banco Central**: API de PIX
 
-#prximos-passos-http-requestintegracoesbuiltin-nodeshttp-requestshttp-request - Fazer requisições autenticadas
+## Próximos Passos
+
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições autenticadas
 - [Webhook](/integracoes/builtin-nodes/http-requests/webhook) - Receber dados com autenticação
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar credenciais dinamicamente
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas de autenticação
 - [Segurança](/privacidade-seguranca/security-best-practices) - Boas práticas de segurança
-

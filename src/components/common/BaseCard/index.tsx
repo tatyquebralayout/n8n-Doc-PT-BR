@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import IonicIcon from '@site/src/components/IonicIcon';
+import IonicIcon from '../../IonicIcon';
 import styles from './styles.module.css';
 
 interface BaseCardProps {
@@ -115,4 +115,5 @@ const BaseCard: React.FC<BaseCardProps> = ({
   );
 };
 
-export default BaseCard; 
+export default BaseCard;
+export type { BaseCardProps }; 

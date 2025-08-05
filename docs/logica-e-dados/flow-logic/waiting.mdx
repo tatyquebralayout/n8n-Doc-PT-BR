@@ -5,32 +5,17 @@ description: Como implementar esperas e delays em workflows n8n
 keywords: [n8n, wait, delay, pausa, timing, sincronização, rate limiting]
 ---
 
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-waiting-e Delays
+<IonicIcon name="time-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Waiting e Delays
 
 O controle de tempo é fundamental em workflows de automação. O n8n oferece várias estratégias para implementar esperas, delays e sincronização, permitindo criar workflows resilientes que lidam graciosamente com latências, rate limits e dependências temporais.
 
-#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-conceitos-fundamentais
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#por-que-usar-waiting-e Delays?
-
-- **Rate Limiting**: Respeitar limites de APIs externas
-- **Sincronização**: Aguardar processos externos completarem
-- **Retry Logic**: Implementar tentativas com delays crescentes
-- **User Experience**: Criar delays naturais em automações
-- **Resource Management**: Evitar sobrecarga de sistemas
-- **Error Recovery**: Dar tempo para sistemas se recuperarem
-
-#tipos-de-waiting-1-fixed Delays**: Pausas de tempo fixo
-2. **Dynamic Delays**: Delays baseados em condições
-3. **Event-based Waiting**: Aguardar eventos específicos
-4. **Polling**: Verificação periódica de status
-5. **Timeout**: Limites de tempo para operações
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-implementao
-
-#id-1-wait-node-o-wait Node** é a forma mais direta de implementar delays.
+## Configuração Básica
 
 **Configuração básica:**
+
 ```json
 {
   "waitFor": "duration",
@@ -39,15 +24,18 @@ O controle de tempo é fundamental em workflows de automação. O n8n oferece v�
 ```
 
 **Configuração avançada:**
+
 ```json
 {
   "waitFor": "time",
-  "time": "{{ $now.addHours(1) }}",
+  "time": "{{$now.addHours(1)}}",
   "timeout": 3600000  // 1 hora máximo
 }
 ```
 
-#id-2-delays-dinmicos-delays-que variam baseado em condições ou dados.
+## Delays Dinâmicos
+
+Delays que variam baseado em condições ou dados.
 
 ```javascript
 // Delay baseado no tamanho dos dados
@@ -62,7 +50,7 @@ return {
 ```javascript
 // Delay baseado na hora do dia
 const hora = $now.getHours();
-const delay = hora >= 9 && hora <= 18 ? 1000 : 5000; // Menos delay em horário comercial
+const delay = hora >= 9 && hora <= 18 ? 1000 : 5000; / Menos delay em horário comercial
 
 return {
   "waitFor": "duration",
@@ -70,22 +58,24 @@ return {
 };
 ```
 
-#id-3-backoff-exponencial-estratgia-para retry com delays crescentes.
+## Backoff Exponencial
+
+Estratégia para retry com delays crescentes.
 
 ```javascript
-// Backoff exponencial
+/ Backoff exponencial
 const tentativa = $runIndex || 0;
-const delay = Math.min(Math.pow(2, tentativa) * 1000, 30000); // Máximo 30s
+const delay = Math.min(Math.pow(2, tentativa) * 1000, 30000); / Máximo 30s
 
 return {
   "waitFor": "duration",
   "duration": delay
 };
 ```
+<IonicIcon name="code-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Casos de Uso Práticos
 
-#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Práticos
-
-#id-1-rate-limiting-para-apis
+### Rate Limiting para APIs
 
 **Cenário**: Respeitar limites de API (100 requisições por minuto).
 
@@ -97,6 +87,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Code Node - Calcular delay baseado no rate limit
 const rateLimit = 100; // requisições por minuto
@@ -108,20 +99,22 @@ return {
 };
 ```
 
-#id-2-polling-com-timeout-cenrio Verificar status de job com timeout.
+### Polling com Timeout
+
+**Cenário**: Verificar status de job com timeout.
 
 ```mermaid
 graph TD
     A[Iniciar Job] --> B[Wait Node - 30s]
     B --> C[Verificar Status]
     C --> D{Concluído?}
-    D -->|Não| E{Tentativas < 10?}
-    E -->|Sim| B
+    D -->|Não| E{Tentativas < 10?}    E -->|Sim| B
     E -->|Não| F[Timeout Error]
     D -->|Sim| G[Processar Resultado]
 ```
 
 **Implementação:**
+
 ```javascript
 // Code Node - Polling com timeout
 const maxTentativas = 10;
@@ -140,7 +133,7 @@ return {
 };
 ```
 
-#id-3-sincronizao-com-processos-externos
+### Sincronização com Processos Externos
 
 **Cenário**: Aguardar processamento de arquivo em sistema externo.
 
@@ -154,6 +147,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Code Node - Sincronização inteligente
 const status = $json.status;
@@ -179,7 +173,9 @@ return {
 };
 ```
 
-#id-4-delays-condicionais-cenrio-delays diferentes baseados em prioridade.
+### Delays Condicionais
+
+**Cenário**: Delays diferentes baseados em prioridade.
 
 ```javascript
 // Code Node - Delay baseado em prioridade
@@ -206,9 +202,12 @@ return {
 };
 ```
 
-#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-estratgias-avanadas
+<IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Estratégias Avançadas
 
-#id-1-delays-adaptativos-delays-que se ajustam baseado no comportamento do sistema.
+### Delays Adaptativos
+
+Delays que se ajustam baseado no comportamento do sistema.
 
 ```javascript
 // Code Node - Delay adaptativo
@@ -222,7 +221,7 @@ return {
 };
 ```
 
-#id-2-delays-baseados-em-carga
+### Delays Baseados em Carga
 
 Delays que variam baseado na carga do sistema.
 
@@ -237,7 +236,9 @@ return {
 };
 ```
 
-#id-3-delays-com-jitter-adiciona variação aleatória para evitar thundering herd.
+### Delays com Jitter
+
+Adiciona variação aleatória para evitar thundering herd.
 
 ```javascript
 // Code Node - Delay com jitter
@@ -251,44 +252,54 @@ return {
 };
 ```
 
-#ionicicon-nameflash-outline-style-fontsize-24px color: '#cor-ea4b71-expresses-e Data Mapping
+<IonicIcon name="flash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Expressões e Data Mapping
 
-#delays-dinmicos-com-expresses-javascript
+### Delays Dinâmicos com Expressões
+
+```javascript
 // Delay baseado em dados de entrada
 {
   "waitFor": "duration",
-  "duration": "{{ $json.items.length * 100 }}"
+  "duration": "{{$json.items.length * 100}}"
 }
 
 // Delay baseado em configuração externa
 {
   "waitFor": "duration",
-  "duration": "{{ $('Config Node').json.delay_ms }}"
+  "duration": "{{$('Config Node').json.delay_ms}}"
 }
 
 // Delay baseado em horário
 {
   "waitFor": "duration",
-  "duration": "{{ $now.getHours() < 9 || $now.getHours() > 18 ? 300000 : 5000 }}"
+  "duration": "{{$now.getHours() < 9 || $now.getHours() > 18 ? 300000 : 5000}}"
 }
 ```
 
-#horrios-dinmicos-javascript-aguardar até próxima hora cheia
+### Horários Dinâmicos
+
+```javascript
+// Aguardar até próxima hora cheia
 {
   "waitFor": "time",
-  "time": "{{ $now.setMinutes(0, 0, 0).addHours(1) }}"
+  "time": "{{$now.setMinutes(0, 0, 0).addHours(1)}}"
 }
 
 // Aguardar até próximo dia útil
 {
   "waitFor": "time",
-  "time": "{{ $now.getDay() === 0 ? $now.addDays(1) : $now.addDays(1) }}"
+  "time": "{{$now.getDay() === 0 ? $now.addDays(1) : $now.addDays(1)}}"
 }
 ```
 
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-tratamento-de Erros
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Tratamento de Erros
 
-#timeout-e-cancelamento-javascript Wait Node com timeout
+### Timeout e Cancelamento
+
+```javascript
+// Wait Node com timeout
 {
   "waitFor": "duration",
   "duration": 300000,  // 5 minutos
@@ -296,7 +307,9 @@ return {
 }
 ```
 
-#retry-com-backoff-exponencial-mermaid
+### Retry com Backoff Exponencial
+
+```mermaid
 graph TD
     A[Operação] --> B{Sucesso?}
     B -->|Não| C[Wait Node - Backoff]
@@ -306,6 +319,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Code Node - Backoff exponencial
 const tentativa = $runIndex || 0;
@@ -323,9 +337,12 @@ return {
 };
 ```
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-e Otimização
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Performance e Otimização
 
-#boas-prticas-1-use-delays Apropriados**
+### Boas Práticas
+
+1. **Use Delays Apropriados**
    - Respeite rate limits das APIs
    - Considere o impacto no tempo total do workflow
    - Use delays dinâmicos quando possível
@@ -340,7 +357,10 @@ return {
    - Identifique gargalos causados por delays
    - Otimize baseado em métricas reais
 
-#exemplo-de-monitoramento-javascript Code Node - Monitoramento de delays
+### Exemplo de Monitoramento
+
+```javascript
+// Code Node - Monitoramento de delays
 const startTime = $now;
 const delay = 5000;
 
@@ -358,9 +378,12 @@ return {
 };
 ```
 
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
+<IonicIcon name="help-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Troubleshooting
 
-#problemas-comuns-wait-node-no funciona**
+### Problemas Comuns
+
+**Wait Node não funciona**
 - Verifique se o tipo de wait está correto
 - Confirme se a duração está em milissegundos
 - Verifique se o horário está no formato correto
@@ -375,7 +398,10 @@ return {
 - Reduza delays muito longos
 - Use webhooks para operações longas
 
-#cor-debugging-javascript-code-node - Debugging de delays
+### Debug com Logging
+
+```javascript
+// Code Node - Debugging de delays
 const debug = {
   "waitType": "duration",
   "duration": 5000,
@@ -392,15 +418,22 @@ return {
 };
 ```
 
-#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Outros Nós
+<IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Integração com Outros Nós
 
-#fluxo-tpico-mermaid-graph-td
+### Fluxo Típico
+
+```mermaid
+graph TD
     A[HTTP Request] --> B[Wait Node]
     B --> C[Code Node]
     C --> D[Email]
 ```
 
-#exemplo-completo-javascript-1 HTTP Request - Buscar dados
+### Exemplo Completo
+
+```javascript
+// 1. HTTP Request - Buscar dados
 {
   "url": "https://api.exemplo.com/dados",
   "method": "GET"
@@ -429,7 +462,10 @@ return processados;
 }
 ```
 
-#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-referncias **[Wait Node](../../integracoes/builtin-nodes/logic-control/wait)** - Nó específico para delays
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Referências
+
+- **[Wait Node](../../integracoes/builtin-nodes/logic-control/wait)** - Nó específico para delays
 - **[Error Handling](./error-handling)** - Tratamento de erros em workflows
 - **[Execution Order](./execution-order)** - Ordem de execução de nós
 - **[Webhook Trigger](../../integracoes/trigger-nodes/event-based/webhook-trigger)** - Triggers baseados em webhooks
@@ -440,5 +476,5 @@ return processados;
 Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
 :::
 
-> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#cor-ea4b71-dica-use delays estrategicamente para criar workflows mais robustos e respeitosos com os sistemas externos. Lembre-se que delays muito longos podem impactar a experiência do usuário, então sempre considere alternativas como webhooks para operações que podem demorar.
-
+<IonicIcon name="bulb-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
+**Dica**: Use delays estratégicos para criar workflows resilientes que respeitam limites de sistemas externos e otimizam a performance geral.

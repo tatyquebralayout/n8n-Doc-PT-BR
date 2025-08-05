@@ -1,26 +1,17 @@
 ﻿---
-title: If Node
-description: Guia completo sobre o If Node no n8n, incluindo condições, operadores, exemplos práticos e boas práticas
+title: Node If
+description: Aprenda a usar o node If no n8n para criar condições e tomar decisões baseadas em dados
 sidebar_position: 1
 keywords: [n8n, if node, condições, lógica, decisões, operadores, controle de fluxo]
 ---
 
-#ionicicon-namecheckmark-circle-outline-style-fontsize-24px color: '#cor-ea4b71-if-node
+<IonicIcon name="checkmark-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-O **If Node** é um dos nodes mais importantes do n8n para controle de fluxo. Ele permite criar condições e tomar decisões baseadas em dados, direcionando o workflow por diferentes caminhos.
+O **node If** é um dos componentes mais importantes do n8n para controle de fluxo. Ele permite criar condições e tomar decisões baseadas em dados, direcionando o workflow por diferentes caminhos.
 
-#o-que-o-if Node?
+## Quando usar o If
 
-O **If Node** permite:
-
-- **Criar condições** baseadas em dados
-- **Tomar decisões** automaticamente
-- **Direcionar fluxo** para diferentes caminhos
-- **Validar dados** antes do processamento
-- **Implementar lógica de negócio** complexa
-- **Criar workflows dinâmicos** e inteligentes
-
-#quando-usar-o-if-node
+O node If é ideal para:
 
 - **Validação** de dados de entrada
 - **Classificação** de itens por critérios
@@ -29,143 +20,166 @@ O **If Node** permite:
 - **Tratamento de erros** condicional
 - **Lógica de negócio** baseada em regras
 
-#configurao-bsica
+## Configuração Básica
 
-#estrutura-do-if-node-javascript
+### Estrutura do If Node
+
+```javascript
 // If Node - Estrutura básica
 {
-  "condition": "{{ $json.valor > 100 }}",
+  "condition": "{{$json.valor > 100}}",
   "true": "Caminho para valores altos",
   "false": "Caminho para valores baixos"
 }
 ```
 
-#tipos-de-condies
+## Tipos de Condições
 
-#id-1-condio-simples-javascript Verificar se campo existe
-{{ $json.nome }}
+### Condição Simples
+
+```javascript
+// Verificar se campo existe
+{{$json.nome}}
 
 // Verificar se valor é verdadeiro
-{{ $json.ativo === true }}
+{{$json.ativo === true}}
 
 // Verificar se string não está vazia
-{{ $json.email && $json.email.length > 0 }}
+{{$json.email && $json.email.length > 0}}
 ```
 
-#id-2-comparaes-numricas-javascript Maior que
-{{ $json.valor > 100 }}
+### Comparações Numéricas
+
+```javascript
+// Maior que
+{{$json.valor > 100}}
 
 // Menor que
-{{ $json.valor < 50 }}
+{{$json.valor < 50}}
 
 // Igual a
-{{ $json.quantidade === 10 }}
+{{$json.quantidade === 10}}
 
 // Diferente de
-{{ $json.status !== 'ativo' }}
+{{$json.status !== 'ativo'}}
 
 // Maior ou igual
-{{ $json.idade >= 18 }}
+{{$json.idade >= 18}}
 
 // Menor ou igual
-{{ $json.preco <= 1000 }}
+{{$json.preco <= 1000}}
 ```
 
-#id-3-comparaes-de-string-javascript
+### Comparações de String
+
+```javascript
 // Igual a (case sensitive)
-{{ $json.categoria === 'Premium' }}
+{{$json.categoria === 'Premium'}}
 
 // Igual a (case insensitive)
-{{ $json.categoria.toLowerCase() === 'premium' }}
+{{$json.categoria.toLowerCase() === 'premium'}}
 
 // Contém texto
-{{ $json.descricao.includes('importante') }}
+{{$json.descricao.includes('importante')}}
 
 // Começa com
-{{ $json.nome.startsWith('João') }}
+{{$json.nome.startsWith('João')}}
 
 // Termina com
-{{ $json.email.endsWith('@gmail.com') }}
+{{$json.email.endsWith('@gmail.com')}}
 
 // Regex
-{{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}
+{{/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email)}}
 ```
 
-#id-4-condies-com-arrays-javascript
+### Condições com Arrays
+
+```javascript
 // Verificar se array contém valor
-{{ $json.tags.includes('urgente') }}
+{{$json.tags.includes('urgente')}}
 
 // Verificar tamanho do array
-{{ $json.itens.length > 0 }}
+{{$json.itens.length > 0}}
 
 // Verificar se array está vazio
-{{ $json.produtos.length === 0 }}
+{{$json.produtos.length === 0}}
 
 // Verificar se todos os itens atendem condição
-{{ $json.numeros.every(num => num > 0) }}
+{{$json.numeros.every(num => num > 0)}}
 
 // Verificar se algum item atende condição
-{{ $json.status.some(s => s === 'erro') }}
+{{$json.status.some(s => s === 'erro')}}
 ```
 
-#id-5-condies-com-datas-javascript
+### Condições com Datas
+
+```javascript
 // Verificar se data é hoje
-{{ $json.data === $today }}
+{{$json.data === $today}}
 
 // Verificar se data é futura
-{{ new Date($json.data) > new Date() }}
+{{new Date($json.data) > new Date()}}
 
 // Verificar se data é passada
-{{ new Date($json.data) < new Date() }}
+{{new Date($json.data) < new Date()}}
 
 // Verificar se data está em intervalo
-{{ new Date($json.data) >= new Date('2024-01-01') && 
-   new Date($json.data) <= new Date('2024-12-31') }}
+{{new Date($json.data) >= new Date('2024-01-01') && new Date($json.data) <= new Date('2024-12-31')}}
 
 // Verificar se é fim de semana
-{{ [0, 6].includes(new Date($json.data).getDay()) }}
+{{[0, 6].includes(new Date($json.data).getDay())}}
 ```
 
-#operadores-lgicos
+## Operadores Lógicos
 
-#id-1-operador-and-javascript
+### Operador AND
+
+```javascript
 // Múltiplas condições (todas devem ser verdadeiras)
-{{ $json.ativo && $json.saldo > 0 && $json.email }}
+{{$json.ativo && $json.saldo > 0 && $json.email}}
 
 // Exemplo prático
-{{ $json.idade >= 18 && $json.cpf && $json.email.includes('@') }}
+{{$json.idade >= 18 && $json.cpf && $json.email.includes('@')}}
 ```
 
-#id-2-operador-or-javascript
+### Operador OR
+
+```javascript
 // Múltiplas condições (pelo menos uma deve ser verdadeira)
-{{ $json.categoria === 'Premium' || $json.valor > 1000 }}
+{{$json.categoria === 'Premium' || $json.valor > 1000}}
 
 // Exemplo prático
-{{ $json.status === 'ativo' || $json.status === 'pendente' }}
+{{$json.status === 'ativo' || $json.status === 'pendente'}}
 ```
 
-#id-3-operador-not-javascript
+### Operador NOT
+
+```javascript
 // Negar condição
-{{ !$json.inativo }}
+{{!$json.inativo}}
 
 // Exemplo prático
-{{ !$json.erro && $json.dados }}
+{{!$json.erro && $json.dados}}
 ```
 
-#id-4-combinao-de-operadores-javascript
+### Combinação de Operadores
+
+```javascript
 // Condição complexa
-{{ ($json.ativo && $json.saldo > 0) || $json.admin }}
+{{($json.ativo && $json.saldo > 0) || $json.admin}}
 
 // Exemplo prático
-{{ ($json.idade >= 18 && $json.cpf) || $json.categoria === 'VIP' }}
+{{($json.idade >= 18 && $json.cpf) || $json.categoria === 'VIP'}}
 ```
 
-#exemplos-prticos
+## Exemplos Práticos
 
-#id-1-validao-de-dados-javascript
+### Exemplo 1: Validação de Dados
+
+```javascript
 // If Node - Validação de cliente
 {
-  "condition": "{{ $json.nome && $json.email && $json.cpf && $json.idade >= 18 }}",
+  "condition": "{{$json.nome && $json.email && $json.cpf && $json.idade >= 18}}",
   "true": "Cliente Válido",
   "false": "Cliente Inválido"
 }
@@ -181,10 +195,12 @@ O **If Node** permite:
 - Enviar notificação
 - Solicitar dados corretos
 
-#id-2-classificao-por-valor-javascript
+### Exemplo 2: Classificação por Valor
+
+```javascript
 // If Node - Classificação de pedido
 {
-  "condition": "{{ $json.valor_total > 1000 }}",
+  "condition": "{{$json.valor_total > 1000}}",
   "true": "Pedido Premium",
   "false": "Pedido Standard"
 }
@@ -200,10 +216,12 @@ O **If Node** permite:
 - Aplicar desconto padrão
 - Enviar confirmação
 
-#id-3-filtragem-por-status-javascript
+### Exemplo 3: Filtragem por Status
+
+```javascript
 // If Node - Filtragem por status
 {
-  "condition": "{{ $json.status === 'aprovado' }}",
+  "condition": "{{$json.status === 'aprovado'}}",
   "true": "Processar Aprovação",
   "false": "Aguardar Aprovação"
 }
@@ -219,10 +237,12 @@ O **If Node** permite:
 - Enviar lembrança
 - Monitorar status
 
-#id-4-tratamento-de-erros-javascript
+### Exemplo 4: Tratamento de Erros
+
+```javascript
 // If Node - Tratamento de erro
 {
-  "condition": "{{ $json.erro || $json.status === 'falha' }}",
+  "condition": "{{$json.erro || $json.status === 'falha'}}",
   "true": "Tratar Erro",
   "false": "Processar Sucesso"
 }
@@ -238,10 +258,12 @@ O **If Node** permite:
 - Salvar resultado
 - Enviar confirmação
 
-#id-5-roteamento-por-categoria-javascript
+### Exemplo 5: Roteamento por Categoria
+
+```javascript
 // If Node - Roteamento por categoria
 {
-  "condition": "{{ $json.categoria === 'financeiro' }}",
+  "condition": "{{$json.categoria === 'financeiro'}}",
   "true": "Processamento Financeiro",
   "false": "Processamento Geral"
 }
@@ -257,34 +279,38 @@ O **If Node** permite:
 - Aprovação automática
 - Processamento direto
 
-#workflows-complexos
+## Workflows Complexos
 
-#id-1-mltiplos-if-nodes-em Sequência
+### Múltiplos If Nodes em Sequência
 
+```mermaid
+graph TD
+    A[Manual Trigger] --> B[If Validação]
+    B -->|OK| C[If Classificação]
+    B -->|Falhou| D[Tratar Erro]
+    C -->|Premium| E[Processamento Premium]
+    C -->|Standard| F[Processamento Standard]
+    E --> G[Resultado Final]
+    F --> G
+    D --> G
 ```
-Manual Trigger → If (Validação) → If (Classificação) → If (Processamento)
-                    ↓                    ↓                    ↓
-                Validação OK         Premium              Processar
-                    ↓                    ↓                    ↓
-                Validação Falhou    Standard              Aguardar
-```
 
-#id-2-if-node-com-switch Node
+### If Node com Switch Node
 
 ```javascript
 // Switch Node - Múltiplas condições
 {
   "rules": [
     {
-      "condition": "{{ $json.categoria === 'urgente' }}",
+      "condition": "{{$json.categoria === 'urgente'}}",
       "output": "Processamento Urgente"
     },
     {
-      "condition": "{{ $json.categoria === 'normal' }}",
+      "condition": "{{$json.categoria === 'normal'}}",
       "output": "Processamento Normal"
     },
     {
-      "condition": "{{ $json.categoria === 'baixa' }}",
+      "condition": "{{$json.categoria === 'baixa'}}",
       "output": "Processamento Baixa Prioridade"
     }
   ],
@@ -292,41 +318,54 @@ Manual Trigger → If (Validação) → If (Classificação) → If (Processamen
 }
 ```
 
-#id-3-if-node-com-merge
+### If Node com Merge
 
+```mermaid
+graph TD
+    A[If Node A] --> B[Processamento A]
+    A --> C[If Node B]
+    C --> D[Processamento B]
+    B --> E[Merge Node]
+    D --> E
+    E --> F[Resultado Final]
 ```
-If Node A → Processamento A
-    ↓
-If Node B → Processamento B
-    ↓
-Merge Node → Resultado Final
-```
 
-#boas-prticas
+## Boas Práticas
 
-#id-1-condies-claras-javascript ✅ Bom: Condição clara e legível
-{{ $json.ativo && $json.saldo > 0 }}
+### Condições Claras
+
+```javascript
+// ✅ Bom: Condição clara e legível
+{{$json.ativo && $json.saldo > 0}}
 
 // ❌ Evitar: Condição confusa
-{{ $json.a && $json.s > 0 }}
+{{$json.a && $json.s > 0}}
 ```
 
-#id-2-validao-de-dados-javascript
+### Validação de Dados
+
+```javascript
 // ✅ Bom: Validar antes de usar
-{{ $json.valor && typeof $json.valor === 'number' && $json.valor > 0 }}
+{{$json.valor && typeof $json.valor === 'number' && $json.valor > 0}}
 
 // ❌ Evitar: Usar sem validação
-{{ $json.valor > 0 }}
+{{$json.valor > 0}}
 ```
 
-#id-3-condies-simples-javascript ✅ Bom: Condições simples
-{{ $json.status === 'ativo' }}
+### Condições Simples
+
+```javascript
+// ✅ Bom: Condições simples
+{{$json.status === 'ativo'}}
 
 // ❌ Evitar: Condições muito complexas
-{{ $json.status === 'ativo' && $json.saldo > 0 && $json.email && $json.cpf && $json.idade >= 18 }}
+{{$json.status === 'ativo' && $json.saldo > 0 && $json.email && $json.cpf && $json.idade >= 18}}
 ```
 
-#id-4-nomenclatura-descritiva-javascript ✅ Bom: Nomes descritivos
+### Nomenclatura Descritiva
+
+```javascript
+// ✅ Bom: Nomes descritivos
 "Cliente Válido"
 "Pedido Premium"
 "Processamento Urgente"
@@ -337,94 +376,116 @@ Merge Node → Resultado Final
 "Option 1"
 ```
 
-#id-5-documentao-javascript Bom: Documentar condições
+### Documentação
+
+```javascript
+// ✅ Bom: Documentar condições
 // Condição: Verifica se cliente tem dados obrigatórios e idade mínima
-{{ $json.nome && $json.email && $json.cpf && $json.idade >= 18 }}
+{{$json.nome && $json.email && $json.cpf && $json.idade >= 18}}
 
 // ❌ Evitar: Condição sem contexto
-{{ $json.a && $json.b && $json.c }}
+{{$json.a && $json.b && $json.c}}
 ```
 
-#Troubleshooting
+## Troubleshooting
 
-#problemas-comuns
+### Problemas Comuns
 
-#condio-sempre-verdadeira-verifique se está usando operadores corretos
+**Condição sempre verdadeira**
+- Verifique se está usando operadores corretos
 - Confirme se os campos existem
 - Teste com dados de exemplo
 - Use Debug Helper para inspecionar dados
 
-#condio-sempre-falsa-verifique se os valores estão corretos
+**Condição sempre falsa**
+- Verifique se os valores estão corretos
 - Confirme se os tipos de dados estão corretos
 - Teste com valores simples
 - Verifique se há espaços em branco
 
-#workflow-no-segue-caminho-esperado
+**Workflow não segue caminho esperado**
 - Verifique a lógica da condição
 - Confirme se os dados estão corretos
 - Teste com diferentes cenários
 - Use Debug Helper para ver dados
 
-#cor-debug-javascript-code-node - Debug de condição
-;
+### Debug de Condição
+
+```javascript
+// Função de debug para condições
+function debugCondicao(dados, condicao) {
+  console.log('Dados recebidos:', dados);
+  console.log('Condição testada:', condicao);
+  console.log('Resultado:', eval(condicao));
+  
+  return dados;
+}
 
 // Usar no If Node
-{{ debugCondicao($json, '$json.ativo && $json.saldo > 0') }}
+{{debugCondicao($json, '$json.ativo && $json.saldo > 0')}}
 ```
 
-#exemplos-avanados
+## Exemplos Avançados
 
-#id-1-validao-de-email-javascript
+### Validação de Email
+
+```javascript
 // If Node - Validação de email
 {
-  "condition": "{{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}",
+  "condition": "{{/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email)}}",
   "true": "Email Válido",
   "false": "Email Inválido"
 }
 ```
 
-#id-2-verificao-de-cpf-javascript
+### Verificação de CPF
+
+```javascript
 // If Node - Verificação de CPF
 {
-  "condition": "{{ /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test($json.cpf) }}",
+  "condition": "{{/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test($json.cpf)}}",
   "true": "CPF Válido",
   "false": "CPF Inválido"
 }
 ```
 
-#id-3-classificao-de-cliente-javascript
+### Classificação de Cliente
+
+```javascript
 // If Node - Classificação de cliente
 {
-  "condition": "{{ $json.valor_total > 10000 || $json.categoria === 'VIP' }}",
+  "condition": "{{$json.valor_total > 10000 || $json.categoria === 'VIP'}}",
   "true": "Cliente Premium",
   "false": "Cliente Regular"
 }
 ```
 
-#id-4-verificao-de-horrio-javascript
+### Verificação de Horário
+
+```javascript
 // If Node - Verificação de horário comercial
 {
-  "condition": "{{ new Date().getHours() >= 8 && new Date().getHours() <= 18 && new Date().getDay() >= 1 && new Date().getDay() <= 5 }}",
+  "condition": "{{new Date().getHours() >= 8 && new Date().getHours() <= 18 && new Date().getDay() >= 1 && new Date().getDay() <= 5}}",
   "true": "Horário Comercial",
   "false": "Fora do Horário"
 }
 ```
 
-#id-5-validao-de-dados-obrigatrios
+### Validação de Dados Obrigatórios
 
 ```javascript
 // If Node - Validação de dados obrigatórios
 {
-  "condition": "{{ $json.nome && $json.nome.trim().length > 0 && $json.email && $json.email.trim().length > 0 && $json.telefone && $json.telefone.trim().length > 0 }}",
+  "condition": "{{$json.nome && $json.nome.trim().length > 0 && $json.email && $json.email.trim().length > 0 && $json.telefone && $json.telefone.trim().length > 0}}",
   "true": "Dados Completos",
   "false": "Dados Incompletos"
 }
 ```
 
-#prximos-passos-switch-nodeintegracoesbuiltin-nodeslogic-controlswitch - Múltiplas condições
+## Próximos Passos
+
+- [Switch Node](/integracoes/builtin-nodes/logic-control/switch) - Múltiplas condições
 - [Merge Node](/integracoes/builtin-nodes/logic-control/merge) - Combinar dados
 - [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões em condições
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
-
-

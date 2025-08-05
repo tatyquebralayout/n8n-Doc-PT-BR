@@ -30,6 +30,7 @@ O componente renderiza diferentes elementos baseado nas props fornecidas:
 ## 📝 Exemplos de Uso
 
 ### Card Básico
+
 ```tsx
 import { BaseCard } from '@site/src/components/common';
 
@@ -41,6 +42,7 @@ import { BaseCard } from '@site/src/components/common';
 ```
 
 ### Card com Link
+
 ```tsx
 <BaseCard
   title="Card com Link"
@@ -53,6 +55,7 @@ import { BaseCard } from '@site/src/components/common';
 ```
 
 ### Card com Botão
+
 ```tsx
 const handleClick = () => {
   console.log('Card clicado!');
@@ -67,6 +70,7 @@ const handleClick = () => {
 ```
 
 ### Card com Conteúdo Adicional
+
 ```tsx
 <BaseCard
   title="Card com Conteúdo"
@@ -81,6 +85,7 @@ const handleClick = () => {
 ```
 
 ### Card com Ícone Customizado
+
 ```tsx
 <BaseCard
   title="Card Customizado"
@@ -156,4 +161,4 @@ const CustomCard = ({ customProp, ...props }) => (
 - Suporte a navegação por teclado
 - ARIA labels apropriados
 - Focus management
-- Screen reader friendly 
+- Screen reader friendly

@@ -1,72 +1,24 @@
-﻿:::warning
-<IonicIcon name="time-outline" style={{ fontSize: '18px', color: '#cor-f59e0b-esta-pgina ainda está em processo de validação. O conteúdo pode sofrer alterações.
+﻿---
+title: Autenticação
+sidebar_position: 1
+description: Configuração de métodos de autenticação seguros no n8n, incluindo 2FA e integração com provedores externos
+keywords: [n8n, autenticação, 2FA, OAuth, SAML, segurança, login]
+---
+
+:::warning
+<IonicIcon name="time-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
+Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
 :::
 
----
-title: Autenticação
-sidebar_position: 3
-description: Configure métodos de autenticação seguros para o n8n, incluindo 2FA, OAuth e integração com provedores externos
-keywords: [n8n, autenticação, 2FA, OAuth, segurança, login, usuários]
----
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Autenticação
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-autenticao-a autenticação é fundamental para proteger seu ambiente n8n. Neste guia, você aprenderá a configurar métodos de autenticação seguros, incluindo autenticação de dois fatores (2FA) e integração com provedores externos.
+A autenticação é fundamental para proteger seu ambiente n8n. Neste guia, você aprenderá a configurar métodos de autenticação seguros, incluindo autenticação de dois fatores (2FA) e integração com provedores externos.
 
-#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você aprenderá
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Políticas de Senha
 
-- **Métodos de autenticação** disponíveis no n8n
-- **Configuração de 2FA** para maior segurança
-- **Integração com OAuth** e provedores externos
-- **Boas práticas** de segurança
-- **Troubleshooting** de problemas de autenticação
-
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-mtodos-de Autenticação
-
-#id-1-autenticao-local-usurio-e Senha**:
-
-- Método padrão do n8n
-- Senhas criptografadas no banco de dados
-- Suporte a políticas de senha
-
-**Configuração**:
-
-```bash
-#variveis-de-ambiente-n8nbasicauthactivetrue-n8nbasicauthuseradmin
-N8N_BASIC_AUTH_PASSWORD=senha-segura
-```
-
-#id-2-autenticao-de-dois-fatores (2FA)
-
-**TOTP (Time-based One-Time Password)**:
-
-- Códigos temporários via app (Google Authenticator, Authy)
-- Validação em tempo real
-- Backup codes para recuperação
-
-**Configuração**:
-
-1. Acesse **Settings** → **Users**
-2. Selecione o usuário
-3. Clique em **Enable 2FA**
-4. Escaneie o QR code com seu app
-5. Digite o código de verificação
-
-#id-3-oauth-20-provedores-suportados
-
-- **Google**: Gmail, Google Workspace
-- **Microsoft**: Azure AD, Office 365
-- **GitHub**: Para desenvolvedores
-- **SAML**: Para empresas
-
-**Configuração Google OAuth**:
-
-```bash
-#variveis-de-ambiente-n8ngoogleclientidyour-client-id-n8ngoogleclientsecretyour-client-secret
-N8N_GOOGLE_CALLBACK_URL=https://your-domain.com/callback
-```
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-de Segurança
-
-#id-1-polticas-de-senha-configuraes recomendadas**:
+### Configuração de Políticas
 
 ```json
 {
@@ -75,31 +27,45 @@ N8N_GOOGLE_CALLBACK_URL=https://your-domain.com/callback
   "requireLowercase": true,
   "requireNumbers": true,
   "requireSpecialChars": true,
-  "maxAge": 90, // dias
-  "preventReuse": 5 // últimas senhas
+  "maxAge": 90,
+  "preventReuse": 5
 }
 ```
 
-#id-2-sesses-e-timeouts-configurao de sessão**:
+### Sessões e Timeouts
+
+**Configuração de sessão**:
 
 ```bash
-#tempo-de-sesso-em-segundos
-N8N_SESSION_LIFETIME=86400 #id-24-horas
+# Tempo de sessão em segundos
+N8N_SESSION_LIFETIME=86400  # 24 horas
 
-#tempo-de-inatividade-n8nsessiontimeout3600 #id-1-hora
+# Tempo de inatividade
+N8N_SESSION_TIMEOUT=3600    # 1 hora
 
-#renovao-automtica-n8nsessionextendonactivitytrue
+# Renovação automática
+N8N_SESSION_EXTEND_ON_ACTIVITY=true
+```
 
-#id-3-rate-limiting-proteo-contra ataques**:
+### Rate Limiting
+
+**Proteção contra ataques**:
 
 ```bash
-#tentativas-de-login-n8nloginattemptslimit5-n8nloginattemptstimeout900 #id-15-minutos
+# Tentativas de login
+N8N_LOGIN_ATTEMPTS_LIMIT=5
+N8N_LOGIN_ATTEMPTS_TIMEOUT=900  # 15 minutos
 
-#bloqueio-de-ip-n8nipwhitelist1921681024100008
+# Bloqueio de IP
+N8N_IP_WHITELIST=192.168.1.0/24,10.0.0.0/8
+```
 
-#ionicicon-nameshield-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Provedores Externos
+<IonicIcon name="shield-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Integração com Provedores Externos
 
-#id-1-google-oauth-configurao-no Google Cloud Console**:
+### Google OAuth
+
+**Configuração no Google Cloud Console**:
 
 1. **Criar projeto** no Google Cloud Console
 2. **Habilitar Google+ API**
@@ -115,7 +81,9 @@ N8N_GOOGLE_CALLBACK_URL=https://your-domain.com/callback
 N8N_GOOGLE_SCOPES=email profile
 ```
 
-#id-2-microsoft-azure-ad-configurao no Azure Portal**:
+### Microsoft Azure AD
+
+**Configuração no Azure Portal**:
 
 1. **Registrar aplicação** no Azure AD
 2. **Configurar permissões** necessárias
@@ -131,86 +99,41 @@ N8N_MICROSOFT_TENANT_ID=your-tenant-id
 N8N_MICROSOFT_CALLBACK_URL=https://your-domain.com/callback
 ```
 
-#id-3-saml-20-para-ambientes empresariais**:
+### SAML 2.0
+
+**Para ambientes empresariais**:
 
 ```bash
-#configurao-saml-n8nsamlenabledtrue-n8nsamlissueryour-issuer-n8nsamlentrypointhttpsyour-idpcomsso
+# Configuração SAML
+N8N_SAML_ENABLED=true
+N8N_SAML_ISSUER=your-issuer
+N8N_SAML_ENTRY_POINT=https://your-idp.com/sso
 N8N_SAML_CERT=path/to/certificate.pem
 ```
 
-#ionicicon-namecheckmark-circle-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas
+<IonicIcon name="checkmark-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Autenticação de Dois Fatores (2FA)
 
-#id-1-segurana-de-produo-recomendaes
-
-- **Use HTTPS** em todos os ambientes
-- **Configure 2FA** para todos os usuários
-- **Implemente políticas** de senha forte
-- **Monitore logs** de autenticação
-- **Use variáveis de ambiente** para credenciais
-
-#id-2-gerenciamento-de-usurios-processos recomendados**:
-
-- **Onboarding**: Criação padronizada de contas
-- **Offboarding**: Desativação imediata
-- **Auditoria**: Revisão regular de acessos
-- **Treinamento**: Capacitação em segurança
-
-#id-3-monitoramento-alertas-configurar **Tentativas de login** falhadas
-- **Logins de IPs** desconhecidos
-- **Alterações** em configurações de segurança
-- **Falhas** de autenticação
-
-#ionicicon-nameplay-circle-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-prticos
-
-#exemplo-1-configurao-google-oauth
-
-**Passo a passo**:
-
-1. **Google Cloud Console**:
-
-   ```bash
-   #criar-projeto-gcloud-projects-create n8n-auth-project
-   
-   #habilitar-apis-gcloud-services-enable plus.googleapis.com
-   ```
-
-2. **Criar credenciais**:
-   - Tipo: OAuth 2.0 Client ID
-   - URIs autorizados: `https://your-domain.com`
-   - URIs de redirecionamento: `https://your-domain.com/callback`
-
-3. **Configurar n8n**:
-
-   ```bash
-   N8N_GOOGLE_CLIENT_ID=your-client-id
-   N8N_GOOGLE_CLIENT_SECRET=your-client-secret
-   N8N_GOOGLE_CALLBACK_URL=https://your-domain.com/callback
-   ```
-
-#exemplo-2-implementao-2fa-fluxo de configuração**:
+### Configuração TOTP
 
 ```javascript
-// Gerar QR code para 2FA
-const qrCode = generateTOTPQRCode({
-  secret: user.totpSecret,
-  label: user.email,
+// Gerar secret para 2FA
+const secret = generateTOTPSecret({
   issuer: 'n8n'
 });
 
 // Validar código 2FA
 const isValid = validateTOTPCode({
-  secret: user.totpSecret,
   code: userInput,
   window: 2 // tolerância de 2 períodos
 });
 ```
 
-#exemplo-3-rate-limiting-implementao de proteção**:
+### Exemplo de Implementação
 
 ```javascript
 // Middleware de rate limiting
 const rateLimit = {
-  windowMs: 15 * 60 * 1000, // 15 minutos
   max: 5, // máximo 5 tentativas
   message: 'Muitas tentativas de login. Tente novamente em 15 minutos.'
 };
@@ -220,61 +143,54 @@ const ipWhitelist = ['192.168.1.0/24', '10.0.0.0/8'];
 const isAllowedIP = (ip) => ipWhitelist.some(range => ipInRange(ip, range));
 ```
 
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Troubleshooting
 
-#problemas-comuns-erro-de-login
+### Problemas Comuns
 
+**Erro de login**:
 - Verifique credenciais
 - Confirme se a conta está ativa
 - Verifique políticas de senha
 - Teste conectividade com provedor
 
 **2FA não funciona**:
-
 - Sincronize relógio do dispositivo
 - Use backup codes se necessário
 - Reconfigure 2FA se necessário
 - Verifique app autenticador
 
 **OAuth falha**:
-
 - Confirme URIs de redirecionamento
 - Verifique client ID/secret
 - Teste conectividade com provedor
 - Revise permissões da aplicação
 
-#cor-debugging-logs-teis-bash
-#logs-de-autenticao-tail-f /var/log/n8n/auth.log
+### Logs de Diagnóstico
 
-#logs-de-oauth-grep-oauth /var/log/n8n/app.log
-
-#logs-de-erro-grep-error /var/log/n8n/error.log
+**Logs de autenticação**:
+```bash
+tail -f /var/log/n8n/auth.log
 ```
 
-**Ferramentas de diagnóstico**:
+**Logs de OAuth**:
+```bash
+grep oauth /var/log/n8n/app.log
+```
+
+**Logs de erro**:
+```bash
+grep error /var/log/n8n/error.log
+```
+
+### Ferramentas de Diagnóstico
 
 1. **Teste de conectividade** com provedores
 2. **Validação de certificados** SSL/TLS
 3. **Verificação de timezone** para 2FA
 4. **Análise de logs** detalhada
 
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
+<IonicIcon name="arrow-forward-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-1. **Configure 2FA** para todos os usuários
-2. **Implemente OAuth** se necessário
-3. **Configure políticas** de senha
-4. **Monitore logs** de autenticação
-5. **Teste cenários** de recuperação
-
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-relacionados
-
-- **[Criar e Editar Usuários](./criar-editar-usuarios)** - Gerenciamento de usuários
-- **[Roles e Permissões](./roles-permissoes)** - Controle de acesso
-- **[Segurança](../../hosting-n8n/seguranca/)** - Configurações de segurança
-- **[Referência](../../referencia/)** - Documentação técnica
-- **[Comunidade](../../comunidade/)** - Suporte e dicas
-
----
-
-**<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '16px', color: '#cor-ea4b71-pronto-para proteger? Comece configurando 2FA para seus usuários!**
-
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**Próximos Passos**:

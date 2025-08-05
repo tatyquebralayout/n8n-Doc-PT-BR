@@ -7,11 +7,11 @@ keywords: [n8n, API, REST, endpoints, autenticação, webhooks, API n8n Brasil, 
 
 import IonicIcon from '@site/src/components/IonicIcon';
 
-#api-rest-do-n8n-integrao Programática, Endpoints e Webhooks
+## API REST do n8n - Integração Programática, Endpoints e Webhooks
 
 Bem-vindo à documentação da API REST do n8n! Aqui você encontrará tudo o que precisa para integrar e automatizar o n8n programaticamente, com exemplos de uso, endpoints, webhooks, autenticação e integração com sistemas externos para empresas brasileiras.
 
-#o-que-voc-encontrar-aqui
+## O que você encontrará aqui
 
 - [Guia de autenticação e segurança da API n8n](./conceitos/autenticacao)
 - [Guia de paginação para grandes volumes de dados](./conceitos/paginacao)
@@ -20,40 +20,63 @@ Bem-vindo à documentação da API REST do n8n! Aqui você encontrará tudo o qu
 
 ---
 
-#ionicicon-namebook-outline-style-fontsize-24px color: '#cor-ea4b71-conceitos#conceitos-viso-geralconceitos Introdução aos conceitos da API
+<IonicIcon name="book-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Conceitos - Visão geral
+
+Introdução aos conceitos da API
+
 - **[Autenticação](./conceitos/autenticacao)** – Métodos de autenticação e segurança
 - **[Paginação](./conceitos/paginacao)** – Como navegar por grandes volumes de dados
 
 ---
 
-#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-ferramentas#ferramentas-viso-geral-das Ferramentas](./ferramentas/)** – Recursos disponíveis
+<IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Ferramentas - Visão geral
+
+- **[Ferramentas](./ferramentas/)** – Recursos disponíveis
 - **[Playground](./ferramentas/playground)** – Teste a API de forma interativa
 
 ---
 
-#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-referncia#referencia-viso-geral-da Referência](./referencia/)** – Documentação completa
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Referência - Visão geral
+
+- **[Referência](./referencia/)** – Documentação completa
 - **[Referência da API](./referencia/referencia-api)** – Endpoints e parâmetros detalhados
 
 ---
 
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-endpoints-principais {#endpoints-principais}
+<IonicIcon name="server-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#workflows-get-workflows Listar workflows
+## Endpoints principais
+
+### Workflows
+
+- `GET /workflows` – Listar workflows
 - `POST /workflows` – Criar workflow
 - `PUT /workflows/{id}` – Atualizar workflow
 - `DELETE /workflows/{id}` – Excluir workflow
 
-#execues-get-executions Listar execuções
+### Execuções
+
+- `GET /executions` – Listar execuções
 - `POST /workflows/{id}/trigger` – Executar workflow
 - `GET /executions/{id}` – Obter detalhes da execução
 
-#credenciais-get-credentials Listar credenciais
+### Credenciais
+
+- `GET /credentials` – Listar credenciais
 - `POST /credentials` – Criar credencial
 - `PUT /credentials/{id}` – Atualizar credencial
 
 ---
 
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
+<IonicIcon name="arrow-forward-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Próximos passos
 
 1. **Comece com os [Conceitos](./conceitos/)** para entender os fundamentos
 2. **Explore as [Ferramentas](./ferramentas/)** para recursos práticos
@@ -61,7 +84,9 @@ Bem-vindo à documentação da API REST do n8n! Aqui você encontrará tudo o qu
 
 ---
 
-#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-relacionados
+<IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Recursos relacionados
 
 - **[Primeiros Passos](../primeiros-passos/guia-instalacao)** – Conceitos fundamentais
 - **[Usando n8n](../usando-n8n)** – Guias práticos

@@ -5,9 +5,410 @@ description: Como configurar autenticação básica (usuário/senha) no n8n
 keywords: [n8n, basic auth, autenticação básica, usuário, senha]
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-basic-authentication
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 Este documento detalha como **configurar autenticação básica** (usuário/senha) no n8n, incluindo encoding correto de credenciais, configuração de headers HTTP, troubleshooting de problemas de login, implementação de segurança adicional, e migração de basic auth para métodos mais seguros, garantindo compatibilidade com sistemas legados que ainda utilizam esse método de autenticação.
 
-**Em construção:** Este conteúdo incluirá casos específicos de uso e transição para métodos mais seguros.
+## O que é Basic Authentication
 
+Basic Authentication é um método de autenticação HTTP que envia credenciais (usuário e senha) codificadas em Base64 no header `Authorization`. É um método simples e amplamente suportado, mas deve ser usado com HTTPS para garantir segurança.
+
+## Como Funciona
+
+### Processo de Autenticação
+
+1. **Cliente envia credenciais** codificadas em Base64
+2. **Servidor valida** usuário e senha
+3. **Servidor retorna** resposta com status de autenticação
+4. **Cliente usa** token de sessão ou continua enviando credenciais
+
+### Encoding Base64
+
+```javascript
+// Exemplo de encoding
+const credentials = "usuario:senha";
+const encoded = btoa(credentials);
+// Resultado: dXN1YXJpbzpzZW5oYQ==
+```
+
+## Configuração no n8n
+
+### Criar Credencial Basic Auth
+
+1. **Acesse o n8n**
+2. **Vá para Settings > Credentials**
+3. **Clique em "Add Credential"**
+4. **Selecione "Generic API"**
+5. **Configure os parâmetros:**
+
+```javascript
+// Configuração básica
+{
+  "name": "Minha Basic Auth",
+  "username": "seu-usuario",
+  "password": "sua-senha",
+  "url": "https://api.exemplo.com"
+}
+```
+
+### Configuração Avançada
+
+Para APIs com requisitos específicos:
+
+```javascript
+// Configuração avançada
+{
+  "name": "API com Basic Auth",
+  "username": "{{$env.API_USER}}",
+  "password": "{{$env.API_PASS}}",
+  "url": "https://api.exemplo.com",
+  "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  "timeout": 30000
+}
+```
+
+## Casos de Uso
+
+### APIs Legadas
+
+```javascript
+// Configuração para API legada
+{
+  "method": "GET",
+  "url": "https://api-legada.exemplo.com/dados",
+  "auth": {
+    "type": "basic",
+    "username": "{{$credentials.username}}",
+    "password": "{{$credentials.password}}"
+  }
+}
+```
+
+### Sistemas Internos
+
+```javascript
+// Configuração para sistema interno
+{
+  "method": "POST",
+  "url": "https://sistema-interno.empresa.com/api",
+  "headers": {
+    "Authorization": "Basic {{$credentials.encoded}}",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "action": "create_record",
+    "data": "{{$json}}"
+  }
+}
+```
+
+### FTP/SFTP
+
+```javascript
+// Configuração para FTP
+{
+  "connection": {
+    "host": "ftp.exemplo.com",
+    "port": 21,
+    "username": "{{$credentials.username}}",
+    "password": "{{$credentials.password}}",
+    "secure": false
+  }
+}
+```
+
+### Bancos de Dados
+
+```javascript
+// Configuração para banco de dados
+{
+  "database": {
+    "host": "db.exemplo.com",
+    "port": 5432,
+    "database": "minha_db",
+    "username": "{{$credentials.username}}",
+    "password": "{{$credentials.password}}"
+  }
+}
+```
+
+## Segurança
+
+### Limitações do Basic Auth
+
+- **Credenciais em texto plano** (apenas codificadas em Base64)
+- **Sem expiração** de credenciais
+- **Vulnerável a ataques** man-in-the-middle
+- **Não suporta logout** nativo
+
+### Boas Práticas
+
+#### Sempre Use HTTPS
+
+```javascript
+// Configuração segura
+{
+  "url": "https://api.exemplo.com", // Sempre HTTPS
+  "username": "{{$credentials.username}}",
+  "password": "{{$credentials.password}}"
+}
+```
+
+#### Rotação de Senhas
+
+```javascript
+// Exemplo de rotação
+{
+  "password_rotation": {
+    "enabled": true,
+    "interval_days": 90,
+    "notification_days": 7
+  }
+}
+```
+
+#### Monitoramento
+
+```javascript
+// Monitoramento de acesso
+{
+  "monitoring": {
+    "log_failed_attempts": true,
+    "alert_on_multiple_failures": true,
+    "max_failed_attempts": 5
+  }
+}
+```
+
+## Troubleshooting
+
+### Problemas Comuns
+
+#### Credenciais inválidas
+
+**Sintomas:**
+- Erro 401 Unauthorized
+- Mensagem "Invalid credentials"
+- Login falha consistentemente
+
+**Soluções:**
+```javascript
+// Verificar credenciais
+{
+  "test_credentials": {
+    "username": "{{$credentials.username}}",
+    "password_length": "{{$credentials.password.length}}",
+    "url": "{{$credentials.url}}"
+  }
+}
+```
+
+#### Encoding incorreto
+
+**Sintomas:**
+- Erro de formato no header
+- Credenciais não reconhecidas
+- Problemas de caracteres especiais
+
+**Soluções:**
+```javascript
+// Verificar encoding
+{
+  "check_encoding": {
+    "original": "usuario:senha",
+    "encoded": "{{btoa('usuario:senha')}}",
+    "decoded": "{{atob('dXN1YXJpbzpzZW5oYQ==')}}"
+  }
+}
+```
+
+#### Problemas de rede
+
+**Sintomas:**
+- Timeout de conexão
+- Erro de DNS
+- Problemas de proxy
+
+**Soluções:**
+```javascript
+// Teste de conectividade
+{
+  "network_test": {
+    "url": "{{$credentials.url}}",
+    "timeout": 10000,
+    "retry_attempts": 3
+  }
+}
+```
+
+### Debug de Problemas
+
+#### Verificar Headers
+
+```javascript
+// Verificar headers enviados
+{
+  "request_headers": {
+    "Authorization": "Basic {{$credentials.encoded}}",
+    "Content-Type": "application/json",
+    "User-Agent": "n8n/1.0"
+  }
+}
+```
+
+#### Logs de Erro
+
+```bash
+# Verificar logs do n8n
+n8n logs --level debug | grep "Basic Auth"
+
+# Verificar logs de autenticação
+n8n logs --level error | grep "401"
+```
+
+## Migração para Métodos Mais Seguros
+
+### Para OAuth 2.0
+
+```javascript
+// Migração para OAuth 2.0
+{
+  "migration": {
+    "from": "basic_auth",
+    "to": "oauth2",
+    "steps": [
+      "Configurar OAuth 2.0 no servidor",
+      "Atualizar credenciais no n8n",
+      "Testar nova autenticação",
+      "Remover credenciais antigas"
+    ]
+  }
+}
+```
+
+### Para API Keys
+
+```javascript
+// Migração para API Keys
+{
+  "migration": {
+    "from": "basic_auth",
+    "to": "api_key",
+    "steps": [
+      "Gerar API key no servidor",
+      "Configurar header de autorização",
+      "Atualizar workflows",
+      "Remover credenciais básicas"
+    ]
+  }
+}
+```
+
+## Integração com Sistemas Brasileiros
+
+### APIs Governamentais
+
+```javascript
+// Configuração para API da Receita Federal
+{
+  "name": "Receita Federal API",
+  "username": "{{$credentials.cnpj}}",
+  "password": "{{$credentials.senha}}",
+  "url": "https://receita.fazenda.gov.br/api"
+}
+```
+
+### Sistemas Bancários
+
+```javascript
+// Configuração para API bancária
+{
+  "name": "API Bancária",
+  "username": "{{$credentials.agencia}}",
+  "password": "{{$credentials.senha}}",
+  "url": "https://api.banco.com.br"
+}
+```
+
+### Sistemas Corporativos
+
+```javascript
+// Configuração para sistema corporativo
+{
+  "name": "Sistema Corporativo",
+  "username": "{{$credentials.usuario}}",
+  "password": "{{$credentials.senha}}",
+  "url": "https://sistema.empresa.com.br"
+}
+```
+
+## Exemplos Práticos
+
+### Exemplo 1: Integração com Sistema Legado
+
+```javascript
+// Configuração para sistema legado
+{
+  "workflow": {
+    "trigger": "schedule",
+    "action": "sync_data",
+    "auth": {
+      "type": "basic",
+      "username": "{{$credentials.username}}",
+      "password": "{{$credentials.password}}"
+    },
+    "endpoint": "https://sistema-legado.empresa.com/api"
+  }
+}
+```
+
+### Exemplo 2: Backup de Dados
+
+```javascript
+// Configuração para backup
+{
+  "backup": {
+    "source": {
+      "type": "ftp",
+      "host": "ftp.exemplo.com",
+      "username": "{{$credentials.username}}",
+      "password": "{{$credentials.password}}"
+    },
+    "destination": {
+      "type": "local",
+      "path": "/backup/"
+    }
+  }
+}
+```
+
+### Exemplo 3: Monitoramento de Sistema
+
+```javascript
+// Configuração para monitoramento
+{
+  "monitoring": {
+    "system": "sistema-critico",
+    "auth": {
+      "type": "basic",
+      "username": "{{$credentials.monitor_user}}",
+      "password": "{{$credentials.monitor_pass}}"
+    },
+    "endpoints": [
+      "https://sistema.exemplo.com/health",
+      "https://sistema.exemplo.com/status"
+    ]
+  }
+}
+```
+
+## Próximos Passos
+
+- [API Keys](/integracoes/credential-nodes/api-keys) - Configurar autenticação com chaves
+- [OAuth Authentication](/integracoes/credential-nodes/oauth) - Configurar OAuth 2.0
+- [HTTP Request Node](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições autenticadas
+- [Segurança](/privacidade-seguranca/security-best-practices) - Boas práticas de segurança
+- [Troubleshooting](/usando-n8n/troubleshooting) - Resolução de problemas

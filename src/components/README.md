@@ -31,6 +31,7 @@ src/components/
 ## 🎯 Componentes Base (common/)
 
 ### BaseCard
+
 Componente base para todos os cards da aplicação.
 
 ```tsx
@@ -48,6 +49,7 @@ import { BaseCard } from '@site/src/components/common';
 ```
 
 ### TagList
+
 Lista de tags reutilizável com suporte a truncamento.
 
 ```tsx
@@ -62,6 +64,7 @@ import { TagList } from '@site/src/components/common';
 ```
 
 ### StatItem
+
 Item de estatística reutilizável.
 
 ```tsx
@@ -79,6 +82,7 @@ import { StatItem } from '@site/src/components/common';
 ## 🔧 Processadores (processors/)
 
 ### BaseProcessor
+
 Processador base para todos os processadores de conteúdo.
 
 ```tsx
@@ -96,30 +100,37 @@ import { BaseProcessor } from '@site/src/components/processors';
 ## 📊 Componentes Específicos
 
 ### ArticleCard
+
 Card de artigos que usa BaseCard e TagList.
 
 ### CommunityStats
+
 Estatísticas da comunidade que usa StatItem.
 
 ### CardGrid
+
 Grid responsivo para organizar cards.
 
 ### IntegrationSearch
+
 Busca de integrações com filtros.
 
 ## 🎨 Padrões de Design
 
 ### Cores
+
 - Use sempre variáveis CSS do Docusaurus
 - Nunca hardcode cores
 - Suporte a tema claro/escuro
 
 ### Responsividade
+
 - Todos os componentes são responsivos
 - Breakpoints: 768px, 480px
 - Mobile-first approach
 
 ### Acessibilidade
+
 - Sempre use `data-testid` para testes
 - Suporte a navegação por teclado
 - ARIA labels quando necessário
@@ -137,16 +148,19 @@ npm test -- --coverage     # Com cobertura
 ## 📝 Convenções
 
 ### Nomenclatura
+
 - PascalCase para componentes
 - camelCase para props
 - kebab-case para classes CSS
 
 ### Props
+
 - Sempre use interfaces TypeScript
 - Props opcionais com `?`
 - Valores padrão quando apropriado
 
 ### Estilos
+
 - CSS Modules para isolamento
 - Variáveis CSS do Docusaurus
 - Responsividade obrigatória
@@ -154,6 +168,7 @@ npm test -- --coverage     # Com cobertura
 ## 🔄 Reutilização
 
 ### Como estender BaseCard
+
 ```tsx
 import { BaseCard } from '@site/src/components/common';
 
@@ -168,6 +183,7 @@ const CustomCard = (props) => (
 ```
 
 ### Como usar TagList
+
 ```tsx
 import { TagList } from '@site/src/components/common';
 
@@ -176,6 +192,7 @@ import { TagList } from '@site/src/components/common';
 ```
 
 ### Como usar StatItem
+
 ```tsx
 import { StatItem } from '@site/src/components/common';
 
@@ -193,6 +210,7 @@ import { StatItem } from '@site/src/components/common';
 ## 🔧 Manutenção
 
 ### Adicionando novo componente
+
 1. Crie a pasta do componente
 2. Adicione `index.tsx` e `styles.module.css`
 3. Crie testes em `__tests__/`
@@ -200,7 +218,8 @@ import { StatItem } from '@site/src/components/common';
 5. Adicione ao índice apropriado
 
 ### Refatorando componente
+
 1. Mantenha compatibilidade com versões anteriores
 2. Atualize testes
 3. Documente mudanças
-4. Teste em diferentes dispositivos 
+4. Teste em diferentes dispositivos

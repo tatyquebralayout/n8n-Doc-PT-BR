@@ -1,26 +1,17 @@
 ﻿---
-title: Switch Node
-description: Guia completo sobre o Switch Node no n8n, incluindo múltiplas condições, roteamento, exemplos práticos e boas práticas
+title: Node Switch
+description: Aprenda a usar o node Switch no n8n para criar múltiplas condições e roteamento de dados
 sidebar_position: 2
 keywords: [n8n, switch node, múltiplas condições, roteamento, lógica, decisões, fluxo]
 ---
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-switch-node
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-O **Switch Node** é uma ferramenta avançada do n8n para controle de fluxo com múltiplas condições. Ele permite criar workflows dinâmicos com vários caminhos baseados em diferentes critérios.
+O **node Switch** é uma ferramenta avançada do n8n para controle de fluxo com múltiplas condições. Ele permite criar workflows dinâmicos com vários caminhos baseados em diferentes critérios.
 
-#o-que-o-switch Node?
+## Quando usar o Switch
 
-O **Switch Node** permite:
-
-- **Criar múltiplas condições** em um único node
-- **Rotear dados** para diferentes caminhos
-- **Implementar lógica complexa** de decisão
-- **Processar dados** de forma paralela
-- **Criar workflows escaláveis** e organizados
-- **Reduzir complexidade** de múltiplos If Nodes
-
-#quando-usar-o-switch-node
+O node Switch é ideal para:
 
 - **Classificação** de dados por múltiplos critérios
 - **Roteamento** para diferentes processos
@@ -29,22 +20,24 @@ O **Switch Node** permite:
 - **Workflows** com muitas condições
 - **Lógica de negócio** complexa
 
-#configurao-bsica
+## Configuração Básica
 
-#estrutura-do-switch-node-javascript
+### Estrutura do Switch Node
+
+```javascript
 // Switch Node - Estrutura básica
 {
   "rules": [
     {
-      "condition": "{{ $json.categoria === 'urgente' }}",
+      "condition": "{{$json.categoria === 'urgente'}}",
       "output": "Processamento Urgente"
     },
     {
-      "condition": "{{ $json.categoria === 'normal' }}",
+      "condition": "{{$json.categoria === 'normal'}}",
       "output": "Processamento Normal"
     },
     {
-      "condition": "{{ $json.categoria === 'baixa' }}",
+      "condition": "{{$json.categoria === 'baixa'}}",
       "output": "Processamento Baixa Prioridade"
     }
   ],
@@ -52,132 +45,146 @@ O **Switch Node** permite:
 }
 ```
 
-#tipos-de-condies
+## Tipos de Condições
 
-#id-1-condies-simples-javascript Verificar valor exato
+### Condições Simples
+
+```javascript
+// Verificar valor exato
 {
-  "condition": "{{ $json.status === 'ativo' }}",
+  "condition": "{{$json.status === 'ativo'}}",
   "output": "Cliente Ativo"
 }
 
 // Verificar múltiplos valores
 {
-  "condition": "{{ $json.categoria === 'premium' || $json.categoria === 'vip' }}",
+  "condition": "{{$json.categoria === 'premium' || $json.categoria === 'vip'}}",
   "output": "Cliente Premium"
 }
 
 // Verificar se campo existe
 {
-  "condition": "{{ $json.email && $json.email.length > 0 }}",
+  "condition": "{{$json.email && $json.email.length > 0}}",
   "output": "Email Válido"
 }
 ```
 
-#id-2-condies-numricas-javascript Faixas de valor
+### Comparações Numéricas
+
+```javascript
+// Faixas de valor
 {
-  "condition": "{{ $json.valor > 10000 }}",
+  "condition": "{{$json.valor > 10000}}",
   "output": "Valor Alto"
 }
 
 // Múltiplas faixas
 {
-  "condition": "{{ $json.valor >= 1000 && $json.valor <= 5000 }}",
+  "condition": "{{$json.valor >= 1000 && $json.valor <= 5000}}",
   "output": "Valor Médio"
 }
 
 // Comparações complexas
 {
-  "condition": "{{ $json.idade >= 18 && $json.idade <= 65 }}",
+  "condition": "{{$json.idade >= 18 && $json.idade <= 65}}",
   "output": "Idade Válida"
 }
 ```
 
-#id-3-condies-de-string-javascript
+### Comparações de String
+
+```javascript
 // Verificar início de string
 {
-  "condition": "{{ $json.email.startsWith('admin') }}",
+  "condition": "{{$json.email.startsWith('admin')}}",
   "output": "Administrador"
 }
 
 // Verificar fim de string
 {
-  "condition": "{{ $json.arquivo.endsWith('.pdf') }}",
+  "condition": "{{$json.arquivo.endsWith('.pdf')}}",
   "output": "Documento PDF"
 }
 
 // Verificar conteúdo
 {
-  "condition": "{{ $json.descricao.includes('urgente') }}",
+  "condition": "{{$json.descricao.includes('urgente')}}",
   "output": "Urgente"
 }
 
 // Regex
 {
-  "condition": "{{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}",
+  "condition": "{{/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email)}}",
   "output": "Email Válido"
 }
 ```
 
-#id-4-condies-com-arrays-javascript
+### Condições com Arrays
+
+```javascript
 // Verificar se array contém valor
 {
-  "condition": "{{ $json.tags.includes('importante') }}",
+  "condition": "{{$json.tags.includes('importante')}}",
   "output": "Tag Importante"
 }
 
 // Verificar tamanho do array
 {
-  "condition": "{{ $json.itens.length > 10 }}",
+  "condition": "{{$json.itens.length > 10}}",
   "output": "Muitos Itens"
 }
 
 // Verificar se array está vazio
 {
-  "condition": "{{ $json.produtos.length === 0 }}",
+  "condition": "{{$json.produtos.length === 0}}",
   "output": "Sem Produtos"
 }
 ```
 
-#id-5-condies-com-datas-javascript
+### Condições com Datas
+
+```javascript
 // Verificar se é hoje
 {
-  "condition": "{{ $json.data === $today }}",
+  "condition": "{{$json.data === $today}}",
   "output": "Hoje"
 }
 
 // Verificar se é fim de semana
 {
-  "condition": "{{ [0, 6].includes(new Date($json.data).getDay()) }}",
+  "condition": "{{[0, 6].includes(new Date($json.data).getDay())}}",
   "output": "Fim de Semana"
 }
 
 // Verificar se é horário comercial
 {
-  "condition": "{{ new Date().getHours() >= 8 && new Date().getHours() <= 18 }}",
+  "condition": "{{new Date().getHours() >= 8 && new Date().getHours() <= 18}}",
   "output": "Horário Comercial"
 }
 ```
 
-#exemplos-prticos
+## Exemplos Práticos
 
-#id-1-classificao-de-clientes-javascript
+### Exemplo 1: Classificação de Clientes
+
+```javascript
 // Switch Node - Classificação de clientes
 {
   "rules": [
     {
-      "condition": "{{ $json.valor_total > 10000 && $json.frequencia > 10 }}",
+      "condition": "{{$json.valor_total > 10000 && $json.frequencia > 10}}",
       "output": "Cliente VIP"
     },
     {
-      "condition": "{{ $json.valor_total > 5000 || $json.categoria === 'premium' }}",
+      "condition": "{{$json.valor_total > 5000 || $json.categoria === 'premium'}}",
       "output": "Cliente Premium"
     },
     {
-      "condition": "{{ $json.valor_total > 1000 && $json.ativo }}",
+      "condition": "{{$json.valor_total > 1000 && $json.ativo}}",
       "output": "Cliente Ativo"
     },
     {
-      "condition": "{{ $json.ativo }}",
+      "condition": "{{$json.ativo}}",
       "output": "Cliente Regular"
     }
   ],
@@ -185,24 +192,26 @@ O **Switch Node** permite:
 }
 ```
 
-#id-2-roteamento-de-pedidos-javascript
+### Exemplo 2: Roteamento de Pedidos
+
+```javascript
 // Switch Node - Roteamento de pedidos
 {
   "rules": [
     {
-      "condition": "{{ $json.urgente && $json.valor > 5000 }}",
+      "condition": "{{$json.urgente && $json.valor > 5000}}",
       "output": "Aprovação Gerencial"
     },
     {
-      "condition": "{{ $json.categoria === 'financeiro' }}",
+      "condition": "{{$json.categoria === 'financeiro'}}",
       "output": "Aprovação Financeira"
     },
     {
-      "condition": "{{ $json.valor > 1000 }}",
+      "condition": "{{$json.valor > 1000}}",
       "output": "Aprovação Supervisor"
     },
     {
-      "condition": "{{ $json.status === 'rascunho' }}",
+      "condition": "{{$json.status === 'rascunho'}}",
       "output": "Aguardando Finalização"
     }
   ],
@@ -210,24 +219,26 @@ O **Switch Node** permite:
 }
 ```
 
-#id-3-validao-de-dados-javascript
+### Exemplo 3: Validação de Dados
+
+```javascript
 // Switch Node - Validação de dados
 {
   "rules": [
     {
-      "condition": "{{ !$json.nome || $json.nome.length < 2 }}",
+      "condition": "{{!$json.nome || $json.nome.length < 2}}",
       "output": "Nome Inválido"
     },
     {
-      "condition": "{{ !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}",
+      "condition": "{{!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email)}}",
       "output": "Email Inválido"
     },
     {
-      "condition": "{{ !$json.cpf || $json.cpf.length !== 11 }}",
+      "condition": "{{!$json.cpf || $json.cpf.length !== 11}}",
       "output": "CPF Inválido"
     },
     {
-      "condition": "{{ $json.idade < 18 }}",
+      "condition": "{{$json.idade < 18}}",
       "output": "Menor de Idade"
     }
   ],
@@ -235,28 +246,30 @@ O **Switch Node** permite:
 }
 ```
 
-#id-4-processamento-por-regio-javascript
+### Exemplo 4: Processamento por Região
+
+```javascript
 // Switch Node - Processamento por região
 {
   "rules": [
     {
-      "condition": "{{ $json.regiao === 'norte' }}",
+      "condition": "{{$json.regiao === 'norte'}}",
       "output": "Processamento Norte"
     },
     {
-      "condition": "{{ $json.regiao === 'nordeste' }}",
+      "condition": "{{$json.regiao === 'nordeste'}}",
       "output": "Processamento Nordeste"
     },
     {
-      "condition": "{{ $json.regiao === 'centro-oeste' }}",
+      "condition": "{{$json.regiao === 'centro-oeste'}}",
       "output": "Processamento Centro-Oeste"
     },
     {
-      "condition": "{{ $json.regiao === 'sudeste' }}",
+      "condition": "{{$json.regiao === 'sudeste'}}",
       "output": "Processamento Sudeste"
     },
     {
-      "condition": "{{ $json.regiao === 'sul' }}",
+      "condition": "{{$json.regiao === 'sul'}}",
       "output": "Processamento Sul"
     }
   ],
@@ -264,24 +277,26 @@ O **Switch Node** permite:
 }
 ```
 
-#id-5-anlise-de-performance-javascript
+### Exemplo 5: Análise de Performance
+
+```javascript
 // Switch Node - Análise de performance
 {
   "rules": [
     {
-      "condition": "{{ $json.tempo_execucao < 1000 }}",
+      "condition": "{{$json.tempo_execucao < 1000}}",
       "output": "Performance Excelente"
     },
     {
-      "condition": "{{ $json.tempo_execucao >= 1000 && $json.tempo_execucao < 5000 }}",
+      "condition": "{{$json.tempo_execucao >= 1000 && $json.tempo_execucao < 5000}}",
       "output": "Performance Boa"
     },
     {
-      "condition": "{{ $json.tempo_execucao >= 5000 && $json.tempo_execucao < 10000 }}",
+      "condition": "{{$json.tempo_execucao >= 5000 && $json.tempo_execucao < 10000}}",
       "output": "Performance Regular"
     },
     {
-      "condition": "{{ $json.tempo_execucao >= 10000 }}",
+      "condition": "{{$json.tempo_execucao >= 10000}}",
       "output": "Performance Ruim"
     }
   ],
@@ -289,30 +304,32 @@ O **Switch Node** permite:
 }
 ```
 
-#casos-de-uso-avanados
+## Casos de Uso Avançados
 
-#id-1-mltiplas-condies-aninhadas-javascript
+### Múltiplas Condições Aninhadas
+
+```javascript
 // Switch Node - Condições complexas
 {
   "rules": [
     {
-      "condition": "{{ $json.categoria === 'urgente' && $json.valor > 5000 && $json.cliente_vip }}",
+      "condition": "{{$json.categoria === 'urgente' && $json.valor > 5000 && $json.cliente_vip}}",
       "output": "Processamento VIP Urgente"
     },
     {
-      "condition": "{{ $json.categoria === 'urgente' && $json.valor > 5000 }}",
+      "condition": "{{$json.categoria === 'urgente' && $json.valor > 5000}}",
       "output": "Processamento Urgente Alto Valor"
     },
     {
-      "condition": "{{ $json.categoria === 'urgente' }}",
+      "condition": "{{$json.categoria === 'urgente'}}",
       "output": "Processamento Urgente"
     },
     {
-      "condition": "{{ $json.valor > 10000 }}",
+      "condition": "{{$json.valor > 10000}}",
       "output": "Processamento Alto Valor"
     },
     {
-      "condition": "{{ $json.cliente_vip }}",
+      "condition": "{{$json.cliente_vip}}",
       "output": "Processamento VIP"
     }
   ],
@@ -320,23 +337,26 @@ O **Switch Node** permite:
 }
 ```
 
-#id-2-roteamento-dinmico-javascript Switch Node - Roteamento dinâmico
+### Roteamento Dinâmico
+
+```javascript
+// Switch Node - Roteamento dinâmico
 {
   "rules": [
     {
-      "condition": "{{ $json.tipo === 'venda' && $json.valor > 1000 }}",
-      "output": "{{ 'Venda_' + $json.categoria + '_Alto_Valor' }}"
+      "condition": "{{$json.tipo === 'venda' && $json.valor > 1000}}",
+      "output": "{{'Venda_' + $json.categoria + '_Alto_Valor'}}"
     },
     {
-      "condition": "{{ $json.tipo === 'venda' }}",
-      "output": "{{ 'Venda_' + $json.categoria }}"
+      "condition": "{{$json.tipo === 'venda'}}",
+      "output": "{{'Venda_' + $json.categoria}}"
     },
     {
-      "condition": "{{ $json.tipo === 'suporte' && $json.prioridade === 'alta' }}",
+      "condition": "{{$json.tipo === 'suporte' && $json.prioridade === 'alta'}}",
       "output": "Suporte_Urgente"
     },
     {
-      "condition": "{{ $json.tipo === 'suporte' }}",
+      "condition": "{{$json.tipo === 'suporte'}}",
       "output": "Suporte_Regular"
     }
   ],
@@ -344,24 +364,26 @@ O **Switch Node** permite:
 }
 ```
 
-#id-3-validao-em-etapas-javascript
+### Validação em Etapas
+
+```javascript
 // Switch Node - Validação em etapas
 {
   "rules": [
     {
-      "condition": "{{ !$json.dados_basicos }}",
+      "condition": "{{!$json.dados_basicos}}",
       "output": "Validar Dados Básicos"
     },
     {
-      "condition": "{{ !$json.dados_financeiros }}",
+      "condition": "{{!$json.dados_financeiros}}",
       "output": "Validar Dados Financeiros"
     },
     {
-      "condition": "{{ !$json.documentos }}",
+      "condition": "{{!$json.documentos}}",
       "output": "Validar Documentos"
     },
     {
-      "condition": "{{ !$json.aprovacao }}",
+      "condition": "{{!$json.aprovacao}}",
       "output": "Aguardar Aprovação"
     }
   ],
@@ -369,28 +391,30 @@ O **Switch Node** permite:
 }
 ```
 
-#id-4-anlise-de-tendncias-javascript
+### Análise de Tendências
+
+```javascript
 // Switch Node - Análise de tendências
 {
   "rules": [
     {
-      "condition": "{{ $json.crescimento > 20 && $json.tendencia === 'positiva' }}",
+      "condition": "{{$json.crescimento > 20 && $json.tendencia === 'positiva'}}",
       "output": "Crescimento Forte"
     },
     {
-      "condition": "{{ $json.crescimento > 10 && $json.tendencia === 'positiva' }}",
+      "condition": "{{$json.crescimento > 10 && $json.tendencia === 'positiva'}}",
       "output": "Crescimento Moderado"
     },
     {
-      "condition": "{{ $json.crescimento > 0 }}",
+      "condition": "{{$json.crescimento > 0}}",
       "output": "Crescimento Leve"
     },
     {
-      "condition": "{{ $json.crescimento < 0 && $json.tendencia === 'negativa' }}",
+      "condition": "{{$json.crescimento < 0 && $json.tendencia === 'negativa'}}",
       "output": "Declínio"
     },
     {
-      "condition": "{{ $json.crescimento === 0 }}",
+      "condition": "{{$json.crescimento === 0}}",
       "output": "Estável"
     }
   ],
@@ -398,28 +422,33 @@ O **Switch Node** permite:
 }
 ```
 
-#workflows-complexos
+## Workflows Complexos
 
-#id-1-switch-node-com-merge
+### Switch Node com Merge
 
+```mermaid
+graph TD
+    A[Switch Node] --> B[Processamento A]
+    A --> C[Processamento B]
+    A --> D[Processamento C]
+    B --> E[Merge Node]
+    C --> E
+    D --> E
+    E --> F[Resultado Final]
 ```
-Switch Node → Processamento A → Merge Node
-    ↓              ↓              ↓
-Switch Node → Processamento B → Merge Node
-    ↓              ↓              ↓
-Switch Node → Processamento C → Merge Node
-```
 
-#id-2-switch-node-aninhado-javascript
+### Switch Node Aninhado
+
+```javascript
 // Primeiro Switch - Categoria
 {
   "rules": [
     {
-      "condition": "{{ $json.categoria === 'vendas' }}",
+      "condition": "{{$json.categoria === 'vendas'}}",
       "output": "Switch Vendas"
     },
     {
-      "condition": "{{ $json.categoria === 'suporte' }}",
+      "condition": "{{$json.categoria === 'suporte'}}",
       "output": "Switch Suporte"
     }
   ]
@@ -429,11 +458,11 @@ Switch Node → Processamento C → Merge Node
 {
   "rules": [
     {
-      "condition": "{{ $json.valor > 1000 }}",
+      "condition": "{{$json.valor > 1000}}",
       "output": "Venda Alto Valor"
     },
     {
-      "condition": "{{ $json.valor > 500 }}",
+      "condition": "{{$json.valor > 500}}",
       "output": "Venda Médio Valor"
     }
   ],
@@ -441,32 +470,36 @@ Switch Node → Processamento C → Merge Node
 }
 ```
 
-#id-3-switch-node-com-paralelizao
+### Switch Node com Paralelização
 
+```mermaid
+graph TD
+    A[Switch Node] --> B[Processamento Paralelo A]
+    A --> C[Processamento Paralelo B]
+    A --> D[Processamento Paralelo C]
+    B --> E[Resultado A]
+    C --> F[Resultado B]
+    D --> G[Resultado C]
 ```
-Switch Node → Processamento Paralelo A
-    ↓              ↓
-Switch Node → Processamento Paralelo B
-    ↓              ↓
-Switch Node → Processamento Paralelo C
-```
 
-#boas-prticas
+## Boas Práticas
 
-#id-1-ordem-das-condies-javascript
+### Ordem das Condições
+
+```javascript
 // ✅ Bom: Condições mais específicas primeiro
 {
   "rules": [
     {
-      "condition": "{{ $json.urgente && $json.valor > 10000 }}",
+      "condition": "{{$json.urgente && $json.valor > 10000}}",
       "output": "Máxima Prioridade"
     },
     {
-      "condition": "{{ $json.urgente }}",
+      "condition": "{{$json.urgente}}",
       "output": "Alta Prioridade"
     },
     {
-      "condition": "{{ $json.valor > 1000 }}",
+      "condition": "{{$json.valor > 1000}}",
       "output": "Média Prioridade"
     }
   ]
@@ -476,18 +509,20 @@ Switch Node → Processamento Paralelo C
 {
   "rules": [
     {
-      "condition": "{{ $json.valor > 1000 }}",
+      "condition": "{{$json.valor > 1000}}",
       "output": "Média Prioridade"
     },
     {
-      "condition": "{{ $json.urgente }}",
+      "condition": "{{$json.urgente}}",
       "output": "Alta Prioridade"
     }
   ]
 }
 ```
 
-#id-2-nomenclatura-de-sadas-javascript
+### Nomenclatura de Saídas
+
+```javascript
 // ✅ Bom: Nomes descritivos
 {
   "output": "Processamento_Urgente_Alto_Valor"
@@ -499,18 +534,23 @@ Switch Node → Processamento Paralelo C
 }
 ```
 
-#id-3-condies-simples-javascript ✅ Bom: Condições claras
+### Condições Simples
+
+```javascript
+// ✅ Bom: Condições claras
 {
-  "condition": "{{ $json.status === 'ativo' && $json.valor > 1000 }}"
+  "condition": "{{$json.status === 'ativo' && $json.valor > 1000}}"
 }
 
 // ❌ Evitar: Condições muito complexas
 {
-  "condition": "{{ $json.status === 'ativo' && $json.valor > 1000 && $json.categoria === 'premium' && $json.regiao === 'sudeste' && $json.idade >= 18 }}"
+  "condition": "{{$json.status === 'ativo' && $json.valor > 1000 && $json.categoria === 'premium' && $json.regiao === 'sudeste' && $json.idade >= 18}}"
 }
 ```
 
-#id-4-uso-do-default-javascript
+### Uso do Default
+
+```javascript
 // ✅ Bom: Sempre definir default
 {
   "rules": [...],
@@ -523,43 +563,55 @@ Switch Node → Processamento Paralelo C
 }
 ```
 
-#Troubleshooting
+## Troubleshooting
 
-#problemas-comuns
+### Problemas Comuns
 
-#cor-dados-no-seguem-caminho-esperado
+**Workflow não segue caminho esperado**
 - Verifique a ordem das condições
 - Confirme se os dados estão corretos
 - Teste com dados de exemplo
 - Use Debug Helper para ver dados
 
-#condies-no-funcionam-verifique sintaxe das expressões
+**Condições não funcionam**
+- Verifique sintaxe das expressões
 - Confirme se os campos existem
 - Teste condições individualmente
 - Verifique tipos de dados
 
-#performance-lenta-reduza-nmero de condições
+**Performance lenta**
+- Reduza número de condições
 - Simplifique expressões
 - Use condições eficientes
 - Considere usar If Nodes separados
 
-#cor-debug-javascript-code-node - Debug de Switch Node
-;
+### Debug de Switch Node
+
+```javascript
+// Função de debug para Switch Node
+function debugSwitch(dados) {
+  console.log('Dados recebidos:', dados);
+  console.log('Campos disponíveis:', Object.keys(dados));
+  console.log('Exemplo de item:', dados[0]);
+  console.log('==================');
+  
+  return dados;
+}
 
 // Usar antes do Switch Node
 return { json: debugSwitch($json) };
 ```
 
-#integrao-com-outros-nodes
+## Integração com Outros Nós
 
-#id-1-switch-node-set Node
+### Switch Node com Set Node
 
 ```javascript
 // Switch Node - Classificar dados
 {
   "rules": [
     {
-      "condition": "{{ $json.valor > 1000 }}",
+      "condition": "{{$json.valor > 1000}}",
       "output": "Alto Valor"
     }
   ],
@@ -573,29 +625,29 @@ return { json: debugSwitch($json) };
     "string": [
       {
         "name": "categoria_processamento",
-        "value": "{{ $json.categoria }}"
+        "value": "{{$json.categoria}}"
       },
       {
         "name": "timestamp_processamento",
-        "value": "{{ $now.toISOString() }}"
+        "value": "{{$now.toISOString()}}"
       }
     ]
   }
 }
 ```
 
-#id-2-switch-node-http Request
+### Switch Node com HTTP Request
 
 ```javascript
 // Switch Node - Rotear para APIs diferentes
 {
   "rules": [
     {
-      "condition": "{{ $json.tipo === 'cliente' }}",
+      "condition": "{{$json.tipo === 'cliente'}}",
       "output": "API Clientes"
     },
     {
-      "condition": "{{ $json.tipo === 'produto' }}",
+      "condition": "{{$json.tipo === 'produto'}}",
       "output": "API Produtos"
     }
   ],
@@ -604,16 +656,16 @@ return { json: debugSwitch($json) };
 
 // HTTP Request - Usar endpoint dinâmico
 {
-  "url": "{{ $json.endpoint }}",
+  "url": "{{$json.endpoint}}",
   "method": "POST",
-  "body": "{{ $json.payload }}"
+  "body": "{{$json.payload}}"
 }
 ```
 
-#prximos-passos-if-nodeintegracoesbuiltin-nodeslogic-controlif - Condições simples
+## Próximos Passos
+
+- [If Node](/integracoes/builtin-nodes/logic-control/if) - Condições simples
 - [Merge Node](/integracoes/builtin-nodes/logic-control/merge) - Combinar dados
 - [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões em condições
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
-
-

@@ -5,11 +5,11 @@ sidebar_position: 3
 keywords: [n8n, aggregate node, agregação, agrupamento, dados, estatísticas, sum, count, average]
 ---
 
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-aggregate-node
+<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O **Aggregate Node** é uma ferramenta poderosa do n8n para agrupar e agregar dados. Ele permite calcular estatísticas, somar valores, contar itens e criar resumos baseados em critérios específicos.
 
-#o-que-o-aggregate Node?
+## O que é o Aggregate Node?
 
 O **Aggregate Node** permite:
 
@@ -20,7 +20,7 @@ O **Aggregate Node** permite:
 - **Gerar** relatórios agregados
 - **Reduzir** volume de dados
 
-#quando-usar-o-aggregate-node
+## Quando usar o Aggregate Node
 
 - **Relatórios** de vendas por período
 - **Estatísticas** de usuários por categoria
@@ -29,9 +29,11 @@ O **Aggregate Node** permite:
 - **Resumos** de transações financeiras
 - **Agregação** de métricas de negócio
 
-#configurao-bsica
+## Configuração Básica
 
-#estrutura-do-aggregate-node-javascript
+### Estrutura do Aggregate Node
+
+```javascript
 // Aggregate Node - Estrutura básica
 {
   "groupBy": ["categoria", "regiao"], // Campos para agrupar
@@ -50,9 +52,12 @@ O **Aggregate Node** permite:
 }
 ```
 
-#campos-de-agrupamento
+## Campos de Agrupamento
 
-#id-1-agrupamento-simples-javascript Agrupar por um campo
+### Agrupamento Simples
+
+```javascript
+// Agrupar por um campo
 {
   "groupBy": ["categoria"]
 }
@@ -63,26 +68,31 @@ O **Aggregate Node** permite:
 }
 ```
 
-#id-2-agrupamento-com-expresses-javascript
+### Agrupamento com Expressões
+
+```javascript
 // Agrupar por data formatada
 {
-  "groupBy": ["{{ $json.data.substring(0, 7) }}"] // YYYY-MM
+  "groupBy": ["{{$json.data.substring(0, 7)}}"] // YYYY-MM
 }
 
 // Agrupar por faixa de valor
 {
-  "groupBy": ["{{ $json.valor > 1000 ? 'Alto' : 'Baixo' }}"]
+  "groupBy": ["{{$json.valor > 1000 ? 'Alto' : 'Baixo'}}"]
 }
 
 // Agrupar por categoria condicional
 {
-  "groupBy": ["{{ $json.categoria || 'Sem Categoria' }}"]
+  "groupBy": ["{{$json.categoria || 'Sem Categoria'}}"]
 }
 ```
 
-#operaes-de-agregao
+## Operações de Agregação
 
-#id-1-soma-sum-javascript Somar valores numéricos
+### Soma (Sum)
+
+```javascript
+// Somar valores numéricos
 {
   "field": "valor",
   "operation": "sum",
@@ -91,13 +101,16 @@ O **Aggregate Node** permite:
 
 // Somar com condição
 {
-  "field": "{{ $json.status === 'aprovado' ? $json.valor : 0 }}",
+  "field": "{{$json.status === 'aprovado' ? $json.valor : 0}}",
   "operation": "sum",
   "name": "total_aprovado"
 }
 ```
 
-#id-2-contagem-count-javascript Contar todos os itens
+### Contagem (Count)
+
+```javascript
+// Contar todos os itens
 {
   "field": "id",
   "operation": "count",
@@ -106,13 +119,16 @@ O **Aggregate Node** permite:
 
 // Contar com condição
 {
-  "field": "{{ $json.ativo ? 1 : 0 }}",
+  "field": "{{$json.ativo ? 1 : 0}}",
   "operation": "sum",
   "name": "registros_ativos"
 }
 ```
 
-#id-3-mdia-average-javascript Calcular média
+### Média (Average)
+
+```javascript
+// Calcular média
 {
   "field": "valor",
   "operation": "average",
@@ -121,13 +137,15 @@ O **Aggregate Node** permite:
 
 // Média com filtro
 {
-  "field": "{{ $json.valor > 0 ? $json.valor : null }}",
+  "field": "{{$json.valor > 0 ? $json.valor : null}}",
   "operation": "average",
   "name": "media_valores_positivos"
 }
 ```
 
-#id-4-mnimo-e-mximo-javascript
+### Mínimo e Máximo
+
+```javascript
 // Valor mínimo
 {
   "field": "valor",
@@ -143,7 +161,9 @@ O **Aggregate Node** permite:
 }
 ```
 
-#id-5-primeiro-e-ltimo-javascript
+### Primeiro e Último
+
+```javascript
 // Primeiro valor
 {
   "field": "nome",
@@ -159,9 +179,9 @@ O **Aggregate Node** permite:
 }
 ```
 
-#exemplos-prticos
+## Exemplos Práticos
 
-#id-1-relatrio-de-vendas-por Categoria
+### Relatório de Vendas por Categoria
 
 ```javascript
 // Aggregate Node - Vendas por categoria
@@ -198,6 +218,7 @@ O **Aggregate Node** permite:
 ```
 
 **Resultado:**
+
 ```json
 [
   {
@@ -219,7 +240,7 @@ O **Aggregate Node** permite:
 ]
 ```
 
-#id-2-estatsticas-de-usurios-por Região
+### Estatísticas de Usuários por Região
 
 ```javascript
 // Aggregate Node - Usuários por região
@@ -232,7 +253,7 @@ O **Aggregate Node** permite:
       "name": "total_usuarios"
     },
     {
-      "field": "{{ $json.ativo ? 1 : 0 }}",
+      "field": "{{$json.ativo ? 1 : 0}}",
       "operation": "sum",
       "name": "usuarios_ativos"
     },
@@ -250,12 +271,12 @@ O **Aggregate Node** permite:
 }
 ```
 
-#id-3-anlise-de-performance-por Período
+### Análise de Performance por Período
 
 ```javascript
 // Aggregate Node - Performance por mês
 {
-  "groupBy": ["{{ $json.data.substring(0, 7) }}"],
+  "groupBy": ["{{$json.data.substring(0, 7)}}"],
   "aggregations": [
     {
       "field": "vendas",
@@ -278,7 +299,7 @@ O **Aggregate Node** permite:
       "name": "custo_total"
     },
     {
-      "field": "{{ $json.receita - $json.custo }}",
+      "field": "{{$json.receita - $json.custo}}",
       "operation": "sum",
       "name": "lucro_mes"
     }
@@ -286,7 +307,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-#id-4-consolidao-de-dados-de Múltiplas Fontes
+### Consolidação de Dados de Múltiplas Fontes
 
 ```javascript
 // Aggregate Node - Consolidação de dados
@@ -317,20 +338,20 @@ O **Aggregate Node** permite:
 }
 ```
 
-#id-5-anlise-de-transaes-financeiras
+### Análise de Transações Financeiras
 
 ```javascript
 // Aggregate Node - Análise financeira
 {
-  "groupBy": ["tipo_transacao", "{{ $json.data.substring(0, 10) }}"],
+  "groupBy": ["tipo_transacao", "{{$json.data.substring(0, 10)}}"],
   "aggregations": [
     {
-      "field": "{{ $json.tipo === 'credito' ? $json.valor : 0 }}",
+      "field": "{{$json.tipo === 'credito' ? $json.valor : 0}}",
       "operation": "sum",
       "name": "total_creditos"
     },
     {
-      "field": "{{ $json.tipo === 'debito' ? $json.valor : 0 }}",
+      "field": "{{$json.tipo === 'debito' ? $json.valor : 0}}",
       "operation": "sum",
       "name": "total_debitos"
     },
@@ -340,7 +361,7 @@ O **Aggregate Node** permite:
       "name": "numero_transacoes"
     },
     {
-      "field": "{{ $json.tipo === 'credito' ? $json.valor : -$json.valor }}",
+      "field": "{{$json.tipo === 'credito' ? $json.valor : -$json.valor}}",
       "operation": "sum",
       "name": "saldo_dia"
     }
@@ -348,32 +369,32 @@ O **Aggregate Node** permite:
 }
 ```
 
-#casos-de-uso-avanados
+## Casos de Uso Avançados
 
-#id-1-agregao-com-condies-complexas
+### Agregação com Condições Complexas
 
 ```javascript
 // Aggregate Node - Condições complexas
 {
-  "groupBy": ["categoria", "{{ $json.valor > 1000 ? 'Premium' : 'Standard' }}"],
+  "groupBy": ["categoria", "{{$json.valor > 1000 ? 'Premium' : 'Standard'}}"],
   "aggregations": [
     {
-      "field": "{{ $json.status === 'aprovado' ? $json.valor : 0 }}",
+      "field": "{{$json.status === 'aprovado' ? $json.valor : 0}}",
       "operation": "sum",
       "name": "vendas_aprovadas"
     },
     {
-      "field": "{{ $json.status === 'pendente' ? $json.valor : 0 }}",
+      "field": "{{$json.status === 'pendente' ? $json.valor : 0}}",
       "operation": "sum",
       "name": "vendas_pendentes"
     },
     {
-      "field": "{{ $json.status === 'cancelado' ? $json.valor : 0 }}",
+      "field": "{{$json.status === 'cancelado' ? $json.valor : 0}}",
       "operation": "sum",
       "name": "vendas_canceladas"
     },
     {
-      "field": "{{ $json.status === 'aprovado' ? 1 : 0 }}",
+      "field": "{{$json.status === 'aprovado' ? 1 : 0}}",
       "operation": "sum",
       "name": "quantidade_aprovadas"
     }
@@ -381,12 +402,15 @@ O **Aggregate Node** permite:
 }
 ```
 
-#id-2-agregao-temporal-javascript Aggregate Node - Agregação temporal
+### Agregação Temporal
+
+```javascript
+// Aggregate Node - Agregação temporal
 {
   "groupBy": [
-    "{{ $json.data.substring(0, 4) }}", // Ano
-    "{{ $json.data.substring(5, 7) }}", // Mês
-    "{{ $json.data.substring(8, 10) }}" // Dia
+    "{{$json.data.substring(0, 4)}}", // Ano
+    "{{$json.data.substring(5, 7)}}", // Mês
+    "{{$json.data.substring(8, 10)}}" // Dia
   ],
   "aggregations": [
     {
@@ -400,7 +424,7 @@ O **Aggregate Node** permite:
       "name": "clientes_dia"
     },
     {
-      "field": "{{ $json.vendas / $json.clientes }}",
+      "field": "{{$json.vendas / $json.clientes}}",
       "operation": "average",
       "name": "ticket_medio_dia"
     }
@@ -408,7 +432,10 @@ O **Aggregate Node** permite:
 }
 ```
 
-#id-3-agregao-hierrquica-javascript Aggregate Node - Agregação hierárquica
+### Agregação Hierárquica
+
+```javascript
+// Aggregate Node - Agregação hierárquica
 {
   "groupBy": [
     "pais",
@@ -436,7 +463,7 @@ O **Aggregate Node** permite:
 }
 ```
 
-#id-4-agregao-com-clculos-personalizados
+### Agregação com Cálculos Personalizados
 
 ```javascript
 // Aggregate Node - Cálculos personalizados
@@ -454,12 +481,12 @@ O **Aggregate Node** permite:
       "name": "total_custo"
     },
     {
-      "field": "{{ $json.valor - $json.custo }}",
+      "field": "{{$json.valor - $json.custo}}",
       "operation": "sum",
       "name": "lucro_bruto"
     },
     {
-      "field": "{{ ($json.valor - $json.custo) / $json.valor * 100 }}",
+      "field": "{{($json.valor - $json.custo) / $json.valor * 100}}",
       "operation": "average",
       "name": "margem_percentual"
     },
@@ -472,9 +499,9 @@ O **Aggregate Node** permite:
 }
 ```
 
-#boas-prticas
+## Boas Práticas
 
-#id-1-escolha-de-campos-de Agrupamento
+### Escolha de Campos de Agrupamento
 
 ```javascript
 // ✅ Bom: Campos com valores limitados
@@ -488,7 +515,9 @@ O **Aggregate Node** permite:
 }
 ```
 
-#id-2-nomenclatura-de-agregaes-javascript
+### Nomenclatura de Agregações
+
+```javascript
 // ✅ Bom: Nomes descritivos
 {
   "field": "valor",
@@ -504,7 +533,10 @@ O **Aggregate Node** permite:
 }
 ```
 
-#id-3-performance-javascript Bom: Agregações simples
+### Performance
+
+```javascript
+// ✅ Bom: Agregações simples
 {
   "field": "valor",
   "operation": "sum",
@@ -513,16 +545,18 @@ O **Aggregate Node** permite:
 
 // ❌ Evitar: Cálculos complexos
 {
-  "field": "{{ $json.valor * Math.pow(1 + $json.taxa, $json.periodo) }}",
+  "field": "{{$json.valor * Math.pow(1 + $json.taxa, $json.periodo)}}",
   "operation": "sum",
   "name": "valor_futuro"
 }
 ```
 
-#id-4-validao-de-dados-javascript
+### Validação de Dados
+
+```javascript
 // ✅ Bom: Validar dados antes de agregar
 {
-  "field": "{{ $json.valor && !isNaN($json.valor) ? $json.valor : 0 }}",
+  "field": "{{$json.valor && !isNaN($json.valor) ? $json.valor : 0}}",
   "operation": "sum",
   "name": "total_valido"
 }
@@ -535,28 +569,36 @@ O **Aggregate Node** permite:
 }
 ```
 
-#Troubleshooting
+## Troubleshooting
 
-#problemas-comuns
+### Problemas Comuns
 
-#agregao-retorna-valores-incorretos Verifique se os campos existem
+**Agregação retorna valores incorretos**
+- Verifique se os campos existem
 - Confirme se os tipos de dados estão corretos
 - Teste com dados de exemplo
 - Use Debug Helper para ver dados
 
-#performance-lenta-reduza-o número de campos de agrupamento
+**Performance lenta**
+- Reduza o número de campos de agrupamento
 - Simplifique as expressões
 - Use agregações básicas
 - Considere filtrar dados antes
 
-#campos-de-agrupamento-no-funcionam
+**Campos de agrupamento não funcionam**
 - Verifique se os campos têm valores
 - Confirme se as expressões estão corretas
 - Teste com agrupamento simples
 - Verifique se há valores nulos
 
-#cor-debug-javascript-code-node - Debug de Aggregate Node
-));
+### Debug de Aggregate Node
+
+```javascript
+// Função para debug de dados antes da agregação
+const debugAggregate = (dados) => {
+  console.log('========================');
+  console.log('Debug - Aggregate Node');
+  console.log('Tipo de dados:', typeof dados);
   console.log('Número de registros:', dados.length);
   console.log('Exemplo de registro:', dados[0]);
   console.log('========================');
@@ -568,9 +610,9 @@ O **Aggregate Node** permite:
 return { json: debugAggregate($json) };
 ```
 
-#integrao-com-outros-nodes
+## Integração com Outros Nodes
 
-#id-1-aggregate-node-set Node
+### Aggregate Node + Set Node
 
 ```javascript
 // Aggregate Node - Calcular estatísticas
@@ -597,18 +639,18 @@ return { json: debugAggregate($json) };
     "number": [
       {
         "name": "ticket_medio",
-        "value": "{{ $json.total / $json.quantidade }}"
+        "value": "{{$json.total / $json.quantidade}}"
       },
       {
         "name": "percentual_total",
-        "value": "{{ ($json.total / $('Aggregate Node').json.total_geral) * 100 }}"
+        "value": "{{($json.total / $('Aggregate Node').json.total_geral) * 100}}"
       }
     ]
   }
 }
 ```
 
-#id-2-aggregate-node-if Node
+### Aggregate Node + If Node
 
 ```javascript
 // Aggregate Node - Agrupar por status
@@ -625,16 +667,16 @@ return { json: debugAggregate($json) };
 
 // If Node - Processar por status
 {
-  "condition": "{{ $json.status === 'aprovado' }}",
+  "condition": "{{$json.status === 'aprovado'}}",
   "true": "Processar Aprovados",
   "false": "Processar Outros"
 }
 ```
 
-#prximos-passos-set-nodeintegracoesbuiltin-nodesdata-processingset - Manipulação de dados
+## Próximos Passos
+
+- [Set Node](/integracoes/builtin-nodes/data-processing/set) - Manipulação de dados
 - [Code Node](/integracoes/builtin-nodes/core-nodes/code) - Lógica customizada
 - [If Node](/integracoes/builtin-nodes/logic-control/if) - Controle de fluxo
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões avançadas
 - [Data Processing](/integracoes/builtin-nodes/data-processing/index) - Outros nodes de processamento
-
-

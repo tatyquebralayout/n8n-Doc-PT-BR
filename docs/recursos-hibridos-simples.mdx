@@ -7,11 +7,15 @@ keywords: [reStructuredText, Sphinx, Docusaurus, teste, híbrido]
 
 import HybridProcessor from '@site/src/components/HybridProcessor';
 
-#teste-simples-recursos-hbridos
+# Teste Simples - Recursos Híbridos
 
 Esta página contém testes básicos e simplificados dos componentes híbridos.
 
-#teste-rst-bsico-hybridprocessor-typerst content={`
+## Teste RST Básico
+
+<HybridProcessor 
+  type="rst" 
+  content={`
 .. note:: Teste Simples
    Esta é uma nota básica para verificar funcionamento.
 
@@ -19,7 +23,11 @@ Esta página contém testes básicos e simplificados dos componentes híbridos.
    Este é um aviso simples.
 `} />
 
-#teste-sphinx-bsico-hybridprocessor-typesphinx content={`
+## Teste Sphinx Básico
+
+<HybridProcessor 
+  type="sphinx" 
+  content={`
 .. n8n-workflow:: teste-basico
    :title: Workflow Básico
    :description: Um teste simples
@@ -29,12 +37,18 @@ Esta página contém testes básicos e simplificados dos componentes híbridos.
       :description: Trigger básico
 `} />
 
-#teste-de-deteco-automtica-hybridprocessor content={`
+## Teste de Detecção Automática
+
+<HybridProcessor 
+  content={`
 .. tip:: Detecção Automática
    Este conteúdo deve ser detectado como RST automaticamente.
 `} />
 
-#teste-de-cdigo-hybridprocessor-content
+## Teste de Código
+
+<HybridProcessor 
+  content={`
 .. code-block:: javascript
    :caption: Exemplo Simples
 
@@ -44,7 +58,10 @@ Esta página contém testes básicos e simplificados dos componentes híbridos.
    };
 `} />
 
-#teste-de-tabela-hybridprocessor-content
+## Teste de Tabela
+
+<HybridProcessor 
+  content={`
 .. table:: Teste Simples
    :widths: 50 50
 
@@ -59,14 +76,24 @@ Esta página contém testes básicos e simplificados dos componentes híbridos.
 
 ---
 
-#status-dos-testes-se-voc consegue ver os componentes acima renderizados corretamente, o sistema híbrido está funcionando! 
+## Status dos Testes
 
-#problemas-conhecidos-corrigidos Erro de hoisting no RSTProcessor
+Se você consegue ver os componentes acima renderizados corretamente, o sistema híbrido está funcionando!
+
+## Problemas Conhecidos
+
+### ✅ Corrigidos
+- Erro de hoisting no RSTProcessor
 - ✅ Lazy loading otimizado
 - ✅ Error boundaries implementados
 - ✅ Performance melhorada
 
-#prximos-passos-1-testar-esta página simples primeiro
-2. Corrigir problemas do KaTeX com Unicode
-3. Otimizar página principal recursos-hibridos.mdx
-4. Adicionar mais funcionalidades gradualmente 
+## Próximos Passos
+
+1. **Testar esta página simples** primeiro
+2. **Corrigir problemas do KaTeX** com Unicode
+3. **Otimizar página principal** recursos-hibridos.mdx
+4. **Adicionar mais funcionalidades** gradualmente
+
+<IonicIcon name="bulb-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
+**Dica**: Esta página serve como teste básico para verificar se os componentes híbridos estão funcionando corretamente.

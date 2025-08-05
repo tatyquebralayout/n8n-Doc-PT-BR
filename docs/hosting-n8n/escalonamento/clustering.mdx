@@ -5,123 +5,27 @@ description: Como implementar clustering para alta disponibilidade do n8n
 keywords: [n8n, clustering, alta disponibilidade, escalabilidade, cluster]
 ---
 
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-clustering-este documento explica como **implementar clustering** para alta disponibilidade do n8n, incluindo configuração de múltiplas instâncias, balanceamento de carga inteligente, sincronização de dados, failover automático, e arquiteturas distribuídas que garantem operação contínua mesmo com falhas de hardware ou software, proporcionando disponibilidade enterprise-grade para automações críticas de negócio.
+# Clustering
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
-
-- Arquiteturas de cluster para n8n
-- Configuração de múltiplas instâncias
-- Balanceamento de carga inteligente
-- Failover automático
-- Monitoramento de cluster
+Este documento explica como **implementar clustering** para alta disponibilidade do n8n, incluindo configuração de múltiplas instâncias, balanceamento de carga inteligente, sincronização de dados, failover automático, e arquiteturas distribuídas que garantem operação contínua mesmo com falhas de hardware ou software, proporcionando disponibilidade enterprise-grade para automações críticas de negócio.
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-por-que usar Clustering?
+<IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#benefcios-do-clustering-sem-clustering (Instância Única):**
+## Configuração Básica
 
-- ❌ **Ponto único de falha** - Se o servidor cair, tudo para
-- ❌ **Limitação de recursos** - Apenas um servidor disponível
-- ❌ **Sem escalabilidade** - Não pode distribuir carga
-- ❌ **Downtime durante manutenção** - Atualizações param o serviço
+### Docker Compose com Cluster
 
-**Com Clustering (Múltiplas Instâncias):**
-
-- ✅ **Alta disponibilidade** - Falhas não afetam o serviço
-- ✅ **Escalabilidade horizontal** - Adicione servidores conforme necessário
-- ✅ **Balanceamento de carga** - Distribui requisições automaticamente
-- ✅ **Zero downtime** - Manutenção sem interrupção
-- ✅ **Performance melhorada** - Múltiplos servidores processando
-
-#quando-usar-clustering-use-clustering quando:**
-
-- Precisa de **99.9%+ de disponibilidade**
-- Tem **muitos usuários simultâneos**
-- Processa **workflows críticos de negócio**
-- Quer **escalabilidade automática**
-- Precisa de **manutenção sem downtime**
-
----
-
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-arquiteturas-de Cluster
-
-#topologia-bsica-mermaid-graph-td
-    A[Load Balancer] --> B[n8n Instance 1]
-    A --> C[n8n Instance 2]
-    A --> D[n8n Instance 3]
-    
-    B --> E[Shared Database]
-    C --> E
-    D --> E
-    
-    B --> F[Redis Cluster]
-    C --> F
-    D --> F
-    
-    style A fill:#cor-ffebee-style-b-fill#cor-e8f5e8-style-c-fill#cor-e8f5e8-style-d-fill#cor-e8f5e8-style-e-fill#cor-fff3e0-style-f-fill#cor-e1f5fe
-
-#arquitetura-avanada-mermaid-graph-td
-    A[Global Load Balancer] --> B[Regional LB 1]
-    A --> C[Regional LB 2]
-    
-    B --> D[n8n Instance 1]
-    B --> E[n8n Instance 2]
-    B --> F[n8n Instance 3]
-    
-    C --> G[n8n Instance 4]
-    C --> H[n8n Instance 5]
-    C --> I[n8n Instance 6]
-    
-    D --> J[Database Cluster]
-    E --> J
-    F --> J
-    G --> J
-    H --> J
-    I --> J
-    
-    D --> K[Redis Cluster]
-    E --> K
-    F --> K
-    G --> K
-    H --> K
-    I --> K
-    
-    style A fill:#cor-ffcdd2-style-b-fill#cor-ffebee-style-c-fill#cor-ffebee-style-d-fill#cor-e8f5e8-style-e-fill#cor-e8f5e8-style-f-fill#cor-e8f5e8-style-g-fill#cor-e8f5e8-style-h-fill#cor-e8f5e8-style-i-fill#cor-e8f5e8-style-j-fill#cor-fff3e0-style-k-fill#cor-e1f5fe
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-de Múltiplas Instâncias
-
-#configurao-base
-
-#instncia-principal-main-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-para instância principal
-EXECUTIONS_PROCESS=main
-EXECUTIONS_MODE=regular
-
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-este-worker processa:
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-execues manuais
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-webhooks
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-interface de usuário
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-gerenciamento de workflows
-```
-
-#instncias-de-execuo-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-para instâncias de execução
-EXECUTIONS_PROCESS=worker
-EXECUTIONS_MODE=regular
-
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-este-worker processa apenas:
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-execues de workflows
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-jobs da fila
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-retry de falhas
-```
-
-#docker-compose-com-cluster-yaml
+```yaml
 version: '3.8'
 
 services:
-  #load-balancer-nginx-image-nginxalpine
+  # Load balancer
+  nginx:
+    image: nginx:alpine
     restart: unless-stopped
     ports:
       - "80:80"
@@ -136,7 +40,9 @@ services:
     networks:
       - n8n_network
 
-  #instncia-principal-n8n-main-image-n8nion8nlatest
+  # Instância principal
+  n8n-main:
+    image: n8nio/n8n:latest
     restart: unless-stopped
     environment:
       - EXECUTIONS_PROCESS=main
@@ -156,7 +62,9 @@ services:
     networks:
       - n8n_network
 
-  #instncias-de-execuo-n8n-worker-1-image n8nio/n8n:latest
+  # Instâncias de execução
+  n8n-worker-1:
+    image: n8nio/n8n:latest
     restart: unless-stopped
     environment:
       - EXECUTIONS_PROCESS=worker
@@ -193,7 +101,8 @@ services:
     networks:
       - n8n_network
 
-  #banco-de-dados-compartilhado-postgres
+  # Banco de dados compartilhado
+  postgres:
     image: postgres:15
     restart: unless-stopped
     environment:
@@ -205,7 +114,9 @@ services:
     networks:
       - n8n_network
 
-  #redis-compartilhado-redis-image-redis7-alpine
+  # Redis compartilhado
+  redis:
+    image: redis:7-alpine
     restart: unless-stopped
     command: redis-server --appendonly yes
     volumes:
@@ -224,27 +135,38 @@ networks:
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-balanceamento-de Carga
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-nginx
+## Balanceamento de Carga
 
-#nginxconf-para-cluster-nginx-events {
+### Configuração Nginx
+
+```nginx
+events {
     worker_connections 1024;
 }
 
 http {
-    #upstream-para-instncias-n8n-upstream n8n_backend {
-        #instncia-principal-server-n8n-main5678-maxfails3 fail_timeout=30s;
+    # Upstream para instâncias n8n
+    upstream n8n_backend {
+        # Instância principal
+        server n8n-main:5678 max_fails=3 fail_timeout=30s;
         
-        #instncias-de-execuo-server-n8n-worker-15678 max_fails=3 fail_timeout=30s;
+        # Instâncias de execução
+        server n8n-worker-1:5678 max_fails=3 fail_timeout=30s;
         server n8n-worker-2:5678 max_fails=3 fail_timeout=30s;
         
-        #health-check-keepalive-32
+        # Health check
+        keepalive 32;
+    }
 
-    #rate-limiting-limitreqzone-binaryremoteaddr-zoneapi10m rate=10r/s;
+    # Rate limiting
+    limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
     limit_req_zone $binary_remote_addr zone=webhook:10m rate=30r/s;
 
-    #gzip-compression-gzip-on-gzipvary on;
+    # Gzip compression
+    gzip on;
+    gzip_vary on;
     gzip_min_length 1024;
     gzip_types text/plain text/css application/json application/javascript;
 
@@ -258,18 +180,21 @@ http {
         listen 443 ssl http2;
         server_name seudominio.com;
 
-        #ssl-configuration-sslcertificate-etcnginxsslcertpem-sslcertificatekey /etc/nginx/ssl/key.pem;
+        # SSL configuration
+        ssl_certificate /etc/nginx/ssl/cert.pem;
+        ssl_certificate_key /etc/nginx/ssl/key.pem;
         ssl_protocols TLSv1.2 TLSv1.3;
         ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512;
         ssl_prefer_server_ciphers off;
         ssl_session_cache shared:SSL:10m;
 
-        #security-headers-addheader-strict-transport-security-max-age31536000 includeSubDomains" always;
+        # Security headers
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
         add_header X-Frame-Options DENY always;
         add_header X-Content-Type-Options nosniff always;
         add_header X-XSS-Protection "1; mode=block" always;
 
-        #api-endpoints-com-rate-limiting
+        # API endpoints com rate limiting
         location /api/ {
             limit_req zone=api burst=20 nodelay;
             proxy_pass http://n8n_backend;
@@ -278,10 +203,11 @@ http {
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;
             
-            #health-check-proxynextupstream-error-timeout invalid_header http_500 http_502 http_503 http_504;
+            # Health check
+            proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
         }
 
-        #webhook-endpoints-com-rate-limiting
+        # Webhook endpoints com rate limiting
         location /webhook/ {
             limit_req zone=webhook burst=50 nodelay;
             proxy_pass http://n8n_backend;
@@ -291,10 +217,12 @@ http {
             proxy_set_header X-Forwarded-Proto $scheme;
             proxy_read_timeout 120s;
             
-            #health-check-proxynextupstream-error-timeout invalid_header http_500 http_502 http_503 http_504;
+            # Health check
+            proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
         }
 
-        #configurao-geral-location
+        # Configuração geral
+        location / {
             proxy_pass http://n8n_backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
@@ -303,18 +231,24 @@ http {
             proxy_set_header X-Forwarded-Host $host;
             proxy_set_header X-Forwarded-Port $server_port;
 
-            #websocket-support-proxyhttpversion-11-proxysetheader Upgrade $http_upgrade;
+            # WebSocket support
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";
             
-            #health-check-proxynextupstream-error-timeout invalid_header http_500 http_502 http_503 http_504;
+            # Health check
+            proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
         }
     }
 }
 ```
 
-#haproxy-alternativa
+### HAProxy Alternativa
 
-#haproxycfg-bash-global-log-devlog local0
+```bash
+# haproxy.cfg
+global
+    log /dev/log local0
     log /dev/log local1 notice
     chroot /var/lib/haproxy
     stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
@@ -336,27 +270,30 @@ frontend n8n_frontend
     bind *:80
     bind *:443 ssl crt /etc/ssl/certs/n8n.pem
     redirect scheme https if !{ ssl_fc }
-    
-    #acls-para-diferentes-tipos-de tráfego
+
+    # ACLs para diferentes tipos de tráfego
     acl is_api path_beg /api/
     acl is_webhook path_beg /webhook/
-    
-    #rate-limiting-stick-table-type-ip size 100k expire 30s store http_req_rate(10s)
+
+    # Rate limiting
+    stick table type ip size 100k expire 30s store http_req_rate(10s)
     http-request track-sc0 src
     http-request deny deny_status 429 if { sc_http_req_rate(0) gt 10 }
-    
+
     default_backend n8n_backend
 
 backend n8n_backend
     balance roundrobin
     option httpchk GET /healthz
     http-check expect status 200
-    
-    #instncias-n8n-server-n8n-main-n8n-main5678 check maxconn 100
+
+    # Instâncias
+    server n8n-main n8n-main:5678 check maxconn 100
     server n8n-worker-1 n8n-worker-1:5678 check maxconn 100
     server n8n-worker-2 n8n-worker-2:5678 check maxconn 100
-    
-    #configuraes-de-failover-option-redispatch
+
+    # Configurações de failover
+    option redispatch
     retries 3
     timeout connect 5s
     timeout server 30s
@@ -364,24 +301,21 @@ backend n8n_backend
 
 ---
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-failover-automtico
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#health-checks
+## Failover Automático
 
-#endpoint-de-health-check-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-endpoint de health check
-N8N_HEALTH_CHECK_ENDPOINT=/healthz
-N8N_HEALTH_CHECK_TIMEOUT=5000
-N8N_HEALTH_CHECK_INTERVAL=30000
-```
+### Health Checks
 
-#script-de-health-check-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-health-checksh-n8nhostlocalhost
+```bash
+#!/bin/bash
+
+# Configurações
+N8N_HOST="localhost"
 N8N_PORT="5678"
 HEALTH_ENDPOINT="/healthz"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se n8n está respondendo
+# Verificar saúde do n8n
 if curl -f -s "http://$N8N_HOST:$N8N_PORT$HEALTH_ENDPOINT" > /dev/null; then
     echo "OK: n8n está saudável"
     exit 0
@@ -391,25 +325,30 @@ else
 fi
 ```
 
-#monitoramento-de-failover
+### Monitoramento de Failover
 
-#script-de-monitoramento-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-monitor-clustersh
+```bash
+#!/bin/bash
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-clusternodesn8n-main "n8n-worker-1" "n8n-worker-2")
+# Configurações
+CLUSTER_NODES=("n8n-main" "n8n-worker-1" "n8n-worker-2")
 WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-cada nó
+echo "=== Monitoramento do Cluster n8n ==="
+echo
+
+# Verificar cada nó
 for node in "${CLUSTER_NODES[@]}"; do
     if ! docker exec $node curl -f -s "http://localhost:5678/healthz" > /dev/null; then
         echo "ALERTA: Nó $node não está respondendo!"
         
-        #enviar-notificao-curl-x-post $WEBHOOK_URL \
+        # Enviar notificação
+        curl -X POST $WEBHOOK_URL \
           -H "Content-type: application/json" \
           -d "{\"text\":\"🚨 Nó $node não está respondendo!\"}"
         
-        #tentar-reiniciar-o-container-docker restart $node
+        # Tentar reiniciar o container
+        docker restart $node
     else
         echo "OK: Nó $node está saudável"
     fi
@@ -418,11 +357,16 @@ done
 
 ---
 
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-kubernetes-deployment
+<IonicIcon name="cloud-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#deployment-completo
+## Kubernetes Deployment
 
-#n8n-deploymentyaml-yaml-apiversion-appsv1-kind Deployment
+### Deployment Completo
+
+```yaml
+# n8n-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: n8n-main
   labels:
@@ -570,7 +514,10 @@ spec:
           periodSeconds: 5
 ```
 
-#n8n-serviceyaml-yaml-apiversion-v1-kind Service
+```yaml
+# n8n-service.yaml
+apiVersion: v1
+kind: Service
 metadata:
   name: n8n-service
   labels:
@@ -585,7 +532,10 @@ spec:
   type: ClusterIP
 ```
 
-#n8n-ingressyaml-yaml-apiversion-networkingk8siov1-kind Ingress
+```yaml
+# n8n-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
   name: n8n-ingress
   annotations:
@@ -613,31 +563,30 @@ spec:
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento-de Cluster
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#mtricas-essenciais
+## Monitoramento
 
-#script-de-monitoramento-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-monitor-cluster-metricssh-echo "=== Métricas do Cluster n8n ==="
+### Script de Métricas
+
+```bash
+#!/bin/bash
+
+echo "=== Métricas do Cluster n8n ==="
 echo
 
-#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-status-dos containers
 echo "1. Status dos Containers:"
 docker ps --filter "name=n8n" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 echo
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-uso-de recursos
 echo "2. Uso de Recursos:"
 docker stats --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"
 echo
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-logs-de erro recentes
 echo "3. Logs de Erro (últimas 10 linhas):"
 docker logs --tail 10 n8n-main 2>&1 | grep -E "(ERROR|WARN)" || echo "Nenhum erro encontrado"
 echo
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-health-checks
 echo "4. Health Checks:"
 for container in n8n-main n8n-worker-1 n8n-worker-2; do
     if docker exec $container curl -f -s "http://localhost:5678/healthz" > /dev/null; then
@@ -648,7 +597,6 @@ for container in n8n-main n8n-worker-1 n8n-worker-2; do
 done
 echo
 
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-mtricas-redis
 echo "5. Métricas Redis:"
 echo "Jobs na fila: $(redis-cli llen n8n:queue:jobs)"
 echo "Webhooks na fila: $(redis-cli llen n8n:queue:webhooks)"
@@ -656,18 +604,18 @@ echo "Jobs processados: $(redis-cli get n8n:stats:processed || echo '0')"
 echo "Jobs falharam: $(redis-cli get n8n:stats:failed || echo '0')"
 ```
 
-#alertas-automticos
+### Alertas Automáticos
 
-#configurao-de-alertas-bash
-#bin/bash
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-cluster-alertssh
+```bash
+#!/bin/bash
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-webhookurlhttpshooksslackcomservicesyourwebhookurl
+# Configurações
 ALERT_THRESHOLD_CPU=80
 ALERT_THRESHOLD_MEMORY=85
 ALERT_THRESHOLD_QUEUE=1000
+WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-cpu
+# Verificar CPU
 CPU_USAGE=$(docker stats --no-stream --format "{{.CPUPerc}}" n8n-main | sed 's/%//')
 if (( $(echo "$CPU_USAGE > $ALERT_THRESHOLD_CPU" | bc -l) )); then
     curl -X POST $WEBHOOK_URL \
@@ -675,7 +623,7 @@ if (( $(echo "$CPU_USAGE > $ALERT_THRESHOLD_CPU" | bc -l) )); then
       -d "{\"text\":\"⚠️ CPU alta: ${CPU_USAGE}%\"}"
 fi
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-memria
+# Verificar memória
 MEMORY_USAGE=$(docker stats --no-stream --format "{{.MemPerc}}" n8n-main | sed 's/%//')
 if (( $(echo "$MEMORY_USAGE > $ALERT_THRESHOLD_MEMORY" | bc -l) )); then
     curl -X POST $WEBHOOK_URL \
@@ -683,7 +631,7 @@ if (( $(echo "$MEMORY_USAGE > $ALERT_THRESHOLD_MEMORY" | bc -l) )); then
       -d "{\"text\":\"⚠️ Memória alta: ${MEMORY_USAGE}%\"}"
 fi
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-fila
+# Verificar fila
 QUEUE_SIZE=$(redis-cli llen n8n:queue:jobs)
 if [ $QUEUE_SIZE -gt $ALERT_THRESHOLD_QUEUE ]; then
     curl -X POST $WEBHOOK_URL \
@@ -694,97 +642,77 @@ fi
 
 ---
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#problemas-comuns
+## Troubleshooting
 
-#instncia-no-inicia-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs
-docker logs n8n-main
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-variveis de ambiente
-docker exec n8n-main env | grep -E "(DB_|REDIS_|N8N_)"
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-conectividade com banco
-docker exec n8n-main nc -zv postgres 5432
-
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-conectividade com Redis
-docker exec n8n-main nc -zv redis 6379
-```
-
-#load-balancer-no-distribui-carga
+### Problemas Comuns
 
 ```bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-configurao nginx
-nginx -t
+#!/bin/bash
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-upstream
-curl -I http://n8n-main:5678/healthz
-curl -I http://n8n-worker-1:5678/healthz
-curl -I http://n8n-worker-2:5678/healthz
+echo "=== Diagnóstico do Cluster n8n ==="
+echo
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs nginx
-tail -f /var/log/nginx/error.log
-```
+echo "1. Verificar variáveis de ambiente:"
+docker exec n8n-main env | grep -E "(DB_|REDIS_|N8N_)"
+echo
 
-#falhas-de-failover-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-health checks
+echo "2. Verificar conectividade entre nós:"
 for node in n8n-main n8n-worker-1 n8n-worker-2; do
     echo "=== $node ==="
-    docker exec $node curl -f http://localhost:5678/healthz
+    docker exec $node curl -I http://localhost:5678/healthz
     echo
 done
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-conectividade entre nós
-docker network inspect n8n_network
+echo "3. Verificar logs de erro:"
+grep "limiting requests" /var/log/nginx/error.log
+echo
+
+echo "4. Verificar configuração do nginx:"
+nginx -t
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Produção
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-mltiplas instâncias configuradas
-- [ ] Load balancer configurado
-- [ ] Health checks implementados
-- [ ] Failover automático testado
-- [ ] Banco de dados compartilhado configurado
+## Checklist de Produção
 
-#performance-balanceamento de carga funcionando
-- [ ] Timeouts configurados adequadamente
-- [ ] Rate limiting aplicado
-- [ ] Monitoramento ativo
+### Configuração
+- [ ] Redis instalado e configurado
+- [ ] Autenticação Redis configurada
+- [ ] Variáveis de ambiente configuradas
+- [ ] Conexão Redis testada
+- [ ] Workers configurados corretamente
+
+### Performance
+- [ ] Configurações de memória otimizadas
+- [ ] Persistência Redis configurada
+- [ ] Workers distribuídos adequadamente
+- [ ] Timeouts configurados
+- [ ] Retry policies definidas
+
+### Monitoramento
+- [ ] Scripts de monitoramento configurados
 - [ ] Alertas configurados
-
-#monitoramento-mtricas sendo coletadas
-- [ ] Logs centralizados
-- [ ] Alertas funcionando
+- [ ] Métricas sendo coletadas
+- [ ] Logs estruturados
 - [ ] Dashboard de monitoramento
-- [ ] Backup de configurações
 
-#segurana-ssltls configurado
+### Segurança
+- [ ] Senha Redis configurada
 - [ ] Acesso restrito por IP
-- [ ] Secrets gerenciados adequadamente
-- [ ] Logs de auditoria ativos
-- [ ] Backup e recuperação testados
-
----
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você configurou o clustering:
-
-1. **[Load Balancing](./load-balancing)** - Configure balanceamento de carga avançado
-2. **[Performance](./performance)** - Otimize performance do cluster
-3. **[Segurança](../seguranca/autenticacao)** - Configure autenticação avançada
-4. **[Backup e Recovery](../seguranca/backup-recovery)** - Implemente estratégias de backup
+- [ ] SSL/TLS configurado (se necessário)
+- [ ] Backup Redis configurado
+- [ ] Logs de acesso ativados
 
 ---
 
 :::tip **Dica Pro**
-Configure pelo menos 3 instâncias para alta disponibilidade real. Monitore a distribuição de carga e ajuste conforme necessário.
+Configure health checks adequados e monitore a distribuição de carga entre os nós do cluster para garantir alta disponibilidade.
 :::
 
 :::warning **Importante**
-Sempre teste o failover em ambiente de desenvolvimento antes de aplicar em produção. Falhas de failover podem causar interrupção total do serviço.
+Sempre teste o clustering em ambiente de desenvolvimento antes de aplicar em produção. Configure backups adequados para o Redis e banco de dados.
 :::
-

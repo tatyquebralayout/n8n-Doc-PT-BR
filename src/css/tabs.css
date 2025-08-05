@@ -1,0 +1,174 @@
+/* Estilos para Tab Blocks */
+.tabs-container {
+  margin: 1rem 0;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #e1e5e9;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.tab:hover {
+  color: #ff6a00;
+  background-color: rgba(255, 106, 0, 0.05);
+}
+
+.tab.active {
+  color: #ff6a00;
+  border-bottom-color: #ff6a00;
+}
+
+.tab-content {
+  display: none;
+  padding: 1rem 0;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Estilos para npm2yarn */
+.npm2yarn-tabs {
+  margin: 1rem 0;
+}
+
+.npm2yarn-tab {
+  padding: 0.5rem 1rem;
+  background: #f8f9fa;
+  border: 1px solid #e1e5e9;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.npm2yarn-tab:hover {
+  background: #e9ecef;
+  border-color: #ff6a00;
+}
+
+.npm2yarn-tab.active {
+  background: #ff6a00;
+  color: white;
+  border-color: #ff6a00;
+}
+
+.npm2yarn-content {
+  display: none;
+  margin-top: 1rem;
+}
+
+.npm2yarn-content.active {
+  display: block;
+}
+
+/* Estilos para modo escuro */
+[data-theme='dark'] .tab {
+  color: #a0a0a0;
+}
+
+[data-theme='dark'] .tab:hover {
+  color: #ff6a00;
+  background-color: rgba(255, 106, 0, 0.1);
+}
+
+[data-theme='dark'] .npm2yarn-tab {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .npm2yarn-tab:hover {
+  background: #4a5568;
+  border-color: #ff6a00;
+}
+
+[data-theme='dark'] .npm2yarn-tab.active {
+  background: #ff6a00;
+  color: white;
+  border-color: #ff6a00;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+  
+  .tab {
+    border-bottom: 1px solid #e1e5e9;
+    border-radius: 0;
+  }
+  
+  .tab.active {
+    border-bottom-color: #ff6a00;
+  }
+  
+  .npm2yarn-tabs {
+    flex-wrap: wrap;
+  }
+  
+  .npm2yarn-tab {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Animações */
+.tab-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Melhorias de acessibilidade */
+.tab:focus {
+  outline: 2px solid #ff6a00;
+  outline-offset: 2px;
+}
+
+.npm2yarn-tab:focus {
+  outline: 2px solid #ff6a00;
+  outline-offset: 2px;
+}
+
+/* Indicadores visuais */
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ff6a00;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.tab.active::after {
+  transform: scaleX(1);
+} 

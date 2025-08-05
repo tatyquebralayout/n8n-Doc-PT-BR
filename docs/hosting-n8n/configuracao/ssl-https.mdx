@@ -1,167 +1,47 @@
 ﻿---
-sidebar_position: 4
-title: Configuração SSL/HTTPS
-description: Como configurar SSL e HTTPS para n8n seguro em produção
-keywords: [n8n, ssl, https, segurança, certificados, nginx]
+sidebar_position: 3
+title: SSL/HTTPS
+description: Como configurar SSL/HTTPS para n8n em produção
+keywords: [n8n, ssl, https, certificados, segurança, nginx]
 ---
 
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-sslhttps
+# Configuração SSL/HTTPS
 
 Este documento ensina como **configurar SSL/HTTPS** para n8n em produção, abordando obtenção de certificados SSL, configuração de reverse proxy com nginx, renovação automática via Let's Encrypt, implementação de security headers, e melhores práticas de segurança que garantem comunicação criptografada e protegem workflows e credenciais contra interceptação e ataques man-in-the-middle.
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
+<IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-- Obtenção de certificados SSL
-- Configuração de reverse proxy
-- Renovação automática
-- Security headers
-- Melhores práticas
+## Configuração HTTPS
 
----
+### Configuração Básica Nginx
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-por-que HTTPS é Essencial?
-
-#benefcios-do-https-sem-https
-
-- ❌ **Dados expostos** - Credenciais e workflows visíveis
-- ❌ **Man-in-the-middle** - Ataques de interceptação
-- ❌ **Sem confiança** - Navegadores bloqueiam recursos
-- ❌ **Não compliance** - Violação de regulamentações
-- ❌ **Webhooks falham** - Muitos serviços exigem HTTPS
-
-**Com HTTPS:**
-
-- ✅ **Criptografia** - Dados protegidos em trânsito
-- ✅ **Autenticação** - Confirma identidade do servidor
-- ✅ **Integridade** - Dados não podem ser alterados
-- ✅ **Confiança** - Navegadores confiam na conexão
-- ✅ **Compliance** - Atende requisitos de segurança
-
-#quando-usar-https-sempre-use HTTPS em:**
-
-- **Produção** - Qualquer ambiente público
-- **Webhooks** - Para receber dados externos
-- **APIs** - Para integrações seguras
-- **Credenciais** - Para proteger dados sensíveis
-- **Compliance** - Para atender regulamentações
-
----
-
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-obteno-de Certificados
-
-#lets-encrypt-gratuito
-
-#instalao-do-certbot-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-ubuntudebian-sudo apt update
-sudo apt install certbot python3-certbot-nginx
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-centosrhel-sudo yum install certbot python3-certbot-nginx
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-instalao
-certbot --version
-```
-
-#gerar-certificado-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-gerar-certificado para domínio
-sudo certbot --nginx -d seudominio.com
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-gerar-certificado para múltiplos domínios
-sudo certbot --nginx -d seudominio.com -d www.seudominio.com
-
-#ionicicon-namecard-outline-style-fontsize-24px color: '#cor-ea4b71-gerar-certificado wildcard (requer DNS challenge)
-sudo certbot certonly --manual --preferred-challenges=dns -d *.seudominio.com
-```
-
-#renovao-automtica-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-testar-renovao
-sudo certbot renew --dry-run
-
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-ao crontab para renovação automática
-sudo crontab -e
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-linha
-0 12 * * * /usr/bin/certbot renew --quiet
-```
-
-#certificados-comerciais
-
-#comprar-certificado-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-comprar-de provedores como:
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-digicert
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-globalsign
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-comodo
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-sectigo
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-aps-compra você receberá:
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-certificatecrt (certificado público)
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-privatekey (chave privada)
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-cabundlecrt (cadeia de certificados)
-```
-
-#instalar-certificado-comercial-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-diretrio para certificados
-sudo mkdir -p /etc/ssl/certs/n8n
-sudo mkdir -p /etc/ssl/private/n8n
-
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-copiar-certificados
-sudo cp certificate.crt /etc/ssl/certs/n8n/
-sudo cp private.key /etc/ssl/private/n8n/
-sudo cp ca_bundle.crt /etc/ssl/certs/n8n/
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-permisses
-sudo chmod 644 /etc/ssl/certs/n8n/certificate.crt
-sudo chmod 644 /etc/ssl/certs/n8n/ca_bundle.crt
-sudo chmod 600 /etc/ssl/private/n8n/private.key
-```
-
----
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-nginx
-
-#instalao-e-configurao-bsica
-
-#instalar-nginx-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-ubuntudebian-sudo apt update
-sudo apt install nginx
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-centosrhel-sudo yum install nginx
-
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-iniciar-e habilitar
-sudo systemctl start nginx
-sudo systemctl enable nginx
-```
-
-#configurao-bsica-nginx
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-etcnginxsites-availablen8n
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-redirecionar-http para HTTPS
-server {
-    listen 80;
-    server_name seudominio.com www.seudominio.com;
-    return 301 https://$server_name$request_uri;
-}
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-https
+```nginx
 server {
     listen 443 ssl http2;
     server_name seudominio.com www.seudominio.com;
 
-    #certificados-ssl-sslcertificate-etcletsencryptliveseudominiocomfullchainpem-sslcertificatekey /etc/letsencrypt/live/seudominio.com/privkey.pem;
+    # Certificados SSL
+    ssl_certificate /etc/letsencrypt/live/seudominio.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/seudominio.com/privkey.pem;
 
-    #configuraes-ssl-sslprotocols-tlsv12-tlsv13
+    # Configurações SSL
+    ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384;
     ssl_prefer_server_ciphers off;
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 10m;
 
-    #security-headers-addheader-strict-transport-security-max-age31536000 includeSubDomains" always;
+    # Security Headers
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
     add_header X-Frame-Options DENY always;
     add_header X-Content-Type-Options nosniff always;
     add_header X-XSS-Protection "1; mode=block" always;
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
 
-    #proxy-para-n8n-location {
+    # Proxy para n8n
+    location / {
         proxy_pass http://localhost:5678;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -170,37 +50,50 @@ server {
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Port $server_port;
 
-        #timeouts-proxyconnecttimeout-60s-proxysendtimeout-60s
+        # Timeouts
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
         proxy_read_timeout 60s;
 
-        #websocket-support-proxyhttpversion-11-proxysetheader Upgrade $http_upgrade;
+        # WebSocket Support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
     }
 
-    #configuraes-especficas-para-webhooks-location /webhook/ {
+    # Configurações específicas para webhooks
+    location /webhook/ {
         proxy_pass http://localhost:5678;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        
-        #timeouts-maiores-para-webhooks-proxyconnecttimeout 120s;
+
+        # Timeouts maiores para webhooks
+        proxy_connect_timeout 120s;
         proxy_send_timeout 120s;
         proxy_read_timeout 120s;
     }
 }
 ```
 
-#configurao-avanada
+## Configuração Avançada
 
-#otimizaes-de-performance-nginx
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-etcnginxnginxconf-http {
-    #configuraes-bsicas-sendfile-on-tcpnopush on;
+### Otimizações de Performance
+
+```nginx
+# /etc/nginx/nginx.conf
+http {
+    # Configurações básicas
+    sendfile on;
+    tcp_nopush on;
     tcp_nodelay on;
     keepalive_timeout 65;
     types_hash_max_size 2048;
 
-    #gzip-compression-gzip-on-gzipvary on;
+    # Gzip compression
+    gzip on;
+    gzip_vary on;
     gzip_min_length 1024;
     gzip_proxied any;
     gzip_comp_level 6;
@@ -215,21 +108,29 @@ server {
         application/atom+xml
         image/svg+xml;
 
-    #rate-limiting-limitreqzone-binaryremoteaddr-zoneapi10m rate=10r/s;
+    # Rate limiting
+    limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
     limit_req_zone $binary_remote_addr zone=webhook:10m rate=30r/s;
 
-    #incluir-configuraes-do-site-include /etc/nginx/sites-enabled/*;
+    # Incluir configurações do site
+    include /etc/nginx/sites-enabled/*;
 }
 ```
 
-#configurao-com-rate-limiting-nginx
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-etcnginxsites-availablen8n-server {
+### Configuração com Rate Limiting
+
+```nginx
+# /etc/nginx/sites-available/n8n
+server {
     listen 443 ssl http2;
     server_name seudominio.com;
 
-    #certificados-ssl-sslcertificate-etcletsencryptliveseudominiocomfullchainpem-sslcertificatekey /etc/letsencrypt/live/seudominio.com/privkey.pem;
+    # Certificados SSL
+    ssl_certificate /etc/letsencrypt/live/seudominio.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/seudominio.com/privkey.pem;
 
-    #rate-limiting-para-api-location /api/ {
+    # Rate limiting para API
+    location /api/ {
         limit_req zone=api burst=20 nodelay;
         proxy_pass http://localhost:5678;
         proxy_set_header Host $host;
@@ -238,7 +139,8 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    #rate-limiting-para-webhooks-location /webhook/ {
+    # Rate limiting para webhooks
+    location /webhook/ {
         limit_req zone=webhook burst=50 nodelay;
         proxy_pass http://localhost:5678;
         proxy_set_header Host $host;
@@ -247,7 +149,8 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    #configurao-geral-location
+    # Configuração geral
+    location / {
         proxy_pass http://localhost:5678;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -259,9 +162,13 @@ server {
 
 ---
 
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-docker-e Containerização
+<IonicIcon name="cloud-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#docker-compose-com-nginx-yaml
+## Docker e Containerização
+
+### Docker Compose com Nginx
+
+```yaml
 version: '3.8'
 
 services:
@@ -341,8 +248,11 @@ networks:
     driver: bridge
 ```
 
-#nginx-configuration-para-docker-nginx
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-nginxconf-events {
+### Nginx Configuration para Docker
+
+```nginx
+# nginx.conf
+events {
     worker_connections 1024;
 }
 
@@ -351,10 +261,13 @@ http {
         server n8n:5678;
     }
 
-    #rate-limiting-limitreqzone-binaryremoteaddr-zoneapi10m rate=10r/s;
+    # Rate limiting
+    limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
     limit_req_zone $binary_remote_addr zone=webhook:10m rate=30r/s;
 
-    #gzip-gzip-on-gzipvary-on
+    # Gzip
+    gzip on;
+    gzip_vary on;
     gzip_min_length 1024;
     gzip_types text/plain text/css application/json application/javascript;
 
@@ -368,18 +281,21 @@ http {
         listen 443 ssl http2;
         server_name seudominio.com;
 
-        #ssl-configuration-sslcertificate-etcnginxsslcertpem-sslcertificatekey /etc/nginx/ssl/key.pem;
+        # SSL Configuration
+        ssl_certificate /etc/nginx/ssl/cert.pem;
+        ssl_certificate_key /etc/nginx/ssl/key.pem;
         ssl_protocols TLSv1.2 TLSv1.3;
         ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512;
         ssl_prefer_server_ciphers off;
         ssl_session_cache shared:SSL:10m;
 
-        #security-headers-addheader-strict-transport-security-max-age31536000 includeSubDomains" always;
+        # Security Headers
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
         add_header X-Frame-Options DENY always;
         add_header X-Content-Type-Options nosniff always;
         add_header X-XSS-Protection "1; mode=block" always;
 
-        #api-endpoints-with-rate-limiting
+        # API endpoints with rate limiting
         location /api/ {
             limit_req zone=api burst=20 nodelay;
             proxy_pass http://n8n_backend;
@@ -389,7 +305,7 @@ http {
             proxy_set_header X-Forwarded-Proto $scheme;
         }
 
-        #webhook-endpoints-with-rate-limiting
+        # Webhook endpoints with rate limiting
         location /webhook/ {
             limit_req zone=webhook burst=50 nodelay;
             proxy_pass http://n8n_backend;
@@ -400,7 +316,8 @@ http {
             proxy_read_timeout 120s;
         }
 
-        #general-proxy-location
+        # General proxy
+        location / {
             proxy_pass http://n8n_backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
@@ -409,7 +326,9 @@ http {
             proxy_set_header X-Forwarded-Host $host;
             proxy_set_header X-Forwarded-Port $server_port;
 
-            #websocket-support-proxyhttpversion-11-proxysetheader Upgrade $http_upgrade;
+            # WebSocket Support
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";
         }
     }
@@ -418,61 +337,50 @@ http {
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-security-headers
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#headers-essenciais-nginx
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-security-headers para n8n
+## Security Headers
 
-#ionicicon-namerepeat-outline-style-fontsize-24px color: '#cor-ea4b71-fora-https
+### Headers Essenciais
+
+```nginx
+# Headers de segurança essenciais
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-previne-clickjacking
 add_header X-Frame-Options DENY always;
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-previne-mime type sniffing
 add_header X-Content-Type-Options nosniff always;
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-proteo-xss
 add_header X-XSS-Protection "1; mode=block" always;
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-poltica-de referrer
 add_header Referrer-Policy "strict-origin-when-cross-origin" always;
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-content-security Policy
 add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none';" always;
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-permissions-policy
 add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 ```
 
-#configurao-completa-nginx
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-completa de segurança
+### Configuração Completa
 
+```nginx
 server {
     listen 443 ssl http2;
     server_name seudominio.com;
 
-    #ssl-configuration-sslcertificate-etcletsencryptliveseudominiocomfullchainpem-sslcertificatekey /etc/letsencrypt/live/seudominio.com/privkey.pem;
-    
-    #ssl-security-sslprotocols-tlsv12-tlsv13
-    ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384;
+    # SSL Configuration
+    ssl_certificate /etc/letsencrypt/live/seudominio.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/seudominio.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512;
     ssl_prefer_server_ciphers off;
-    ssl_session_cache shared:SSL:10m;
-    ssl_session_timeout 10m;
-    ssl_stapling on;
-    ssl_stapling_verify on;
 
-    #security-headers-addheader-strict-transport-security-max-age31536000 includeSubDomains; preload" always;
+    # Security Headers
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
     add_header X-Frame-Options DENY always;
     add_header X-Content-Type-Options nosniff always;
     add_header X-XSS-Protection "1; mode=block" always;
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
     add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
-    
-    #content-security-policy-para-n8n
+
+    # Content Security Policy para n8n
     add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https: wss:; frame-ancestors 'none';" always;
 
-    #proxy-configuration-location
+    # Proxy Configuration
+    location / {
         proxy_pass http://localhost:5678;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -481,7 +389,9 @@ server {
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Port $server_port;
 
-        #websocket-support-proxyhttpversion-11-proxysetheader Upgrade $http_upgrade;
+        # WebSocket Support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
     }
 }
@@ -489,50 +399,58 @@ server {
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-renovao-automtica
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#script-de-renovao-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-renew-sslsh
+## Renovação Automática
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-renovar-certificados Lets Encrypt
+### Script de Renovação
+
+```bash
+#!/bin/bash
+
+# Configurações
+DOMAIN="seudominio.com"
+EMAIL="seu-email@seudominio.com"
+WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
+
+echo "Iniciando renovação de certificados..."
+
+# Renovar certificados
 certbot renew --quiet
 
-#ionicicon-namerepeat-outline-style-fontsize-24px color: '#cor-ea4b71-recarregar-nginx se certificados foram renovados
 if [ $? -eq 0 ]; then
     echo "Certificados renovados com sucesso"
     systemctl reload nginx
+    
+    # Notificar sucesso
+    curl -X POST $WEBHOOK_URL \
+      -H "Content-type: application/json" \
+      -d '{"text":"✅ Certificados SSL renovados com sucesso"}'
 else
     echo "Erro na renovação dos certificados"
     exit 1
 fi
 ```
 
-#cron-job-bash
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-ao crontab
-sudo crontab -e
+### Cron Job
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-renovar-certificados duas vezes por dia
-0 6,18 * * * /path/to/renew-ssl.sh
+```bash
+#!/bin/bash
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-certificados semanalmente
-0 12 * * 0 /usr/bin/certbot renew --dry-run
-```
-
-#monitoramento-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-check-sslsh-domainseudominiocom
+# Verificar expiração de certificados
+DOMAIN="seudominio.com"
 DAYS_THRESHOLD=30
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-expirao do certificado
-EXPIRY_DATE=$(echo | openssl s_client -servername $DOMAIN -connect $DOMAIN:443 2>/dev/null | openssl x509 -noout -enddate | cut -d= -f2)
+# Obter data de expiração
+EXPIRY_DATE=$(openssl x509 -enddate -noout -in /etc/letsencrypt/live/$DOMAIN/cert.pem | cut -d= -f2)
 EXPIRY_EPOCH=$(date -d "$EXPIRY_DATE" +%s)
 CURRENT_EPOCH=$(date +%s)
 DAYS_LEFT=$(( ($EXPIRY_EPOCH - $CURRENT_EPOCH) / 86400 ))
 
 if [ $DAYS_LEFT -lt $DAYS_THRESHOLD ]; then
     echo "ALERTA: Certificado SSL expira em $DAYS_LEFT dias"
-    #enviar-notificao-curl-x-post https://hooks.slack.com/services/YOUR/WEBHOOK/URL \
+    # Enviar notificação
+    curl -X POST https://hooks.slack.com/services/YOUR/WEBHOOK/URL \
       -H "Content-type: application/json" \
       -d "{\"text\":\"⚠️ Certificado SSL expira em $DAYS_LEFT dias\"}"
 fi
@@ -540,82 +458,54 @@ fi
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-testes-e Validação
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#testes-de-ssl
+## Testes e Validação
 
-#verificar-certificado-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-certificado
-openssl s_client -connect seudominio.com:443 -servername seudominio.com
+### Testes de SSL
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-cadeia de certificados
-openssl s_client -connect seudominio.com:443 -servername seudominio.com -showcerts
+#### Verificar Certificado
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-configurao SSL
-nmap --script ssl-enum-ciphers -p 443 seudominio.com
-```
+```bash
+#!/bin/bash
 
-#testes-online-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-ferramentas-online para testar SSL:
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-httpswwwssllabscomssltest
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-httpsobservatorymozillaorg
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-httpssecurityheaderscom
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-httpscsp-evaluatorwithgooglecom
-```
+# Verificar certificado
+echo "Verificando certificado SSL..."
+openssl x509 -in /etc/letsencrypt/live/seudominio.com/cert.pem -text -noout
 
-#testes-de-performance-bash
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-testar-performance HTTPS
+# Testar conectividade
+echo "Testando conectividade HTTPS..."
 curl -w "@curl-format.txt" -o /dev/null -s "https://seudominio.com"
 
-#ionicicon-namerepeat-outline-style-fontsize-24px color: '#cor-ea4b71-curl-formattxt
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-timenamelookup-timenamelookupn
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-timeconnect-timeconnectn
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-timeappconnect-timeappconnectn
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-timepretransfer-timepretransfern
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-timeredirect-timeredirectn
-#ionicicon-nameplay-circle-outline-style-fontsize-24px color: '#cor-ea4b71-timestarttransfer-timestarttransfern
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-n
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-timetotal-timetotaln
+# Verificar headers de segurança
+echo "Verificando headers de segurança..."
+curl -I https://seudominio.com
+```
+
+#### Teste de Performance
+
+```bash
+#!/bin/bash
+
+# Teste de performance SSL
+echo "Teste de performance SSL..."
+openssl s_time -connect seudominio.com:443 -new
+
+# Teste de handshake
+echo "Teste de handshake..."
+openssl s_client -connect seudominio.com:443 -servername seudominio.com
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Produção
+<IonicIcon name="arrow-forward-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#sslhttps-certificado SSL válido instalado
-- [ ] Redirecionamento HTTP → HTTPS configurado
-- [ ] Configurações SSL seguras aplicadas
-- [ ] Renovação automática configurada
-- [ ] Certificado testado e validado
+## Próximos Passos
 
-#nginx-nginx instalado e configurado
-- [ ] Proxy reverso funcionando
-- [ ] WebSocket support configurado
-- [ ] Rate limiting aplicado
-- [ ] Logs configurados
-
-#segurana-security headers configurados
-- [ ] Content Security Policy aplicado
-- [ ] Firewall configurado
-- [ ] Acesso restrito por IP (se necessário)
-- [ ] Monitoramento de certificados ativo
-
-#monitoramento-scripts de renovação testados
-- [ ] Alertas configurados
-- [ ] Logs sendo coletados
-- [ ] Performance monitorada
-- [ ] Backup de configurações
-
----
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você configurou SSL/HTTPS:
-
-1. **[Segurança](../seguranca/autenticacao)** - Configure autenticação avançada
-2. **[Load Balancing](../escalonamento/load-balancing)** - Configure balanceamento de carga
-3. **[Performance](../escalonamento/performance)** - Otimize performance
-4. **[Backup e Recovery](../seguranca/backup-recovery)** - Implemente estratégias de backup
+1. **Configure certificados** SSL/TLS
+2. **Implemente security headers** adequados
+3. **Configure renovação automática** de certificados
+4. **Monitore expiração** de certificados
 
 ---
 

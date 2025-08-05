@@ -5,15 +5,18 @@ sidebar_position: 1
 keywords: [n8n, core, nodes, básicos, fundamentais, operações]
 ---
 
-#ionicicon-namecube-outline-style-fontsize-24px color: '#cor-ea4b71-nodes-core
+<IonicIcon name="cube-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 Os **Nodes Core** são os componentes fundamentais do n8n, fornecendo funcionalidades essenciais para operações básicas, debug, manipulação de dados e controle de workflows.
 
-#nodes-disponveis
+## Nodes Disponíveis
 
-#ionicicon-namecode-outline-style-fontsize-20px color: '#cor-ea4b71-code-o node **Code** permite executar código JavaScript customizado dentro do workflow, oferecendo controle total sobre a lógica de processamento.
+### Code Node
+
+<IonicIcon name="code-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 **Principais funcionalidades:**
+
 - Executar código JavaScript
 - Manipular dados com lógica customizada
 - Implementar algoritmos complexos
@@ -21,6 +24,7 @@ Os **Nodes Core** são os componentes fundamentais do n8n, fornecendo funcionali
 - Criar funções reutilizáveis
 
 **Casos de uso:**
+
 - Transformações de dados complexas
 - Validações customizadas
 - Cálculos avançados
@@ -29,11 +33,14 @@ Os **Nodes Core** são os componentes fundamentais do n8n, fornecendo funcionali
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/code)
 
-#ionicicon-namebug-outline-style-fontsize-20px color: '#cor-ea4b71-debug-helper
+### Debug Helper
+
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Debug Helper** é essencial para desenvolvimento e troubleshooting, permitindo inspecionar dados em qualquer ponto do workflow.
 
 **Principais funcionalidades:**
+
 - Inspecionar dados de entrada e saída
 - Visualizar estrutura de dados
 - Testar expressões
@@ -41,6 +48,7 @@ O node **Debug Helper** é essencial para desenvolvimento e troubleshooting, per
 - Facilitar desenvolvimento
 
 **Casos de uso:**
+
 - Debug de workflows
 - Validação de dados
 - Teste de expressões
@@ -49,11 +57,14 @@ O node **Debug Helper** é essencial para desenvolvimento e troubleshooting, per
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/debug-helper)
 
-#ionicicon-namecreate-outline-style-fontsize-20px color: '#cor-ea4b71-edit-fields (Set)
+### Edit Fields
+
+<IonicIcon name="create-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Edit Fields** permite definir, modificar e remover campos nos dados de forma visual e intuitiva.
 
 **Principais funcionalidades:**
+
 - Definir novos campos
 - Modificar valores existentes
 - Remover campos desnecessários
@@ -61,6 +72,7 @@ O node **Edit Fields** permite definir, modificar e remover campos nos dados de 
 - Aplicar transformações básicas
 
 **Casos de uso:**
+
 - Padronizar formatos de dados
 - Adicionar campos calculados
 - Limpar dados de entrada
@@ -69,11 +81,14 @@ O node **Edit Fields** permite definir, modificar e remover campos nos dados de 
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/edit-fields-set) (Em construção)
 
-#ionicicon-nameplay-circle-outline-style-fontsize-20px color: '#cor-ea4b71-execute-sub-workflow
+### Execute Sub-Workflow
+
+<IonicIcon name="play-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Execute Sub-Workflow** permite executar outros workflows como parte do workflow atual, criando modularidade e reutilização.
 
 **Principais funcionalidades:**
+
 - Executar workflows como sub-rotinas
 - Passar dados entre workflows
 - Receber resultados de sub-workflows
@@ -81,6 +96,7 @@ O node **Execute Sub-Workflow** permite executar outros workflows como parte do 
 - Reutilizar lógica comum
 
 **Casos de uso:**
+
 - Modularizar workflows complexos
 - Reutilizar lógica comum
 - Criar bibliotecas de workflows
@@ -89,11 +105,14 @@ O node **Execute Sub-Workflow** permite executar outros workflows como parte do 
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)
 
-#ionicicon-namealert-circle-outline-style-fontsize-20px color: '#cor-ea4b71-error-trigger
+### Error Trigger
+
+<IonicIcon name="alert-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Error Trigger** permite capturar e processar erros que ocorrem em outros nodes, implementando tratamento de erro robusto.
 
 **Principais funcionalidades:**
+
 - Capturar erros de outros nodes
 - Processar falhas de forma controlada
 - Implementar retry logic
@@ -101,6 +120,7 @@ O node **Error Trigger** permite capturar e processar erros que ocorrem em outro
 - Registrar logs de erro
 
 **Casos de uso:**
+
 - Tratamento de erro robusto
 - Notificações de falha
 - Retry automático
@@ -109,11 +129,14 @@ O node **Error Trigger** permite capturar e processar erros que ocorrem em outro
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/error-trigger)
 
-#ionicicon-namegit-branch-outline-style-fontsize-20px color: '#cor-ea4b71-workflow-trigger
+### Workflow Trigger
+
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Workflow Trigger** permite que um workflow seja executado por outro workflow, criando hierarquias e dependências.
 
 **Principais funcionalidades:**
+
 - Disparar workflows de forma programática
 - Passar dados entre workflows
 - Criar dependências entre workflows
@@ -121,6 +144,7 @@ O node **Workflow Trigger** permite que um workflow seja executado por outro wor
 - Implementar pipelines de dados
 
 **Casos de uso:**
+
 - Orquestração de workflows
 - Pipelines de dados
 - Workflows dependentes
@@ -129,28 +153,36 @@ O node **Workflow Trigger** permite que um workflow seja executado por outro wor
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/workflow-trigger)
 
-#conceitos-fundamentais
+## Conceitos Fundamentais
 
-#hierarquia-de-nodes-os-nodes core formam a base sobre a qual outros nodes são construídos:
+### Hierarquia de Nodes
+
+Os nodes core formam a base sobre a qual outros nodes são construídos:
 
 ```
 Core Nodes → Built-in Nodes → Community Nodes → Custom Nodes
 ```
 
-#fluxo-de-dados-os-nodes core processam dados de forma sequencial:
+### Fluxo de Dados
+
+Os nodes core processam dados de forma sequencial:
 
 1. **Entrada**: Dados chegam do node anterior
 2. **Processamento**: Node executa sua lógica
 3. **Saída**: Dados processados são enviados para o próximo node
 
-#tipos-de-operao-transformao Modificar dados (Code, Edit Fields)
+### Tipos de Operação
+
+- **Transformação**: Modificar dados (Code, Edit Fields)
 - **Inspeção**: Visualizar dados (Debug Helper)
 - **Controle**: Gerenciar fluxo (Execute Sub-Workflow, Workflow Trigger)
 - **Tratamento**: Lidar com erros (Error Trigger)
 
-#padres-de-uso
+### Padrões de Uso
 
-#id-1-pipeline-de-processamento
+#### Pipeline de Processamento
+
+```
 Dados Brutos → Debug Helper → Code → Edit Fields → Dados Processados
 ```
 
@@ -160,7 +192,10 @@ Dados Brutos → Debug Helper → Code → Edit Fields → Dados Processados
 3. **Edit Fields** padroniza estrutura
 4. **Debug Helper** valida resultado final
 
-#id-2-modularizao-workflow-principal → Execute Sub-Workflow → Sub-Workflow → Resultado
+#### Modularização de Workflow
+
+```
+Workflow Principal → Execute Sub-Workflow → Sub-Workflow → Resultado
 ```
 
 **Exemplo:**
@@ -169,7 +204,9 @@ Dados Brutos → Debug Helper → Code → Edit Fields → Dados Processados
 3. Sub-workflow valida e retorna resultado
 4. Workflow principal processa dados validados
 
-#id-3-tratamento-de-erro
+#### Tratamento de Erro
+
+```
 Node Principal → Error Trigger → Tratamento → Notificação
 ```
 
@@ -179,9 +216,9 @@ Node Principal → Error Trigger → Tratamento → Notificação
 3. Código de tratamento processa erro
 4. Notificação é enviada
 
-#exemplos-prticos
+## Exemplos Práticos
 
-#exemplo-1-validao-e-transformao de Dados
+### Exemplo 1: Validação e Transformação de Dados
 
 **Cenário:** Processar dados de clientes com validação e transformação.
 
@@ -197,7 +234,9 @@ Webhook → Debug Helper → Code (Validação) → Edit Fields → Debug Helper
 - **Debug Helper**: Valida dados processados
 - **HTTP Request**: Envia para API
 
-#exemplo-2-workflow-modular-cenrio Sistema de aprovação com workflows separados.
+### Exemplo 2: Workflow Modular
+
+**Cenário:** Sistema de aprovação com workflows separados.
 
 **Workflow Principal:**
 ```
@@ -208,7 +247,7 @@ Pedido → Execute Sub-Workflow (Validação) → Execute Sub-Workflow (Aprovaç
 - **Validação**: Verifica dados do pedido
 - **Aprovação**: Processa aprovação baseada em regras
 
-#exemplo-3-sistema-de-monitoramento
+### Exemplo 3: Sistema de Monitoramento
 
 **Cenário:** Monitorar APIs e tratar falhas automaticamente.
 
@@ -224,61 +263,76 @@ Schedule Trigger → HTTP Request → Error Trigger → Code (Retry Logic) → N
 - **Code**: Implementa retry com backoff
 - **Notificação**: Alerta sobre problemas
 
-#boas-prticas
+## Boas Práticas
 
-#desenvolvimento-1-use-debug-helper frequentemente durante desenvolvimento
+### Desenvolvimento
+
+1. **Use Debug Helper frequentemente** durante desenvolvimento
 2. **Teste código** em pequenos trechos antes de integrar
 3. **Documente lógica complexa** nos comentários
 4. **Valide dados** em cada etapa
 5. **Use versionamento** para workflows
 
-#performance-1-otimize-cdigo-para evitar loops desnecessários
+### Performance
+
+1. **Otimize código** para evitar loops desnecessários
 2. **Use Edit Fields** para operações simples
 3. **Limite execução de sub-workflows** quando possível
 4. **Implemente cache** para dados frequentemente acessados
 5. **Monitore uso de recursos**
 
-#manuteno-1-modularize-workflows-complexos
+### Manutenção
+
+1. **Modularize workflows complexos**
 2. **Implemente logging** adequado
 3. **Configure alertas** para falhas
 4. **Mantenha documentação** atualizada
 5. **Teste regularmente** workflows críticos
 
-#Troubleshooting
+## Troubleshooting
 
-#problemas-comuns
+### Problemas Comuns
 
-#code-node-no-funciona Verifique sintaxe JavaScript
+#### Code Node não funciona
+
+- **Verifique sintaxe JavaScript**
 - Confirme acesso a variáveis
 - Use Debug Helper para inspecionar dados
 - Teste código em console primeiro
 
-#cor-debug-helper-no-mostra-dados
-- Verifique se node está conectado
+#### Dados não chegam
+
+- **Verifique se node está conectado**
 - Confirme se dados estão chegando
 - Use "Include All" para ver dados completos
 - Verifique configuração do node
 
-#execute-sub-workflow-falha-verifique se sub-workflow existe
+#### Execute Sub-Workflow falha
+
+- **Verifique se sub-workflow existe**
 - Confirme se está ativo
 - Valide dados de entrada
 - Verifique permissões
 
-#error-trigger-no-captura-erros
-- Verifique configuração de conexão
+#### Error Trigger não captura erros
+
+- **Verifique configuração de conexão**
 - Confirme se erro está sendo gerado
 - Valide expressões de condição
 - Use Debug Helper para verificar
 
-#cor-debug-1-use-debug-helper em pontos críticos
+### Dicas de Debug
+
+1. **Use Debug Helper** em pontos críticos
 2. **Configure logging detalhado**
 3. **Teste nodes individualmente**
 4. **Valide dados de entrada e saída**
 5. **Monitore execuções**
 
-#expresses-avanadas
+## Expressões Avançadas
 
-#cor-acesso-a-dados-javascript Dados do item atual
+```javascript
+// Dados do item atual
 $json.campo
 
 // Dados de itens anteriores
@@ -291,7 +345,10 @@ $('Node A').json.campo + $('Node B').json.campo
 $binary.arquivo.data
 ```
 
-#manipulao-de-arrays-javascript Filtrar array
+### Manipulação de Arrays
+
+```javascript
+// Filtrar array
 $json.items.filter(item => item.ativo)
 
 // Mapear array
@@ -301,7 +358,10 @@ $json.items.map(item => ({ ...item, processado: true }))
 $json.numeros.reduce((sum, num) => sum + num, 0)
 ```
 
-#validaes-javascript-validar-email
+### Validações
+
+```javascript
+// Validar email
 /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email)
 
 // Validar CPF
@@ -313,9 +373,10 @@ function validarCPF(cpf) {
 /^\(\d{2}\) \d{4,5}-\d{4}$/.test($json.telefone)
 ```
 
-#prximos-passos-expresses-n8nlogica-e-dadosexpressoes - Usar expressões avançadas
+## Próximos Passos
+
+- [Expressões JavaScript](/logica-e-dados/expressoes) - Usar expressões avançadas
 - [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index) - Processar dados
 - [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index) - Controlar fluxo
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Debugging](/logica-e-dados/flow-logic/debugging) - Depurar workflows
-

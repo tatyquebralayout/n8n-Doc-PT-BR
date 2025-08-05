@@ -135,6 +135,19 @@ docs/teste-hibrido.md
 docs/md-vs-mdx-study.md
 docs/guia-dependencias-libs.md
 
+# Arquivos de exemplo e demonstração (apenas para desenvolvimento local)
+docs/exemplos-github-codeblock.mdx
+docs/exemplos-image-zoom.mdx
+docs/exemplos-live-codeblock.mdx
+docs/exemplos-mermaid.mdx
+docs/exemplos-rss.mdx
+docs/exemplos-tabs-npm2yarn.mdx
+docs/limpeza-dependencias.mdx
+docs/plugins-implementados.mdx
+docs/recursos-hibridos-simples.mdx
+docs/recursos-hibridos.mdx
+docs/status-plugins-code.mdx
+
 # Scripts de fix e configuração temporária
 final-fix-ionicons.js
 fix-all-ionicons.js

@@ -5,17 +5,18 @@ sidebar_position: 1
 keywords: [n8n, http, requests, webhook, api, rest]
 ---
 
-#ionicicon-nameglobe-outline-style-fontsize-24px color: '#cor-ea4b71-http-requests
+<IonicIcon name="globe-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 Os nodes de **HTTP Requests** são fundamentais para integração com APIs e serviços externos no n8n. Eles permitem que você se comunique com qualquer sistema que tenha uma interface HTTP, seja para enviar dados ou receber notificações.
 
-#nodes-disponveis
+## Nodes Disponíveis
 
-#ionicicon-namearrow-up-outline-style-fontsize-20px color: '#cor-ea4b71-http-request
+<IonicIcon name="arrow-up-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **HTTP Request** é usado para **enviar** requisições HTTP para APIs e serviços externos. É o node mais versátil para integração com sistemas que não possuem nodes dedicados.
 
 **Principais funcionalidades:**
+
 - Suporte a todos os métodos HTTP (GET, POST, PUT, DELETE, etc.)
 - Múltiplos tipos de autenticação
 - Envio de dados em diferentes formatos (JSON, Form Data, etc.)
@@ -24,6 +25,7 @@ O node **HTTP Request** é usado para **enviar** requisições HTTP para APIs e 
 - Tratamento de respostas
 
 **Casos de uso:**
+
 - Integrar com APIs REST
 - Enviar dados para sistemas externos
 - Fazer consultas a bancos de dados via API
@@ -32,9 +34,12 @@ O node **HTTP Request** é usado para **enviar** requisições HTTP para APIs e 
 
 [Ver documentação completa →](/integracoes/builtin-nodes/http-requests/http-request)
 
-#ionicicon-namelink-outline-style-fontsize-20px color: '#cor-ea4b71-webhook-o node **Webhook** é usado para **receber** requisições HTTP de sistemas externos. É um node trigger que pode iniciar workflows baseado em eventos externos.
+<IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+O node **Webhook** é usado para **receber** requisições HTTP de sistemas externos. É um node trigger que pode iniciar workflows baseado em eventos externos.
 
 **Principais funcionalidades:**
+
 - Receber dados de sistemas externos
 - Suporte a diferentes métodos HTTP
 - Autenticação configurável
@@ -43,6 +48,7 @@ O node **HTTP Request** é usado para **enviar** requisições HTTP para APIs e 
 - Configuração de CORS
 
 **Casos de uso:**
+
 - Receber notificações de sistemas externos
 - Criar endpoints de API
 - Integração com webhooks de terceiros
@@ -51,7 +57,9 @@ O node **HTTP Request** é usado para **enviar** requisições HTTP para APIs e 
 
 [Ver documentação completa →](/integracoes/builtin-nodes/http-requests/webhook)
 
-#diferenas-principais-aspecto HTTP Request | Webhook |
+## Diferenças Principais
+
+| Aspecto | HTTP Request | Webhook |
 |---------|--------------|---------|
 | **Direção** | Enviar dados | Receber dados |
 | **Tipo** | Node de ação | Node trigger |
@@ -59,44 +67,54 @@ O node **HTTP Request** é usado para **enviar** requisições HTTP para APIs e 
 | **URL** | Configurada pelo usuário | Gerada pelo n8n |
 | **Uso principal** | Integração com APIs | Receber notificações |
 
-#fluxo-de-trabalho-tpico
+## Fluxo de Trabalho
 
-#id-1-receber-dados-webhook
+### Receber Dados
+
+```
 Sistema Externo → Webhook → n8n Workflow
 ```
 
-#id-2-processar-dados-n8n Workflow → Nodes de Processamento → Dados Transformados
+### Processar Dados
+
+```
+n8n Workflow → Nodes de Processamento → Dados Transformados
 ```
 
-#id-3-enviar-dados-http-request
+### Enviar Dados
+
 ```
 n8n Workflow → HTTP Request → Sistema Externo
 ```
 
-#exemplos-de-integrao
+## Exemplos de Integração
 
-#exemplo-1-pipeline-de-notificaes
+### Exemplo 1: Pipeline de Notificações
 
 1. **Webhook** recebe notificação de novo usuário
 2. **Set** node processa os dados
 3. **HTTP Request** envia para Slack
 4. **HTTP Request** salva no banco de dados
 
-#exemplo-2-api-gateway-1 **Webhook** recebe requisição de API
+### Exemplo 2: API Gateway
+
+1. **Webhook** recebe requisição de API
 2. **HTTP Request** consulta banco de dados
 3. **Set** node formata resposta
 4. **Webhook** retorna dados formatados
 
-#exemplo-3-sincronizao-de-dados
+### Exemplo 3: Sincronização de Dados
 
 1. **Schedule Trigger** executa periodicamente
 2. **HTTP Request** busca dados da API A
 3. **HTTP Request** envia dados para API B
 4. **HTTP Request** registra log da operação
 
-#configurao-de-segurana
+## Configuração de Segurança
 
-#autenticao-ambos-os-nodes-suportam múltiplos métodos de autenticação:
+### Autenticação
+
+Ambos os nodes suportam múltiplos métodos de autenticação:
 
 - **Basic Auth**: Usuário e senha
 - **Header Auth**: Token no header
@@ -104,7 +122,9 @@ n8n Workflow → HTTP Request → Sistema Externo
 - **JWT**: JSON Web Tokens
 - **Custom**: Autenticação personalizada
 
-#validao-de-dados-sempre-valide os dados recebidos antes de processá-los:
+### Validação de Dados
+
+Sempre valide os dados recebidos antes de processá-los:
 
 ```javascript
 // Exemplo de validação básica
@@ -119,7 +139,9 @@ if (!emailRegex.test($json.email)) {
 }
 ```
 
-#rate-limiting-configure-limites-de taxa para evitar sobrecarga:
+### Rate Limiting
+
+Configure limites de taxa para evitar sobrecarga:
 
 ```javascript
 // Exemplo de rate limiting simples
@@ -127,49 +149,60 @@ const delay = 1000; // 1 segundo
 await new Promise(resolve => setTimeout(resolve, delay));
 ```
 
-#boas-prticas
+## Boas Práticas
 
-#para-http-request-1-use credenciais predefinidas** quando disponível
+### Para HTTP Request
+
+1. **Use credenciais predefinidas** quando disponível
 2. **Configure timeouts adequados** para evitar travamentos
 3. **Implemente retry logic** para falhas temporárias
 4. **Valide respostas** antes de processar
 5. **Use paginação** para grandes volumes de dados
 
-#para-webhook-1-sempre-use autenticação** em produção
+### Para Webhook
+
+1. **Sempre use autenticação** em produção
 2. **Configure lista branca de IPs** quando possível
 3. **Valide dados de entrada** antes de processar
 4. **Configure CORS** adequadamente
 5. **Monitore chamadas** para detectar uso indevido
 
-#para-ambos-1-use-https para todas as comunicações
+### Para Ambos
+
+1. **Use HTTPS** para todas as comunicações
 2. **Implemente logging** para debug
 3. **Configure tratamento de erros** adequado
 4. **Teste em ambiente de desenvolvimento** primeiro
 5. **Documente endpoints** e formatos de dados
 
-#Troubleshooting
+## Troubleshooting
 
-#problemas-comuns
+### Problemas Comuns
 
-#http-request-timeout-aumente o timeout ou verifique a conectividade
+**HTTP Request timeout**
+- Aumente o timeout ou verifique a conectividade
 - **Autenticação**: Verifique credenciais e formato
 - **Rate Limiting**: Implemente delays entre requisições
 - **Formato de dados**: Verifique Content-Type e estrutura
 
-#webhook-no-recebe-dados Verifique se o workflow está ativo
+**Webhook não recebe dados**
+- Verifique se o workflow está ativo
 - **Erro 403**: Verifique autenticação e IPs permitidos
 - **Payload muito grande**: Comprima dados ou aumente limite
 - **CORS**: Configure origens permitidas
 
-#cor-debug-1-use-o-node Debug Helper** para inspecionar dados
+### Debug
+
+1. **Use o node Debug Helper** para inspecionar dados
 2. **Configure "Incluir Headers e Status"** no HTTP Request
 3. **Use URLs de teste** para webhooks
 4. **Monitore logs** do n8n
 5. **Teste com ferramentas externas** (Postman, curl)
 
-#prximos-passos-expresses-n8nlogica-e-dadosexpressoes - Usar dados dinâmicos
+## Próximos Passos
+
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Credenciais](/integracoes/credential-nodes/index) - Configurar autenticação
 - [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index) - Controlar fluxo
 - [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index) - Processar dados
-

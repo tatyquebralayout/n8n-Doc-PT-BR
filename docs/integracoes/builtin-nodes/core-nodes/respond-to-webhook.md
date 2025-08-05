@@ -5,16 +5,19 @@ O node **Respond to Webhook** permite enviar respostas customizadas para requisi
 ## Funcionalidades
 
 ### Resposta Customizada
+
 - Defina o código de status HTTP
 - Configure headers de resposta
 - Envie dados estruturados
 
 ### Controle de Fluxo
+
 - Responda baseado em condições
 - Envie diferentes tipos de resposta
 - Controle o timing da resposta
 
 ### Integração com Workflows
+
 - Use dados de outros nodes
 - Processe informações antes de responder
 - Mantenha contexto entre execuções
@@ -22,27 +25,32 @@ O node **Respond to Webhook** permite enviar respostas customizadas para requisi
 ## Configuração
 
 ### Parâmetros Básicos
+
 - **Response Code**: Código de status HTTP (200, 201, 400, etc.)
 - **Response Headers**: Headers customizados para a resposta
 - **Response Body**: Conteúdo da resposta (JSON, XML, texto)
 
 ### Parâmetros Avançados
+
 - **Response Mode**: Como processar a resposta
 - **Options**: Configurações adicionais de resposta
 
 ## Casos de Uso
 
 ### APIs REST
+
 - Crie endpoints customizados
 - Retorne dados processados
 - Implemente validações
 
 ### Webhooks de Terceiros
+
 - Confirme recebimento de dados
 - Retorne status de processamento
 - Envie notificações
 
 ### Integração com Sistemas
+
 - Resposta para sistemas externos
 - Confirmação de operações
 - Retorno de resultados
@@ -50,24 +58,9 @@ O node **Respond to Webhook** permite enviar respostas customizadas para requisi
 ## Exemplos
 
 ### Resposta Simples
-```json
-{
-  "status": "success",
-  "message": "Dados processados com sucesso"
-}
-```
 
-### Resposta com Dados
-```json
-{
-  "status": "success",
-  "data": {
-    "id": "12345",
-    "processed_at": "2024-01-01T10:00:00Z"
-  }
-}
-```
+```json\n{\n  "status": "success",\n  "message": "Dados processados com sucesso"\n}\n```\n\n### Resposta com Dados\n\n```json\n{\n  "status": "success",\n  "data": {\n    "id": "12345",\n    "processed_at": "2024-01-01T10:00:00Z"\n  }\n}\n```
 
 ## Integração
 
-Este node é frequentemente usado em conjunto com o [node Webhook](/integracoes/builtin-nodes/http-requests/webhook) para criar APIs completas. 
+Este node é frequentemente usado em conjunto com o [node Webhook](/integracoes/builtin-nodes/http-requests/webhook) para criar APIs completas.

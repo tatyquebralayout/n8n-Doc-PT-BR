@@ -5,87 +5,21 @@ description: Como implementar balanceamento de carga para n8n em produção
 keywords: [n8n, load balancing, balanceamento, carga, nginx, produção]
 ---
 
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-load-balancing
+# Load Balancing
 
 Este documento explica como **implementar balanceamento de carga** para n8n em ambiente de produção, abordando configuração de nginx como proxy reverso, distribuição de requisições entre múltiplas instâncias, health checks automáticos, failover inteligente, e estratégias de alta disponibilidade que garantem performance consistente e tolerância a falhas em implementações empresariais de grande escala.
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
-
-- Configuração de nginx como load balancer
-- Estratégias de distribuição de carga
-- Health checks e failover
-- Monitoramento de performance
-- Configurações de segurança
-
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-por-que usar Load Balancing?
+<IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#benefcios-do-load-balancing-sem Load Balancing (Instância Única):**
+## Configuração Básica
 
-- ❌ **Ponto único de falha** - Se o servidor cair, tudo para
-- ❌ **Limitação de performance** - Apenas um servidor processando
-- ❌ **Sem escalabilidade** - Não pode adicionar servidores
-- ❌ **Downtime durante manutenção** - Atualizações param o serviço
+### Upstream para Diferentes Tipos de Tráfego
 
-**Com Load Balancing (Múltiplas Instâncias):**
-
-- ✅ **Alta disponibilidade** - Falhas não afetam o serviço
-- ✅ **Performance melhorada** - Múltiplos servidores processando
-- ✅ **Escalabilidade horizontal** - Adicione servidores conforme necessário
-- ✅ **Zero downtime** - Manutenção sem interrupção
-- ✅ **Distribuição inteligente** - Carga distribuída automaticamente
-
-#quando-usar-load-balancing-use load balancing quando:**
-
-- Tem **muitos usuários simultâneos**
-- Precisa de **alta disponibilidade**
-- Quer **escalabilidade automática**
-- Processa **workflows críticos**
-- Precisa de **manutenção sem downtime**
-
----
-
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-estratgias-de Distribuição
-
-#algoritmos-de-balanceamento
-
-#round-robin-padro-nginx-upstream n8n_backend {
-    server n8n-1:5678;
-    server n8n-2:5678;
-    server n8n-3:5678;
-}
-```
-
-#least-connections-nginx-upstream-n8nbackend {
-    least_conn;
-    server n8n-1:5678;
-    server n8n-2:5678;
-    server n8n-3:5678;
-}
-```
-
-#ip-hash-sticky-sessions-nginx
-upstream n8n_backend {
-    ip_hash;
-    server n8n-1:5678;
-    server n8n-2:5678;
-    server n8n-3:5678;
-}
-```
-
-#weighted-round-robin-nginx-upstream n8n_backend {
-    server n8n-1:5678 weight=3;
-    server n8n-2:5678 weight=2;
-    server n8n-3:5678 weight=1;
-}
-```
-
-#configurao-por-tipo-de-trfego
-
-#distribuio-inteligente-nginx
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-upstream-para diferentes tipos de tráfego
+```nginx
 upstream n8n_api {
     least_conn;
     server n8n-1:5678 max_fails=3 fail_timeout=30s;
@@ -94,7 +28,8 @@ upstream n8n_api {
 }
 
 upstream n8n_webhooks {
-    ip_hash;  #sticky-sessions-para-webhooks-server n8n-1:5678 max_fails=3 fail_timeout=30s;
+    ip_hash;  # Sticky sessions para webhooks
+    server n8n-1:5678 max_fails=3 fail_timeout=30s;
     server n8n-2:5678 max_fails=3 fail_timeout=30s;
     server n8n-3:5678 max_fails=3 fail_timeout=30s;
 }
@@ -109,24 +44,31 @@ upstream n8n_ui {
 
 ---
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-nginx
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-bsica
+## Configuração Nginx
 
-#nginxconf-principal-nginx-events
+### Configuração Básica
+
+```nginx
+events {
     worker_connections 1024;
     use epoll;
     multi_accept on;
 }
 
 http {
-    #configuraes-bsicas-sendfile-on-tcpnopush on;
+    # Configurações básicas
+    sendfile on;
+    tcp_nopush on;
     tcp_nodelay on;
     keepalive_timeout 65;
     types_hash_max_size 2048;
     client_max_body_size 100M;
 
-    #gzip-compression-gzip-on-gzipvary on;
+    # Gzip compression
+    gzip on;
+    gzip_vary on;
     gzip_min_length 1024;
     gzip_proxied any;
     gzip_comp_level 6;
@@ -141,11 +83,13 @@ http {
         application/atom+xml
         image/svg+xml;
 
-    #rate-limiting-limitreqzone-binaryremoteaddr-zoneapi10m rate=10r/s;
+    # Rate limiting
+    limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
     limit_req_zone $binary_remote_addr zone=webhook:10m rate=30r/s;
     limit_req_zone $binary_remote_addr zone=ui:10m rate=5r/s;
 
-    #upstream-para-n8n-upstream-n8nbackend {
+    # Upstream para n8n
+    upstream n8n_backend {
         least_conn;
         server n8n-1:5678 max_fails=3 fail_timeout=30s;
         server n8n-2:5678 max_fails=3 fail_timeout=30s;
@@ -153,40 +97,38 @@ http {
         keepalive 32;
     }
 
-    #incluir-configuraes-do-site-include /etc/nginx/sites-enabled/*;
+    # Incluir configurações do site
+    include /etc/nginx/sites-enabled/*;
 }
 ```
 
-#configurao-do-site-nginx
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-etcnginxsites-availablen8n
+### Configuração do Site
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-redirecionar-http para HTTPS
-server {
-    listen 80;
-    server_name seudominio.com www.seudominio.com;
-    return 301 https://$server_name$request_uri;
-}
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-https
+```nginx
+# /etc/nginx/sites-available/n8n
 server {
     listen 443 ssl http2;
     server_name seudominio.com www.seudominio.com;
 
-    #certificados-ssl-sslcertificate-etcletsencryptliveseudominiocomfullchainpem-sslcertificatekey /etc/letsencrypt/live/seudominio.com/privkey.pem;
+    # Certificados SSL
+    ssl_certificate /etc/letsencrypt/live/seudominio.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/seudominio.com/privkey.pem;
 
-    #configuraes-ssl-sslprotocols-tlsv12-tlsv13
+    # Configurações SSL
+    ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384;
     ssl_prefer_server_ciphers off;
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 10m;
 
-    #security-headers-addheader-strict-transport-security-max-age31536000 includeSubDomains" always;
+    # Security headers
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
     add_header X-Frame-Options DENY always;
     add_header X-Content-Type-Options nosniff always;
     add_header X-XSS-Protection "1; mode=block" always;
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
 
-    #api-endpoints-com-rate-limiting
+    # API endpoints com rate limiting
     location /api/ {
         limit_req zone=api burst=20 nodelay;
         proxy_pass http://n8n_backend;
@@ -197,13 +139,16 @@ server {
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Port $server_port;
 
-        #timeouts-proxyconnecttimeout-60s-proxysendtimeout-60s
+        # Timeouts
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
         proxy_read_timeout 60s;
 
-        #health-check-proxynextupstream-error-timeout invalid_header http_500 http_502 http_503 http_504;
+        # Health check
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
     }
 
-    #webhook-endpoints-com-rate-limiting
+    # Webhook endpoints com rate limiting
     location /webhook/ {
         limit_req zone=webhook burst=50 nodelay;
         proxy_pass http://n8n_backend;
@@ -214,14 +159,17 @@ server {
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Port $server_port;
 
-        #timeouts-maiores-para-webhooks-proxyconnecttimeout 120s;
+        # Timeouts maiores para webhooks
+        proxy_connect_timeout 120s;
         proxy_send_timeout 120s;
         proxy_read_timeout 120s;
 
-        #health-check-proxynextupstream-error-timeout invalid_header http_500 http_502 http_503 http_504;
+        # Health check
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
     }
 
-    #interface-de-usurio-location {
+    # Interface de usuário
+    location / {
         limit_req zone=ui burst=10 nodelay;
         proxy_pass http://n8n_backend;
         proxy_set_header Host $host;
@@ -231,35 +179,40 @@ server {
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Port $server_port;
 
-        #timeouts-proxyconnecttimeout-60s-proxysendtimeout-60s
+        # Timeouts
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
         proxy_read_timeout 60s;
 
-        #websocket-support-proxyhttpversion-11-proxysetheader Upgrade $http_upgrade;
+        # WebSocket support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
 
-        #health-check-proxynextupstream-error-timeout invalid_header http_500 http_502 http_503 http_504;
+        # Health check
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
     }
 }
 ```
 
-#configurao-avanada
-
-#load-balancing-com-health-checks
+### Configuração Avançada
 
 ```nginx
 upstream n8n_backend {
     least_conn;
     
-    #servidores-com-health-checks-server n8n-1:5678 max_fails=3 fail_timeout=30s;
+    # Servidores com health checks
+    server n8n-1:5678 max_fails=3 fail_timeout=30s;
     server n8n-2:5678 max_fails=3 fail_timeout=30s;
     server n8n-3:5678 max_fails=3 fail_timeout=30s;
     
-    #configuraes-de-keepalive-keepalive-32
+    # Configurações de keepalive
+    keepalive 32;
     keepalive_requests 100;
     keepalive_timeout 60s;
 }
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-health-check endpoint
+# Health check endpoint
 location /healthz {
     access_log off;
     return 200 "healthy\n";
@@ -267,8 +220,10 @@ location /healthz {
 }
 ```
 
-#configurao-com-sticky-sessions-nginx
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-para-webhooks que precisam de sessão consistente
+### Configuração com Sticky Sessions
+
+```nginx
+# Para webhooks que precisam de sessão consistente
 upstream n8n_webhooks {
     ip_hash;
     server n8n-1:5678 max_fails=3 fail_timeout=30s;
@@ -276,7 +231,7 @@ upstream n8n_webhooks {
     server n8n-3:5678 max_fails=3 fail_timeout=30s;
 }
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-para-api e UI que podem ser distribuídas
+# Para API e UI que podem ser distribuídas
 upstream n8n_api {
     least_conn;
     server n8n-1:5678 max_fails=3 fail_timeout=30s;
@@ -287,11 +242,16 @@ upstream n8n_api {
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-haproxy-alternativa
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-haproxy
+## HAProxy Alternativa
 
-#haproxycfg-bash-global-log-devlog local0
+### Configuração HAProxy
+
+```bash
+# haproxy.cfg
+global
+    log /dev/log local0
     log /dev/log local1 notice
     chroot /var/lib/haproxy
     stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
@@ -312,103 +272,86 @@ defaults
     option  redispatch
     retries 3
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-frontend-para HTTP
-frontend n8n_http
-    bind *:80
-    redirect scheme https if !{ ssl_fc }
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-frontend-para HTTPS
+# Frontend para HTTPS
 frontend n8n_https
     bind *:443 ssl crt /etc/ssl/certs/n8n.pem
     mode http
     
-    #acls-para-diferentes-tipos-de tráfego
+    # ACLs para diferentes tipos de tráfego
     acl is_api path_beg /api/
     acl is_webhook path_beg /webhook/
     acl is_health path /healthz
     
-    #rate-limiting-stick-table-type-ip size 100k expire 30s store http_req_rate(10s)
+    # Rate limiting
+    stick table type ip size 100k expire 30s store http_req_rate(10s)
     http-request track-sc0 src
     http-request deny deny_status 429 if { sc_http_req_rate(0) gt 10 }
     
-    #roteamento-baseado-em-acls-usebackend n8n_webhooks if is_webhook
+    # Roteamento baseado em ACLs
+    use_backend n8n_webhooks if is_webhook
     use_backend n8n_api if is_api
     use_backend n8n_ui if !is_api !is_webhook !is_health
     use_backend n8n_health if is_health
 
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-backend-para webhooks (sticky sessions)
+# Backend para webhooks (sticky sessions)
 backend n8n_webhooks
     balance roundrobin
     option httpchk GET /healthz
     http-check expect status 200
     
-    #servidores-server-n8n-1-n8n-15678-check maxconn 100 cookie n8n-1
+    # Servidores
+    server n8n-1 n8n-1:5678 check maxconn 100 cookie n8n-1
     server n8n-2 n8n-2:5678 check maxconn 100 cookie n8n-2
     server n8n-3 n8n-3:5678 check maxconn 100 cookie n8n-3
     
-    #configuraes-de-failover-option-redispatch
+    # Configurações de failover
+    option redispatch
     retries 3
     timeout connect 5s
     timeout server 30s
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-backend-para API (least connections)
+# Backend para API
 backend n8n_api
     balance leastconn
     option httpchk GET /healthz
     http-check expect status 200
     
-    #servidores-server-n8n-1-n8n-15678-check maxconn 100
+    server n8n-1 n8n-1:5678 check maxconn 100
     server n8n-2 n8n-2:5678 check maxconn 100
     server n8n-3 n8n-3:5678 check maxconn 100
-    
-    #configuraes-de-failover-option-redispatch
-    retries 3
-    timeout connect 5s
-    timeout server 30s
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-backend-para UI (round robin)
+# Backend para UI
 backend n8n_ui
     balance roundrobin
     option httpchk GET /healthz
     http-check expect status 200
     
-    #servidores-server-n8n-1-n8n-15678-check maxconn 100
+    server n8n-1 n8n-1:5678 check maxconn 100
     server n8n-2 n8n-2:5678 check maxconn 100
     server n8n-3 n8n-3:5678 check maxconn 100
-    
-    #configuraes-de-failover-option-redispatch
-    retries 3
-    timeout connect 5s
-    timeout server 30s
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backend-para health check
+# Backend para health check
 backend n8n_health
-    mode http
     http-request return status 200 content-type text/plain string "healthy\n"
 ```
 
 ---
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-health-checks e Failover
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-de-health-checks
+## Health Checks
 
-#endpoint-de-health-check-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-endpoint de health check no n8n
-N8N_HEALTH_CHECK_ENDPOINT=/healthz
-N8N_HEALTH_CHECK_TIMEOUT=5000
-N8N_HEALTH_CHECK_INTERVAL=30000
-```
-
-#script-de-health-check-avanado
+### Script de Health Check
 
 ```bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-advanced-health-checksh-n8nhostlocalhost
+#!/bin/bash
+
+# Configurações
+N8N_HOST="localhost"
 N8N_PORT="5678"
 HEALTH_ENDPOINT="/healthz"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se n8n está respondendo
+# Verificar saúde do n8n
 if curl -f -s --max-time 5 "http://$N8N_HOST:$N8N_PORT$HEALTH_ENDPOINT" > /dev/null; then
     echo "OK: n8n está saudável"
     exit 0
@@ -418,36 +361,38 @@ else
 fi
 ```
 
-#monitoramento-de-failover
+### Monitoramento de Failover
 
-#script-de-monitoramento-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-monitor-load-balancersh
+```bash
+#!/bin/bash
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-backendserversn8n-1 "n8n-2" "n8n-3")
+# Configurações
+BACKEND_SERVERS=("n8n-1" "n8n-2" "n8n-3")
 WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 
 echo "=== Monitoramento do Load Balancer ==="
 echo
 
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-cada servidor backend
+# Verificar cada servidor
 for server in "${BACKEND_SERVERS[@]}"; do
     if curl -f -s --max-time 5 "http://$server:5678/healthz" > /dev/null; then
         echo "✅ $server: Saudável"
     else
         echo "❌ $server: Não respondendo"
-        
-        #enviar-notificao-curl-x-post $WEBHOOK_URL \
+
+        # Enviar notificação
+        curl -X POST $WEBHOOK_URL \
           -H "Content-type: application/json" \
           -d "{\"text\":\"🚨 Servidor $server não está respondendo!\"}"
-        
-        #tentar-reiniciar-o-container-docker restart $server
+
+        # Tentar reiniciar o container
+        docker restart $server
     fi
 done
 
 echo
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-distribuio de carga
+# Verificar distribuição de carga
 echo "=== Distribuição de Carga ==="
 for server in "${BACKEND_SERVERS[@]}"; do
     CONNECTIONS=$(docker exec $server netstat -an | grep :5678 | grep ESTABLISHED | wc -l)
@@ -457,37 +402,35 @@ done
 
 ---
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento-de Performance
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#mtricas-essenciais
+## Monitoramento de Performance
 
-#script-de-mtricas-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-load-balancer-metricssh-echo "=== Métricas do Load Balancer ==="
+### Métricas Essenciais
+
+```bash
+#!/bin/bash
+
+echo "=== Métricas do Load Balancer ==="
 echo
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-status-do nginx
 echo "1. Status do Nginx:"
 systemctl status nginx --no-pager -l
 echo
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-do nginx
 echo "2. Configuração do Nginx:"
 nginx -t
 echo
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-logs-de erro recentes
 echo "3. Logs de Erro (últimas 10 linhas):"
 tail -10 /var/log/nginx/error.log
 echo
 
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-estatsticas-de conexões
 echo "4. Estatísticas de Conexões:"
 netstat -an | grep :80 | grep ESTABLISHED | wc -l
 netstat -an | grep :443 | grep ESTABLISHED | wc -l
 echo
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-distribuio-de carga
 echo "5. Distribuição de Carga:"
 for server in n8n-1 n8n-2 n8n-3; do
     CONNECTIONS=$(docker exec $server netstat -an | grep :5678 | grep ESTABLISHED | wc -l)
@@ -495,22 +438,21 @@ for server in n8n-1 n8n-2 n8n-3; do
 done
 echo
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-do nginx
 echo "6. Performance do Nginx:"
 curl -s http://localhost/nginx_status
 ```
 
-#alertas-automticos
+### Alertas Automáticos
 
-#configurao-de-alertas-bash
-#bin/bash
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-load-balancer-alertssh
+```bash
+#!/bin/bash
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-webhookurlhttpshooksslackcomservicesyourwebhookurl
+# Configurações
 ALERT_THRESHOLD_CONNECTIONS=1000
-ALERT_THRESHOLD_ERROR_RATE=5
+ALERT_THRESHOLD_ERROR_RATE=50
+WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-nmero de conexões
+# Verificar muitas conexões
 TOTAL_CONNECTIONS=$(netstat -an | grep :443 | grep ESTABLISHED | wc -l)
 if [ $TOTAL_CONNECTIONS -gt $ALERT_THRESHOLD_CONNECTIONS ]; then
     curl -X POST $WEBHOOK_URL \
@@ -518,7 +460,7 @@ if [ $TOTAL_CONNECTIONS -gt $ALERT_THRESHOLD_CONNECTIONS ]; then
       -d "{\"text\":\"⚠️ Muitas conexões: $TOTAL_CONNECTIONS\"}"
 fi
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-taxa de erro
+# Verificar taxa de erro
 ERROR_RATE=$(tail -100 /var/log/nginx/access.log | grep -E " 5[0-9][0-9] " | wc -l)
 if [ $ERROR_RATE -gt $ALERT_THRESHOLD_ERROR_RATE ]; then
     curl -X POST $WEBHOOK_URL \
@@ -529,32 +471,19 @@ fi
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de Segurança
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#rate-limiting
+## Configurações de Segurança
 
-#configurao-avanada-de-rate-limiting
+### Rate Limiting
 
 ```nginx
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-rate-limiting por tipo de endpoint
+# Configuração avançada de rate limiting
 limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
 limit_req_zone $binary_remote_addr zone=webhook:10m rate=30r/s;
 limit_req_zone $binary_remote_addr zone=ui:10m rate=5r/s;
-limit_req_zone $binary_remote_addr zone=admin:10m rate=2r/s;
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-aplicar-rate limiting
-location /api/ {
-    limit_req zone=api burst=20 nodelay;
-    #resto-da-configurao-location /webhook/ {
-    limit_req zone=webhook burst=50 nodelay;
-    #resto-da-configurao-location /admin/ {
-    limit_req zone=admin burst=5 nodelay;
-    #resto-da-configurao
-
-#headers-de-segurana
-
-#security-headers-avanados-nginx
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-headers-de segurança
+# Headers de segurança
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
 add_header X-Frame-Options "DENY" always;
 add_header X-Content-Type-Options "nosniff" always;
@@ -564,94 +493,123 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 ```
 
+### Configuração Completa
+
+```nginx
+server {
+    listen 443 ssl http2;
+    server_name seudominio.com;
+
+    # SSL configuration
+    ssl_certificate /etc/letsencrypt/live/seudominio.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/seudominio.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:SSL:10m;
+
+    # Security headers
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+    add_header X-Frame-Options DENY always;
+    add_header X-Content-Type-Options nosniff always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
+
+    # Content security policy para n8n
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https: wss:; frame-ancestors 'none';" always;
+
+    # Proxy configuration
+    location / {
+        proxy_pass http://n8n_backend;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Port $server_port;
+
+        # WebSocket support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
+```
+
 ---
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#problemas-comuns
+## Troubleshooting
 
-#load-balancer-no-distribui-carga
+### Problemas Comuns
 
 ```bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-configurao nginx
-nginx -t
+#!/bin/bash
 
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se os servidores estão respondendo
+echo "=== Diagnóstico do Load Balancer ==="
+echo
+
+echo "1. Verificar configuração do nginx:"
+nginx -t
+echo
+
+echo "2. Verificar status dos servidores:"
 for server in n8n-1 n8n-2 n8n-3; do
     echo "=== $server ==="
     curl -I http://$server:5678/healthz
 done
+echo
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs nginx
-tail -f /var/log/nginx/error.log
-tail -f /var/log/nginx/access.log
-```
-
-#rate-limiting-muito-restritivo-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs de rate limiting
+echo "3. Verificar logs de erro:"
 grep "limiting requests" /var/log/nginx/error.log
+echo
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-ajustar-configuraes
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-editar-etcnginxnginxconf e aumentar os limites
-```
-
-#ssltls-no-funciona-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-certificados
-openssl x509 -in /etc/letsencrypt/live/seudominio.com/fullchain.pem -text -noout
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-configurao SSL
-nginx -t
-
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-testar-conexo SSL
+echo "4. Verificar configuração de SSL:"
 openssl s_client -connect seudominio.com:443 -servername seudominio.com
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Produção
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-load balancer configurado
-- [ ] Múltiplos backends configurados
-- [ ] Health checks implementados
-- [ ] Failover automático testado
+## Checklist de Produção
+
+### Configuração
+- [ ] Nginx instalado e configurado
 - [ ] SSL/TLS configurado
+- [ ] Upstreams definidos corretamente
+- [ ] Health checks configurados
+- [ ] Rate limiting implementado
 
-#performance-rate limiting aplicado
+### Performance
 - [ ] Gzip compression ativado
 - [ ] Keepalive configurado
-- [ ] Timeouts adequados
-- [ ] Monitoramento ativo
+- [ ] Timeouts otimizados
+- [ ] Worker processes adequados
+- [ ] Cache configurado
 
-#monitoramento-mtricas sendo coletadas
-- [ ] Logs centralizados
+### Segurança
+- [ ] Headers de segurança configurados
+- [ ] Rate limiting implementado
+- [ ] SSL/TLS configurado
+- [ ] Acesso restrito por IP
+- [ ] Logs de acesso ativados
+
+### Monitoramento
+- [ ] Health checks configurados
 - [ ] Alertas configurados
+- [ ] Métricas sendo coletadas
+- [ ] Logs estruturados
 - [ ] Dashboard de monitoramento
-- [ ] Backup de configurações
-
-#segurana-security headers configurados
-- [ ] Rate limiting aplicado
-- [ ] Acesso restrito por IP (se necessário)
-- [ ] Logs de auditoria ativos
-- [ ] Certificados SSL válidos
-
----
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você configurou o load balancing:
-
-1. **[Clustering](./clustering)** - Configure clustering para alta disponibilidade
-2. **[Performance](./performance)** - Otimize performance do sistema
-3. **[Segurança](../seguranca/autenticacao)** - Configure autenticação avançada
-4. **[Backup e Recovery](../seguranca/backup-recovery)** - Implemente estratégias de backup
 
 ---
 
 :::tip **Dica Pro**
-Configure pelo menos 3 backends para alta disponibilidade real. Monitore a distribuição de carga e ajuste os algoritmos conforme necessário.
+Configure sticky sessions para webhooks que precisam de estado consistente e use least connections para distribuição equilibrada de carga.
 :::
 
 :::warning **Importante**
-Sempre teste o failover em ambiente de desenvolvimento antes de aplicar em produção. Falhas de load balancing podem causar interrupção total do serviço.
+Sempre teste o load balancing em ambiente de desenvolvimento antes de aplicar em produção. Monitore a distribuição de carga e ajuste conforme necessário.
 :::
-

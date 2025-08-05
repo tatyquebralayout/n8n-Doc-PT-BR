@@ -1307,42 +1307,63 @@ ion-icon .ionicon-stroke-width {
   padding: 0.5rem; /* Espaçamento geral do menu */
 }
 
-/* -- Títulos de Categoria de Alto Nível -- */
-/* Estiliza os labels principais como 'Usando n8n', 'Lógica e Dados', etc. */
-.menu__list-item > .menu__link {
-  font-size: 12px; /* Fonte menor para criar hierarquia */
-  font-weight: var(--font-weight-semibold);
+/* -- TÍTULOS PRINCIPAIS em CAIXA ALTA -- */
+/* Primeiros Passos, Usando n8n, Lógica e Dados, Referência, etc. */
+/* ESTES SÃO OS TÍTULOS PRINCIPAIS - DEVEM TER A MAIOR FONTE */
+.menu > .menu__list > .menu__list-item > .menu__link {
+  font-size: 20px; /* FONTE MÁXIMA para títulos principais */
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--ifm-font-color-secondary);
-  padding: 0.75rem 1rem;
-  margin-top: 1rem; /* Espaço entre as categorias */
+  color: var(--ifm-color-primary);
+  padding: 1rem 1rem;
+  margin-top: 1.5rem; /* Mais espaço entre os títulos principais */
+  border-bottom: 3px solid var(--ifm-color-primary);
+  margin-bottom: 0.75rem;
+  background-color: var(--ifm-color-emphasis-100);
 }
 
-.menu__list-item:first-child > .menu__link {
+.menu > .menu__list > .menu__list-item:first-child > .menu__link {
   margin-top: 0;
 }
 
 /* Remove efeito de hover em títulos de categoria que não são links de verdade */
-.menu__list-item > .menu__link:not([href]):hover {
+.menu > .menu__list > .menu__list-item > .menu__link:not([href]):hover {
   background-color: transparent;
 }
 
+/* -- Sub-categorias (dentro das seções) -- */
+/* Estiliza sub-categorias como "Getting Started", "Interface", etc. */
+/* ESTAS NÃO DEVEM ESTAR EM CAIXA ALTA */
+.menu__list .menu__list-item > .menu__link {
+  font-size: 15px; /* Fonte menor que títulos principais (20px) */
+  font-weight: var(--font-weight-semibold);
+  text-transform: none; /* SEM caixa alta para subseções */
+  letter-spacing: 0;
+  color: var(--ifm-font-color-base);
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border-bottom: none;
+  margin-bottom: 0.25rem;
+}
 
-/* -- Links de Documentação e Sub-categorias -- */
+
+/* -- Links de Documentação (links gerais) -- */
+/* Links como "Conceitos Fundamentais", "Guia de Instalação", etc. */
 .menu__link {
-  font-size: var(--font-size-base); /* 14px */
+  font-size: 14px; /* 14px - menor que sub-categorias (15px) */
   font-weight: var(--font-weight-normal);
   line-height: 1.4;
   color: var(--ifm-font-color-base);
-  padding: 8px 12px; /* Espaçamento interno (vertical, horizontal) */
+  padding: 6px 12px; /* Espaçamento interno (vertical, horizontal) */
   border-radius: 6px;
   border-left: 3px solid transparent; /* Borda para o estado ativo */
-  margin: 2px 0; /* Espaçamento vertical entre os links */
+  margin: 1px 0; /* Espaçamento vertical entre os links */
   transition: all 150ms ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  text-transform: none; /* GARANTIR que links não fiquem em caixa alta */
 }
 
 [data-theme='dark'] .menu__link {
@@ -1385,6 +1406,19 @@ ion-icon .ionicon-stroke-width {
 .menu__link:hover ion-icon,
 .menu__link--active ion-icon {
   color: var(--ifm-color-primary);
+}
+
+/* -- Hierarquia de Fontes -- */
+/* Links de documentação dentro de sub-categorias (níveis mais profundos) */
+.menu__list .menu__list .menu__list .menu__link {
+  font-size: 13px; /* Menor que links normais (14px) */
+  padding-left: 1.5rem; /* Indentação visual */
+}
+
+/* Links aninhados ainda mais profundos */
+.menu__list .menu__list .menu__list .menu__list .menu__link {
+  font-size: 12px; /* Ainda menor para níveis muito profundos */
+  padding-left: 2rem; /* Maior indentação */
 }
 
 /* Ícone de seta para categorias colapsáveis */
@@ -1943,6 +1977,12 @@ ion-icon {
   color: var(--ifm-color-primary);
   text-decoration: none;
 }
+
+/* Import Image Zoom styles */
+@import './image-zoom.css';
+
+/* Import Tabs styles */
+@import './tabs.css';
 
 
 

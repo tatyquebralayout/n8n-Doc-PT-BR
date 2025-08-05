@@ -1,8 +1,15 @@
-﻿#ionicicon-namemail-outline-style-fontsize-24px color: '#cor-ea4b71-automao-de Email
+﻿---
+title: Automação de Email
+description: Implementação de automação de email marketing usando n8n para campanhas inteligentes
+sidebar_position: 1
+keywords: [email, automação, marketing, campanhas, segmentação, n8n]
+---
+
+<IonicIcon name="mail-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 A automação de email permite criar campanhas inteligentes e personalizadas, automatizando o envio de mensagens baseado em comportamentos, eventos e segmentação de audiência.
 
-#o-que-voc-encontrar-aqui
+## O que você encontrará aqui
 
 Esta documentação abrange:
 
@@ -12,9 +19,11 @@ Esta documentação abrange:
 - **Templates**: Criação de emails personalizados
 - **Analytics**: Métricas e relatórios
 
-#conceitos-fundamentais
+## Conceitos Fundamentais
 
-#automao-de-email-marketing-a automação de email permite:
+### Automação de Email Marketing
+
+A automação de email permite:
 
 - **Campanhas baseadas em eventos**: Envio automático por ações
 - **Sequências de nurture**: Fluxos de relacionamento
@@ -22,15 +31,19 @@ Esta documentação abrange:
 - **A/B Testing**: Otimização de campanhas
 - **Analytics avançados**: Métricas de performance
 
-#tipos-de-automao-1-welcome Series**: Boas-vindas para novos inscritos
+### Tipos de Automação
+
+1. **Welcome Series**: Boas-vindas para novos inscritos
 2. **Abandoned Cart**: Recuperação de carrinhos abandonados
 3. **Re-engagement**: Reativação de usuários inativos
 4. **Birthday/Anniversary**: Celebrações personalizadas
 5. **Educational**: Conteúdo educativo e informativo
 
-#plataformas-suportadas
+## Plataformas Suportadas
 
-#servios-brasileiros-1-rd-station
+### Serviços Brasileiros
+
+1. **RD Station**
    - Automações nativas
    - Integração com CRM
    - Analytics avançados
@@ -50,15 +63,22 @@ Esta documentação abrange:
    - Automações simples
    - Templates otimizados
 
-#configurao-bsica
+## Configuração Básica
 
-#credenciais-necessrias-json-apikey "sua_api_key",
+### Credenciais Necessárias
+
+```json
+{
+  "apiKey": "sua_api_key",
   "accountId": "seu_account_id",
   "baseUrl": "https://api.plataforma.com"
 }
 ```
 
-#exemplo-de-automao-javascript Configuração de workflow de boas-vindas
+### Exemplo de Automação
+
+```javascript
+// Configuração de workflow de boas-vindas
 {
   "trigger": "new_subscriber",
   "delay": "1_hour",
@@ -73,9 +93,11 @@ Esta documentação abrange:
 }
 ```
 
-#casos-de-uso-comuns
+## Casos de Uso Comuns
 
-#id-1-sequncia-de-boas-vindas-mermaid
+### 1. Sequência de Boas-vindas
+
+```mermaid
 graph LR
     A[Novo Inscrito] --> B[Email 1: Boas-vindas]
     B --> C[Delay: 2 dias]
@@ -84,7 +106,9 @@ graph LR
     E --> F[Email 3: Primeira oferta]
 ```
 
-#id-2-recuperao-de-carrinho-mermaid
+### 2. Recuperação de Carrinho
+
+```mermaid
 graph LR
     A[Carrinho Abandonado] --> B[Email 1: Lembrete]
     B --> C[Delay: 1 dia]
@@ -93,36 +117,48 @@ graph LR
     E --> F[Email 3: Última chance]
 ```
 
-#id-3-re-engagement-mermaid-graph-lr
+### 3. Re-engagement
+
+```mermaid
+graph LR
     A[Usuário Inativo] --> B[Verificar Última Interação]
     B --> C[Email Personalizado]
     C --> D[Monitorar Abertura]
     D --> E[Segmentar por Resposta]
 ```
 
-#workflows-prticos
+## Workflows Práticos
 
-#workflow-onboarding-de-clientes-1 **Trigger**: Cliente faz primeira compra
+### Workflow Onboarding de Clientes
+
+1. **Trigger**: Cliente faz primeira compra
 2. **Email 1**: Confirmação e próximos passos
 3. **Email 2**: Tutorial de uso do produto
 4. **Email 3**: Solicitar feedback
 5. **Email 4**: Oferta de produtos relacionados
 
-#workflow-nurture-de-leads-1 **Trigger**: Lead se inscreve no blog
+### Workflow Nurture de Leads
+
+1. **Trigger**: Lead se inscreve no blog
 2. **Email 1**: Boas-vindas e conteúdo gratuito
 3. **Email 2**: Apresentação da empresa
 4. **Email 3**: Casos de sucesso
 5. **Email 4**: Agendamento de demonstração
 
-#segmentao-avanada
+## Segmentação Avançada
 
-#critrios-de-segmentao-comportamento Aberturas, cliques, compras
+### Critérios de Segmentação
+
+- **Comportamento**: Aberturas, cliques, compras
 - **Demográficos**: Idade, localização, empresa
 - **Engajamento**: Frequência de interação
 - **Histórico**: Produtos comprados, páginas visitadas
 - **Preferências**: Categorias de interesse
 
-#exemplo-de-segmentao-javascript
+### Exemplo de Segmentação
+
+```javascript
+{
   "segment": "high_value_customers",
   "conditions": [
     {
@@ -139,32 +175,43 @@ graph LR
 }
 ```
 
-#templates-e-personalizao
+## Templates e Personalização
 
-#variveis-dinmicas-html-h1ol first_name }}!</h1>
-<p>Vimos que você se interessou por {{ product_name }}.</p>
-<p>Como cliente desde {{ join_date }}, você tem {{ loyalty_points }} pontos.</p>
+### Variáveis Dinâmicas
+
+```html
+<h1>Olá {{first_name}}!</h1>
+<p>Vimos que você se interessou por {{product_name}}.</p>
+<p>Como cliente desde {{join_date}}, você tem {{loyalty_points}} pontos.</p>
 ```
 
-#responsividade-mobile-first-design-otimizado para dispositivos móveis
+### Responsividade
+
+**Mobile First Design** otimizado para dispositivos móveis
+
 - **Compatibilidade**: Testado em diferentes clientes de email
 - **Acessibilidade**: Seguindo padrões WCAG
 - **Performance**: Otimização de imagens e código
 
-#analytics-e-mtricas
+## Analytics e Métricas
 
-#kpis-principais-taxa-de Abertura**: Percentual de emails abertos
+### KPIs Principais
+
+- **Taxa de Abertura**: Percentual de emails abertos
 - **Taxa de Clique**: Percentual de cliques em links
 - **Taxa de Conversão**: Conversões geradas por campanha
 - **Taxa de Cancelamento**: Unsubscribes por campanha
 - **ROI**: Retorno sobre investimento
 
-#relatrios-automticos-javascript-configurao de relatório semanal
+### Relatórios Automáticos
+
+```javascript
+// Configuração de relatório semanal
 {
   "schedule": "weekly",
   "metrics": [
     "open_rate",
-    "click_rate", 
+    "click_rate",
     "conversion_rate",
     "revenue_generated"
   ],
@@ -172,12 +219,99 @@ graph LR
 }
 ```
 
-#prximos-passos-integrao-whatsappintegracoes-brcommunicationwhatsapp - Campanhas multicanal
+## Implementação no n8n
+
+### Configuração de Node HTTP Request
+
+```javascript
+// Configuração para RD Station
+Method: POST
+URL: https://api.rdstation.com/v1/contacts
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer {{$json.apiKey}}"
+}
+Body: {
+  "email": "{{$json.email}}",
+  "name": "{{$json.name}}",
+  "tags": ["{{$json.source}}"]
+}
+```
+
+### Workflow de Automação Completo
+
+```javascript
+// Workflow: Sequência de Boas-vindas
+Webhook (Novo Lead) → HTTP Request (RD Station) → Delay (1 hora) → 
+HTTP Request (Enviar Email 1) → Delay (2 dias) → HTTP Request (Enviar Email 2)
+```
+
+## Boas Práticas
+
+### Timing e Frequência
+
+- **Evite spam**: Respeite limites de envio
+- **Horários ideais**: 9h-11h e 14h-16h
+- **Frequência adequada**: Máximo 2-3 emails por semana
+- **Teste A/B**: Otimize horários de envio
+
+### Personalização
+
+- **Use dados reais**: Nome, empresa, histórico
+- **Segmentação inteligente**: Comportamento e preferências
+- **Conteúdo relevante**: Baseado em interações anteriores
+- **Call-to-action claro**: Objetivo específico por email
+
+### Compliance e Privacidade
+
+- **LGPD compliance**: Consentimento explícito
+- **Opt-out fácil**: Link de cancelamento visível
+- **Dados seguros**: Criptografia e proteção
+- **Auditoria**: Logs de consentimento
+
+## Troubleshooting
+
+### Problemas Comuns
+
+**Taxa de abertura baixa**
+
+- Verifique assunto do email
+- Teste horários de envio
+- Segmentação mais específica
+- Melhore preview text
+
+**Taxa de clique baixa**
+
+- Revise call-to-action
+- Teste diferentes CTAs
+- Melhore design do email
+- Personalize mais o conteúdo
+
+**Alta taxa de cancelamento**
+
+- Revise frequência de envio
+- Melhore relevância do conteúdo
+- Verifique segmentação
+- Implemente feedback
+
+### Debugging
+
+1. **Teste com lista pequena** antes de enviar para todos
+2. **Monitore métricas** em tempo real
+3. **A/B test** diferentes elementos
+4. **Analise logs** de erro
+5. **Verifique configurações** de API
+
+## Próximos Passos
+
+- [Integração WhatsApp](/integracoes-br/communication/whatsapp) - Campanhas multicanal
 - [Integração CRM](/integracoes-br/financeiro/crm-integration) - Gestão de leads
-- [Análise de Dados](/logica-e-dados/data/agregacoes-estatisticas) - Relatórios avançados
+- [Análise de Dados](/logica-e-dados/data/data-mapping-avancado) - Relatórios avançados
 - [A/B Testing](/logica-e-dados/data/data-mapping-avancado) - Otimização de campanhas
 
-#recursos-relacionados-http-requestintegracoesbuiltin-nodeshttp-requestshttp-request - Fazer chamadas para APIs
+## Recursos Relacionados
+
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer chamadas para APIs
 - [Expressões n8n](/logica-e-dados/expressoes) - Personalizar conteúdo
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Monitoramento](/usando-n8n/monitoring/configurar-alertas) - Alertas de performance 

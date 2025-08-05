@@ -5,7 +5,15 @@ description: Resolução de problemas comuns durante os primeiros passos com n8n
 keywords: [n8n, troubleshooting, problemas, erros, solução, primeiros passos]
 ---
 
-# Troubleshooting
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Troubleshooting
+
+Resolução de problemas comuns durante os primeiros passos com n8n.
+
+---
+
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ## Problemas Comuns de Instalação
 
@@ -14,6 +22,7 @@ keywords: [n8n, troubleshooting, problemas, erros, solução, primeiros passos]
 **Sintoma:** `Error: listen EADDRINUSE: address already in use :::5678`
 
 **Solução:**
+
 ```bash
 # Verificar processos usando a porta 5678
 lsof -i :5678
@@ -30,6 +39,7 @@ n8n start --port 5679
 **Sintoma:** `EACCES: permission denied`
 
 **Solução:**
+
 ```bash
 # Para instalação global
 sudo npm install -g n8n
@@ -38,6 +48,10 @@ sudo npm install -g n8n
 npm install n8n --prefix ~/.local
 ```
 
+---
+
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
 ## Problemas de Conexão
 
 ### Erro de Rede
@@ -45,6 +59,7 @@ npm install n8n --prefix ~/.local
 **Sintoma:** `ECONNREFUSED` ou `ENOTFOUND`
 
 **Solução:**
+
 - Verificar conexão com internet
 - Verificar firewall/proxy
 - Testar com `curl` ou `ping`
@@ -54,15 +69,21 @@ npm install n8n --prefix ~/.local
 **Sintoma:** Webhooks não funcionam
 
 **Solução:**
+
 - Verificar se o n8n está acessível externamente
 - Configurar HTTPS para produção
 - Verificar configurações de firewall
+
+---
+
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ## Problemas de Workflow
 
 ### Workflow Não Executa
 
 **Verificações:**
+
 1. Trigger está ativo?
 2. Credenciais estão configuradas?
 3. Nodes estão conectados corretamente?
@@ -71,15 +92,21 @@ npm install n8n --prefix ~/.local
 ### Dados Não Aparecem
 
 **Verificações:**
+
 1. Mapeamento de dados está correto?
 2. Formato dos dados está adequado?
 3. Nodes de processamento estão funcionando?
+
+---
+
+<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ## Problemas de Performance
 
 ### Execução Lenta
 
 **Otimizações:**
+
 - Reduzir número de execuções simultâneas
 - Usar batch processing quando possível
 - Otimizar queries de banco de dados
@@ -87,9 +114,14 @@ npm install n8n --prefix ~/.local
 ### Alto Uso de Memória
 
 **Soluções:**
+
 - Aumentar memória disponível
 - Otimizar workflows complexos
 - Usar subworkflows para modularizar
+
+---
+
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ## Logs e Debugging
 
@@ -111,11 +143,31 @@ n8n start --log-output-file n8n.log
 - Configurações de ambiente
 - Logs de erro completos
 
+---
+
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
 ## Suporte Adicional
 
 Se os problemas persistirem:
 
-1. **Verificar documentação oficial:** [n8n.io/docs](https://n8n.io/docs)
-2. **Comunidade:** [Discord n8n](https://discord.gg/n8n)
-3. **GitHub Issues:** [n8n-io/n8n](https://github.com/n8n-io/n8n/issues)
-4. **Comunidade brasileira:** [Discord n8n Brasil](https://discord.gg/n8nbrasil) 
+1. **[Verificar documentação oficial](https://n8n.io/docs)** - Guias detalhados
+2. **[Comunidade Discord](https://discord.gg/n8n)** - Suporte em tempo real
+3. **[GitHub Issues](https://github.com/n8n-io/n8n/issues)** - Reportar bugs
+4. **[Comunidade brasileira](https://discord.gg/n8nbrasil)** - Suporte em português
+
+> *Não conseguiu resolver seu problema? Entre em contato com nossa comunidade para obter ajuda adicional!*
+
+---
+
+:::tip **Dica Pro**
+Use o Debug Helper frequentemente para inspecionar dados e identificar problemas nos workflows.
+:::
+
+:::warning **Importante**
+Sempre verifique os logs antes de reportar problemas para obter informações mais detalhadas.
+:::
+
+:::info **Recurso Adicional**
+Consulte a documentação oficial do n8n para soluções específicas de cada tipo de problema.
+:::

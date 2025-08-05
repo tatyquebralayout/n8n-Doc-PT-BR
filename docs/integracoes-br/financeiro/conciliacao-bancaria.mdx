@@ -5,11 +5,14 @@ sidebar_position: 1
 keywords: [n8n, conciliação, bancária, financeiro, extrato, contabilidade, brasil]
 ---
 
-#ionicicon-namecalculator-outline-style-fontsize-24px color: '#cor-ea4b71-conciliao-bancria
+<IonicIcon name="calculator-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+conciliao-bancria
 
 A **Conciliação Bancária** é o processo de comparar e igualar os registros de uma empresa com os extratos bancários. Esta automação permite conciliar transações automaticamente, reduzindo erros e economizando tempo.
 
-#o-que-conciliao-bancria
+## o que conciliao
+
+bancria
 
 A conciliação bancária é um processo contábil que:
 
@@ -19,15 +22,23 @@ A conciliação bancária é um processo contábil que:
 - **Detecta** erros e fraudes
 - **Gera** relatórios de conformidade
 
-#benefcios-da-automao-reduo de erros** manuais
+## benefcios da automao
+
+- **Redução de erros** manuais
 - **Economia de tempo** significativa
 - **Maior precisão** nos relatórios
 - **Detecção rápida** de inconsistências
 - **Compliance** automático
 
-#componentes-da-conciliao
+## componentes da
 
-#id-1-extrato-bancrio-dados-do banco que incluem:
+conciliao
+
+## id 
+
+1-extrato-bancrio
+
+Dados do banco que incluem:
 
 ```json
 {
@@ -40,7 +51,11 @@ A conciliação bancária é um processo contábil que:
 }
 ```
 
-#id-2-registros-internos-dados-do sistema contábil da empresa:
+## id 
+
+2-registros-internos
+
+Dados do sistema contábil da empresa:
 
 ```json
 {
@@ -53,7 +68,11 @@ A conciliação bancária é um processo contábil que:
 }
 ```
 
-#id-3-regras-de-conciliao-critrios para igualar transações:
+## id 
+
+3-regras-de-conciliao
+
+Critérios para igualar transações:
 
 - **Data**: Mesmo dia ou período
 - **Valor**: Valor idêntico
@@ -61,9 +80,15 @@ A conciliação bancária é um processo contábil que:
 - **Descrição**: Texto similar
 - **Tipo**: Mesma natureza da transação
 
-#workflows-de-conciliao
+## workflows de
 
-#id-1-conciliao-automtica-workflow-para conciliação totalmente automática:
+conciliao
+
+## id 
+
+1-conciliao-automtica
+
+Workflow para conciliação totalmente automática:
 
 ```javascript
 // Workflow: Conciliação Automática
@@ -71,13 +96,18 @@ Schedule Trigger → HTTP Request (Extrato) → HTTP Request (Registros) → Cod
 ```
 
 **Configuração:**
+
 - **Schedule Trigger**: Executa diariamente
 - **HTTP Request**: Busca extrato bancário
 - **HTTP Request**: Busca registros internos
 - **Code**: Algoritmo de conciliação
 - **Relatório**: Gera relatório de conciliação
 
-#id-2-conciliao-semi-automtica-workflow-com intervenção manual para casos complexos:
+## id 
+
+2-conciliao-semi-automtica
+
+Workflow com intervenção manual para casos complexos:
 
 ```javascript
 // Workflow: Conciliação Semi-Automática
@@ -85,13 +115,18 @@ Webhook → HTTP Request (Extrato) → Code (Análise) → Switch (Tipo) → Pro
 ```
 
 **Configuração:**
+
 - **Webhook**: Recebe novos registros
 - **HTTP Request**: Busca extrato correspondente
 - **Code**: Analisa e classifica transações
 - **Switch**: Direciona por tipo de conciliação
 - **Processamento**: Concilia ou envia para revisão
 
-#id-3-conciliao-por-lotes-workflow para processar grandes volumes:
+## id 
+
+3-conciliao-por-lotes
+
+Workflow para processar grandes volumes:
 
 ```javascript
 // Workflow: Conciliação por Lotes
@@ -99,6 +134,7 @@ Schedule Trigger → HTTP Request (Extrato) → Split In Batches → Code (Conci
 ```
 
 **Configuração:**
+
 - **Schedule Trigger**: Executa periodicamente
 - **HTTP Request**: Busca extrato completo
 - **Split In Batches**: Divide em lotes menores
@@ -106,18 +142,22 @@ Schedule Trigger → HTTP Request (Extrato) → Split In Batches → Code (Conci
 - **Merge**: Consolida resultados
 - **Relatório**: Gera relatório final
 
-#exemplos-prticos
+## exemplos prticos
 
-#exemplo-1-conciliao-automtica-simples
+## exemplo 
+
+1-conciliao-automtica-simples
 
 **Cenário:** Conciliar transações bancárias com registros contábeis.
 
 **Workflow:**
+
 ```
 Schedule Trigger → HTTP Request (Banco) → HTTP Request (Contabilidade) → Code (Conciliação) → Relatório
 ```
 
 **Configuração:**
+
 ```javascript
 // Schedule Trigger - Execução
 Cron: 0 8 * * * // Diariamente às 8h
@@ -126,14 +166,14 @@ Cron: 0 8 * * * // Diariamente às 8h
 Method: GET
 URL: https://api.banco.com.br/extrato
 Headers: {
-  "Authorization": "Bearer {{ $credentials.banco.token }}"
+  "Authorization": "Bearer {{$credentials.banco.token}}"
 }
 
 // HTTP Request - Registros Contábeis
 Method: GET
 URL: https://api.contabilidade.com.br/registros
 Headers: {
-  "Authorization": "Bearer {{ $credentials.contabilidade.token }}"
+  "Authorization": "Bearer {{$credentials.contabilidade.token}}"
 }
 
 // Code - Algoritmo de Conciliação
@@ -184,16 +224,20 @@ return {
 };
 ```
 
-#exemplo-2-conciliao-com-regras Complexas
+## exemplo 
+
+2-conciliao-com-regras-complexas
 
 **Cenário:** Conciliação com múltiplas regras e categorização automática.
 
 **Workflow:**
+
 ```
 Webhook → HTTP Request (Extrato) → Code (Análise) → Switch (Categoria) → Conciliação → Notificação
 ```
 
 **Configuração:**
+
 ```javascript
 // Code - Análise e Categorização
 const transacao = $json;
@@ -233,16 +277,20 @@ return {
 };
 ```
 
-#exemplo-3-conciliao-com-pix
+## exemplo 
+
+3-conciliao-com-pix
 
 **Cenário:** Conciliar transações PIX automaticamente.
 
 **Workflow:**
+
 ```
 Webhook (PIX) → HTTP Request (Extrato) → Code (Conciliação PIX) → Notificação
 ```
 
 **Configuração:**
+
 ```javascript
 // Code - Conciliação PIX
 const pix = $json;
@@ -277,11 +325,18 @@ if (transacaoPix) {
 }
 ```
 
-#regras-de-conciliao
+## regras de
 
-#id-1-regras-bsicas-javascript Regra 1: Valor e Data
+conciliao
+
+## id 
+
+1-regras-bsicas
+
+```javascript
+// Regra 1: Valor e Data
 function regraValorData(extrato, registro) {
-  return Math.abs(extrato.valor) === Math.abs(registro.valor) && 
+  return Math.abs(extrato.valor) === Math.abs(registro.valor) &&
          extrato.data === registro.data;
 }
 
@@ -299,7 +354,12 @@ function regraDescricao(extrato, registro) {
 }
 ```
 
-#id-2-regras-avanadas-javascript Regra 4: Padrões de Transação
+## id 
+
+2-regras-avanadas
+
+```javascript
+// Regra 4: Padrões de Transação
 function regraPadrao(extrato, registro) {
   const padroes = {
     "PIX": /pix/i,
@@ -337,9 +397,15 @@ function regraCategoria(transacao) {
 }
 ```
 
-#tratamento-de-erros
+## tratamento de
 
-#id-1-transaes-no-conciliadas-javascript
+erros
+
+## id 
+
+1-transaes-no-conciliadas
+
+```javascript
 // Code - Tratamento de Não Conciliados
 const naoConciliados = $json.nao_conciliados;
 
@@ -356,7 +422,12 @@ if (naoConciliados.length > 0) {
 }
 ```
 
-#id-2-duplicatas-javascript-code - Detecção de Duplicatas
+## id 
+
+2-duplicatas
+
+```javascript
+// Code - Detecção de Duplicatas
 const transacoes = $json.transacoes;
 
 const duplicatas = [];
@@ -382,7 +453,12 @@ return {
 };
 ```
 
-#id-3-inconsistncias-javascript-code - Detecção de Inconsistências
+## id 
+
+3-inconsistncias
+
+```javascript
+// Code - Detecção de Inconsistências
 const conciliacoes = $json.conciliacoes;
 
 const inconsistencias = conciliacoes.filter(c => {
@@ -392,7 +468,7 @@ const inconsistencias = conciliacoes.filter(c => {
   // Verificar inconsistências
   return Math.abs(extrato.valor) !== Math.abs(registro.valor) ||
          extrato.data !== registro.data ||
-         (extrato.documento && registro.documento && 
+         (extrato.documento && registro.documento &&
           !extrato.documento.includes(registro.documento));
 });
 
@@ -405,9 +481,15 @@ return {
 };
 ```
 
-#relatrios-e-dashboards
+## relatrios e
 
-#id-1-relatrio-de-conciliao-javascript
+dashboards
+
+## id 
+
+1-relatrio-de-conciliao
+
+```javascript
 // Code - Geração de Relatório
 const dados = $json;
 
@@ -430,7 +512,11 @@ const relatorio = {
 return { json: relatorio };
 ```
 
-#id-2-dashboard-de-performance-javascript
+## id 
+
+2-dashboard-de-performance
+
+```javascript
 // Code - Métricas de Performance
 const historico = $json.historico;
 
@@ -444,57 +530,80 @@ const metricas = {
 return { json: metricas };
 ```
 
-#boas-prticas
+## boas prticas
 
-#id-1-configurao-defina-regras claras** de conciliação
+## id 
+
+1-configuração
+
+- **Defina regras claras** de conciliação
 - **Configure tolerâncias** para valores e datas
 - **Implemente logs** detalhados
 - **Configure alertas** para inconsistências
 - **Mantenha backup** dos dados
 
-#id-2-performance-processe-em lotes** para grandes volumes
+## id 
+
+2-performance
+
+- **Processe em lotes** para grandes volumes
 - **Implemente cache** para consultas frequentes
 - **Otimize algoritmos** de conciliação
 - **Monitore tempo** de processamento
 - **Configure timeouts** adequados
 
-#id-3-segurana-criptografe-dados sensíveis
+## id 
+
+3-segurança
+
+- **Criptografe dados sensíveis**
 - **Implemente autenticação** robusta
 - **Configure auditoria** de acesso
 - **Mantenha logs** de segurança
 - **Configure backup** automático
 
-#Troubleshooting
+## troubleshooting
 
-#problemas-comuns
+## problemas comuns
 
-#conciliao-incorreta-verifique-regras de conciliação
+## conciliao incorreta
+
+Verifique regras de conciliação:
+
 - Confirme formatos de dados
 - Valide tolerâncias configuradas
 - Teste com dados de exemplo
 - Monitore logs de erro
 
-#performance-lenta-otimize-algoritmos de busca
+## performance lenta
+
+Otimize algoritmos de busca:
+
 - Implemente cache
 - Processe em lotes menores
 - Monitore uso de recursos
 - Configure timeouts adequados
 
-#cor-dados-inconsistentes-valide-formatos de entrada
+## formatos de entrada
+
 - Verifique integridade dos dados
 - Implemente validações
 - Configure alertas
 - Monitore qualidade dos dados
 
-#cor-debug-1-use-o-node Debug Helper** para inspecionar dados
+## debugging
+
+1. **Use o node Debug Helper** para inspecionar dados
 2. **Configure logging detalhado**
 3. **Teste com dados de exemplo**
 4. **Monitore performance**
 5. **Valide resultados** manualmente
 
-#prximos-passos-http-requestintegracoesbuiltin-nodeshttp-requestshttp-request - Fazer requisições HTTP
+## prximos passos
+
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições HTTP
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
-- [Integrações Brasileiras](/integracoes-br/index) - Outras integrações brasileiras
+- [Integrações Brasileiras](/integracoes-br/) - Outras integrações brasileiras
 - [Relatórios Fiscais](/integracoes-br/financeiro/relatorios-fiscais) - Gerar relatórios fiscais
 

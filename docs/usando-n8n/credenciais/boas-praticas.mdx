@@ -1,53 +1,41 @@
-﻿---
+---
 sidebar_position: 4
 title: Boas Práticas de Segurança
 description: Guia completo de boas práticas para manter suas credenciais seguras no n8n
 keywords: [n8n, credenciais, segurança, boas práticas, criptografia, auditoria]
 ---
 
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas de Segurança
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} />
+# Boas Práticas de Segurança
 
 Aprenda as melhores práticas para manter suas credenciais seguras e proteger seus workflows no n8n.
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-1 Por que Segurança é Crítica?
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} />
+## Controle de Acesso
 
-#riscos-de-credenciais-comprometidas **Acesso não autorizado** a sistemas críticos
-- **Vazamento de dados** sensíveis
-- **Interrupção de serviços** essenciais
-- **Perda financeira** por fraudes
-- **Danos à reputação** da empresa
-- **Consequências legais** por violação de dados
+### Princípio do Menor Privilégio
 
-#benefcios-da-segurana-proteo de dados** confidenciais
-- **Conformidade** com regulamentações
-- **Confiança** de clientes e parceiros
-- **Operação contínua** sem interrupções
-- **Redução de custos** com incidentes
-
----
-
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-2 Princípios Fundamentais
-
-#princpio-do-menor-privilgio-d apenas as permissões necessárias:**
+**<IonicIcon name="close-circle-outline" style={{fontSize: '18px', color: '#ff4444'}} /> Ruim - Privilégios excessivos:**
 
 ```json
-// ❌ Ruim - Privilégios excessivos
 {
   "role": "admin",
   "permissions": ["read", "write", "delete", "share", "admin"]
-}
 
-// ✅ Bom - Privilégios mínimos
+```
+
+**<IonicIcon name="checkmark-circle-outline" style={{fontSize: '18px', color: '#00cc44'}} /> Bom - Privilégios mínimos:**
+
+```json
 {
   "role": "user",
   "permissions": ["read", "write"]
-}
+
 ```
 
-#cor-defesa-em-profundidade-mltiplas-camadas de segurança:**
+### Camadas de Segurança
 
 1. **Autenticação forte** (2FA, biometria)
 2. **Criptografia** de dados em repouso e trânsito
@@ -55,7 +43,11 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 4. **Backup** seguro de credenciais
 5. **Plano de resposta** a incidentes
 
-#rotao-regular-cronograma-recomendado Tipo de Credencial | Frequência | Método |
+## Rotação Regular
+
+### Cronograma Recomendado
+
+| Tipo de Credencial | Frequência | Método |
 |-------------------|------------|---------|
 | **Senhas** | 90 dias | Mudança manual |
 | **API Keys** | 180 dias | Rotação automática |
@@ -64,21 +56,28 @@ Aprenda as melhores práticas para manter suas credenciais seguras e proteger se
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-3 Criação de Credenciais Seguras
+<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }} />
+## Criação de Credenciais Seguras
 
-#senhas-fortes-critrios-mnimos **12+ caracteres** de comprimento
+### Senhas Fortes
+
+**Critérios mínimos:**
+- **12+ caracteres** de comprimento
 - **Maiúsculas e minúsculas**
 - **Números** (0-9)
-- **Símbolos especiais** (!@#sem-palavras-do-dicionrio
+- **Símbolos especiais** (!@#$%^&*)
+- **Sem palavras do dicionário**
 - **Sem padrões** repetitivos
 
 **Exemplo de senha forte:**
 
 ```
 K9#mpvl2nx7
+```
 
-#api-keys-seguras-boas-prticas
+### API Keys Seguras
 
+**Boas práticas:**
 - **Use geradores** de chaves criptográficas
 - **Prefira chaves longas** (32+ caracteres)
 - **Inclua prefixos** para identificação
@@ -91,21 +90,28 @@ K9#mpvl2nx7
 n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 ```
 
-#configurao-oauth-configuraes-seguras-json
+### Configuração OAuth
+
+**Configurações seguras:**
+
+```json
 {
-  "clientId": "123456789.apps.googleusercontent.com",
-  "clientSecret": "GOCSPX-abcdefghijklmnop",
-  "redirectUri": "https://seu-dominio.com/oauth/callback",
-  "scopes": ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+  "clientId": "seu-client-id",
+  "clientSecret": "seu-client-secret",
+  "redirectUri": "https://seu-dominio.com/callback",
+  "scope": "read write",
   "state": "random_security_token"
-}
+
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-4 Organização e Nomenclatura
+<IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} />
+## Organização e Nomenclatura
 
-#convenes-de-nomenclatura-estrutura-recomendada
+### Convenções de Nomenclatura
+
+**Estrutura recomendada:**
 
 ```
 [AMBIENTE]_[SERVIÇO]_[PROPÓSITO]_[DATA]
@@ -117,7 +123,9 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - `DEV_SLACK_NOTIFICATIONS_2024`
 - `TEST_STRIPE_PAYMENTS_2024`
 
-#categorizao-por-cores-sistema-de cores sugerido:**
+### Categorização por Cores
+
+**Sistema de cores sugerido:**
 
 - **Vermelho**: Produção crítica
 - **Amarelo**: Desenvolvimento/teste
@@ -125,54 +133,58 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - **Azul**: Integrações de terceiros
 - **Preto**: Credenciais temporárias
 
-#documentao-informaes-essenciais-markdown
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-google-sheets - Marketing
-- **Criado por**: João Silva
-- **Data de criação**: 2024-01-15
-- **Propósito**: Relatórios de marketing
-- **Usuários com acesso**: 3
-- **Próxima renovação**: 2024-04-15
-- **Notas**: Usado para dashboards semanais
+### Documentação
+
+**Informações essenciais:**
+
+```markdown
+# Credencial: PROD_STRIPE_PAYMENTS_2024
+
+## Propósito
+Processamento de pagamentos em produção
+
+## Criado por
+João Silva (joao@empresa.com)
+
+## Data de criação
+2024-01-15
+
+## Data de expiração
+2024-07-15
+
+## Escopo
+- Processar pagamentos
+- Gerar relatórios
+
+## Workflows que usam
+- E-commerce Automation
+- Payment Processing
 ```
 
 ---
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-5 Monitoramento e Auditoria
+<IonicIcon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }} />
+## Monitoramento e Alertas
 
-#logs-de-acesso-monitore-estes eventos:**
-
-- **Login bem-sucedido**
-- **Tentativas de login falhadas**
-- **Criação de credenciais**
-- **Edição de credenciais**
-- **Exclusão de credenciais**
-- **Renovação de tokens**
-- **Acesso negado**
-
-#alertas-automticos-configure-notificaes-para
+### Configuração de Alertas
 
 ```json
 {
   "alerts": {
     "failedLogins": {
-      "threshold": 5,
-      "timeWindow": "15 minutes",
       "action": "block_ip"
     },
     "credentialAccess": {
-      "unusualHours": true,
-      "newLocations": true,
       "action": "notify_admin"
     },
     "expirationWarning": {
-      "daysBefore": 30,
       "action": "notify_owner"
-    }
-  }
-}
+
 ```
 
-#relatrios-de-segurana-relatrios-mensais incluem:**
+### Relatórios de Segurança
+
+**Relatórios mensais incluem:**
 
 - **Credenciais criadas/excluídas**
 - **Tentativas de acesso suspeitas**
@@ -182,9 +194,12 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-6 Backup e Recuperação
+<IonicIcon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }} />
+## Backup e Recuperação
 
-#estratgia-de-backup-backup-3-2-1
+### Estratégia de Backup
+
+**Regra 3-2-1:**
 
 - **3 cópias** dos dados
 - **2 tipos** de mídia diferentes
@@ -196,7 +211,9 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 - **Backup semanal**: Configurações completas
 - **Backup mensal**: Auditoria e logs
 
-#plano-de-recuperao-documente-o processo:**
+### Plano de Recuperação
+
+**Documente o processo:**
 
 1. **Identificar** credenciais comprometidas
 2. **Revogar** acesso imediatamente
@@ -208,53 +225,10 @@ n8n_prod_marketing_abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
 
 ---
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-7 Treinamento da Equipe
+<IonicIcon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }} />
+## Recomendações Finais
 
-#tpicos-essenciais-capacite-sua-equipe em:**
-
-- **Reconhecimento** de phishing
-- **Criação** de senhas seguras
-- **Uso correto** de 2FA
-- **Identificação** de atividades suspeitas
-- **Procedimentos** de emergência
-
-#cronograma-de-treinamento-onboarding Segurança básica (1 hora)
-- **Trimestral**: Atualizações de políticas (30 min)
-- **Semestral**: Simulação de incidentes (2 horas)
-- **Anual**: Revisão completa de segurança (4 horas)
-
----
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-8 Checklist de Segurança
-
-#checklist-dirio **Verificar** logs de acesso
-- [ ] **Revisar** alertas de segurança
-- [ ] **Confirmar** backup automático
-- [ ] **Monitorar** tentativas de login
-
-#checklist-semanal **Auditar** credenciais criadas
-- [ ] **Verificar** usuários ativos
-- [ ] **Revisar** permissões de acesso
-- [ ] **Atualizar** documentação
-
-#checklist-mensal **Renovar** credenciais expirando
-- [ ] **Gerar** relatórios de segurança
-- [ ] **Revisar** políticas de acesso
-- [ ] **Treinar** equipe (se necessário)
-
----
-
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-9 Próximos passos
-
-1. **[Implementar Monitoramento](../monitoring)** - Configurar alertas
-2. **[Criar Política de Segurança](politicas-seguranca)** - Documentar regras
-3. **[Treinar Equipe](treinamento-seguranca)** - Capacitar usuários
-
-> *A segurança é um processo contínuo. Mantenha-se atualizado e sempre priorize a proteção dos dados!*
-
----
-
-:::tip **Dica Pro**
+:::tip **Security Champion**
 Crie um "Security Champion" na sua equipe - alguém responsável por disseminar boas práticas de segurança e ser o ponto de contato para questões relacionadas.
 :::
 
@@ -266,3 +240,5 @@ Nunca compartilhe credenciais por canais não seguros. Use sempre o sistema de c
 Considere implementar um sistema de gerenciamento de segredos (como HashiCorp Vault ou AWS Secrets Manager) para credenciais críticas.
 :::
 
+<IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }} />
+**Dica**: Implemente estas práticas gradualmente, começando pelas credenciais mais críticas e expandindo para todo o ambiente.

@@ -5,45 +5,36 @@ description: Personalizar a aparência do n8n para sua marca
 keywords: [n8n, embed, white labelling, branding, customização, tema]
 ---
 
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-white-labelling
+# White Labelling
 
 Este documento detalha como **personalizar completamente a aparência do n8n embarcado** para sua marca, incluindo cores, logos, fontes, layout, domínio customizado, e integração visual perfeita com sua aplicação principal, criando uma experiência unificada e profissional para seus usuários.
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
+<IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-- Personalização de tema e cores
-- Branding e logos
-- CSS customizado
-- Domínio customizado
-- Integração visual
+## Configuração Básica
 
----
-
-#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-personalizao-de Tema
-
-#configurao-bsica
-
-#variveis-de-ambiente-para-tema
+### Variáveis de Tema
 
 ```bash
-#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-bsicas de tema
-N8N_THEME_PRIMARY_COLOR=#cor-ea4b71-n8nthemesecondarycolor#cor-10b981-n8nthemeaccentcolor#cor-f59e0b-n8nthemebackgroundcolor#cor-ffffff-n8nthemetextcolor#cor-1f2937-n8nthemebordercolor#cor-e5e7eb
-
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-avanadas
 N8N_THEME_FONT_FAMILY="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
 N8N_THEME_FONT_SIZE_BASE=14px
 N8N_THEME_BORDER_RADIUS=8px
 N8N_THEME_SHADOW=0 4px 6px -1px rgba(0, 0, 0, 0.1)
 ```
 
-#configurao-via-docker-yaml
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-docker-composeyml-version '3.8'
+### Configuração via Docker
+
+```yaml
+# docker-compose.yml
+version: '3.8'
 services:
   n8n:
     image: n8nio/n8n
     environment:
-      - N8N_THEME_PRIMARY_COLOR=#cor-ea4b71-n8nthemesecondarycolor#cor-10b981-n8nthemeaccentcolor#cor-f59e0b-n8nthemebackgroundcolor#cor-ffffff-n8nthemetextcolor#cor-1f2937-n8nthemefontfamilyinter-sans-serif N8N_THEME_FONT_SIZE_BASE=14px
+      - N8N_THEME_FONT_FAMILY=Inter, sans-serif
+      - N8N_THEME_FONT_SIZE_BASE=14px
       - N8N_THEME_BORDER_RADIUS=8px
     volumes:
       - ./custom-theme:/app/custom-theme
@@ -51,11 +42,20 @@ services:
       - "5678:5678"
 ```
 
-#esquemas-de-cores
+<IonicIcon name="color-palette-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#tema-escuro-css-dark-themecss */
+## Esquemas de Cores
+
+### Tema Escuro
+
+```css
+/* dark-theme.css */
 :root {
-  --n8n-primary-color: #cor-ea4b71-n8n-secondary-color #cor-10b981-n8n-accent-color #cor-f59e0b-n8n-background-color #cor-1f2937-n8n-surface-color #cor-374151-n8n-text-color #cor-f9fafb-n8n-text-secondary #cor-d1d5db-n8n-border-color #cor-4b5563-n8n-shadow-0-10px-15px -3px rgba(0, 0, 0, 0.3);
+  --n8n-background-color: #1f2937;
+  --n8n-surface-color: #374151;
+  --n8n-text-color: #f9fafb;
+  --n8n-border-color: #4b5563;
+  --n8n-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
 /* Aplicar tema escuro */
@@ -71,17 +71,26 @@ body[data-theme="dark"] .n8n-card {
 }
 ```
 
-#tema-corporativo-css-corporate-themecss */
+### Tema Corporativo
+
+```css
+/* corporate-theme.css */
 :root {
-  --n8n-primary-color: #cor-1e40af-azul-corporativo
-  --n8n-secondary-color: #cor-059669-verde-sucesso
-  --n8n-accent-color: #cor-dc2626-vermelho-alerta
-  --n8n-background-color: #cor-f8fafc-n8n-surface-color #cor-ffffff-n8n-text-color #cor-1e293b-n8n-text-secondary #cor-64748b-n8n-border-color #cor-e2e8f0-n8n-shadow-0-1px-3px 0 rgba(0, 0, 0, 0.1);
+  --n8n-primary-color: #1e40af;
+  --n8n-secondary-color: #059669;
+  --n8n-accent-color: #dc2626;
+  --n8n-background-color: #ffffff;
+  --n8n-surface-color: #f8fafc;
+  --n8n-text-color: #1e293b;
+  --n8n-border-color: #e2e8f0;
+  --n8n-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo corporativo */
 .n8n-header {
-  background: linear-gradient(135deg, var(--n8n-primary-color), #cor-3b82f6-color-white-box-shadow-0 2px 4px rgba(0, 0, 0, 0.1);
+  background: var(--n8n-primary-color);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .n8n-button-primary {
@@ -94,39 +103,26 @@ body[data-theme="dark"] .n8n-card {
 }
 
 .n8n-button-primary:hover {
-  background: #cor-1d4ed8-transform-translatey-1px-box-shadow-0 4px 8px rgba(30, 64, 175, 0.3);
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(30, 64, 175, 0.3);
 }
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-branding-e Logos
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-de-logo
+## Branding e Logos
 
-#logo-principal-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-logo principal
-N8N_THEME_LOGO_URL=https://sua-empresa.com/logo.png
-N8N_THEME_LOGO_WIDTH=150px
-N8N_THEME_LOGO_HEIGHT=40px
+### Configuração de Logo
+
+```bash
 N8N_THEME_LOGO_ALT="Sua Empresa - Automação"
-
-#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-logo-para tema escuro
-N8N_THEME_LOGO_DARK_URL=https://sua-empresa.com/logo-white.png
 ```
 
-#favicon-e-cones-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-favicon
-N8N_THEME_FAVICON_URL=https://sua-empresa.com/favicon.ico
-N8N_THEME_APPLE_TOUCH_ICON=https://sua-empresa.com/apple-touch-icon.png
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-cones-para PWA
-N8N_THEME_ICON_192=https://sua-empresa.com/icon-192.png
-N8N_THEME_ICON_512=https://sua-empresa.com/icon-512.png
-```
-
-#css-para-logo-customizado-css
-/* custom-logo.css */
+```css
+/* Logo principal */
 .n8n-header-logo {
   background-image: url('https://sua-empresa.com/logo.png');
   background-size: contain;
@@ -150,17 +146,20 @@ body[data-theme="dark"] .n8n-header-logo {
 }
 ```
 
-#texto-e-marca
+### Textos e Marca
 
-#configurao-de-texto-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-textos-customizados
+#### Configuração de Textos Customizados
+
+```bash
 N8N_THEME_APP_NAME="Sua Empresa - Automação"
 N8N_THEME_APP_DESCRIPTION="Plataforma de automação empresarial"
 N8N_THEME_FOOTER_TEXT="© 2024 Sua Empresa. Todos os direitos reservados."
 N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 ```
 
-#css-para-textos-customizados-css
+#### CSS para Textos Customizados
+
+```css
 /* custom-text.css */
 .n8n-app-name {
   font-family: 'Inter', sans-serif;
@@ -187,11 +186,16 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-css-customizado
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#estilos-avanados
+## CSS Customizado
 
-#layout-customizado-css-custom-layoutcss */
+### Estilos Avançados
+
+#### Layout Customizado
+
+```css
+/* custom-layout.css */
 /* Header customizado */
 .n8n-header {
   background: linear-gradient(135deg, var(--n8n-primary-color), var(--n8n-secondary-color));
@@ -240,15 +244,20 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 }
 
 .n8n-button-primary:hover {
-  background: #cor-d63384-transform-translatey-1px-n8n-button-secondary {
   background: var(--n8n-secondary-color);
   color: white;
 }
 
 .n8n-button-secondary:hover {
-  background: #cor-059669-transform-translatey-1px
+  background: #059669;
+  transform: translateY(-1px);
+}
+```
 
-#componentes-especficos-css-custom-componentscss */
+#### Componentes Específicos
+
+```css
+/* custom-components.css */
 /* Nodes customizados */
 .n8n-node {
   border-radius: 8px;
@@ -269,7 +278,10 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 
 /* Canvas customizado */
 .n8n-canvas {
-  background: linear-gradient(45deg, #cor-f8fafc-25-transparent-25-linear-gradient-45deg #cor-f8fafc-25-transparent-25-linear-gradient45deg transparent 75%, #cor-f8fafc-75-linear-gradient-45deg-transparent-75 #cor-f8fafc-75-background-size-20px-20px
+  background-image: 
+    linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px);
+  background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
 
@@ -305,31 +317,32 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 }
 ```
 
-#Responsividade
+### Responsividade
 
-#css-responsivo-css-responsivecss */
+```css
+/* responsive.css */
 /* Mobile (até 768px) */
 @media (max-width: 768px) {
   .n8n-header {
     padding: 12px 16px;
   }
-  
+
   .n8n-sidebar {
     position: fixed;
     left: -280px;
     z-index: 1000;
     transition: left 0.3s ease;
   }
-  
+
   .n8n-sidebar.open {
     left: 0;
   }
-  
+
   .n8n-main-content {
     margin-left: 0;
     padding: 16px;
   }
-  
+
   .n8n-card {
     margin-bottom: 16px;
   }
@@ -340,7 +353,7 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
   .n8n-sidebar {
     width: 240px;
   }
-  
+
   .n8n-main-content {
     margin-left: 240px;
   }
@@ -351,7 +364,7 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
   .n8n-sidebar {
     width: 280px;
   }
-  
+
   .n8n-main-content {
     margin-left: 280px;
   }
@@ -360,35 +373,37 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-domnio-customizado
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-de-domnio
+## Domínio Customizado
 
-#proxy-reverso-com-nginx-nginx
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-etcnginxsites-availablen8n-custom-server {
+### Configuração de Domínio
+
+#### Proxy Reverso com Nginx
+
+```nginx
+server {
     listen 80;
     server_name automação.suaempresa.com;
-    
-    #redirecionar-http-para-https-return 301 https://$server_name$request_uri;
+    return 301 https://$server_name$request_uri;
 }
 
 server {
     listen 443 ssl http2;
     server_name automação.suaempresa.com;
-    
-    #certificado-ssl-sslcertificate-etcletsencryptliveautomaosuaempresacomfullchainpem-sslcertificatekey /etc/letsencrypt/live/automação.suaempresa.com/privkey.pem;
-    
-    #configuraes-ssl-sslprotocols-tlsv12-tlsv13
-    ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384;
-    ssl_prefer_server_ciphers off;
-    
-    #headers-de-segurana-addheader-x-frame-options "SAMEORIGIN" always;
+
+    ssl_certificate /etc/nginx/ssl/cert.pem;
+    ssl_certificate_key /etc/nginx/ssl/key.pem;
+
+    # Headers de segurança
+    add_header X-Frame-Options "SAMEORIGIN" always;
     add_header X-XSS-Protection "1; mode=block" always;
     add_header X-Content-Type-Options "nosniff" always;
     add_header Referrer-Policy "no-referrer-when-downgrade" always;
     add_header Content-Security-Policy "default-src 'self' http: https: data: blob: 'unsafe-inline'" always;
-    
-    #proxy-para-n8n-location {
+
+    # Proxy para n8n
+    location / {
         proxy_pass http://localhost:5678;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
@@ -398,12 +413,15 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_cache_bypass $http_upgrade;
-        
-        #timeouts-proxyconnecttimeout-60s-proxysendtimeout-60s
+
+        # Timeouts
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
         proxy_read_timeout 60s;
     }
-    
-    #websocket-support-location-ws
+
+    # WebSocket support
+    location /ws {
         proxy_pass http://localhost:5678;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
@@ -416,8 +434,10 @@ server {
 }
 ```
 
-#configurao-com-docker-yaml
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-docker-composeyml-com domínio customizado
+#### Configuração com Docker
+
+```yaml
+# docker-compose.yml com domínio customizado
 version: '3.8'
 services:
   nginx:
@@ -440,7 +460,7 @@ services:
       - N8N_HOST=automação.suaempresa.com
       - N8N_PROTOCOL=https
       - N8N_PORT=5678
-      - N8N_THEME_PRIMARY_COLOR=#cor-ea4b71-n8nthemelogourlhttpssuaempresacomlogopng-volumes n8n_data:/home/node/.n8n
+    volumes:
       - ./custom-theme:/app/custom-theme
     networks:
       - n8n-network
@@ -455,29 +475,28 @@ networks:
     driver: bridge
 ```
 
-#ssl-e-segurana
+#### SSL e Segurança
 
-#certificado-lets-encrypt-bash
-#bin/bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-setup-sslsh-domainautomaosuaempresacom
+```bash
+#!/bin/bash
+
+# Configuração do Let's Encrypt
 EMAIL="admin@suaempresa.com"
+DOMAIN="automação.suaempresa.com"
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-certbot
-sudo apt update
-sudo apt install certbot python3-certbot-nginx
+# Instalar certbot
+apt-get update
+apt-get install -y certbot python3-certbot-nginx
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-obter-certificado
-sudo certbot --nginx -d $DOMAIN --email $EMAIL --agree-tos --non-interactive
+# Obter certificado SSL
+certbot --nginx -d $DOMAIN --email $EMAIL --agree-tos --non-interactive
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-renovao automática
-sudo crontab -e
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-linha
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-0-12 * * * /usr/bin/certbot renew --quiet
+# Configurar renovação automática
+echo "0 12 * * * /usr/bin/certbot renew --quiet" | crontab -
 ```
 
-#headers-de-segurana-nginx
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-security-headersconf
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-content-security Policy
+```nginx
+# Headers de segurança adicionais
 add_header Content-Security-Policy "
     default-src 'self';
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net;
@@ -488,7 +507,6 @@ add_header Content-Security-Policy "
     frame-ancestors 'self';
 " always;
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-outros-headers de segurança
 add_header X-Frame-Options "SAMEORIGIN" always;
 add_header X-Content-Type-Options "nosniff" always;
 add_header X-XSS-Protection "1; mode=block" always;
@@ -498,16 +516,15 @@ add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 
 ---
 
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-visual
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#integrao-com-aplicao-principal
+## Integração com Aplicação Principal
 
-#css-para-integrao-css integration.css */
-/* Remover elementos do n8n que não são necessários */
-.n8n-header .n8n-branding {
-  display: none;
-}
+### CSS para Integração
 
+```css
+/* integration.css */
+/* Ocultar elementos desnecessários */
 .n8n-sidebar .n8n-navigation-item[data-test-id="settings"] {
   display: none;
 }
@@ -544,7 +561,10 @@ add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 }
 ```
 
-#javascript-para-integrao-javascript integration.js
+### JavaScript para Integração
+
+```javascript
+// integration.js
 class N8NIntegration {
   constructor() {
     this.init();
@@ -561,7 +581,10 @@ class N8NIntegration {
 
   waitForN8N() {
     return new Promise((resolve) => {
-       else {
+      const checkN8N = () => {
+        if (document.querySelector('.n8n-app')) {
+          resolve();
+        } else {
           setTimeout(checkN8N, 100);
         }
       };
@@ -572,7 +595,9 @@ class N8NIntegration {
   applyCustomTheme() {
     // Aplicar tema customizado
     const theme = {
-      primaryColor: '#cor-ea4b71-secondarycolor#cor-10b981-accentcolor#cor-f59e0b-backgroundcolor#cor-ffffff-textcolor#cor-1f2937-fontfamily-inter-sans-serif
+      primaryColor: '#1f2937',
+      fontFamily: 'Inter, sans-serif'
+    };
 
     // Aplicar variáveis CSS
     Object.entries(theme).forEach(([key, value]) => {
@@ -701,16 +726,39 @@ new N8NIntegration();
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#design-system
+## Boas Práticas
 
-#guia-de-cores-css design-system.css */
+### Design System
+
+#### Guia de Cores
+
+```css
+/* design-system.css */
 :root {
   /* Cores primárias */
-  --brand-primary: #cor-ea4b71-brand-primary-light #cor-f06292-brand-primary-dark #cor-c2185b-cores-secundrias
-  --brand-secondary: #cor-10b981-brand-secondary-light #cor-34d399-brand-secondary-dark #cor-059669-cores-neutras
-  --neutral-50: #cor-f9fafb-neutral-100 #cor-f3f4f6-neutral-200 #cor-e5e7eb-neutral-300 #cor-d1d5db-neutral-400 #cor-9ca3af-neutral-500 #cor-6b7280-neutral-600 #cor-4b5563-neutral-700 #cor-374151-neutral-800 #cor-1f2937-neutral-900 #cor-111827-estados-success #cor-10b981-warning #cor-f59e0b-error #cor-ef4444-info #cor-3b82f6-aplicar-ao n8n */
+  --brand-primary: #3b82f6;
+  --brand-secondary: #059669;
+  --warning: #f59e0b;
+  --success: #10b981;
+  --error: #ef4444;
+  --info: #06b6d4;
+
+  /* Cores neutras */
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+}
+
+/* Aplicar ao n8n */
 :root {
   --n8n-primary-color: var(--brand-primary);
   --n8n-secondary-color: var(--brand-secondary);
@@ -721,7 +769,10 @@ new N8NIntegration();
 }
 ```
 
-#tipografia-css-typographycss
+#### Tipografia
+
+```css
+/* typography.css */
 :root {
   /* Fontes */
   --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -766,9 +817,10 @@ new N8NIntegration();
 }
 ```
 
-#cor-acessibilidade
+#### WCAG Compliance
 
-#wcag-compliance-css-accessibilitycss */
+```css
+/* accessibility.css */
 /* Contraste adequado */
 .n8n-text {
   color: var(--neutral-800);
@@ -812,7 +864,9 @@ new N8NIntegration();
 
 ---
 
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
+<IonicIcon name="arrow-forward-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Próximos Passos
 
 Agora que você entende o white labelling do n8n:
 
@@ -834,5 +888,4 @@ Teste o white labelling em diferentes dispositivos e navegadores. Certifique-se 
 :::info **Recurso Adicional**
 Considere usar ferramentas como Storybook para documentar e testar componentes customizados do seu design system.
 :::
-
 

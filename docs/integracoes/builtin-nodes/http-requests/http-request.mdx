@@ -5,17 +5,177 @@ sidebar_position: 1
 keywords: [n8n, http request, api, rest, integração, automação]
 ---
 
-#ionicicon-nameglobe-outline-style-fontsize-24px color: '#cor-ea4b71-node-http Request
+<IonicIcon name="arrow-up-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-O node **HTTP Request** é um dos nodes mais versáteis do n8n. Ele permite que você faça requisições HTTP para consultar dados de qualquer aplicação ou serviço que tenha uma API REST. Você pode usar este node como um node regular ou conectá-lo a um [agente de IA](/advanced-ai/nodes-ia/ai-agent) para funcionar como uma [ferramenta](/advanced-ai/exemplos-casos/ferramentas-ia).
+O node **HTTP Request** é um dos nodes mais versáteis do n8n. Ele permite que você faça requisições HTTP para consultar dados de qualquer aplicação ou serviço que tenha uma API REST. Você pode usar este node como um node regular ou conectá-lo a um [agente de IA](/advanced-ai/nodes-ia/ai-agent) para funcionar como uma [ferramenta](/advanced-ai/nodes-ia/openai-chat).
 
 Quando você usa este node, está criando uma chamada de API REST. É importante ter um entendimento básico de terminologia e conceitos de API.
 
-Existem duas formas de criar uma requisição HTTP: configurando os [parâmetros do node](#parmetros-do-node-ou-importando-um-comando-curlimportar-comando-curl-note-credenciais-consulte-credenciais-http-requestintegracoescredential-nodeshttp-request-para-orientaes-sobre-como-configurar-autenticao-quando-usar-o-http-request-o-node-http-request-ideal-para-integrar-com-apis-no-suportadas-conectar-com-servios-que-no-tm-nodes-especficos-automaes-customizadas-criar-integraes-especficas-para-seu-negcio-prototipagem-rpida-testar-apis-antes-de-criar-nodes-dedicados-operaes-avanadas-requisies-complexas-com-headers-e-parmetros-customizados-parmetros-do-node-mtodo-selecione-o-mtodo-http-para-a-requisio-get-buscar-dados-padro-post-enviar-dados-put-atualizar-dados-patch-atualizar-parcialmente-delete-remover-dados-head-obter-apenas-headers-options-verificar-opes-disponveis-url-digite-o-endpoint-que-voc-quer-usar-exemplos-httpsapiexemplocomv1usuarios-httpsjsonplaceholdertypicodecomposts-httpsviacepcombrws01001000json-autenticao-o-n8n-recomenda-usar-a-opo-tipo-de-credencial-predefinida-quando-disponvel-ela-oferece-uma-forma-mais-fcil-de-configurar-e-gerenciar-credenciais-comparado-a-configurar-credenciais-genricas-credenciais-predefinidas-credenciais-para-integraes-suportadas-pelo-n8n-incluindo-nodes-integrados-e-da-comunidade-use-tipo-de-credencial-predefinida-para-operaes-customizadas-sem-configurao-extra-credenciais-genricas-credenciais-para-integraes-no-suportadas-pelo-n8n-voc-precisar-configurar-manualmente-o-processo-de-autenticao-incluindo-especificar-os-endpoints-de-api-necessrios-parmetros-obrigatrios-e-o-mtodo-de-autenticao-voc-pode-selecionar-um-dos-seguintes-mtodos-basic-auth-autenticao-bsica-usuriosenha-custom-auth-autenticao-customizada-digest-auth-autenticao-digest-header-auth-autenticao-via-headers-oauth1-api-autenticao-oauth-10-oauth2-api-autenticao-oauth-20-query-auth-autenticao-via-parmetros-de-query-enviar-parmetros-de-query-parmetros-de-query-atuam-como-filtros-nas-requisies-http-se-a-api-que-voc-est-interagindo-suporta-parmetros-de-query-e-a-requisio-que-voc-est-fazendo-precisa-de-um-filtro-ative-esta-opo-especifique-seus-parmetros-de-query-usando-uma-das-opes-disponveis-usando-campos-abaixo-digite-pares-nomevalor-de-parmetros-de-query-para-adicionar-mais-pares-selecione-adicionar-parmetro-usando-json-digite-json-para-definir-seus-parmetros-de-query-exemplo-prtico-viacep-nome-cep-valor-01001000-enviar-headers-use-este-parmetro-para-enviar-headers-com-sua-requisio-headers-contm-metadados-ou-contexto-sobre-sua-requisio-especifique-headers-usando-uma-das-opes-disponveis-usando-campos-abaixo-digite-pares-nomevalor-de-parmetros-de-header-usando-json-digite-json-para-definir-seus-parmetros-de-header-exemplos-comuns-content-type-applicationjson-authorization-bearer-seu-token-aqui-user-agent-n8n-workflow10-enviar-body-se-voc-precisa-enviar-um-body-com-sua-requisio-de-api-ative-esta-opo-depois-selecione-o-tipo-de-contedo-do-body-que-melhor-corresponde-ao-formato-do-contedo-que-voc-deseja-enviar-form-urlencoded-use-esta-opo-para-enviar-seu-body-como-applicationx-www-form-urlencoded-especifique-body-usando-uma-das-opes-disponveis-usando-campos-abaixo-digite-pares-nomevalor-de-parmetros-do-body-usando-campo-nico-digite-seus-pares-nomevalor-em-um-nico-parmetro-body-com-formato-campo1valor1campo2valor2-form-data-use-esta-opo-para-enviar-seu-body-como-multipartform-data-configure-seus-parmetros-do-body-selecionando-o-tipo-de-parmetro-escolha-form-data-para-digitar-pares-nomevalor-escolha-arquivo-binrio-n8n-para-extrair-o-body-de-um-arquivo-que-o-node-tem-acesso-json-use-esta-opo-para-enviar-seu-body-como-json-especifique-body-usando-uma-das-opes-disponveis-usando-campos-abaixo-digite-pares-nomevalor-de-parmetros-do-body-usando-json-digite-json-para-definir-seu-body-exemplo-de-json-json-nome-joo-silva-email-joaoexemplocom-idade-30-ativo-true-arquivo-binrio-n8n-use-esta-opo-para-enviar-o-contedo-de-um-arquivo-armazenado-no-n8n-como-body-digite-o-nome-do-campo-de-entrada-que-contm-o-arquivo-como-nome-do-campo-de-dados-de-entrada-raw-use-esta-opo-para-enviar-dados-brutos-no-body-content-type-digite-o-header-content-type-para-usar-no-contedo-do-body-body-digite-o-contedo-do-body-bruto-para-enviar-opes-do-node-selecione-adicionar-opo-para-visualizar-e-selecionar-estas-opes-as-opes-esto-disponveis-para-todos-os-parmetros-a-menos-que-seja-observado-o-contrrio-formato-de-array-em-parmetros-de-query-note-disponibilidade-da-opo-esta-opo-s-est-disponvel-quando-voc-ativa-enviar-parmetros-de-query-use-esta-opo-para-controlar-o-formato-para-arrays-includos-em-parmetros-de-query-escolha-entre-estas-opes-sem-colchetes-arrays-sero-formatados-como-nomevalor-para-cada-item-no-array-por-exemplo-foobarfooqux-apenas-colchetes-o-node-adiciona-colchetes-aps-cada-nome-de-array-por-exemplo-foobarfooqux-colchetes-com-ndices-o-node-adiciona-colchetes-com-um-valor-de-ndice-aps-cada-nome-de-array-por-exemplo-foo0barfoo1qux-batching-processamento-em-lotes-controle-como-processar-grandes-nmeros-de-itens-de-entrada-itens-por-lote-digite-o-nmero-de-itens-de-entrada-para-incluir-em-cada-lote-intervalo-do-lote-digite-o-tempo-para-esperar-entre-cada-lote-de-requisies-em-milissegundos-digite-0-para-nenhum-intervalo-ignorar-problemas-ssl-por-padro-o-n8n-s-baixa-a-resposta-se-a-validao-do-certificado-ssl-for-bem-sucedida-se-voc-quiser-baixar-a-resposta-mesmo-se-a-validao-do-certificado-ssl-falhar-ative-esta-opo-headers-em-minsculas-escolha-se-deve-colocar-nomes-de-headers-em-minsculas-ativado-padro) ou não (desativado).
+Existem duas formas de criar uma requisição HTTP: configurando os [parâmetros do node](#parâmetros-do-node) ou importando um comando curl. [Importar comando curl](#importar-comando-curl) é uma forma rápida de configurar requisições HTTP a partir de comandos curl existentes.
 
-#redirecionamentos-escolha-se-deve-seguir redirecionamentos (ativado por padrão) ou não (desativado). Se ativado, digite o número máximo de redirecionamentos que a requisição deve seguir em **Máximo de Redirecionamentos**.
+:::note **Credenciais**
+Consulte [Credenciais HTTP Request](/integracoes/credential-nodes/http-request) para orientações sobre como configurar autenticação quando usar o HTTP Request.
+:::
 
-#resposta-use-esta-opo-para definir alguns detalhes sobre a resposta da API esperada, incluindo:
+O node HTTP Request é ideal para:
+
+- **Integrar com APIs não suportadas** - Conectar com serviços que não têm nodes específicos
+- **Automações customizadas** - Criar integrações específicas para seu negócio
+- **Prototipagem rápida** - Testar APIs antes de criar nodes dedicados
+- **Operações avançadas** - Requisições complexas com headers e parâmetros customizados
+
+## Parâmetros do Node
+
+### Método
+
+Selecione o método HTTP para a requisição:
+
+- **GET**: Buscar dados (padrão)
+- **POST**: Enviar dados
+- **PUT**: Atualizar dados
+- **PATCH**: Atualizar parcialmente
+- **DELETE**: Remover dados
+- **HEAD**: Obter apenas headers
+- **OPTIONS**: Verificar opções disponíveis
+
+### URL
+
+Digite o endpoint que você quer usar.
+
+**Exemplos:**
+- `https://api.exemplo.com/v1/usuarios`
+- `https://jsonplaceholder.typicode.com/posts`
+- `https://viacep.com.br/ws/01001000/json/`
+
+### Autenticação
+
+O n8n recomenda usar a opção **Tipo de Credencial Predefinida** quando disponível. Ela oferece uma forma mais fácil de configurar e gerenciar credenciais comparado a configurar credenciais genéricas.
+
+**Credenciais Predefinidas**: Credenciais para integrações suportadas pelo n8n, incluindo nodes integrados e da comunidade. Use tipo de credencial predefinida para operações customizadas sem configuração extra.
+
+**Credenciais Genéricas**: Credenciais para integrações não suportadas pelo n8n. Você precisará configurar manualmente o processo de autenticação, incluindo especificar os endpoints de API necessários, parâmetros obrigatórios e o método de autenticação.
+
+Você pode selecionar um dos seguintes métodos:
+
+- **Basic Auth**: Autenticação básica (usuário/senha)
+- **Custom Auth**: Autenticação customizada
+- **Digest Auth**: Autenticação digest
+- **Header Auth**: Autenticação via headers
+- **OAuth1 API**: Autenticação OAuth 1.0
+- **OAuth2 API**: Autenticação OAuth 2.0
+- **Query Auth**: Autenticação via parâmetros de query
+
+### Enviar Parâmetros de Query
+
+Parâmetros de query atuam como filtros nas requisições HTTP. Se a API que você está interagindo suporta parâmetros de query e a requisição que você está fazendo precisa de um filtro, ative esta opção.
+
+Especifique seus parâmetros de query usando uma das opções disponíveis:
+
+**Usando campos abaixo**: Digite pares nome/valor de parâmetros de query. Para adicionar mais pares, selecione "Adicionar Parâmetro".
+
+**Usando JSON**: Digite JSON para definir seus parâmetros de query.
+
+**Exemplo prático - ViaCEP:**
+- Nome: `cep`
+- Valor: `01001000`
+
+### Enviar Headers
+
+Use este parâmetro para enviar headers com sua requisição. Headers contêm metadados ou contexto sobre sua requisição.
+
+Especifique headers usando uma das opções disponíveis:
+
+**Usando campos abaixo**: Digite pares nome/valor de parâmetros de header.
+
+**Usando JSON**: Digite JSON para definir seus parâmetros de header.
+
+**Exemplos comuns:**
+- `Content-Type: application/json`
+- `Authorization: Bearer seu-token-aqui`
+- `User-Agent: n8n-workflow-1.0`
+
+### Enviar Body
+
+Se você precisa enviar um body com sua requisição de API, ative esta opção. Depois, selecione o tipo de conteúdo do body que melhor corresponde ao formato do conteúdo que você deseja enviar.
+
+**Form-URLEncoded**: Use esta opção para enviar seu body como `application/x-www-form-urlencoded`.
+
+Especifique body usando uma das opções disponíveis:
+
+**Usando campos abaixo**: Digite pares nome/valor de parâmetros do body.
+
+**Usando campo único**: Digite seus pares nome/valor em um único parâmetro body com formato `campo1=valor1&campo2=valor2`.
+
+**Form-Data**: Use esta opção para enviar seu body como `multipart/form-data`.
+
+Configure seus parâmetros do body selecionando o tipo de parâmetro:
+
+- Escolha **Form Data** para digitar pares nome/valor
+- Escolha **Arquivo Binário n8n** para extrair o body de um arquivo que o node tem acesso
+
+**JSON**: Use esta opção para enviar seu body como JSON.
+
+Especifique body usando uma das opções disponíveis:
+
+**Usando campos abaixo**: Digite pares nome/valor de parâmetros do body.
+
+**Usando JSON**: Digite JSON para definir seu body.
+
+**Exemplo de JSON:**
+```json
+{
+  "nome": "João Silva",
+  "email": "joao@exemplo.com",
+  "idade": 30,
+  "ativo": true
+}
+```
+
+**Arquivo Binário n8n**: Use esta opção para enviar o conteúdo de um arquivo armazenado no n8n como body. Digite o nome do campo de entrada que contém o arquivo como nome do campo de dados de entrada.
+
+**Raw**: Use esta opção para enviar dados brutos no body.
+
+- **Content-Type**: Digite o header Content-Type para usar no conteúdo do body
+- **Body**: Digite o conteúdo do body bruto para enviar
+
+### Opções do Node
+
+Selecione "Adicionar Opção" para visualizar e selecionar estas opções. As opções estão disponíveis para todos os parâmetros, a menos que seja observado o contrário.
+
+**Formato de Array em Parâmetros de Query**
+
+:::note **Disponibilidade da opção**
+Esta opção está disponível quando você ativa "Enviar Parâmetros de Query".
+:::
+
+Use esta opção para controlar o formato para arrays incluídos em parâmetros de query. Escolha entre estas opções:
+
+- **Sem colchetes**: Arrays serão formatados como `nome=valor` para cada item no array. Por exemplo: `foo=bar&foo=qux`
+- **Apenas colchetes**: O node adiciona colchetes após cada nome de array. Por exemplo: `foo[]=bar&foo[]=qux`
+- **Colchetes com índices**: O node adiciona colchetes com um valor de índice após cada nome de array. Por exemplo: `foo[0]=bar&foo[1]=qux`
+
+**Batching (Processamento em Lotes)**
+
+Controle como processar grandes números de itens de entrada:
+
+- **Itens por lote**: Digite o número de itens de entrada para incluir em cada lote
+- **Intervalo do lote**: Digite o tempo para esperar entre cada lote de requisições em milissegundos. Digite 0 para nenhum intervalo
+
+**Ignorar Problemas SSL**
+
+Por padrão, o n8n só baixa a resposta se a validação do certificado SSL for bem-sucedida. Se você quiser baixar a resposta mesmo se a validação do certificado SSL falhar, ative esta opção.
+
+**Headers em Minúsculas**
+
+Escolha se deve colocar nomes de headers em minúsculas (ativado por padrão) ou não (desativado).
+
+**Redirecionamentos**
+
+Escolha se deve seguir redirecionamentos (ativado por padrão) ou não (desativado). Se ativado, digite o número máximo de redirecionamentos que a requisição deve seguir em **Máximo de Redirecionamentos**.
+
+**Resposta**
+
+Use esta opção para definir alguns detalhes sobre a resposta da API esperada, incluindo:
 
 - **Incluir Headers e Status da Resposta**: Por padrão, o node retorna apenas o body. Ative esta opção para retornar a resposta completa (headers e código de status da resposta) além do body
 - **Nunca Erro**: Por padrão, o node retorna sucesso apenas quando a resposta retorna com um código 2xx. Ative esta opção para retornar sucesso independentemente do código retornado
@@ -25,21 +185,25 @@ Existem duas formas de criar uma requisição HTTP: configurando os [parâmetros
   - **JSON**: Selecione esta opção para formatar a resposta como JSON
   - **Texto**: Selecione esta opção para formatar a resposta como texto simples
 
-#paginao-use-esta-opo-para paginar resultados, útil para lidar com resultados de query que são muito grandes para a API retornar em uma única chamada.
+**Paginação**
 
-/// note | Inspecione os dados da API primeiro
+Use esta opção para paginar resultados, útil para lidar com resultados de query que são muito grandes para a API retornar em uma única chamada.
+
+:::note **Inspecione os dados da API primeiro**
 Antes de configurar paginação, execute o node uma vez para ver a estrutura dos dados retornados pela API. Isso ajudará você a entender como configurar a paginação corretamente.
-///
+:::
 
-#exemplos-prticos
+## Exemplos Práticos
 
-#exemplo-1-consultar-cep-via ViaCEP
+### Exemplo 1: Consultar CEP via ViaCEP
 
 **Configuração:**
+
 - **Método**: GET
-- **URL**: `https://viacep.com.br/ws/{{ $json.cep }}/json/`
+- **URL**: `https://viacep.com.br/ws/{{$json.cep}}/json/`
 
 **Resultado esperado:**
+
 ```json
 {
   "cep": "01001-000",
@@ -55,66 +219,81 @@ Antes de configurar paginação, execute o node uma vez para ver a estrutura dos
 }
 ```
 
-#exemplo-2-enviar-dados-para API REST
+### Exemplo 2: Enviar Dados para API REST
 
 **Configuração:**
+
 - **Método**: POST
 - **URL**: `https://api.exemplo.com/usuarios`
-- **Headers**: 
+- **Headers**:
   - `Content-Type: application/json`
-  - `Authorization: Bearer {{ $json.token }}`
+  - `Authorization: Bearer {{$json.token}}`
 - **Body (JSON)**:
+
 ```json
 {
-  "nome": "{{ $json.nome }}",
-  "email": "{{ $json.email }}",
-  "telefone": "{{ $json.telefone }}"
+  "nome": "{{$json.nome}}",
+  "email": "{{$json.email}}",
+  "telefone": "{{$json.telefone}}"
 }
 ```
 
-#exemplo-3-upload-de-arquivo
+### Exemplo 3: Upload de Arquivo
 
 **Configuração:**
+
 - **Método**: POST
 - **URL**: `https://api.exemplo.com/upload`
 - **Body**: Form-Data
 - **Parâmetros**:
   - Nome: `arquivo`, Tipo: `Arquivo Binário n8n`
-  - Nome: `descricao`, Tipo: `Form Data`, Valor: `{{ $json.descricao }}`
+  - Nome: `descricao`, Tipo: `Form Data`, Valor: `{{$json.descricao}}`
 
-#Troubleshooting
+## Troubleshooting
 
-#problemas-comuns
+### Problemas Comuns
 
-#erro-401-no-autorizado
+### Erro 401 - Não Autorizado
+
 - Verifique se as credenciais estão configuradas corretamente
 - Confirme se o token de autenticação não expirou
 - Verifique se o header `Authorization` está sendo enviado
 
-#erro-404-no-encontrado
+### Erro 404 - Não Encontrado
+
 - Confirme se a URL está correta
 - Verifique se o endpoint existe na API
 - Teste a URL diretamente no navegador ou Postman
 
-#erro-500-erro-interno do Servidor
+### Erro 500 - Erro Interno do Servidor
+
 - Verifique se o formato dos dados enviados está correto
 - Confirme se todos os campos obrigatórios estão preenchidos
 - Verifique a documentação da API para requisitos específicos
 
-#dicas-de-debug-1-use a opção "Incluir Headers e Status da Resposta"** para ver detalhes completos
+### Dicas de Debug
+
+1. **Use a opção "Incluir Headers e Status da Resposta"** para ver detalhes completos
 2. **Teste com "Nunca Erro" ativado** para ver respostas de erro
 3. **Use o node Debug Helper** antes do HTTP Request para verificar os dados
 4. **Execute manualmente** para testar a configuração
 
-#importar-comando-curl-voc-pode importar comandos cURL diretamente no n8n para criar requisições HTTP automaticamente.
+## Importar Comando cURL
 
-#como-importar-1-copie-o comando cURL** da documentação da API ou das ferramentas de desenvolvedor do navegador
+Você pode importar comandos cURL diretamente no n8n para criar requisições HTTP automaticamente.
+
+### Como Importar
+
+1. **Copie o comando cURL** da documentação da API ou das ferramentas de desenvolvedor do navegador
 2. **Abra o node HTTP Request**
 3. **Clique em "Importar cURL"** (botão no topo do painel de configuração)
 4. **Cole o comando** e clique em "Importar"
 5. **Revise os parâmetros** gerados automaticamente
 
-#exemplo-de-curl-bash-curl -X POST https://api.exemplo.com/v1/usuarios \
+### Exemplo de cURL
+
+```bash
+curl -X POST https://api.exemplo.com/v1/usuarios \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer seu-token" \
   -d '{
@@ -129,12 +308,16 @@ Quando importado, este comando cURL configura automaticamente:
 - **Headers**: Content-Type e Authorization
 - **Body**: JSON com os dados
 
-#vantagens-do-curl-import **Rapidez**: Configuração instantânea
+### Vantagens do cURL Import
+
+- **Rapidez**: Configuração instantânea
 - **Precisão**: Evita erros de digitação
 - **Compatibilidade**: Funciona com qualquer comando cURL válido
 - **Produtividade**: Acelera o desenvolvimento de integrações
 
-#prximos-passos-node-webhookintegracoesbuiltin-nodeshttp-requestswebhook - Para receber requisições HTTP
+## Próximos Passos
+
+- [Node Webhook](/integracoes/builtin-nodes/http-requests/webhook) - Para receber requisições HTTP
 - [Credenciais HTTP Request](/integracoes/credential-nodes/http-request) - Configurar autenticação
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos nas requisições
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas nas requisições

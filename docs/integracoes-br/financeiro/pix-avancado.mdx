@@ -5,19 +5,16 @@ description: Integrações avançadas com PIX para automação de pagamentos e r
 keywords: [n8n, pix, pagamentos, recebimentos, automação, banco central, qr code]
 ---
 
-
-#ionicicon-namecard-outline-style-fontsize-24px color: '#cor-ea4b71-pix-avanado
+<IonicIcon name="card-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+pix-avanado
 
 Aprenda a implementar integrações avançadas com PIX para automatizar pagamentos, recebimentos e gestão financeira no contexto brasileiro.
 
----
+## configurao bsica
 
-#ionicicon-namecard-outline-style-fontsize-24px color: '#cor-ea4b71-1 Tipos de PIX
+### dados do pix
 
-#pix-por-chave-integrao-com chaves PIX:**
-
-```javascript
-// Gerar QR Code PIX
+```json
 {
   "chave_pix": "joao@email.com",
   "beneficiario": "João Silva",
@@ -28,7 +25,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-#pix-por-qr-code-qr Code estático e dinâmico:**
+## pix por qr code
+
+QR Code estático e dinâmico:
 
 ```javascript
 // QR Code Estático
@@ -49,11 +48,11 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
----
+## workflows de pagamento
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-2 Workflows de Pagamento
+### criar cobrana pix
 
-#criar-cobrana-pix-exemplo-workflow de cobrança automática:**
+Exemplo de workflow de cobrança automática:
 
 ```javascript
 // Workflow: Cobrança PIX Automática
@@ -81,7 +80,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 ]
 ```
 
-#monitorar-pagamentos-workflow-de-monitoramento
+### monitorar pagamentos
+
+Workflow de monitoramento:
 
 ```javascript
 // Monitorar pagamentos PIX
@@ -101,11 +102,11 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
----
+## apis de bancos brasileiros
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-3 APIs de Bancos Brasileiros
+### open banking
 
-#open-banking-integrao-com-open Banking:**
+Integração com Open Banking:
 
 ```javascript
 // Configuração Open Banking
@@ -127,7 +128,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-#apis-especficas-exemplos-de-apis bancárias:**
+### apis especficas
+
+Exemplos de APIs bancárias:
 
 | Banco | API | Endpoint | Autenticação |
 |-------|-----|----------|--------------|
@@ -136,11 +139,11 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 | **Santander** | PIX API | `/pix/v1/cob` | API Key |
 | **Caixa** | PIX API | `/pix/v1/cobranca` | Certificado |
 
----
+## segurana e compliance
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-4 Segurança e Compliance
+### lgpd e segurana
 
-#lgpd-e-segurana-requisitos-de segurança:**
+Requisitos de segurança:
 
 ```javascript
 // Políticas de segurança PIX
@@ -164,7 +167,12 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-#validaes-validaes-obrigatrias-javascript Validar dados PIX
+### validaes
+
+Validações obrigatórias:
+
+```javascript
+// Validar dados PIX
 {{ (function(dados) {
   const erros = [];
   
@@ -190,11 +198,11 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 })($json.dados_pix) }}
 ```
 
----
+## casos de uso empresariais
 
-#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-5 Casos de Uso Empresariais
+### e-commerce
 
-#e-commerce-automao-para-lojas-online
+Automação para lojas online:
 
 ```javascript
 // Workflow E-commerce PIX
@@ -205,8 +213,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
       "step": 1,
       "acao": "Gerar cobrança PIX",
       "dados": {
-        "valor": "{{ $json.total }}",
-        "descricao": "Pedido #jsonid-expiracao-30-minutos
+        "valor": "{{$json.total}}",
+        "descricao": "Pedido #{{$json.id}}",
+        "expiracao": "30-minutos"
       }
     },
     {
@@ -228,7 +237,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
-#cor-b2b-pagamentos-entre-empresas-javascript
+### b2b
+
+```javascript
 // Workflow B2B PIX
 {
   "trigger": "Fatura vencida",
@@ -242,8 +253,8 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
       "step": 2,
       "acao": "Gerar cobrança PIX",
       "dados": {
-        "valor": "{{ $json.valor_fatura }}",
-        "vencimento": "{{ $json.data_vencimento }}",
+        "valor": "{{$json.valor_fatura}}",
+        "vencimento": "{{$json.data_vencimento}}",
         "multa": "2% ao dia"
       }
     },
@@ -256,11 +267,11 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 }
 ```
 
----
+## relatrios e analytics
 
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-6 Relatórios e Analytics
+### mtricas de pix
 
-#mtricas-de-pix-kpis-importantes
+KPIs importantes:
 
 ```javascript
 // Métricas PIX
@@ -281,7 +292,9 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 })($json.transacoes_pix) }}
 ```
 
-#anlise-temporal-padres-de-pagamento
+### anlise temporal
+
+Padrões de pagamento:
 
 ```javascript
 // Análise temporal PIX
@@ -307,17 +320,13 @@ Aprenda a implementar integrações avançadas com PIX para automatizar pagament
 })($json.transacoes_pix) }}
 ```
 
----
-
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-7 Próximos passos
+## prximos passos
 
 1. **[Integração com Nota Fiscal](./nfe-integracao)** - Automatizar NFe
 2. **[Conciliação Bancária](./conciliacao-bancaria)** - Automatizar conciliação
 3. **[Relatórios Fiscais](./relatorios-fiscais)** - Gerar relatórios obrigatórios
 
 > *Agora você domina integrações avançadas com PIX. Use essas técnicas para automatizar completamente seus processos financeiros!*
-
----
 
 :::tip **Dica Pro**
 Implemente webhooks para receber notificações em tempo real sobre pagamentos PIX, evitando polling desnecessário.
@@ -330,4 +339,3 @@ Sempre teste integrações PIX em ambiente de sandbox antes de usar em produçã
 :::info **Recurso Adicional**
 Considere usar serviços como Mercado Pago, PagSeguro ou Stone para simplificar integrações PIX complexas.
 :::
-

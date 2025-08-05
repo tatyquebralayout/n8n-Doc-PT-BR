@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "lib": ["dom", "dom.iterable", "ES6"],
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -17,13 +17,13 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@site/*": ["./src/*", "./static/*", "./*"]
+      "@site/*": ["./src/*", "./static/*"]
     },
     "typeRoots": [
       "./@types",
       "./node_modules/@types"
     ],
-    "types": []
+    "types": ["node"]
   },
   "include": [
     "src",
@@ -32,9 +32,7 @@
     "docusaurus.config.ts",
     "sidebars.ts",
     "@types",
-    ".storybook/**/*",
-    "playwright.config.ts",
-    "tests/**/*"
+    ".storybook/**/*"
   ],
   "exclude": [
     "node_modules",

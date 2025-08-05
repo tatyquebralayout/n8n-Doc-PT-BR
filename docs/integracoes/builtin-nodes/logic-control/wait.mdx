@@ -1,29 +1,32 @@
 ﻿---
-title: Wait Node
+title: Node Wait
+description: Aprenda a usar o node Wait no n8n para adicionar pausas e delays em workflows
 sidebar_position: 4
-description: Como usar o Wait Node para adicionar pausas e delays em workflows
 keywords: [n8n, wait node, delay, pausa, tempo, automação, workflow]
 ---
 
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-wait-node
+<IonicIcon name="time-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-O **Wait Node** é um nó fundamental para controlar o timing e a sequência de execução em workflows. Ele permite adicionar pausas programadas, delays condicionais e sincronização entre diferentes etapas da automação.
+O **node Wait** é um componente fundamental para controlar o timing e a sequência de execução em workflows. Ele permite adicionar pausas programadas, delays condicionais e sincronização entre diferentes etapas da automação.
 
-#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-conceito-o Wait Node funciona como um **controlador de tempo** que pausa a execução do workflow por um período específico. Isso é essencial para:
+## Quando usar o Wait
 
-- **Rate Limiting**: Respeitar limites de API
-- **Sincronização**: Aguardar processos externos
-- **Retry Logic**: Implementar tentativas com delays
-- **Batch Processing**: Processar dados em lotes com pausas
-- **User Experience**: Criar delays naturais em automações
+O node Wait é ideal para:
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao
+- **Rate limiting**: Controlar a velocidade de requisições para APIs
+- **Processamento em lotes**: Adicionar pausas entre processamento de grupos de dados
+- **Retry com backoff**: Implementar tentativas com delays crescentes
+- **Sincronização**: Aguardar processamento de sistemas externos
+- **Polling inteligente**: Verificar status com delays adaptativos
 
-#tipos-de-wait
+## Tipos de Wait
 
-#id-1-wait-for-time-aguarda até um horário específico antes de continuar.
+### Wait for Time
+
+Aguarda até um horário específico.
 
 **Configuração:**
+
 ```json
 {
   "waitFor": "time",
@@ -32,17 +35,21 @@ O **Wait Node** é um nó fundamental para controlar o timing e a sequência de 
 ```
 
 **Exemplo prático:**
+
 ```javascript
 // Aguardar até 9h da manhã
 {
   "waitFor": "time",
-  "time": "{{ $now.setHours(9, 0, 0, 0) }}"
+  "time": "{{$now.setHours(9, 0, 0, 0)}}"
 }
 ```
 
-#id-2-wait-for-duration-aguarda por um período específico de tempo.
+### Wait for Duration
+
+Aguarda por um período específico de tempo.
 
 **Configuração:**
+
 ```json
 {
   "waitFor": "duration",
@@ -51,14 +58,18 @@ O **Wait Node** é um nó fundamental para controlar o timing e a sequência de 
 ```
 
 **Opções de duração:**
+
 - **Milliseconds**: Tempo em milissegundos
 - **Seconds**: Tempo em segundos
 - **Minutes**: Tempo em minutos
 - **Hours**: Tempo em horas
 
-#id-3-wait-for-webhook-aguarda até receber uma requisição webhook.
+### Wait for Webhook
+
+Aguarda até receber uma requisição webhook.
 
 **Configuração:**
+
 ```json
 {
   "waitFor": "webhook",
@@ -66,9 +77,12 @@ O **Wait Node** é um nó fundamental para controlar o timing e a sequência de 
 }
 ```
 
-#id-4-wait-for-workflow-aguarda até que outro workflow seja executado.
+### Wait for Workflow
+
+Aguarda até que outro workflow seja executado.
 
 **Configuração:**
+
 ```json
 {
   "waitFor": "workflow",
@@ -76,9 +90,9 @@ O **Wait Node** é um nó fundamental para controlar o timing e a sequência de 
 }
 ```
 
-#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-prticos
+## Exemplos Práticos
 
-#exemplo-1-rate-limiting-para API
+### Exemplo 1: Rate Limiting para API
 
 **Cenário**: Integração com API que tem limite de 100 requisições por minuto.
 
@@ -90,6 +104,7 @@ graph TD
 ```
 
 **Configuração:**
+
 ```javascript
 // Wait Node - Rate Limiting
 {
@@ -98,7 +113,7 @@ graph TD
 }
 ```
 
-#exemplo-2-processamento-em-lotes
+### Exemplo 2: Processamento em Lotes
 
 **Cenário**: Processar lista de emails em lotes de 10 com pausa de 2 segundos.
 
@@ -110,6 +125,7 @@ graph TD
 ```
 
 **Configuração:**
+
 ```javascript
 // Wait Node - Entre lotes
 {
@@ -118,7 +134,7 @@ graph TD
 }
 ```
 
-#exemplo-3-retry-com-backoff Exponencial
+### Exemplo 3: Retry com Backoff Exponencial
 
 **Cenário**: Tentar novamente uma operação com delays crescentes.
 
@@ -133,15 +149,16 @@ graph TD
 ```
 
 **Configuração dinâmica:**
+
 ```javascript
 // Wait Node com backoff exponencial
 {
   "waitFor": "duration",
-  "duration": "{{ Math.pow(2, $runIndex) * 1000 }}"
+  "duration": "{{Math.pow(2, $runIndex) * 1000}}"
 }
 ```
 
-#exemplo-4-sincronizao-com-processo Externo
+### Exemplo 4: Sincronização com Processo Externo
 
 **Cenário**: Aguardar processamento de arquivo em sistema externo.
 
@@ -155,6 +172,7 @@ graph TD
 ```
 
 **Configuração:**
+
 ```javascript
 // Wait Node - Aguardar processamento
 {
@@ -163,9 +181,9 @@ graph TD
 }
 ```
 
-#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Avançados
+## Casos de Uso Avançados
 
-#id-1-sistema-de-notificaes-escalonadas
+### Sistema de Notificações Escalonadas
 
 **Cenário**: Sistema que envia notificações com delays crescentes.
 
@@ -180,7 +198,7 @@ return {
 };
 ```
 
-#id-2-integrao-com-sistemas-legados
+### Integração com Sistemas Legados
 
 **Cenário**: Aguardar sincronização com sistema que processa em lotes.
 
@@ -200,7 +218,9 @@ return {
 };
 ```
 
-#id-3-polling-inteligente-cenrio-verificar status de job com polling adaptativo.
+### Polling Inteligente
+
+**Cenário**: Verificar status de job com polling adaptativo.
 
 ```javascript
 // Polling com delay adaptativo baseado no status
@@ -227,43 +247,52 @@ return {
 };
 ```
 
-#ionicicon-nameflash-outline-style-fontsize-24px color: '#cor-ea4b71-expresses-e Data Mapping
+## Expressões e Data Mapping
 
-#delays-dinmicos-javascript-delay baseado no tamanho dos dados
+### Delays Dinâmicos
+
+```javascript
+// Delay baseado no tamanho dos dados
 {
   "waitFor": "duration",
-  "duration": "{{ $json.items.length * 100 }}"
+  "duration": "{{$json.items.length * 100}}"
 }
 
 // Delay baseado na hora do dia
 {
   "waitFor": "duration",
-  "duration": "{{ $now.getHours() < 9 || $now.getHours() > 18 ? 300000 : 5000 }}"
+  "duration": "{{$now.getHours() < 9 || $now.getHours() > 18 ? 300000 : 5000}}"
 }
 
 // Delay baseado em configuração externa
 {
   "waitFor": "duration",
-  "duration": "{{ $('Config Node').json.delay_ms }}"
+  "duration": "{{$('Config Node').json.delay_ms}}"
 }
 ```
 
-#horrios-dinmicos-javascript-aguardar até próxima hora cheia
+### Horários Dinâmicos
+
+```javascript
+// Aguardar até próxima hora cheia
 {
   "waitFor": "time",
-  "time": "{{ $now.setMinutes(0, 0, 0).addHours(1) }}"
+  "time": "{{$now.setMinutes(0, 0, 0).addHours(1)}}"
 }
 
 // Aguardar até próximo dia útil
 {
   "waitFor": "time",
-  "time": "{{ $now.getDay() === 0 ? $now.addDays(1) : $now.addDays(1) }}"
+  "time": "{{$now.getDay() === 0 ? $now.addDays(1) : $now.addDays(1)}}"
 }
 ```
 
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-tratamento-de Erros
+## Tratamento de Erros
 
-#timeout-e-cancelamento-javascript Wait Node com timeout
+### Timeout e Cancelamento
+
+```javascript
+// Wait Node com timeout
 {
   "waitFor": "duration",
   "duration": 300000,  // 5 minutos
@@ -271,7 +300,10 @@ return {
 }
 ```
 
-#retry-com-wait-mermaid-graph TD
+### Retry com Wait
+
+```mermaid
+graph TD
     A[Operação] --> B{Sucesso?}
     B -->|Não| C[Wait Node]
     C --> D[Retry]
@@ -279,9 +311,11 @@ return {
     B -->|Sim| E[Continuar]
 ```
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-e Otimização
+## Performance e Otimização
 
-#boas-prticas-1-use-delays Apropriados**
+### Boas Práticas
+
+1. **Use Delays Apropriados**
    - Respeite rate limits das APIs
    - Considere o impacto no tempo total do workflow
    - Use delays dinâmicos quando possível
@@ -296,7 +330,10 @@ return {
    - Identifique gargalos causados por delays
    - Otimize baseado em métricas reais
 
-#exemplo-de-monitoramento-javascript Wait Node com logging
+### Exemplo de Monitoramento
+
+```javascript
+// Wait Node com logging
 const startTime = $now;
 const delay = 5000;
 
@@ -314,9 +351,11 @@ return {
 };
 ```
 
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
+## Troubleshooting
 
-#problemas-comuns-wait-node-no funciona**
+### Problemas Comuns
+
+**Wait Node não funciona**
 - Verifique se o tipo de wait está correto
 - Confirme se a duração está em milissegundos
 - Verifique se o horário está no formato correto
@@ -331,7 +370,10 @@ return {
 - Reduza delays muito longos
 - Use webhooks para operações longas
 
-#cor-debugging-javascript-wait-node com debugging
+### Debug com Wait Node
+
+```javascript
+// Wait Node com debugging
 const debug = {
   "waitType": "duration",
   "duration": 5000,
@@ -348,15 +390,21 @@ return {
 };
 ```
 
-#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Outros Nós
+## Integração com Outros Nós
 
-#fluxo-tpico-mermaid-graph-td
+### Fluxo Típico
+
+```mermaid
+graph TD
     A[HTTP Request] --> B[Wait Node]
     B --> C[Code Node]
     C --> D[Email]
 ```
 
-#exemplo-completo-javascript-1 HTTP Request - Buscar dados
+### Exemplo Completo
+
+```javascript
+// 1. HTTP Request - Buscar dados
 {
   "url": "https://api.exemplo.com/dados",
   "method": "GET"
@@ -385,18 +433,9 @@ return processados;
 }
 ```
 
-#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-referncias **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros em workflows
-- **[Execution Order](../../logica-e-dados/flow-logic/execution-order)** - Ordem de execução de nós
-- **[Webhook Trigger](../../integracoes/trigger-nodes/event-based/webhook-trigger)** - Triggers baseados em webhooks
-- **[Rate Limiting](../../logica-e-dados/flow-logic/rate-limiting)** - Controle de taxa de requisições
+## Próximos Passos
 
----
-
-> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#cor-ea4b71-dica-use o Wait Node estrategicamente para criar workflows mais robustos e respeitosos com os sistemas externos. Lembre-se que delays muito longos podem impactar a experiência do usuário, então sempre considere alternativas como webhooks para operações que podem demorar.
-
----
-
-:::warning **Nota de Atenção**
-Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
-:::
-
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Tratamento de erros em workflows
+- [Ordem de Execução](/logica-e-dados/flow-logic/execution-order) - Ordem de execução de nós
+- [Webhook Trigger](/integracoes/trigger-nodes/event-based/webhook-trigger) - Triggers baseados em webhooks
+- [Rate Limiting](/logica-e-dados/flow-logic/rate-limiting) - Controle de taxa de requisições

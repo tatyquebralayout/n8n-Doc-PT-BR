@@ -24,6 +24,7 @@ Componente reutilizável para exibir listas de tags com suporte a truncamento e 
 ## 📝 Exemplos de Uso
 
 ### Lista Básica
+
 ```tsx
 import { TagList } from '@site/src/components/common';
 
@@ -31,6 +32,7 @@ import { TagList } from '@site/src/components/common';
 ```
 
 ### Com Truncamento
+
 ```tsx
 <TagList 
   tags={['n8n', 'automação', 'workflow', 'api', 'webhook']} 
@@ -39,6 +41,7 @@ import { TagList } from '@site/src/components/common';
 ```
 
 ### Diferentes Tamanhos
+
 ```tsx
 <TagList tags={['tag1', 'tag2']} size="small" />
 <TagList tags={['tag1', 'tag2']} size="medium" />
@@ -46,6 +49,7 @@ import { TagList } from '@site/src/components/common';
 ```
 
 ### Diferentes Variantes
+
 ```tsx
 <TagList tags={['primary']} variant="primary" />
 <TagList tags={['success']} variant="success" />
@@ -54,6 +58,7 @@ import { TagList } from '@site/src/components/common';
 ```
 
 ### Sem Contador
+
 ```tsx
 <TagList 
   tags={['tag1', 'tag2', 'tag3', 'tag4']} 
@@ -63,6 +68,7 @@ import { TagList } from '@site/src/components/common';
 ```
 
 ### Com Classe Customizada
+
 ```tsx
 <TagList 
   tags={['custom', 'tags']} 
@@ -73,31 +79,37 @@ import { TagList } from '@site/src/components/common';
 ## 🎨 Variantes Visuais
 
 ### Default
+
 ```tsx
 <TagList tags={['default']} variant="default" />
 ```
 
 ### Primary
+
 ```tsx
 <TagList tags={['primary']} variant="primary" />
 ```
 
 ### Secondary
+
 ```tsx
 <TagList tags={['secondary']} variant="secondary" />
 ```
 
 ### Success
+
 ```tsx
 <TagList tags={['success']} variant="success" />
 ```
 
 ### Warning
+
 ```tsx
 <TagList tags={['warning']} variant="warning" />
 ```
 
 ### Danger
+
 ```tsx
 <TagList tags={['danger']} variant="danger" />
 ```
@@ -112,20 +124,24 @@ O componente se adapta automaticamente:
 ## 🧪 Casos de Teste
 
 ### Cenários Básicos
+
 - Renderização com tags válidas
 - Não renderização com array vazio
 - Não renderização com null/undefined
 
 ### Truncamento
+
 - Mostra apenas `maxVisible` tags
 - Exibe contador correto de tags ocultas
 - Não mostra contador quando `showCount={false}`
 
 ### Variantes
+
 - Aplica classes CSS corretas para cada variante
 - Aplica classes CSS corretas para cada tamanho
 
 ### Edge Cases
+
 - Tags com caracteres especiais
 - Tags com espaços
 - Tags muito longas
@@ -162,6 +178,7 @@ O componente se adapta automaticamente:
 ## 🔄 Integração
 
 ### Com BaseCard
+
 ```tsx
 <BaseCard title="Card com Tags" description="Descrição">
   <TagList tags={['tag1', 'tag2', 'tag3']} />
@@ -169,6 +186,7 @@ O componente se adapta automaticamente:
 ```
 
 ### Com ArticleCard
+
 ```tsx
 <ArticleCard 
   title="Artigo"
@@ -181,4 +199,4 @@ O componente se adapta automaticamente:
 
 - **Reutilização**: 95% dos cards usam TagList
 - **Performance**: Renderização < 5ms para 100 tags
-- **Acessibilidade**: 100% dos casos testados passam 
+- **Acessibilidade**: 100% dos casos testados passam

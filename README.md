@@ -1,8 +1,6 @@
-<div align="center">
-<img src="https://raw.githubusercontent.com/n8n-brasil/n8n-Doc-PT-BR/main/static/img/banner_n8n_ptbr.png" alt="Banner da Documentação n8n PT-BR - Automação de Workflows em Português" width="800">
-</div>
-
 # N8N Documentation BR
+
+![Banner da Documentação n8n PT-BR - Automação de Workflows em Português](https://raw.githubusercontent.com/n8n-brasil/n8n-Doc-PT-BR/main/static/img/banner_n8n_ptbr.png)
 
 > Documentação NÃO‑OFICIAL do n8n.
 > _Este projeto não possui vínculo com o time oficial do n8n e serve como complemento, referência e apoio aos usuários do Brasil._
@@ -26,13 +24,11 @@ Documentação completa do n8n em português brasileiro - Hub de conhecimento pa
 
 O n8n é uma plataforma de automação de workflows que oferece a times técnicos a flexibilidade do código com a velocidade do _no-code_. Com mais de 400 integrações, capacidades nativas de IA e uma licença _fair-code_, o n8n permite que você construa automações poderosas enquanto mantém controle total sobre seus dados e deployments.
 
-<p align="center">
-<a href="https://n8n.io" target="_blank"><img src="https://img.shields.io/badge/Site_Oficial-n8n.io-blueviolet?style=for-the-badge" alt="Site Oficial n8n.io"></a>
-<a href="https://docs.n8n.io" target="_blank"><img src="https://img.shields.io/badge/Documentação-Oficial-blue?style=for-the-badge" alt="Documentação Oficial"></a>
-<a href="https://n8n.io/integrations" target="_blank"><img src="https://img.shields.io/badge/Integrações-400%2B-green?style=for-the-badge" alt="Integrações"></a>
-<a href="https://n8n.io/templates" target="_blank"><img src="https://img.shields.io/badge/Templates-Workflows-orange?style=for-the-badge" alt="Templates de Workflows"></a>
-<a href="https://community.n8n.io" target="_blank"><img src="https://img.shields.io/badge/Fórum-Comunidade-ff4a73?style=for-the-badge" alt="Fórum da Comunidade"></a>
-</p>
+[![Site Oficial n8n.io](https://img.shields.io/badge/Site_Oficial-n8n.io-blueviolet?style=for-the-badge)](https://n8n.io)
+[![Documentação Oficial](https://img.shields.io/badge/Documentação-Oficial-blue?style=for-the-badge)](https://docs.n8n.io)
+[![Integrações](https://img.shields.io/badge/Integrações-400%2B-green?style=for-the-badge)](https://n8n.io/integrations)
+[![Templates de Workflows](https://img.shields.io/badge/Templates-Workflows-orange?style=for-the-badge)](https://n8n.io/templates)
+[![Fórum da Comunidade](https://img.shields.io/badge/Fórum-Comunidade-ff4a73?style=for-the-badge)](https://community.n8n.io)
 
 ---
 
@@ -57,7 +53,7 @@ A documentação está organizada nas seguintes seções principais:
 - **[Cursos](/cursos):** Conteúdo estruturado em formato de texto e vídeo para aprendizado sequencial, do nível básico ao avançado.
 - **[Comunidade](/contribuir):** Saiba como contribuir para este projeto e para o ecossistema n8n.
 - **[Referência](/referencia):** Guias de migração, dicas de performance, solução de problemas e um glossário de termos técnicos.
-- **[Release Notes](/release-notes/index):** Fique por dentro de todas as novidades, melhorias e correções a cada versão do n8n. *(Em desenvolvimento)*
+- **[Release Notes](/release-notes/index):** Fique por dentro de todas as novidades, melhorias e correções a cada versão do n8n. _(Em desenvolvimento)_
 
 ---
 
@@ -66,6 +62,7 @@ A documentação está organizada nas seguintes seções principais:
 Nossa documentação está organizada de forma lógica e intuitiva:
 
 ### **Seções Principais**
+
 - **`/intro`** - Introdução e conceitos fundamentais
 - **`/primeiros-passos`** - Guias de instalação e primeiros workflows
 - **`/usando-n8n`** - Uso prático da plataforma
@@ -84,6 +81,7 @@ Nossa documentação está organizada de forma lógica e intuitiva:
 - **`/catalogo`** - Catálogo de serviços e integrações
 
 ### **Sistema de Validação de Overlaps**
+
 Para manter a qualidade e evitar redundâncias, implementamos um sistema automatizado de validação:
 
 - **Configuração centralizada**: `sidebars.json` define a estrutura hierárquica
@@ -92,15 +90,17 @@ Para manter a qualidade e evitar redundâncias, implementamos um sistema automat
 - **Relatórios detalhados**: Análise completa de problemas estruturais
 
 **Comandos de validação:**
+
 ```bash
 npm run validate-overlaps  # Executar validação completa
 npm run check-overlaps     # Comando alternativo
 ```
 
 **Status de validação:**
-- <ion-icon name="checkmark-circle-outline" style="color: green;"></ion-icon> **Validado** - Conteúdo revisado e sem overlaps
-- <ion-icon name="time-outline" style="color: orange;"></ion-icon> **Em Progresso** - Conteúdo em desenvolvimento
-- <ion-icon name="alert-circle-outline" style="color: red;"></ion-icon> **Overlaps Detectados** - Requer revisão
+
+- ✅ **Validado** - Conteúdo revisado e sem overlaps
+- ⏳ **Em Progresso** - Conteúdo em desenvolvimento
+- ⚠️ **Overlaps Detectados** - Requer revisão
 
 ---
 

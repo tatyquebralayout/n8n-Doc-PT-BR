@@ -5,11 +5,11 @@ description: Execute funções JavaScript simples e rápidas em seus workflows n
 keywords: [n8n, function, javascript, simples, rápido, operações]
 ---
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-function-node
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O **Function Node** é uma versão simplificada do Code Node, ideal para **operações rápidas e simples** em JavaScript. Ele executa uma função para cada item de entrada, oferecendo performance superior para tarefas básicas.
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-conceito-principal
+## O que é o Function Node?
 
 **Function Node = "Função Simples por Item"**
 
@@ -22,32 +22,11 @@ O Function Node é uma **AÇÃO** que:
 
 > **💡 Dica:** Use o Function Node para operações simples e o Code Node para lógica complexa que envolve múltiplos itens.
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-principais
+## Exemplos Práticos
 
-#id-1-function-code-javascript Estrutura básica
-return {
-  json: {
-    // Seus dados processados aqui
-  }
-};
-```
+<IonicIcon name="bulb-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#id-2-variveis-disponveis-javascript Dados do item atual
-$json              // Dados JSON do item
-$binary            // Dados binários (se houver)
-$position          // Posição do item (0, 1, 2...)
-$index             // Índice do item (1, 2, 3...)
-
-// Contexto
-$now               // Data/hora atual
-$today             // Data atual
-$workflow          // Informações do workflow
-$node              // Informações do node atual
-```
-
-#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-prticos
-
-#exemplo-1-transformao-simples-de Dados**
+### Exemplo 1: Transformação Simples de Dados
 
 **Entrada:**
 
@@ -83,7 +62,7 @@ return {
 }
 ```
 
-#exemplo-2-validao-de-dados
+### Exemplo 2: Validação de Dados
 
 **Função:**
 
@@ -112,7 +91,7 @@ return {
 };
 ```
 
-#exemplo-3-formatao-de-dados
+### Exemplo 3: Formatação de Dados
 
 **Função:**
 
@@ -140,7 +119,7 @@ return {
 };
 ```
 
-#exemplo-4-clculos-matemticos-funo
+### Exemplo 4: Cálculos Matemáticos
 
 ```javascript
 // Calcular desconto
@@ -168,14 +147,14 @@ return {
         pis: pis.toFixed(2),
         cofins: cofins.toFixed(2),
         total_impostos: (icms + pis + cofins).toFixed(2)
-      },
-      total_final: total.toFixed(2)
-    }
+      }
+    },
+    total_final: total.toFixed(2)
   }
 };
 ```
 
-#exemplo-5-manipulao-de-texto
+### Exemplo 5: Manipulação de Texto
 
 **Função:**
 
@@ -214,7 +193,7 @@ return {
 };
 ```
 
-#exemplo-6-condicionais-e-lgica
+### Exemplo 6: Condicionais e Lógica
 
 **Função:**
 
@@ -255,9 +234,13 @@ return {
 };
 ```
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-operaes-avanadas
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#manipulao-de-arrays-funo-javascript
+## Operações Avançadas
+
+### Manipulação de Arrays
+
+```javascript
 // Filtrar e mapear arrays
 const produtos = $json.produtos || [];
 const produtosFiltrados = produtos
@@ -285,7 +268,9 @@ return {
 };
 ```
 
-#manipulao-de-objetos-funo-javascript
+### Manipulação de Objetos
+
+```javascript
 // Mesclar objetos
 const dadosBasicos = {
   id: $json.id,
@@ -312,7 +297,10 @@ return {
 };
 ```
 
-#validaes-complexas-funo-javascript Validar CPF
+### Validações Complexas
+
+```javascript
+// Validar CPF
 function validarCPF(cpf) {
   cpf = cpf.replace(/\D/g, '');
   
@@ -326,6 +314,7 @@ function validarCPF(cpf) {
   for (let i = 0; i < 9; i++) {
     soma += parseInt(cpf.charAt(i)) * (10 - i);
   }
+  
   let resto = 11 - (soma % 11);
   let dv1 = resto < 2 ? 0 : resto;
   
@@ -334,6 +323,7 @@ function validarCPF(cpf) {
   for (let i = 0; i < 10; i++) {
     soma += parseInt(cpf.charAt(i)) * (11 - i);
   }
+  
   resto = 11 - (soma % 11);
   let dv2 = resto < 2 ? 0 : resto;
   
@@ -356,6 +346,7 @@ function validarCNPJ(cnpj) {
     soma += parseInt(cnpj.charAt(i)) * peso;
     peso = peso === 9 ? 2 : peso + 1;
   }
+  
   let resto = soma % 11;
   let dv1 = resto < 2 ? 0 : 11 - resto;
   
@@ -366,6 +357,7 @@ function validarCNPJ(cnpj) {
     soma += parseInt(cnpj.charAt(i)) * peso;
     peso = peso === 9 ? 2 : peso + 1;
   }
+  
   resto = soma % 11;
   let dv2 = resto < 2 ? 0 : 11 - resto;
   
@@ -385,21 +377,30 @@ return {
 };
 ```
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-vs Code Node**
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#quando-usar-function-node ✅ Operações simples por item
+## Performance vs Code Node
+
+### Quando usar Function Node
+
+✅ **Operações simples por item**
 - ✅ Transformações básicas de dados
 - ✅ Validações rápidas
 - ✅ Formatação de campos
 - ✅ Cálculos matemáticos simples
 
-#quando-usar-code-node ✅ Lógica complexa envolvendo múltiplos itens
+### Quando usar Code Node
+
+✅ **Lógica complexa envolvendo múltiplos itens**
 - ✅ Agregações e estatísticas
 - ✅ Integração com APIs externas
 - ✅ Processamento em lote
 - ✅ Manipulação de arrays complexos
 
-#comparao-de-performance-javascript Function Node - Mais rápido para operações simples
+### Comparação de Performance
+
+```javascript
+// Function Node - Mais rápido para operações simples
 return {
   json: {
     ...$json,
@@ -420,14 +421,22 @@ for (const item of items) {
 return returnData;
 ```
 
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-limitaes-e Considerações**
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#limitaes-do-function-node **Escopo isolado**: Cada item é processado independentemente
+## Limitações e Considerações
+
+### Limitações do Function Node
+
+**Escopo isolado**: Cada item é processado independentemente
+
 - **Sem acesso a outros itens**: Não pode referenciar dados de outros itens
 - **Sem loops**: Não pode iterar sobre múltiplos itens
 - **Sem async/await**: Não suporta operações assíncronas
 
-#boas-prticas-javascript Bom: Código simples e direto
+### Boas Práticas
+
+```javascript
+// ✅ Bom: Código simples e direto
 return {
   json: {
     ...$json,
@@ -444,7 +453,10 @@ return {
 };
 ```
 
-#tratamento-de-erros-javascript Tratamento básico de erros
+### Tratamento de Erros
+
+```javascript
+// Tratamento básico de erros
 try {
   const resultado = parseFloat($json.valor) * 1.1;
   
@@ -465,7 +477,9 @@ try {
 }
 ```
 
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
+<IonicIcon name="arrow-forward-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Próximos Passos
 
 Agora que você entende o Function Node:
 
@@ -495,4 +509,3 @@ Lembre-se: o Function Node não pode acessar outros itens ou executar operaçõe
 - [Documentação oficial do Function Node](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.function/)
 - [JavaScript MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Code Node](./code) - Para lógica mais complexa
-

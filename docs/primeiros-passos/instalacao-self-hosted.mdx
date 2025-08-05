@@ -6,17 +6,25 @@ slug: /primeiros-passos/instalacao-self-hosted
 keywords: [n8n, self-hosted, docker, instalação, produção, segurança]
 ---
 
-#ionicicon-nameeye-outline-style-fontsize-24px color: '#cor-ea4b71-viso-geral
+<IonicIcon name="eye-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Visão Geral**
 
-#o-que-self-hosted-self-hosted significa que você instala e gerencia o n8n em sua própria infraestrutura – seja um servidor local, VPS, cloud ou Kubernetes.
+## O que é Self-Hosted?
 
-#principais-vantagens-controle-total - Sua infraestrutura, suas regras
+Self-hosted significa que você instala e gerencia o n8n em sua própria infraestrutura – seja um servidor local, VPS, cloud ou Kubernetes.
+
+## Principais Vantagens
+
+**Controle total** - Sua infraestrutura, suas regras
+
 - **Integração corporativa** - VPNs, LDAP, redes privadas
 - **Compliance** - Dados nunca saem da sua rede
 - **Personalização** - Plugins customizados e extensões
 - **Custo controlado** - Sem cobrança por execução
 
-#requisitos-do-sistema-nodejs Versão 20.19 a 24.x (para instalação NPM)
+## Requisitos do Sistema
+
+- **Node.js**: Versão 20.19 a 24.x (para instalação NPM)
 - **Docker**: Versão 20.10+ (recomendado)
 - **Memória**: Mínimo 2GB RAM (4GB+ recomendado)
 - **Armazenamento**: 10GB+ de espaço livre
@@ -24,64 +32,7 @@ keywords: [n8n, self-hosted, docker, instalação, produção, segurança]
 
 ---
 
-#ionicicon-namedownload-outline-style-fontsize-24px color: '#cor-ea4b71-mtodos-de Instalação
-
-#docker-recomendado-para-produo-docker é a forma recomendada para instalar o n8n em produção pelos seguintes motivos:
-
-- **Ambiente isolado**: Cada instância do n8n roda em seu próprio container, evitando conflitos com outras aplicações
-- **Facilita migrações**: Você pode mover facilmente entre servidores, clouds ou ambientes de desenvolvimento
-- **Evita conflitos de dependências**: Não há interferência com versões de Node.js, Python ou outras bibliotecas do sistema
-- **Consistência entre sistemas**: Funciona igualmente em Linux, Windows e macOS
-- **Facilidade de backup**: Todo o ambiente pode ser versionado e replicado
-- **Escalabilidade**: Fácil de escalar horizontalmente com múltiplas instâncias
-
-#ionicicon-nameplay-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-bsica
-
-1. **Criar volume para persistência de dados:**
-
-```bash
-docker volume create n8n_data
-```
-
-2. **Executar o container:**
-
-```bash
-docker run -it --rm \
-  --name n8n \
-  -p 5678:5678 \
-  -v n8n_data:/home/node/.n8n \
-  docker.n8n.io/n8nio/n8n
-```
-
-3. **Acessar o n8n:**
-
-Abra seu navegador e acesse: `http://localhost:5678`
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-avanada
-
-Para produção, configure variáveis de ambiente essenciais:
-
-```bash
-docker run -it --rm \
-  --name n8n \
-  -p 5678:5678 \
-  -v n8n_data:/home/node/.n8n \
-  -e N8N_PROTOCOL=https \
-  -e N8N_HOST=seu-dominio.com \
-  -e GENERIC_TIMEZONE=America/Sao_Paulo \
-  -e N8N_ENCRYPTION_KEY=sua_chave_32_caracteres \
-  docker.n8n.io/n8nio/n8n
-```
-
-#docker-compose-produo-avanada-para ambientes de produção com banco de dados PostgreSQL e Redis:
-
-:::tip **Dica Pro**
-Para produção, sempre use **Docker** com **PostgreSQL** e **Redis**. Isso garante consistência, escalabilidade e facilidade de backup.
-:::
-
-#arquivo-docker-composeyml-details-summaryver-configurao completa</summary>
-
-Crie um arquivo `docker-compose.yml` com o seguinte conteúdo:
+## 📥 Docker Compose
 
 ```yaml
 version: '3.8'
@@ -134,37 +85,41 @@ volumes:
   redis_data:
 ```
 
-</details>
-
-#executar-os-servios-details-summarystrongver comandos</strong></summary>
+<details>
+<summary><strong>Ver comandos para executar os serviços</strong></summary>
 
 ```bash
-#iniciar-todos-os-servios-docker-compose up -d
+# iniciar todos os serviços docker
+docker-compose up -d
 
-#parar-todos-os-servios-docker-compose down
+# parar todos os serviços docker
+docker-compose down
 
-#ver-logs-do-n8n-docker-compose logs -f n8n
+# ver logs do n8n
+docker-compose logs -f n8n
 ```
 
 </details>
 
 ---
 
-#npm-nodejs-para-instalao-direta via npm:
+## 📦 Instalação via NPM
 
-#teste-rpido-execute-sem-instalar para testar o n8n:
+### Teste rápido (sem instalar)
 
 ```bash
 npx n8n
 ```
 
-#instalao-global-1-instalar-o n8n:**
+### Instalação global
+
+**1. Instalar o n8n:**
 
 ```bash
 npm install n8n -g
 ```
 
-2. **Executar com configurações:**
+**2. Executar com configurações:**
 
 ```bash
 N8N_PROTOCOL=https \
@@ -179,90 +134,31 @@ n8n requer Node.js versão entre 20.19 e 24.x. Verifique sua versão com `node -
 
 ---
 
-#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-configurao
+## 🏗️ Configuração de Proxy Reverso
 
-#variveis-de-ambiente-as-variveis de ambiente permitem personalizar as configurações do n8n quando executado em modo self-hosted. Você pode alterar configurações de servidor, banco de dados, segurança e performance através dessas variáveis. Configure-as antes de iniciar o n8n para evitar reconfigurações desnecessárias.
-
-<details>
-<summary><strong>Configurações Básicas</strong></summary>
-
-Configure estas variáveis de ambiente essenciais para o funcionamento do n8n em produção.
-
-```bash
-#configuraes-do-servidor-n8nport5678-n8nprotocolhttps
-N8N_HOST=seu-dominio.com
-GENERIC_TIMEZONE=America/Sao_Paulo
-
-#banco-de-dados-postgresql-dbtypepostgresdb
-DB_POSTGRESDB_HOST=localhost
-DB_POSTGRESDB_PORT=5432
-DB_POSTGRESDB_DATABASE=n8n
-DB_POSTGRESDB_USER=n8n
-DB_POSTGRESDB_PASSWORD=senha_segura
-
-#redis-para-filas-redisurlredislocalhost6379
-
-#segurana-n8nencryptionkeysuachave32caracteres-webhookurlhttpsseu-dominiocom
-
-#execues-executionsprocessmain-executionsmoderegular-details
-
-<details>
-<summary><strong>Configurações de Segurança</strong></summary>
-
-Configure estas variáveis para autenticação básica e restrições de acesso.
-
-```bash
-#autenticao-bsica-n8nbasicauthactivetrue-n8nbasicauthuseradmin-n8nbasicauthpasswordsenhasegura
-
-#restries-de-acesso-n8nblockenvaccessinnodetrue-n8nblockfileaccesston8nfilestrue
-N8N_SECURE_COOKIE=true
-N8N_SAMESITE_COOKIE=strict
-```
-
-</details>
-
-#configurao-de-sslhttps-a-configurao de SSL/HTTPS é **essencial para ambientes de produção** pois garante que todas as comunicações entre o navegador e o n8n sejam criptografadas, protegendo dados sensíveis, credenciais e workflows contra interceptação. Além da segurança básica, o HTTPS previne ataques man-in-the-middle e garante a integridade das informações. A compatibilidade com webhooks e APIs externas é fundamental, pois a maioria dos serviços modernos exige conexões seguras. O HTTPS também habilita protocolos mais avançados como HTTP/2 e HTTP/3, que melhoram significativamente a performance. Para aplicações mobile e Progressive Web Apps (PWA), o HTTPS é obrigatório para funcionalidades como notificações push e acesso a recursos do dispositivo.
-
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-com-nginx
-
-O Nginx atua como um proxy reverso que recebe todas as requisições HTTPS e as encaminha para o n8n rodando na porta 5678, gerenciando automaticamente a terminação SSL e os certificados. Esta configuração oferece flexibilidade total para personalizar headers de segurança, otimizar performance e implementar regras de roteamento específicas para seu ambiente de produção.
-
-<details>
-<summary><strong>Ver configuração do Nginx</strong></summary>
-
-Crie um arquivo de configuração do Nginx:
+### Nginx com SSL
 
 ```nginx
 server {
-    listen 80;
+    listen 443 ssl;
     server_name seu-dominio.com;
-    return 301 https://$server_name$request_uri;
-}
-
-server {
-    listen 443 ssl http2;
-    server_name seu-dominio.com;
-
-    ssl_certificate /path/to/cert.pem;
-    ssl_certificate_key /path/to/key.pem;
-
+    
+    ssl_certificate /etc/letsencrypt/live/seu-dominio.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/seu-dominio.com/privkey.pem;
+    
     location / {
         proxy_pass http://localhost:5678;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        
-        #configuraes-de-segurana-proxysetheader-x-frame-options DENY;
-        proxy_set_header X-Content-Type-Options nosniff;
         proxy_set_header X-XSS-Protection "1; mode=block";
     }
 }
 ```
 
-</details>
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-com-certbot (Lets Encrypt)
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**SSL com Certbot (Let's Encrypt)**
 
 O Certbot é uma ferramenta automatizada que simplifica significativamente a obtenção e renovação de certificados SSL gratuitos através do Let's Encrypt. Esta abordagem elimina a necessidade de gerenciar certificados manualmente, pois o Certbot configura automaticamente o Nginx e renova os certificados antes da expiração.
 
@@ -270,68 +166,27 @@ O Certbot é uma ferramenta automatizada que simplifica significativamente a obt
 <summary><strong>Ver comandos do Certbot</strong></summary>
 
 ```bash
-#instalar-certbot-sudo-apt-install certbot python3-certbot-nginx
+# instalar certbot
+sudo apt install certbot python3-certbot-nginx
 
-#gerar-certificado-sudo-certbot-nginx -d seu-dominio.com
+# gerar certificado
+sudo certbot --nginx -d seu-dominio.com
 
-#configurar-renovao-automtica-sudo-crontab -e
-#adicionar-0-12 * /usr/bin/certbot renew --quiet
+# configurar renovação automática
+sudo crontab -e
+# adicionar linha:
+0 12 * * * /usr/bin/certbot renew --quiet
 ```
 
 </details>
 
 ---
 
-#ionicicon-nametrending-up-outline-style-fontsize-24px color: '#cor-ea4b71-escalabilidade
-
-#configurao-de-filas-a-configurao de filas com Redis é fundamental para ambientes de alta performance, pois permite que o n8n processe múltiplas execuções de workflows simultaneamente sem sobrecarregar o sistema. O Redis atua como um broker de mensagens que distribui as tarefas entre diferentes processos, garantindo melhor utilização de recursos e escalabilidade horizontal quando necessário.
-
-<details>
-<summary><strong>Ver comandos do Redis</strong></summary>
-
-```bash
-#instalar-redis-sudo-apt-install redis-server
-
-#configurar-n8n-para-usar-redis
-REDIS_URL=redis://localhost:6379
-EXECUTIONS_PROCESS=main
-EXECUTIONS_MODE=regular
-```
-
-</details>
-
-#load-balancing-o-load-balancing distribui o tráfego entre múltiplas instâncias do n8n, garantindo alta disponibilidade e melhor performance durante picos de demanda. Esta configuração permite escalar horizontalmente adicionando mais servidores conforme necessário, enquanto o balanceador de carga automaticamente direciona as requisições para a instância com menor carga.
+<IonicIcon name="trending-up-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Kubernetes**
 
 <details>
-<summary><strong>Ver configuração de Load Balancing</strong></summary>
-
-```nginx
-upstream n8n_backend {
-    server 127.0.0.1:5678;
-    server 127.0.0.1:5679;
-    server 127.0.0.1:5680;
-}
-
-server {
-    listen 443 ssl;
-    server_name seu-dominio.com;
-
-    location / {
-        proxy_pass http://n8n_backend;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-```
-
-</details>
-
-#kubernetes-o-kubernetes-oferece-uma solução completa de orquestração de containers que automatiza o deployment, scaling e gerenciamento de múltiplas instâncias do n8n em um cluster distribuído. Esta abordagem garante alta disponibilidade através de auto-healing, load balancing automático e facilita o gerenciamento de configurações complexas através de ConfigMaps e Secrets.
-
-<details>
-<summary><strong>Ver configuração do Kubernetes</strong></summary>
+<summary><strong>Ver configuração Kubernetes</strong></summary>
 
 ```yaml
 apiVersion: apps/v1
@@ -339,7 +194,7 @@ kind: Deployment
 metadata:
   name: n8n
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: n8n
@@ -366,11 +221,15 @@ spec:
 
 </details>
 
-#ionicicon-namelock-closed-outline-style-fontsize-24px color: '#cor-ea4b71-segurana-a segurança é fundamental em ambientes de produção, pois protege dados sensíveis, credenciais e workflows contra acesso não autorizado. O n8n oferece múltiplas camadas de segurança que incluem autenticação básica, OAuth2, configurações de firewall e restrições de acesso que devem ser configuradas adequadamente para cada ambiente.
+<IonicIcon name="lock-closed-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Segurança**
 
-#Autenticação**
+A segurança é fundamental em ambientes de produção, pois protege dados sensíveis, credenciais e workflows contra acesso não autorizado. O n8n oferece múltiplas camadas de segurança que incluem autenticação básica, OAuth2, configurações de firewall e restrições de acesso que devem ser configuradas adequadamente para cada ambiente.
 
-#basic-auth-details-summarystrongver-configurao de Basic Auth</strong></summary>
+### Autenticação
+
+<details>
+<summary><strong>Ver configuração de Basic Auth</strong></summary>
 
 ```bash
 N8N_BASIC_AUTH_ACTIVE=true
@@ -380,7 +239,8 @@ N8N_BASIC_AUTH_PASSWORD=senha_segura
 
 </details>
 
-#oauth2-details-summarystrongver-configurao-de OAuth2</strong></summary>
+<details>
+<summary><strong>Ver configuração de OAuth2</strong></summary>
 
 ```bash
 N8N_OAUTH2_ACTIVE=true
@@ -392,48 +252,55 @@ N8N_OAUTH2_TOKEN_URL=https://auth.provider.com/oauth/token
 
 </details>
 
-#firewall-a-configurao-de-firewall é essencial para controlar o acesso à instância do n8n, permitindo apenas conexões necessárias e bloqueando tentativas de acesso não autorizado. Esta camada adicional de segurança complementa a autenticação, garantindo que apenas IPs autorizados possam acessar a aplicação.
+### Firewall
+
+A configuração de firewall é essencial para controlar o acesso à instância do n8n, permitindo apenas conexões necessárias e bloqueando tentativas de acesso não autorizado. Esta camada adicional de segurança complementa a autenticação, garantindo que apenas IPs autorizados possam acessar a aplicação.
 
 <details>
 <summary><strong>Ver configuração de Firewall</strong></summary>
 
 ```bash
-#permitir-apenas-https-sudo-ufw allow 443/tcp
+# permitir apenas https
+sudo ufw allow 443/tcp
 sudo ufw allow 80/tcp
 sudo ufw deny 5678/tcp
 
-#restringir-acesso-por-ip-sudo ufw allow from 192.168.1.0/24 to any port 5678
+# restringir acesso por ip
+sudo ufw allow from 192.168.1.0/24 to any port 5678
 ```
 
 </details>
 
 ---
 
-#ionicicon-namesave-outline-style-fontsize-24px color: '#cor-ea4b71-backup-e Recuperação
-
-#script-de-backup-automtico-crie um arquivo `backup-n8n.sh`:
+<IonicIcon name="save-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Backup e Recuperação**
 
 <details>
-<summary>Ver script de backup</summary>
+<summary><strong>Ver script de backup</strong></summary>
 
 ```bash
-#binbash-datedate-ymdhms-backupdirbackupsn8n-n8ndatahomenoden8n
+#!/bin/bash
+BACKUP_DIR="/backup/n8n"
+DATE=$(date +%Y%m%d_%H%M%S)
 
-#criar-backup-dos-dados-tar -czf $BACKUP_DIR/n8n_data_$DATE.tar.gz $N8N_DATA
+# Backup dos dados
+tar -czf $BACKUP_DIR/n8n_data_$DATE.tar.gz /home/node/.n8n
 
-#cor-backup-do-banco-postgresql-pgdump -h localhost -U n8n n8n > $BACKUP_DIR/n8n_db_$DATE.sql
+# Backup do banco PostgreSQL
+docker exec postgres pg_dump -U n8n n8n > $BACKUP_DIR/n8n_db_$DATE.sql
 
-#manter-apenas-ltimos-7-backups
+# Limpar backups antigos (mais de 7 dias)
 find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
 find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 ```
 
 </details>
 
-<p>&nbsp;</p>
+### Agendar backup
 
-#agendar-backup-bash
-#adicionar-ao-crontab-para-backup diário às 2h
+```bash
+# adicionar ao crontab para backup diário às 2h
 0 2 * * * /path/to/backup-n8n.sh
 ```
 
@@ -443,36 +310,16 @@ Mantenha sempre backups regulares dos dados e do banco de dados. Em caso de falh
 
 ---
 
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento
-
-#logs-o-monitoramento-de-logs é essencial para identificar problemas, auditar atividades e garantir a estabilidade do ambiente n8n. Utilizar logs detalhados facilita a detecção de falhas e o acompanhamento do comportamento do sistema em produção.
-
-<details>
-<summary>Ver comandos de logs</summary>
-
-```bash
-#logs-detalhados-n8nlogleveldebug-n8n-start
-
-#com-docker-docker-logs-f n8n_container
-
-#rotao-de-logs-logrotate-etclogrotatedn8n
-```
-
-</details>
-
-<p>&nbsp;</p>
-
-#health-check-crie-um-script `health-check.sh`:
+<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Monitoramento**
 
 <details>
-<summary>Ver script de health check</summary>
+<summary><strong>Ver script de monitoramento</strong></summary>
 
 ```bash
-#bin/bash
-
-#configurar-n8n-para-habilitar-health checks
-#adicione-ao-seu-docker-composeyml-ou variáveis de ambiente:
-#queuehealthcheckactivetrue-urlhttpsseu-dominiocomhealthz-responsecurl-s-o /dev/null -w "%{http_code}" $URL)
+#!/bin/bash
+URL="https://seu-dominio.com"
+RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" $URL)
 
 if [ $RESPONSE -ne 200 ]; then
     echo "n8n não está respondendo: $RESPONSE"
@@ -486,62 +333,73 @@ fi
 
 ---
 
-#ionicicon-namerefresh-outline-style-fontsize-24px color: '#cor-ea4b71-atualizaes
+<IonicIcon name="refresh-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Atualizações**
 
-#docker-bash
-#baixar-nova-imagem-docker-pull docker.n8n.io/n8nio/n8n
+### Docker
 
-#parar-e-remover-container-atual
+```bash
+# baixar nova imagem docker
+docker pull docker.n8n.io/n8nio/n8n
+
+# parar e remover container atual
 docker stop n8n_container
 docker rm n8n_container
 
-#iniciar-com-nova-imagem-docker run --name n8n_container [suas_opções] docker.n8n.io/n8nio/n8n
+# iniciar com nova imagem
+docker run --name n8n_container [suas_opções] docker.n8n.io/n8nio/n8n
 ```
 
-#npm-bash
-#atualizar-para-ltima-verso-npm update -g n8n
+### NPM
 
-#instalar-verso-especfica-npm-install -g n8n@1.81.0
+```bash
+# atualizar para última versão
+npm update -g n8n
 
-#instalar-verso-next-npm-install -g n8n@next
+# instalar versão específica
+npm install -g n8n@1.81.0
+
+# instalar versão next
+npm install -g n8n@next
 ```
 
-#reverter-atualizao-bash
-#instalar-verso-anterior-npm-install -g n8n@1.80.0
+### Reverter atualização
 
-#reverter-migrao-do-banco-n8n db:revert
+```bash
+# instalar versão anterior
+npm install -g n8n@1.80.0
+
+# reverter migração do banco
+n8n db:revert
 ```
 
 ---
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Solução de Problemas**
 
-#problemas-comuns
+### Logs
 
-#porta-em-uso-bash
-#verificar-porta-netstat-tulpn grep 5678
+```bash
+# ver logs do container
+docker logs n8n_container
 
-#matar-processo-sudo-kill-9 \`
+# ver logs em tempo real
+docker logs -f n8n_container
+
+# ver logs específicos
+docker logs n8n_container | grep ERROR
 ```
 
----
+### Verificar status
 
-#ionicicon-namecloud-upload-outline-style-fontsize-24px color: '#cor-ea4b71-migrao-para o Cloud
+```bash
+# verificar se o container está rodando
+docker ps | grep n8n
 
-:::info **Migração Sem Interrupção**
-Se você já utiliza o n8n em modo self-hosted, é possível migrar seus workflows, credenciais e dados para o n8n Cloud de forma segura e sem interrupção dos processos. O n8n Cloud oferece infraestrutura gerenciada, backups automáticos, escalabilidade e suporte dedicado, permitindo que você foque apenas na automação dos seus processos.
+# verificar uso de recursos
+docker stats n8n_container
 
-**Principais benefícios da migração:**
-- Zero downtime: migração sem parar workflows em produção
-- Backup automático: seus dados ficam protegidos e disponíveis
-- Suporte gerenciado: infraestrutura, atualizações e segurança sob responsabilidade do time n8n
-- Escalabilidade automática: recursos ajustados conforme a demanda
-
-**Como migrar:**
-1. Exporte seus workflows e credenciais do ambiente self-hosted pelo menu de exportação do n8n.
-2. Importe os arquivos exportados no painel do n8n Cloud.
-3. Teste os workflows no ambiente Cloud antes de desativar o ambiente self-hosted.
-4. Consulte a [documentação oficial de migração](https://docs.n8n.io/hosting/migration-guides/) para detalhes e dicas avançadas.
-
-Se precisar de suporte durante a migração, entre em contato com o time do n8n Cloud ou acesse a comunidade.
-:::
+# verificar conectividade
+curl -I http://localhost:5678
+```

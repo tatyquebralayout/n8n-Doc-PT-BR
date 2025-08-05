@@ -5,100 +5,66 @@ description: Como instalar e configurar n8n em provedores de nuvem
 keywords: [n8n, cloud, nuvem, aws, azure, gcp, instalação]
 ---
 
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-na Nuvem
+# Instalação na Nuvem
 
 Este guia detalha como **instalar n8n em provedores de nuvem**, incluindo n8n Cloud oficial e deployment em AWS, Azure, Google Cloud e outros provedores.
 
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-opes-de Cloud
+## <IonicIcon name="cloud-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> n8n Cloud Oficial
 
-#n8n-cloud-oficial-servio-totalmente gerenciado pelos criadores do n8n.
+### 1. Criar Conta
 
-#self-hosted-em-cloud-deploy-em sua própria infraestrutura na nuvem.
-
----
-
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-n8n-cloud (Oficial)
-
-#o-que-o-n8n Cloud?**
-
-O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda a complexidade de infraestrutura, permitindo que você foque exclusivamente na criação e execução de seus workflows.
-
-#principais-caractersticas-zero configuração** - Comece em segundos
-- ✅ **Escalabilidade automática** - Cresce com suas necessidades
-- ✅ **Backups automáticos** - Seus dados sempre seguros
-- ✅ **Monitoramento 24/7** - Equipe n8n cuida da infraestrutura
-- ✅ **Recursos Enterprise** - RBAC, ambientes, SAML incluídos
-
----
-
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-planos-e Preços
-
-#free-trial-durao-14 dias
-- **Execuções**: 1.000 execuções
-- **Usuários**: Até 5 usuários
-- **Recursos**: Todos os recursos incluídos
-
-#starter-plan-preo-20ms por usuário
-- **Execuções**: 10.000 execuções/mês
-- **Usuários**: Ilimitados
-- **Suporte**: Email
-
-#professional-plan-preo-50ms por usuário
-- **Execuções**: 50.000 execuções/mês
-- **Usuários**: Ilimitados
-- **Suporte**: Email + Chat
-- **Recursos**: Ambientes, RBAC avançado
-
-#enterprise-plan-preo-sob consulta
-- **Execuções**: Ilimitadas
-- **Recursos**: SAML, SSO, SLA garantido
-- **Suporte**: Dedicado
-
----
-
-#ionicicon-nameplay-circle-outline-style-fontsize-24px color: '#cor-ea4b71-como-comear
-
-#id-1-criar-conta-1-acesse [cloud.n8n.io](https://cloud.n8n.io)
+1. Acesse [n8n.cloud](https://n8n.cloud)
 2. Clique em **"Start Free Trial"**
 3. Preencha seus dados:
-   - **Nome completo**
-   - **Email corporativo**
-   - **Senha segura**
+
+- **Nome completo**
+- **Email corporativo**
+- **Senha segura**
+
 4. Confirme seu email
 
-#id-2-configurao-inicial-aps-o login, você será direcionado para o dashboard:
+### 2. Configuração Inicial
+
+Após o login, você será direcionado para o dashboard:
 
 1. **Escolha seu workspace** (ou crie um novo)
 2. **Configure domínio personalizado** (opcional)
 3. **Adicione membros da equipe** (opcional)
 4. **Configure notificações** (opcional)
 
-#id-3-primeiro-workflow-1-clique em **"Create Workflow"**
+### 3. Primeiro Workflow
+
+1. Clique em **"Create Workflow"**
 2. Escolha um template ou comece do zero
 3. Configure seu primeiro trigger
 4. Teste a execução
 
 ---
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-avanadas
+## <IonicIcon name="key-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Domínio Personalizado
 
-#domnio-personalizado-configure-um-domnio próprio para sua instância:
+### Configuração
 
-1. Vá em **Settings > Workspace**
+1. Acesse **Settings > Domains**
 2. Clique em **"Custom Domain"**
 3. Adicione seu domínio
 4. Configure DNS conforme instruções
 5. Aguarde a verificação (pode levar até 24h)
 
-#integrao-com-sso-para-planos Professional e Enterprise:
+## <IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Integração com SSO
+
+Para planos Professional e Enterprise:
 
 1. **Settings > Authentication**
 2. Configure **SAML** ou **OAuth**
 3. Adicione provedores de identidade
 4. Configure mapeamento de usuários
 
-#ambientes-crie-ambientes-separados-para desenvolvimento e produção:
+## <IonicIcon name="layers-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Ambientes
+
+Crie ambientes separados para desenvolvimento e produção:
 
 1. **Settings > Environments**
 2. Clique em **"Create Environment"**
@@ -107,68 +73,12 @@ O n8n Cloud é uma plataforma **Software-as-a-Service (SaaS)** que elimina toda 
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana-e Compliance
+## <IonicIcon name="logo-aws" style={{fontSize: '24px', color: '#ea4b71'}} /> Amazon Web Services
 
-#certificaes-soc-2-type II** - Controles de segurança
-- **GDPR** - Conformidade com dados europeus
-- **ISO 27001** - Gestão de segurança da informação
+### AWS ECS
 
-#recursos-de-segurana-criptografia em trânsito** - TLS 1.3
-- **Criptografia em repouso** - AES-256
-- **Backups automáticos** - Diários e redundantes
-- **Monitoramento 24/7** - Detecção de anomalias
-
-#controles-de-acesso-rbac - Controle granular de permissões
-- **2FA** - Autenticação de dois fatores
-- **Audit logs** - Registro completo de atividades
-- **IP whitelist** - Restrição por endereços IP
-
----
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento-e Analytics
-
-#dashboard-de-execues-taxa de sucesso** por workflow
-- **Tempo de execução** médio
-- **Erros mais comuns** e soluções
-- **Uso de recursos** e otimizações
-
-#alertas-e-notificaes-falhas críticas** em tempo real
-- **Limite de execuções** próximo
-- **Performance degradada**
-- **Manutenções programadas**
-
----
-
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-self-hosted-em Cloud
-
-#aws-amazon-web-services
-
-#cor-ec2-com-docker-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-instncia EC2
-aws ec2 run-instances \
-  --image-id ami-0c55b159cbfafe1f0 \
-  --instance-type t3.medium \
-  --key-name sua-key \
-  --security-group-ids sg-xxxxxxxxx \
-  --subnet-id subnet-xxxxxxxxx
-
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-conectar-via SSH
-ssh -i sua-key.pem ubuntu@seu-ip
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-docker
-sudo apt update
-sudo apt install docker.io docker-compose
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-executar-n8n
-docker run -d \
-  --name n8n \
-  -p 80:5678 \
-  -v n8n_data:/home/node/.n8n \
-  n8nio/n8n
-```
-
-#ecs-elastic-container-service-yaml
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-task-definitionjson
+```json
+{
   "family": "n8n",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
@@ -200,165 +110,60 @@ docker run -d \
 }
 ```
 
-#google-cloud-platform-gcp
+## <IonicIcon name="logo-google" style={{fontSize: '24px', color: '#ea4b71'}} /> Google Cloud Platform
 
-#compute-engine-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-instncia
+### Compute Engine
+
+```bash
+# Criar instância
 gcloud compute instances create n8n-instance \
   --zone=us-central1-a \
   --machine-type=e2-medium \
   --image-family=ubuntu-2004-lts \
   --image-project=ubuntu-os-cloud
-
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-conectar-via SSH
-gcloud compute ssh n8n-instance --zone=us-central1-a
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-e executar n8n
-sudo apt update
-sudo apt install docker.io docker-compose
-sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
 ```
 
-#cloud-run-yaml
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-cloudbuildyaml-steps
+### Cloud Build
+
+```yaml
+steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['run', '-d', '--name', 'n8n', '-p', '8080:5678', 'n8nio/n8n']
 ```
 
-#microsoft-azure
+## <IonicIcon name="logo-microsoft" style={{fontSize: '24px', color: '#ea4b71'}} /> Microsoft Azure
 
-#azure-vm-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-vm
+### Azure VM
+
+```bash
+# Criar VM
 az vm create \
   --resource-group n8n-rg \
   --name n8n-vm \
   --image UbuntuLTS \
-  --size Standard_B2s \
-  --admin-username azureuser
-
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-conectar-via SSH
-ssh azureuser@seu-ip
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-e executar n8n
-sudo apt update
-sudo apt install docker.io docker-compose
-sudo docker run -d --name n8n -p 80:5678 n8nio/n8n
+  --size Standard_B2s
 ```
 
-#azure-container-instances-bash
-#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-criar-container
-az container create \
-  --resource-group n8n-rg \
-  --name n8n-container \
-  --image n8nio/n8n:latest \
-  --ports 5678 \
-  --dns-name-label n8n-app
+### Azure Container Instances
+
+```yaml
+apiVersion: 2019-12-01
+location: eastus
+properties:
+  containers:
+  - name: n8n
+    properties:
+      image: n8nio/n8n:latest
+      ports:
+      - port: 5678
 ```
 
 ---
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-avanada
+## <IonicIcon name="help-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Suporte
 
-#load-balancer-yaml
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-aws-application Load Balancer
-apiVersion: v1
-kind: Service
-metadata:
-  name: n8n-service
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 5678
-  selector:
-    app: n8n
-```
+Para dúvidas sobre instalação em nuvem:
 
-#auto-scaling-yaml
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-kubernetes-hpa
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-  name: n8n-hpa
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: n8n
-  minReplicas: 2
-  maxReplicas: 10
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 70
-```
-
-#monitoramento-yaml
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-prometheus-monitoring
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: prometheus-config
-data:
-  prometheus.yml: |
-    global:
-      scrape_interval: 15s
-    scrape_configs:
-    - job_name: 'n8n'
-      static_configs:
-      - targets: ['n8n:5678']
-```
-
----
-
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-suporte-e Recursos
-
-#canais-de-suporte-documentao oficial** - Guias detalhados
-- **Community Forum** - Troca de experiências
-- **Discord** - Suporte em tempo real
-- **Email** - Suporte técnico direto
-
-#recursos-adicionais-templates-prontos - Workflows pré-configurados
-- **Webinars** - Treinamentos semanais
-- **Best practices** - Guias de otimização
-- **API Reference** - Documentação técnica
-
----
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você conhece as opções de cloud:
-
-1. **[Criar Primeiro Workflow](../../../primeiros-passos/primeiro-workflow)** - Aprenda a construir workflows
-2. **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)** - Entenda os fundamentos
-3. **[Integrações](../../integracoes/)** - Conecte suas aplicações
-
-#outros-mtodos-de-instalao **[Docker](./docker)** - Containerização para produção
-- **[NPM](./npm)** - Instalação local para desenvolvimento
-- **[Desktop](./desktop)** - Aplicação desktop
-
----
-
-:::tip **Dica Pro**
-Para **time-to-value** rápido, comece com **n8n Cloud**. Para **controle total** e **customização**, use **self-hosted** em sua infraestrutura de cloud.
-:::
-
-:::info **Escolha da Cloud**
-**n8n Cloud** é ideal para equipes que querem focar no produto. **Self-hosted** é melhor para controle total e integração com infraestrutura existente.
-:::
-
-:::warning **Considerações**
-Para **self-hosted** em cloud, considere custos de infraestrutura, manutenção e monitoramento. **n8n Cloud** inclui tudo isso no preço.
-:::
-
----
-
-**Links úteis:**
-
-- [n8n Cloud](https://cloud.n8n.io)
-- [Documentação oficial](https://docs.n8n.io/)
-- [Repositório n8n](https://github.com/n8n-io/n8n)
-
+- **Documentação oficial**: [docs.n8n.io](https://docs.n8n.io)
+- **Comunidade**: [community.n8n.io](https://community.n8n.io)
+- **GitHub**: [github.com/n8n-io/n8n](https://github.com/n8n-io/n8n)

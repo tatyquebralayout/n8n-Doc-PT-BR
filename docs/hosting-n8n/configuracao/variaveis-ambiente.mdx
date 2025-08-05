@@ -5,226 +5,85 @@ description: Como configurar variáveis de ambiente para n8n em diferentes ambie
 keywords: [n8n, environment variables, variáveis ambiente, configuração, deployment]
 ---
 
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-variveis-de Ambiente
+# Variáveis de Ambiente
 
 Este documento explica como **configurar variáveis de ambiente** para n8n em diferentes contextos de deployment, abordando variáveis essenciais de produção, configuração de segurança, otimização de performance, separação entre ambientes (dev/staging/prod), e gerenciamento seguro de credenciais através de environment variables que facilitam deployment automatizado e configuração flexível sem hardcoding.
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
-
-- Variáveis essenciais para produção
-- Configurações de segurança
-- Otimização de performance
-- Separação de ambientes
-- Gerenciamento de credenciais
-
 ---
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-bsica
+<IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#variveis-essenciais-bash
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-bsicas
-N8N_PORT=5678
-N8N_PROTOCOL=https
-N8N_HOST=seu-dominio.com
-GENERIC_TIMEZONE=America/Sao_Paulo
+## Configuração Básica
 
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-url-para webhooks (importante!)
-WEBHOOK_URL=https://seu-dominio.com/
+### Gerar Chave de Criptografia
 
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-fuso-horrio brasileiro
-GENERIC_TIMEZONE=America/Sao_Paulo
+```bash
+# Gerar chave de criptografia forte
+node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"
 ```
 
-#banco-de-dados-bash
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-postgresql-recomendado
-DB_TYPE=postgresdb
-DB_POSTGRESDB_HOST=localhost
-DB_POSTGRESDB_PORT=5432
-DB_POSTGRESDB_DATABASE=n8n
-DB_POSTGRESDB_USER=n8n
-DB_POSTGRESDB_PASSWORD=senha_segura
+### Variáveis Essenciais
 
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-mysql-alternativa
-DB_TYPE=mysqldb
-DB_MYSQLDB_HOST=localhost
-DB_MYSQLDB_PORT=3306
-DB_MYSQLDB_DATABASE=n8n
-DB_MYSQLDB_USER=n8n
-DB_MYSQLDB_PASSWORD=senha_segura
-```
-
-#segurana-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-chave-de criptografia (32 caracteres)
-N8N_ENCRYPTION_KEY=sua_chave_32_caracteres_aqui
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-autenticao-bsica
-N8N_BASIC_AUTH_ACTIVE=true
-N8N_BASIC_AUTH_USER=admin
-N8N_BASIC_AUTH_PASSWORD=senha_segura
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-desabilitar-gerenciamento de usuários (se usar auth externa)
-N8N_USER_MANAGEMENT_DISABLED=false
-```
-
----
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de Segurança
-
-#Autenticação
-
-#basic-auth-bash
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-ativar-autenticao básica
-N8N_BASIC_AUTH_ACTIVE=true
-N8N_BASIC_AUTH_USER=admin
-N8N_BASIC_AUTH_PASSWORD=senha_segura
-
-#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-para-mltiplos usuários (separar por vírgula)
-N8N_BASIC_AUTH_USER=admin,usuario1,usuario2
-N8N_BASIC_AUTH_PASSWORD=senha1,senha2,senha3
-```
-
-#oauth2-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-oauth2
-N8N_OAUTH2_ACTIVE=true
-N8N_OAUTH2_CLIENT_ID=seu_client_id
-N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
-N8N_OAUTH2_AUTHORIZATION_URL=https://auth.provider.com/oauth/authorize
-N8N_OAUTH2_TOKEN_URL=https://auth.provider.com/oauth/token
-```
-
-#criptografia-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-chave-de criptografia obrigatória
-N8N_ENCRYPTION_KEY=sua_chave_32_caracteres_aqui
-
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-gerar-chave segura
-openssl rand -hex 16
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-ou-node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"
-```
-
-#privacidade-de-dados-bash
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-lgpd
-EXECUTIONS_DATA_SAVE_ON_ERROR=none
-EXECUTIONS_DATA_SAVE_ON_SUCCESS=none
-EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS=false
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-limpeza-automtica de dados
-EXECUTIONS_DATA_PRUNE=true
-EXECUTIONS_DATA_MAX_AGE=168  #id-7-dias-em-horas-executionsdataprunetimeout3600  #id-1-hora
-
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-e Escalabilidade
-
-#redis-para-filas-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-redis para processamento distribuído
-REDIS_URL=redis://localhost:6379
-
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de execução
-EXECUTIONS_PROCESS=main
-EXECUTIONS_MODE=regular
-
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-para-alta performance
-EXECUTIONS_TIMEOUT=300000  #id-5-minutos-executionstimeoutmax3600000  #id-1-hora
-
-#recursos-do-sistema-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-limites-de memória
-NODE_OPTIONS="--max-old-space-size=4096"
-
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-de conexão
-N8N_TIMEOUT=30000  #id-30-segundos-n8ntimeoutmax300000  #id-5-minutos
-
-#logs-e-monitoramento-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-nvel-de logs
-N8N_LOG_LEVEL=info  #cor-debug-info-warn-error
-
-#ionicicon-namefolder-outline-style-fontsize-24px color: '#cor-ea4b71-logs-estruturados
-N8N_LOG_FORMAT=json
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-mtricas-de performance
-N8N_METRICS=true
-```
-
----
-
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-separao-de Ambientes
-
-#desenvolvimento-bash
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-envdevelopment-n8nport5678
-N8N_PROTOCOL=http
-N8N_HOST=localhost
-GENERIC_TIMEZONE=America/Sao_Paulo
-
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-banco-sqlite para desenvolvimento
-DB_TYPE=sqlite
-DB_SQLITE_DATABASE=/home/node/.n8n/database.sqlite
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-logs-detalhados
-N8N_LOG_LEVEL=debug
-N8N_LOG_FORMAT=simple
-
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-sem-autenticao para desenvolvimento
-N8N_BASIC_AUTH_ACTIVE=false
-```
-
-#staging-bash
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-envstaging-n8nport5678
-N8N_PROTOCOL=https
-N8N_HOST=staging.seudominio.com
-GENERIC_TIMEZONE=America/Sao_Paulo
-
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-postgresql-staging
-DB_TYPE=postgresdb
-DB_POSTGRESDB_HOST=staging-db.seudominio.com
-DB_POSTGRESDB_DATABASE=n8n_staging
-DB_POSTGRESDB_USER=n8n_staging
-DB_POSTGRESDB_PASSWORD=senha_staging
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-autenticao-bsica
-N8N_BASIC_AUTH_ACTIVE=true
-N8N_BASIC_AUTH_USER=staging_user
-N8N_BASIC_AUTH_PASSWORD=senha_staging
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-logs-moderados
-N8N_LOG_LEVEL=info
-```
-
-#produo-bash
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-envproduction-n8nport5678
+```bash
+# Configurações básicas
 N8N_PROTOCOL=https
 N8N_HOST=seudominio.com
 GENERIC_TIMEZONE=America/Sao_Paulo
+WEBHOOK_URL=https://seudominio.com/
 
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-postgresql-produo
+# Banco de dados
 DB_TYPE=postgresdb
-DB_POSTGRESDB_HOST=prod-db.seudominio.com
-DB_POSTGRESDB_DATABASE=n8n_production
-DB_POSTGRESDB_USER=n8n_production
-DB_POSTGRESDB_PASSWORD=senha_producao_segura
+DB_POSTGRESDB_HOST=postgres
+DB_POSTGRESDB_PORT=5432
+DB_POSTGRESDB_DATABASE=n8n
+DB_POSTGRESDB_USER=n8n
+DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
 
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-redis-para filas
-REDIS_URL=redis://redis.seudominio.com:6379
+# Redis
+REDIS_URL=redis://redis:6379
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana-mxima
-N8N_ENCRYPTION_KEY=chave_32_caracteres_producao
+# Segurança
+N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
 N8N_BASIC_AUTH_ACTIVE=true
 N8N_BASIC_AUTH_USER=admin
-N8N_BASIC_AUTH_PASSWORD=senha_producao_segura
+N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD}
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-otimizada
+# Performance
 EXECUTIONS_PROCESS=main
 EXECUTIONS_MODE=regular
 EXECUTIONS_TIMEOUT=300000
-EXECUTIONS_TIMEOUT_MAX=3600000
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-logs-de produção
-N8N_LOG_LEVEL=warn
+# Logs
+N8N_LOG_LEVEL=info
 N8N_LOG_FORMAT=json
 ```
 
 ---
 
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-docker-e Containerização
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#docker-compose-yaml-version-38
+## Gerenciamento de Credenciais
+
+### Variáveis Sensíveis
+
+```bash
+# Chave de criptografia (obrigatória)
+N8N_ENCRYPTION_KEY=chave-criptografia-forte
+
+# Senhas de banco de dados
+DB_POSTGRESDB_PASSWORD=senha_forte_banco
+N8N_BASIC_AUTH_PASSWORD=senha_admin
+
+# Chaves de API
+N8N_API_KEY=chave_api_segura
+```
+
+### Docker Compose com Secrets
+
+```yaml
+version: '3.8'
 
 services:
   n8n:
@@ -233,27 +92,36 @@ services:
     ports:
       - "5678:5678"
     environment:
-      #configuraes-bsicas-n8nprotocolhttps N8N_HOST=seudominio.com
+      # Configurações básicas
+      - N8N_PROTOCOL=https
+      - N8N_HOST=seudominio.com
       - GENERIC_TIMEZONE=America/Sao_Paulo
-      - WEBHOOK_URL=https://seudominio.com/
-      
-      #banco-de-dados-dbtypepostgresdb
+
+      # Banco de dados
+      - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_PORT=5432
       - DB_POSTGRESDB_DATABASE=n8n
       - DB_POSTGRESDB_USER=n8n
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
-      
-      #redis-redisurlredisredis6379
-      
-      #segurana-n8nencryptionkeyn8nencryptionkey-n8nbasicauthactivetrue
+
+      # Redis
+      - REDIS_URL=redis://redis:6379
+
+      # Segurança
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
+      - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=admin
       - N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD}
-      
-      #performance-executionsprocessmain-executionsmoderegular
+
+      # Performance
+      - EXECUTIONS_PROCESS=main
+      - EXECUTIONS_MODE=regular
       - EXECUTIONS_TIMEOUT=300000
-      
-      #logs-n8nloglevelinfo-n8nlogformatjson
+
+      # Logs
+      - N8N_LOG_LEVEL=info
+      - N8N_LOG_FORMAT=json
     volumes:
       - n8n_data:/home/node/.n8n
     depends_on:
@@ -283,7 +151,11 @@ volumes:
   redis_data:
 ```
 
-#kubernetes-yaml-apiversion-appsv1-kind Deployment
+### Kubernetes
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: n8n
 spec:
@@ -329,8 +201,6 @@ spec:
             secretKeyRef:
               name: n8n-secrets
               key: encryption-key
-        - name: REDIS_URL
-          value: "redis://redis-service:6379"
         resources:
           requests:
             memory: "512Mi"
@@ -342,127 +212,84 @@ spec:
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-gerenciamento-de Credenciais
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#variveis-sensveis-bash
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-nunca-commite estas variáveis no código!
-N8N_ENCRYPTION_KEY=sua_chave_32_caracteres_aqui
-DB_POSTGRESDB_PASSWORD=senha_super_segura
-N8N_BASIC_AUTH_PASSWORD=senha_admin
-REDIS_PASSWORD=senha_redis
+## Ambientes Separados
+
+### Desenvolvimento
+
+```bash
+# .env.development
+N8N_PROTOCOL=http
+N8N_HOST=localhost
+GENERIC_TIMEZONE=America/Sao_Paulo
+DB_TYPE=postgresdb
+DB_POSTGRESDB_HOST=localhost
+DB_POSTGRESDB_DATABASE=n8n_dev
+N8N_LOG_LEVEL=debug
+N8N_LOG_FORMAT=simple
 ```
 
-#arquivo-env-bash
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-env-no commitar no git)
-N8N_ENCRYPTION_KEY=sua_chave_32_caracteres_aqui
-DB_POSTGRESDB_PASSWORD=senha_super_segura
-N8N_BASIC_AUTH_PASSWORD=senha_admin
-REDIS_PASSWORD=senha_redis
+### Staging
+
+```bash
+# .env.staging
+N8N_PROTOCOL=https
+N8N_HOST=staging.seudominio.com
+GENERIC_TIMEZONE=America/Sao_Paulo
+DB_TYPE=postgresdb
+DB_POSTGRESDB_HOST=staging-postgres
+DB_POSTGRESDB_DATABASE=n8n_staging
+N8N_LOG_LEVEL=info
+N8N_LOG_FORMAT=json
 ```
 
-#secrets-management
+### Produção
 
-#docker-secrets-yaml
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-docker-composeyml-services
-  n8n:
-    image: n8nio/n8n:latest
-    secrets:
-      - n8n_encryption_key
-      - db_password
-    environment:
-      - N8N_ENCRYPTION_KEY_FILE=/run/secrets/n8n_encryption_key
-      - DB_POSTGRESDB_PASSWORD_FILE=/run/secrets/db_password
-
-secrets:
-  n8n_encryption_key:
-    file: ./secrets/n8n_encryption_key.txt
-  db_password:
-    file: ./secrets/db_password.txt
-```
-
-#kubernetes-secrets-yaml-apiversion-v1
-kind: Secret
-metadata:
-  name: n8n-secrets
-type: Opaque
-data:
-  encryption-key: <base64-encoded-key>
-  db-password: <base64-encoded-password>
-  basic-auth-password: <base64-encoded-password>
-```
-
----
-
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento-e Debugging
-
-#logs-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-nveis-de log
-N8N_LOG_LEVEL=debug    #mais-detalhado-n8nloglevelinfo     #informaes-gerais-n8nloglevelwarn     #apenas-avisos-n8nloglevelerror    #apenas-erros
-
-#ionicicon-namerepeat-outline-style-fontsize-24px color: '#cor-ea4b71-formato-de logs
-N8N_LOG_FORMAT=simple  #formato-simples-n8nlogformatjson    #formato-json-recomendado
-
-#mtricas-bash
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-ativar-mtricas
-N8N_METRICS=true
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-endpoint-de métricas
-N8N_METRICS_ENDPOINT=/metrics
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-mtricas-personalizadas
-N8N_METRICS_PREFIX=n8n_
-```
-
-#health-checks-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-endpoint-de health check
-N8N_HEALTH_CHECK_ENDPOINT=/healthz
-
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de health check
-N8N_HEALTH_CHECK_TIMEOUT=5000
-N8N_HEALTH_CHECK_INTERVAL=30000
+```bash
+# .env.production
+N8N_PROTOCOL=https
+N8N_HOST=seudominio.com
+GENERIC_TIMEZONE=America/Sao_Paulo
+DB_TYPE=postgresdb
+DB_POSTGRESDB_HOST=production-postgres
+DB_POSTGRESDB_DATABASE=n8n_prod
+N8N_LOG_LEVEL=warn
+N8N_LOG_FORMAT=json
+EXECUTIONS_PROCESS=worker
+REDIS_URL=redis://redis:6379
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Produção
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#segurana-n8nencryptionkey configurada (32 caracteres)
-- [ ] `N8N_BASIC_AUTH_ACTIVE=true` ou OAuth2 configurado
-- [ ] `N8N_PROTOCOL=https` em produção
-- [ ] Senhas fortes para banco de dados
-- [ ] Firewall configurado
-- [ ] SSL/HTTPS configurado
+## Checklist de Configuração
 
-#performance-redisurl configurado para filas
-- [ ] `EXECUTIONS_PROCESS=main` configurado
-- [ ] `EXECUTIONS_MODE=regular` configurado
-- [ ] Timeouts adequados configurados
-- [ ] Recursos do sistema adequados
+### Segurança
+- [ ] Chave de criptografia forte configurada
+- [ ] Senhas seguras definidas
+- [ ] Autenticação básica ativada
+- [ ] HTTPS configurado
 
-#configurao-generictimezoneamericasaopaulo
-- [ ] `WEBHOOK_URL` configurado corretamente
-- [ ] Banco de dados PostgreSQL configurado
-- [ ] Logs configurados para produção
-- [ ] Backup configurado
+### Performance
+- [ ] Timeouts configurados adequadamente
+- [ ] Processo de execução definido
+- [ ] Redis configurado (se necessário)
+- [ ] Logs estruturados
 
----
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você configurou as variáveis de ambiente:
-
-1. **[Configuração de Database](./database)** - Configure banco de dados PostgreSQL
-2. **[Configuração de Filas](./queues)** - Configure Redis para processamento escalável
-3. **[Configuração SSL/HTTPS](./ssl-https)** - Configure HTTPS seguro
-4. **[Segurança](../seguranca/autenticacao)** - Configure autenticação avançada
+### Monitoramento
+- [ ] Nível de log apropriado
+- [ ] Formato de log configurado
+- [ ] Métricas habilitadas
+- [ ] Alertas configurados
 
 ---
 
 :::tip **Dica Pro**
-Sempre use variáveis de ambiente para configurações sensíveis. Nunca hardcode senhas ou chaves no código!
+Use arquivos .env separados para diferentes ambientes e nunca commite credenciais no controle de versão. Use secrets managers em produção.
 :::
 
 :::warning **Importante**
-Em produção, sempre use HTTPS (`N8N_PROTOCOL=https`) e configure uma chave de criptografia forte (`N8N_ENCRYPTION_KEY`).
+Sempre teste as variáveis de ambiente em desenvolvimento antes de aplicar em produção. A chave de criptografia é obrigatória e não pode ser alterada após a primeira configuração.
 :::
-

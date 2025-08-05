@@ -6,24 +6,25 @@ keywords: [n8n, execuções, visualizar, status, histórico, resultados]
 ---
 
 :::warning
-<IonicIcon name="time-outline" style={{ fontSize: '18px', color: '#cor-f59e0b-esta-pgina ainda está em processo de validação. O conteúdo pode sofrer alterações.
-:::
-
-
-#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-visualizar-execues
+<IonicIcon name="time-outline" style={{fontSize: '18px', color: '#ea4b71'}} />}
+}
+<IonicIcon name="color-palette-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+visualizar-execues
 
 Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu em cada execução dos seus workflows.
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-1 Onde Encontrar Execuções
+## ionicicon namechevron forward outline style fontsize
 
-#menu-de-execues-1-acesse o menu lateral** → Clique em **"Execuções"**
+1-acesse o menu lateral** → Clique em **"Execuções"**
 2. **Visualize todas as execuções** recentes
 3. **Filtre por workflow** específico
 4. **Pesquise** por data, status ou conteúdo
 
-#histrico-de-execues-informaes-disponveis
+## histrico de execues informaes
+
+disponveis
 
 - **Data e hora** da execução
 - **Workflow** executado
@@ -33,38 +34,8 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-2 Status das Execuções
+## ionicicon namechevron forward outline style fontsize
 
-#status-de-sucesso-caractersticas **Cor verde** no indicador
-- **Todos os nodes** executaram com sucesso
-- **Dados processados** conforme esperado
-- **Logs limpos** sem erros
-
-#status-de-erro-caractersticas **Cor vermelha** no indicador
-- **Um ou mais nodes** falharam
-- **Execução interrompida** no ponto de falha
-- **Logs com detalhes** do erro
-
-#status-de-aguardando-caractersticas **Cor amarela** no indicador
-- **Workflow pausado** temporariamente
-- **Aguardando input** manual ou condição
-- **Pode ser retomado** quando necessário
-
-#status-de-em-andamento-caractersticas
-
-- **Cor azul** no indicador
-- **Execução ativa** no momento
-- **Nodes sendo processados** sequencialmente
-- **Tempo real** de progresso
-
----
-
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-3 Detalhes da Execução
-
-#informaes-gerais-ao-clicar-em uma execução:**
-
-```json
-{
   "executionId": "abc123-def456-ghi789",
   "workflowName": "Enviar Relatório Diário",
   "startTime": "2024-01-15T09:00:00Z",
@@ -73,95 +44,13 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
   "status": "success",
   "trigger": "schedule",
   "nodesExecuted": 5,
-  "dataProcessed": 150
-}
-```
+  "dataProcessed": 150}
 
-#fluxo-de-execuo-visualizao-do caminho:**
+```\n\n## fluxo de execuo visualizao\n\ndo caminho:**\n\n1. **Trigger** → Iniciou a execução\n2. **Node 1** → Processou dados (200ms)\n3. **Node 2** → Fez requisição HTTP (1.5s)\n4. **Node 3** → Transformou dados (100ms)\n5. **Node 4** → Enviou notificação (500ms)\n6. **Finalizado** → Sucesso total\n\n---\n\n<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />\n4 Análise de Performance\n\n## mtricas de tempo tempos\n\nimportantes\n\n| Métrica | Descrição | Exemplo |\n|---------|-----------|---------|\n| **Tempo Total** | Duração completa da execução | 2m 30s |\n| **Tempo por Node** | Tempo gasto em cada node | Node 2: 1.5s |\n| **Tempo de Espera** | Tempo entre nodes | 100ms |\n| **Tempo de Processamento** | Tempo ativo de processamento | 2m 15s |\n\n## anlise de tendncias compare\n\nexecues\n\n- **Performance ao longo do tempo**\n- **Padrões de uso** (horários, dias)\n- **Crescimento** no volume de dados\n- **Melhorias** após otimizações\n\n---\n\n## ionicicon namefilter outline style fontsize\n\n  "display": {\n    "showTimestamps": true,\n    "showDuration": true,\n    "showDataSize": true,\n    "autoRefresh": false,\n    "refreshInterval": 30}\n}\n  },\n  "filters": {\n    "defaultStatus": "all",\n    "defaultTimeRange": "24h",\n    "maxResults": 100}\n\n}\n\n```
 
-1. **Trigger** → Iniciou a execução
-2. **Node 1** → Processou dados (200ms)
-3. **Node 2** → Fez requisição HTTP (1.5s)
-4. **Node 3** → Transformou dados (100ms)
-5. **Node 4** → Enviou notificação (500ms)
-6. **Finalizado** → Sucesso total
+## ocultar informaes sensveis proteja
 
----
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-4 Análise de Performance
-
-#mtricas-de-tempo-tempos-importantes
-
-| Métrica | Descrição | Exemplo |
-|---------|-----------|---------|
-| **Tempo Total** | Duração completa da execução | 2m 30s |
-| **Tempo por Node** | Tempo gasto em cada node | Node 2: 1.5s |
-| **Tempo de Espera** | Tempo entre nodes | 100ms |
-| **Tempo de Processamento** | Tempo ativo de processamento | 2m 15s |
-
-#anlise-de-tendncias-compare-execues
-
-- **Performance ao longo do tempo**
-- **Padrões de uso** (horários, dias)
-- **Crescimento** no volume de dados
-- **Melhorias** após otimizações
-
----
-
-#ionicicon-namefilter-outline-style-fontsize-24px color: '#cor-ea4b71-5 Filtros e Busca
-
-#filtros-disponveis-filtre-execues-por
-
-- **Status**: Sucesso, Erro, Em andamento
-- **Workflow**: Nome específico do workflow
-- **Data**: Período de tempo
-- **Trigger**: Tipo de gatilho
-- **Duração**: Tempo de execução
-
-#busca-avanada-pesquise-por **ID da execução** específico
-- **Conteúdo** dos dados processados
-- **Mensagens de erro** específicas
-- **Usuário** que executou
-- **Tags** ou metadados
-
----
-
-#ionicicon-namecloud-download-outline-style-fontsize-24px color: '#cor-ea4b71-6 Exportar e Compartilhar
-
-#exportar-dados-formatos-disponveis **JSON**: Dados completos da execução
-- **CSV**: Dados tabulares para análise
-- **PDF**: Relatório formatado
-- **Logs**: Arquivo de texto com logs
-
-#compartilhar-execues-opes-de-compartilhamento
-
-- **Link direto** para a execução
-- **Screenshot** do resultado
-- **Relatório** resumido
-- **Dados específicos** selecionados
-
----
-
-#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-7 Configurações de Visualização
-
-#personalizar-interface-configuraes-disponveis-json
-{
-  "display": {
-    "showTimestamps": true,
-    "showDuration": true,
-    "showDataSize": true,
-    "autoRefresh": false,
-    "refreshInterval": 30
-  },
-  "filters": {
-    "defaultStatus": "all",
-    "defaultTimeRange": "24h",
-    "maxResults": 100
-  }
-}
-```
-
-#ocultar-informaes-sensveis-proteja-dados sensíveis:**
+dados sensíveis:**
 
 - **Mascarar** credenciais nos logs
 - **Ocultar** dados pessoais
@@ -170,7 +59,8 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-8 Próximos passos
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+8 Próximos passos
 
 1. **[Analisar Logs](./analisar-logs)** - Investigar problemas detalhadamente
 2. **[Configurar Alertas](./configurar-alertas)** - Receber notificações automáticas

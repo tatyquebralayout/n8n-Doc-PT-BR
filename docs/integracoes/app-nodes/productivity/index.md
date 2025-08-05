@@ -1,7 +1,23 @@
 ---
-title: Em breve
+title: Produtividade
+description: Nodes para automação de produtividade e gestão de projetos
 ---
 
-# Em breve
+Esta seção contém nodes para automação de produtividade e gestão de projetos, incluindo integrações com ferramentas de planilhas, gestão de tarefas e colaboração.
 
-Esta se��o est� em constru��o.
+## Nodes Disponíveis
+
+- **[Google Sheets](./google-sheets)** - Automação de planilhas e dados
+- **[Trello](./trello)** - Gestão de projetos e automação de cards
+- **Notion** - Em breve
+- **Asana** - Em breve
+- **Monday.com** - Em breve
+- **ClickUp** - Em breve
+
+## Casos de Uso Comuns
+
+- **Automação de planilhas** e relatórios
+- **Gestão de projetos** e tarefas
+- **Sincronização entre ferramentas** de produtividade
+- **Relatórios automáticos** de progresso
+- **Integração de dados** entre diferentes plataformas

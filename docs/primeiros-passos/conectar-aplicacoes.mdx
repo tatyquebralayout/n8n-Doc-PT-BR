@@ -1,52 +1,23 @@
-﻿:::info
-<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#cor-17a2b8-esta-pgina da documentação foi validada tecnicamente e didaticamente.
-:::
-
----
-title: Conectar Aplicações
-sidebar_position: 6
-description: Aprenda a conectar diferentes aplicações e serviços no n8n usando credenciais e nodes
-keywords: [n8n, conectar aplicações, integrações, credenciais, nodes, APIs]
+﻿---
+sidebar_position: 3
+title: Conectar Aplicações no n8n
+description: Aprenda como integrar diferentes serviços e sistemas para criar workflows poderosos e automatizados
+keywords: [n8n, integração, APIs, conexões, automação, workflows, conectores]
 ---
 
-#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-conectar-aplicaes
+<IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Conectar Aplicações no n8n
 
 Conectar aplicações é o coração do n8n. Neste guia, você aprenderá como integrar diferentes serviços e sistemas para criar workflows poderosos e automatizados.
 
-#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você aprenderá
+---
 
-- **Conceitos fundamentais** de integração no n8n
-- **Como configurar credenciais** para diferentes serviços
-- **Tipos de nodes** disponíveis para integração
-- **Boas práticas** para conexões seguras e eficientes
-- **Exemplos práticos** de integrações comuns
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-conceitos-fundamentais
+## Tipos de Autenticação
 
-#o-que-so-nodes-para uma explicação completa de nodes, **[consulte nossa seção de Conceitos Fundamentais](./conceitos-fundamentais)**. Em resumo, nodes são os blocos de construção dos workflows no n8n. Cada node representa uma ação ou integração específica:
-
-- **Trigger Nodes**: Iniciam workflows (webhooks, agendamento, etc.)
-- **Action Nodes**: Executam ações (enviar email, criar registro, etc.)
-- **Logic Nodes**: Controlam o fluxo (condições, loops, etc.)
-
-#o-que-so-credenciais-credenciais são informações de autenticação necessárias para conectar com serviços externos:
-
-- **API Keys**: Chaves de acesso para APIs
-- **OAuth**: Autenticação via terceiros (Google, Microsoft, etc.)
-- **Basic Auth**: Usuário e senha
-- **Custom**: Configurações específicas por serviço
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-configurando-credenciais
-
-#id-1-acesse-o-gerenciador-de Credenciais
-
-1. No n8n, clique em **Settings** (⚙️)
-2. Selecione **Credentials**
-3. Clique em **Add Credential**
-
-#id-2-escolha-o-tipo-de Credencial
-
-O n8n oferece centenas de tipos de credenciais pré-configurados:
+O n8n suporta diversos métodos de autenticação para conectar com aplicações:
 
 ```json
 {
@@ -58,65 +29,96 @@ O n8n oferece centenas de tipos de credenciais pré-configurados:
 }
 ```
 
-#id-3-configure-as-informaes-para OAuth 2.0:**
+---
 
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Configurar Conexões
+
+### Para OAuth 2.0:
 - Siga o fluxo de autorização
 - Conceda permissões necessárias
 - O n8n gerencia tokens automaticamente
 
-**Para API Key:**
-
+### Para API Key:
 - Cole sua chave de API
 - Configure headers adicionais se necessário
 
-**Para Basic Auth:**
-
+### Para Basic Auth:
 - Digite usuário e senha
 - Use variáveis de ambiente para produção
 
-#id-4-teste-a-conexo-sempre teste suas credenciais antes de usar em workflows:
+---
+
+<IonicIcon name="checkmark-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Testar Conexões
+
+Sempre teste suas credenciais antes de usar em workflows:
 
 1. Clique em **Test** após configurar
 2. Verifique se a conexão é bem-sucedida
 3. Revise as permissões concedidas
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-tipos-de Integrações
+---
 
-#integraes-com-apps-populares
+<IonicIcon name="grid-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#comunicao-slack-enviar-mensagens criar canais, gerenciar usuários
+## Tipos de Integrações
+
+### Comunicação
+
+**Slack**: Enviar mensagens, criar canais, gerenciar usuários
 - **Discord**: Webhooks, mensagens, gerenciamento de servidor
 - **Telegram**: Bots, mensagens, grupos
 - **Email (Gmail, Outlook)**: Enviar/receber emails, gerenciar caixa de entrada
 
-#produtividade-google-sheets-lerescrever dados, fórmulas, formatação
+### Produtividade
+
+**Google Sheets**: Ler/escrever dados, fórmulas, formatação
 - **Notion**: Páginas, bancos de dados, integração com workspace
 - **Trello**: Cartões, listas, boards, membros
 - **Asana**: Tarefas, projetos, equipes
 
-#e-commerce-shopify-produtos-pedidos clientes, inventário
+### E-commerce
+
+**Shopify**: Produtos, pedidos, clientes, inventário
 - **WooCommerce**: Loja online, produtos, vendas
 - **Mercado Livre**: Listagens, vendas, mensagens
 - **PagSeguro**: Pagamentos, transações, webhooks
 
-#marketing-mailchimp-campanhas-listas automações
+### Marketing
+
+**Mailchimp**: Campanhas, listas, automações
 - **HubSpot**: CRM, marketing, vendas
 - **ActiveCampaign**: Automação de marketing, CRM
 - **ConvertKit**: Email marketing, sequências
 
-#integraes-com-apis-brasileiras
+---
 
-#governo-receita-federal-consulta CNPJ, validação de documentos
+<IonicIcon name="business-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Integrações com APIs Brasileiras
+
+### Governo
+
+**Receita Federal**: Consulta CNPJ, validação de documentos
 - **Correios**: Rastreamento, cálculo de frete
 - **Banco Central**: Taxas de câmbio, indicadores econômicos
 
-#servios-locais-viacep-consulta de CEPs
+### Serviços Locais
+
+**ViaCEP**: Consulta de CEPs
 - **Serpro**: Validação de CPF/CNPJ
 - **Bancos brasileiros**: APIs de pagamento e transferência
 
-#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-nodes-de Integração
+---
 
-#http-request-node-o-node mais versátil para integrações customizadas:
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Exemplos de Configuração
+
+### HTTP Request Node
 
 ```json
 {
@@ -133,14 +135,18 @@ O n8n oferece centenas de tipos de credenciais pré-configurados:
 }
 ```
 
-#webhook-node-para-receber-dados de aplicações externas:
+### Webhook Node
+
+Para receber dados de aplicações externas:
 
 1. **Configure o webhook** no n8n
 2. **Copie a URL** gerada
 3. **Configure na aplicação** externa
 4. **Processe os dados** recebidos
 
-#code-node-para-lgica-customizada e transformações:
+### Code Node
+
+Para lógica customizada e transformações:
 
 ```javascript
 // Transformar dados recebidos
@@ -154,93 +160,55 @@ const processados = dados.map(item => ({
 return processados;
 ```
 
-#ionicicon-namecheckmark-circle-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas
+---
 
-#segurana-1-use-variveis-de ambiente** para credenciais em produção
+<IonicIcon name="checkmark-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Boas Práticas
+
+### Segurança
+
+1. **Use variáveis de ambiente** para credenciais em produção
 2. **Configure HTTPS** para todas as conexões
 3. **Revise permissões** regularmente
 4. **Use credenciais específicas** por ambiente
 
-#performance-1-implemente-rate-limiting para APIs com limites
+### Performance
+
+1. **Implemente rate-limiting** para APIs com limites
 2. **Use caching** quando possível
 3. **Configure timeouts** adequados
 4. **Monitore uso de recursos**
 
-#manuteno-1-documente-suas-integraes
+### Manutenção
+
+1. **Documente suas integrações**
 2. **Teste regularmente** as conexões
 3. **Mantenha credenciais atualizadas**
 4. **Configure alertas** para falhas
 
-#ionicicon-nameplay-circle-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-prticos
+---
 
-#exemplo-1-integrao-gmail Google Sheets
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-**Objetivo**: Salvar emails importantes em uma planilha
+## Próximos passos
 
-1. **Gmail Trigger**: Monitora caixa de entrada
-2. **Filter**: Filtra emails importantes
-3. **Google Sheets**: Adiciona dados à planilha
-4. **Slack**: Notifica sobre novos registros
+1. **[Criar Primeiro Workflow](./criar-primeiro-workflow)** - Aprenda a criar workflows básicos
+2. **[Expressões JavaScript](../logica-e-dados/expressoes)** - Use expressões para manipular dados
+3. **[Tratamento de Erros](../logica-e-dados/flow-logic/error-handling)** - Lidar com falhas nas integrações
 
-#exemplo-2-e-commerce-marketing
-
-**Objetivo**: Automatizar campanhas baseadas em vendas
-
-1. **Shopify Trigger**: Novo pedido
-2. **Customer Data**: Busca dados do cliente
-3. **Mailchimp**: Adiciona à lista de compradores
-4. **Slack**: Notifica equipe de vendas
-
-#exemplo-3-api-brasileira Processamento
-
-**Objetivo**: Validar CPF e enviar para CRM
-
-1. **Webhook**: Recebe dados do formulário
-2. **HTTP Request**: Consulta CPF na API
-3. **Code**: Processa resultado
-4. **HubSpot**: Cria/atualiza contato
-
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
-
-#problemas-comuns-erro-de-autenticao
-
-- Verifique se as credenciais estão corretas
-- Confirme se não expiraram
-- Teste a conexão manualmente
-
-**Rate Limiting:**
-
-- Implemente delays entre requisições
-- Use paginação quando disponível
-- Configure retry com backoff
-
-**Dados Inconsistentes:**
-
-- Valide formato dos dados
-- Use nodes de transformação
-- Implemente tratamento de erros
-
-#cor-debugging-1-use-execution-logs para ver detalhes
-2. **Teste nodes individualmente**
-3. **Verifique formato dos dados**
-4. **Consulte documentação da API**
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-1. **Explore as [Integrações](../integracoes/)** disponíveis
-2. **Aprenda sobre [Credenciais](../usando-n8n/credenciais)** em detalhes
-3. **Crie seu primeiro workflow** com integrações
-4. **Experimente com [Lógica e Dados](../logica-e-dados/)**
-
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-relacionados
-
-- **[Integrações](../integracoes/)** - Catálogo completo de nodes
-- **[Credenciais](../usando-n8n/credenciais)** - Gerenciamento de autenticação
-- **[HTTP Requests](../integracoes/builtin-nodes/http-requests/http-request)** - Integrações customizadas
-- **[Webhooks](../integracoes/trigger-nodes/event-based/webhook-trigger)** - Receber dados externos
-- **[Comunidade](../comunidade/)** - Exemplos e ajuda da comunidade
+> *Agora você sabe como conectar aplicações no n8n. Use essas técnicas para criar workflows poderosos e automatizados!*
 
 ---
 
-**<IonicIcon name="link-outline" style={{ fontSize: '16px', color: '#cor-ea4b71-pronto-para conectar suas aplicações? Comece explorando as [integrações disponíveis](../integracoes/)!**
+:::tip **Dica Pro**
+Sempre teste suas conexões antes de usar em workflows de produção para evitar falhas.
+:::
 
+:::warning **Importante**
+Mantenha suas credenciais seguras e nunca as compartilhe em código ou documentação pública.
+:::
+
+:::info **Recurso Adicional**
+Use o Debug Helper para visualizar os dados que fluem entre as aplicações conectadas.
+:::

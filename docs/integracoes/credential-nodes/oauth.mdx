@@ -5,9 +5,500 @@ description: Como configurar OAuth 2.0 e OpenID Connect no n8n
 keywords: [n8n, oauth, oauth2, autenticação, openid, segurança]
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-autenticao-oauth
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 Este documento explica como **configurar autenticação OAuth 2.0 e OpenID Connect** no n8n, abordando diferentes fluxos de autorização, configuração de aplicações em provedores, gerenciamento de tokens de acesso e refresh, implementação de scopes apropriados, e troubleshooting de problemas comuns, garantindo integrações seguras e compatíveis com padrões modernos de autenticação para APIs empresariais.
 
-**Em construção:** Este conteúdo incluirá configurações específicas para provedores brasileiros e internacionais.
+## O que é OAuth 2.0
 
+OAuth 2.0 é um protocolo de autorização que permite que aplicações acessem recursos de usuários em outros serviços sem compartilhar credenciais. É o padrão moderno para autenticação e autorização em APIs.
+
+## Fluxos de Autorização
+
+### Authorization Code Flow
+
+O fluxo mais seguro e recomendado:
+
+```javascript
+// Fluxo Authorization Code
+{
+  "flow": "authorization_code",
+  "steps": [
+    "1. Usuário autoriza aplicação",
+    "2. Servidor retorna código de autorização",
+    "3. Aplicação troca código por token",
+    "4. Aplicação usa token para acessar recursos"
+  ]
+}
+```
+
+### Client Credentials Flow
+
+Para aplicação-aplicação:
+
+```javascript
+// Fluxo Client Credentials
+{
+  "flow": "client_credentials",
+  "steps": [
+    "1. Aplicação autentica com client_id e client_secret",
+    "2. Servidor retorna access token",
+    "3. Aplicação usa token para acessar recursos"
+  ]
+}
+```
+
+### Implicit Flow
+
+Para aplicações client-side (não recomendado):
+
+```javascript
+// Fluxo Implicit
+{
+  "flow": "implicit",
+  "steps": [
+    "1. Usuário autoriza aplicação",
+    "2. Servidor retorna token diretamente",
+    "3. Aplicação usa token para acessar recursos"
+  ]
+}
+```
+
+## Configuração no n8n
+
+### Criar Credencial OAuth 2.0
+
+1. **Acesse o n8n**
+2. **Vá para Settings > Credentials**
+3. **Clique em "Add Credential"**
+4. **Selecione o serviço OAuth 2.0**
+5. **Configure os parâmetros:**
+
+```javascript
+// Configuração básica OAuth 2.0
+{
+  "name": "Minha OAuth App",
+  "client_id": "seu-client-id",
+  "client_secret": "seu-client-secret",
+  "auth_url": "https://api.exemplo.com/oauth/authorize",
+  "token_url": "https://api.exemplo.com/oauth/token",
+  "redirect_uri": "https://seu-dominio.com/callback"
+}
+```
+
+### Configuração Avançada
+
+Para APIs com requisitos específicos:
+
+```javascript
+// Configuração avançada
+{
+  "name": "API OAuth Complexa",
+  "client_id": "{{$env.OAUTH_CLIENT_ID}}",
+  "client_secret": "{{$env.OAUTH_CLIENT_SECRET}}",
+  "auth_url": "https://api.exemplo.com/oauth/authorize",
+  "token_url": "https://api.exemplo.com/oauth/token",
+  "redirect_uri": "https://seu-dominio.com/callback",
+  "scopes": ["read", "write", "admin"],
+  "state": "{{$random.uuid}}",
+  "pkce": true
+}
+```
+
+## Casos de Uso
+
+### Google APIs
+
+```javascript
+// Configuração para Google APIs
+{
+  "name": "Google Sheets API",
+  "client_id": "{{$env.GOOGLE_CLIENT_ID}}",
+  "client_secret": "{{$env.GOOGLE_CLIENT_SECRET}}",
+  "auth_url": "https://accounts.google.com/oauth/authorize",
+  "token_url": "https://oauth2.googleapis.com/token",
+  "scopes": [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive"
+  ]
+}
+```
+
+### Microsoft APIs
+
+```javascript
+// Configuração para Microsoft APIs
+{
+  "name": "Microsoft Graph API",
+  "client_id": "{{$env.MICROSOFT_CLIENT_ID}}",
+  "client_secret": "{{$env.MICROSOFT_CLIENT_SECRET}}",
+  "auth_url": "https://login.microsoftonline.com/common/oauth2/authorize",
+  "token_url": "https://login.microsoftonline.com/common/oauth2/token",
+  "scopes": [
+    "https://graph.microsoft.com/User.Read",
+    "https://graph.microsoft.com/Mail.Read"
+  ]
+}
+```
+
+### Redes Sociais
+
+```javascript
+// Configuração para redes sociais
+{
+  "name": "Facebook API",
+  "client_id": "{{$env.FACEBOOK_CLIENT_ID}}",
+  "client_secret": "{{$env.FACEBOOK_CLIENT_SECRET}}",
+  "auth_url": "https://www.facebook.com/dialog/oauth",
+  "token_url": "https://graph.facebook.com/oauth/access_token",
+  "scopes": ["email", "public_profile", "pages_manage_posts"]
+}
+```
+
+### APIs Customizadas
+
+```javascript
+// Configuração para API customizada
+{
+  "name": "API Customizada",
+  "client_id": "{{$env.CUSTOM_CLIENT_ID}}",
+  "client_secret": "{{$env.CUSTOM_CLIENT_SECRET}}",
+  "auth_url": "https://api.exemplo.com/oauth/authorize",
+  "token_url": "https://api.exemplo.com/oauth/token",
+  "scopes": ["read", "write"],
+  "custom_headers": {
+    "X-Custom-Header": "valor-customizado"
+  }
+}
+```
+
+## Gerenciamento de Tokens
+
+### Access Token
+
+```javascript
+// Uso do access token
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.exemplo.com/dados",
+    "headers": {
+      "Authorization": "Bearer {{$credentials.accessToken}}",
+      "Content-Type": "application/json"
+    }
+  }
+}
+```
+
+### Refresh Token
+
+```javascript
+// Renovação automática de token
+{
+  "token_refresh": {
+    "enabled": true,
+    "refresh_token": "{{$credentials.refreshToken}}",
+    "client_id": "{{$credentials.clientId}}",
+    "client_secret": "{{$credentials.clientSecret}}",
+    "token_url": "{{$credentials.tokenUrl}}"
+  }
+}
+```
+
+### Token Expiration
+
+```javascript
+// Verificação de expiração
+{
+  "token_check": {
+    "access_token": "{{$credentials.accessToken}}",
+    "expires_at": "{{$credentials.expiresAt}}",
+    "is_expired": "{{$now > $credentials.expiresAt}}",
+    "time_until_expiry": "{{$credentials.expiresAt - $now}}"
+  }
+}
+```
+
+## Scopes e Permissões
+
+### Definindo Scopes
+
+```javascript
+// Configuração de scopes
+{
+  "scopes": {
+    "read_only": ["read"],
+    "read_write": ["read", "write"],
+    "admin": ["read", "write", "admin"],
+    "custom": ["custom:permission1", "custom:permission2"]
+  }
+}
+```
+
+### Validação de Scopes
+
+```javascript
+// Verificação de scopes
+{
+  "scope_validation": {
+    "required_scopes": ["read", "write"],
+    "available_scopes": "{{$credentials.scopes}}",
+    "has_permission": "{{$credentials.scopes.includes('write')}}"
+  }
+}
+```
+
+## Segurança
+
+### PKCE (Proof Key for Code Exchange)
+
+```javascript
+// Configuração PKCE
+{
+  "pkce": {
+    "enabled": true,
+    "code_verifier": "{{$random.string(128)}}",
+    "code_challenge": "{{$sha256($random.string(128))}}",
+    "code_challenge_method": "S256"
+  }
+}
+```
+
+### State Parameter
+
+```javascript
+// Configuração state parameter
+{
+  "state": {
+    "enabled": true,
+    "value": "{{$random.uuid}}",
+    "validation": "{{$json.state === $credentials.state}}"
+  }
+}
+```
+
+### Nonce Parameter
+
+```javascript
+// Configuração nonce parameter
+{
+  "nonce": {
+    "enabled": true,
+    "value": "{{$random.uuid}}",
+    "validation": "{{$json.nonce === $credentials.nonce}}"
+  }
+}
+```
+
+## Troubleshooting
+
+### Problemas Comuns
+
+#### Token expirado
+
+**Sintomas:**
+- Erro 401 Unauthorized
+- Mensagem "Token expired"
+- Refresh token não funciona
+
+**Soluções:**
+```javascript
+// Renovação de token
+{
+  "refresh_token_request": {
+    "method": "POST",
+    "url": "{{$credentials.tokenUrl}}",
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "grant_type": "refresh_token",
+      "refresh_token": "{{$credentials.refreshToken}}",
+      "client_id": "{{$credentials.clientId}}",
+      "client_secret": "{{$credentials.clientSecret}}"
+    }
+  }
+}
+```
+
+#### Scope insuficiente
+
+**Sintomas:**
+- Erro 403 Forbidden
+- Mensagem "Insufficient permissions"
+- Ação não permitida
+
+**Soluções:**
+```javascript
+// Verificação de scopes
+{
+  "scope_check": {
+    "required": ["read", "write"],
+    "available": "{{$credentials.scopes}}",
+    "missing": "{{$credentials.scopes.filter(s => !['read', 'write'].includes(s))}}"
+  }
+}
+```
+
+#### Redirect URI inválido
+
+**Sintomas:**
+- Erro "Invalid redirect URI"
+- Autorização falha
+- Callback não funciona
+
+**Soluções:**
+```javascript
+// Verificação de redirect URI
+{
+  "redirect_uri_check": {
+    "configured": "{{$credentials.redirectUri}}",
+    "expected": "https://seu-dominio.com/callback",
+    "match": "{{$credentials.redirectUri === 'https://seu-dominio.com/callback'}}"
+  }
+}
+```
+
+### Debug de Problemas
+
+#### Verificar Configuração
+
+```javascript
+// Teste de configuração OAuth
+{
+  "oauth_test": {
+    "client_id": "{{$credentials.clientId}}",
+    "auth_url": "{{$credentials.authUrl}}",
+    "token_url": "{{$credentials.tokenUrl}}",
+    "redirect_uri": "{{$credentials.redirectUri}}",
+    "scopes": "{{$credentials.scopes}}"
+  }
+}
+```
+
+#### Logs de Erro
+
+```bash
+# Verificar logs do n8n
+n8n logs --level debug | grep "OAuth"
+
+# Verificar logs de autenticação
+n8n logs --level error | grep "401\|403"
+```
+
+## Integração com APIs Brasileiras
+
+### Google APIs (Brasil)
+
+```javascript
+// Configuração Google APIs Brasil
+{
+  "name": "Google Sheets Brasil",
+  "client_id": "{{$env.GOOGLE_CLIENT_ID}}",
+  "client_secret": "{{$env.GOOGLE_CLIENT_SECRET}}",
+  "auth_url": "https://accounts.google.com/oauth/authorize",
+  "token_url": "https://oauth2.googleapis.com/token",
+  "scopes": [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive"
+  ],
+  "region": "BR"
+}
+```
+
+### Microsoft 365 (Brasil)
+
+```javascript
+// Configuração Microsoft 365 Brasil
+{
+  "name": "Microsoft 365 Brasil",
+  "client_id": "{{$env.MICROSOFT_CLIENT_ID}}",
+  "client_secret": "{{$env.MICROSOFT_CLIENT_SECRET}}",
+  "auth_url": "https://login.microsoftonline.com/common/oauth2/authorize",
+  "token_url": "https://login.microsoftonline.com/common/oauth2/token",
+  "scopes": [
+    "https://graph.microsoft.com/User.Read",
+    "https://graph.microsoft.com/Mail.Read"
+  ],
+  "region": "BR"
+}
+```
+
+### APIs Governamentais
+
+```javascript
+// Configuração API Governamental
+{
+  "name": "API Governo Brasil",
+  "client_id": "{{$env.GOV_CLIENT_ID}}",
+  "client_secret": "{{$env.GOV_CLIENT_SECRET}}",
+  "auth_url": "https://api.gov.br/oauth/authorize",
+  "token_url": "https://api.gov.br/oauth/token",
+  "scopes": ["read", "write"],
+  "region": "BR"
+}
+```
+
+## Exemplos Práticos
+
+### Exemplo 1: Integração com Google Sheets
+
+```javascript
+// Workflow Google Sheets
+{
+  "workflow": {
+    "trigger": "schedule",
+    "action": "update_sheet",
+    "oauth": {
+      "provider": "google",
+      "scopes": ["https://www.googleapis.com/auth/spreadsheets"],
+      "credentials": "{{$credentials.googleSheets}}"
+    },
+    "endpoint": "https://sheets.googleapis.com/v4/spreadsheets"
+  }
+}
+```
+
+### Exemplo 2: Integração com Microsoft Graph
+
+```javascript
+// Workflow Microsoft Graph
+{
+  "workflow": {
+    "trigger": "webhook",
+    "action": "send_email",
+    "oauth": {
+      "provider": "microsoft",
+      "scopes": ["https://graph.microsoft.com/Mail.Send"],
+      "credentials": "{{$credentials.microsoftGraph}}"
+    },
+    "endpoint": "https://graph.microsoft.com/v1.0/me/sendMail"
+  }
+}
+```
+
+### Exemplo 3: API Customizada
+
+```javascript
+// Workflow API Customizada
+{
+  "workflow": {
+    "trigger": "manual",
+    "action": "custom_api_call",
+    "oauth": {
+      "provider": "custom",
+      "scopes": ["read", "write"],
+      "credentials": "{{$credentials.customAPI}}"
+    },
+    "endpoint": "https://api.exemplo.com/v1/dados"
+  }
+}
+```
+
+## Próximos Passos
+
+- [API Keys](/integracoes/credential-nodes/api-keys) - Configurar autenticação com chaves
+- [Basic Authentication](/integracoes/credential-nodes/basic-auth) - Configurar autenticação básica
+- [HTTP Request Node](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições autenticadas
+- [Segurança](/privacidade-seguranca/security-best-practices) - Boas práticas de segurança
+- [Troubleshooting](/usando-n8n/troubleshooting) - Resolução de problemas

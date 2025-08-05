@@ -5,62 +5,15 @@ description: Guia completo para instalar n8n usando Docker
 keywords: [n8n, docker, deployment, containerização, produção]
 ---
 
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-via Docker
+# Instalação via Docker
 
 Este guia mostrará como instalar e executar o n8n usando Docker, a forma mais robusta e recomendada para ambientes de produção.
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
+## <IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Configuração Básica
 
-- Como configurar n8n com Docker
-- Variáveis de ambiente essenciais
-- Configuração de volumes e persistência
-- Configuração de rede e segurança
-- Monitoramento e logs
-- Backup e recuperação
-
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-pr-requisitos-antes de começar, certifique-se de ter:
-
-- **Docker** instalado (versão 20.10 ou superior)
-- **Docker Compose** instalado (versão 1.28 ou superior)
-- **Pelo menos 2GB de RAM** disponível
-- **Porta 5678** disponível (ou outra de sua escolha)
-
----
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-rpida
-
-#teste-bsico-desenvolvimento-bash
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-executar-n8n com Docker
-docker run -it --rm \
---name n8n \
--p 5678:5678 \
-n8nio/n8n
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-acessar-em http://localhost:5678
-```
-
-:::warning Atenção
-Este comando é apenas para testes rápidos. Para produção, use Docker Compose com volumes persistentes.
-:::
-
-#instalao-com-persistncia-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-criar-volume para persistência
-docker volume create n8n_data
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-executar-com volume
-docker run -it --rm \
---name n8n \
--p 5678:5678 \
--v n8n_data:/home/node/.n8n \
-n8nio/n8n
-```
-
----
-
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-docker-compose (Recomendado)
-
-#configurao-bsica-crie-um-arquivo `docker-compose.yml`:
+### Docker Compose Simples
 
 ```yaml
 version: '3.8'
@@ -83,7 +36,7 @@ volumes:
   n8n_data:
 ```
 
-#configurao-completa-com-banco-de Dados**
+## <IonicIcon name="server-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Configuração Completa com Banco de Dados
 
 ```yaml
 version: '3.8'
@@ -135,121 +88,25 @@ volumes:
   redis_data:
 ```
 
-#executar-com-docker-compose-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-iniciar-servios
+## <IonicIcon name="sparkles-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Executar com Docker Compose
+
+```bash
+# Baixar e executar
 docker-compose up -d
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-ver-logs
+# Ver logs
 docker-compose logs -f n8n
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-parar-servios
+# Parar
 docker-compose down
 ```
 
----
+## <IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Configuração Nginx
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-avanada
+### nginx.conf
 
-#variveis-de-ambiente-essenciais-bash
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-bsicas
-N8N_PORT=5678
-N8N_PROTOCOL=https
-N8N_HOST=seu-dominio.com
-GENERIC_TIMEZONE=America/Sao_Paulo
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-banco-de dados PostgreSQL
-DB_TYPE=postgresdb
-DB_POSTGRESDB_HOST=postgres
-DB_POSTGRESDB_PORT=5432
-DB_POSTGRESDB_DATABASE=n8n
-DB_POSTGRESDB_USER=n8n
-DB_POSTGRESDB_PASSWORD=senha_segura
-
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-redis-para filas
-REDIS_URL=redis://redis:6379
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana-n8nencryptionkeysuachave32caracteres
-WEBHOOK_URL=https://seu-dominio.com/
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-execues-executionsprocessmain
-EXECUTIONS_MODE=regular
-```
-
-#configurao-de-sslhttps-com-nginx
-
-```yaml
-version: '3.8'
-
-services:
-  n8n:
-    image: n8nio/n8n:latest
-    restart: unless-stopped
-    environment:
-      - N8N_PROTOCOL=https
-      - N8N_HOST=seu-dominio.com
-      - GENERIC_TIMEZONE=America/Sao_Paulo
-      - DB_TYPE=postgresdb
-      - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
-      - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
-      - REDIS_URL=redis://redis:6379
-      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
-    volumes:
-      - n8n_data:/home/node/.n8n
-    depends_on:
-      - postgres
-      - redis
-    networks:
-      - n8n_network
-
-  nginx:
-    image: nginx:alpine
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./ssl:/etc/nginx/ssl
-    depends_on:
-      - n8n
-    networks:
-      - n8n_network
-
-  postgres:
-    image: postgres:15
-    restart: unless-stopped
-    environment:
-      - POSTGRES_DB=n8n
-      - POSTGRES_USER=n8n
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - n8n_network
-
-  redis:
-    image: redis:7-alpine
-    restart: unless-stopped
-    command: redis-server --appendonly yes
-    volumes:
-      - redis_data:/data
-    networks:
-      - n8n_network
-
-volumes:
-  n8n_data:
-  postgres_data:
-  redis_data:
-
-networks:
-  n8n_network:
-    driver: bridge
-```
-
-#configurao-nginx-nginx
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-nginxconf-events {
+```nginx
+events {
     worker_connections 1024;
 }
 
@@ -284,9 +141,9 @@ http {
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-escalabilidade
+## <IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Escalabilidade
 
-#configurao-de-filas-com-redis
+### Configuração de Filas com Redis
 
 ```yaml
 services:
@@ -305,7 +162,7 @@ services:
       - redis_data:/data
 ```
 
-#load-balancing-com-mltiplas-instncias
+### Load Balancing com Múltiplas Instâncias
 
 ```yaml
 version: '3.8'
@@ -347,16 +204,23 @@ services:
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana
+## <IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Segurança
 
-#autenticao-bsica-yaml-services-n8n
+### Autenticação Básica
+
+```yaml
+services:
+  n8n:
     environment:
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=admin
       - N8N_BASIC_AUTH_PASSWORD=senha_segura
 ```
 
-#configurao-de-rede-yaml-services
+### Configuração de Rede
+
+```yaml
+services:
   n8n:
     networks:
       - n8n_internal
@@ -379,47 +243,38 @@ networks:
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-backup-e Recuperação
+## <IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Backup e Monitoramento
 
-#cor-backup-automtico-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-backup-n8nsh-datedate +%Y%m%d_%H%M%S)
+### Script de Backup
+
+```bash
+#!/bin/bash
 BACKUP_DIR="/backups/n8n"
+DATE=$(date +%Y%m%d_%H%M%S)
 
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-backup-dos volumes Docker
-docker run --rm -v n8n_data:/data -v $BACKUP_DIR:/backup alpine tar czf /backup/n8n_data_$DATE.tar.gz -C /data .
+# Backup do banco de dados
+docker exec postgres pg_dump -U n8n n8n > $BACKUP_DIR/db_$DATE.sql
 
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-backup-do banco PostgreSQL
-docker exec postgres pg_dump -U n8n n8n > $BACKUP_DIR/n8n_db_$DATE.sql
+# Backup dos dados do n8n
+docker exec n8n tar -czf - /home/node/.n8n > $BACKUP_DIR/n8n_$DATE.tar.gz
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-manter-apenas últimos 7 backups
+# Limpar backups antigos (mais de 7 dias)
 find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
 find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 ```
 
-#cron-job-para-backup-bash
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-ao crontab
-0 2 * * * /path/to/backup-n8n.sh
+### Cron Job para Backup
+
+```bash
+# Adicionar ao crontab
+0 2 * * * /path/to/backup_script.sh
 ```
 
----
+### Health Check
 
-#ionicicon-nameeye-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento
-
-#logs-bash
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-ver-logs em tempo real
-docker-compose logs -f n8n
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-logs-especficos
-docker logs n8n_container
-
-#ionicicon-namefilter-outline-style-fontsize-24px color: '#cor-ea4b71-logs-com filtros
-docker-compose logs n8n | grep ERROR
-```
-
-#health-checks-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-health-checksh-containernamen8n
+```bash
+#!/bin/bash
+CONTAINER_NAME="n8n"
 HEALTH_URL="http://localhost:5678/healthz"
 
 if ! docker ps | grep -q $CONTAINER_NAME; then
@@ -438,70 +293,37 @@ fi
 
 ---
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
+## <IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Troubleshooting
 
-#problemas-comuns
+### Problemas Comuns
 
-#container-no-inicia-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs
+#### Container não inicia
+
+```bash
+# Verificar logs
 docker-compose logs n8n
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-recursos
-docker stats
+# Verificar se a porta está em uso
+netstat -tulpn | grep 5678
 
-#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-reiniciar-container
+# Reiniciar container
 docker-compose restart n8n
 ```
 
-#problemas-de-conectividade-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-rede
-docker network ls
-docker network inspect n8n_network
+#### Problemas de Permissão
 
-#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-testar-conectividade entre containers
+```bash
+# Corrigir permissões do volume
+sudo chown -R 1000:1000 /path/to/n8n_data
+```
+
+#### Problemas de Rede
+
+```bash
+# Verificar conectividade
 docker exec n8n ping postgres
+docker exec n8n ping redis
+
+# Verificar variáveis de ambiente
+docker exec n8n env | grep N8N
 ```
-
-#problemas-de-volume-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-volumes
-docker volume ls
-docker volume inspect n8n_data
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-recriar-volume (cuidado: perde dados)
-docker-compose down
-docker volume rm n8n_data
-docker-compose up -d
-```
-
----
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você tem o n8n rodando com Docker:
-
-1. **[Configuração Avançada](../configuracao/variaveis-ambiente)** - Variáveis de ambiente
-2. **[Segurança](../seguranca/autenticacao)** - Configurar autenticação
-3. **[Escalonamento](../escalonamento/clustering)** - Preparar para crescimento
-
-#outros-mtodos-de-instalao **[NPM](./npm)** - Instalação via NPM
-- **[Cloud](./cloud)** - Deploy em cloud providers
-- **[Desktop](./desktop)** - Aplicação desktop
-
----
-
-:::tip **Dica Pro**
-Para produção, sempre use **Docker Compose** com **PostgreSQL** e **Redis**. Isso garante consistência, escalabilidade e facilidade de backup.
-:::
-
-:::warning **Importante**
-Mantenha sempre backups regulares dos volumes e do banco de dados. Em caso de falha, você pode restaurar rapidamente.
-:::
-
----
-
-**Links úteis:**
-
-- [Documentação oficial Docker n8n](https://docs.n8n.io/hosting/installation/docker/)
-- [Imagem oficial no Docker Hub](https://hub.docker.com/r/n8nio/n8n)
-- [Repositório n8n no GitHub](https://github.com/n8n-io/n8n)
-

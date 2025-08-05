@@ -116,4 +116,5 @@ const BaseProcessor: React.FC<BaseProcessorProps> = ({
   );
 };
 
-export default BaseProcessor; 
+export default BaseProcessor;
+export type { BaseProcessorProps }; 

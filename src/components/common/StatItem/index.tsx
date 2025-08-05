@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import IonicIcon from '@site/src/components/IonicIcon';
+import IonicIcon from '../../IonicIcon';
 import styles from './styles.module.css';
 
 interface StatItemProps {
@@ -61,4 +61,5 @@ const StatItem: React.FC<StatItemProps> = ({
   );
 };
 
-export default StatItem; 
+export default StatItem;
+export type { StatItemProps }; 

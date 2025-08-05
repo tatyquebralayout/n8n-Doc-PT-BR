@@ -16,14 +16,12 @@ const config: Config = {
   organizationName: "n8n-brasil",
   projectName: "n8n-Doc-PT-BR",
 
-  onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
+  // Configuração crítica para CI - quebra de links deve falhar no CI
+  onBrokenLinks: process.env.CI ? "throw" : "warn",
+  onBrokenMarkdownLinks: process.env.CI ? "throw" : "warn",
 
-  // Experimental Docusaurus Faster - TEMPORARIAMENTE DESABILITADO devido a problemas MDX
-  // future: {
-  //   experimental_faster: true,
-  //   v4: true,
-  // },
+  // Trailing slash para hard refresh no GitHub Pages
+  trailingSlash: true,
 
   i18n: {
     defaultLocale: "pt-BR",
@@ -48,27 +46,6 @@ const config: Config = {
           routeBasePath: "/",
           sidebarCollapsed: false,
           breadcrumbs: true,
-          // Configuração para suporte matemático com KaTeX - TEMPORARIAMENTE DESABILITADO
-          // remarkPlugins: [require('remark-math')],
-          // rehypePlugins: [
-          //   [require('rehype-katex'), {
-          //     strict: false,
-          //     trust: true,
-          //     throwOnError: false,
-          //     errorColor: '#cc0000',
-          //     macros: {
-          //       "\\RR": "\\mathbb{R}",
-          //       "\\NN": "\\mathbb{N}",
-          //       "\\ZZ": "\\mathbb{Z}",
-          //       "\\QQ": "\\mathbb{Q}",
-          //       "\\CC": "\\mathbb{C}"
-          //     },
-          //     minRuleThickness: 0.05,
-          //     colorIsTextColor: false,
-          //     maxSize: Infinity,
-          //     maxExpand: 1000
-          //   }]
-          // ],
           exclude: [
             '**/contribuir/**',
             '**/_*.{js,jsx,ts,tsx,md,mdx}',
@@ -76,11 +53,17 @@ const config: Config = {
             '**/*.test.{js,jsx,ts,tsx}',
             '**/__tests__/**',
           ],
-
+          remarkPlugins: [
+            require('@docusaurus/remark-plugin-npm2yarn'),
+            require('remark-docusaurus-tabs'),
+          ],
         },
-        blog: false, // Desabilitar blog padrão para usar nossa página customizada
+        blog: false,
         pages: {
-          remarkPlugins: [],
+          remarkPlugins: [
+            require('@docusaurus/remark-plugin-npm2yarn'),
+            require('remark-docusaurus-tabs'),
+          ],
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -88,32 +71,116 @@ const config: Config = {
         sitemap: {
           changefreq: "weekly",
           priority: 0.5,
+          // Sitemap mais estratégico - aumentar prioridade para páginas críticas
+          createSitemapItems: async (params) => {
+            const items = await params.defaultCreateSitemapItems(params);
+            return items.map(i =>
+              i.url.includes("/primeiros-passos/")
+              || i.url.includes("/usando-n8n/")
+              || i.url.includes("/integracoes")
+              || i.url.includes("/hosting-n8n/instalacao")
+                ? { ...i, priority: 0.8 }
+                : i
+            );
+          },
         },
       } satisfies Preset.Options,
     ],
   ],
 
-  // Configurações para evitar conflitos de porta
-  customFields: {
-    port: process.env.PORT || 3000,
-  },
-
   plugins: [
-    // Plugin de busca local - TEMPORARIAMENTE DESABILITADO devido a conflito de dependências
-    // [
-    //   require.resolve("@easyops-cn/docusaurus-search-local"),
-    //   {
-    //     hashed: true,
-    //     language: ["pt", "en"],
-    //     highlightSearchTermsOnTargetPage: true,
-    //     explicitSearchResultPath: true,
-    //     docsRouteBasePath: "/",
-    //     indexPages: true,
-    //   },
-    // ],
+    // Plugin oficial de blog com RSS
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        feedOptions: {
+          type: 'all',
+          copyright: `Copyright © ${new Date().getFullYear()} n8n Brasil.`,
+        },
+      },
+    ],
+    
+    // Plugin de busca local
+    ["@easyops-cn/docusaurus-search-local", {
+      indexDocs: true,
+      docsRouteBasePath: "/",
+      hashed: true,
+      language: ["pt"],
+    }],
+    
+    // Plugin de redirects para SEO
+    ["@docusaurus/plugin-client-redirects", {
+      redirects: [
+        { from: "/instalacao", to: "/primeiros-passos/guia-instalacao" },
+        { from: "/videos", to: "/comunidade/videos" },
+        { from: "/docs", to: "/" },
+        { from: "/documentacao", to: "/" },
+        { from: "/tutorial", to: "/primeiros-passos" },
+        { from: "/guia", to: "/primeiros-passos" },
+        { from: "/nodes", to: "/integracoes" },
+        { from: "/integrations", to: "/integracoes" },
+        { from: "/deploy", to: "/hosting-n8n/instalacao" },
+        { from: "/deployment", to: "/hosting-n8n/instalacao" },
+        { from: "/hosting", to: "/hosting-n8n/instalacao" },
+        { from: "/api-docs", to: "/api" },
+        { from: "/reference", to: "/referencia" },
+        { from: "/community", to: "/comunidade" },
+        { from: "/catalog", to: "/catalogo" },
+        { from: "/courses", to: "/comunidade" },
+      ],
+    }],
+
+    // Plugin PWA para suporte offline (usando Workbox)
+    ["@docusaurus/plugin-pwa", {
+      debug: false,
+      offlineModeActivationStrategies: ["appInstalled", "standalone", "queryString"],
+      pwaHead: [
+        { tagName: "link", rel: "icon", href: "/img/favicon-br.svg" },
+        { tagName: "link", rel: "manifest", href: "/manifest.json" },
+        { tagName: "meta", name: "theme-color", content: "#ff6a00" },
+        { tagName: "meta", name: "apple-mobile-web-app-capable", content: "yes" },
+        { tagName: "meta", name: "apple-mobile-web-app-status-bar-style", content: "default" },
+        { tagName: "meta", name: "apple-mobile-web-app-title", content: "n8n Brasil" },
+        { tagName: "link", rel: "apple-touch-icon", href: "/img/favicon-br.svg" },
+        { tagName: "meta", name: "msapplication-TileColor", content: "#ff6a00" },
+        { tagName: "meta", name: "msapplication-config", content: "/browserconfig.xml" },
+      ],
+      // Usar Workbox (padrão) em vez de service worker customizado
+      // swCustom: require.resolve('./src/sw.js'),
+      // swRegister: '/sw.js',
+    }],
+
+    // Plugin para imagens otimizadas (Ideal Image)
+    ["@docusaurus/plugin-ideal-image", {
+      quality: 70,
+      max: 1600,
+      disableInDev: false,
+      size: 16,
+      min: 640,
+      steps: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+      disable: false,
+      // Configurações adicionais para melhor performance
+      name: 'static/img/ideal-img/[name].[hash:hex:7].[width].[ext]',
+      include: ['**/*.{png,jpg,jpeg,gif,webp}'],
+      exclude: ['**/node_modules/**'],
+    }],
+
+
+
+
+
+
+
+
+
+
   ],
 
-  themes: ["@docusaurus/theme-mermaid"],
+  themes: [
+    "@docusaurus/theme-mermaid",
+    "@docusaurus/theme-live-codeblock",
+    "docusaurus-theme-github-codeblock"
+  ],
 
   markdown: {
     mermaid: true,
@@ -128,6 +195,12 @@ const config: Config = {
       src: "https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js",
       nomodule: true,
     },
+    // GoatCounter Analytics (privacy-friendly)
+    {
+      src: "https://gc.zgo.at/count.js",
+      async: true,
+      "data-goatcounter": "https://n8n-brasil.goatcounter.com/count",
+    },
   ],
 
   themeConfig: {
@@ -135,12 +208,14 @@ const config: Config = {
     image: "img/banner_n8n_ptbr.png",
     navbar: {
       title: "",
+      // Logo corrigido - removido href para respeitar baseUrl
       logo: {
         alt: "n8n Logo",
         src: "img/n8n-color.webp",
         srcDark: "img/n8n-color_dark.webp",
-        href: "/",
       },
+      // Ocultar navbar ao rolar
+      hideOnScroll: true,
       items: [
         // Botão "Home" - Link para página inicial
         {
@@ -156,10 +231,6 @@ const config: Config = {
           position: "left",
           className: "navbar-documentation-dropdown",
           items: [
-            {
-              label: "Guia de Instalação do n8n",
-              to: "/primeiros-passos/guia-instalacao",
-            },
             {
               label: "Primeiros Passos",
               to: "/primeiros-passos/guia-instalacao",
@@ -199,27 +270,22 @@ const config: Config = {
             { label: "Como Participar", to: "/comunidade/como-participar" },
           ],
         },
-        // Dropdown "Cursos" - Agrupa cursos em vídeo e texto
+        
+        // Dropdown "Comunidade" - Recursos da comunidade
         {
           type: "dropdown",
-          label: "Cursos",
+          label: "Comunidade",
           position: "left",
-          className: "navbar-courses-dropdown",
+          className: "navbar-community-dropdown",
           items: [
-            { label: "Visão Geral", to: "/cursos" },
-            { label: "Cursos em Vídeo", to: "/cursos/cursos-em-video" },
-            { label: "Cursos em Texto", to: "/cursos/cursos-em-texto" },
-            {
-              label: "Nível 1 - Básico",
-              to: "/cursos/cursos-em-texto/nivel-um",
-            },
-            {
-              label: "Nível 2 - Avançado",
-              to: "/cursos/cursos-em-texto/nivel-dois",
-            },
+            { label: "Visão Geral", to: "/comunidade" },
+            { label: "Automação para Iniciantes", to: "/comunidade/automacao-iniciantes" },
+            { label: "Casos de Uso Avançados", to: "/comunidade/casos-uso-avancados" },
+            { label: "Como Participar", to: "/comunidade/como-participar" },
+            { label: "GitHub", to: "/comunidade/github" },
+            { label: "Vídeos", to: "/comunidade/videos" },
           ],
         },
-
 
         {
           label: "Catálogo",
@@ -227,13 +293,47 @@ const config: Config = {
           position: "left",
           className: "navbar-catalog-link",
         },
-        // {
-        //   to: '/release-notes',
-        //   label: 'Release Notes',
-        //   position: 'left',
-        //   className: 'navbar-release-notes-link',
-        // },
+
+        // GitHub link com ícone nativo
+        {
+          href: "https://github.com/n8n-brasil/n8n-Doc-PT-BR",
+          position: "right",
+          className: "header-github-link",
+          "aria-label": "GitHub do n8n Brasil",
+        },
       ],
+    },
+
+    // Configuração da sidebar - tornar hideable e auto-collapsible
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
+
+    // Tabela de conteúdos mais objetiva
+    tableOfContents: { 
+      minHeadingLevel: 2, 
+      maxHeadingLevel: 4 
+    },
+
+    // Mermaid personalizado com tema claro/escuro
+    mermaid: {
+      theme: { light: "neutral", dark: "dark" },
+      options: { 
+        securityLevel: "strict",
+        fontFamily: "Arial, sans-serif",
+        fontSize: 14,
+        themeVariables: {
+          primaryColor: "#ff6a00",
+          primaryTextColor: "#333",
+          primaryBorderColor: "#ff6a00",
+          lineColor: "#666",
+          secondaryColor: "#f0f0f0",
+          tertiaryColor: "#fff",
+        },
+      },
     },
 
     footer: {
@@ -285,13 +385,9 @@ const config: Config = {
           title: "Recursos",
           items: [
             {
-              label: "Cursos",
-              to: "/cursos",
+              label: "Comunidade",
+              to: "/comunidade",
             },
-            // {
-            //   label: "Release Notes",
-            //   to: "/release-notes",
-            // },
             {
               label: "Referência",
               to: "/referencia",
@@ -360,7 +456,10 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ["bash", "json", "yaml", "toml"],
+      additionalLanguages: [
+        "bash", "json", "yaml", "toml",
+        "typescript", "tsx", "docker", "nginx", "ini", "diff", "powershell", "markdown"
+      ],
     },
 
     colorMode: {
@@ -372,7 +471,9 @@ const config: Config = {
     announcementBar: {
       id: "support_us",
       content:
-        '🎉 <strong>n8n Brasil</strong> - Documentação completa em português! <a target="_blank" rel="noopener noreferrer" href="https://github.com/n8n-brasil/n8n-Doc-PT-BR">Contribua no GitHub</a>',
+        '🎉 <strong>n8n Brasil</strong> — Documentação em português! ' +
+        '<a target="_blank" rel="noopener noreferrer" aria-label="Contribua no GitHub do n8n Brasil" ' +
+        'href="https://github.com/n8n-brasil/n8n-Doc-PT-BR">Contribua no GitHub</a>',
       backgroundColor: "#fafbfc",
       textColor: "#091E42",
       isCloseable: false,
@@ -413,7 +514,6 @@ const config: Config = {
       },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt-BR" },
-      { property: "og:locale:alternate", content: "en-US" },
       { property: "og:site_name", content: "n8n Docs Brasil" },
       { property: "og:image:alt", content: "Banner do n8n Docs Brasil" },
       // Twitter
@@ -423,7 +523,6 @@ const config: Config = {
         content:
           "n8n Brasil - Documentação não oficial em Português Brasileiro",
       },
-      // Google Site Verification removido - não necessário para projeto open source
     ],
   },
 } satisfies Config;

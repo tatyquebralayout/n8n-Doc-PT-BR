@@ -5,27 +5,22 @@ description: Como configurar parâmetros e opções do n8n embarcado
 keywords: [n8n, embed, configuração, parâmetros, customização, iframe, SSO, permissões]
 ---
 
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-do Embed
+# Configuração do Embed
 
 Este guia ensina como **configurar o n8n embarcado** em sua aplicação, cobrindo parâmetros essenciais, permissões, customização visual, integração com autenticação e exemplos práticos para diferentes cenários empresariais.
 
 ---
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-parmetros-de Configuração
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#parmetros-do-iframe-parmetro         | Descrição                                      | Exemplo                                  |
-|------------------|------------------------------------------------|------------------------------------------|
-| `src`            | URL da instância n8n                            | `https://n8n.suaempresa.com/embed`       |
-| `workflowId`     | ID do workflow inicial                         | `?workflowId=123`                        |
-| `mode`           | Modo de visualização (`edit`, `view`, `run`)   | `?mode=edit`                             |
-| `theme`          | Tema visual (`light`, `dark`, `corporate`)     | `?theme=corporate`                       |
-| `lang`           | Idioma da interface                            | `?lang=pt-BR`                            |
-| `hideSidebar`    | Oculta a barra lateral                         | `?hideSidebar=true`                      |
-| `readonly`       | Modo somente leitura                           | `?readonly=true`                         |
-| `token`          | Token de autenticação (JWT, API Key)           | `?token=eyJ...`                          |
+## Parâmetros Básicos
 
-#exemplo-de-iframe-html-iframe
+### Exemplo de Iframe
+
+```html
+<iframe
   src="https://n8n.suaempresa.com/embed?workflowId=123&mode=edit&theme=corporate&lang=pt-BR&hideSidebar=true"
   width="100%"
   height="800"
@@ -34,14 +29,17 @@ Este guia ensina como **configurar o n8n embarcado** em sua aplicação, cobrind
 ></iframe>
 ```
 
-#segurana-e-cors-configure o header `X-Frame-Options: SAMEORIGIN` ou `ALLOW-FROM` para domínios confiáveis.
-- Use `Content-Security-Policy` para restringir origens do iframe:
+### Segurança e CORS
+
+Configure o header `X-Frame-Options: SAMEORIGIN` ou `ALLOW-FROM` para domínios confiáveis.
+
+Use `Content-Security-Policy` para restringir origens do iframe:
 
 ```nginx
 add_header Content-Security-Policy "frame-ancestors 'self' https://app.suaempresa.com" always;
 ```
 
-- Defina domínios permitidos para CORS:
+Defina domínios permitidos para CORS:
 
 ```bash
 N8N_CORS_ALLOW_ORIGIN=https://app.suaempresa.com
@@ -49,16 +47,11 @@ N8N_CORS_ALLOW_ORIGIN=https://app.suaempresa.com
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-permisses-e Controle de Acesso
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#rbac-e-restries-defina permissões por usuário/grupo via RBAC:
+## Autenticação e Permissões
 
-```yaml
-N8N_USER_MANAGEMENT_DISABLED=false
-N8N_RBAC_ENABLED=true
-```
-
-- Permissões por workflow:
+### Configuração de Permissões
 
 ```json
 {
@@ -71,7 +64,9 @@ N8N_RBAC_ENABLED=true
 }
 ```
 
-#integrao-com-sso-saml
+### Integração com SSO
+
+#### SAML
 
 ```yaml
 N8N_SAML_ENABLED=true
@@ -80,7 +75,7 @@ N8N_SAML_ENTRY_POINT=https://sso.suaempresa.com/sso
 N8N_SAML_CERT=/path/to/certificate.pem
 ```
 
-- **OAuth2**
+#### OAuth2
 
 ```yaml
 N8N_OAUTH2_AUTH_URL=https://sso.suaempresa.com/oauth/authorize
@@ -89,7 +84,7 @@ N8N_OAUTH2_CLIENT_ID=seu_client_id
 N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
 ```
 
-- **LDAP**
+#### LDAP
 
 ```yaml
 N8N_LDAP_ENABLED=true
@@ -101,15 +96,23 @@ N8N_LDAP_BASE_DN=dc=suaempresa,dc=com
 
 ---
 
-#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-customizao-visual
+<IonicIcon name="color-palette-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#temas-e-branding-parmetros de tema: `theme=light`, `theme=dark`, `theme=corporate`
-- Personalize cores, logo e fontes via variáveis de ambiente:
+## Customização Visual
+
+### Temas e Branding
+
+Parâmetros de tema: `theme=light`, `theme=dark`, `theme=corporate`
+
+Personalize cores, logo e fontes via variáveis de ambiente:
 
 ```yaml
-N8N_THEME_PRIMARY_COLOR=#cor-ea4b71-n8nthemelogourlhttpssuaempresacomlogopng-n8nthemefontfamilyinter-sans-serif
+N8N_THEME_PRIMARY_COLOR=#1e40af
+N8N_THEME_SECONDARY_COLOR=#059669
+N8N_THEME_LOGO_URL=https://suaempresa.com/logo.png
+```
 
-- CSS customizado:
+CSS customizado:
 
 ```yaml
 N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n_custom.css
@@ -117,11 +120,13 @@ N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n_custom.css
 
 ---
 
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Sistemas Externos
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#comunicao-host-embed Use `window.postMessage` para comunicação entre o host e o iframe embed:
+## Comunicação entre Host e Embed
 
-```js
+### PostMessage API
+
+```javascript
 // No host
 iframe.contentWindow.postMessage({ type: 'n8n_load_workflow', workflowId: 'abc123' }, '*');
 
@@ -133,7 +138,7 @@ window.addEventListener('message', (event) => {
 });
 ```
 
-- Webhooks para eventos do editor:
+Webhooks para eventos do editor:
 
 ```json
 {
@@ -146,9 +151,13 @@ window.addEventListener('message', (event) => {
 
 ---
 
-#ionicicon-namebulb-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-prticos
+<IonicIcon name="bulb-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#exemplo-de-configurao-completa-html
+## Exemplos Práticos
+
+### Exemplo de Configuração Completa
+
+```html
 <iframe
   src="https://n8n.suaempresa.com/embed?workflowId=456&mode=view&theme=dark&lang=pt-BR&readonly=true&token=eyJ..."
   width="100%"
@@ -159,7 +168,9 @@ window.addEventListener('message', (event) => {
 ></iframe>
 ```
 
-#parmetros-dinmicos-via-url-js
+### Parâmetros Dinâmicos via URL
+
+```javascript
 const params = new URLSearchParams({
   workflowId: '789',
   mode: 'edit',
@@ -168,12 +179,15 @@ const params = new URLSearchParams({
   hideSidebar: 'true',
   token: 'eyJ...'
 });
+
 iframe.src = `https://n8n.suaempresa.com/embed?${params.toString()}`;
 ```
 
 ---
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Configuração
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Checklist de Configuração
 
 - [ ] Definir domínios permitidos (CORS e CSP)
 - [ ] Configurar autenticação (API Key, SSO, OAuth, LDAP)

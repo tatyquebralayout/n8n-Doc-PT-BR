@@ -1,5 +1,6 @@
 ---
 title: Configurar Alertas
+description: Guia para configurar alertas e notificações no n8n
 sidebar_position: 3
 ---
 

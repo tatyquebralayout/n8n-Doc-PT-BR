@@ -5,128 +5,31 @@ description: Como instalar n8n Desktop para uso local e desenvolvimento
 keywords: [n8n, desktop, instalação, local, desenvolvimento, windows, mac]
 ---
 
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalao-desktop
+# Instalação Desktop
 
 Este guia detalha como **instalar n8n Desktop** para uso local e desenvolvimento, oferecendo uma experiência nativa e simplificada.
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-o-que é o n8n Desktop?
+## Windows
 
-O n8n Desktop é uma **aplicação nativa** que permite executar o n8n localmente sem necessidade de configurações complexas de servidor ou Docker. É ideal para usuários que preferem uma experiência mais simples e integrada ao sistema operacional.
-
-#principais-caractersticas-instalao simples** - Download e instalação direta
-- ✅ **Interface nativa** - Integração com o sistema operacional
-- ✅ **Sem configuração** - Funciona imediatamente após instalação
-- ✅ **Sincronização** - Conecta com n8n Cloud
-- ✅ **Offline** - Funciona sem conexão com internet
-- ✅ **Portátil** - Pode ser executado de qualquer lugar
-
----
-
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-pr-requisitos
-
-#requisitos-do-sistema-sistema Operacional**: Windows 10+, macOS 10.15+, Linux (Ubuntu 18.04+)
-- **RAM**: Mínimo 4GB, recomendado 8GB+
-- **Disco**: 2GB livre para instalação
-- **Processador**: Dual-core ou superior
-- **Rede**: Conexão para download e atualizações
-
-#requisitos-especficos-por-so
-
-#windows-windows-10-ou superior (64-bit)
-- .NET Framework 4.7.2 ou superior
-- Visual C++ Redistributable
-
-#macos-macos-1015-catalina ou superior
-- Processador Intel ou Apple Silicon
-
-#linux-ubuntu-1804-ou distribuição compatível
-- GLIBC 2.17 ou superior
-
----
-
-#ionicicon-namedownload-outline-style-fontsize-24px color: '#cor-ea4b71-instalao
-
-#Windows**
-
-#download-e-instalao-1-acesse [n8n.io/desktop](https://n8n.io/desktop)
-2. Baixe o instalador para Windows (.exe)
-3. Execute o arquivo baixado
-4. Siga o assistente de instalação
-5. Inicie o n8n Desktop
-
-#instalao-via-chocolatey-powershell
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-chocolatey (se necessário)
+```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-n8n Desktop
-choco install n8n-desktop
 ```
 
-#instalao-via-winget-powershell-winget install n8n.n8n-desktop
-```
+## macOS
 
-#macOS**
-
-#download-e-instalao-1-acesse [n8n.io/desktop](https://n8n.io/desktop)
-2. Baixe o instalador para macOS (.dmg)
-3. Abra o arquivo .dmg
-4. Arraste o n8n para a pasta Applications
-5. Inicie o n8n Desktop
-
-#instalao-via-homebrew-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-homebrew (se necessário)
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-n8n Desktop
-brew install --cask n8n-desktop
 ```
 
-#Linux**
+## Linux
 
-#ubuntudebian-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-repositrio
-wget -qO- https://packages.n8n.io/gpg.key | sudo apt-key add -
+```bash
 echo "deb https://packages.n8n.io/ubuntu/ focal main" | sudo tee /etc/apt/sources.list.d/n8n.list
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-atualizar-e instalar
-sudo apt update
-sudo apt install n8n-desktop
 ```
 
-#cor-fedorarhel-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-adicionar-repositrio
-sudo dnf config-manager --add-repo https://packages.n8n.io/fedora/n8n.repo
+## Configuração
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-sudo dnf install n8n-desktop
-```
-
-#snap-ubuntu-bash-sudo-snap install n8n-desktop
-```
-
----
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-inicial
-
-#primeiro-acesso-1-inicie-o n8n Desktop**
-2. **Aguarde a inicialização** (pode levar alguns segundos)
-3. **Acesse a interface** - geralmente em `http://localhost:5678`
-4. **Crie sua conta** de administrador
-
-#configuraes-bsicas-bash
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-padro
-Porta: 5678
-Protocolo: http
-Host: localhost
-Timezone: Sistema operacional
-```
-
-#configuraes-avanadas-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-arquivo-de configuração (opcional)
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-windows-appdatan8nconfigjson
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-libraryapplication Support/n8n/config.json
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-confign8nconfigjson
-
+```json
 {
   "port": 5678,
   "protocol": "http",
@@ -138,20 +41,27 @@ Timezone: Sistema operacional
 
 ---
 
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-sincronizao-com n8n Cloud
+# Sincronização com n8n Cloud
 
-#conectar-com-n8n-cloud-1 **Abra o n8n Desktop**
+## Conectar com n8n Cloud
+
+1. **Abra o n8n Desktop**
 2. **Vá em Settings > Cloud**
 3. **Clique em "Connect to n8n Cloud"**
 4. **Faça login** com sua conta n8n Cloud
 5. **Escolha o workspace** para sincronizar
 
-#sincronizao-de-workflows-upload Envie workflows locais para o Cloud
+## Sincronização de Workflows
+
+- **Upload**: Envie workflows locais para o Cloud
 - **Download**: Baixe workflows do Cloud para local
 - **Sync**: Mantenha ambos sincronizados
 - **Backup**: Use o Cloud como backup automático
 
-#configuraes-de-sincronizao-json
+## Configurações de Sincronização
+
+```json
+{
   "cloudSync": {
     "enabled": true,
     "autoSync": true,
@@ -163,44 +73,26 @@ Timezone: Sistema operacional
 
 ---
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-estrutura-de Arquivos
+# Estrutura de Arquivos
 
-#localizao-dos-dados-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-appdatan8n
+## Localização dos Dados
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-libraryapplication Support/n8n/
+### Windows
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-confign8n
+```cmd
+xcopy "%APPDATA%\n8n" "C:\backup\n8n" /E /I
 ```
 
-#diretrios-importantes-bash-n8n workflows/          #workflows-salvos-credentials        #credenciais-logs              #logs-da-aplicao-configjson        #configuraes-databasesqlite    #banco-de-dados-local
+### macOS/Linux
 
-#cor-backup-manual-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-xcopy "%APPDATA%\n8n" "C:\backup\n8n" /E /I
-
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-macoslinux-cp -r ~/.config/n8n ~/backup/n8n
+```bash
+cp -r ~/.n8n ~/backup/n8n
 ```
 
----
+## Configurações de Desenvolvimento
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-desenvolvimento
-
-#modo-desenvolvedor-bash
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-habilitar-modo desenvolvedor
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-n8n-desktopexe --dev
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-n8n-desktop --dev
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-n8n-desktop --dev
-```
-
-#logs-de-desenvolvimento-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-appdatan8nlogsdesktoplog
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-libraryapplication Support/n8n/logs/desktop.log
-
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-confign8nlogsdesktoplog
-```
-
-#configurao-para-desenvolvimento-json
+```json
+{
   "development": {
     "enabled": true,
     "logLevel": "debug",
@@ -212,91 +104,49 @@ Timezone: Sistema operacional
 
 ---
 
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-segurana
+# Segurança
 
-#configuraes-de-segurana-autenticao local** - Conta de administrador
+## Configurações de Segurança
+
+- **Autenticação local** - Conta de administrador
 - **Criptografia** - Dados criptografados localmente
 - **Firewall** - Use firewall do sistema operacional
 - **Atualizações** - Mantenha sempre atualizado
 
-#boas-prticas-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-firewall (Windows)
+## Boas Práticas
+
+### Windows
+
+```cmd
 netsh advfirewall firewall add rule name="n8n Desktop" dir=in action=allow protocol=TCP localport=5678
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-firewall (macOS)
-sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add /Applications/n8n\ Desktop.app
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-firewall (Linux)
-sudo ufw allow 5678/tcp
 ```
 
----
+### macOS/Linux
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
-
-#problemas-comuns
-
-#aplicao-no-inicia-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-windows-appdatan8nlogsdesktoplog
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-macos-libraryapplication Support/n8n/logs/desktop.log
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-confign8nlogsdesktoplog
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-reinstalar-aplicao
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-desinstale-e baixe novamente do site oficial
+```bash
+sudo ufw allow 5678
 ```
 
-#porta-j-em-uso-bash
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-processo usando a porta
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-netstat -ano | findstr :5678
+## Configurações de Porta
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-macoslinux-lsof -i :5678
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-alterar-porta na configuração
+```json
 {
   "port": 5679
 }
 ```
 
-#problemas-de-sincronizao-bash
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-conexo com internet
+## Problemas de Sincronização
+
+### Verificar Conexão com Internet
+
+```bash
 ping cloud.n8n.io
-
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-limpar-cache de sincronização
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-remova-a pasta de cache e reconecte
 ```
 
-#performance-lenta-bash
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-recursos do sistema
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-windows-task Manager
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-activity Monitor
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-htop
+### Configurações de Atualização
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-aumentar-memria disponível
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-feche-outras aplicações
-```
-
----
-
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-atualizaes
-
-#atualizaes-automticas-habilitadas-por padrão**
-- **Verificação diária** de novas versões
-- **Download automático** de atualizações
-- **Instalação manual** requerida
-
-#atualizaes-manuais-bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-verso atual
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-v-em Help > About
-
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-baixar-nova versão
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-acesse-n8niodesktop
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-instalar-atualizao
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-execute-o novo instalador
-```
-
-#configuraes-de-atualizao-json
+```json
+{
   "updates": {
     "enabled": true,
     "checkInterval": 86400000,
@@ -308,59 +158,25 @@ ping cloud.n8n.io
 
 ---
 
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-suporte
+# Suporte
 
-#recursos-de-ajuda-documentao oficial** - Guias detalhados
+## Recursos de Ajuda
+
+- **Documentação oficial** - Guias detalhados
 - **Community Forum** - Troca de experiências
 - **Discord** - Suporte em tempo real
 - **GitHub Issues** - Reportar bugs
 
-#logs-para-suporte-bash
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-coletar-logs para suporte
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-windows-copy "%APPDATA%\n8n\logs\*" "C:\temp\n8n-logs\"
+## Logs para Suporte
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-macos-cp ~/Library/Application\ Support/n8n/logs/* ~/Desktop/n8n-logs/
+### Windows
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-linux-cp ~/.config/n8n/logs/* ~/Desktop/n8n-logs/
+```cmd
+copy "%APPDATA%\n8n\logs\*" "C:\temp\n8n-logs\"
 ```
 
----
+### macOS/Linux
 
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você tem o n8n Desktop instalado:
-
-1. **[Criar Primeiro Workflow](../../../primeiros-passos/primeiro-workflow)** - Aprenda a construir workflows
-2. **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)** - Entenda os fundamentos
-3. **[Integrações](../../integracoes/)** - Conecte suas aplicações
-
-#outros-mtodos-de-instalao **[Docker](./docker)** - Containerização para produção
-- **[NPM](./npm)** - Instalação local para desenvolvimento
-- **[Cloud](./cloud)** - Serviço hospedado oficial
-
----
-
-:::tip **Dica Pro**
-O **n8n Desktop** é ideal para **usuários não-técnicos** e **desenvolvimento local**. Para **produção**, considere **n8n Cloud** ou **Docker**.
-:::
-
-:::info **Vantagens do Desktop**
-
-- **Instalação simples** sem conhecimentos técnicos
-- **Funciona offline** para desenvolvimento
-- **Sincronização** com n8n Cloud
-- **Interface nativa** integrada ao sistema
-:::
-
-:::warning **Limitações**
-O **n8n Desktop** é para **uso pessoal** e **desenvolvimento**. Para **produção** e **equipes**, use **n8n Cloud** ou **self-hosted**.
-:::
-
----
-
-**Links úteis:**
-
-- [Download n8n Desktop](https://n8n.io/desktop)
-- [Documentação oficial](https://docs.n8n.io/)
-- [Repositório n8n](https://github.com/n8n-io/n8n)
-
+```bash
+cp ~/.n8n/logs/* ~/temp/n8n-logs/
+```

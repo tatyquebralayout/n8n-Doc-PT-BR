@@ -5,72 +5,104 @@ description: Como implementar monitoramento abrangente e sistema de alertas para
 keywords: [n8n, monitoramento, alertas, observabilidade, métricas]
 ---
 
+<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento-e Alertas
+# Monitoramento e Alertas
 
 Este documento explica como **implementar monitoramento abrangente** do n8n, abordando métricas de performance, logs estruturados, alertas proativos, dashboards de observabilidade, integração com ferramentas de APM, e sistemas de notificação que detectam problemas antes que afetem usuários finais, garantindo visibilidade completa sobre saúde e performance das automações em produção.
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
-
-- Métricas essenciais de monitoramento
-- Configuração de alertas
-- Dashboards de observabilidade
-- Integração com ferramentas APM
-- Logs estruturados
-
 ---
 
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-mtricas-essenciais
+<IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#mtricas-de-sistema
+## Métricas do Sistema
 
-#cpu-e-memria-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-system-metricssh-echo "=== Métricas do Sistema ==="
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-cpu-cpuusagetop -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)
+### CPU
+
+```bash
+#!/bin/bash
+echo "=== Métricas do Sistema ==="
+
+# CPU Usage
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)
 echo "CPU Usage: ${CPU_USAGE}%"
+```
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-memria-memoryusagefree | grep Mem | awk '{printf("%.2f", $3/$2 * 100.0)}')
+<IonicIcon name="sparkles-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Memória
+
+```bash
+# Memory Usage
+MEMORY_USAGE=$(free | grep Mem | awk '{printf("%.2f", $3/$2 * 100.0)}')
 echo "Memory Usage: ${MEMORY_USAGE}%"
+```
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-disco-diskusagedf / | tail -1 | awk '{print $5}' | cut -d'%' -f1)
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Disco
+
+```bash
+# Disk Usage
+DISK_USAGE=$(df / | tail -1 | awk '{print $5}' | cut -d'%' -f1)
 echo "Disk Usage: ${DISK_USAGE}%"
+```
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-load-average
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Load Average
+
+```bash
+# Load Average
 LOAD_AVG=$(uptime | awk -F'load average:' '{print $2}' | awk '{print $1}' | cut -d',' -f1)
 echo "Load Average: $LOAD_AVG"
 ```
 
-#mtricas-de-rede-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-network-metricssh-echo "=== Métricas de Rede ==="
+---
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-conexes-ativas
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Métricas de Rede
+
+```bash
+#!/bin/bash
+echo "=== Métricas de Rede ==="
+
+# Active Connections
 ACTIVE_CONNECTIONS=$(netstat -an | grep ESTABLISHED | wc -l)
 echo "Active Connections: $ACTIVE_CONNECTIONS"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-conexes-n8n
+# n8n Connections
 N8N_CONNECTIONS=$(netstat -an | grep :5678 | grep ESTABLISHED | wc -l)
 echo "n8n Connections: $N8N_CONNECTIONS"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-trfego-de rede
+# Network I/O
 NETWORK_IN=$(cat /proc/net/dev | grep eth0 | awk '{print $2}')
 NETWORK_OUT=$(cat /proc/net/dev | grep eth0 | awk '{print $10}')
 echo "Network In: $NETWORK_IN bytes"
 echo "Network Out: $NETWORK_OUT bytes"
 ```
 
-#mtricas-de-aplicao
+---
 
-#mtricas-n8n-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-n8n-metricssh-n8nurlhttplocalhost5678
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Métricas de Aplicação
+
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Métricas n8n
+
+```bash
+#!/bin/bash
+N8N_URL="http://localhost:5678"
 API_KEY="sua_api_key"
 
 echo "=== Métricas n8n ==="
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-status-da aplicação
+# Health Check
 if curl -f -s "$N8N_URL/healthz" > /dev/null; then
     echo "n8n Status: ✅ Online"
 else
@@ -78,69 +110,78 @@ else
     exit 1
 fi
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-nmero-de workflows
+# Total Workflows
 WORKFLOW_COUNT=$(curl -s -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" | jq '. | length')
 echo "Total Workflows: $WORKFLOW_COUNT"
 
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-workflows-ativos
+# Active Workflows
 ACTIVE_WORKFLOWS=$(curl -s -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/workflows" | jq '[.[] | select(.active == true)] | length')
 echo "Active Workflows: $ACTIVE_WORKFLOWS"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-execues-nas últimas 24h
+# Executions (24h)
 EXECUTIONS_24H=$(curl -s -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/executions?limit=1000" | \
   jq '[.[] | select(.startedAt > "'$(date -d '24 hours ago' -Iseconds)'")] | length')
 echo "Executions (24h): $EXECUTIONS_24H"
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-taxa-de erro
+# Error Rate (1h)
 ERROR_RATE=$(curl -s -H "X-N8N-API-KEY: $API_KEY" \
   "$N8N_URL/api/v1/executions?limit=1000" | \
-  jq '[.[] | select(.startedAt > "'$(date -d '1 hour ago' -Iseconds)'")] | 
-       [.[] | select(.status == "error")] | length as $errors | 
-       [.[] | select(.startedAt > "'$(date -d '1 hour ago' -Iseconds)'")] | length as $total | 
+  jq '[.[] | select(.startedAt > "'$(date -d '1 hour ago' -Iseconds)'")] |
+       [.[] | select(.status == "error")] | length as $errors |
+       [.[] | select(.startedAt > "'$(date -d '1 hour ago' -Iseconds)'")] | length as $total |
        if $total > 0 then ($errors * 100 / $total) else 0 end')
 echo "Error Rate (1h): ${ERROR_RATE}%"
 ```
 
-#mtricas-de-performance-bash
-#bin/bash
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-metricssh-echo "=== Métricas de Performance ==="
+---
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-tempo-de resposta da API
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Métricas de Performance
+
+```bash
+#!/bin/bash
+echo "=== Métricas de Performance ==="
+
+# API Response Time
 API_RESPONSE_TIME=$(curl -o /dev/null -s -w "%{time_total}" \
   http://localhost:5678/api/v1/workflows)
 echo "API Response Time: ${API_RESPONSE_TIME}s"
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-tempo-de resposta da UI
+# UI Response Time
 UI_RESPONSE_TIME=$(curl -o /dev/null -s -w "%{time_total}" \
   http://localhost:5678/)
 echo "UI Response Time: ${UI_RESPONSE_TIME}s"
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-uso-de memória do Node.js
+# Node.js Memory Usage
 NODE_MEMORY=$(docker exec n8n node -e "
 const mem = process.memoryUsage();
 console.log(Math.round(mem.rss / 1024 / 1024));
 " 2>/dev/null || echo "N/A")
 echo "Node.js Memory: ${NODE_MEMORY}MB"
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-uso-de CPU do Node.js
+# Node.js CPU Usage
 NODE_CPU=$(docker stats --no-stream --format "{{.CPUPerc}}" n8n 2>/dev/null || echo "N/A")
 echo "Node.js CPU: $NODE_CPU"
 ```
 
 ---
 
-#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-sistema-de Alertas
+<IonicIcon name="color-palette-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-de-alertas
+## Sistema de Alertas
 
-#script-de-monitoramento-bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-n8n-monitoringsh
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-webhookurlhttpshooksslackcomservicesyourwebhookurl
+### Configuração de Alertas
+
+```bash
+#!/bin/bash
+
+# Configurações
 EMAIL_ALERTS="admin@empresa.com"
 ALERT_THRESHOLD_CPU=80
 ALERT_THRESHOLD_MEMORY=85
@@ -148,56 +189,60 @@ ALERT_THRESHOLD_DISK=90
 ALERT_THRESHOLD_ERROR_RATE=5
 ALERT_THRESHOLD_RESPONSE_TIME=5
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-funo-para enviar alerta
+# Função para enviar alertas
 send_alert() {
     local message="$1"
     local severity="$2"
-    
-    #slack-curl-x-post-webhookurl \
+
+    # Slack
+    curl -X POST \
       -H "Content-type: application/json" \
-      -d "{\"text\":\"$severity $message\"}"
-    
-    #email-echo-message-mail -s "n8n Alert: $severity" $EMAIL_ALERTS
-    
-    #log-echo-date-severity $message" >> /var/log/n8n/alerts.log
+      -d "{\"text\":\"$severity $message\"}" \
+      https://hooks.slack.com/services/YOUR_WEBHOOK_URL
+
+    # Email
+    echo "$message" | mail -s "n8n Alert: $severity" $EMAIL_ALERTS
+
+    # Log
+    echo "$(date): $severity $message" >> /var/log/n8n/alerts.log
 }
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-cpu
+# Verificar CPU
 CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)
 if (( $(echo "$CPU_USAGE > $ALERT_THRESHOLD_CPU" | bc -l) )); then
     send_alert "CPU usage is ${CPU_USAGE}%" "⚠️"
 fi
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-memria
+# Verificar Memória
 MEMORY_USAGE=$(free | grep Mem | awk '{printf("%.0f", $3/$2 * 100.0)}')
 if [ $MEMORY_USAGE -gt $ALERT_THRESHOLD_MEMORY ]; then
     send_alert "Memory usage is ${MEMORY_USAGE}%" "⚠️"
 fi
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-disco
+# Verificar Disco
 DISK_USAGE=$(df / | tail -1 | awk '{print $5}' | cut -d'%' -f1)
 if [ $DISK_USAGE -gt $ALERT_THRESHOLD_DISK ]; then
     send_alert "Disk usage is ${DISK_USAGE}%" "🚨"
 fi
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-n8n
+# Verificar n8n
 if ! curl -f -s http://localhost:5678/healthz > /dev/null; then
     send_alert "n8n is not responding" "🚨"
 fi
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-taxa de erro
+# Verificar Error Rate
 ERROR_RATE=$(curl -s -H "X-N8N-API-KEY: $API_KEY" \
   "http://localhost:5678/api/v1/executions?limit=1000" | \
-  jq '[.[] | select(.startedAt > "'$(date -d '10 minutes ago' -Iseconds)'")] | 
-       [.[] | select(.status == "error")] | length as $errors | 
-       [.[] | select(.startedAt > "'$(date -d '10 minutes ago' -Iseconds)'")] | length as $total | 
+  jq '[.[] | select(.startedAt > "'$(date -d '10 minutes ago' -Iseconds)'")] |
+       [.[] | select(.status == "error")] | length as $errors |
+       [.[] | select(.startedAt > "'$(date -d '10 minutes ago' -Iseconds)'")] | length as $total |
        if $total > 0 then ($errors * 100 / $total) else 0 end')
 
 if (( $(echo "$ERROR_RATE > $ALERT_THRESHOLD_ERROR_RATE" | bc -l) )); then
     send_alert "Error rate is ${ERROR_RATE}%" "🚨"
 fi
 
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-tempo de resposta
+# Verificar Tempo de Resposta
 RESPONSE_TIME=$(curl -o /dev/null -s -w "%{time_total}" \
   http://localhost:5678/api/v1/workflows)
 
@@ -206,46 +251,28 @@ if (( $(echo "$RESPONSE_TIME > $ALERT_THRESHOLD_RESPONSE_TIME" | bc -l) )); then
 fi
 ```
 
-#alertas-baseados-em-tempo
+<IonicIcon name="time-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#alertas-de-horrio-bash
-#bin/bash
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-time-based-alertssh
+### Alertas Baseados em Tempo
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-currenthourdate +%H)
-CURRENT_DAY=$(date +%u)  #id-1monday-7sunday-businesshoursstart9-businesshoursend18
+```bash
+#!/bin/bash
 
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-se está em horário comercial
-if [ $CURRENT_DAY -ge 1 ] && [ $CURRENT_DAY -le 5 ]; then
-    if [ $CURRENT_HOUR -ge $BUSINESS_HOURS_START ] && [ $CURRENT_HOUR -lt $BUSINESS_HOURS_END ]; then
-        #em-horrio-comercial-alertas mais rigorosos
-        ALERT_THRESHOLD_CPU=70
-        ALERT_THRESHOLD_MEMORY=80
-        ALERT_THRESHOLD_ERROR_RATE=2
-    else
-        #fora-do-horrio-comercial alertas mais flexíveis
-        ALERT_THRESHOLD_CPU=90
-        ALERT_THRESHOLD_MEMORY=90
-        ALERT_THRESHOLD_ERROR_RATE=10
-    fi
-else
-    #fim-de-semana-alertas muito flexíveis
-    ALERT_THRESHOLD_CPU=95
-    ALERT_THRESHOLD_MEMORY=95
-    ALERT_THRESHOLD_ERROR_RATE=20
-fi
-
+# Alertas de horário
 echo "Current thresholds - CPU: ${ALERT_THRESHOLD_CPU}%, Memory: ${ALERT_THRESHOLD_MEMORY}%, Error Rate: ${ALERT_THRESHOLD_ERROR_RATE}%"
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-dashboards-de Observabilidade
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#grafana-dashboard
+## Dashboards de Observabilidade
 
-#configurao-do-grafana-yaml
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-docker-composeyml-para Grafana
+<IonicIcon name="cloud-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Configuração do Grafana
+
+```yaml
 version: '3.8'
 
 services:
@@ -273,8 +300,12 @@ volumes:
   prometheus_data:
 ```
 
-#configurao-prometheus-yaml
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-prometheusprometheusyml-global
+<IonicIcon name="sparkles-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Configuração Prometheus
+
+```yaml
+global:
   scrape_interval: 15s
 
 scrape_configs:
@@ -293,60 +324,66 @@ scrape_configs:
       - targets: ['postgres-exporter:9187']
 ```
 
-#dashboard-n8n-json-dashboard {
-    "title": "n8n Monitoring Dashboard",
-    "panels": [
-      {
-        "title": "System Metrics",
-        "type": "graph",
-        "targets": [
-          {
-            "expr": "cpu_usage_percent",
-            "legendFormat": "CPU Usage"
-          },
-          {
-            "expr": "memory_usage_percent",
-            "legendFormat": "Memory Usage"
-          }
-        ]
-      },
-      {
-        "title": "n8n Metrics",
-        "type": "graph",
-        "targets": [
-          {
-            "expr": "n8n_workflows_total",
-            "legendFormat": "Total Workflows"
-          },
-          {
-            "expr": "n8n_workflows_active",
-            "legendFormat": "Active Workflows"
-          }
-        ]
-      },
-      {
-        "title": "Execution Metrics",
-        "type": "graph",
-        "targets": [
-          {
-            "expr": "n8n_executions_total",
-            "legendFormat": "Total Executions"
-          },
-          {
-            "expr": "n8n_executions_failed",
-            "legendFormat": "Failed Executions"
-          }
-        ]
-      }
-    ]
-  }
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Dashboard n8n
+
+```json
+{
+  "title": "n8n Monitoring Dashboard",
+  "panels": [
+    {
+      "title": "System Metrics",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "cpu_usage_percent",
+          "legendFormat": "CPU Usage"
+        },
+        {
+          "expr": "memory_usage_percent",
+          "legendFormat": "Memory Usage"
+        }
+      ]
+    },
+    {
+      "title": "n8n Metrics",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "n8n_workflows_total",
+          "legendFormat": "Total Workflows"
+        },
+        {
+          "expr": "n8n_workflows_active",
+          "legendFormat": "Active Workflows"
+        }
+      ]
+    },
+    {
+      "title": "Execution Metrics",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "n8n_executions_total",
+          "legendFormat": "Total Executions"
+        },
+        {
+          "expr": "n8n_executions_failed",
+          "legendFormat": "Failed Executions"
+        }
+      ]
+    }
+  ]
 }
 ```
 
-#datadog-integration
+<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-datadog-yaml
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-datadog-agentyaml-apiversion v1
+### Integração Datadog
+
+```yaml
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: datadog-config
@@ -368,7 +405,11 @@ data:
         enabled: true
 ```
 
-#custom-metrics-javascript-n8n-datadog-metricsjs
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Métricas Customizadas
+
+```javascript
 const { StatsD } = require('hot-shots');
 
 const dogstatsd = new StatsD({
@@ -401,20 +442,15 @@ function trackAPIPerformance(endpoint, duration, statusCode) {
 
 ---
 
-#ionicicon-namefolder-outline-style-fontsize-24px color: '#cor-ea4b71-logs-estruturados
+<IonicIcon name="folder-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-de-logs
+## Logs Estruturados
 
-#configurao-n8n-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-de logs estruturados
-N8N_LOG_LEVEL=info
-N8N_LOG_FORMAT=json
-N8N_LOG_FILE=/var/log/n8n/n8n.log
-N8N_LOG_MAX_SIZE=100MB
-N8N_LOG_MAX_FILES=10
-```
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#formato-json-de-logs-json
+### Configuração de Logs
+
+```json
 {
   "timestamp": "2024-01-15T10:30:00.000Z",
   "level": "info",
@@ -431,10 +467,12 @@ N8N_LOG_MAX_FILES=10
 }
 ```
 
-#centralizao-de-logs
+<IonicIcon name="cloud-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#elk-stack-configuration-yaml
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-docker-compose-elkyml-version '3.8'
+### Centralização de Logs
+
+```yaml
+version: '3.8'
 
 services:
   elasticsearch:
@@ -469,8 +507,12 @@ volumes:
   elasticsearch_data:
 ```
 
-#logstash-pipeline-ruby
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-logstashpipelinen8nconf-input {
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Pipeline Logstash
+
+```ruby
+input {
   beats {
     port => 5044
   }
@@ -481,15 +523,17 @@ filter {
     json {
       source => "message"
     }
-    
+
     date {
       match => [ "timestamp", "ISO8601" ]
       target => "@timestamp"
     }
-    
+
     mutate {
       add_field => {
         "service" => "n8n"
+      }
+      add_field => {
         "environment" => "%{ENVIRONMENT}"
       }
     }
@@ -506,11 +550,15 @@ output {
 
 ---
 
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Ferramentas APM
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#new-relic
+## Integração com Ferramentas APM
 
-#configurao-new-relic-javascript newrelic.js
+<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### New Relic
+
+```javascript
 'use strict';
 
 exports.config = {
@@ -539,9 +587,11 @@ exports.config = {
 };
 ```
 
-#AppDynamics
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-appdynamics-javascript-appdynamicsjs
+### AppDynamics
+
+```javascript
 const appd = require('appdynamics');
 
 appd.profile({
@@ -563,27 +613,41 @@ appd.endBT();
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Monitoramento
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#mtricas-mtricas de sistema configuradas
+## Checklist de Monitoramento
+
+<IonicIcon name="checkmark-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Métricas
+- [ ] Métricas de sistema configuradas
 - [ ] Métricas de aplicação implementadas
 - [ ] Métricas de negócio definidas
 - [ ] Coleta automática configurada
 - [ ] Retenção de dados definida
 
-#alertas-alertas críticos configurados
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Alertas
+- [ ] Alertas críticos configurados
 - [ ] Alertas de warning configurados
 - [ ] Escalação de alertas definida
 - [ ] Canais de notificação configurados
 - [ ] Testes de alertas realizados
 
-#dashboards-dashboard principal criado
+<IonicIcon name="grid-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Dashboards
+- [ ] Dashboard principal criado
 - [ ] Dashboards específicos por equipe
 - [ ] Métricas em tempo real
 - [ ] Histórico de dados
 - [ ] Exportação de relatórios
 
-#logs-logs estruturados configurados
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Logs
+- [ ] Logs estruturados configurados
 - [ ] Centralização de logs implementada
 - [ ] Retenção de logs definida
 - [ ] Busca e filtros configurados
@@ -591,33 +655,10 @@ appd.endBT();
 
 ---
 
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você configurou o monitoramento:
-
-1. **[Autenticação](./autenticacao)** - Configure métodos de login seguros
-2. **[Usuários e Permissões](./usuarios-permissoes)** - Configure controle de acesso
-3. **[Backup e Recovery](./backup-recovery)** - Implemente estratégias de backup
-
----
-
 :::tip **Dica Pro**
-Configure alertas proativos que detectam problemas antes que afetem os usuários. Use métricas de negócio além das técnicas.
+Configure alertas inteligentes que considerem o contexto e evitem alertas falsos. Use machine learning para detectar padrões anômalos.
 :::
 
 :::warning **Importante**
-Teste regularmente seus alertas e dashboards. Métricas sem ação não agregam valor.
+Sempre teste configurações de monitoramento em ambiente de desenvolvimento antes de aplicar em produção. Mantenha dashboards atualizados e documente todas as configurações.
 :::
-
-:::info **Recurso Adicional**
-Considere implementar SLOs (Service Level Objectives) e SLIs (Service Level Indicators) para medir a qualidade do serviço.
-:::
-
----
-
-**Links úteis:**
-
-- [Documentação oficial n8n](https://docs.n8n.io/)
-- [Monitoramento n8n](https://docs.n8n.io/hosting/monitoring/)
-- [Segurança n8n](https://docs.n8n.io/hosting/security/)
-

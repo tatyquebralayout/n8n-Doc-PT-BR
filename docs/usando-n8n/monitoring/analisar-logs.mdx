@@ -4,215 +4,148 @@ title: Debugging
 keywords: [n8n, debugging, troubleshooting, logs, execução, erros]
 ---
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-debugging-de Workflows
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+debugging-de Workflows
 
 O debugging é uma habilidade essencial para desenvolver workflows robustos e confiáveis no n8n. Esta seção aborda técnicas e ferramentas para identificar e resolver problemas em suas automações.
 
-#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-o-que é Debugging?
+## ionicicon nameinformation circle outline style fontsize
 
-Debugging é o processo de identificar, analisar e corrigir problemas em workflows. No n8n, isso envolve:
-
-- **Identificar** onde ocorrem falhas
-- **Analisar** logs de execução
-- **Testar** nodes individualmente
-- **Corrigir** problemas encontrados
-- **Validar** que a correção funciona
-
-#por-que-debugging-importante
-
-- **Confiabilidade**: Workflows funcionam corretamente
-- **Performance**: Identifica gargalos e otimizações
-- **Manutenção**: Facilita atualizações futuras
-- **Produtividade**: Reduz tempo gasto com problemas
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-ferramentas-de Debugging
-
-#execution-log-o-execution-log é sua principal ferramenta de debugging:
-
-#como-acessar-1-execute-o workflow
 2. Clique em **"View Execution"**
 3. Navegue pelas abas de cada node
 4. Analise os dados de entrada e saída
 
-#informaes-disponveis-input-data Dados recebidos pelo node
+## informaes disponveis input
+
+data Dados recebidos pelo node
+
 - **Output Data**: Dados enviados pelo node
 - **Error Details**: Detalhes de erros (se houver)
 - **Performance**: Tempo de execução
 - **Status**: Estado da execução
 
-#data-viewer-o-data-viewer permite visualizar dados em tempo real:
+## data viewer o data
 
-#recursos-estrutura-de-dados Visualização hierárquica
+viewer permite visualizar dados em tempo real:
+
+## recursos estrutura de
+
+dados Visualização hierárquica
+
 - **Tipos de Dados**: Identificação automática
 - **Valores**: Dados reais em cada campo
 - **Filtros**: Busca e filtragem de dados
 
-#como-usar-1-clique-em um node após execução
+## como usar
+
+1-clique-em um node após execução
 2. Abra a aba **"Output"**
 3. Use o **Data Viewer** para explorar dados
 4. Identifique problemas de estrutura
 
-#step-by-step-execution-execute-workflows-node por node:
+## step by step execution execute workflows
 
-#processo-1-desative-nodes-que não precisa testar
+node por node:
+
+## processo 
+1-desative-nodes-que não precisa testar
 2. **Execute** um node por vez
 3. **Verifique** dados de entrada e saída
 4. **Corrija** problemas encontrados
 5. **Ative** próximo node e repita
 
-#benefcios-isola-problemas-em nodes específicos
+## benefcios isola problemas
+
+em nodes específicos
+
 - **Valida dados** em cada etapa
 - **Testa lógica** incrementalmente
 - **Reduz complexidade** do debugging
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-tcnicas-de Debugging
+## ionicicon namecode slash outline style fontsize
 
-#id-1-logging-com-expresses-use expressões JavaScript para logging:
-
-```javascript
-// Log simples
 console.log('Dados recebidos:', $json);
 
 // Log com contexto
 console.log('Processando usuário:', $json.name, 'ID:', $json.id);
 
 // Log condicional
-if ($json.status === 'error') {
-  console.log('Erro detectado:', $json.message);
+if ($json.status === 'error') {}
+  console.log('Erro detectado:', $json.message);}
 }
-```
+```\n\n## id \n2-validao-de-dados-valide dados em cada etapa:\n\n```javascript\n// Verificar se campo existe\nif (!$json.email) {}\n  throw new Error('Campo email não encontrado');}\n}\n\n// Validar formato\nif (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email)) {}\n  throw new Error('Email inválido');}\n}\n\n// Verificar tipo de dados\nif (typeof $json.age !== 'number') {}\n  throw new Error('Idade deve ser um número');}\n}\n```
 
-#id-2-validao-de-dados-valide dados em cada etapa:
-
-```javascript
-// Verificar se campo existe
-if (!$json.email) {
-  throw new Error('Campo email não encontrado');
-}
-
-// Validar formato
-if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email)) {
-  throw new Error('Email inválido');
-}
-
-// Verificar tipo de dados
-if (typeof $json.age !== 'number') {
-  throw new Error('Idade deve ser um número');
-}
-```
-
-#id-3-teste-de-credenciais-teste conectividade separadamente:
+## id 
+3-teste-de-credenciais-teste conectividade separadamente:
 
 1. **Vá para Credentials**
 2. **Selecione a credencial**
 3. **Clique em "Test"**
 4. **Verifique** se a conexão funciona
 
-#id-4-simulao-de-dados-use **Data Pinning** para testes:
+## id 
+4-simulao-de-dados-use **Data Pinning** para testes:
 
 1. **Execute** node com dados reais
 2. **Pine** os dados de saída
 3. **Desenvolva** lógica com dados fixos
 4. **Teste** sem pinning antes de publicar
 
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-problemas-comuns
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+problemas-comuns
 
-#erros-de-conectividade
+## erros de
 
-#sintomas-timeout-errors Connection refused
+conectividade
+
+## sintomas timeout
+
+errors Connection refused
+
 - SSL certificate errors
 - Rate limiting
 
-#solues-1-verifique-credenciais-esto corretas
+## solues 
+1-verifique-credenciais-esto corretas
 2. **Teste conectividade** de rede
 3. **Verifique rate limits** da API
 4. **Ajuste timeouts** se necessário
 
-#erros-de-dados
+## erros de
 
-#sintomas-missing-fields Wrong data types
+dados
+
+## sintomas missing
+
+fields Wrong data types
+
 - Invalid formats
 - Null values
 
-#solues-1-valide-estrutura-dos dados
+## solues 
+1-valide-estrutura-dos dados
 2. **Use transformações** para corrigir
 3. **Adicione validações** nos nodes
 4. **Trate valores nulos** adequadamente
 
-#erros-de-lgica
+## erros de
 
-#sintomas-workflow-no-executa como esperado
+lgica
+
+## sintomas workflow no
+
+executa como esperado
+
 - Condições não funcionam
 - Loops infinitos
 - Dados incorretos
 
-#solues-1-revise-expresses-javascript
+## solues 
+1-revise-expresses-javascript
 2. **Teste condições** individualmente
 3. **Verifique ordem** de execução
 4. **Use step-by-step** execution
 
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-debugging-avanado
+## ionicicon nameanalytics outline style fontsize
 
-#performance-debugging
-
-#identificar-gargalos-1-analise-tempos de execução
-2. **Identifique nodes** lentos
-3. **Verifique volume** de dados
-4. **Otimize queries** e requisições
-
-#tcnicas-de-otimizao-processamento em lotes**
-- **Cache de dados**
-- **Filtros antecipados**
-- **Paralelização** quando possível
-
-#cor-debugging-de-workflows-complexos
-
-#estratgias-1-quebre-em-subworkflows
-2. **Teste** cada parte separadamente
-3. **Use logs** estruturados
-4. **Documente** dependências
-
-#ferramentas-subworkflows-para-modularizao
-- **Error triggers** para tratamento
-- **Data pinning** para desenvolvimento
-- **Version control** para mudanças
-
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-dicas-pro
-
-#workflow-de-debugging-1-reproduza o problema consistentemente
-2. **Isole** a causa raiz
-3. **Teste** soluções incrementais
-4. **Valide** que a correção funciona
-5. **Documente** a solução
-
-#preveno-de-problemas-use validações** em nodes críticos
-- **Implemente error handling** robusto
-- **Teste** com dados variados
-- **Monitore** execuções em produção
-- **Mantenha logs** estruturados
-
-#ferramentas-externas-browser-devtools para expressões JavaScript
-- **API testing tools** (Postman, Insomnia)
-- **Log aggregation** para produção
-- **Monitoring tools** para alertas
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-1. **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento robusto de erros
-2. **[Data Pinning](../../logica-e-dados/data/data-pinning)** - Desenvolvimento com dados fixos
-3. **[Performance Optimization](../../logica-e-dados/data/otimizacao-performance)** - Otimizar workflows
-
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-teis
-
-#documentao-relacionada-error-handlinglogica-e-dadosflow-logicerror-handling - Tratamento de erros
-- **[Execution Order](../../logica-e-dados/flow-logic/execution-order)** - Ordem de execução
-- **[Data Transformation](../../logica-e-dados/data/transformacoes-dados)** - Manipulação de dados
-
-#links-externos-n8n-communityhttpscommunityn8nio - Fórum para dúvidas
-- **[GitHub Issues](https://github.com/n8n-io/n8n/issues)** - Reportar bugs
-- **[Debugging Guide](https://docs.n8n.io/workflows/debugging/)** - Guia oficial
-
----
-
-**<IonicIcon name="bug-outline" style={{ fontSize: '16px', color: '#cor-ea4b71-debugging-eficiente leva a workflows robustos!**
-
+**<IonicIcon name="bug-outline" style={{fontSize: '16px', color: '#ea4b71'}} /> Debugging eficiente leva a workflows robustos!**

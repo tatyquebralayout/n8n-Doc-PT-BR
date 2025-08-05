@@ -5,140 +5,17 @@ description: Entenda como os dados fluem dentro dos nodes do n8n
 keywords: [n8n, dados, fluxo, nodes, processamento, itens]
 ---
 
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-fluxo-de Dados Dentro dos Nodes
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Fluxo de Dados Dentro dos Nodes
 
 O n8n processa dados como uma série de itens. Cada item é um objeto que contém os dados que você está trabalhando. Entender como esses itens fluem através dos nodes é fundamental para criar workflows eficientes.
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-como-os Itens Fluem
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#processamento-padro-por-padro-cada node processa **todos os itens** que recebe. Se um node recebe 5 itens, ele executará 5 vezes - uma vez para cada item.
+## Exemplo de Dados
 
-#exemplo-prtico-imagine-que-voc tem um node que retorna uma lista de clientes:
+```json\n[\n {"json": {"nome": "João", "email": "joao@email.com"}},\n {"json": {"nome": "Maria", "email": "maria@email.com"}},\n {"json": {"nome": "Pedro", "email": "pedro@email.com"}}\n]\n```\n```\n\nSe você conectar um node de email a este, ele enviará **3 emails** - um para cada cliente.\n\n<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />\n\n## Configurações de Execução\n\n### Execute Once\n\nAlguns nodes têm a opção **Execute Once** nas configurações. Quando ativada:\n\n- O node processa apenas o **primeiro item** recebido\n- Ignora todos os outros itens\n- Útil para operações que devem acontecer apenas uma vez\n\n### Exemplo de Uso\n\n```mermaid\ngraph LR\n    A[Webhook] --> B[HTTP Request]\n    B --> C[Send Email - Execute Once]\n\n    A --> A1[1 item]\n    B --> B1[5 items]\n    C --> C1[1 email enviado]\n```\n\n```
 
-```json
-[
- {"json": {"nome": "João", "email": "joao@email.com"}},
- {"json": {"nome": "Maria", "email": "maria@email.com"}},
- {"json": {"nome": "Pedro", "email": "pedro@email.com"}}
-]
-```
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Se você conectar um node de email a este, ele enviará **3 emails** - um para cada cliente.
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de Execução
-
-#execute-once-alguns-nodes-tm a opção **Execute Once** nas configurações. Quando ativada:
-
-- O node processa apenas o **primeiro item** recebido
-- Ignora todos os outros itens
-- Útil para operações que devem acontecer apenas uma vez
-
-#exemplo-de-uso-mermaid-graph LR
-    A[Webhook] --> B[HTTP Request]
-    B --> C[Send Email - Execute Once]
-    
-    A --> A1[1 item]
-    B --> B1[5 items]
-    C --> C1[1 email enviado]
-```
-
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-nodes-com Comportamento Especial
-
-#code-node-o-code-node tem duas modalidades:
-
-**Run Once for All Items (Padrão):**
-
-- Processa todos os itens de uma vez
-- Útil para operações que precisam ver todos os dados
-
-**Run Once for Each Item:**
-
-- Processa cada item individualmente
-- Comportamento padrão da maioria dos nodes
-
-#http-request-node-processa cada item individualmente
-- Cada item gera uma requisição HTTP separada
-- Útil para APIs que precisam de dados específicos por requisição
-
-#database-nodes-insertupdatedelete-executam uma vez para todos os itens
-- **Select:** Processam cada item individualmente
-
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-exemplos-de Fluxo
-
-#exemplo-1-processamento-individual-mermaid
-graph LR
-    A[Trigger] --> B[HTTP Request]
-    B --> C[Transform Data]
-    C --> D[Send Email]
-    
-    A --> A1[1 item]
-    B --> B1[3 items]
-    C --> C1[3 items]
-    D --> D1[3 emails]
-```
-
-#exemplo-2-execute-once-mermaid
-graph LR
-    A[Trigger] --> B[HTTP Request]
-    B --> C[Send Email - Execute Once]
-    
-    A --> A1[1 item]
-    B --> B1[5 items]
-    C --> C1[1 email]
-```
-
-#exemplo-3-code-node Run Once for All Items
-
-```mermaid
-graph LR
-    A[Trigger] --> B[HTTP Request]
-    B --> C[Code - Run Once for All Items]
-    C --> D[Send Email]
-    
-    A --> A1[1 item]
-    B --> B1[3 items]
-    C --> C1[1 item agregado]
-    D --> D1[1 email com resumo]
-```
-
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-consideraes-importantes
-
-#performance-processamento-individual-pode ser mais lento para muitos itens
-- **Execute Once:** Mais rápido, mas processa menos dados
-- **Code node:** Flexível, mas requer mais conhecimento
-
-#rate-limits-apis-podem ter limites de requisições
-- Use **Execute Once** ou **batching** quando necessário
-- Considere usar **Wait** nodes para pausas
-
-#cor-dados-perdidos-execute-once pode fazer você perder dados
-- Sempre teste com diferentes volumes de dados
-- Monitore os logs de execução
-
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas
-
-#para-muitos-itens-1-use Execute Once** para operações que não precisam de todos os itens
-2. **Implemente batching** para APIs com rate limits
-3. **Monitore performance** e ajuste conforme necessário
-
-#para-dados-crticos-1-evite Execute Once** quando todos os dados são importantes
-2. **Use logs** para verificar o processamento
-3. **Teste com dados reais** antes de produção
-
-#para-apis-1-verifique-rate limits** da API
-2. **Use Wait nodes** se necessário
-3. **Implemente retry logic** para falhas
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-1. **Aprenda sobre [Looping](../flow-logic/looping)** para processamento repetitivo
-2. **Explore [Error Handling](../flow-logic/error-handling)** para lidar com falhas
-3. **Entenda [Data Structure](./data-structure)** para estrutura de dados
-
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-relacionados
-
-- **[Data Structure](./data-structure)** - Estrutura fundamental dos dados
-- **[Looping](../flow-logic/looping)** - Processamento repetitivo
-- **[Error Handling](../flow-logic/error-handling)** - Tratamento de erros
-- **[Core Nodes](../integracoes/builtin-nodes/core-nodes/)** - Nodes fundamentais
-
+## Próximos Passos

@@ -1,9 +1,3 @@
-import IonicIcon from '@site/src/components/IonicIcon';
-
-:::info
-<IonicIcon name="shield-checkmark-outline" style={{ fontSize: '18px', color: '#cor-17a2b8-esta-pgina da documentação foi validada tecnicamente e didaticamente.
-:::
-
 ---
 title: Organizar Workflows
 sidebar_position: 2
@@ -11,271 +5,33 @@ description: Aprenda estratégias eficientes para organizar, estruturar e manter
 keywords: [n8n, organizar workflows, estrutura, nomenclatura, versionamento, manutenção]
 ---
 
-#organizar-workflows-organizar-workflows-de forma eficiente é essencial para manter produtividade e facilitar manutenção. Este guia apresenta estratégias comprovadas para estruturar seus projetos no n8n.
+:::info
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '18px', color: '#17a2b8'}} />
 
-#estratgias-de-organizao
+Esta página da documentação foi validada tecnicamente e didaticamente.
+:::
 
-#id-1-sistema-de-nomenclatura
+## Organizar workflows
 
-#padro-recomendado-departamentoprojeto [Funcionalidade] - [Frequência/Ação]
-```
+Organizar workflows de forma eficiente é essencial para manter produtividade e facilitar manutenção. Este guia apresenta estratégias comprovadas para estruturar seus projetos no n8n.
 
-#exemplos-prticos-marketing - Relatório Diário de Vendas - Automático
-✅ Financeiro - Sincronização CRM - Manual
-✅ RH - Processamento de Folha - Mensal
-✅ TI - Backup de Dados - Diário
-❌ Workflow 1
-❌ Teste
-```
+## Estratégias de organização
 
-#estrutura-detalhada-yaml
-#formato-contexto-ao [Detalhes]
-Nome: "E-commerce - Processamento de Pedidos - Novos Clientes"
-Descrição: "Processa pedidos de novos clientes, valida dados e envia confirmação"
-Tags: ["e-commerce", "pedidos", "clientes", "automático"]
-```
+### 1. Sistema de nomenclatura
 
-#id-2-sistema-de-tags
+#### Padrão recomendado
 
-#categorias-principais-departamento-marketing `financeiro`, `rh`, `ti`, `vendas`
-- **Tipo**: `automático`, `manual`, `agendado`, `webhook`
-- **Prioridade**: `alta`, `media`, `baixa`, `critica`
-- **Status**: `ativo`, `teste`, `desenvolvimento`, `depreciado`
-- **Integração**: `crm`, `erp`, `email`, `api`, `database`
+```\n[Departamento/Projeto] - [Funcionalidade] - [Frequência/Ação]\n```\n\n#### Exemplos práticos\n\n✅ Marketing - Relatório Diário de Vendas - Automático\n✅ Financeiro - Sincronização CRM - Manual\n✅ RH - Processamento de Folha - Mensal\n✅ TI - Backup de Dados - Diário\n❌ Workflow 1\n❌ Teste\n\n#### Estrutura detalhada\n\n```yaml\n# Formato: [Contexto] - [Detalhes]\nNome: "E-commerce - Processamento de Pedidos - Novos Clientes"\nDescrição: "Processa pedidos de novos clientes, valida dados e envia confirmação"\nTags: ["e-commerce", "pedidos", "clientes", "automático"]\n```\n\n### 2. Sistema de tags\n\n#### Categorias principais\n\n- **Departamento**: `marketing`, `financeiro`, `rh`, `ti`, `vendas`\n- **Tipo**: `automático`, `manual`, `agendado`, `webhook`\n- **Prioridade**: `alta`, `media`, `baixa`, `critica`\n- **Status**: `ativo`, `teste`, `desenvolvimento`, `depreciado`\n- **Integração**: `crm`, `erp`, `email`, `api`, `database`\n\n#### Exemplo de aplicação\n\n```json\n{\n  "workflow": "Marketing - Campanha Black Friday - Automático",\n  "tags": [\n    "marketing",\n    "campanha",\n    "automático",\n    "alta",\n    "ativo",\n    "email"\n  ]\n}\n```\n\n### 3. Estrutura de pastas conceitual\n\n#### Organização por domínio\n\n```\n📁 E-commerce\n├── 📁 Pedidos\n│   ├── Processamento de Novos Pedidos\n│   ├── Atualização de Status\n│   └── Cancelamento de Pedidos\n├── 📁 Clientes\n│   ├── Cadastro de Clientes\n│   ├── Atualização de Dados\n│   └── Segmentação\n└── 📁 Relatórios\n    ├── Vendas Diárias\n    ├── Performance de Produtos\n    └── Análise de Clientes\n\n📁 Marketing\n├── 📁 Campanhas\n├── 📁 Automação de Email\n└── 📁 Analytics\n\n📁 Financeiro\n├── 📁 Faturamento\n├── 📁 Conciliação\n└── 📁 Relatórios\n```\n\n## Técnicas de organização\n\n### 1. Versionamento inteligente\n\n#### Convenção de versões\n\n```yaml\n# Formato: v[major].[minor].[patch]-[status]\nv1.0.0-prod     # Versão em produção\nv1.1.0-dev      # Versão em desenvolvimento\nv1.0.1-hotfix   # Correção urgente\nv2.0.0-beta     # Nova versão em teste\n```\n\n#### Histórico de mudanças\n\n```markdown\n# Changelog\n\n## v1.2.0\n### Adicionado\n- Integração com novo sistema de pagamento\n- Relatórios automáticos\n\n### Modificado\n- Otimização de performance\n- Melhorias no tratamento de erros\n\n### Removido\n- Integração com sistema legado\n```\n\n### 2. Documentação integrada\n\n#### Template de documentação\n\n```markdown\n# Workflow: [Nome do Workflow]\n\n## Propósito\nDescrição clara do objetivo do workflow.\n\n## Trigger\n**Tipo**: manual/schedule/webhook\n- **Frequência**: Diário/Semanal/Mensal\n- **Horário**: 09:00 (se aplicável)\n\n## Fluxo de dados\n1. **Entrada**: [Fonte dos dados]\n2. **Processamento**: [Transformações aplicadas]\n3. **Saída**: [Resultado final]\n\n## Dependências\n- **Credenciais**: [Lista de credenciais necessárias]\n- **APIs**: [APIs externas utilizadas]\n- **Sistemas**: [Sistemas integrados]\n\n## Configurações importantes\n- **Timeout**: 30 segundos\n- **Retry**: 3 tentativas\n- **Rate Limit**: 100 requests/min\n\n## Responsável\n**Desenvolvedor**: [Nome]\n**Departamento**: [Departamento]\n- **Contato**: [Email]\n\n## Última atualização\n**Data**: 2024-01-15\n- **Versão**: v1.2.0\n- **Autor**: [Nome]\n```\n\n### 3. Monitoramento e manutenção\n\n#### Checklist de manutenção\n\n```yaml\nManutenção Semanal:\n  - [ ] Verificar execuções com erro\n  - [ ] Analisar logs de performance\n  - [ ] Validar credenciais\n  - [ ] Atualizar documentação\n\nManutenção Mensal:\n  - [ ] Revisar workflows inativos\n  - [ ] Otimizar workflows lentos\n  - [ ] Atualizar dependências\n  - [ ] Backup de configurações\n\nManutenção Trimestral:\n  - [ ] Auditoria de segurança\n  - [ ] Revisão de permissões\n  - [ ] Análise de uso\n  - [ ] Planejamento de melhorias\n```\n\n## Ferramentas de organização\n\n### 1. Templates reutilizáveis\n\n#### Template de workflow padrão\n\n```json\n{\n  "name": "Template - [Nome]",\n  "description": "Template para [tipo de workflow]",\n  "tags": ["template", "reutilizavel"],\n  "nodes": [\n    {\n      "type": "trigger",\n      "name": "Trigger - [Tipo]",\n      "config": {\n        "placeholder": "Configuração do trigger"\n      }\n    },\n    {\n      "type": "processing",\n      "name": "Processamento - [Ação]",\n      "config": {\n        "placeholder": "Configuração do processamento"\n      }\n    },\n    {\n      "type": "action",\n      "name": "Ação - [Resultado]",\n      "config": {\n        "placeholder": "Configuração da ação"\n      }\n    }\n  ]\n}\n```\n\n### 2. Scripts de automação\n\n#### Script de limpeza\n\n```javascript\n// Script para identificar workflows órfãos\nconst orphanedWorkflows = workflows.filter(wf => {\n  return wf.lastExecution > 30.days.ago && \n         wf.status === 'inactive' &&\n         wf.tags.includes('depreciado');\n});\n\n// Script para backup automático\nconst backupWorkflows = workflows.filter(wf => {\n  return wf.tags.includes('critico') || \n         wf.tags.includes('producao');\n});\n```\n\n### 3. Dashboards de monitoramento\n\n#### Métricas importantes\n\n```yaml\nMétricas de Organização:\n  - Total de workflows ativos\n  - Workflows por departamento\n  - Workflows com erro\n  - Workflows não documentados\n  - Workflows sem tags\n  - Última execução por workflow\n```\n\n## Boas práticas\n\n### 1. Consistência\n\n- **Use sempre** o mesmo padrão de nomenclatura\n- **Mantenha** tags atualizadas\n- **Documente** todas as mudanças\n- **Padronize** configurações comuns\n\n### 2. Simplicidade\n\n- **Evite** workflows muito complexos\n- **Divida** workflows grandes em menores\n- **Use** nomes descritivos e claros\n- **Mantenha** foco em uma funcionalidade por workflow\n\n### 3. Manutenibilidade\n\n- **Revise** workflows regularmente\n- **Atualize** documentação\n- **Teste** mudanças antes de aplicar\n- **Monitore** performance\n\n### 4. Segurança\n\n- **Use** credenciais seguras\n- **Limite** acesso por permissões\n- **Audite** workflows críticos\n- **Backup** configurações importantes\n\n## Exemplos práticos\n\n### Exemplo 1: Workflow de e-commerce\n\n```yaml\nNome: "E-commerce - Processamento de Pedidos - Automático"\nTags: ["e-commerce", "pedidos", "automático", "alta", "ativo"]\nDescrição: "Processa novos pedidos, valida estoque e envia confirmação"\nDepartamento: "Vendas"\nResponsável: "João Silva"\nFrequência: "Real-time (webhook)"\n```\n\n### Exemplo 2: Workflow de marketing\n\n```yaml\nNome: "Marketing - Campanha Email - Black Friday"\nTags: ["marketing", "email", "campanha", "temporario", "alta"]\nDescrição: "Envia emails promocionais para campanha Black Friday"\nDepartamento: "Marketing"\nResponsável: "Maria Santos"\nFrequência: "Agendado (diário às 10h)"\n```\n\n### Exemplo 3: Workflow de TI\n\n```yaml\nNome: "TI - Backup de Dados - Automático"\nTags: ["ti", "backup", "automático", "critica", "ativo"]\nDescrição: "Realiza backup automático dos dados críticos"\nDepartamento: "TI"\nResponsável: "Carlos Oliveira"\nFrequência: "Agendado (diário às 02h)"\n```
 
-#exemplo-de-aplicao-json
-  "workflow": "Marketing - Campanha Black Friday - Automático",
-  "tags": [
-    "marketing",
-    "campanha",
-    "automático",
-    "alta",
-    "ativo",
-    "email"
-  ]
-}
-```
+## Troubleshooting
 
-#id-3-estrutura-de-pastas-conceitual
+### Problemas comuns
 
-#organizao-por-domnio E-commerce
-├── 📁 Pedidos
-│   ├── Processamento de Novos Pedidos
-│   ├── Atualização de Status
-│   └── Cancelamento de Pedidos
-├── 📁 Clientes
-│   ├── Cadastro de Clientes
-│   ├── Atualização de Dados
-│   └── Segmentação
-└── 📁 Relatórios
-    ├── Vendas Diárias
-    ├── Performance de Produtos
-    └── Análise de Clientes
+#### 1. Workflows desorganizados
 
-📁 Marketing
-├── 📁 Campanhas
-├── 📁 Automação de Email
-└── 📁 Analytics
+**Sintomas:**
 
-📁 Financeiro
-├── 📁 Faturamento
-├── 📁 Conciliação
-└── 📁 Relatórios
-```
-
-#tcnicas-de-organizao
-
-#id-1-versionamento-inteligente
-
-#conveno-de-verses-yaml
-#formato-vmajorminorpatch-status-verses-v100-prod     #verso-em-produo-v110-dev      #verso-em-desenvolvimento-v101-hotfix   #correo-urgente-v200-beta     #nova-verso-em-teste
-
-#histrico-de-mudanas-markdown
-#changelog-v120
-#adicionado-integrao-com-novo sistema de pagamento
-- Relatórios automáticos
-
-#modificado-otimizao-de-performance
-- Melhorias no tratamento de erros
-
-#removido-integrao-com-sistema legado
-```
-
-#id-2-documentao-integrada
-
-#template-de-documentao-markdown
-#workflow-nome-do-workflow
-
-#propsito-descrio-clara-do-objetivo do workflow.
-
-#trigger-tipo-manualschedulewebhook **Frequência**: Diário/Semanal/Mensal
-- **Horário**: 09:00 (se aplicável)
-
-#fluxo-de-dados-1-entrada [Fonte dos dados]
-2. **Processamento**: [Transformações aplicadas]
-3. **Saída**: [Resultado final]
-
-#dependncias-credenciais-lista-de credenciais necessárias]
-- APIs: [APIs externas utilizadas]
-- Sistemas: [Sistemas integrados]
-
-#configuraes-importantes-timeout-30 segundos
-- Retry: 3 tentativas
-- Rate Limit: 100 requests/min
-
-#responsvel-desenvolvedor-nome **Departamento**: [Departamento]
-- **Contato**: [Email]
-
-#ltima-atualizao-data-2024-01-15
-- **Versão**: v1.2.0
-- **Autor**: [Nome]
-```
-
-#id-3-monitoramento-e-manuteno
-
-#checklist-de-manuteno-yaml-manuteno Semanal:
-  - [ ] Verificar execuções com erro
-  - [ ] Analisar logs de performance
-  - [ ] Validar credenciais
-  - [ ] Atualizar documentação
-
-Manutenção Mensal:
-  - [ ] Revisar workflows inativos
-  - [ ] Otimizar workflows lentos
-  - [ ] Atualizar dependências
-  - [ ] Backup de configurações
-
-Manutenção Trimestral:
-  - [ ] Auditoria de segurança
-  - [ ] Revisão de permissões
-  - [ ] Análise de uso
-  - [ ] Planejamento de melhorias
-```
-
-#ferramentas-de-organizao
-
-#id-1-templates-reutilizveis
-
-#template-de-workflow-padro-json
-{
-  "name": "Template - [Nome]",
-  "description": "Template para [tipo de workflow]",
-  "tags": ["template", "reutilizavel"],
-  "nodes": [
-    {
-      "type": "trigger",
-      "name": "Trigger - [Tipo]",
-      "config": {
-        "placeholder": "Configuração do trigger"
-      }
-    },
-    {
-      "type": "processing",
-      "name": "Processamento - [Ação]",
-      "config": {
-        "placeholder": "Configuração do processamento"
-      }
-    },
-    {
-      "type": "action",
-      "name": "Ação - [Resultado]",
-      "config": {
-        "placeholder": "Configuração da ação"
-      }
-    }
-  ]
-}
-```
-
-#id-2-scripts-de-automao
-
-#script-de-limpeza-javascript Script para identificar workflows órfãos
-const orphanedWorkflows = workflows.filter(wf => {
-  return wf.lastExecution > 30.days.ago && 
-         wf.status === 'inactive' &&
-         wf.tags.includes('depreciado');
-});
-
-// Script para backup automático
-const backupWorkflows = workflows.filter(wf => {
-  return wf.tags.includes('critico') || 
-         wf.tags.includes('producao');
-});
-```
-
-#id-3-dashboards-de-monitoramento
-
-#mtricas-importantes-yaml-mtricas-de Organização:
-  - Total de workflows ativos
-  - Workflows por departamento
-  - Workflows com erro
-  - Workflows não documentados
-  - Workflows sem tags
-  - Última execução por workflow
-```
-
-#boas-prticas
-
-#id-1-consistncia-use-sempre o mesmo padrão de nomenclatura
-- **Mantenha** tags atualizadas
-- **Documente** todas as mudanças
-- **Padronize** configurações comuns
-
-#id-2-simplicidade-evite-workflows muito complexos
-- **Divida** workflows grandes em menores
-- **Use** nomes descritivos e claros
-- **Mantenha** foco em uma funcionalidade por workflow
-
-#id-3-manutenibilidade-revise-workflows regularmente
-- **Atualize** documentação
-- **Teste** mudanças antes de aplicar
-- **Monitore** performance
-
-#id-4-segurana-use-credenciais seguras
-- **Limite** acesso por permissões
-- **Audite** workflows críticos
-- **Backup** configurações importantes
-
-#exemplos-prticos
-
-#exemplo-1-workflow-de-e-commerce
-
-```yaml
-Nome: "E-commerce - Processamento de Pedidos - Automático"
-Tags: ["e-commerce", "pedidos", "automático", "alta", "ativo"]
-Descrição: "Processa novos pedidos, valida estoque e envia confirmação"
-Departamento: "Vendas"
-Responsável: "João Silva"
-Frequência: "Real-time (webhook)"
-```
-
-#exemplo-2-workflow-de-marketing
-
-```yaml
-Nome: "Marketing - Campanha Email - Black Friday"
-Tags: ["marketing", "email", "campanha", "temporario", "alta"]
-Descrição: "Envia emails promocionais para campanha Black Friday"
-Departamento: "Marketing"
-Responsável: "Maria Santos"
-Frequência: "Agendado (diário às 10h)"
-```
-
-#exemplo-3-workflow-de-ti
-
-```yaml
-Nome: "TI - Backup de Dados - Automático"
-Tags: ["ti", "backup", "automático", "critica", "ativo"]
-Descrição: "Realiza backup automático dos dados críticos"
-Departamento: "TI"
-Responsável: "Carlos Oliveira"
-Frequência: "Agendado (diário às 02h)"
-```
-
-#Troubleshooting
-
-#problemas-comuns
-
-#id-1-workflows-desorganizados-sintomas Nomes inconsistentes
+- Nomes inconsistentes
 - Falta de tags
 - Documentação desatualizada
 
@@ -285,7 +41,11 @@ Frequência: "Agendado (diário às 02h)"
 - Adicionar tags sistematicamente
 - Criar documentação padrão
 
-#id-2-workflows-rfos-sintomas Workflows não executados há muito tempo
+#### 2. Workflows órfãos
+
+**Sintomas:**
+
+- Workflows não executados há muito tempo
 - Falta de responsável
 - Documentação desatualizada
 
@@ -295,7 +55,11 @@ Frequência: "Agendado (diário às 02h)"
 - Arquivar ou remover workflows obsoletos
 - Atualizar responsáveis
 
-#id-3-performance-degradada-sintomas Workflows lentos
+#### 3. Performance degradada
+
+**Sintomas:**
+
+- Workflows lentos
 - Erros frequentes
 - Alto uso de recursos
 
@@ -305,19 +69,25 @@ Frequência: "Agendado (diário às 02h)"
 - Dividir workflows complexos
 - Implementar cache e rate limiting
 
-#ferramentas-e-recursos
+## Ferramentas e recursos
 
-#scripts-teis-backup-automtico Script para backup de workflows
+### Scripts úteis
+
+- **Backup**: Script para backup automático
 - **Limpeza**: Script para identificar workflows órfãos
 - **Relatórios**: Script para gerar relatórios de uso
 - **Migração**: Script para migrar workflows entre ambientes
 
-#templates-disponveis-e-commerce-templates para workflows de e-commerce
+### Templates disponíveis
+
+- **E-commerce**: Templates para workflows de e-commerce
 - **Marketing**: Templates para automação de marketing
 - **Financeiro**: Templates para processos financeiros
 - **TI**: Templates para operações de TI
 
-#documentao-guia-de-nomenclatura Padrões detalhados
+### Documentação
+
+- **Guia de Nomenclatura**: Padrões detalhados
 - **Template de Documentação**: Modelo para documentar workflows
 - **Checklist de Manutenção**: Lista de verificação
 - **Métricas de Organização**: KPIs para monitoramento

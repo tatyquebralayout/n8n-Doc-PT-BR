@@ -5,81 +5,27 @@ description: Como otimizar performance do n8n para máxima eficiência em produ�
 keywords: [n8n, performance, otimização, eficiência, produção, tuning]
 ---
 
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-otimizao-de Performance
+# Otimização de Performance
 
 Este documento detalha como **otimizar performance do n8n** para máxima eficiência, incluindo configuração de workers, ajuste de timeouts, otimização de queries de banco, gerenciamento de memória, monitoramento de recursos, e técnicas avançadas de tuning que maximizam throughput e minimizam latência em workflows de alta demanda para operações empresariais críticas.
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
-
-- Configuração de workers otimizada
-- Ajuste de timeouts e limites
-- Otimização de banco de dados
-- Gerenciamento de memória
-- Monitoramento de performance
-
 ---
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-por-que Otimizar Performance?
+<IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#impacto-da-performance-performance-baixa
+## Configuração de Workers
 
-- ❌ **Workflows lentos** - Execuções demoram muito
-- ❌ **Timeout de execuções** - Falhas por tempo limite
-- ❌ **Recursos desperdiçados** - CPU e memória mal utilizados
-- ❌ **Experiência ruim** - Interface lenta e travamentos
-- ❌ **Custos altos** - Mais servidores necessários
-
-**Performance Otimizada:**
-
-- ✅ **Execuções rápidas** - Workflows executam em segundos
-- ✅ **Alta disponibilidade** - Sistema sempre responsivo
-- ✅ **Recursos eficientes** - Melhor utilização de hardware
-- ✅ **Experiência fluida** - Interface rápida e responsiva
-- ✅ **Custos reduzidos** - Menos servidores necessários
-
-#quando-otimizar-otimize-performance-quando
-
-- Workflows demoram **mais de 30 segundos**
-- Sistema fica **lento com muitos usuários**
-- **Timeouts frequentes** nas execuções
-- **Uso de CPU/memória** muito alto
-- Precisa **processar mais workflows** simultaneamente
-
----
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-de Workers
-
-#otimizao-de-workers
-
-#configurao-base-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-otimizada para workers
-EXECUTIONS_PROCESS=worker
-EXECUTIONS_MODE=regular
-
-#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de concorrência
-EXECUTIONS_TIMEOUT=300000  #id-5-minutos-executionstimeoutmax3600000  #id-1-hora-executionsdatasaveonerrorall-executionsdatasaveonsuccessall
-
-#configurao-avanada-bash
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-avanadas de performance
-EXECUTIONS_DATA_PRUNE=true
-EXECUTIONS_DATA_MAX_AGE=168  #id-7-dias-executionsdataprunetimeout3600  #id-1-hora
-
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de retry
-EXECUTIONS_RETRY_ON_ERROR=true
-EXECUTIONS_RETRY_ON_FAILURE=true
-EXECUTIONS_RETRY_ATTEMPTS=3
-EXECUTIONS_RETRY_DELAY=5000  #id-5-segundos
-
-#mltiplos-workers
-
-#docker-compose-com-workers-otimizados
+### Docker Compose Otimizado
 
 ```yaml
 version: '3.8'
 
 services:
-  #worker-principal-n8n-main-image-n8nion8nlatest
+  # Worker principal
+  n8n-main:
+    image: n8nio/n8n:latest
     restart: unless-stopped
     ports:
       - "5678:5678"
@@ -109,7 +55,8 @@ services:
     networks:
       - n8n_network
 
-  #workers-de-execuo-otimizados-n8n-worker-1
+  # Workers de execução otimizados
+  n8n-worker-1:
     image: n8nio/n8n:latest
     restart: unless-stopped
     environment:
@@ -167,7 +114,8 @@ services:
     networks:
       - n8n_network
 
-  #banco-de-dados-otimizado-postgres
+  # Banco de dados otimizado
+  postgres:
     image: postgres:15
     restart: unless-stopped
     environment:
@@ -189,7 +137,9 @@ services:
     networks:
       - n8n_network
 
-  #redis-otimizado-redis-image-redis7-alpine
+  # Redis otimizado
+  redis:
+    image: redis:7-alpine
     restart: unless-stopped
     command: redis-server --appendonly yes --maxmemory 1gb --maxmemory-policy allkeys-lru
     volumes:
@@ -216,109 +166,57 @@ networks:
 
 ---
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-otimizao-de Timeouts
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-de-timeouts
+## Otimização de Timeouts
 
-#timeouts-por-tipo-de-operao
+### Configuração de Timeouts
 
 ```bash
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-para operações simples (30 segundos)
-EXECUTIONS_TIMEOUT=30000
-
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-para operações complexas (5 minutos)
-EXECUTIONS_TIMEOUT_MAX=300000
-
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-para webhooks (2 minutos)
-WEBHOOK_TIMEOUT=120000
-
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-de conexão HTTP (10 segundos)
-HTTP_TIMEOUT=10000
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-timeouts-de banco de dados (30 segundos)
-DB_TIMEOUT=30000
+# Timeouts por tipo de operação
+EXECUTIONS_TIMEOUT=300000          # 5 minutos para execuções normais
+EXECUTIONS_TIMEOUT_MAX=3600000     # 1 hora para execuções longas
+WEBHOOK_TIMEOUT=120000             # 2 minutos para webhooks
+API_TIMEOUT=60000                  # 1 minuto para APIs
 ```
 
-#configurao-avanada-de-timeouts-bash
-#ionicicon-namegit-branch-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-especficas por tipo de workflow
-EXECUTIONS_TIMEOUT_SIMPLE=30000    #operaes-simples-executionstimeoutcomplex300000  #operaes-complexas-executionstimeoutwebhook120000  #webhooks-executionstimeoutapi60000       #apis-externas
+### Otimização de Banco de Dados
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de retry com backoff
-EXECUTIONS_RETRY_BACKOFF=exponential
-EXECUTIONS_RETRY_BACKOFF_FACTOR=2
-EXECUTIONS_RETRY_MAX_DELAY=300000
-```
+### PostgreSQL Otimizado
 
-#estratgias-de-timeout
-
-#timeout-adaptativo-javascript-estratgia de timeout baseada no tipo de operação
-const timeoutStrategies = {
-  simple: 30000,      // 30s para operações simples
-  complex: 300000,    // 5min para operações complexas
-  webhook: 120000,    // 2min para webhooks
-  api: 60000,         // 1min para APIs externas
-  database: 30000     // 30s para operações de banco
-};
-
-// Aplicar timeout baseado no tipo
-function getTimeoutForOperation(type) {
-  return timeoutStrategies[type] || timeoutStrategies.simple;
-}
-```
-
----
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-otimizao-de Banco de Dados
-
-#postgresql-otimizado
-
-#postgresqlconf-otimizaes-bash
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-etcpostgresql15mainpostgresqlconf
-
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-memria-sharedbuffers = 1GB              #id-25-da-ram-effectivecachesize 3GB        #id-75-da-ram-workmem 16MB                   #para-queries-complexas-maintenanceworkmem 256MB      #para-manuteno
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-conexes-maxconnections = 200             #ajuste-conforme-necessidade-maxworkerprocesses 8          #para-paralelizao-maxparallelworkers-8          #para-queries-paralelas-maxparallelworkerspergather 4
-
-#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-logs-logdestination = 'stderr'
+```bash
+# postgresql.conf - Otimizações
+# Logs
+log_destination = 'stderr'
 logging_collector = on
 log_directory = 'log'
 log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
 log_rotation_age = 1d
 log_rotation_size = 100MB
-log_min_duration_statement = 1000  #log-queries-1s
+log_min_duration_statement = 1000  # Log queries > 1s
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-randompagecost = 1.1            #para-ssds-effectiveioconcurrency-200    #para-ssds-checkpointcompletiontarget-09
-wal_buffers = 32MB
-checkpoint_segments = 32
-checkpoint_timeout = 5min
+# Performance
+shared_buffers = 256MB
+effective_cache_size = 1GB
+work_mem = 4MB
+maintenance_work_mem = 64MB
+checkpoint_completion_target = 0.9
+wal_buffers = 16MB
+default_statistics_target = 100
+random_page_cost = 1.1
+effective_io_concurrency = 200
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-autovacuum-autovacuum = on
-autovacuum_max_workers = 3
-autovacuum_naptime = 1min
-autovacuum_vacuum_threshold = 50
-autovacuum_analyze_threshold = 50
+# Connections
+max_connections = 100
 ```
 
-#ndices-otimizados-sql-ndices para melhorar performance
-CREATE INDEX CONCURRENTLY idx_executions_created_at ON executions(created_at);
-CREATE INDEX CONCURRENTLY idx_executions_workflow_id ON executions(workflow_id);
-CREATE INDEX CONCURRENTLY idx_executions_status ON executions(status);
-CREATE INDEX CONCURRENTLY idx_workflows_active ON workflows(active);
+### Script de Manutenção
 
--- Índices compostos
-CREATE INDEX CONCURRENTLY idx_executions_workflow_status ON executions(workflow_id, status);
-CREATE INDEX CONCURRENTLY idx_executions_created_status ON executions(created_at, status);
+```bash
+#!/bin/bash
 
--- Índices para webhooks
-CREATE INDEX CONCURRENTLY idx_webhook_entity ON webhook_entity(webhook_id);
-CREATE INDEX CONCURRENTLY idx_webhook_entity_path ON webhook_entity(path);
-```
-
-#manuteno-de-banco
-
-#script-de-manuteno-bash
-#bin/bash
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-database-maintenancesh-dbhostlocalhost
+# Configurações
+DB_HOST="localhost"
 DB_PORT="5432"
 DB_NAME="n8n"
 DB_USER="n8n"
@@ -326,24 +224,22 @@ DB_USER="n8n"
 echo "=== Manutenção do Banco de Dados ==="
 echo
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-vacuum-e analyze
 echo "1. Executando VACUUM e ANALYZE..."
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME -c "VACUUM ANALYZE;"
 echo
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-reindex-echo "2. Reindexando tabelas..."
+echo "2. Reindexando tabelas..."
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME -c "REINDEX DATABASE $DB_NAME;"
 echo
 
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-estatsticas-echo "3. Atualizando estatísticas..."
+echo "3. Atualizando estatísticas..."
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME -c "ANALYZE;"
 echo
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-limpeza-de execuções antigas
 echo "4. Limpando execuções antigas..."
 psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME -c "
-DELETE FROM executions 
-WHERE created_at < NOW() - INTERVAL '30 days' 
+DELETE FROM executions
+WHERE created_at < NOW() - INTERVAL '30 days'
 AND status IN ('success', 'error');"
 echo
 
@@ -352,52 +248,47 @@ echo "Manutenção concluída!"
 
 ---
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-gerenciamento-de Memória
+<IonicIcon name="sparkles-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-de-memria
+## Otimização de Memória
 
-#limites-de-memria-nodejs-bash
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-limites de memória para Node.js
+### Configuração Node.js
+
+```bash
+# Variáveis de ambiente para otimização de memória
 NODE_OPTIONS="--max-old-space-size=4096 --max-semi-space-size=512"
 
-#ionicicon-namecloud-outline-style-fontsize-24px color: '#cor-ea4b71-para-containers Docker
+# Docker com otimizações de memória
 docker run -e NODE_OPTIONS="--max-old-space-size=4096" n8nio/n8n
 ```
 
-#configurao-de-memria-redis-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-redis otimizada
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-redisconf-maxmemory 1gb
-maxmemory-policy allkeys-lru
-maxmemory-samples 10
+### Configuração de Memória Redis
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-de persistência
+```bash
+# redis.conf - Otimizações de memória
+maxmemory 1gb
+maxmemory-policy allkeys-lru
 save 900 1
 save 300 10
 save 60 10000
-appendonly yes
-appendfsync everysec
 ```
 
-#monitoramento-de-memria
-
-#script-de-monitoramento-de-memria
+### Monitoramento de Memória
 
 ```bash
-#bin/bash
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-memory-monitorsh-echo "=== Monitoramento de Memória ==="
+#!/bin/bash
+
+echo "=== Monitoramento de Memória ==="
 echo
 
-#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-memria-do sistema
 echo "1. Memória do Sistema:"
 free -h
 echo
 
-#ionicicon-nameperson-outline-style-fontsize-24px color: '#cor-ea4b71-memria-dos containers
 echo "2. Memória dos Containers:"
 docker stats --no-stream --format "table {{.Container}}\t{{.MemUsage}}\t{{.MemPerc}}"
 echo
 
-#ionicicon-namecode-slash-outline-style-fontsize-24px color: '#cor-ea4b71-memria-do Node.js
 echo "3. Memória do Node.js:"
 for container in n8n-main n8n-worker-1 n8n-worker-2; do
     echo "=== $container ==="
@@ -410,12 +301,11 @@ for container in n8n-main n8n-worker-1 n8n-worker-2; do
 done
 echo
 
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-memria-redis
 echo "4. Memória Redis:"
 redis-cli info memory | grep -E "(used_memory_human|maxmemory_human)"
 echo
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-alertas-de memória
+echo "5. Alertas de Memória:"
 MEMORY_THRESHOLD=85
 for container in n8n-main n8n-worker-1 n8n-worker-2; do
     MEMORY_PERC=$(docker stats --no-stream --format "{{.MemPerc}}" $container | sed 's/%//')
@@ -427,51 +317,49 @@ done
 
 ---
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-monitoramento-de Performance
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#mtricas-de-performance
+## Monitoramento de Performance
 
-#script-de-mtricas-bash
-#bin/bash
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-metricssh-echo "=== Métricas de Performance ==="
+### Métricas de Performance
+
+```bash
+#!/bin/bash
+
+echo "=== Métricas de Performance ==="
 echo
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-cpu-e memória
 echo "1. Uso de Recursos:"
 docker stats --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"
 echo
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-execues-por minuto
 echo "2. Execuções por Minuto:"
 EXECUTIONS_PER_MIN=$(psql -h localhost -U n8n -d n8n -t -c "
-SELECT COUNT(*) FROM executions 
+SELECT COUNT(*) FROM executions
 WHERE created_at > NOW() - INTERVAL '1 minute';")
 echo "Execuções no último minuto: $EXECUTIONS_PER_MIN"
 echo
 
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-tempo-mdio de execução
 echo "3. Tempo Médio de Execução:"
 AVG_EXECUTION_TIME=$(psql -h localhost -U n8n -d n8n -t -c "
-SELECT AVG(EXTRACT(EPOCH FROM (finished_at - started_at))) 
-FROM executions 
-WHERE finished_at IS NOT NULL 
+SELECT AVG(EXTRACT(EPOCH FROM (finished_at - started_at)))
+FROM executions
+WHERE finished_at IS NOT NULL
 AND created_at > NOW() - INTERVAL '1 hour';")
 echo "Tempo médio (última hora): ${AVG_EXECUTION_TIME}s"
 echo
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-taxa-de erro
 echo "4. Taxa de Erro:"
 ERROR_RATE=$(psql -h localhost -U n8n -d n8n -t -c "
-SELECT 
+SELECT
     ROUND(
         (COUNT(CASE WHEN status = 'error' THEN 1 END) * 100.0 / COUNT(*)), 2
     ) as error_rate
-FROM executions 
+FROM executions
 WHERE created_at > NOW() - INTERVAL '1 hour';")
 echo "Taxa de erro (última hora): ${ERROR_RATE}%"
 echo
 
-#ionicicon-nameserver-outline-style-fontsize-24px color: '#cor-ea4b71-filas-redis
 echo "5. Status das Filas:"
 echo "Jobs na fila: $(redis-cli llen n8n:queue:jobs)"
 echo "Webhooks na fila: $(redis-cli llen n8n:queue:webhooks)"
@@ -479,19 +367,19 @@ echo "Jobs processados: $(redis-cli get n8n:stats:processed || echo '0')"
 echo "Jobs falharam: $(redis-cli get n8n:stats:failed || echo '0')"
 ```
 
-#alertas-de-performance
+### Alertas de Performance
 
-#configurao-de-alertas-bash
-#bin/bash
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-performance-alertssh
+```bash
+#!/bin/bash
 
-#ionicicon-namekey-outline-style-fontsize-24px color: '#cor-ea4b71-configuraes-webhookurlhttpshooksslackcomservicesyourwebhookurl
+# Configurações
 CPU_THRESHOLD=80
 MEMORY_THRESHOLD=85
-ERROR_RATE_THRESHOLD=5
-EXECUTION_TIME_THRESHOLD=60
+ERROR_RATE_THRESHOLD=10
+EXECUTION_TIME_THRESHOLD=300
+WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-cpu
+# Verificar CPU
 for container in n8n-main n8n-worker-1 n8n-worker-2; do
     CPU_USAGE=$(docker stats --no-stream --format "{{.CPUPerc}}" $container | sed 's/%//')
     if (( $(echo "$CPU_USAGE > $CPU_THRESHOLD" | bc -l) )); then
@@ -501,7 +389,7 @@ for container in n8n-main n8n-worker-1 n8n-worker-2; do
     fi
 done
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-memria
+# Verificar memória
 for container in n8n-main n8n-worker-1 n8n-worker-2; do
     MEMORY_USAGE=$(docker stats --no-stream --format "{{.MemPerc}}" $container | sed 's/%//')
     if (( $(echo "$MEMORY_USAGE > $MEMORY_THRESHOLD" | bc -l) )); then
@@ -511,7 +399,7 @@ for container in n8n-main n8n-worker-1 n8n-worker-2; do
     fi
 done
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-taxa de erro
+# Verificar taxa de erro
 ERROR_RATE=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT ROUND((COUNT(CASE WHEN status = 'error' THEN 1 END) * 100.0 / COUNT(*)), 2)
 FROM executions 
@@ -523,7 +411,7 @@ if (( $(echo "$ERROR_RATE > $ERROR_RATE_THRESHOLD" | bc -l) )); then
       -d "{\"text\":\"🚨 Taxa de erro alta: ${ERROR_RATE}%\"}"
 fi
 
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-tempo de execução
+# Verificar tempo de execução
 AVG_TIME=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT AVG(EXTRACT(EPOCH FROM (finished_at - started_at)))
 FROM executions 
@@ -539,11 +427,13 @@ fi
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-tcnicas-avanadas de Tuning
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#otimizao-de-workflows
+## Técnicas Avançadas de Tuning
 
-#boas-prticas-de-performance-javascript
+### Otimização de Workflows
+
+```javascript
 // 1. Usar batch processing para grandes volumes
 const batchSize = 100;
 const items = await getItems();
@@ -558,6 +448,7 @@ async function getCachedData(key) {
     if (cache.has(key)) {
         return cache.get(key);
     }
+    
     const data = await fetchData(key);
     cache.set(key, data);
     return data;
@@ -574,7 +465,7 @@ async function retryWithBackoff(fn, maxRetries = 3) {
             return await fn();
         } catch (error) {
             if (i === maxRetries - 1) throw error;
-            await new Promise(resolve => 
+            await new Promise(resolve =>
                 setTimeout(resolve, Math.pow(2, i) * 1000)
             );
         }
@@ -582,120 +473,122 @@ async function retryWithBackoff(fn, maxRetries = 3) {
 }
 ```
 
-#otimizao-de-rede
+### Otimização de Rede
 
-#configurao-de-rede-bash
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-otimizaes-de rede para Linux
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-etcsysctlconf
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-buffer-sizes
+```bash
+# Otimizações de rede para Linux
+# /etc/sysctl.conf
 net.core.rmem_max = 16777216
 net.core.wmem_max = 16777216
-net.core.rmem_default = 262144
-net.core.wmem_default = 262144
-
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-tcp-optimizations
-net.ipv4.tcp_rmem = 4096 65536 16777216
+net.ipv4.tcp_rmem = 4096 87380 16777216
 net.ipv4.tcp_wmem = 4096 65536 16777216
 net.ipv4.tcp_congestion_control = bbr
-net.ipv4.tcp_window_scaling = 1
-net.ipv4.tcp_timestamps = 1
-
-#ionicicon-namegit-network-outline-style-fontsize-24px color: '#cor-ea4b71-connection-tracking
-net.netfilter.nf_conntrack_max = 262144
-net.netfilter.nf_conntrack_tcp_timeout_established = 86400
+net.core.default_qdisc = fq
 ```
 
----
+### Troubleshooting de Performance
 
-#ionicicon-namebug-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
+```bash
+#!/bin/bash
 
-#problemas-comuns
+echo "=== Diagnóstico de Performance ==="
+echo
 
-#performance-lenta-bash
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-uso de recursos
-docker stats --no-stream
-
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs de performance
+echo "1. Logs de performance:"
 docker logs n8n-main | grep -E "(slow|timeout|error)"
+echo
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-queries lentas no banco
+echo "2. Queries lentas do banco:"
 psql -h localhost -U n8n -d n8n -c "
-SELECT query, mean_time, calls 
-FROM pg_stat_statements 
-ORDER BY mean_time DESC 
+SELECT query, mean_time, calls
+FROM pg_stat_statements
+ORDER BY mean_time DESC
 LIMIT 10;"
-```
+echo
 
-#memory-leaks-bash
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-uso de memória
-docker exec n8n-main node -e "
-const mem = process.memoryUsage();
-console.log('RSS:', Math.round(mem.rss / 1024 / 1024) + 'MB');
-console.log('Heap Used:', Math.round(mem.heapUsed / 1024 / 1024) + 'MB');
-"
+echo "3. Memory leaks:"
+for container in n8n-main n8n-worker-1 n8n-worker-2; do
+    echo "=== $container ==="
+    docker exec $container node -e "
+        const mem = process.memoryUsage();
+        console.log('RSS:', Math.round(mem.rss / 1024 / 1024) + 'MB');
+        console.log('Heap Used:', Math.round(mem.heapUsed / 1024 / 1024) + 'MB');
+    "
+done
+echo
 
-#ionicicon-namedocument-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-garbage collection
+echo "4. GC analysis:"
 docker exec n8n-main node --trace-gc -e "console.log('GC test')"
 ```
 
-#timeouts-frequentes-bash
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-configuraes de timeout
+### Problemas Comuns
+
+```bash
+#!/bin/bash
+
+echo "=== Problemas Comuns de Performance ==="
+echo
+
+echo "1. Timeouts frequentes:"
 docker exec n8n-main env | grep -E "(TIMEOUT|EXECUTIONS)"
+echo
 
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-verificar-logs de timeout
-docker logs n8n-main | grep -i timeout
+echo "2. Memory leaks:"
+docker stats --no-stream --format "table {{.Container}}\t{{.MemUsage}}\t{{.MemPerc}}"
+echo
 
-#ionicicon-nametime-outline-style-fontsize-24px color: '#cor-ea4b71-ajustar-timeouts se necessário
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-editar-variveis de ambiente e reiniciar
+echo "3. CPU spikes:"
+docker stats --no-stream --format "table {{.Container}}\t{{.CPUPerc}}"
+echo
+
+echo "4. Network issues:"
+netstat -i
+echo
+
+echo "5. Disk I/O:"
+iostat -x 1 3
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Produção
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#configurao-workers configurados adequadamente
+## Checklist de Otimização
+
+### Configuração
+- [ ] Workers configurados adequadamente
 - [ ] Timeouts otimizados
+- [ ] Memória alocada corretamente
+- [ ] Redis configurado para performance
 - [ ] Banco de dados otimizado
-- [ ] Redis configurado
-- [ ] Memória configurada
 
-#performance-mtricas sendo coletadas
+### Monitoramento
+- [ ] Métricas de performance configuradas
 - [ ] Alertas configurados
-- [ ] Monitoramento ativo
 - [ ] Logs estruturados
-- [ ] Backup de configurações
+- [ ] Dashboard de monitoramento
+- [ ] Health checks implementados
 
-#monitoramento-dashboard de performance
-- [ ] Alertas funcionando
-- [ ] Logs centralizados
-- [ ] Métricas históricas
-- [ ] Relatórios automáticos
+### Otimização
+- [ ] Queries de banco otimizadas
+- [ ] Cache implementado
+- [ ] Batch processing configurado
+- [ ] Paralelismo utilizado
+- [ ] Retry policies definidas
 
-#manuteno-scripts de manutenção
-- [ ] Limpeza automática
-- [ ] Backup regular
-- [ ] Testes de performance
-- [ ] Documentação atualizada
-
----
-
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-Agora que você otimizou a performance:
-
-1. **[Clustering](./clustering)** - Configure clustering para alta disponibilidade
-2. **[Load Balancing](./load-balancing)** - Configure balanceamento de carga
-3. **[Segurança](../seguranca/autenticacao)** - Configure autenticação avançada
-4. **[Backup e Recovery](../seguranca/backup-recovery)** - Implemente estratégias de backup
+### Manutenção
+- [ ] Limpeza automática de dados antigos
+- [ ] Backup configurado
+- [ ] Log rotation ativado
+- [ ] Monitoramento de recursos
+- [ ] Alertas de performance
 
 ---
 
 :::tip **Dica Pro**
-Monitore regularmente as métricas de performance e ajuste as configurações conforme necessário. Performance é um processo contínuo de otimização.
+Monitore constantemente as métricas de performance e ajuste as configurações conforme necessário. Use ferramentas como Prometheus e Grafana para visualização avançada.
 :::
 
 :::warning **Importante**
-Sempre teste as otimizações em ambiente de desenvolvimento antes de aplicar em produção. Mudanças de performance podem afetar a estabilidade do sistema.
+Sempre teste otimizações de performance em ambiente de desenvolvimento antes de aplicar em produção. Monitore o impacto das mudanças.
 :::
-

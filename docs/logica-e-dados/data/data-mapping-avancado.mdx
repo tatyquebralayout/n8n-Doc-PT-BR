@@ -5,102 +5,85 @@ description: Técnicas avançadas de mapeamento e transformação de dados no n8
 keywords: [n8n, data mapping, transformação, expressões, funções, manipulação de dados]
 ---
 
-
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-data-mapping Avançado
+<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Data Mapping Avançado
 
 Aprenda técnicas avançadas de mapeamento e transformação de dados para criar workflows mais poderosos e eficientes no n8n.
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-1 Expressões Avançadas
+## <IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> 1. Expressões de String
 
-#funes-matemticas-operaes-matemticas-complexas
-
-```javascript
-// Soma com validação
-{{ $json.valor1 + $json.valor2 || 0 }}
-
-// Média de valores
-{{ ($json.valor1 + $json.valor2 + $json.valor3) / 3 }}
-
-// Porcentagem
-{{ ($json.atual / $json.total) * 100 }}
-
-// Arredondamento
-{{ Math.round($json.valor * 100) / 100 }}
-```
-
-#manipulao-de-strings-transformaes-de texto avançadas:**
+### Manipulação de texto em uma linha:
 
 ```javascript
-// Capitalizar primeira letra
-{{ $json.nome.charAt(0).toUpperCase() + $json.nome.slice(1) }}
-
-// Extrair domínio de email
-{{ $json.email.split('@')[1] }}
-
 // Remover caracteres especiais
-{{ $json.texto.replace(/[^a-zA-Z0-9]/g, '') }}
+{{$json.texto.replace(/[^a-zA-Z0-9]/g, '')}}
 
 // Formatar CPF
 {{ $json.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') }}
+
+// Extrair domínio do email
+{{$json.email.split('@')[1]}}
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-2 Lógica Condicional
+## <IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> 2. Lógica Condicional
 
-#operadores-ternrios-condies-em-uma linha:**
+### Operadores ternários e condições em uma linha:
 
 ```javascript
 // Status baseado em valor
-{{ $json.valor > 100 ? 'Alto' : 'Baixo' }}
+{{$json.valor > 100 ? 'Alto' : 'Baixo'}}
 
 // Formatação condicional
-{{ $json.tipo === 'cliente' ? 'Cliente VIP' : 'Cliente Regular' }}
+{{$json.tipo === 'cliente' ? 'Cliente VIP' : 'Cliente Regular'}}
 
 // Valor padrão
-{{ $json.nome || 'Nome não informado' }}
+{{$json.nome || 'Nome não informado'}}
 
 // Múltiplas condições
-{{ $json.score > 90 ? 'Excelente' : $json.score > 70 ? 'Bom' : 'Regular' }}
+{{$json.score > 90 ? 'Excelente' : $json.score > 70 ? 'Bom' : 'Regular'}}
 ```
 
-#validaes-complexas-verificaes-avanadas-javascript
+### Validações complexas e verificações avançadas:
+
+```javascript
 // Validar email
-{{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) ? 'Válido' : 'Inválido' }}
+{{/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) ? 'Válido' : 'Inválido'}}
 
 // Validar CPF
-{{ $json.cpf.length === 11 && /^\d+$/.test($json.cpf) ? 'Válido' : 'Inválido' }}
+{{$json.cpf.length === 11 && /^\d+$/.test($json.cpf) ? 'Válido' : 'Inválido'}}
 
 // Verificar se é número
-{{ typeof $json.valor === 'number' ? $json.valor : 0 }}
+{{typeof $json.valor === 'number' ? $json.valor : 0}}
 
 // Validar data
-{{ new Date($json.data) instanceof Date && !isNaN(new Date($json.data)) ? 'Válida' : 'Inválida' }}
+{{new Date($json.data) instanceof Date && !isNaN(new Date($json.data)) ? 'Válida' : 'Inválida'}}
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-3 Manipulação de Arrays
+## <IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> 3. Manipulação de Arrays
 
-#filtros-avanados-filtrar-dados-complexos
+### Filtros avançados para filtrar dados complexos:
 
 ```javascript
 // Filtrar por valor
-{{ $json.items.filter(item => item.status === 'ativo') }}
+{{$json.items.filter(item => item.status === 'ativo')}}
 
 // Filtrar por múltiplas condições
-{{ $json.produtos.filter(prod => prod.preco > 50 && prod.categoria === 'eletronicos') }}
+{{$json.produtos.filter(prod => prod.preco > 50 && prod.categoria === 'eletronicos')}}
 
 // Filtrar valores únicos
-{{ [...new Set($json.emails)] }}
+{{[...new Set($json.emails)]}}
 
 // Filtrar por data
-{{ $json.pedidos.filter(pedido => new Date(pedido.data) > new Date('2024-01-01')) }}
+{{$json.pedidos.filter(pedido => new Date(pedido.data) > new Date('2024-01-01'))}}
 ```
 
-#transformaes-de-array-modificar-arrays
+### Transformações de array para modificar arrays:
 
 ```javascript
 // Mapear propriedades
@@ -121,9 +104,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-4 Funções Customizadas
+## <IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> 4. Funções Customizadas
 
-#funes-javascript-criar-funes-reutilizveis
+### Funções JavaScript para criar funções reutilizáveis:
 
 ```javascript
 // Função para formatar moeda
@@ -153,28 +136,28 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 })($json.titulo) }}
 ```
 
-#bibliotecas-externas-usar-bibliotecas-javascript
+### Bibliotecas externas para usar bibliotecas JavaScript:
 
 ```javascript
 // Usar moment.js para datas
-{{ moment($json.data).format('DD/MM/YYYY') }}
+{{moment($json.data).format('DD/MM/YYYY')}}
 
 // Usar lodash para manipulação
-{{ _.groupBy($json.items, 'categoria') }}
+{{_.groupBy($json.items, 'categoria')}}
 
 // Usar validator.js para validações
-{{ validator.isEmail($json.email) }}
+{{validator.isEmail($json.email)}}
 ```
 
 ---
 
-#ionicicon-namelocation-outline-style-fontsize-24px color: '#cor-ea4b71-5 Mapeamento de Objetos Complexos
+## <IonicIcon name="location-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> 5. Mapeamento de Objetos Complexos
 
-#objetos-aninhados-acessar-dados-profundos
+### Objetos aninhados para acessar dados profundos:
 
 ```javascript
 // Acesso seguro a propriedades
-{{ $json?.cliente?.endereco?.cidade || 'Não informado' }}
+{{$json?.cliente?.endereco?.cidade || 'Não informado'}}
 
 // Desestruturação
 {{ (function(data) {
@@ -191,7 +174,7 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 })) }}
 ```
 
-#transformaes-de-estrutura-reorganizar-dados
+### Transformações de estrutura para reorganizar dados:
 
 ```javascript
 // Converter array para objeto
@@ -221,16 +204,16 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-#ionicicon-nameanalytics-outline-style-fontsize-24px color: '#cor-ea4b71-6 Manipulação de Datas
+## <IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> 6. Manipulação de Datas
 
-#formatao-de-datas-formatos-brasileiros
+### Formatação de datas em formatos brasileiros:
 
 ```javascript
 // Data brasileira
-{{ new Date($json.data).toLocaleDateString('pt-BR') }}
+{{new Date($json.data).toLocaleDateString('pt-BR')}}
 
 // Data e hora
-{{ new Date($json.data).toLocaleString('pt-BR') }}
+{{new Date($json.data).toLocaleString('pt-BR')}}
 
 // Data relativa
 {{ (function(data) {
@@ -244,14 +227,14 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 {{ new Date($json.data).toLocaleDateString('pt-BR', { weekday: 'long' }) }}
 ```
 
-#clculos-de-tempo-operaes-temporais
+### Cálculos de tempo e operações temporais:
 
 ```javascript
 // Diferença em dias
-{{ Math.floor((new Date($json.dataFim) - new Date($json.dataInicio)) / (1000 * 60 * 60 * 24)) }}
+{{Math.floor((new Date($json.dataFim) - new Date($json.dataInicio)) / (1000 * 60 * 60 * 24))}}
 
 // Adicionar dias
-{{ new Date($json.data).setDate(new Date($json.data).getDate() + 7) }}
+{{new Date($json.data).setDate(new Date($json.data).getDate() + 7)}}
 
 // Verificar se é fim de semana
 {{ (function(data) {
@@ -269,9 +252,9 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-7 Validação e Sanitização
+## <IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> 7. Validação e Sanitização
 
-#validaes-de-dados-verificar-integridade
+### Validações de dados para verificar integridade:
 
 ```javascript
 // Validar campos obrigatórios
@@ -292,14 +275,14 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 })($json.cpf) }}
 
 // Validar email corporativo
-{{ /@empresa\.com\.br$/.test($json.email) }}
+{{/@empresa\.com\.br$/.test($json.email)}}
 ```
 
-#sanitizao-de-dados-limpar-dados
+### Sanitização de dados para limpar dados:
 
 ```javascript
 // Remover espaços extras
-{{ $json.texto.trim() }}
+{{$json.texto.trim()}}
 
 // Normalizar telefone
 {{ $json.telefone.replace(/\D/g, '').replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3') }}
@@ -312,15 +295,15 @@ Aprenda técnicas avançadas de mapeamento e transformação de dados para criar
 })($json.nome) }}
 
 // Remover caracteres especiais
-{{ $json.texto.replace(/[^\w\s]/g, '') }}
+{{$json.texto.replace(/[^\w\s]/g, '')}}
 ```
 
 ---
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-8 Próximos passos
+## <IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> 8. Próximos passos
 
-1. **[Transformações de Dados](./transformacoes-dados)** - Técnicas de transformação
-2. **[Agregações e Estatísticas](./agregacoes-estatisticas)** - Cálculos complexos
+1. **[Data Mapping Avançado](./data-mapping-avancado)** - Técnicas de mapeamento
+2. **[Integração com APIs](./integracao-apis)** - Cálculos complexos
 3. **[Integração com APIs](./integracao-apis)** - Mapeamento de respostas de API
 
 > *Agora você domina técnicas avançadas de data mapping. Use essas habilidades para criar workflows mais inteligentes e eficientes!*
@@ -338,4 +321,3 @@ Sempre teste expressões complexas com dados reais antes de usar em produção. 
 :::info **Recurso Adicional**
 Use o Node.js Function node para expressões muito complexas que não cabem em um campo de mapeamento.
 :::
-

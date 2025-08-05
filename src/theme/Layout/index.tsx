@@ -1,12 +1,11 @@
 import React from 'react';
 import OriginalLayout from '@theme-original/Layout';
-import Navbar from '../Navbar';
+import ImageZoom from '../../components/ImageZoom';
 
-export default function Layout({ children, ...props }) {
+export default function Layout(props: any) {
   return (
-    <OriginalLayout {...props}>
-      <Navbar />
-      {children}
-    </OriginalLayout>
+    <ImageZoom>
+      <OriginalLayout {...props} />
+    </ImageZoom>
   );
-} 
+}

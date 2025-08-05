@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: Quickstart Rápido
+description: Guia rápido para começar com n8n
 sidebar_label: Quickstart Rápido
 ---
 

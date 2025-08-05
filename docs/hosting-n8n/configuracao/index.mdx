@@ -5,39 +5,25 @@ description: Configure n8n para ambientes de produção robustos e seguros
 keywords: [n8n, configuração, variáveis, banco de dados, redis, ssl, https]
 ---
 
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao-do n8n
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+# Configuração do n8n
 
 Configure sua instância n8n para ambientes de produção com segurança, performance e escalabilidade. Esta seção abrange todas as configurações essenciais para um deploy robusto.
 
-#ionicicon-namegrid-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você encontrará aqui
+<IonicIcon name="grid-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-- [Variáveis de Ambiente](#variaveis-de-ambiente-configurao-essencial-e-segurana-banco-de-dadosbanco-de-dados-postgresql-mysql-e-otimizaes-sistema-de-filassistema-de-filas-redis-e-processamento-distribudo-sslhttpsssl-https-segurana-e-certificados-conceitos-fundamentaisconceitos-fundamentais-arquitetura-e-componentes-checklist-de-produochecklist-de-producao-configuraes-essenciais-ionicicon-namekey-outline-style-fontsize-24px-color-cor-ea4b71-variveis-de-ambiente-variaveis-de-ambiente-configurao-completavariaveis-ambiente-variveis-essenciais-segurana-performance-e-separao-de-ambientes-principais-configuraes-n8nbasicauthactive-autenticao-bsica-n8nencryptionkey-chave-de-criptografia-n8ndatabasetype-tipo-de-banco-de-dados-n8nredisurl-url-do-redis-para-filas-ionicicon-nameserver-outline-style-fontsize-24px-color-cor-ea4b71-banco-de-dados-banco-de-dados-configurao-completadatabase-postgresql-recomendado-mysql-otimizaes-e-backup-opes-disponveis-postgresql-recomendado-para-produo-mysql-alternativa-compatvel-sqlite-apenas-para-desenvolvimento-ionicicon-namegit-network-outline-style-fontsize-24px-color-cor-ea4b71-sistema-de-filas-sistema-de-filas-configurao-completaqueues-redis-processamento-distribudo-workers-e-escalabilidade-benefcios-processamento-paralelo-de-workflows-escalabilidade-horizontal-com-mltiplos-workers-resilincia-contra-falhas-performance-otimizada-ionicicon-nameshield-checkmark-outline-style-fontsize-24px-color-cor-ea4b71-sslhttps-ssl-https-configurao-completassl-https-https-seguro-certificados-nginx-e-security-headers-segurana-essencial-certificados-ssltls-para-criptografia-security-headers-para-proteo-renovao-automtica-de-certificados-configurao-nginx-para-proxy-reverso-ionicicon-nameschool-outline-style-fontsize-24px-color-cor-ea4b71-conceitos-fundamentais-conceitos-fundamentais-arquitetura-de-configurao-o-n8n-utiliza-uma-arquitetura-modular-que-permite-separao-de-responsabilidades-entre-componentes-escalabilidade-independente-de-cada-servio-configurao-flexvel-para-diferentes-ambientes-manuteno-simplificada-com-isolamento-componentes-principais-1-web-server-interface-e-api-rest-2-database-armazenamento-persistente-3-queue-system-processamento-assncrono-4-file-storage-arquivos-temporrios-5-reverse-proxy-ssl-e-load-balancing-ambientes-de-configurao-desenvolvimento-configurao-mnima-teste-configurao-similar-produo-produo-configurao-completa-e-segura-ionicicon-namecheckmark-circle-outline-style-fontsize-24px-color-cor-ea4b71-checklist-de-produo-checklist-de-producao-segurana-autenticao-configurada-basic-auth-ou-oauth-https-habilitado-com-certificado-vlido-variveis-sensveis-em-variveis-de-ambiente-firewall-configurado-para-portas-necessrias-performance-banco-de-dados-otimizado-postgresql-recomendado)
-- [ ] **Redis configurado** para filas
-- [ ] **Logs configurados** para monitoramento
-- [ ] **Backup automatizado** implementado
-
-#monitoramento-health checks** configurados
-- [ ] **Alertas** para falhas críticas
-- [ ] **Métricas** de performance coletadas
-- [ ] **Logs centralizados** para análise
+> **Configure sua instância para produção e garanta automações seguras e escaláveis!**
 
 ---
 
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
-
-1. **Configure [Variáveis de Ambiente](./variaveis-ambiente)** para sua instância
-2. **Configure [Banco de Dados](./database)** para produção
-3. **Implemente [SSL/HTTPS](./ssl-https)** para segurança
-
----
-
-#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-recursos-relacionados
-
-- **[Instalação](../instalacao/)** – Instale antes de configurar
-- **[Segurança](../seguranca/)** – Proteja sua instância
-- **[Escalonamento](../escalonamento/)** – Otimize performance
+- **[Variáveis de Ambiente](./variaveis-ambiente)** - Configuração de variáveis de ambiente para diferentes ambientes
+- **[Configuração de Database](./database)** - Setup de banco de dados PostgreSQL/MySQL
+- **[Configuração de Filas](./queues)** - Sistema de filas com Redis para processamento escalável
+- **[Configuração SSL/HTTPS](./ssl-https)** - Certificados SSL e configuração HTTPS
 
 ---
 
-> <span style={{fontSize: '18px', fontWeight: 'bold'}}>**Configure sua instância para produção e garanta automações seguras e escaláveis!**</span>
-
+:::tip **Dica Pro**
+Sempre teste configurações em ambiente de desenvolvimento antes de aplicar em produção. Mantenha backups das configurações atuais.
+:::

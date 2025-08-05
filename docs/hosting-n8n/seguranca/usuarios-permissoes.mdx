@@ -5,26 +5,16 @@ description: Como gerenciar usuários e configurar permissões granulares no n8n
 keywords: [n8n, usuários, permissões, rbac, controle acesso, roles]
 ---
 
-
-#ionicicon-nameshield-checkmark-outline-style-fontsize-24px color: '#cor-ea4b71-usurios-e Permissões
+## Usuários e Permissões
 
 Este documento detalha **gerenciamento de usuários e permissões** no n8n, incluindo criação de roles customizados, controle granular de acesso, permissões por workflow, segregação de ambientes, auditoria de ações, e implementação de RBAC (Role-Based Access Control) que garante princípio de menor privilégio e conformidade com políticas de segurança empresarial em organizações de grande porte.
 
-#ionicicon-nameschool-outline-style-fontsize-24px color: '#cor-ea4b71-o-que você vai aprender
+## Roles Padrão
 
-- Sistema RBAC (Role-Based Access Control)
-- Controle granular de permissões
-- Auditoria e monitoramento
-- Segregação de ambientes
-- Templates de roles organizacionais
+### Owner (Proprietário)
 
----
-
-#ionicicon-namecolor-palette-outline-style-fontsize-24px color: '#cor-ea4b71-sistema-rbac
-
-#roles-padro
-
-#owner-proprietrio-javascript-role com acesso total ao sistema
+```javascript
+// Role para acesso total ao sistema
 const ownerRole = {
   name: "owner",
   description: "Acesso total ao sistema",
@@ -39,7 +29,10 @@ const ownerRole = {
 };
 ```
 
-#admin-administrador-javascript-role para administração do sistema
+### Admin (Administrador)
+
+```javascript
+// Role para administração do sistema
 const adminRole = {
   name: "admin",
   description: "Gerenciamento de usuários e configurações",
@@ -54,7 +47,10 @@ const adminRole = {
 };
 ```
 
-#editor-editor-javascript-role para criação e edição de workflows
+### Editor
+
+```javascript
+// Role para criação e edição de workflows
 const editorRole = {
   name: "editor",
   description: "Criar e editar workflows",
@@ -66,7 +62,10 @@ const editorRole = {
 };
 ```
 
-#viewer-visualizador-javascript-role para apenas visualização
+### Viewer (Visualizador)
+
+```javascript
+// Role para apenas visualização
 const viewerRole = {
   name: "viewer",
   description: "Apenas visualizar workflows",
@@ -77,9 +76,12 @@ const viewerRole = {
 };
 ```
 
-#roles-customizados
+## Roles Customizados
 
-#criar-role-customizado-javascript Exemplo: Role para equipe de marketing
+### Criar Role Customizado
+
+```javascript
+// Exemplo: Role para equipe de marketing
 const marketingRole = {
   name: "marketing",
   description: "Acesso a workflows de marketing",
@@ -119,13 +121,12 @@ const financeRole = {
 };
 ```
 
----
+## Controle Granular de Acesso
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-controle-granular de Acesso
+### Permissões por Workflow
 
-#permisses-por-workflow
-
-#configurao-de-permisses-javascript Configurar permissões específicas por workflow
+```javascript
+// Configurar permissões específicas por workflow
 {
   "workflowId": "abc123",
   "name": "Workflow de Vendas",
@@ -146,7 +147,10 @@ const financeRole = {
 }
 ```
 
-#permisses-por-tag-javascript Configurar permissões baseadas em tags
+### Permissões por Tag
+
+```javascript
+// Configurar permissões baseadas em tags
 {
   "tagPermissions": {
     "marketing": {
@@ -173,9 +177,9 @@ const financeRole = {
 }
 ```
 
-#permisses-por-credencial
+### Permissões por Credencial
 
-#controle-de-acesso-a-credenciais
+#### Controle de Acesso a Credenciais
 
 ```javascript
 // Configurar acesso a credenciais
@@ -198,7 +202,10 @@ const financeRole = {
 }
 ```
 
-#credenciais-sensveis-javascript-configurao para credenciais sensíveis
+#### Credenciais Sensíveis
+
+```javascript
+// Configuração para credenciais sensíveis
 {
   "credentialId": "cred456",
   "name": "Database Admin",
@@ -218,13 +225,14 @@ const financeRole = {
 }
 ```
 
----
+## Segregação de Ambientes
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-segregao-de Ambientes
+### Ambientes Separados
 
-#ambientes-separados
+#### Configuração de Ambientes
 
-#configurao-de-ambientes-javascript Configuração para múltiplos ambientes
+```javascript
+// Configuração para múltiplos ambientes
 const environments = {
   development: {
     name: "Development",
@@ -262,7 +270,10 @@ const environments = {
 };
 ```
 
-#isolamento-de-dados-javascript Configuração de isolamento
+#### Isolamento de Dados
+
+```javascript
+// Configuração de isolamento
 {
   "dataIsolation": {
     "development": {
@@ -284,63 +295,67 @@ const environments = {
 }
 ```
 
----
+## Auditoria e Monitoramento
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-auditoria-e Monitoramento
+### Logs de Auditoria
 
-#logs-de-auditoria
+#### Configuração de Auditoria
 
-#configurao-de-auditoria-bash
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurar-logs de auditoria
-N8N_AUDIT_ENABLED=true
-N8N_AUDIT_LOG_LEVEL=info
-N8N_AUDIT_LOG_FILE=/var/log/n8n/audit.log
-N8N_AUDIT_RETENTION_DAYS=90
-N8N_AUDIT_MASK_SENSITIVE_DATA=true
+```bash
+# Configurar logs de auditoria
+export N8N_AUDIT_LOGGING=true
+export N8N_AUDIT_LOG_LEVEL=info
+export N8N_AUDIT_LOG_FILE=/var/log/n8n/audit.log
 ```
 
-#eventos-auditados-javascript-eventos que são registrados na auditoria
-const auditEvents = {
-  // Autenticação
-  "auth.login": "Login de usuário",
-  "auth.logout": "Logout de usuário",
-  "auth.failed_login": "Tentativa de login falhou",
-  "auth.password_change": "Senha alterada",
-  "auth.2fa_enabled": "2FA ativado",
-  "auth.2fa_disabled": "2FA desativado",
-  
-  // Usuários
-  "user.created": "Usuário criado",
-  "user.updated": "Usuário atualizado",
-  "user.deleted": "Usuário deletado",
-  "user.role_changed": "Role alterada",
-  "user.suspended": "Usuário suspenso",
-  
-  // Workflows
-  "workflow.created": "Workflow criado",
-  "workflow.updated": "Workflow atualizado",
-  "workflow.deleted": "Workflow deletado",
-  "workflow.executed": "Workflow executado",
-  "workflow.activated": "Workflow ativado",
-  "workflow.deactivated": "Workflow desativado",
-  
-  // Credenciais
-  "credential.created": "Credencial criada",
-  "credential.updated": "Credencial atualizada",
-  "credential.deleted": "Credencial deletada",
-  "credential.accessed": "Credencial acessada",
-  
-  // Execuções
-  "execution.started": "Execução iniciada",
-  "execution.completed": "Execução completada",
-  "execution.failed": "Execução falhou",
-  "execution.cancelled": "Execução cancelada"
-};
+```javascript
+// Eventos de auditoria
+{
+  "auditEvents": {
+    // Autenticação
+    "auth.login": "Login de usuário",
+    "auth.logout": "Logout de usuário",
+    "auth.failed_login": "Tentativa de login falhou",
+    "auth.password_change": "Senha alterada",
+    "auth.2fa_enabled": "2FA ativado",
+    "auth.2fa_disabled": "2FA desativado",
+    
+    // Usuários
+    "user.created": "Usuário criado",
+    "user.updated": "Usuário atualizado",
+    "user.deleted": "Usuário deletado",
+    "user.role_changed": "Role alterada",
+    "user.suspended": "Usuário suspenso",
+    
+    // Workflows
+    "workflow.created": "Workflow criado",
+    "workflow.updated": "Workflow atualizado",
+    "workflow.deleted": "Workflow deletado",
+    "workflow.executed": "Workflow executado",
+    "workflow.activated": "Workflow ativado",
+    "workflow.deactivated": "Workflow desativado",
+    
+    // Credenciais
+    "credential.created": "Credencial criada",
+    "credential.updated": "Credencial atualizada",
+    "credential.deleted": "Credencial deletada",
+    "credential.accessed": "Credencial acessada",
+    
+    // Execuções
+    "execution.started": "Execução iniciada",
+    "execution.completed": "Execução completada",
+    "execution.failed": "Execução falhou",
+    "execution.cancelled": "Execução cancelada"
+  }
+}
 ```
 
-#alertas-de-segurana
+### Alertas de Segurança
 
-#configurao-de-alertas-javascript Configurar alertas de segurança
+#### Configuração de Alertas
+
+```javascript
+// Configurar alertas de segurança
 {
   "securityAlerts": {
     "permissionEscalation": {
@@ -368,7 +383,10 @@ const auditEvents = {
 }
 ```
 
-#notificaes-javascript-configurao-de notificações
+#### Notificações
+
+```javascript
+// Configuração de notificações
 {
   "notifications": {
     "email": {
@@ -380,7 +398,10 @@ const auditEvents = {
     "slack": {
       "enabled": true,
       "webhook": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
-      "channel": "#security-alerts-webhook-enabled true,
+      "channel": "#security-alerts"
+    },
+    "webhook": {
+      "enabled": true,
       "url": "https://sistema-seguranca.empresa.com/webhook",
       "headers": {
         "Authorization": "Bearer token_seguranca"
@@ -390,13 +411,14 @@ const auditEvents = {
 }
 ```
 
----
+## Templates de Roles Organizacionais
 
-#ionicicon-namesparkles-outline-style-fontsize-24px color: '#cor-ea4b71-templates-de Roles Organizacionais
+### Startup (10-50 funcionários)
 
-#startup-10-50-funcionrios
+#### Roles Essenciais
 
-#roles-essenciais-javascript-configurao para startup
+```javascript
+// Configuração para startup
 const startupRoles = {
   founder: {
     name: "Founder",
@@ -427,9 +449,12 @@ const startupRoles = {
 };
 ```
 
-#empresa-mdia-50-500-funcionrios
+### Empresa Média (50-500 funcionários)
 
-#roles-departamentais-javascript-configurao para empresa média
+#### Roles Departamentais
+
+```javascript
+// Configuração para empresa média
 const mediumCompanyRoles = {
   // TI
   it_admin: {
@@ -508,9 +533,12 @@ const mediumCompanyRoles = {
 };
 ```
 
-#empresa-grande-500-funcionrios
+### Empresa Grande (500+ funcionários)
 
-#roles-corporativos-javascript-configurao para empresa grande
+#### Roles Corporativos
+
+```javascript
+// Configuração para empresa grande
 const largeCompanyRoles = {
   // Administração
   system_admin: {
@@ -606,63 +634,49 @@ const largeCompanyRoles = {
 };
 ```
 
----
+## Checklist de Implementação
 
-#ionicicon-namechevron-forward-outline-style-fontsize-24px color: '#cor-ea4b71-checklist-de Implementação
+### Configuração Inicial
 
-#configurao-inicial Roles padrão configuradas
+- [ ] Roles padrão configuradas
 - [ ] Roles customizados criados
 - [ ] Usuários atribuídos às roles
 - [ ] Permissões granulares definidas
 - [ ] Restrições de acesso configuradas
 
-#segurana-princpio do menor privilégio aplicado
+### Segurança
+
+- [ ] Princípio do menor privilégio aplicado
 - [ ] Auditoria ativada
 - [ ] Alertas configurados
 - [ ] Logs de acesso ativados
 - [ ] Backup de configurações
 
-#monitoramento-mtricas de acesso coletadas
+### Monitoramento
+
+- [ ] Métricas de acesso coletadas
 - [ ] Relatórios de auditoria gerados
 - [ ] Alertas funcionando
 - [ ] Dashboard de monitoramento
 - [ ] Revisão regular de permissões
 
-#documentao-poltica de acesso documentada
+### Documentação
+
+- [ ] Política de acesso documentada
 - [ ] Procedimentos de onboarding
 - [ ] Procedimentos de offboarding
 - [ ] Matriz de responsabilidades
 - [ ] Plano de continuidade
 
----
+## Próximos Passos
 
-#ionicicon-namearrow-forward-circle-outline-style-fontsize-24px color: '#cor-ea4b71-prximos-passos
+- [Monitoramento](/usando-n8n/monitoring/configurar-alertas) - Alertas de segurança
+- [Backup e Recovery](/hosting-n8n/seguranca/backup-recovery) - Recuperação de dados
+- [LGPD Compliance](/privacidade-seguranca/lgpd-compliance) - Conformidade legal
 
-Agora que você configurou usuários e permissões:
+## Recursos Relacionados
 
-1. **[Backup e Recovery](./backup-recovery)** - Implemente estratégias de backup
-2. **[Monitoramento](./monitoring)** - Configure alertas e métricas
-3. **[Autenticação](./autenticacao)** - Configure métodos de login seguros
-
----
-
-:::tip **Dica Pro**
-Implemente o princípio do menor privilégio: dê apenas as permissões necessárias para cada usuário realizar suas funções.
-:::
-
-:::warning **Importante**
-Revise regularmente as permissões dos usuários e mantenha logs de auditoria por pelo menos 90 dias para compliance.
-:::
-
-:::info **Recurso Adicional**
-Considere implementar um sistema de aprovação para mudanças de permissões críticas e acesso a dados sensíveis.
-:::
-
----
-
-**Links úteis:**
-
-- [Documentação oficial n8n](https://docs.n8n.io/)
-- [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
-- [Segurança n8n](https://docs.n8n.io/hosting/security/)
-
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer chamadas para APIs
+- [Expressões n8n](/logica-e-dados/expressoes) - Personalizar autenticação
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
+- [Credenciais](/usando-n8n/credenciais/criar-editar) - Gerenciar tokens de API

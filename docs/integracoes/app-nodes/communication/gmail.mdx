@@ -5,31 +5,17 @@ description: Como integrar n8n com Gmail para automação de emails e comunicaç
 keywords: [n8n, gmail, email, integração, automação, comunicação, google]
 ---
 
-#ionicicon-namemail-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-gmail
+<IonicIcon name="mail-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+# Integração Gmail
 
 O **Gmail** é a plataforma de email mais utilizada no mundo, e a integração com n8n permite automatizar processos de comunicação, criar workflows de email marketing e gerenciar correspondências de forma inteligente.
 
-#ionicicon-nameinformation-circle-outline-style-fontsize-24px color: '#cor-ea4b71-viso-geral
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-A integração n8n-Gmail oferece:
+## Configuração
 
-- **Envio automático de emails** baseado em eventos
-- **Processamento de emails recebidos** com filtros inteligentes
-- **Automação de respostas** e follow-ups
-- **Integração com CRM** e sistemas de vendas
-- **Email marketing automatizado** com personalização
-- **Monitoramento de caixa de entrada** e alertas
-
-#ionicicon-namesettings-outline-style-fontsize-24px color: '#cor-ea4b71-configurao
-
-#id-1-configurar-google-cloud-project
-
-1. Acesse [console.cloud.google.com](https://console.cloud.google.com)
-2. Crie um novo projeto ou selecione um existente
-3. Ative a **Gmail API**
-4. Configure a tela de consentimento OAuth
-
-#id-2-criar-credenciais-oauth-20
+### 1. Configurar Credenciais no Google Cloud
 
 1. Vá para **"APIs & Services" > "Credentials"**
 2. Clique em **"Create Credentials" > "OAuth 2.0 Client IDs"**
@@ -37,7 +23,7 @@ A integração n8n-Gmail oferece:
 4. Adicione URIs de redirecionamento autorizados
 5. Copie o **Client ID** e **Client Secret**
 
-#id-3-configurar-credenciais-no-n8n
+### 2. Configurar Credenciais no n8n
 
 1. No n8n, vá para **Settings > Credentials**
 2. Clique em **"Add Credential"**
@@ -45,24 +31,25 @@ A integração n8n-Gmail oferece:
 4. Insira o Client ID e Client Secret
 5. Autorize o acesso à conta Gmail
 
-#id-4-permisses-necessrias-o-app solicitará as seguintes permissões:
+### 3. Permissões Necessárias
+
+O app solicitará as seguintes permissões:
 
 - **Read and send emails** - Ler e enviar emails
 - **Manage drafts and send emails** - Gerenciar rascunhos
 - **View and modify but not delete your email** - Visualizar e modificar emails
 - **View your email address** - Visualizar endereço de email
 
-#ionicicon-namecode-outline-style-fontsize-24px color: '#cor-ea4b71-ns-disponveis
+<IonicIcon name="code-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#id-1-gmail-trigger-dispara-workflows baseado em eventos do Gmail.
+## Nodes Disponíveis
 
-**Eventos disponíveis:**
-- `messageReceived` - Novo email recebido
-- `messageSent` - Email enviado
-- `draftCreated` - Rascunho criado
-- `labelAdded` - Label adicionada
+### 1. Gmail Trigger
 
-**Configuração:**
+Monitora eventos do Gmail em tempo real.
+
+**Configuração básica:**
+
 ```json
 {
   "event": "messageReceived",
@@ -74,9 +61,12 @@ A integração n8n-Gmail oferece:
 }
 ```
 
-#id-2-send-email-envia-emails através do Gmail.
+### 2. Send Email
+
+Envia emails através do Gmail.
 
 **Configuração básica:**
+
 ```json
 {
   "to": "destinatario@exemplo.com",
@@ -87,25 +77,29 @@ A integração n8n-Gmail oferece:
 ```
 
 **Configuração avançada:**
+
 ```json
 {
-  "to": "{{ $json.email }}",
+  "to": "{{$json.email}}",
   "cc": "gerente@empresa.com",
   "bcc": "admin@empresa.com",
-  "subject": "Pedido #jsonpedidoid-jsonstatus }}",
-  "html": "{{ $('Template Node').json.html_template }}",
+  "subject": "Pedido {{$json.pedido_id}} - {{$json.status}}",
+  "html": "{{$('Template Node').json.html_template}}",
   "attachments": [
     {
       "name": "fatura.pdf",
-      "data": "{{ $binary.fatura.data }}"
+      "data": "{{$binary.fatura.data}}"
     }
   ]
 }
 ```
 
-#id-3-get-emails-busca-emails da caixa de entrada com filtros.
+### 3. Get Emails
+
+Busca emails da caixa de entrada com filtros.
 
 **Configuração:**
+
 ```json
 {
   "query": "from:cliente@exemplo.com subject:pedido",
@@ -114,20 +108,25 @@ A integração n8n-Gmail oferece:
 }
 ```
 
-#id-4-reply-to-email-responde automaticamente a emails.
+### 4. Reply to Email
+
+Responde automaticamente a emails.
 
 **Configuração:**
+
 ```json
 {
-  "messageId": "{{ $json.id }}",
+  "messageId": "{{$json.id}}",
   "text": "Recebemos sua mensagem e responderemos em breve.",
   "html": "<p>Obrigado pelo contato!</p>"
 }
 ```
 
-#ionicicon-nameconstruct-outline-style-fontsize-24px color: '#cor-ea4b71-casos-de Uso Práticos
+<IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#id-1-sistema-de-suporte-automatizado
+## Casos de Uso Práticos
+
+### 1. Sistema de Suporte Automatizado
 
 **Cenário**: Processamento automático de tickets de suporte via email.
 
@@ -141,6 +140,7 @@ graph TD
 ```
 
 **Configuração do Trigger:**
+
 ```json
 {
   "event": "messageReceived",
@@ -152,21 +152,25 @@ graph TD
 ```
 
 **Configuração da Auto-Resposta:**
+
 ```json
 {
-  "messageId": "{{ $json.id }}",
+  "messageId": "{{$json.id}}",
   "html": `
     <h2>Ticket Recebido</h2>
-    <p>Olá {{ $json.from.name }},</p>
-    <p>Recebemos sua solicitação de suporte e criamos o ticket #jsonticketid-p-pstrongassuntostrong-jsonsubject }}</p>
-    <p><strong>Prioridade:</strong> {{ $json.prioridade }}</p>
+    <p>Olá {{$json.from.name}},</p>
+    <p>Recebemos sua solicitação de suporte e criamos o ticket #{{$json.ticket_id}}</p>
+    <p><strong>Assunto:</strong> {{$json.subject}}</p>
+    <p><strong>Prioridade:</strong> {{$json.prioridade}}</p>
     <p>Nossa equipe entrará em contato em até 24 horas.</p>
     <p>Atenciosamente,<br>Equipe de Suporte</p>
   `
 }
 ```
 
-#id-2-email-marketing-automatizado-cenrio Sequência de emails para leads qualificados.
+### 2. Email Marketing Automatizado
+
+**Cenário**: Sequência de emails para leads qualificados.
 
 ```mermaid
 graph TD
@@ -178,26 +182,29 @@ graph TD
 ```
 
 **Configuração do Email:**
+
 ```json
 {
-  "to": "{{ $json.email }}",
-  "subject": "{{ $json.nome }}, conheça nossa solução!",
+  "to": "{{$json.email}}",
+  "subject": "{{$json.nome}}, conheça nossa solução!",
   "html": `
     <div style="font-family: Arial, sans-serif;">
-      <h1>Olá {{ $json.nome }}!</h1>
+      <h1>Olá {{$json.nome}}!</h1>
       <p>Obrigado por se interessar pela nossa solução.</p>
       <p>Baseado no seu perfil, acreditamos que podemos ajudar com:</p>
       <ul>
-        <li>{{ $json.interesse_1 }}</li>
-        <li>{{ $json.interesse_2 }}</li>
+        <li>{{$json.interesse_1}}</li>
+        <li>{{$json.interesse_2}}</li>
       </ul>
-      <p><a href="{{ $json.link_demo }}">Agendar Demonstração</a></p>
+      <p><a href="{{$json.link_demo}}">Agendar Demonstração</a></p>
     </div>
   `
 }
 ```
 
-#id-3-processamento-de-pedidos-cenrio Confirmação automática de pedidos recebidos por email.
+### 3. Processamento de Pedidos
+
+**Cenário**: Confirmação automática de pedidos recebidos por email.
 
 ```mermaid
 graph TD
@@ -209,10 +216,12 @@ graph TD
 ```
 
 **Configuração da Extração:**
+
 ```javascript
 // Code Node - Extrair dados do email
 const emailBody = $json.body;
-const pedidoRegex = /pedido[:\s]*#di-const-valorregex-valorsrsddi
+const pedidoRegex = /pedido[:\s]*#(\d+)/i;
+const valorRegex = /valor[:\s]*R?\$?\s*([\d,]+)/i;
 
 const pedidoMatch = emailBody.match(pedidoRegex);
 const valorMatch = emailBody.match(valorRegex);
@@ -226,7 +235,7 @@ return {
 };
 ```
 
-#id-4-monitoramento-de-caixa-de Entrada
+### 4. Monitoramento de Caixa de Entrada
 
 **Cenário**: Alertas quando emails importantes são recebidos.
 
@@ -240,6 +249,7 @@ graph TD
 ```
 
 **Configuração do Filtro:**
+
 ```json
 {
   "event": "messageReceived",
@@ -250,21 +260,30 @@ graph TD
 }
 ```
 
-#ionicicon-nameflash-outline-style-fontsize-24px color: '#cor-ea4b71-expresses-e Data Mapping
+<IonicIcon name="flash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#emails-dinmicos-javascript-email personalizado baseado em dados
+## Expressões e Data Mapping
+
+### Emails Dinâmicos
+
+```javascript
+// Email personalizado baseado em dados
 {
-  "to": "{{ $json.email }}",
-  "subject": "{{ $json.nome }}, seu pedido #jsonpedidoid-foi-processado-html `
-    <h1>Olá {{ $json.nome }}!</h1>
+  "to": "{{$json.email}}",
+  "subject": "{{$json.nome}}, seu pedido #{{$json.pedido_id}} foi processado",
+  "html": `
+    <h1>Olá {{$json.nome}}!</h1>
     <p>Seu pedido foi processado com sucesso.</p>
-    <p><strong>Valor:</strong> R$ {{ $json.valor.toFixed(2) }}</p>
-    <p><strong>Prazo de entrega:</strong> {{ $json.prazo_entrega }}</p>
+    <p><strong>Valor:</strong> R$ {{$json.valor.toFixed(2)}}</p>
+    <p><strong>Prazo de entrega:</strong> {{$json.prazo_entrega}}</p>
   `
 }
 ```
 
-#templates-condicionais-javascript-template baseado no status
+### Templates Condicionais
+
+```javascript
+// Template baseado no status
 const template = $json.status === 'aprovado' 
   ? $('Template Aprovado').json.html
   : $('Template Pendente').json.html;
@@ -276,7 +295,10 @@ return {
 };
 ```
 
-#filtros-dinmicos-javascript-filtro baseado em horário
+### Filtros Dinâmicos
+
+```javascript
+// Filtro baseado em horário
 const hora = $now.getHours();
 const filtroHora = hora >= 9 && hora <= 18 ? 'normal' : 'urgente';
 
@@ -286,9 +308,11 @@ return {
 };
 ```
 
-#ionicicon-namewarning-outline-style-fontsize-24px color: '#cor-ea4b71-tratamento-de Erros
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#retry-para-falhas-de-envio
+## Tratamento de Erros
+
+### Retry para Falhas de Envio
 
 ```javascript
 // Configuração de retry
@@ -299,7 +323,9 @@ return {
 }
 ```
 
-#fallback-para-outros-canais-mermaid
+### Fallback para Outros Canais
+
+```mermaid
 graph TD
     A[Gmail - Send Email] --> B{Sucesso?}
     B -->|Não| C[Slack - Notificar]
@@ -307,35 +333,47 @@ graph TD
     C --> E[SMS - Enviar]
 ```
 
-#ionicicon-namespeedometer-outline-style-fontsize-24px color: '#cor-ea4b71-boas-prticas
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#id-1-organizao-de-labels **Automação** - Emails processados automaticamente
+## Boas Práticas
+
+### 1. Organização de Labels
+
+- **Automação** - Emails processados automaticamente
 - **Suporte** - Tickets de suporte
 - **Vendas** - Leads e oportunidades
 - **Financeiro** - Faturas e pagamentos
 - **Urgente** - Requer atenção imediata
 
-#id-2-templates-de-email-html
+### 2. Templates de Email HTML
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{{ subject }}</title>
+    <title>{{subject}}</title>
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6;">
     <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-        <header style="background: #cor-f8f9fa-padding-20px-text-align-center
-            <h1 style="color: #cor-333-empresanome-h1-header-main style="padding: 20px;">
-            {{ conteudo }}
+        <header style="background-color: #f8f9fa; padding: 20px;">
+            <h1>{{empresa_nome}}</h1>
+        </header>
+        <main style="padding: 20px;">
+            {{conteudo}}
         </main>
-        
-        <footer style="background: #cor-f8f9fa-padding-20px-text-align-center font-size: 12px; color: #cor-666-p-footertexto-p-footer
+        <footer style="background-color: #f8f9fa; padding: 20px; text-align: center;">
+            <p>{{texto_footer}}</p>
+        </footer>
     </div>
 </body>
 </html>
 ```
 
-#id-3-rate-limiting-javascript Respeitar limites do Gmail
+### 3. Rate Limiting
+
+```javascript
+// Respeitar limites do Gmail
 {
   "maxEmailsPerDay": 500,
   "waitBetweenEmails": 1000,  // 1 segundo
@@ -343,14 +381,20 @@ graph TD
 }
 ```
 
-#id-4-privacidade-e-compliance Não envie dados sensíveis por email
+### 4. Privacidade e Compliance
+
+- Não envie dados sensíveis por email
 - Respeite leis de proteção de dados (LGPD)
 - Implemente unsubscribe em emails marketing
 - Monitore logs de envio
 
-#ionicicon-namehelp-circle-outline-style-fontsize-24px color: '#cor-ea4b71-troubleshooting
+<IonicIcon name="help-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#problemas-comuns-erro-invalid-credentials
+## Troubleshooting
+
+### Problemas Comuns
+
+**Erro: "Invalid credentials"**
 - Verifique se as credenciais OAuth estão corretas
 - Reautorize o acesso à conta Gmail
 - Confirme se o app tem as permissões necessárias
@@ -365,7 +409,10 @@ graph TD
 - Confirme se o email ainda existe na caixa de entrada
 - Use IDs relativos em vez de absolutos
 
-#cor-debugging-javascript-log-para debugging
+### Debugging
+
+```javascript
+// Para debugging
 console.log('Gmail Debug:', {
   to: $json.to,
   subject: $json.subject,
@@ -374,9 +421,14 @@ console.log('Gmail Debug:', {
 });
 ```
 
-#ionicicon-namelink-outline-style-fontsize-24px color: '#cor-ea4b71-integrao-com Outros Nós
+<IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-#fluxo-completo-mermaid-graph-td
+## Integração com Outros Nós
+
+### Fluxo Completo
+
+```mermaid
+graph TD
     A[Gmail Trigger] --> B[Code Node - Processar]
     B --> C[Database - Salvar]
     C --> D[Slack - Notificar]
@@ -384,7 +436,9 @@ console.log('Gmail Debug:', {
     E --> F[CRM - Atualizar]
 ```
 
-#exemplo-de-workflow-completo-javascript
+### Exemplo de Workflow Completo
+
+```javascript
 // 1. Gmail Trigger - Novo email
 {
   "event": "messageReceived",
@@ -415,20 +469,25 @@ return lead;
 
 // 4. Slack - Notificar equipe
 {
-  "channel": "#vendas-text-novo-lead via email: ${$json.nome} (${$json.email})`
+  "channel": "#vendas",
+  "text": "Novo lead via email: ${$json.nome} (${$json.email})"
 }
 
 // 5. Gmail - Auto-resposta
 {
-  "messageId": "{{ $('Gmail Trigger').json.id }}",
+  "messageId": "{{$('Gmail Trigger').json.id}}",
   "html": `
-    <p>Olá {{ $json.nome }},</p>
+    <p>Olá {{$json.nome}},</p>
     <p>Recebemos sua mensagem e entraremos em contato em breve!</p>
   `
 }
 ```
 
-#ionicicon-namedocument-text-outline-style-fontsize-24px color: '#cor-ea4b71-referncias **[Gmail Trigger](../../integracoes/trigger-nodes/app-triggers/gmail-trigger)** - Triggers baseados em eventos do Gmail
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Referências
+
+- **[Gmail Trigger](../../integracoes/trigger-nodes/app-triggers/gmail-trigger)** - Triggers baseados em eventos do Gmail
 - **[Code Node](../../integracoes/builtin-nodes/core-nodes/code)** - Processamento customizado de emails
 - **[Database Nodes](../../integracoes/builtin-nodes/data-processing)** - Armazenamento de dados de email
 - **[Error Handling](../../logica-e-dados/flow-logic/error-handling)** - Tratamento de erros em workflows
@@ -439,5 +498,4 @@ return lead;
 Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
 :::
 
-> <IonicIcon name="bulb-outline" style={{ fontSize: '18px', color: '#cor-ea4b71-dica-use a integração Gmail para criar workflows de comunicação automatizados que melhoram a experiência do cliente e aumentam a eficiência da sua equipe. Lembre-se de sempre testar seus templates de email antes de usar em produção.
-
+> <IonicIcon name="bulb-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
