@@ -88,14 +88,14 @@ const config: Config = {
     ],
   ],
 
-  plugins: [
-    // Plugin de busca local
-    ["@easyops-cn/docusaurus-search-local", {
-      indexDocs: true,
-      docsRouteBasePath: "/",
-      hashed: true,
-      language: ["pt"],
-    }],
+      plugins: [
+      // Plugin de busca local - DESABILITADO TEMPORARIAMENTE devido a conflitos com Node.js 18
+      // ["@easyops-cn/docusaurus-search-local", {
+      //   indexDocs: true,
+      //   docsRouteBasePath: "/",
+      //   hashed: true,
+      //   language: ["pt"],
+      // }],
     
     // Plugin de redirects para SEO
     ["@docusaurus/plugin-client-redirects", {
