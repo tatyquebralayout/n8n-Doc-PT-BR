@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 3
 title: Backup e Recovery
-description: Como implementar estratégias de backup e recuperação para SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, backup, recovery, restauração, continuidade, dados]
+description: Como implementar estratégias de backup e recuperação para n8n
+keywords: [n8n, backup, recovery, restauração, continuidade, dados]
 ---
 
 <IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Backup e Recovery
 
-Este documento ensina como **implementar backup e recovery** para SUA_SENHA_BANCO_AQUI, incluindo backup automático de workflows, export/import de credenciais, versionamento de configurações, recuperação point-in-time, testes de restauração, e estratégias de disaster recovery que garantem proteção completa dos dados críticos e continuidade operacional mesmo em cenários catastróficos de perda de dados ou infraestrutura.
+Este documento ensina como **implementar backup e recovery** para n8n, incluindo backup automático de workflows, export/import de credenciais, versionamento de configurações, recuperação point-in-time, testes de restauração, e estratégias de disaster recovery que garantem proteção completa dos dados críticos e continuidade operacional mesmo em cenários catastróficos de perda de dados ou infraestrutura.
 
 ---
 
@@ -37,12 +37,12 @@ Implemente a estratégia **3-2-1** para proteção máxima:
 # Configurações
 DB_HOST="localhost"
 DB_PORT="5432"
-DB_NAME="SUA_SENHA_BANCO_AQUI"
-DB_USER="SUA_SENHA_BANCO_AQUI"
-DB_PASSWORD="SUA_SENHA_BANCO_AQUI"
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI/database"
+DB_NAME="n8n"
+DB_USER="n8n"
+DB_PASSWORD="n8n"
+BACKUP_DIR="/backups/n8n/database"
 DATE=$(date +%Y%m%d_%H%M%S)
-BACKUP_FILE="$BACKUP_DIR/SUA_SENHA_BANCO_AQUI_db_$DATE.sql"
+BACKUP_FILE="$BACKUP_DIR/n8n_db_$DATE.sql"
 RETENTION_DAYS=30
 
 echo "Iniciando backup do PostgreSQL..."
@@ -64,7 +64,7 @@ if [ $? -eq 0 ]; then
     echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
     
     # Log do backup
-    echo "$(date): Backup PostgreSQL criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/SUA_SENHA_BANCO_AQUI/backup.log
+    echo "$(date): Backup PostgreSQL criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
 else
     echo "ERRO: Falha no backup do PostgreSQL"
     exit 1
@@ -79,9 +79,9 @@ fi
 # Configurações
 DB_HOST="localhost"
 DB_PORT="5432"
-DB_NAME="SUA_SENHA_BANCO_AQUI"
-DB_USER="SUA_SENHA_BANCO_AQUI"
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI/database/incremental"
+DB_NAME="n8n"
+DB_USER="n8n"
+BACKUP_DIR="/backups/n8n/database/incremental"
 DATE=$(date +%Y%m%d_%H%M%S)
 
 echo "Iniciando backup incremental..."
@@ -98,12 +98,12 @@ echo "Backup incremental criado: $BACKUP_DIR/base_$DATE"
 # Configurações
 DB_HOST="localhost"
 DB_PORT="3306"
-DB_NAME="SUA_SENHA_BANCO_AQUI"
-DB_USER="SUA_SENHA_BANCO_AQUI"
-DB_PASSWORD="SUA_SENHA_BANCO_AQUI"
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI/database"
+DB_NAME="n8n"
+DB_USER="n8n"
+DB_PASSWORD="n8n"
+BACKUP_DIR="/backups/n8n/database"
 DATE=$(date +%Y%m%d_%H%M%S)
-BACKUP_FILE="$BACKUP_DIR/SUA_SENHA_BANCO_AQUI_db_$DATE.sql"
+BACKUP_FILE="$BACKUP_DIR/n8n_db_$DATE.sql"
 RETENTION_DAYS=30
 
 echo "Iniciando backup do MySQL..."
@@ -130,7 +130,7 @@ if [ $? -eq 0 ]; then
     echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
     
     # Log do backup
-    echo "$(date): Backup MySQL criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/SUA_SENHA_BANCO_AQUI/backup.log
+    echo "$(date): Backup MySQL criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
 else
     echo "ERRO: Falha no backup do MySQL"
     exit 1
@@ -151,7 +151,7 @@ fi
 # Configurações
 N8N_URL="https://seudominio.com"
 API_KEY="sua_api_key"
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI/workflows"
+BACKUP_DIR="/backups/n8n/workflows"
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_FILE="$BACKUP_DIR/workflows_$DATE.json"
 RETENTION_DAYS=30
@@ -177,7 +177,7 @@ if [ $? -eq 0 ]; then
     echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
     
     # Log do backup
-    echo "$(date): Backup de workflows criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/SUA_SENHA_BANCO_AQUI/backup.log
+    echo "$(date): Backup de workflows criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
 else
     echo "ERRO: Falha no backup de workflows"
     exit 1
@@ -192,7 +192,7 @@ fi
 # Configurações
 N8N_URL="https://seudominio.com"
 API_KEY="sua_api_key"
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI/credentials"
+BACKUP_DIR="/backups/n8n/credentials"
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_FILE="$BACKUP_DIR/credentials_$DATE.json"
 RETENTION_DAYS=30
@@ -218,7 +218,7 @@ if [ $? -eq 0 ]; then
     echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
     
     # Log do backup
-    echo "$(date): Backup de credenciais criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/SUA_SENHA_BANCO_AQUI/backup.log
+    echo "$(date): Backup de credenciais criado - $BACKUP_FILE.gz ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
 else
     echo "ERRO: Falha no backup de credenciais"
     exit 1
@@ -231,21 +231,21 @@ fi
 #!/bin/bash
 
 # Configurações
-VOLUME_NAME="SUA_SENHA_BANCO_AQUI_data"
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI/volumes"
+VOLUME_NAME="n8n_data"
+BACKUP_DIR="/backups/n8n/volumes"
 DATE=$(date +%Y%m%d_%H%M%S)
-BACKUP_FILE="$BACKUP_DIR/SUA_SENHA_BANCO_AQUI_volume_$DATE.tar.gz"
+BACKUP_FILE="$BACKUP_DIR/n8n_volume_$DATE.tar.gz"
 RETENTION_DAYS=30
 
-echo "Parando container SUA_SENHA_BANCO_AQUI..."
-docker stop SUA_SENHA_BANCO_AQUI
+echo "Parando container n8n..."
+docker stop n8n
 
 echo "Iniciando backup do volume Docker..."
 docker run --rm -v $VOLUME_NAME:/data -v $BACKUP_DIR:/backup \
-  alpine tar czf /backup/SUA_SENHA_BANCO_AQUI_volume_$DATE.tar.gz -C /data .
+  alpine tar czf /backup/n8n_volume_$DATE.tar.gz -C /data .
 
-echo "Reiniciando container SUA_SENHA_BANCO_AQUI..."
-docker start SUA_SENHA_BANCO_AQUI
+echo "Reiniciando container n8n..."
+docker start n8n
 
 if [ $? -eq 0 ]; then
     echo "Backup do volume criado: $BACKUP_FILE"
@@ -259,7 +259,7 @@ if [ $? -eq 0 ]; then
     echo "Backups antigos removidos (mais de $RETENTION_DAYS dias)"
     
     # Log do backup
-    echo "$(date): Backup de volume criado - $BACKUP_FILE ($BACKUP_SIZE)" >> /var/log/SUA_SENHA_BANCO_AQUI/backup.log
+    echo "$(date): Backup de volume criado - $BACKUP_FILE ($BACKUP_SIZE)" >> /var/log/n8n/backup.log
 else
     echo "ERRO: Falha no backup do volume"
     exit 1
@@ -278,9 +278,9 @@ fi
 #!/bin/bash
 
 # Configurações
-S3_BUCKET="SUA_SENHA_BANCO_AQUI-backups"
+S3_BUCKET="n8n-backups"
 S3_REGION="us-east-1"
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI"
+BACKUP_DIR="/backups/n8n"
 DATE=$(date +%Y%m%d_%H%M%S)
 RETENTION_DAYS=90
 
@@ -322,8 +322,8 @@ echo "Backup para S3 concluído"
 #!/bin/bash
 
 # Configurações
-GCS_BUCKET="SUA_SENHA_BANCO_AQUI-backups"
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI"
+GCS_BUCKET="n8n-backups"
+BACKUP_DIR="/backups/n8n"
 DATE=$(date +%Y%m%d_%H%M%S)
 RETENTION_DAYS=90
 
@@ -358,8 +358,8 @@ echo "Backup para GCS concluído"
 # Configurações
 DB_HOST="localhost"
 DB_PORT="5432"
-DB_NAME="SUA_SENHA_BANCO_AQUI"
-DB_USER="SUA_SENHA_BANCO_AQUI"
+DB_NAME="n8n"
+DB_USER="n8n"
 BACKUP_FILE="$1"
 
 if [ -z "$BACKUP_FILE" ]; then
@@ -375,14 +375,14 @@ fi
 
 echo "Iniciando restauração do PostgreSQL..."
 
-# Parar SUA_SENHA_BANCO_AQUI
-echo "Parando SUA_SENHA_BANCO_AQUI..."
-docker stop SUA_SENHA_BANCO_AQUI
+# Parar n8n
+echo "Parando n8n..."
+docker stop n8n
 
 # Criar backup de segurança
 echo "Criando backup de segurança..."
 pg_dump -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME > \
-  /backups/SUA_SENHA_BANCO_AQUI/pre_restore_backup_$(date +%Y%m%d_%H%M%S).sql
+  /backups/n8n/pre_restore_backup_$(date +%Y%m%d_%H%M%S).sql
 
 # Descomprimir se necessário
 if [[ "$BACKUP_FILE" == *.gz ]]; then
@@ -398,12 +398,12 @@ psql -h $DB_HOST -p $DB_PORT -U $DB_USER -d $DB_NAME < "$BACKUP_FILE"
 if [ $? -eq 0 ]; then
     echo "Restauração concluída com sucesso"
     
-    # Reiniciar SUA_SENHA_BANCO_AQUI
-    echo "Reiniciando SUA_SENHA_BANCO_AQUI..."
-    docker start SUA_SENHA_BANCO_AQUI
+    # Reiniciar n8n
+    echo "Reiniciando n8n..."
+    docker start n8n
     
     # Log da restauração
-    echo "$(date): Restauração PostgreSQL concluída - $BACKUP_FILE" >> /var/log/SUA_SENHA_BANCO_AQUI/restore.log
+    echo "$(date): Restauração PostgreSQL concluída - $BACKUP_FILE" >> /var/log/n8n/restore.log
 else
     echo "ERRO: Falha na restauração"
     exit 1
@@ -459,7 +459,7 @@ done
 echo "Restauração de workflows concluída"
 
 # Log da restauração
-echo "$(date): Restauração de workflows concluída - $BACKUP_FILE" >> /var/log/SUA_SENHA_BANCO_AQUI/restore.log
+echo "$(date): Restauração de workflows concluída - $BACKUP_FILE" >> /var/log/n8n/restore.log
 ```
 
 ---
@@ -490,9 +490,9 @@ DISASTER_SCENARIOS=(
 #!/bin/bash
 
 # Configurações
-PRIMARY_SERVER="SUA_SENHA_BANCO_AQUI.empresa.com"
-BACKUP_SERVER="SUA_SENHA_BANCO_AQUI-backup.empresa.com"
-S3_BUCKET="SUA_SENHA_BANCO_AQUI-backups"
+PRIMARY_SERVER="n8n.empresa.com"
+BACKUP_SERVER="n8n-backup.empresa.com"
+S3_BUCKET="n8n-backups"
 LATEST_BACKUP=$(aws s3 ls s3://$S3_BUCKET/database/ | sort | tail -1 | awk '{print $4}')
 
 echo "Iniciando Disaster Recovery..."
@@ -510,7 +510,7 @@ if ! ping -c 3 $PRIMARY_SERVER > /dev/null; then
     echo "Restaurando banco de dados..."
     aws s3 cp s3://$S3_BUCKET/database/$LATEST_BACKUP /tmp/
     gunzip /tmp/$LATEST_BACKUP
-    psql -h localhost -U SUA_SENHA_BANCO_AQUI -d SUA_SENHA_BANCO_AQUI < /tmp/${LATEST_BACKUP%.gz}
+    psql -h localhost -U n8n -d n8n < /tmp/${LATEST_BACKUP%.gz}
     
     # 4. Restaurar workflows
     echo "Restaurando workflows..."
@@ -529,7 +529,7 @@ if ! ping -c 3 $PRIMARY_SERVER > /dev/null; then
         # Notificar equipe
         curl -X POST $WEBHOOK_URL \
           -H "Content-type: application/json" \
-          -d '{"text":"✅ Disaster Recovery concluído - SUA_SENHA_BANCO_AQUI disponível em backup"}'
+          -d '{"text":"✅ Disaster Recovery concluído - n8n disponível em backup"}'
     else
         echo "ERRO: Falha no Disaster Recovery"
         exit 1
@@ -552,7 +552,7 @@ fi
 
 # Configurações
 BACKUP_FILE="$1"
-TEST_DB="SUA_SENHA_BANCO_AQUI_test"
+TEST_DB="n8n_test"
 
 if [ -z "$BACKUP_FILE" ]; then
     echo "Uso: $0 <arquivo_backup>"
@@ -568,7 +568,7 @@ docker run -d --name $TEST_ENV \
   -e DB_POSTGRESDB_HOST=localhost \
   -e DB_POSTGRESDB_DATABASE=$TEST_DB \
   -p 5679:5678 \
-  SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
+  n8nio/n8n:latest
 
 # Aguardar inicialização
 echo "Aguardando inicialização..."
@@ -576,7 +576,7 @@ sleep 30
 
 # Restaurar backup de teste
 echo "Restaurando backup de teste..."
-gunzip -c "$BACKUP_FILE" | psql -h localhost -U SUA_SENHA_BANCO_AQUI -d $TEST_DB
+gunzip -c "$BACKUP_FILE" | psql -h localhost -U n8n -d $TEST_DB
 
 # Verificar restauração
 echo "Verificando restauração..."
@@ -592,7 +592,7 @@ if [ $? -eq 0 ]; then
     # Limpar ambiente de teste
     docker stop $TEST_ENV
     docker rm $TEST_ENV
-    psql -h localhost -U SUA_SENHA_BANCO_AQUI -c "DROP DATABASE $TEST_DB;"
+    psql -h localhost -U n8n -c "DROP DATABASE $TEST_DB;"
 else
     echo "❌ Teste de restauração FALHOU"
     exit 1
@@ -609,7 +609,7 @@ fi
 #!/bin/bash
 
 # Configurações
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI"
+BACKUP_DIR="/backups/n8n"
 RETENTION_DAYS=30
 CLOUD_RETENTION_DAYS=90
 
@@ -621,9 +621,9 @@ find $BACKUP_DIR -name "*.json.gz" -mtime +$RETENTION_DAYS -delete
 find $BACKUP_DIR -name "*.tar.gz" -mtime +$RETENTION_DAYS -delete
 
 # Limpar backups na nuvem
-aws s3 ls s3://SUA_SENHA_BANCO_AQUI-backups/ | \
+aws s3 ls s3://n8n-backups/ | \
   awk '$1 < "'$(date -d "$CLOUD_RETENTION_DAYS days ago" +%Y-%m-%d)'" {print $4}' | \
-  xargs -I {} aws s3 rm s3://SUA_SENHA_BANCO_AQUI-backups/{}
+  xargs -I {} aws s3 rm s3://n8n-backups/{}
 
 echo "Limpeza concluída"
 ```

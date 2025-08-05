@@ -1,6 +1,6 @@
 ---
 title: "Configurações"
-description: "Configurações avançadas do SUA_SENHA_BANCO_AQUI"
+description: "Configurações avançadas do n8n"
 sidebar_position: 9
 ---
 

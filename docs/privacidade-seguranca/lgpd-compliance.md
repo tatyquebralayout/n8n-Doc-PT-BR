@@ -1,15 +1,15 @@
 ---
 sidebar_position: 2
-title: Conformidade LGPD no SUA_SENHA_BANCO_AQUI - Guia Prático, Checklist e Implementação
-description: Guia completo de conformidade LGPD no SUA_SENHA_BANCO_AQUI, checklist, exemplos práticos, recursos para empresas brasileiras e proteção de dados pessoais.
-keywords: [LGPD SUA_SENHA_BANCO_AQUI, compliance de dados, proteção de dados Brasil, checklist LGPD, conformidade legal, automação segura, privacidade, direitos do titular]
+title: Conformidade LGPD no n8n - Guia Prático, Checklist e Implementação
+description: Guia completo de conformidade LGPD no n8n, checklist, exemplos práticos, recursos para empresas brasileiras e proteção de dados pessoais.
+keywords: [LGPD n8n, compliance de dados, proteção de dados Brasil, checklist LGPD, conformidade legal, automação segura, privacidade, direitos do titular]
 ---
 
 <IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-## Conformidade LGPD no SUA_SENHA_BANCO_AQUI
+## Conformidade LGPD no n8n
 
-Esta seção detalha como o SUA_SENHA_BANCO_AQUI implementa a Lei Geral de Proteção de Dados (LGPD), apresenta checklist de conformidade, exemplos práticos, recursos para empresas brasileiras e orientações para proteção de dados pessoais.
+Esta seção detalha como o n8n implementa a Lei Geral de Proteção de Dados (LGPD), apresenta checklist de conformidade, exemplos práticos, recursos para empresas brasileiras e orientações para proteção de dados pessoais.
 
 ---
 
@@ -17,7 +17,7 @@ Esta seção detalha como o SUA_SENHA_BANCO_AQUI implementa a Lei Geral de Prote
 
 ## Visão Geral
 
-A LGPD estabelece regras sobre coleta, armazenamento, tratamento e compartilhamento de dados pessoais, impondo mais proteções e penalidades para não conformidade. O SUA_SENHA_BANCO_AQUI está totalmente em conformidade com a LGPD.
+A LGPD estabelece regras sobre coleta, armazenamento, tratamento e compartilhamento de dados pessoais, impondo mais proteções e penalidades para não conformidade. O n8n está totalmente em conformidade com a LGPD.
 
 ---
 
@@ -27,7 +27,7 @@ A LGPD estabelece regras sobre coleta, armazenamento, tratamento e compartilhame
 
 ### Princípios Fundamentais
 
-O SUA_SENHA_BANCO_AQUI implementa todos os princípios da LGPD:
+O n8n implementa todos os princípios da LGPD:
 
 - **Finalidade**: Dados coletados para finalidades específicas e legítimas
 - **Adequação**: Dados adequados às finalidades declaradas
@@ -61,7 +61,7 @@ O SUA_SENHA_BANCO_AQUI implementa todos os princípios da LGPD:
 
 ### Implementação dos Direitos
 
-O SUA_SENHA_BANCO_AQUI implementa todos os direitos garantidos pela LGPD:
+O n8n implementa todos os direitos garantidos pela LGPD:
 
 - **Confirmação da Existência**: Confirmação imediata via painel
 - **Acesso aos Dados**: Acesso completo via painel de privacidade
@@ -80,7 +80,7 @@ O SUA_SENHA_BANCO_AQUI implementa todos os direitos garantidos pela LGPD:
 
 ### Implementação do RIPD
 
-O SUA_SENHA_BANCO_AQUI elabora RIPDs quando necessário:
+O n8n elabora RIPDs quando necessário:
 
 - **Obrigatoriedade**: Para tratamento de dados sensíveis ou em larga escala
 - **Conteúdo**: Descrição dos tratamentos, medidas de proteção e riscos
@@ -177,7 +177,7 @@ O SUA_SENHA_BANCO_AQUI elabora RIPDs quando necessário:
 
 1. **[Boas Práticas de Segurança](./security-best-practices)** - Proteja seus dados
 2. **[Política de Privacidade](./privacy)** - Conheça nossa política
-3. **[Configuração Segura](./security-configuration)** - Configure sua instância
+3. **[Configuração Segura](./security-best-practices)** - Configure sua instância
 
 > *A conformidade com a LGPD é fundamental para proteger os dados dos seus usuários. Use este guia para implementar as melhores práticas!*
 

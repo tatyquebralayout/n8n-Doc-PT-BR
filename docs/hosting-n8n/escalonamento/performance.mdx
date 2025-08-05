@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 3
 title: Otimização de Performance
-description: Como otimizar performance do SUA_SENHA_BANCO_AQUI para máxima eficiência em produção
-keywords: [SUA_SENHA_BANCO_AQUI, performance, otimização, eficiência, produção, tuning]
+description: Como otimizar performance do n8n para máxima eficiência em produção
+keywords: [n8n, performance, otimização, eficiência, produção, tuning]
 ---
 
 <IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Otimização de Performance
 
-Este documento detalha como **otimizar performance do SUA_SENHA_BANCO_AQUI** para máxima eficiência, incluindo configuração de workers, ajuste de timeouts, otimização de queries de banco, gerenciamento de memória, monitoramento de recursos, e técnicas avançadas de tuning que maximizam throughput e minimizam latência em workflows de alta demanda para operações empresariais críticas.
+Este documento detalha como **otimizar performance do n8n** para máxima eficiência, incluindo configuração de workers, ajuste de timeouts, otimização de queries de banco, gerenciamento de memória, monitoramento de recursos, e técnicas avançadas de tuning que maximizam throughput e minimizam latência em workflows de alta demanda para operações empresariais críticas.
 
 ---
 
@@ -24,8 +24,8 @@ version: '3.8'
 
 services:
   # Worker principal
-  SUA_SENHA_BANCO_AQUI-main:
-    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
+  n8n-main:
+    image: n8nio/n8n:latest
     restart: unless-stopped
     ports:
       - "5678:5678"
@@ -35,8 +35,8 @@ services:
       - REDIS_URL=redis://redis:6379
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
-      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
       - EXECUTIONS_TIMEOUT=300000
@@ -53,11 +53,11 @@ services:
       - postgres
       - redis
     networks:
-      - SUA_SENHA_BANCO_AQUI_network
+      - n8n_network
 
   # Workers de execução otimizados
-  SUA_SENHA_BANCO_AQUI-worker-1:
-    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
+  n8n-worker-1:
+    image: n8nio/n8n:latest
     restart: unless-stopped
     environment:
       - EXECUTIONS_PROCESS=worker
@@ -65,8 +65,8 @@ services:
       - REDIS_URL=redis://redis:6379
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
-      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
       - EXECUTIONS_TIMEOUT=300000
@@ -83,10 +83,10 @@ services:
       - postgres
       - redis
     networks:
-      - SUA_SENHA_BANCO_AQUI_network
+      - n8n_network
 
-  SUA_SENHA_BANCO_AQUI-worker-2:
-    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
+  n8n-worker-2:
+    image: n8nio/n8n:latest
     restart: unless-stopped
     environment:
       - EXECUTIONS_PROCESS=worker
@@ -94,8 +94,8 @@ services:
       - REDIS_URL=redis://redis:6379
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
-      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
       - EXECUTIONS_TIMEOUT=300000
@@ -112,15 +112,15 @@ services:
       - postgres
       - redis
     networks:
-      - SUA_SENHA_BANCO_AQUI_network
+      - n8n_network
 
   # Banco de dados otimizado
   postgres:
     image: postgres:15
     restart: unless-stopped
     environment:
-      - POSTGRES_DB=SUA_SENHA_BANCO_AQUI
-      - POSTGRES_USER=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_DB=n8n
+      - POSTGRES_USER=n8n
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -135,7 +135,7 @@ services:
           memory: 2G
           cpus: '1.0'
     networks:
-      - SUA_SENHA_BANCO_AQUI_network
+      - n8n_network
 
   # Redis otimizado
   redis:
@@ -153,14 +153,14 @@ services:
           memory: 512M
           cpus: '0.25'
     networks:
-      - SUA_SENHA_BANCO_AQUI_network
+      - n8n_network
 
 volumes:
   postgres_data:
   redis_data:
 
 networks:
-  SUA_SENHA_BANCO_AQUI_network:
+  n8n_network:
     driver: bridge
 ```
 
@@ -218,8 +218,8 @@ max_connections = 100
 # Configurações
 DB_HOST="localhost"
 DB_PORT="5432"
-DB_NAME="SUA_SENHA_BANCO_AQUI"
-DB_USER="SUA_SENHA_BANCO_AQUI"
+DB_NAME="n8n"
+DB_USER="n8n"
 
 echo "=== Manutenção do Banco de Dados ==="
 echo
@@ -259,7 +259,7 @@ echo "Manutenção concluída!"
 NODE_OPTIONS="--max-old-space-size=4096 --max-semi-space-size=512"
 
 # Docker com otimizações de memória
-docker run -e NODE_OPTIONS="--max-old-space-size=4096" SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
+docker run -e NODE_OPTIONS="--max-old-space-size=4096" n8nio/n8n
 ```
 
 ### Configuração de Memória Redis
@@ -290,7 +290,7 @@ docker stats --no-stream --format "table {{.Container}}\t{{.MemUsage}}\t{{.MemPe
 echo
 
 echo "3. Memória do Node.js:"
-for container in SUA_SENHA_BANCO_AQUI-main SUA_SENHA_BANCO_AQUI-worker-1 SUA_SENHA_BANCO_AQUI-worker-2; do
+for container in n8n-main n8n-worker-1 n8n-worker-2; do
     echo "=== $container ==="
     docker exec $container node -e "
         const mem = process.memoryUsage();
@@ -307,7 +307,7 @@ echo
 
 echo "5. Alertas de Memória:"
 MEMORY_THRESHOLD=85
-for container in SUA_SENHA_BANCO_AQUI-main SUA_SENHA_BANCO_AQUI-worker-1 SUA_SENHA_BANCO_AQUI-worker-2; do
+for container in n8n-main n8n-worker-1 n8n-worker-2; do
     MEMORY_PERC=$(docker stats --no-stream --format "{{.MemPerc}}" $container | sed 's/%//')
     if (( $(echo "$MEMORY_PERC > $MEMORY_THRESHOLD" | bc -l) )); then
         echo "⚠️ ALERTA: $container usando $MEMORY_PERC% de memória"
@@ -334,14 +334,14 @@ docker stats --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsa
 echo
 
 echo "2. Execuções por Minuto:"
-EXECUTIONS_PER_MIN=$(psql -h localhost -U SUA_SENHA_BANCO_AQUI -d SUA_SENHA_BANCO_AQUI -t -c "
+EXECUTIONS_PER_MIN=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT COUNT(*) FROM executions
 WHERE created_at > NOW() - INTERVAL '1 minute';")
 echo "Execuções no último minuto: $EXECUTIONS_PER_MIN"
 echo
 
 echo "3. Tempo Médio de Execução:"
-AVG_EXECUTION_TIME=$(psql -h localhost -U SUA_SENHA_BANCO_AQUI -d SUA_SENHA_BANCO_AQUI -t -c "
+AVG_EXECUTION_TIME=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT AVG(EXTRACT(EPOCH FROM (finished_at - started_at)))
 FROM executions
 WHERE finished_at IS NOT NULL
@@ -350,7 +350,7 @@ echo "Tempo médio (última hora): ${AVG_EXECUTION_TIME}s"
 echo
 
 echo "4. Taxa de Erro:"
-ERROR_RATE=$(psql -h localhost -U SUA_SENHA_BANCO_AQUI -d SUA_SENHA_BANCO_AQUI -t -c "
+ERROR_RATE=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT
     ROUND(
         (COUNT(CASE WHEN status = 'error' THEN 1 END) * 100.0 / COUNT(*)), 2
@@ -361,10 +361,10 @@ echo "Taxa de erro (última hora): ${ERROR_RATE}%"
 echo
 
 echo "5. Status das Filas:"
-echo "Jobs na fila: $(redis-cli llen SUA_SENHA_BANCO_AQUI:queue:jobs)"
-echo "Webhooks na fila: $(redis-cli llen SUA_SENHA_BANCO_AQUI:queue:webhooks)"
-echo "Jobs processados: $(redis-cli get SUA_SENHA_BANCO_AQUI:stats:processed || echo '0')"
-echo "Jobs falharam: $(redis-cli get SUA_SENHA_BANCO_AQUI:stats:failed || echo '0')"
+echo "Jobs na fila: $(redis-cli llen n8n:queue:jobs)"
+echo "Webhooks na fila: $(redis-cli llen n8n:queue:webhooks)"
+echo "Jobs processados: $(redis-cli get n8n:stats:processed || echo '0')"
+echo "Jobs falharam: $(redis-cli get n8n:stats:failed || echo '0')"
 ```
 
 ### Alertas de Performance
@@ -380,7 +380,7 @@ EXECUTION_TIME_THRESHOLD=300
 WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 
 # Verificar CPU
-for container in SUA_SENHA_BANCO_AQUI-main SUA_SENHA_BANCO_AQUI-worker-1 SUA_SENHA_BANCO_AQUI-worker-2; do
+for container in n8n-main n8n-worker-1 n8n-worker-2; do
     CPU_USAGE=$(docker stats --no-stream --format "{{.CPUPerc}}" $container | sed 's/%//')
     if (( $(echo "$CPU_USAGE > $CPU_THRESHOLD" | bc -l) )); then
         curl -X POST $WEBHOOK_URL \
@@ -390,7 +390,7 @@ for container in SUA_SENHA_BANCO_AQUI-main SUA_SENHA_BANCO_AQUI-worker-1 SUA_SEN
 done
 
 # Verificar memória
-for container in SUA_SENHA_BANCO_AQUI-main SUA_SENHA_BANCO_AQUI-worker-1 SUA_SENHA_BANCO_AQUI-worker-2; do
+for container in n8n-main n8n-worker-1 n8n-worker-2; do
     MEMORY_USAGE=$(docker stats --no-stream --format "{{.MemPerc}}" $container | sed 's/%//')
     if (( $(echo "$MEMORY_USAGE > $MEMORY_THRESHOLD" | bc -l) )); then
         curl -X POST $WEBHOOK_URL \
@@ -400,7 +400,7 @@ for container in SUA_SENHA_BANCO_AQUI-main SUA_SENHA_BANCO_AQUI-worker-1 SUA_SEN
 done
 
 # Verificar taxa de erro
-ERROR_RATE=$(psql -h localhost -U SUA_SENHA_BANCO_AQUI -d SUA_SENHA_BANCO_AQUI -t -c "
+ERROR_RATE=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT ROUND((COUNT(CASE WHEN status = 'error' THEN 1 END) * 100.0 / COUNT(*)), 2)
 FROM executions 
 WHERE created_at > NOW() - INTERVAL '10 minutes';" | xargs)
@@ -412,7 +412,7 @@ if (( $(echo "$ERROR_RATE > $ERROR_RATE_THRESHOLD" | bc -l) )); then
 fi
 
 # Verificar tempo de execução
-AVG_TIME=$(psql -h localhost -U SUA_SENHA_BANCO_AQUI -d SUA_SENHA_BANCO_AQUI -t -c "
+AVG_TIME=$(psql -h localhost -U n8n -d n8n -t -c "
 SELECT AVG(EXTRACT(EPOCH FROM (finished_at - started_at)))
 FROM executions 
 WHERE finished_at IS NOT NULL 
@@ -495,11 +495,11 @@ echo "=== Diagnóstico de Performance ==="
 echo
 
 echo "1. Logs de performance:"
-docker logs SUA_SENHA_BANCO_AQUI-main | grep -E "(slow|timeout|error)"
+docker logs n8n-main | grep -E "(slow|timeout|error)"
 echo
 
 echo "2. Queries lentas do banco:"
-psql -h localhost -U SUA_SENHA_BANCO_AQUI -d SUA_SENHA_BANCO_AQUI -c "
+psql -h localhost -U n8n -d n8n -c "
 SELECT query, mean_time, calls
 FROM pg_stat_statements
 ORDER BY mean_time DESC
@@ -507,7 +507,7 @@ LIMIT 10;"
 echo
 
 echo "3. Memory leaks:"
-for container in SUA_SENHA_BANCO_AQUI-main SUA_SENHA_BANCO_AQUI-worker-1 SUA_SENHA_BANCO_AQUI-worker-2; do
+for container in n8n-main n8n-worker-1 n8n-worker-2; do
     echo "=== $container ==="
     docker exec $container node -e "
         const mem = process.memoryUsage();
@@ -518,7 +518,7 @@ done
 echo
 
 echo "4. GC analysis:"
-docker exec SUA_SENHA_BANCO_AQUI-main node --trace-gc -e "console.log('GC test')"
+docker exec n8n-main node --trace-gc -e "console.log('GC test')"
 ```
 
 ### Problemas Comuns
@@ -530,7 +530,7 @@ echo "=== Problemas Comuns de Performance ==="
 echo
 
 echo "1. Timeouts frequentes:"
-docker exec SUA_SENHA_BANCO_AQUI-main env | grep -E "(TIMEOUT|EXECUTIONS)"
+docker exec n8n-main env | grep -E "(TIMEOUT|EXECUTIONS)"
 echo
 
 echo "2. Memory leaks:"

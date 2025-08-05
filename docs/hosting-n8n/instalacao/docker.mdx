@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 1
 title: Instalação via Docker
-description: Guia completo para instalar SUA_SENHA_BANCO_AQUI usando Docker
-keywords: [SUA_SENHA_BANCO_AQUI, docker, deployment, containerização, produção]
+description: Guia completo para instalar n8n usando Docker
+keywords: [n8n, docker, deployment, containerização, produção]
 ---
 
 <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Instalação via Docker
 
-Este guia mostrará como instalar e executar o SUA_SENHA_BANCO_AQUI usando Docker, a forma mais robusta e recomendada para ambientes de produção.
+Este guia mostrará como instalar e executar o n8n usando Docker, a forma mais robusta e recomendada para ambientes de produção.
 
 ## <IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Configuração Básica
 
@@ -19,8 +19,8 @@ Este guia mostrará como instalar e executar o SUA_SENHA_BANCO_AQUI usando Docke
 version: '3.8'
 
 services:
-  SUA_SENHA_BANCO_AQUI:
-    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
+  n8n:
+    image: n8nio/n8n:latest
     restart: unless-stopped
     ports:
       - "5678:5678"
@@ -30,10 +30,10 @@ services:
       - GENERIC_TIMEZONE=America/Sao_Paulo
       - WEBHOOK_URL=https://seu-dominio.com/
     volumes:
-      - SUA_SENHA_BANCO_AQUI_data:/home/node/.SUA_SENHA_BANCO_AQUI
+      - n8n_data:/home/node/.n8n
 
 volumes:
-  SUA_SENHA_BANCO_AQUI_data:
+  n8n_data:
 ```
 
 ## <IonicIcon name="server-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Configuração Completa com Banco de Dados
@@ -42,8 +42,8 @@ volumes:
 version: '3.8'
 
 services:
-  SUA_SENHA_BANCO_AQUI:
-    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
+  n8n:
+    image: n8nio/n8n:latest
     restart: unless-stopped
     ports:
       - "5678:5678"
@@ -54,13 +54,13 @@ services:
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_PORT=5432
-      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
-      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
       - DB_POSTGRESDB_PASSWORD=SUA_SENHA_SEGURA_AQUI
       - REDIS_URL=redis://redis:6379
       - N8N_ENCRYPTION_KEY=sua_chave_32_caracteres
     volumes:
-      - SUA_SENHA_BANCO_AQUI_data:/home/node/.SUA_SENHA_BANCO_AQUI
+      - n8n_data:/home/node/.n8n
     depends_on:
       - postgres
       - redis
@@ -69,8 +69,8 @@ services:
     image: postgres:15
     restart: unless-stopped
     environment:
-      - POSTGRES_DB=SUA_SENHA_BANCO_AQUI
-      - POSTGRES_USER=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_DB=n8n
+      - POSTGRES_USER=n8n
       - POSTGRES_PASSWORD=SUA_SENHA_SEGURA_AQUI
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -83,7 +83,7 @@ services:
       - redis_data:/data
 
 volumes:
-  SUA_SENHA_BANCO_AQUI_data:
+  n8n_data:
   postgres_data:
   redis_data:
 ```
@@ -95,7 +95,7 @@ volumes:
 docker-compose up -d
 
 # Ver logs
-docker-compose logs -f SUA_SENHA_BANCO_AQUI
+docker-compose logs -f n8n
 
 # Parar
 docker-compose down
@@ -111,8 +111,8 @@ events {
 }
 
 http {
-    upstream SUA_SENHA_BANCO_AQUI_backend {
-        server SUA_SENHA_BANCO_AQUI:5678;
+    upstream n8n_backend {
+        server n8n:5678;
     }
 
     server {
@@ -129,7 +129,7 @@ http {
         ssl_certificate_key /etc/nginx/ssl/key.pem;
 
         location / {
-            proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
+            proxy_pass http://n8n_backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -147,7 +147,7 @@ http {
 
 ```yaml
 services:
-  SUA_SENHA_BANCO_AQUI:
+  n8n:
     environment:
       - REDIS_URL=redis://redis:6379
       - EXECUTIONS_PROCESS=main
@@ -168,8 +168,8 @@ services:
 version: '3.8'
 
 services:
-  SUA_SENHA_BANCO_AQUI-1:
-    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
+  n8n-1:
+    image: n8nio/n8n:latest
     environment:
       - EXECUTIONS_PROCESS=main
       - REDIS_URL=redis://redis:6379
@@ -179,8 +179,8 @@ services:
       - postgres
       - redis
 
-  SUA_SENHA_BANCO_AQUI-2:
-    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
+  n8n-2:
+    image: n8nio/n8n:latest
     environment:
       - EXECUTIONS_PROCESS=main
       - REDIS_URL=redis://redis:6379
@@ -198,8 +198,8 @@ services:
     volumes:
       - ./nginx-lb.conf:/etc/nginx/nginx.conf
     depends_on:
-      - SUA_SENHA_BANCO_AQUI-1
-      - SUA_SENHA_BANCO_AQUI-2
+      - n8n-1
+      - n8n-2
 ```
 
 ---
@@ -210,7 +210,7 @@ services:
 
 ```yaml
 services:
-  SUA_SENHA_BANCO_AQUI:
+  n8n:
     environment:
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=admin
@@ -221,23 +221,23 @@ services:
 
 ```yaml
 services:
-  SUA_SENHA_BANCO_AQUI:
+  n8n:
     networks:
-      - SUA_SENHA_BANCO_AQUI_internal
+      - n8n_internal
     expose:
       - "5678"
 
   nginx:
     networks:
-      - SUA_SENHA_BANCO_AQUI_internal
-      - SUA_SENHA_BANCO_AQUI_external
+      - n8n_internal
+      - n8n_external
     ports:
       - "443:443"
 
 networks:
-  SUA_SENHA_BANCO_AQUI_internal:
+  n8n_internal:
     driver: bridge
-  SUA_SENHA_BANCO_AQUI_external:
+  n8n_external:
     driver: bridge
 ```
 
@@ -249,14 +249,14 @@ networks:
 
 ```bash
 #!/bin/bash
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI"
+BACKUP_DIR="/backups/n8n"
 DATE=$(date +%Y%m%d_%H%M%S)
 
 # Backup do banco de dados
-docker exec postgres pg_dump -U SUA_SENHA_BANCO_AQUI SUA_SENHA_BANCO_AQUI > $BACKUP_DIR/db_$DATE.sql
+docker exec postgres pg_dump -U n8n n8n > $BACKUP_DIR/db_$DATE.sql
 
-# Backup dos dados do SUA_SENHA_BANCO_AQUI
-docker exec SUA_SENHA_BANCO_AQUI tar -czf - /home/node/.SUA_SENHA_BANCO_AQUI > $BACKUP_DIR/SUA_SENHA_BANCO_AQUI_$DATE.tar.gz
+# Backup dos dados do n8n
+docker exec n8n tar -czf - /home/node/.n8n > $BACKUP_DIR/n8n_$DATE.tar.gz
 
 # Limpar backups antigos (mais de 7 dias)
 find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
@@ -274,7 +274,7 @@ find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 
 ```bash
 #!/bin/bash
-CONTAINER_NAME="SUA_SENHA_BANCO_AQUI"
+CONTAINER_NAME="n8n"
 HEALTH_URL="http://localhost:5678/healthz"
 
 if ! docker ps | grep -q $CONTAINER_NAME; then
@@ -286,8 +286,8 @@ fi
 RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" $HEALTH_URL)
 
 if [ $RESPONSE -ne 200 ]; then
-    echo "SUA_SENHA_BANCO_AQUI não está respondendo: $RESPONSE"
-    docker-compose restart SUA_SENHA_BANCO_AQUI
+    echo "n8n não está respondendo: $RESPONSE"
+    docker-compose restart n8n
 fi
 ```
 
@@ -301,29 +301,29 @@ fi
 
 ```bash
 # Verificar logs
-docker-compose logs SUA_SENHA_BANCO_AQUI
+docker-compose logs n8n
 
 # Verificar se a porta está em uso
 netstat -tulpn | grep 5678
 
 # Reiniciar container
-docker-compose restart SUA_SENHA_BANCO_AQUI
+docker-compose restart n8n
 ```
 
 #### Problemas de Permissão
 
 ```bash
 # Corrigir permissões do volume
-sudo chown -R 1000:1000 /path/to/SUA_SENHA_BANCO_AQUI_data
+sudo chown -R 1000:1000 /path/to/n8n_data
 ```
 
 #### Problemas de Rede
 
 ```bash
 # Verificar conectividade
-docker exec SUA_SENHA_BANCO_AQUI ping postgres
-docker exec SUA_SENHA_BANCO_AQUI ping redis
+docker exec n8n ping postgres
+docker exec n8n ping redis
 
 # Verificar variáveis de ambiente
-docker exec SUA_SENHA_BANCO_AQUI env | grep N8N
+docker exec n8n env | grep N8N
 ```

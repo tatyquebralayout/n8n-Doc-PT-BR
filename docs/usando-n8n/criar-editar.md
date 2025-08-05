@@ -1,6 +1,6 @@
 ---
 title: "Criar e Editar Workflows"
-description: "Como criar e editar workflows no SUA_SENHA_BANCO_AQUI"
+description: "Como criar e editar workflows no n8n"
 sidebar_position: 5
 ---
 

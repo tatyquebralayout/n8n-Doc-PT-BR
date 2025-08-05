@@ -1,6 +1,6 @@
 ---
 title: "Quickstart Rápido"
-description: "Guia rápido para começar com SUA_SENHA_BANCO_AQUI"
+description: "Guia rápido para começar com n8n"
 sidebar_position: 1
 ---
 

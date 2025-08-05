@@ -1,15 +1,15 @@
 ---
 sidebar_position: 1
-title: "Tutorial prático de IA no SUA_SENHA_BANCO_AQUI: Do Básico ao Avançado"
+title: "Tutorial prático de IA no n8n: Do Básico ao Avançado"
 description: Aprenda a criar agentes de IA, integrar LLMs, usar ferramentas externas e
-  construir workflows inteligentes no SUA_SENHA_BANCO_AQUI, com exemplos para o mercado brasileiro.
-keywords: [SUA_SENHA_BANCO_AQUI, tutorial IA, integração GPT, agentes inteligentes, workflows IA,
+  construir workflows inteligentes no n8n, com exemplos para o mercado brasileiro.
+keywords: [n8n, tutorial IA, integração GPT, agentes inteligentes, workflows IA,
   automação cognitiva, LangChain, exemplos Brasil, chatbot, processamento de linguagem natural]
 ---
 
-## Tutorial prático de IA no SUA_SENHA_BANCO_AQUI: Do Básico ao Avançado
+## Tutorial prático de IA no n8n: Do Básico ao Avançado
 
-Este tutorial apresenta um guia prático e completo de IA com SUA_SENHA_BANCO_AQUI, incluindo como
+Este tutorial apresenta um guia prático e completo de IA com n8n, incluindo como
 construir agentes inteligentes, integrar modelos de linguagem (LLMs), usar
 ferramentas externas, gerenciar memória de conversação e criar workflows avançados
 para automação cognitiva em empresas brasileiras.
@@ -41,14 +41,14 @@ para automação cognitiva em empresas brasileiras.
 
 ### Conhecimento Básico
 
-- Familiaridade com SUA_SENHA_BANCO_AQUI
+- Familiaridade com n8n
 - Conceitos de APIs REST
 - Noções de JavaScript
 - Entendimento de workflows
 
 ### Infraestrutura
 
-- Instância SUA_SENHA_BANCO_AQUI configurada
+- Instância n8n configurada
 - Credenciais de IA (OpenAI, etc.)
 - Acesso a APIs externas
 - Ambiente de desenvolvimento
@@ -113,8 +113,8 @@ para automação cognitiva em empresas brasileiras.
 
 ## Próximos Passos
 
-- [Nodes de IA](./nodes-ia/) - Referência completa
-- [Exemplos Práticos](./exemplos-casos/) - Casos de uso reais
+- [Nodes de IA](nodes-ia/workflow-tool.md) - Referência completa
+- [Exemplos Práticos](exemplos-casos/index.mdx) - Casos de uso reais
 - [LangChain Overview](./langchain-overview/) - Framework avançado
 
 ---

@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 4
 title: Monitoramento e Alertas
-description: Como implementar monitoramento abrangente e sistema de alertas para SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, monitoramento, alertas, observabilidade, métricas]
+description: Como implementar monitoramento abrangente e sistema de alertas para n8n
+keywords: [n8n, monitoramento, alertas, observabilidade, métricas]
 ---
 
 <IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Monitoramento e Alertas
 
-Este documento explica como **implementar monitoramento abrangente** do SUA_SENHA_BANCO_AQUI, abordando métricas de performance, logs estruturados, alertas proativos, dashboards de observabilidade, integração com ferramentas de APM, e sistemas de notificação que detectam problemas antes que afetem usuários finais, garantindo visibilidade completa sobre saúde e performance das automações em produção.
+Este documento explica como **implementar monitoramento abrangente** do n8n, abordando métricas de performance, logs estruturados, alertas proativos, dashboards de observabilidade, integração com ferramentas de APM, e sistemas de notificação que detectam problemas antes que afetem usuários finais, garantindo visibilidade completa sobre saúde e performance das automações em produção.
 
 ---
 
@@ -74,9 +74,9 @@ echo "=== Métricas de Rede ==="
 ACTIVE_CONNECTIONS=$(netstat -an | grep ESTABLISHED | wc -l)
 echo "Active Connections: $ACTIVE_CONNECTIONS"
 
-# SUA_SENHA_BANCO_AQUI Connections
+# n8n Connections
 N8N_CONNECTIONS=$(netstat -an | grep :5678 | grep ESTABLISHED | wc -l)
-echo "SUA_SENHA_BANCO_AQUI Connections: $N8N_CONNECTIONS"
+echo "n8n Connections: $N8N_CONNECTIONS"
 
 # Network I/O
 NETWORK_IN=$(cat /proc/net/dev | grep eth0 | awk '{print $2}')
@@ -93,20 +93,20 @@ echo "Network Out: $NETWORK_OUT bytes"
 
 <IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-### Métricas SUA_SENHA_BANCO_AQUI
+### Métricas n8n
 
 ```bash
 #!/bin/bash
 N8N_URL="http://localhost:5678"
 API_KEY="sua_api_key"
 
-echo "=== Métricas SUA_SENHA_BANCO_AQUI ==="
+echo "=== Métricas n8n ==="
 
 # Health Check
 if curl -f -s "$N8N_URL/healthz" > /dev/null; then
-    echo "SUA_SENHA_BANCO_AQUI Status: ✅ Online"
+    echo "n8n Status: ✅ Online"
 else
-    echo "SUA_SENHA_BANCO_AQUI Status: ❌ Offline"
+    echo "n8n Status: ❌ Offline"
     exit 1
 fi
 
@@ -157,14 +157,14 @@ UI_RESPONSE_TIME=$(curl -o /dev/null -s -w "%{time_total}" \
 echo "UI Response Time: ${UI_RESPONSE_TIME}s"
 
 # Node.js Memory Usage
-NODE_MEMORY=$(docker exec SUA_SENHA_BANCO_AQUI node -e "
+NODE_MEMORY=$(docker exec n8n node -e "
 const mem = process.memoryUsage();
 console.log(Math.round(mem.rss / 1024 / 1024));
 " 2>/dev/null || echo "N/A")
 echo "Node.js Memory: ${NODE_MEMORY}MB"
 
 # Node.js CPU Usage
-NODE_CPU=$(docker stats --no-stream --format "{{.CPUPerc}}" SUA_SENHA_BANCO_AQUI 2>/dev/null || echo "N/A")
+NODE_CPU=$(docker stats --no-stream --format "{{.CPUPerc}}" n8n 2>/dev/null || echo "N/A")
 echo "Node.js CPU: $NODE_CPU"
 ```
 
@@ -201,10 +201,10 @@ send_alert() {
       https://hooks.slack.com/services/YOUR_WEBHOOK_URL
 
     # Email
-    echo "$message" | mail -s "SUA_SENHA_BANCO_AQUI Alert: $severity" $EMAIL_ALERTS
+    echo "$message" | mail -s "n8n Alert: $severity" $EMAIL_ALERTS
 
     # Log
-    echo "$(date): $severity $message" >> /var/log/SUA_SENHA_BANCO_AQUI/alerts.log
+    echo "$(date): $severity $message" >> /var/log/n8n/alerts.log
 }
 
 # Verificar CPU
@@ -225,9 +225,9 @@ if [ $DISK_USAGE -gt $ALERT_THRESHOLD_DISK ]; then
     send_alert "Disk usage is ${DISK_USAGE}%" "🚨"
 fi
 
-# Verificar SUA_SENHA_BANCO_AQUI
+# Verificar n8n
 if ! curl -f -s http://localhost:5678/healthz > /dev/null; then
-    send_alert "SUA_SENHA_BANCO_AQUI is not responding" "🚨"
+    send_alert "n8n is not responding" "🚨"
 fi
 
 # Verificar Error Rate
@@ -309,9 +309,9 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'SUA_SENHA_BANCO_AQUI'
+  - job_name: 'n8n'
     static_configs:
-      - targets: ['SUA_SENHA_BANCO_AQUI:5678']
+      - targets: ['n8n:5678']
     metrics_path: '/metrics'
     scrape_interval: 30s
 
@@ -326,11 +326,11 @@ scrape_configs:
 
 <IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-### Dashboard SUA_SENHA_BANCO_AQUI
+### Dashboard n8n
 
 ```json
 {
-  "title": "SUA_SENHA_BANCO_AQUI Monitoring Dashboard",
+  "title": "n8n Monitoring Dashboard",
   "panels": [
     {
       "title": "System Metrics",
@@ -347,15 +347,15 @@ scrape_configs:
       ]
     },
     {
-      "title": "SUA_SENHA_BANCO_AQUI Metrics",
+      "title": "n8n Metrics",
       "type": "graph",
       "targets": [
         {
-          "expr": "SUA_SENHA_BANCO_AQUI_workflows_total",
+          "expr": "n8n_workflows_total",
           "legendFormat": "Total Workflows"
         },
         {
-          "expr": "SUA_SENHA_BANCO_AQUI_workflows_active",
+          "expr": "n8n_workflows_active",
           "legendFormat": "Active Workflows"
         }
       ]
@@ -365,11 +365,11 @@ scrape_configs:
       "type": "graph",
       "targets": [
         {
-          "expr": "SUA_SENHA_BANCO_AQUI_executions_total",
+          "expr": "n8n_executions_total",
           "legendFormat": "Total Executions"
         },
         {
-          "expr": "SUA_SENHA_BANCO_AQUI_executions_failed",
+          "expr": "n8n_executions_failed",
           "legendFormat": "Failed Executions"
         }
       ]
@@ -415,7 +415,7 @@ const { StatsD } = require('hot-shots');
 const dogstatsd = new StatsD({
   host: 'localhost',
   port: 8125,
-  prefix: 'SUA_SENHA_BANCO_AQUI.'
+  prefix: 'n8n.'
 });
 
 // Métricas de workflow
@@ -427,7 +427,7 @@ function trackWorkflowExecution(workflowId, duration, status) {
 // Métricas de erro
 function trackError(errorType, errorMessage) {
   dogstatsd.increment('errors.total', 1, [`type:${errorType}`]);
-  dogstatsd.event('SUA_SENHA_BANCO_AQUI.error', errorMessage, {
+  dogstatsd.event('n8n.error', errorMessage, {
     alert_type: 'error',
     tags: [`error_type:${errorType}`]
   });
@@ -519,7 +519,7 @@ input {
 }
 
 filter {
-  if [fields][service] == "SUA_SENHA_BANCO_AQUI" {
+  if [fields][service] == "n8n" {
     json {
       source => "message"
     }
@@ -531,7 +531,7 @@ filter {
 
     mutate {
       add_field => {
-        "service" => "SUA_SENHA_BANCO_AQUI"
+        "service" => "n8n"
       }
       add_field => {
         "environment" => "%{ENVIRONMENT}"
@@ -543,7 +543,7 @@ filter {
 output {
   elasticsearch {
     hosts => ["elasticsearch:9200"]
-    index => "SUA_SENHA_BANCO_AQUI-logs-%{+YYYY.MM.dd}"
+    index => "n8n-logs-%{+YYYY.MM.dd}"
   }
 }
 ```
@@ -562,7 +562,7 @@ output {
 'use strict';
 
 exports.config = {
-  app_name: ['SUA_SENHA_BANCO_AQUI'],
+  app_name: ['n8n'],
   license_key: 'YOUR_NEW_RELIC_LICENSE_KEY',
   logging: {
     level: 'info'
@@ -600,9 +600,9 @@ appd.profile({
   controllerSslEnabled: false,
   accountName: 'your-account',
   accountAccessKey: 'your-access-key',
-  applicationName: 'SUA_SENHA_BANCO_AQUI',
-  tierName: 'SUA_SENHA_BANCO_AQUI-tier',
-  nodeName: 'SUA_SENHA_BANCO_AQUI-node'
+  applicationName: 'n8n',
+  tierName: 'n8n-tier',
+  nodeName: 'n8n-node'
 });
 
 // Custom business transactions

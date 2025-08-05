@@ -2,10 +2,10 @@
 sidebar_position: 3
 title: "Memory Manager"
 description: Como usar o node Memory Manager para gerenciar memória de conversação
-keywords: [SUA_SENHA_BANCO_AQUI, memory, manager, conversa, contexto, persistência de contexto, RAG, memória conversacional, IA empresarial]
+keywords: [n8n, memory, manager, conversa, contexto, persistência de contexto, RAG, memória conversacional, IA empresarial]
 ---
 
-## Memory Manager no SUA_SENHA_BANCO_AQUI: Gerenciamento de Memória e Contexto em IA
+## Memory Manager no n8n: Gerenciamento de Memória e Contexto em IA
 
 Este documento descreve o **Gerenciador de Memória (Memory Manager)**, que permite que um agente de IA se lembre de interações passadas.
 
@@ -103,7 +103,7 @@ Use tipos de memória diferentes para diferentes casos de uso. Para conversas lo
 ## Próximos Passos
 
 - [Agente de IA](./ai-agent) - Como usar com agentes
-- [Exemplos Práticos](../exemplos-casos/) - Casos de uso reais
+- [Exemplos Práticos](../exemplos-casos/index.mdx) - Casos de uso reais
 - [Tutorial de IA](../tutorial-ai) - Guia de implementação
 
 ---

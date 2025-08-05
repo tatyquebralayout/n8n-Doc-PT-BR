@@ -2,16 +2,16 @@
 sidebar_position: 7
 title: "Workflow as a Tool"
 description: Como usar workflows como ferramentas para agentes de IA
-keywords: [SUA_SENHA_BANCO_AQUI, workflow tool, automação avançada, agentes IA, integração de workflows, orquestração inteligente, ferramentas de automação]
+keywords: [n8n, workflow tool, automação avançada, agentes IA, integração de workflows, orquestração inteligente, ferramentas de automação]
 ---
 
-## Workflow as a Tool no SUA_SENHA_BANCO_AQUI: Orquestração Inteligente de Automação com IA
+## Workflow as a Tool no n8n: Orquestração Inteligente de Automação com IA
 
-Este documento explica como usar um **workflow SUA_SENHA_BANCO_AQUI como uma ferramenta (tool)** dentro de um agente de IA.
+Este documento explica como usar um **workflow n8n como uma ferramenta (tool)** dentro de um agente de IA.
 
 ## O que é Workflow as a Tool?
 
-O Workflow as a Tool permite que você use workflows SUA_SENHA_BANCO_AQUI existentes como ferramentas dentro de agentes de IA. Isso possibilita a criação de sistemas complexos onde agentes inteligentes podem orquestrar múltiplas automações para resolver problemas empresariais.
+O Workflow as a Tool permite que você use workflows n8n existentes como ferramentas dentro de agentes de IA. Isso possibilita a criação de sistemas complexos onde agentes inteligentes podem orquestrar múltiplas automações para resolver problemas empresariais.
 
 ## Funcionalidades Principais
 
@@ -191,7 +191,7 @@ Comece com workflows simples e expanda gradualmente. Teste extensivamente antes 
 
 - [ReAct Agent](./react-agent) - Agentes inteligentes
 - [Agente de IA](./ai-agent) - Visão geral
-- [Exemplos Práticos](../exemplos-casos/) - Casos de uso reais
+- [Exemplos Práticos](../exemplos-casos/index.mdx) - Casos de uso reais
 
 ---
 

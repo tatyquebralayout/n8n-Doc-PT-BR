@@ -1,15 +1,15 @@
 ---
 sidebar_position: 3
-title: Melhores Práticas de Segurança no SUA_SENHA_BANCO_AQUI - Proteja Workflows, Dados e Compliance
-description: Guia completo de melhores práticas de segurança no SUA_SENHA_BANCO_AQUI, proteção de workflows, compliance LGPD, exemplos práticos e segurança de dados para empresas brasileiras.
-keywords: [segurança SUA_SENHA_BANCO_AQUI, boas práticas de segurança, proteção de workflows, compliance LGPD, segurança de dados Brasil, automação segura, exemplos práticos, checklist de segurança]
+title: Melhores Práticas de Segurança no n8n - Proteja Workflows, Dados e Compliance
+description: Guia completo de melhores práticas de segurança no n8n, proteção de workflows, compliance LGPD, exemplos práticos e segurança de dados para empresas brasileiras.
+keywords: [segurança n8n, boas práticas de segurança, proteção de workflows, compliance LGPD, segurança de dados Brasil, automação segura, exemplos práticos, checklist de segurança]
 ---
 
 <IonicIcon name="shield-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-## Melhores Práticas de Segurança no SUA_SENHA_BANCO_AQUI
+## Melhores Práticas de Segurança no n8n
 
-Esta seção apresenta as melhores práticas de segurança para proteger seus workflows, dados e infraestrutura no SUA_SENHA_BANCO_AQUI, com foco especial no contexto brasileiro, compliance LGPD, exemplos práticos e checklists para empresas.
+Esta seção apresenta as melhores práticas de segurança para proteger seus workflows, dados e infraestrutura no n8n, com foco especial no contexto brasileiro, compliance LGPD, exemplos práticos e checklists para empresas.
 
 ---
 
@@ -17,7 +17,7 @@ Esta seção apresenta as melhores práticas de segurança para proteger seus wo
 
 ## Visão Geral
 
-A segurança no SUA_SENHA_BANCO_AQUI é uma responsabilidade compartilhada. Enquanto o SUA_SENHA_BANCO_AQUI fornece uma plataforma segura, você também deve implementar práticas adequadas para proteger seus dados e workflows.
+A segurança no n8n é uma responsabilidade compartilhada. Enquanto o n8n fornece uma plataforma segura, você também deve implementar práticas adequadas para proteger seus dados e workflows.
 
 ---
 
@@ -187,7 +187,7 @@ A segurança no SUA_SENHA_BANCO_AQUI é uma responsabilidade compartilhada. Enqu
 ## Próximos passos
 
 1. **[Conformidade LGPD](./lgpd-compliance)** - Entenda a implementação da LGPD
-2. **[Configuração Segura](./security-configuration)** - Configure sua instância
+2. **[Configuração Segura](./security-best-practices)** - Configure sua instância
 3. **[Política de Privacidade](./privacy)** - Conheça nossa política
 
 > *A segurança é fundamental para proteger seus dados e workflows. Implemente estas práticas para garantir a proteção adequada!*
@@ -195,7 +195,7 @@ A segurança no SUA_SENHA_BANCO_AQUI é uma responsabilidade compartilhada. Enqu
 ---
 
 :::tip **Dica Pro**
-Sempre configure autenticação forte e controle de acesso adequado em suas instâncias do SUA_SENHA_BANCO_AQUI.
+Sempre configure autenticação forte e controle de acesso adequado em suas instâncias do n8n.
 :::
 
 :::warning **Importante**
@@ -203,5 +203,5 @@ Estas práticas devem ser implementadas de acordo com as necessidades específic
 :::
 
 :::info **Recurso Adicional**
-Consulte a documentação oficial do SUA_SENHA_BANCO_AQUI para configurações avançadas de segurança.
+Consulte a documentação oficial do n8n para configurações avançadas de segurança.
 :::

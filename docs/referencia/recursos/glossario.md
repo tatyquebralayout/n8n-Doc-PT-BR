@@ -1,15 +1,15 @@
 ---
-title: "Glossário SUA_SENHA_BANCO_AQUI: Termos Técnicos e Conceitos de Automação"
-description: Definições de termos técnicos, conceitos importantes e dicionário de automação no SUA_SENHA_BANCO_AQUI para referência rápida.
+title: "Glossário n8n: Termos Técnicos e Conceitos de Automação"
+description: Definições de termos técnicos, conceitos importantes e dicionário de automação no n8n para referência rápida.
 sidebar_position: 1
-keywords: [glossário SUA_SENHA_BANCO_AQUI, termos técnicos, dicionário de automação, conceitos SUA_SENHA_BANCO_AQUI, referência rápida, explicações claras]
+keywords: [glossário n8n, termos técnicos, dicionário de automação, conceitos n8n, referência rápida, explicações claras]
 ---
 
 import IonicIcon from '@site/src/components/IonicIcon';
 
 <IonicIcon name="book-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Definições dos principais termos e conceitos utilizados no SUA_SENHA_BANCO_AQUI e em automação de workflows. Use este glossário como dicionário de referência rápida para tirar dúvidas sobre automação, integrações, nodes, credenciais e outros conceitos essenciais.
+Definições dos principais termos e conceitos utilizados no n8n e em automação de workflows. Use este glossário como dicionário de referência rápida para tirar dúvidas sobre automação, integrações, nodes, credenciais e outros conceitos essenciais.
 
 :::info
 <IonicIcon name="information-circle-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
@@ -38,7 +38,7 @@ Dados em formato binário, como arquivos, imagens ou documentos.
 ## C
 
 **Conectores**
-Sinônimo de nodes - componentes que conectam o SUA_SENHA_BANCO_AQUI a serviços externos.
+Sinônimo de nodes - componentes que conectam o n8n a serviços externos.
 
 **Credenciais**
 Informações de autenticação necessárias para acessar APIs e serviços externos.
@@ -63,7 +63,7 @@ Processo de identificar e corrigir problemas em workflows.
 Uma instância de execução de um workflow, contendo todos os dados processados.
 
 **Expressões**
-Código JavaScript usado para manipular dados dinamicamente no SUA_SENHA_BANCO_AQUI.
+Código JavaScript usado para manipular dados dinamicamente no n8n.
 
 **Error Handling**
 Tratamento de erros em workflows para garantir robustez.
@@ -79,10 +79,10 @@ Node que executa código JavaScript personalizado.
 ## G
 
 **GitHub**
-Plataforma de hospedagem de código usado para o desenvolvimento do SUA_SENHA_BANCO_AQUI.
+Plataforma de hospedagem de código usado para o desenvolvimento do n8n.
 
 **GUI (Graphical User Interface)**
-Interface gráfica do usuário do SUA_SENHA_BANCO_AQUI.
+Interface gráfica do usuário do n8n.
 
 ## H
 
@@ -90,12 +90,12 @@ Interface gráfica do usuário do SUA_SENHA_BANCO_AQUI.
 Node usado para fazer requisições HTTP para APIs externas.
 
 **Hosting**
-Hospedagem da instância do SUA_SENHA_BANCO_AQUI em servidores.
+Hospedagem da instância do n8n em servidores.
 
 ## I
 
 **Integração**
-Conexão entre o SUA_SENHA_BANCO_AQUI e serviços ou aplicações externas.
+Conexão entre o n8n e serviços ou aplicações externas.
 
 **Item**
 Unidade individual de dados processada em um workflow.
@@ -103,7 +103,7 @@ Unidade individual de dados processada em um workflow.
 ## J
 
 **JSON (JavaScript Object Notation)**
-Formato de dados usado para estruturar informações no SUA_SENHA_BANCO_AQUI.
+Formato de dados usado para estruturar informações no n8n.
 
 **JWT (JSON Web Token)**
 Token de autenticação usado em APIs.
@@ -127,9 +127,9 @@ Monitoramento de execuções e performance de workflows.
 ## N
 
 **Node**
-Bloco de construção básico do SUA_SENHA_BANCO_AQUI que representa uma ação ou integração.
+Bloco de construção básico do n8n que representa uma ação ou integração.
 
-**SUA_SENHA_BANCO_AQUI**
+**n8n**
 Plataforma de automação de workflows de código aberto.
 
 ## O
@@ -138,7 +138,7 @@ Plataforma de automação de workflows de código aberto.
 Protocolo de autorização para acesso seguro a APIs.
 
 **Open Source**
-Software de código aberto, como o SUA_SENHA_BANCO_AQUI.
+Software de código aberto, como o n8n.
 
 ## P
 
@@ -167,7 +167,7 @@ Limitação de taxa de requisições para evitar sobrecarga.
 ## S
 
 **Self-hosted**
-Instalação própria do SUA_SENHA_BANCO_AQUI em infraestrutura controlada.
+Instalação própria do n8n em infraestrutura controlada.
 
 **Subworkflow**
 Workflow chamado dentro de outro workflow.
@@ -192,7 +192,7 @@ Processo de modificar ou reformatar dados.
 Endereço único de recursos na web.
 
 **UI (User Interface)**
-Interface do usuário do SUA_SENHA_BANCO_AQUI.
+Interface do usuário do n8n.
 
 ## V
 
@@ -208,7 +208,7 @@ Verificação da validade e formato dos dados.
 Endpoint HTTP que recebe dados externos para iniciar workflows.
 
 **Workflow**
-Sequência automatizada de tarefas no SUA_SENHA_BANCO_AQUI.
+Sequência automatizada de tarefas no n8n.
 
 **Worker**
 Processo responsável por executar workflows.
@@ -226,7 +226,7 @@ Formato de serialização de dados usado em configurações.
 ## Z
 
 **ZIP**
-Formato de arquivo compactado suportado pelo SUA_SENHA_BANCO_AQUI.
+Formato de arquivo compactado suportado pelo n8n.
 
 ---
 
@@ -235,10 +235,10 @@ Formato de arquivo compactado suportado pelo SUA_SENHA_BANCO_AQUI.
 ## Links Relacionados
 
 - **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)** - Entenda os conceitos básicos
-- **[API Reference](../../api/referencia/)** - Documentação técnica da API
-- **[Guias](../guias/)** - Guias práticos e tutoriais
+- **[API Reference](glossario.md)** - Documentação técnica da API
+- **[Guias](../guias/troubleshooting.md)** - Guias práticos e tutoriais
 
 ---
 
 <IonicIcon name="add-circle-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
-**Não encontrou um termo?** [Contribua](../../contribuir/) adicionando novas definições!
+**Não encontrou um termo?** [Contribua](../../comunidade/como-participar/) adicionando novas definições!

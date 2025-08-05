@@ -1,23 +1,23 @@
 ﻿---
 sidebar_position: 2
 title: Privacidade e Segurança
-description: Configuração de privacidade e segurança no SUA_SENHA_BANCO_AQUI com conformidade LGPD
-keywords: [SUA_SENHA_BANCO_AQUI, privacidade, segurança, LGPD, conformidade, dados]
+description: Configuração de privacidade e segurança no n8n com conformidade LGPD
+keywords: [n8n, privacidade, segurança, LGPD, conformidade, dados]
 ---
 
 ## Privacidade e Segurança
 
-A privacidade e segurança dos dados são fundamentais ao usar o SUA_SENHA_BANCO_AQUI, especialmente considerando a Lei Geral de Proteção de Dados (LGPD) no Brasil. Esta seção aborda as melhores práticas para proteger dados sensíveis e garantir conformidade regulatória.
+A privacidade e segurança dos dados são fundamentais ao usar o n8n, especialmente considerando a Lei Geral de Proteção de Dados (LGPD) no Brasil. Esta seção aborda as melhores práticas para proteger dados sensíveis e garantir conformidade regulatória.
 
 ## Visão Geral
 
-O SUA_SENHA_BANCO_AQUI processa e armazena dados que podem incluir informações pessoais e sensíveis. É sua responsabilidade implementar medidas adequadas de segurança para proteger esses dados e garantir conformidade com a LGPD e outras regulamentações aplicáveis.
+O n8n processa e armazena dados que podem incluir informações pessoais e sensíveis. É sua responsabilidade implementar medidas adequadas de segurança para proteger esses dados e garantir conformidade com a LGPD e outras regulamentações aplicáveis.
 
 ## Principais Considerações de Segurança
 
 ### Autenticação e Autorização
 
-Configure autenticação robusta para proteger o acesso ao SUA_SENHA_BANCO_AQUI:
+Configure autenticação robusta para proteger o acesso ao n8n:
 
 ```bash
 # Configurar autenticação básica
@@ -72,7 +72,7 @@ Configure permissões granulares para usuários:
 
 ### Princípios da LGPD
 
-O SUA_SENHA_BANCO_AQUI deve ser configurado seguindo os princípios da LGPD:
+O n8n deve ser configurado seguindo os princípios da LGPD:
 
 **Finalidade**: Defina claramente o propósito do processamento de dados
 **Adequação**: Use apenas dados necessários para a finalidade declarada
@@ -157,7 +157,7 @@ Configure logs detalhados para auditoria:
 # Habilitar logs de auditoria
 export N8N_LOG_LEVEL=debug
 export N8N_LOG_OUTPUT=file
-export N8N_LOG_FILE=/var/log/SUA_SENHA_BANCO_AQUI/audit.log
+export N8N_LOG_FILE=/var/log/n8n/audit.log
 
 # Configurar rotação de logs
 export N8N_LOG_MAX_SIZE=100MB
@@ -194,11 +194,11 @@ Configure backups criptografados:
 
 ```bash
 #!/bin/bash
-BACKUP_DIR="/backups/SUA_SENHA_BANCO_AQUI"
+BACKUP_DIR="/backups/n8n"
 RETENTION_DAYS=30
 
 # Criar backup
-pg_dump SUA_SENHA_BANCO_AQUI_db | gpg --encrypt --recipient admin@empresa.com > $BACKUP_DIR/backup_$(date +%Y%m%d_%H%M%S).sql.gpg
+pg_dump n8n_db | gpg --encrypt --recipient admin@empresa.com > $BACKUP_DIR/backup_$(date +%Y%m%d_%H%M%S).sql.gpg
 
 # Limpar backups antigos
 find $BACKUP_DIR -name "*.gpg" -mtime +$RETENTION_DAYS -delete
@@ -235,8 +235,8 @@ find $BACKUP_DIR -name "*.gpg" -mtime +$RETENTION_DAYS -delete
 
 ### Documentação Oficial
 
-- [Guia de Segurança do SUA_SENHA_BANCO_AQUI](https://docs.SUA_SENHA_BANCO_AQUI.io/hosting/security/)
-- [Configuração de Autenticação](https://docs.SUA_SENHA_BANCO_AQUI.io/hosting/authentication/)
+- [Guia de Segurança do n8n](https://docs.n8n.io/hosting/security/)
+- [Configuração de Autenticação](https://docs.n8n.io/hosting/authentication/)
 
 ### Legislação Brasileira
 

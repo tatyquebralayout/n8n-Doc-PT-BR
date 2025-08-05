@@ -1,15 +1,15 @@
 ﻿---
 title: Segurança JWT
 sidebar_position: 4
-description: Implemente autenticação JWT segura no SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, jwt, autenticação, segurança, tokens, oauth]
+description: Implemente autenticação JWT segura no n8n
+keywords: [n8n, jwt, autenticação, segurança, tokens, oauth]
 ---
 
 <IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Segurança JWT
 
-Implementar autenticação JWT (JSON Web Tokens) de forma segura é fundamental para proteger suas integrações no SUA_SENHA_BANCO_AQUI. Este guia mostra como configurar e gerenciar tokens de forma segura.
+Implementar autenticação JWT (JSON Web Tokens) de forma segura é fundamental para proteger suas integrações no n8n. Este guia mostra como configurar e gerenciar tokens de forma segura.
 
 ## <IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> O que você aprenderá
 
@@ -46,8 +46,8 @@ const jwtConfig = {
   secret: process.env.JWT_SECRET,
   algorithm: 'HS256',
   expiresIn: '1h',
-  issuer: 'SUA_SENHA_BANCO_AQUI',
-  audience: 'SUA_SENHA_BANCO_AQUI-api'
+  issuer: 'n8n',
+  audience: 'n8n-api'
 }
 ```
 
@@ -138,7 +138,7 @@ async function refreshToken(credentials) {
 }
 ```
 
-## <IonicIcon name="close-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> O que NUNCA fazer no SUA_SENHA_BANCO_AQUI
+## <IonicIcon name="close-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> O que NUNCA fazer no n8n
 
 ```javascript
 // <IonicIcon name="close-circle-outline" style={{fontSize: '16px', color: '#ef4444'}} /> NUNCA hardcodar credenciais
@@ -156,8 +156,8 @@ console.log('Token:', token)
 # Configurações JWT
 JWT_SECRET=SUA_CHAVE_SECRETA_AQUI
 JWT_EXPIRES_IN=1h
-JWT_ISSUER=SUA_SENHA_BANCO_AQUI
-JWT_AUDIENCE=SUA_SENHA_BANCO_AQUI-api
+JWT_ISSUER=n8n
+JWT_AUDIENCE=n8n-api
 
 # Configurações de segurança
 N8N_ENCRYPTION_KEY=your-32-byte-encryption-key
@@ -233,8 +233,8 @@ curl -H "Authorization: Bearer your-token" https://your-api.com/validate
 
 - **[Políticas de Segurança](./politicas-seguranca)** - Políticas robustas
 - **[Boas Práticas](./boas-praticas)** - Práticas recomendadas
-- **[Segurança](../../hosting-SUA_SENHA_BANCO_AQUI/seguranca/)** - Configurações de segurança
-- **[Comunidade](../../comunidade/)** - Suporte e dicas
+- **[Segurança](../../privacidade-seguranca/security-best-practices.md)** - Configurações de segurança
+- **[Comunidade](../../comunidade/index.mdx)** - Suporte e dicas
 
 ---
 

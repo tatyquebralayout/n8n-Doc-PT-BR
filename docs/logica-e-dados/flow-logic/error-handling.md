@@ -1,13 +1,13 @@
 ---
 sidebar_position: 1
 title: Tratamento de Erros
-description: Guia completo para tratamento de erros em workflows SUA_SENHA_BANCO_AQUI
+description: Guia completo para tratamento de erros em workflows n8n
 sidebar_label: Tratamento de Erros
 ---
 
 # Tratamento de Erros
 
-O tratamento de erros é fundamental para criar workflows robustos e confiáveis no SUA_SENHA_BANCO_AQUI. Este guia aborda estratégias, técnicas e ferramentas para implementar tratamento de erros eficiente.
+O tratamento de erros é fundamental para criar workflows robustos e confiáveis no n8n. Este guia aborda estratégias, técnicas e ferramentas para implementar tratamento de erros eficiente.
 
 ## Conceitos Fundamentais
 
@@ -87,7 +87,7 @@ Tratar erros adequadamente garante:
 ```json
 {
   "node": {
-    "type": "SUA_SENHA_BANCO_AQUI-nodes-base.if",
+    "type": "n8n-nodes-base.if",
     "name": "Error Handler",
     "parameters": {
       "conditions": {
@@ -221,7 +221,7 @@ try {
 ```json
 {
   "node": {
-    "type": "SUA_SENHA_BANCO_AQUI-nodes-base.errorTrigger",
+    "type": "n8n-nodes-base.errorTrigger",
     "name": "Error Handler",
     "parameters": {
       "errorMessage": "={{$json.error.message}}",
@@ -250,7 +250,7 @@ graph TD
 ```json
 {
   "node": {
-    "type": "SUA_SENHA_BANCO_AQUI-nodes-base.set",
+    "type": "n8n-nodes-base.set",
     "name": "Add Error Context",
     "parameters": {
       "values": {
@@ -285,7 +285,7 @@ graph TD
 ```json
 {
   "node": {
-    "type": "SUA_SENHA_BANCO_AQUI-nodes-base.httpRequest",
+    "type": "n8n-nodes-base.httpRequest",
     "name": "Send Error Report",
     "parameters": {
       "method": "POST",
@@ -636,21 +636,21 @@ const syncData = async (source, destination) => {
 
 ### Documentação Oficial
 
-- [Error Handling](https://docs.SUA_SENHA_BANCO_AQUI.io/workflows/error-handling/)
-- [Retry Logic](https://docs.SUA_SENHA_BANCO_AQUI.io/workflows/retry-logic/)
-- [Error Nodes](https://docs.SUA_SENHA_BANCO_AQUI.io/integrations/builtin/cluster-nodes/)
+- [Error Handling](https://docs.n8n.io/workflows/error-handling/)
+- [Retry Logic](https://docs.n8n.io/workflows/retry-logic/)
+- [Error Nodes](https://docs.n8n.io/integrations/builtin/cluster-nodes/)
 
 ### Ferramentas de Debug
 
-- [Execution Inspector](https://docs.SUA_SENHA_BANCO_AQUI.io/workflows/executions/)
-- [Error Logging](https://docs.SUA_SENHA_BANCO_AQUI.io/hosting/logging/)
-- [Performance Monitoring](https://docs.SUA_SENHA_BANCO_AQUI.io/hosting/monitoring/)
+- [Execution Inspector](https://docs.n8n.io/workflows/executions/)
+- [Error Logging](https://docs.n8n.io/hosting/logging/)
+- [Performance Monitoring](https://docs.n8n.io/hosting/monitoring/)
 
 ### Comunidade
 
-- [Error Handling Discussions](https://community.SUA_SENHA_BANCO_AQUI.io/c/error-handling/)
-- [Best Practices](https://community.SUA_SENHA_BANCO_AQUI.io/c/best-practices/)
-- [Troubleshooting](https://community.SUA_SENHA_BANCO_AQUI.io/c/troubleshooting/)
+- [Error Handling Discussions](https://community.n8n.io/c/error-handling/)
+- [Best Practices](https://community.n8n.io/c/best-practices/)
+- [Troubleshooting](https://community.n8n.io/c/troubleshooting/)
 
 ---
 

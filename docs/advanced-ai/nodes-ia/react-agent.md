@@ -2,10 +2,10 @@
 sidebar_position: 5
 title: "ReAct Agent"
 description: Como usar o node ReAct Agent para reasoning e action
-keywords: [SUA_SENHA_BANCO_AQUI, react agent, reasoning, action, automação inteligente, agentes IA, workflows autônomos, raciocínio automatizado]
+keywords: [n8n, react agent, reasoning, action, automação inteligente, agentes IA, workflows autônomos, raciocínio automatizado]
 ---
 
-## ReAct Agent no SUA_SENHA_BANCO_AQUI: Raciocínio e Ação em Workflows Inteligentes
+## ReAct Agent no n8n: Raciocínio e Ação em Workflows Inteligentes
 
 Este documento descreve o **Agente ReAct (ReAct Agent)**, um tipo de agente de IA que utiliza um loop de "Raciocínio e Ação" para resolver problemas.
 
@@ -186,7 +186,7 @@ Comece com agentes simples e expanda gradualmente. Teste extensivamente com dado
 
 - [Agente de IA](./ai-agent) - Visão geral de agentes
 - [Memory Manager](./memory-manager) - Contexto persistente
-- [Exemplos Práticos](../exemplos-casos/) - Casos de uso reais
+- [Exemplos Práticos](../exemplos-casos/index.mdx) - Casos de uso reais
 
 ---
 

@@ -1,12 +1,12 @@
 ---
 id: troubleshooting
-title: "Troubleshooting SUA_SENHA_BANCO_AQUI: Diagnóstico, Soluções e Base de Conhecimento"
-description: Guia completo de troubleshooting para SUA_SENHA_BANCO_AQUI, diagnóstico de erros, soluções rápidas, base de conhecimento pesquisável e exemplos práticos.
+title: "Troubleshooting n8n: Diagnóstico, Soluções e Base de Conhecimento"
+description: Guia completo de troubleshooting para n8n, diagnóstico de erros, soluções rápidas, base de conhecimento pesquisável e exemplos práticos.
 sidebar_label: Troubleshooting
-keywords: [troubleshooting SUA_SENHA_BANCO_AQUI, diagnóstico de erros, base de conhecimento SUA_SENHA_BANCO_AQUI, soluções rápidas, problemas comuns, automação empresarial]
+keywords: [troubleshooting n8n, diagnóstico de erros, base de conhecimento n8n, soluções rápidas, problemas comuns, automação empresarial]
 ---
 
-Este guia ajuda a diagnosticar e resolver problemas comuns e avançados ao usar o SUA_SENHA_BANCO_AQUI, com exemplos práticos, base de conhecimento pesquisável e soluções passo a passo para automação empresarial.
+Este guia ajuda a diagnosticar e resolver problemas comuns e avançados ao usar o n8n, com exemplos práticos, base de conhecimento pesquisável e soluções passo a passo para automação empresarial.
 
 :::warning
 <IonicIcon name="time-outline" style={{fontSize: '18px', color: '#f59e0b'}} />

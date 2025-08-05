@@ -1,17 +1,17 @@
 ﻿---
 sidebar_position: 1
 title: Splitting de Dados
-description: Como dividir e distribuir dados em workflows SUA_SENHA_BANCO_AQUI usando conditionals
-keywords: [SUA_SENHA_BANCO_AQUI, split, dividir, dados, distribuição, conditionals, if, switch, ramificação]
+description: Como dividir e distribuir dados em workflows n8n usando conditionals
+keywords: [n8n, split, dividir, dados, distribuição, conditionals, if, switch, ramificação]
 ---
 
 <IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
-**Splitting de Workflows: Criando Lógica Condicional no SUA_SENHA_BANCO_AQUI**
+**Splitting de Workflows: Criando Lógica Condicional no n8n**
 
 <IonicIcon name="grid-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 :::info **📚 Objetivos de Aprendizado**
-1. **Definir** o que é *splitting* (ramificação condicional) no SUA_SENHA_BANCO_AQUI
+1. **Definir** o que é *splitting* (ramificação condicional) no n8n
 2. **Identificar** por que e quando aplicar essa técnica
 3. **Conhecer** os nós essenciais – **IF**, **Switch** e **Merge** – e suas configurações críticas
 4. **Construir** um fluxo multi‑ramo, passo a passo, a partir de um fluxo linear
@@ -26,12 +26,12 @@ keywords: [SUA_SENHA_BANCO_AQUI, split, dividir, dados, distribuição, conditio
 :::tip **💡 Analogia Prática**
 Splitting em workflows é como criar um **ponto de decisão** em um processo automatizado. Imagine que você é um gerente de atendimento ao cliente que precisa distribuir tickets de suporte: tickets simples vão para o nível 1, problemas técnicos vão para especialistas, e reclamações urgentes vão direto para supervisores.
 
-**No SUA_SENHA_BANCO_AQUI, splitting funciona exatamente assim** - você cria pontos onde o workflow "decide" qual caminho seguir baseado em condições específicas.
+**No n8n, splitting funciona exatamente assim** - você cria pontos onde o workflow "decide" qual caminho seguir baseado em condições específicas.
 :::
 
 ## O que é Splitting de Workflow?
 
-No SUA_SENHA_BANCO_AQUI, um [workflow](../primeiros-passos/primeiro-workflow) percorre naturalmente um **único caminho sequencial**. *Splitting* transforma esse caminho em **ramificações paralelas**: cada item é avaliado por um nó condicional ([*IF*](../../integracoes/builtin-nodes/logic-control/if) ou [*Switch*](../../integracoes/builtin-nodes/logic-control/switch)) e roteado ao ramo que corresponde aos seus dados.
+No n8n, um [workflow](../../primeiros-passos/primeiro-workflow.mdx) percorre naturalmente um **único caminho sequencial**. *Splitting* transforma esse caminho em **ramificações paralelas**: cada item é avaliado por um nó condicional ([*IF*](../../integracoes/builtin-nodes/logic-control/if) ou [*Switch*](../../integracoes/builtin-nodes/logic-control/switch)) e roteado ao ramo que corresponde aos seus dados.
 
 :::warning **⚠️ Importante: Não confunda com Split Out**
 **Splitting** ≠ **Split Out**
@@ -101,7 +101,7 @@ graph TD
 | **Nó** | **Finalidade** | **Saídas** | **Dicas Rápidas** |
 |--------|---------------|------------|------------------|
 | **[IF](../../integracoes/builtin-nodes/logic-control/if)** | Decisão binária | `true`, `false` | Combine condições com **AND/OR**; ative **Always Output Data** se for fazer [merge](./merging) depois |
-| **[Switch](../../integracoes/builtin-nodes/logic-control/switch)** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** ([lógica JavaScript](../referencia/recursos/glossario)) |
+| **[Switch](../../integracoes/builtin-nodes/logic-control/switch)** | Seleção multicondicional | `Case n`, `Default` | Dois modos: **Rules** (comparação direta) ou **Expression** ([lógica JavaScript](../../referencia/recursos/glossario.md)) |
 | **[Merge](./merging)** | Reunir ramificações | — | Estratégias *Wait → All* ou *Merge By Key* garantem dados completos |
 
 ### Node IF - Decisões Simples
@@ -406,8 +406,8 @@ graph LR
 
 ### Entendendo a Ordem de Execução
 
-:::info **Como o SUA_SENHA_BANCO_AQUI executa ramificações**
-- **Ordem**: O SUA_SENHA_BANCO_AQUI executa o primeiro ramo que finalizar
+:::info **Como o n8n executa ramificações**
+- **Ordem**: O n8n executa o primeiro ramo que finalizar
 - **Paralelismo**: Ramos são executados em paralelo por padrão
 - **Sincronização**: Use **Merge** se precisar aguardar todos os ramos
 - **Timeout**: Configure timeouts para evitar execuções infinitas
@@ -674,7 +674,7 @@ graph TD
 - Períodos de alta temporada: Sempre requer aprovação da diretoria
 - Solicitações com menos de 30 dias de antecedência: Aprovação expressa
 
-*Dica*: Use [Switch aninhados](../../integracoes/builtin-nodes/logic-control) e considere múltiplas condições simultâneas.
+*Dica*: Use [Switch aninhados](../../integracoes/builtin-nodes/logic-control/wait.mdx) e considere múltiplas condições simultâneas.
 :::
 
 <IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
@@ -700,7 +700,7 @@ graph TD
 
 **Ordem de Execução:**
 
-- O SUA_SENHA_BANCO_AQUI executa ramos em **paralelo** por padrão
+- O n8n executa ramos em **paralelo** por padrão
 - Use **Merge** se precisar aguardar todos os ramos
 - Configure **filas Redis/RabbitMQ** para processamento distribuído
 :::
@@ -708,14 +708,14 @@ graph TD
 ---
 
 :::note **📚 Recursos Adicionais**
-- [Documentação Oficial - Switch Node](https://docs.SUA_SENHA_BANCO_AQUI.io/integrations/builtin/core-nodes/SUA_SENHA_BANCO_AQUI-nodes-base.switch/)
-- [Documentação Oficial - IF Node](https://docs.SUA_SENHA_BANCO_AQUI.io/integrations/builtin/core-nodes/SUA_SENHA_BANCO_AQUI-nodes-base.if/)
-- [Documentação Oficial - Merge Node](https://docs.SUA_SENHA_BANCO_AQUI.io/integrations/builtin/core-nodes/SUA_SENHA_BANCO_AQUI-nodes-base.merge/)
+- [Documentação Oficial - Switch Node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.switch/)
+- [Documentação Oficial - IF Node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.if/)
+- [Documentação Oficial - Merge Node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.merge/)
 - [Error Trigger Node](../../integracoes/builtin-nodes/core-nodes/error-trigger)
 - [Execute Sub-workflow Node](../../integracoes/builtin-nodes/core-nodes/execute-sub-workflow)
-- [Expressões JavaScript no SUA_SENHA_BANCO_AQUI](/referencia/recursos/glossario)
-- [Exemplos de Workflows](/catalogo)
-- [Integrações Brasileiras](/integracoes-br)
-- [Guia de Instalação](/hosting-SUA_SENHA_BANCO_AQUI/instalacao)
+- [Expressões JavaScript no n8n](/referencia/recursos/glossario)
+- [Exemplos de Workflows](../../catalogo/servicos-brasileiros.mdx)
+- [Integrações Brasileiras](../../integracoes-br/financeiro/compliance-fiscal.md)
+- [Guia de Instalação](../../primeiros-passos/instalacao.mdx)
 :::
 

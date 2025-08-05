@@ -1,24 +1,24 @@
 ---
 sidebar_position: 1
 title: Quickstart Rápido
-description: Guia rápido para começar com SUA_SENHA_BANCO_AQUI
+description: Guia rápido para começar com n8n
 sidebar_label: Quickstart Rápido
 ---
 
 # Quickstart Rápido
 
-Este guia rápido apresenta os conceitos essenciais do SUA_SENHA_BANCO_AQUI em menos de 5 minutos, mostrando como criar seu primeiro workflow para automatizar uma tarefa simples.
+Este guia rápido apresenta os conceitos essenciais do n8n em menos de 5 minutos, mostrando como criar seu primeiro workflow para automatizar uma tarefa simples.
 
-## O que é o SUA_SENHA_BANCO_AQUI?
+## O que é o n8n?
 
-O SUA_SENHA_BANCO_AQUI é uma plataforma de automação de workflows open source. Com ele, você pode conectar diferentes aplicações, automatizar tarefas e transformar dados sem precisar programar.
+O n8n é uma plataforma de automação de workflows open source. Com ele, você pode conectar diferentes aplicações, automatizar tarefas e transformar dados sem precisar programar.
 
 ## Passo a Passo: Seu Primeiro Workflow
 
-### 1. Acesse o SUA_SENHA_BANCO_AQUI
+### 1. Acesse o n8n
 
 - Se você ainda não instalou, siga o [Guia de Instalação](../../primeiros-passos/guia-instalacao).
-- Acesse a interface web do SUA_SENHA_BANCO_AQUI (por padrão: `http://localhost:5678`).
+- Acesse a interface web do n8n (por padrão: `http://localhost:5678`).
 
 ### 2. Crie um novo workflow
 
@@ -56,14 +56,14 @@ O SUA_SENHA_BANCO_AQUI é uma plataforma de automação de workflows open source
 - Explore nodes populares: HTTP Request, Google Sheets, Slack, Discord, Webhook.
 - Use o painel lateral para ver logs, execuções e histórico.
 - Experimente o **Data Pinning** para fixar dados de teste.
-- Consulte a [documentação oficial do SUA_SENHA_BANCO_AQUI](https://docs.SUA_SENHA_BANCO_AQUI.io/getting-started/quickstart/) para mais exemplos.
+- Consulte a [documentação oficial do n8n](https://docs.n8n.io/getting-started/quickstart/) para mais exemplos.
 
 ## Recursos Úteis
 
-- [Documentação Oficial SUA_SENHA_BANCO_AQUI](https://docs.SUA_SENHA_BANCO_AQUI.io/)
-- [Comunidade SUA_SENHA_BANCO_AQUI Brasil](https://discord.gg/SUA_SENHA_BANCO_AQUIbrasil)
-- [Exemplos de Workflows](https://SUA_SENHA_BANCO_AQUI.io/workflows)
-- [Nodes Disponíveis](https://docs.SUA_SENHA_BANCO_AQUI.io/integrations/builtin/overview/)
+- [Documentação Oficial n8n](https://docs.n8n.io/)
+- [Comunidade n8n Brasil](https://discord.gg/n8nbrasil)
+- [Exemplos de Workflows](https://n8n.io/workflows)
+- [Nodes Disponíveis](https://docs.n8n.io/integrations/builtin/overview/)
 
 ---
 

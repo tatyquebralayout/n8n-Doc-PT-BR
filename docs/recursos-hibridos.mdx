@@ -64,7 +64,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
    Ideal para alertas de segurança e informações importantes.
 
 .. tip:: Dica útil
-   Dicas e sugestões para melhorar o uso do SUA_SENHA_BANCO_AQUI.
+   Dicas e sugestões para melhorar o uso do n8n.
    Use para compartilhar boas práticas e insights.
 
 .. important:: Informação crucial
@@ -89,7 +89,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
 <HybridProcessor 
   content={`
 .. code-block:: javascript
-   :caption: Exemplo de Workflow SUA_SENHA_BANCO_AQUI
+   :caption: Exemplo de Workflow n8n
    :name: workflow-example
    :linenos:
    :emphasize-lines: 3,5,8
@@ -98,7 +98,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
      nodes: [
        {
          name: 'Webhook',
-         type: 'SUA_SENHA_BANCO_AQUI-nodes-base.webhook',
+         type: 'n8n-nodes-base.webhook',
          position: [250, 300],
          parameters: {
            httpMethod: 'GET',
@@ -107,7 +107,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
        },
        {
          name: 'HTTP Request',
-         type: 'SUA_SENHA_BANCO_AQUI-nodes-base.httpRequest',
+         type: 'n8n-nodes-base.httpRequest',
          position: [450, 300],
          parameters: {
            url: 'https:/api.exemplo.com/dados',
@@ -125,7 +125,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
    import json
 
    def process_webhook_data(data):
-       """Processa dados do webhook SUA_SENHA_BANCO_AQUI"""
+       """Processa dados do webhook n8n"""
        processed = []
        for item in data:
            if item.get('status') == 'active':
@@ -192,7 +192,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
 <HybridProcessor 
   type="sphinx" 
   content={`
-.. SUA_SENHA_BANCO_AQUI-workflow:: exemplo-avancado
+.. n8n-workflow:: exemplo-avancado
    :title: Workflow de E-commerce
    :description: Automação completa de pedidos
    :nodes: 5

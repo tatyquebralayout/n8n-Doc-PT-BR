@@ -1,13 +1,13 @@
 ---
 sidebar_position: 3
-title: Automação de Anexos Contratuais e Documentos Digitais no SUA_SENHA_BANCO_AQUI
-description: Exemplo prático de manipulação de contratos digitais e anexos em workflows SUA_SENHA_BANCO_AQUI, com dicas para integração com ERPs, CRMs e sistemas jurídicos.
-keywords: [SUA_SENHA_BANCO_AQUI, contratos digitais, anexos, automação jurídica, workflow, integração ERP, CRM, documentos digitais]
+title: Automação de Anexos Contratuais e Documentos Digitais no n8n
+description: Exemplo prático de manipulação de contratos digitais e anexos em workflows n8n, com dicas para integração com ERPs, CRMs e sistemas jurídicos.
+keywords: [n8n, contratos digitais, anexos, automação jurídica, workflow, integração ERP, CRM, documentos digitais]
 ---
 
 <IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-## Automação de Anexos Contratuais e Documentos Digitais no SUA_SENHA_BANCO_AQUI
+## Automação de Anexos Contratuais e Documentos Digitais no n8n
 
 Este exemplo mostra como trafegar contratos digitais e anexos em automações empresariais.
 
@@ -56,9 +56,9 @@ Este exemplo mostra como trafegar contratos digitais e anexos em automações em
 
 1. **[Estrutura de Dados](./data-structure)** - Entenda como os dados são organizados
 2. **[Dados Binários](./binary-data)** - Trabalhe com arquivos PDF
-3. **[Transformações de Dados](./transformacoes-dados)** - Processe documentos digitais
+3. **[Transformações de Dados](./data-structure)** - Processe documentos digitais
 
-> *Agora você pode trabalhar com contratos digitais e anexos no SUA_SENHA_BANCO_AQUI. Use essas técnicas para automatizar processos jurídicos e empresariais!*
+> *Agora você pode trabalhar com contratos digitais e anexos no n8n. Use essas técnicas para automatizar processos jurídicos e empresariais!*
 
 ---
 

@@ -1,13 +1,13 @@
 ---
 sidebar_position: 2
-title: Automação de NF-e e XML Fiscal no SUA_SENHA_BANCO_AQUI
-description: Exemplo prático de manipulação de notas fiscais eletrônicas (NF-e) e arquivos XML em workflows SUA_SENHA_BANCO_AQUI, com dicas para integração com ERPs e Receita Federal.
-keywords: [SUA_SENHA_BANCO_AQUI, NF-e, XML, automação fiscal, integração ERP, Receita Federal, workflow, documentos fiscais]
+title: Automação de NF-e e XML Fiscal no n8n
+description: Exemplo prático de manipulação de notas fiscais eletrônicas (NF-e) e arquivos XML em workflows n8n, com dicas para integração com ERPs e Receita Federal.
+keywords: [n8n, NF-e, XML, automação fiscal, integração ERP, Receita Federal, workflow, documentos fiscais]
 ---
 
 <IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-## Automação de NF-e e XML Fiscal no SUA_SENHA_BANCO_AQUI
+## Automação de NF-e e XML Fiscal no n8n
 
 Este exemplo mostra como trafegar arquivos XML de notas fiscais eletrônicas (NF-e) em automações contábeis e fiscais.
 
@@ -56,9 +56,9 @@ Este exemplo mostra como trafegar arquivos XML de notas fiscais eletrônicas (NF
 
 1. **[Estrutura de Dados](./data-structure)** - Entenda como os dados são organizados
 2. **[Dados Binários](./binary-data)** - Trabalhe com arquivos XML
-3. **[Transformações de Dados](./transformacoes-dados)** - Processe dados fiscais
+3. **[Transformações de Dados](./data-structure)** - Processe dados fiscais
 
-> *Agora você pode trabalhar com NF-e e XML fiscal no SUA_SENHA_BANCO_AQUI. Use essas técnicas para automatizar processos contábeis e fiscais!*
+> *Agora você pode trabalhar com NF-e e XML fiscal no n8n. Use essas técnicas para automatizar processos contábeis e fiscais!*
 
 ---
 

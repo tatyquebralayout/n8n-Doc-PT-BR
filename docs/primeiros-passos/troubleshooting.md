@@ -1,15 +1,15 @@
 ---
 sidebar_position: 10
 title: Troubleshooting
-description: Resolução de problemas comuns durante os primeiros passos com SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, troubleshooting, problemas, erros, solução, primeiros passos]
+description: Resolução de problemas comuns durante os primeiros passos com n8n
+keywords: [n8n, troubleshooting, problemas, erros, solução, primeiros passos]
 ---
 
 <IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ## Troubleshooting
 
-Resolução de problemas comuns durante os primeiros passos com SUA_SENHA_BANCO_AQUI.
+Resolução de problemas comuns durante os primeiros passos com n8n.
 
 ---
 
@@ -31,7 +31,7 @@ lsof -i :5678
 kill -9 PID
 
 # Ou usar uma porta diferente
-SUA_SENHA_BANCO_AQUI start --port 5679
+n8n start --port 5679
 ```
 
 ### Problemas de Permissão
@@ -42,10 +42,10 @@ SUA_SENHA_BANCO_AQUI start --port 5679
 
 ```bash
 # Para instalação global
-sudo npm install -g SUA_SENHA_BANCO_AQUI
+sudo npm install -g n8n
 
 # Para instalação local
-npm install SUA_SENHA_BANCO_AQUI --prefix ~/.local
+npm install n8n --prefix ~/.local
 ```
 
 ---
@@ -70,7 +70,7 @@ npm install SUA_SENHA_BANCO_AQUI --prefix ~/.local
 
 **Solução:**
 
-- Verificar se o SUA_SENHA_BANCO_AQUI está acessível externamente
+- Verificar se o n8n está acessível externamente
 - Configurar HTTPS para produção
 - Verificar configurações de firewall
 
@@ -129,15 +129,15 @@ npm install SUA_SENHA_BANCO_AQUI --prefix ~/.local
 
 ```bash
 # Logs detalhados
-SUA_SENHA_BANCO_AQUI start --log-level debug
+n8n start --log-level debug
 
 # Logs em arquivo
-SUA_SENHA_BANCO_AQUI start --log-output-file SUA_SENHA_BANCO_AQUI.log
+n8n start --log-output-file n8n.log
 ```
 
 ### Informações Úteis para Debug
 
-- Versão do SUA_SENHA_BANCO_AQUI
+- Versão do n8n
 - Sistema operacional
 - Node.js version
 - Configurações de ambiente
@@ -151,10 +151,10 @@ SUA_SENHA_BANCO_AQUI start --log-output-file SUA_SENHA_BANCO_AQUI.log
 
 Se os problemas persistirem:
 
-1. **[Verificar documentação oficial](https://SUA_SENHA_BANCO_AQUI.io/docs)** - Guias detalhados
-2. **[Comunidade Discord](https://discord.gg/SUA_SENHA_BANCO_AQUI)** - Suporte em tempo real
-3. **[GitHub Issues](https://github.com/SUA_SENHA_BANCO_AQUI-io/SUA_SENHA_BANCO_AQUI/issues)** - Reportar bugs
-4. **[Comunidade brasileira](https://discord.gg/SUA_SENHA_BANCO_AQUIbrasil)** - Suporte em português
+1. **[Verificar documentação oficial](https://n8n.io/docs)** - Guias detalhados
+2. **[Comunidade Discord](https://discord.gg/n8n)** - Suporte em tempo real
+3. **[GitHub Issues](https://github.com/n8n-io/n8n/issues)** - Reportar bugs
+4. **[Comunidade brasileira](https://discord.gg/n8nbrasil)** - Suporte em português
 
 > *Não conseguiu resolver seu problema? Entre em contato com nossa comunidade para obter ajuda adicional!*
 
@@ -169,5 +169,5 @@ Sempre verifique os logs antes de reportar problemas para obter informações ma
 :::
 
 :::info **Recurso Adicional**
-Consulte a documentação oficial do SUA_SENHA_BANCO_AQUI para soluções específicas de cada tipo de problema.
+Consulte a documentação oficial do n8n para soluções específicas de cada tipo de problema.
 :::

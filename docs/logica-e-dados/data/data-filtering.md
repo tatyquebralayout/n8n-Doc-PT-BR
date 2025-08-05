@@ -1,10 +1,10 @@
 # Filtros de Dados
 
-A filtragem de dados é uma operação fundamental para processar e analisar informações de forma eficiente. Esta seção aborda como aplicar filtros, criar condições complexas e otimizar o processamento de dados no SUA_SENHA_BANCO_AQUI.
+A filtragem de dados é uma operação fundamental para processar e analisar informações de forma eficiente. Esta seção aborda como aplicar filtros, criar condições complexas e otimizar o processamento de dados no n8n.
 
 ## Visão Geral
 
-Filtros permitem selecionar dados específicos baseados em critérios definidos, reduzindo o volume de informações processadas e melhorando a performance dos workflows. No SUA_SENHA_BANCO_AQUI, você pode filtrar dados usando:
+Filtros permitem selecionar dados específicos baseados em critérios definidos, reduzindo o volume de informações processadas e melhorando a performance dos workflows. No n8n, você pode filtrar dados usando:
 
 - **Filtros simples** por valor
 - **Condições complexas** com operadores lógicos

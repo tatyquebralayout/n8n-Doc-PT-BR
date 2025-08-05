@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 1
 title: Load Balancing
-description: Como implementar balanceamento de carga para SUA_SENHA_BANCO_AQUI em produção
-keywords: [SUA_SENHA_BANCO_AQUI, load balancing, balanceamento, carga, nginx, produção]
+description: Como implementar balanceamento de carga para n8n em produção
+keywords: [n8n, load balancing, balanceamento, carga, nginx, produção]
 ---
 
 <IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Load Balancing
 
-Este documento explica como **implementar balanceamento de carga** para SUA_SENHA_BANCO_AQUI em ambiente de produção, abordando configuração de nginx como proxy reverso, distribuição de requisições entre múltiplas instâncias, health checks automáticos, failover inteligente, e estratégias de alta disponibilidade que garantem performance consistente e tolerância a falhas em implementações empresariais de grande escala.
+Este documento explica como **implementar balanceamento de carga** para n8n em ambiente de produção, abordando configuração de nginx como proxy reverso, distribuição de requisições entre múltiplas instâncias, health checks automáticos, failover inteligente, e estratégias de alta disponibilidade que garantem performance consistente e tolerância a falhas em implementações empresariais de grande escala.
 
 ---
 
@@ -20,25 +20,25 @@ Este documento explica como **implementar balanceamento de carga** para SUA_SENH
 ### Upstream para Diferentes Tipos de Tráfego
 
 ```nginx
-upstream SUA_SENHA_BANCO_AQUI_api {
+upstream n8n_api {
     least_conn;
-    server SUA_SENHA_BANCO_AQUI-1:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-2:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-3:5678 max_fails=3 fail_timeout=30s;
+    server n8n-1:5678 max_fails=3 fail_timeout=30s;
+    server n8n-2:5678 max_fails=3 fail_timeout=30s;
+    server n8n-3:5678 max_fails=3 fail_timeout=30s;
 }
 
-upstream SUA_SENHA_BANCO_AQUI_webhooks {
+upstream n8n_webhooks {
     ip_hash;  # Sticky sessions para webhooks
-    server SUA_SENHA_BANCO_AQUI-1:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-2:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-3:5678 max_fails=3 fail_timeout=30s;
+    server n8n-1:5678 max_fails=3 fail_timeout=30s;
+    server n8n-2:5678 max_fails=3 fail_timeout=30s;
+    server n8n-3:5678 max_fails=3 fail_timeout=30s;
 }
 
-upstream SUA_SENHA_BANCO_AQUI_ui {
+upstream n8n_ui {
     round_robin;
-    server SUA_SENHA_BANCO_AQUI-1:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-2:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-3:5678 max_fails=3 fail_timeout=30s;
+    server n8n-1:5678 max_fails=3 fail_timeout=30s;
+    server n8n-2:5678 max_fails=3 fail_timeout=30s;
+    server n8n-3:5678 max_fails=3 fail_timeout=30s;
 }
 ```
 
@@ -88,12 +88,12 @@ http {
     limit_req_zone $binary_remote_addr zone=webhook:10m rate=30r/s;
     limit_req_zone $binary_remote_addr zone=ui:10m rate=5r/s;
 
-    # Upstream para SUA_SENHA_BANCO_AQUI
-    upstream SUA_SENHA_BANCO_AQUI_backend {
+    # Upstream para n8n
+    upstream n8n_backend {
         least_conn;
-        server SUA_SENHA_BANCO_AQUI-1:5678 max_fails=3 fail_timeout=30s;
-        server SUA_SENHA_BANCO_AQUI-2:5678 max_fails=3 fail_timeout=30s;
-        server SUA_SENHA_BANCO_AQUI-3:5678 max_fails=3 fail_timeout=30s;
+        server n8n-1:5678 max_fails=3 fail_timeout=30s;
+        server n8n-2:5678 max_fails=3 fail_timeout=30s;
+        server n8n-3:5678 max_fails=3 fail_timeout=30s;
         keepalive 32;
     }
 
@@ -105,7 +105,7 @@ http {
 ### Configuração do Site
 
 ```nginx
-# /etc/nginx/sites-available/SUA_SENHA_BANCO_AQUI
+# /etc/nginx/sites-available/n8n
 server {
     listen 443 ssl http2;
     server_name seudominio.com www.seudominio.com;
@@ -131,7 +131,7 @@ server {
     # API endpoints com rate limiting
     location /api/ {
         limit_req zone=api burst=20 nodelay;
-        proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
+        proxy_pass http://n8n_backend;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -151,7 +151,7 @@ server {
     # Webhook endpoints com rate limiting
     location /webhook/ {
         limit_req zone=webhook burst=50 nodelay;
-        proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
+        proxy_pass http://n8n_backend;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -171,7 +171,7 @@ server {
     # Interface de usuário
     location / {
         limit_req zone=ui burst=10 nodelay;
-        proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
+        proxy_pass http://n8n_backend;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -198,13 +198,13 @@ server {
 ### Configuração Avançada
 
 ```nginx
-upstream SUA_SENHA_BANCO_AQUI_backend {
+upstream n8n_backend {
     least_conn;
     
     # Servidores com health checks
-    server SUA_SENHA_BANCO_AQUI-1:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-2:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-3:5678 max_fails=3 fail_timeout=30s;
+    server n8n-1:5678 max_fails=3 fail_timeout=30s;
+    server n8n-2:5678 max_fails=3 fail_timeout=30s;
+    server n8n-3:5678 max_fails=3 fail_timeout=30s;
     
     # Configurações de keepalive
     keepalive 32;
@@ -224,19 +224,19 @@ location /healthz {
 
 ```nginx
 # Para webhooks que precisam de sessão consistente
-upstream SUA_SENHA_BANCO_AQUI_webhooks {
+upstream n8n_webhooks {
     ip_hash;
-    server SUA_SENHA_BANCO_AQUI-1:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-2:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-3:5678 max_fails=3 fail_timeout=30s;
+    server n8n-1:5678 max_fails=3 fail_timeout=30s;
+    server n8n-2:5678 max_fails=3 fail_timeout=30s;
+    server n8n-3:5678 max_fails=3 fail_timeout=30s;
 }
 
 # Para API e UI que podem ser distribuídas
-upstream SUA_SENHA_BANCO_AQUI_api {
+upstream n8n_api {
     least_conn;
-    server SUA_SENHA_BANCO_AQUI-1:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-2:5678 max_fails=3 fail_timeout=30s;
-    server SUA_SENHA_BANCO_AQUI-3:5678 max_fails=3 fail_timeout=30s;
+    server n8n-1:5678 max_fails=3 fail_timeout=30s;
+    server n8n-2:5678 max_fails=3 fail_timeout=30s;
+    server n8n-3:5678 max_fails=3 fail_timeout=30s;
 }
 ```
 
@@ -273,8 +273,8 @@ defaults
     retries 3
 
 # Frontend para HTTPS
-frontend SUA_SENHA_BANCO_AQUI_https
-    bind *:443 ssl crt /etc/ssl/certs/SUA_SENHA_BANCO_AQUI.pem
+frontend n8n_https
+    bind *:443 ssl crt /etc/ssl/certs/n8n.pem
     mode http
     
     # ACLs para diferentes tipos de tráfego
@@ -288,21 +288,21 @@ frontend SUA_SENHA_BANCO_AQUI_https
     http-request deny deny_status 429 if { sc_http_req_rate(0) gt 10 }
     
     # Roteamento baseado em ACLs
-    use_backend SUA_SENHA_BANCO_AQUI_webhooks if is_webhook
-    use_backend SUA_SENHA_BANCO_AQUI_api if is_api
-    use_backend SUA_SENHA_BANCO_AQUI_ui if !is_api !is_webhook !is_health
-    use_backend SUA_SENHA_BANCO_AQUI_health if is_health
+    use_backend n8n_webhooks if is_webhook
+    use_backend n8n_api if is_api
+    use_backend n8n_ui if !is_api !is_webhook !is_health
+    use_backend n8n_health if is_health
 
 # Backend para webhooks (sticky sessions)
-backend SUA_SENHA_BANCO_AQUI_webhooks
+backend n8n_webhooks
     balance roundrobin
     option httpchk GET /healthz
     http-check expect status 200
     
     # Servidores
-    server SUA_SENHA_BANCO_AQUI-1 SUA_SENHA_BANCO_AQUI-1:5678 check maxconn 100 cookie SUA_SENHA_BANCO_AQUI-1
-    server SUA_SENHA_BANCO_AQUI-2 SUA_SENHA_BANCO_AQUI-2:5678 check maxconn 100 cookie SUA_SENHA_BANCO_AQUI-2
-    server SUA_SENHA_BANCO_AQUI-3 SUA_SENHA_BANCO_AQUI-3:5678 check maxconn 100 cookie SUA_SENHA_BANCO_AQUI-3
+    server n8n-1 n8n-1:5678 check maxconn 100 cookie n8n-1
+    server n8n-2 n8n-2:5678 check maxconn 100 cookie n8n-2
+    server n8n-3 n8n-3:5678 check maxconn 100 cookie n8n-3
     
     # Configurações de failover
     option redispatch
@@ -311,27 +311,27 @@ backend SUA_SENHA_BANCO_AQUI_webhooks
     timeout server 30s
 
 # Backend para API
-backend SUA_SENHA_BANCO_AQUI_api
+backend n8n_api
     balance leastconn
     option httpchk GET /healthz
     http-check expect status 200
     
-    server SUA_SENHA_BANCO_AQUI-1 SUA_SENHA_BANCO_AQUI-1:5678 check maxconn 100
-    server SUA_SENHA_BANCO_AQUI-2 SUA_SENHA_BANCO_AQUI-2:5678 check maxconn 100
-    server SUA_SENHA_BANCO_AQUI-3 SUA_SENHA_BANCO_AQUI-3:5678 check maxconn 100
+    server n8n-1 n8n-1:5678 check maxconn 100
+    server n8n-2 n8n-2:5678 check maxconn 100
+    server n8n-3 n8n-3:5678 check maxconn 100
 
 # Backend para UI
-backend SUA_SENHA_BANCO_AQUI_ui
+backend n8n_ui
     balance roundrobin
     option httpchk GET /healthz
     http-check expect status 200
     
-    server SUA_SENHA_BANCO_AQUI-1 SUA_SENHA_BANCO_AQUI-1:5678 check maxconn 100
-    server SUA_SENHA_BANCO_AQUI-2 SUA_SENHA_BANCO_AQUI-2:5678 check maxconn 100
-    server SUA_SENHA_BANCO_AQUI-3 SUA_SENHA_BANCO_AQUI-3:5678 check maxconn 100
+    server n8n-1 n8n-1:5678 check maxconn 100
+    server n8n-2 n8n-2:5678 check maxconn 100
+    server n8n-3 n8n-3:5678 check maxconn 100
 
 # Backend para health check
-backend SUA_SENHA_BANCO_AQUI_health
+backend n8n_health
     http-request return status 200 content-type text/plain string "healthy\n"
 ```
 
@@ -351,12 +351,12 @@ N8N_HOST="localhost"
 N8N_PORT="5678"
 HEALTH_ENDPOINT="/healthz"
 
-# Verificar saúde do SUA_SENHA_BANCO_AQUI
+# Verificar saúde do n8n
 if curl -f -s --max-time 5 "http://$N8N_HOST:$N8N_PORT$HEALTH_ENDPOINT" > /dev/null; then
-    echo "OK: SUA_SENHA_BANCO_AQUI está saudável"
+    echo "OK: n8n está saudável"
     exit 0
 else
-    echo "ERROR: SUA_SENHA_BANCO_AQUI não está respondendo"
+    echo "ERROR: n8n não está respondendo"
     exit 1
 fi
 ```
@@ -367,7 +367,7 @@ fi
 #!/bin/bash
 
 # Configurações
-BACKEND_SERVERS=("SUA_SENHA_BANCO_AQUI-1" "SUA_SENHA_BANCO_AQUI-2" "SUA_SENHA_BANCO_AQUI-3")
+BACKEND_SERVERS=("n8n-1" "n8n-2" "n8n-3")
 WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 
 echo "=== Monitoramento do Load Balancer ==="
@@ -432,7 +432,7 @@ netstat -an | grep :443 | grep ESTABLISHED | wc -l
 echo
 
 echo "5. Distribuição de Carga:"
-for server in SUA_SENHA_BANCO_AQUI-1 SUA_SENHA_BANCO_AQUI-2 SUA_SENHA_BANCO_AQUI-3; do
+for server in n8n-1 n8n-2 n8n-3; do
     CONNECTIONS=$(docker exec $server netstat -an | grep :5678 | grep ESTABLISHED | wc -l)
     echo "$server: $CONNECTIONS conexões"
 done
@@ -516,12 +516,12 @@ server {
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
     add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 
-    # Content security policy para SUA_SENHA_BANCO_AQUI
+    # Content security policy para n8n
     add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https: wss:; frame-ancestors 'none';" always;
 
     # Proxy configuration
     location / {
-        proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
+        proxy_pass http://n8n_backend;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -556,7 +556,7 @@ nginx -t
 echo
 
 echo "2. Verificar status dos servidores:"
-for server in SUA_SENHA_BANCO_AQUI-1 SUA_SENHA_BANCO_AQUI-2 SUA_SENHA_BANCO_AQUI-3; do
+for server in n8n-1 n8n-2 n8n-3; do
     echo "=== $server ==="
     curl -I http://$server:5678/healthz
 done

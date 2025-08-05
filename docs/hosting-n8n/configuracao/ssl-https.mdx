@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 3
 title: SSL/HTTPS
-description: Como configurar SSL/HTTPS para SUA_SENHA_BANCO_AQUI em produção
-keywords: [SUA_SENHA_BANCO_AQUI, ssl, https, certificados, segurança, nginx]
+description: Como configurar SSL/HTTPS para n8n em produção
+keywords: [n8n, ssl, https, certificados, segurança, nginx]
 ---
 
 <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Configuração SSL/HTTPS
 
-Este documento ensina como **configurar SSL/HTTPS** para SUA_SENHA_BANCO_AQUI em produção, abordando obtenção de certificados SSL, configuração de reverse proxy com nginx, renovação automática via Let's Encrypt, implementação de security headers, e melhores práticas de segurança que garantem comunicação criptografada e protegem workflows e credenciais contra interceptação e ataques man-in-the-middle.
+Este documento ensina como **configurar SSL/HTTPS** para n8n em produção, abordando obtenção de certificados SSL, configuração de reverse proxy com nginx, renovação automática via Let's Encrypt, implementação de security headers, e melhores práticas de segurança que garantem comunicação criptografada e protegem workflows e credenciais contra interceptação e ataques man-in-the-middle.
 
 <IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
@@ -40,7 +40,7 @@ server {
     add_header X-XSS-Protection "1; mode=block" always;
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
 
-    # Proxy para SUA_SENHA_BANCO_AQUI
+    # Proxy para n8n
     location / {
         proxy_pass http://localhost:5678;
         proxy_set_header Host $host;
@@ -120,7 +120,7 @@ http {
 ### Configuração com Rate Limiting
 
 ```nginx
-# /etc/nginx/sites-available/SUA_SENHA_BANCO_AQUI
+# /etc/nginx/sites-available/n8n
 server {
     listen 443 ssl http2;
     server_name seudominio.com;
@@ -172,8 +172,8 @@ server {
 version: '3.8'
 
 services:
-  SUA_SENHA_BANCO_AQUI:
-    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
+  n8n:
+    image: n8nio/n8n:latest
     restart: unless-stopped
     environment:
       - N8N_PROTOCOL=https
@@ -181,18 +181,18 @@ services:
       - GENERIC_TIMEZONE=America/Sao_Paulo
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
-      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
       - REDIS_URL=redis://redis:6379
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
     volumes:
-      - SUA_SENHA_BANCO_AQUI_data:/home/node/.SUA_SENHA_BANCO_AQUI
+      - n8n_data:/home/node/.n8n
     depends_on:
       - postgres
       - redis
     networks:
-      - SUA_SENHA_BANCO_AQUI_network
+      - n8n_network
 
   nginx:
     image: nginx:alpine
@@ -206,9 +206,9 @@ services:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
     depends_on:
-      - SUA_SENHA_BANCO_AQUI
+      - n8n
     networks:
-      - SUA_SENHA_BANCO_AQUI_network
+      - n8n_network
 
   certbot:
     image: certbot/certbot
@@ -221,13 +221,13 @@ services:
     image: postgres:15
     restart: unless-stopped
     environment:
-      - POSTGRES_DB=SUA_SENHA_BANCO_AQUI
-      - POSTGRES_USER=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_DB=n8n
+      - POSTGRES_USER=n8n
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - SUA_SENHA_BANCO_AQUI_network
+      - n8n_network
 
   redis:
     image: redis:7-alpine
@@ -236,15 +236,15 @@ services:
     volumes:
       - redis_data:/data
     networks:
-      - SUA_SENHA_BANCO_AQUI_network
+      - n8n_network
 
 volumes:
-  SUA_SENHA_BANCO_AQUI_data:
+  n8n_data:
   postgres_data:
   redis_data:
 
 networks:
-  SUA_SENHA_BANCO_AQUI_network:
+  n8n_network:
     driver: bridge
 ```
 
@@ -257,8 +257,8 @@ events {
 }
 
 http {
-    upstream SUA_SENHA_BANCO_AQUI_backend {
-        server SUA_SENHA_BANCO_AQUI:5678;
+    upstream n8n_backend {
+        server n8n:5678;
     }
 
     # Rate limiting
@@ -298,7 +298,7 @@ http {
         # API endpoints with rate limiting
         location /api/ {
             limit_req zone=api burst=20 nodelay;
-            proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
+            proxy_pass http://n8n_backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -308,7 +308,7 @@ http {
         # Webhook endpoints with rate limiting
         location /webhook/ {
             limit_req zone=webhook burst=50 nodelay;
-            proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
+            proxy_pass http://n8n_backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -318,7 +318,7 @@ http {
 
         # General proxy
         location / {
-            proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
+            proxy_pass http://n8n_backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -376,7 +376,7 @@ server {
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
     add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 
-    # Content Security Policy para SUA_SENHA_BANCO_AQUI
+    # Content Security Policy para n8n
     add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https: wss:; frame-ancestors 'none';" always;
 
     # Proxy Configuration

@@ -1,13 +1,13 @@
 ---
 sidebar_position: 6
 title: Credenciais Webhook
-description: Como configurar autenticação e segurança para webhooks no SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, webhook, autenticação, segurança, credenciais]
+description: Como configurar autenticação e segurança para webhooks no n8n
+keywords: [n8n, webhook, autenticação, segurança, credenciais]
 ---
 
 <IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-As credenciais webhook permitem configurar autenticação e segurança para webhooks no SUA_SENHA_BANCO_AQUI. Este documento explica como configurar diferentes tipos de autenticação para webhooks, incluindo Basic Auth, API Key, OAuth 2.0 e outras formas de proteger seus endpoints de webhook.
+As credenciais webhook permitem configurar autenticação e segurança para webhooks no n8n. Este documento explica como configurar diferentes tipos de autenticação para webhooks, incluindo Basic Auth, API Key, OAuth 2.0 e outras formas de proteger seus endpoints de webhook.
 
 ## Tipos de Autenticação
 
@@ -263,11 +263,11 @@ Após configurar as credenciais, você pode usá-las no node Webhook:
 #### Logs de Acesso
 
 ```bash
-# Verificar logs do SUA_SENHA_BANCO_AQUI
-SUA_SENHA_BANCO_AQUI logs --level debug | grep "Webhook"
+# Verificar logs do n8n
+n8n logs --level debug | grep "Webhook"
 
 # Verificar logs de webhook
-SUA_SENHA_BANCO_AQUI logs --level error | grep "webhook"
+n8n logs --level error | grep "webhook"
 ```
 
 ## Exemplos Práticos
@@ -409,4 +409,4 @@ SUA_SENHA_BANCO_AQUI logs --level error | grep "webhook"
 - [Basic Authentication](/integracoes/credential-nodes/basic-auth) - Configurar autenticação básica
 - [OAuth Authentication](/integracoes/credential-nodes/oauth) - Configurar OAuth 2.0
 - [Webhook Node](/integracoes/builtin-nodes/http-requests/webhook) - Configurar webhooks
-- [Troubleshooting](/usando-SUA_SENHA_BANCO_AQUI/troubleshooting) - Resolução de problemas
+- [Troubleshooting](/usando-n8n/troubleshooting) - Resolução de problemas

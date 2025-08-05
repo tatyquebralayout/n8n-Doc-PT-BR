@@ -1,13 +1,13 @@
 ﻿---
 sidebar_position: 4
 title: Instalação Desktop
-description: Como instalar SUA_SENHA_BANCO_AQUI Desktop para uso local e desenvolvimento
-keywords: [SUA_SENHA_BANCO_AQUI, desktop, instalação, local, desenvolvimento, windows, mac]
+description: Como instalar n8n Desktop para uso local e desenvolvimento
+keywords: [n8n, desktop, instalação, local, desenvolvimento, windows, mac]
 ---
 
 # Instalação Desktop
 
-Este guia detalha como **instalar SUA_SENHA_BANCO_AQUI Desktop** para uso local e desenvolvimento, oferecendo uma experiência nativa e simplificada.
+Este guia detalha como **instalar n8n Desktop** para uso local e desenvolvimento, oferecendo uma experiência nativa e simplificada.
 
 ## Windows
 
@@ -24,7 +24,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 ## Linux
 
 ```bash
-echo "deb https://packages.SUA_SENHA_BANCO_AQUI.io/ubuntu/ focal main" | sudo tee /etc/apt/sources.list.d/SUA_SENHA_BANCO_AQUI.list
+echo "deb https://packages.n8n.io/ubuntu/ focal main" | sudo tee /etc/apt/sources.list.d/n8n.list
 ```
 
 ## Configuração
@@ -41,14 +41,14 @@ echo "deb https://packages.SUA_SENHA_BANCO_AQUI.io/ubuntu/ focal main" | sudo te
 
 ---
 
-# Sincronização com SUA_SENHA_BANCO_AQUI Cloud
+# Sincronização com n8n Cloud
 
-## Conectar com SUA_SENHA_BANCO_AQUI Cloud
+## Conectar com n8n Cloud
 
-1. **Abra o SUA_SENHA_BANCO_AQUI Desktop**
+1. **Abra o n8n Desktop**
 2. **Vá em Settings > Cloud**
-3. **Clique em "Connect to SUA_SENHA_BANCO_AQUI Cloud"**
-4. **Faça login** com sua conta SUA_SENHA_BANCO_AQUI Cloud
+3. **Clique em "Connect to n8n Cloud"**
+4. **Faça login** com sua conta n8n Cloud
 5. **Escolha o workspace** para sincronizar
 
 ## Sincronização de Workflows
@@ -80,13 +80,13 @@ echo "deb https://packages.SUA_SENHA_BANCO_AQUI.io/ubuntu/ focal main" | sudo te
 ### Windows
 
 ```cmd
-xcopy "%APPDATA%\SUA_SENHA_BANCO_AQUI" "C:\backup\SUA_SENHA_BANCO_AQUI" /E /I
+xcopy "%APPDATA%\n8n" "C:\backup\n8n" /E /I
 ```
 
 ### macOS/Linux
 
 ```bash
-cp -r ~/.SUA_SENHA_BANCO_AQUI ~/backup/SUA_SENHA_BANCO_AQUI
+cp -r ~/.n8n ~/backup/n8n
 ```
 
 ## Configurações de Desenvolvimento
@@ -118,7 +118,7 @@ cp -r ~/.SUA_SENHA_BANCO_AQUI ~/backup/SUA_SENHA_BANCO_AQUI
 ### Windows
 
 ```cmd
-netsh advfirewall firewall add rule name="SUA_SENHA_BANCO_AQUI Desktop" dir=in action=allow protocol=TCP localport=5678
+netsh advfirewall firewall add rule name="n8n Desktop" dir=in action=allow protocol=TCP localport=5678
 ```
 
 ### macOS/Linux
@@ -140,7 +140,7 @@ sudo ufw allow 5678
 ### Verificar Conexão com Internet
 
 ```bash
-ping cloud.SUA_SENHA_BANCO_AQUI.io
+ping cloud.n8n.io
 ```
 
 ### Configurações de Atualização
@@ -172,11 +172,11 @@ ping cloud.SUA_SENHA_BANCO_AQUI.io
 ### Windows
 
 ```cmd
-copy "%APPDATA%\SUA_SENHA_BANCO_AQUI\logs\*" "C:\temp\SUA_SENHA_BANCO_AQUI-logs\"
+copy "%APPDATA%\n8n\logs\*" "C:\temp\n8n-logs\"
 ```
 
 ### macOS/Linux
 
 ```bash
-cp ~/.SUA_SENHA_BANCO_AQUI/logs/* ~/temp/SUA_SENHA_BANCO_AQUI-logs/
+cp ~/.n8n/logs/* ~/temp/n8n-logs/
 ```

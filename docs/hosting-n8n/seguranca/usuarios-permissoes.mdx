@@ -1,13 +1,13 @@
 ﻿---
 sidebar_position: 2
 title: Usuários e Permissões
-description: Como gerenciar usuários e configurar permissões granulares no SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, usuários, permissões, rbac, controle acesso, roles]
+description: Como gerenciar usuários e configurar permissões granulares no n8n
+keywords: [n8n, usuários, permissões, rbac, controle acesso, roles]
 ---
 
 ## Usuários e Permissões
 
-Este documento detalha **gerenciamento de usuários e permissões** no SUA_SENHA_BANCO_AQUI, incluindo criação de roles customizados, controle granular de acesso, permissões por workflow, segregação de ambientes, auditoria de ações, e implementação de RBAC (Role-Based Access Control) que garante princípio de menor privilégio e conformidade com políticas de segurança empresarial em organizações de grande porte.
+Este documento detalha **gerenciamento de usuários e permissões** no n8n, incluindo criação de roles customizados, controle granular de acesso, permissões por workflow, segregação de ambientes, auditoria de ações, e implementação de RBAC (Role-Based Access Control) que garante princípio de menor privilégio e conformidade com políticas de segurança empresarial em organizações de grande porte.
 
 ## Roles Padrão
 
@@ -277,17 +277,17 @@ const environments = {
 {
   "dataIsolation": {
     "development": {
-      "database": "SUA_SENHA_BANCO_AQUI_dev",
+      "database": "n8n_dev",
       "credentials": "dev_credentials",
       "workflows": "dev_workflows"
     },
     "staging": {
-      "database": "SUA_SENHA_BANCO_AQUI_staging",
+      "database": "n8n_staging",
       "credentials": "staging_credentials",
       "workflows": "staging_workflows"
     },
     "production": {
-      "database": "SUA_SENHA_BANCO_AQUI_prod",
+      "database": "n8n_prod",
       "credentials": "prod_credentials",
       "workflows": "prod_workflows"
     }
@@ -305,7 +305,7 @@ const environments = {
 # Configurar logs de auditoria
 export N8N_AUDIT_LOGGING=true
 export N8N_AUDIT_LOG_LEVEL=info
-export N8N_AUDIT_LOG_FILE=/var/log/SUA_SENHA_BANCO_AQUI/audit.log
+export N8N_AUDIT_LOG_FILE=/var/log/n8n/audit.log
 ```
 
 ```javascript
@@ -670,13 +670,13 @@ const largeCompanyRoles = {
 
 ## Próximos Passos
 
-- [Monitoramento](/usando-SUA_SENHA_BANCO_AQUI/monitoring/configurar-alertas) - Alertas de segurança
-- [Backup e Recovery](/hosting-SUA_SENHA_BANCO_AQUI/seguranca/backup-recovery) - Recuperação de dados
+- [Monitoramento](/usando-n8n/monitoring/configurar-alertas) - Alertas de segurança
+- [Backup e Recovery](/hosting-n8n/seguranca/backup-recovery) - Recuperação de dados
 - [LGPD Compliance](/privacidade-seguranca/lgpd-compliance) - Conformidade legal
 
 ## Recursos Relacionados
 
 - [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer chamadas para APIs
-- [Expressões SUA_SENHA_BANCO_AQUI](/logica-e-dados/expressoes) - Personalizar autenticação
+- [Expressões n8n](/logica-e-dados/expressoes) - Personalizar autenticação
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
-- [Credenciais](/usando-SUA_SENHA_BANCO_AQUI/credenciais/criar-editar) - Gerenciar tokens de API
+- [Credenciais](/usando-n8n/credenciais/criar-editar) - Gerenciar tokens de API

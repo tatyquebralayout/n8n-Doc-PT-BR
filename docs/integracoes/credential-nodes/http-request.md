@@ -1,13 +1,13 @@
 ---
 sidebar_position: 5
 title: Credenciais HTTP Request
-description: Como configurar autenticação para requisições HTTP no SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, http request, autenticação, credenciais, headers]
+description: Como configurar autenticação para requisições HTTP no n8n
+keywords: [n8n, http request, autenticação, credenciais, headers]
 ---
 
 <IonicIcon name="globe-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-As credenciais HTTP Request permitem configurar autenticação para requisições HTTP no SUA_SENHA_BANCO_AQUI. Este documento explica como configurar diferentes tipos de autenticação para requisições HTTP, incluindo Basic Auth, Bearer Token, API Key, OAuth 2.0 e autenticação customizada.
+As credenciais HTTP Request permitem configurar autenticação para requisições HTTP no n8n. Este documento explica como configurar diferentes tipos de autenticação para requisições HTTP, incluindo Basic Auth, Bearer Token, API Key, OAuth 2.0 e autenticação customizada.
 
 ## Tipos de Autenticação
 
@@ -249,11 +249,11 @@ Após configurar as credenciais, você pode usá-las no node HTTP Request:
 #### Logs de Erro
 
 ```bash
-# Verificar logs do SUA_SENHA_BANCO_AQUI
-SUA_SENHA_BANCO_AQUI logs --level debug | grep "HTTP Request"
+# Verificar logs do n8n
+n8n logs --level debug | grep "HTTP Request"
 
 # Verificar logs específicos
-SUA_SENHA_BANCO_AQUI logs --level error | grep "authentication"
+n8n logs --level error | grep "authentication"
 ```
 
 ## Exemplos Práticos
@@ -325,4 +325,4 @@ SUA_SENHA_BANCO_AQUI logs --level error | grep "authentication"
 - [Basic Authentication](/integracoes/credential-nodes/basic-auth) - Configurar autenticação básica
 - [OAuth Authentication](/integracoes/credential-nodes/oauth) - Configurar OAuth 2.0
 - [HTTP Request Node](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições autenticadas
-- [Troubleshooting](/usando-SUA_SENHA_BANCO_AQUI/troubleshooting) - Resolução de problemas
+- [Troubleshooting](/usando-n8n/troubleshooting) - Resolução de problemas

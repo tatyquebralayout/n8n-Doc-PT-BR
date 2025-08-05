@@ -1,6 +1,6 @@
 ---
 title: "Criar e Editar Usuários"
-description: "Gerenciamento de usuários no SUA_SENHA_BANCO_AQUI"
+description: "Gerenciamento de usuários no n8n"
 sidebar_position: 14
 ---
 

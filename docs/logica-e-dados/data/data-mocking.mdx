@@ -1,8 +1,8 @@
 ﻿---
 sidebar_position: 6
 title: Criação de Dados de Teste
-description: Técnicas para gerar dados sintéticos realistas para testes de workflows no SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, dados de teste, mocking, dados sintéticos, testes, desenvolvimento]
+description: Técnicas para gerar dados sintéticos realistas para testes de workflows no n8n
+keywords: [n8n, dados de teste, mocking, dados sintéticos, testes, desenvolvimento]
 ---
 
 <IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
@@ -14,7 +14,7 @@ A criação de dados de teste (mocking) é essencial para desenvolver e testar w
 
 ## Visão Geral
 
-Dados de teste permitem desenvolver workflows de forma segura e eficiente, simulando cenários reais sem comprometer dados de produção ou sistemas externos. O SUA_SENHA_BANCO_AQUI oferece ferramentas integradas e suporte para bibliotecas externas de geração de dados.
+Dados de teste permitem desenvolver workflows de forma segura e eficiente, simulando cenários reais sem comprometer dados de produção ou sistemas externos. O n8n oferece ferramentas integradas e suporte para bibliotecas externas de geração de dados.
 
 ---
 
@@ -338,7 +338,7 @@ graph TD
 ```bash
 # Configurar ambiente de teste
 export N8N_ENVIRONMENT=test
-export N8N_DATABASE_URL=postgresql://test:test@localhost:5432/SUA_SENHA_BANCO_AQUI_test
+export N8N_DATABASE_URL=postgresql://test:test@localhost:5432/n8n_test
 export N8N_MOCK_DATA_ENABLED=true
 export N8N_TEST_API_URL=https://api-test.exemplo.com
 ```
@@ -451,9 +451,9 @@ const validarConsistencia = (dados) => {
 <IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 ## Próximos passos
 
-1. **[Schema Preview](./schema-preview)** - Entenda a estrutura dos dados
+1. **[Schema Preview](./data-structure)** - Entenda a estrutura dos dados
 2. **[Data Pinning](./data-pinning)** - Fixe dados importantes
-3. **[Otimização de Performance](./otimizacao-performance)** - Melhore eficiência
+3. **[Otimização de Performance](./data-structure)** - Melhore eficiência
 
 > *Agora você domina técnicas de criação de dados de teste. Use essas habilidades para desenvolver workflows de forma segura e eficiente!*
 

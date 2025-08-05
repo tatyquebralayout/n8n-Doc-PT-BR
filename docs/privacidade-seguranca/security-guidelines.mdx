@@ -1,15 +1,15 @@
 ---
 sidebar_position: 5
 title: Diretrizes de Segurança para Documentação
-description: Guia de boas práticas para manter a segurança na documentação do SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, segurança, documentação, boas práticas, credenciais, senhas]
+description: Guia de boas práticas para manter a segurança na documentação do n8n
+keywords: [n8n, segurança, documentação, boas práticas, credenciais, senhas]
 ---
 
 <IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ## Diretrizes de Segurança para Documentação
 
-Este documento estabelece as diretrizes para manter a segurança na documentação do SUA_SENHA_BANCO_AQUI, evitando a exposição de informações sensíveis e garantindo que os exemplos sejam seguros para uso em produção.
+Este documento estabelece as diretrizes para manter a segurança na documentação do n8n, evitando a exposição de informações sensíveis e garantindo que os exemplos sejam seguros para uso em produção.
 
 ---
 
@@ -38,7 +38,7 @@ DB_PASSWORD=minhasenha
 
 # ✅ CORRETO
 N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_SEGURA_AQUI
-DB_PASSWORD=SUA_SENHA_BANCO_AQUI
+DB_PASSWORD=n8n
 ```
 
 ### 3. Padrões de Placeholders
@@ -63,9 +63,9 @@ Use estes padrões consistentes:
 # Docker Compose - Exemplo Seguro
 version: '3.8'
 services:
-  SUA_SENHA_BANCO_AQUI:
+  n8n:
     environment:
-      - DB_POSTGRESDB_PASSWORD=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_PASSWORD=n8n
       - N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_ADMIN_AQUI
 ```
 
@@ -74,7 +74,7 @@ services:
 ```bash
 # Exemplo de configuração segura
 export N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_SEGURA_AQUI
-export DB_PASSWORD=SUA_SENHA_BANCO_AQUI
+export DB_PASSWORD=n8n
 export API_KEY=SUA_API_KEY_AQUI
 ```
 
@@ -156,7 +156,7 @@ Substitua os placeholders por valores reais seguros antes de usar em produção.
 |-------------------|---------------------|
 | `SUA_SENHA_SEGURA_AQUI` | `SUA_SENHA_SEGURA_AQUI` |
 | `SUA_SENHA_ADMIN_AQUI` | `SUA_SENHA_ADMIN_AQUI` |
-| `SUA_SENHA_BANCO_AQUI` | `SUA_SENHA_BANCO_AQUI` |
+| `n8n` | `n8n` |
 | `SUA_SENHA_SEGURA_AQUI` | `SUA_SENHA_SEGURA_AQUI` |
 
 ### Tokens e Secrets
@@ -172,7 +172,7 @@ Substitua os placeholders por valores reais seguros antes de usar em produção.
 | Padrão Encontrado | Substituição Segura |
 |-------------------|---------------------|
 | `https://auth.provider.com` | `https://seu-provider.com` |
-| `https://SUA_SENHA_BANCO_AQUI.suaempresa.com` | `https://SUA_SENHA_BANCO_AQUI.suaempresa.com` |
+| `https://n8n.suaempresa.com` | `https://n8n.suaempresa.com` |
 
 ---
 
@@ -223,7 +223,7 @@ grep -r "SUA_SENHA\|SEU_TOKEN\|SUA_API_KEY" docs/
 ---
 
 :::info **Recurso Adicional**
-Consulte a documentação oficial do SUA_SENHA_BANCO_AQUI para configurações avançadas de segurança e compliance.
+Consulte a documentação oficial do n8n para configurações avançadas de segurança e compliance.
 :::
 
 :::warning **Lembrete Importante**

@@ -1,13 +1,13 @@
 ﻿---
 sidebar_position: 2
 title: Instalação de Community Nodes
-description: Como instalar e gerenciar nodes da comunidade no SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, community nodes, instalação, npm, comunidade]
+description: Como instalar e gerenciar nodes da comunidade no n8n
+keywords: [n8n, community nodes, instalação, npm, comunidade]
 ---
 
 <IonicIcon name="download-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Este guia detalha como **instalar e gerenciar community nodes** no SUA_SENHA_BANCO_AQUI, incluindo busca no marketplace oficial, instalação via npm, configuração de dependências, resolução de conflitos, atualizações seguras e troubleshooting de problemas comuns.
+Este guia detalha como **instalar e gerenciar community nodes** no n8n, incluindo busca no marketplace oficial, instalação via npm, configuração de dependências, resolução de conflitos, atualizações seguras e troubleshooting de problemas comuns.
 
 ## Métodos de Instalação
 
@@ -17,11 +17,11 @@ Este guia detalha como **instalar e gerenciar community nodes** no SUA_SENHA_BAN
 
 **Passo a passo:**
 
-1. **Acesse o marketplace** em [marketplace.SUA_SENHA_BANCO_AQUI.io](https://marketplace.SUA_SENHA_BANCO_AQUI.io)
+1. **Acesse o marketplace** em [marketplace.n8n.io](https://marketplace.n8n.io)
 2. **Pesquise o node** desejado por nome ou categoria
 3. **Leia a documentação** e reviews da comunidade
 4. **Clique em "Install"** para obter o comando de instalação
-5. **Execute o comando** no terminal do servidor SUA_SENHA_BANCO_AQUI
+5. **Execute o comando** no terminal do servidor n8n
 
 **Vantagens:**
 - Interface amigável
@@ -36,19 +36,19 @@ Este guia detalha como **instalar e gerenciar community nodes** no SUA_SENHA_BAN
 
 **Comando básico:**
 ```bash
-npm install @SUA_SENHA_BANCO_AQUI/nodes-[nome-do-node]
+npm install @n8n/nodes-[nome-do-node]
 ```
 
 **Exemplo prático:**
 ```bash
 # Instalar node do WhatsApp
-npm install @SUA_SENHA_BANCO_AQUI/nodes-whatsapp
+npm install @n8n/nodes-whatsapp
 
 # Instalar node do Telegram
-npm install @SUA_SENHA_BANCO_AQUI/nodes-telegram
+npm install @n8n/nodes-telegram
 
 # Instalar múltiplos nodes
-npm install @SUA_SENHA_BANCO_AQUI/nodes-whatsapp @SUA_SENHA_BANCO_AQUI/nodes-telegram @SUA_SENHA_BANCO_AQUI/nodes-discord
+npm install @n8n/nodes-whatsapp @n8n/nodes-telegram @n8n/nodes-discord
 ```
 
 **Parâmetros importantes:**
@@ -64,12 +64,12 @@ npm install @SUA_SENHA_BANCO_AQUI/nodes-whatsapp @SUA_SENHA_BANCO_AQUI/nodes-tel
 ```json
 {
   "dependencies": {
-    "@SUA_SENHA_BANCO_AQUI/nodes-whatsapp": "^1.0.0",
-    "@SUA_SENHA_BANCO_AQUI/nodes-telegram": "^2.1.0",
-    "@SUA_SENHA_BANCO_AQUI/nodes-discord": "^1.5.0"
+    "@n8n/nodes-whatsapp": "^1.0.0",
+    "@n8n/nodes-telegram": "^2.1.0",
+    "@n8n/nodes-discord": "^1.5.0"
   },
   "devDependencies": {
-    "@SUA_SENHA_BANCO_AQUI/nodes-test": "^0.1.0"
+    "@n8n/nodes-test": "^0.1.0"
   }
 }
 ```
@@ -88,10 +88,10 @@ npm ci
 **Sem lockfile:**
 ```bash
 # Instalar versão específica
-npm install @SUA_SENHA_BANCO_AQUI/nodes-whatsapp@1.0.0
+npm install @n8n/nodes-whatsapp@1.0.0
 
 # Atualizar para última versão
-npm update @SUA_SENHA_BANCO_AQUI/nodes-whatsapp
+npm update @n8n/nodes-whatsapp
 ```
 
 ## Configuração do Ambiente
@@ -101,14 +101,14 @@ npm update @SUA_SENHA_BANCO_AQUI/nodes-whatsapp
 ```bash
 # Configuração para community nodes
 N8N_CUSTOM_EXTENSIONS=/path/to/custom/nodes
-N8N_NODE_TYPES_WHITELIST=@SUA_SENHA_BANCO_AQUI/nodes-whatsapp,@SUA_SENHA_BANCO_AQUI/nodes-telegram
+N8N_NODE_TYPES_WHITELIST=@n8n/nodes-whatsapp,@n8n/nodes-telegram
 N8N_DISABLE_PRODUCTION_MAIN_PROCESS=false
 ```
 
 ### Estrutura de Diretórios
 
 ```
-SUA_SENHA_BANCO_AQUI/
+n8n/
 ├── custom/
 │   ├── nodes/
 │   │   ├── whatsapp/
@@ -125,8 +125,8 @@ SUA_SENHA_BANCO_AQUI/
 ### Passo 1: Preparação
 
 ```bash
-# Verificar versão do SUA_SENHA_BANCO_AQUI
-SUA_SENHA_BANCO_AQUI --version
+# Verificar versão do n8n
+n8n --version
 
 # Verificar Node.js
 node --version
@@ -138,24 +138,24 @@ npm --version
 ### Passo 2: Instalação
 
 ```bash
-# Navegar para diretório do SUA_SENHA_BANCO_AQUI
-cd /path/to/SUA_SENHA_BANCO_AQUI
+# Navegar para diretório do n8n
+cd /path/to/n8n
 
 # Instalar node
-npm install @SUA_SENHA_BANCO_AQUI/nodes-[nome]
+npm install @n8n/nodes-[nome]
 
 # Verificar instalação
-npm list @SUA_SENHA_BANCO_AQUI/nodes-[nome]
+npm list @n8n/nodes-[nome]
 ```
 
 ### Passo 3: Configuração
 
 ```bash
-# Reiniciar SUA_SENHA_BANCO_AQUI
-SUA_SENHA_BANCO_AQUI restart
+# Reiniciar n8n
+n8n restart
 
 # Verificar logs
-SUA_SENHA_BANCO_AQUI logs
+n8n logs
 
 # Testar node
 # Acesse a interface web e verifique se o node aparece
@@ -168,7 +168,7 @@ SUA_SENHA_BANCO_AQUI logs
 **Problema:** Múltiplas versões do mesmo node
 ```bash
 # Verificar versões instaladas
-npm ls @SUA_SENHA_BANCO_AQUI/nodes-whatsapp
+npm ls @n8n/nodes-whatsapp
 
 # Remover versões duplicadas
 npm dedupe
@@ -236,13 +236,13 @@ graph TD
 npm outdated
 
 # Atualizar node específico
-npm update @SUA_SENHA_BANCO_AQUI/nodes-whatsapp
+npm update @n8n/nodes-whatsapp
 
 # Atualizar todos os nodes
 npm update
 
 # Atualizar para versão específica
-npm install @SUA_SENHA_BANCO_AQUI/nodes-whatsapp@2.0.0
+npm install @n8n/nodes-whatsapp@2.0.0
 ```
 
 ### Backup e Rollback
@@ -265,13 +265,13 @@ npm install
 **Node não aparece na interface**
 ```bash
 # Verificar instalação
-npm list @SUA_SENHA_BANCO_AQUI/nodes-[nome]
+npm list @n8n/nodes-[nome]
 
 # Verificar logs
-SUA_SENHA_BANCO_AQUI logs --level debug
+n8n logs --level debug
 
-# Reiniciar SUA_SENHA_BANCO_AQUI
-SUA_SENHA_BANCO_AQUI restart
+# Reiniciar n8n
+n8n restart
 ```
 
 **Erro de dependência**
@@ -301,7 +301,7 @@ sudo chown -R $USER:$USER node_modules/
 // Função de debug para instalação
 function debugInstallation(nodeName) {
   console.log(`Debug instalação ${nodeName}:`, {
-    versao_SUA_SENHA_BANCO_AQUI: process.env.N8N_VERSION,
+    versao_n8n: process.env.N8N_VERSION,
     versao_node: process.version,
     diretorio: process.cwd(),
     timestamp: new Date().toISOString()
@@ -314,7 +314,7 @@ function debugInstallation(nodeName) {
 ### Antes da Instalação
 
 1. **Leia a documentação** do node
-2. **Verifique compatibilidade** com sua versão do SUA_SENHA_BANCO_AQUI
+2. **Verifique compatibilidade** com sua versão do n8n
 3. **Teste em ambiente de desenvolvimento**
 4. **Faça backup** da configuração atual
 5. **Verifique dependências** e conflitos
@@ -338,7 +338,7 @@ function debugInstallation(nodeName) {
 ## Próximos Passos
 
 - [Community Nodes Populares](/integracoes/community-nodes/populares) - Catálogo recomendado
-- [Criar Nodes Customizados](/integracoes/criar-nodes/) - Desenvolver seus próprios nodes
-- [Built-in Nodes](/integracoes/builtin-nodes/) - Nodes nativos do SUA_SENHA_BANCO_AQUI
-- [Integrações Brasileiras](/integracoes-br/) - Nodes específicos para o Brasil
-- [Troubleshooting](/usando-SUA_SENHA_BANCO_AQUI/troubleshooting) - Resolução de problemas
+- [Criar Nodes Customizados](../criar-nodes/tutorial-desenvolvimento.mdx) - Desenvolver seus próprios nodes
+- [Built-in Nodes](../builtin-nodes/http-requests/webhook.md) - Nodes nativos do n8n
+- [Integrações Brasileiras](../../integracoes-br/financeiro/compliance-fiscal.md) - Nodes específicos para o Brasil
+- [Troubleshooting](/usando-n8n/troubleshooting) - Resolução de problemas

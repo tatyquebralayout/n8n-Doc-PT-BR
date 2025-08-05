@@ -1,13 +1,13 @@
 ﻿---
 sidebar_position: 2
 title: Built-in Nodes
-description: Nodes nativos e funcionalidades básicas do SUA_SENHA_BANCO_AQUI
-keywords: [SUA_SENHA_BANCO_AQUI, built-in nodes, funcionalidades, core, http, dados]
+description: Nodes nativos e funcionalidades básicas do n8n
+keywords: [n8n, built-in nodes, funcionalidades, core, http, dados]
 ---
 
 <IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Os **nodes built-in** são os blocos fundamentais do SUA_SENHA_BANCO_AQUI, fornecendo funcionalidades essenciais que você pode usar em qualquer workflow. Eles são nativos da plataforma e não requerem instalação adicional.
+Os **nodes built-in** são os blocos fundamentais do n8n, fornecendo funcionalidades essenciais que você pode usar em qualquer workflow. Eles são nativos da plataforma e não requerem instalação adicional.
 
 ## Categorias de Nodes
 
@@ -141,18 +141,18 @@ Os **nodes built-in** são os blocos fundamentais do SUA_SENHA_BANCO_AQUI, forne
 - Webhooks de sistemas externos
 - Triggers manuais para testes
 
-[Ver documentação completa →](/integracoes/builtin-nodes/trigger-nodes/index)
+[Ver documentação completa →](../trigger-nodes/time-based/index.md)
 
 ## Conceitos Fundamentais
 
 ### Estrutura de um Node
 
-Cada node no SUA_SENHA_BANCO_AQUI possui uma estrutura básica:
+Cada node no n8n possui uma estrutura básica:
 
 ```javascript
 {
   "name": "Nome do Node",
-  "type": "SUA_SENHA_BANCO_AQUI-nodes-base.nodeType",
+  "type": "n8n-nodes-base.nodeType",
   "position": [x, y],
   "parameters": {
     // Configurações específicas do node
@@ -284,4 +284,4 @@ graph TD
 - [Logic Control](/integracoes/builtin-nodes/logic-control/index) - Controle de fluxo
 - [Data Processing](/integracoes/builtin-nodes/data-processing/index) - Processamento de dados
 - [Utilities](/integracoes/builtin-nodes/utilities/index) - Ferramentas auxiliares
-- [Trigger Nodes](/integracoes/builtin-nodes/trigger-nodes/index) - Inicialização de workflows
+- [Trigger Nodes](../trigger-nodes/time-based/index.md) - Inicialização de workflows

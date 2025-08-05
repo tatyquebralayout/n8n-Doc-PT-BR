@@ -1,6 +1,6 @@
 ---
 title: Configurar Alertas
-description: Guia para configurar alertas e notificações no SUA_SENHA_BANCO_AQUI
+description: Guia para configurar alertas e notificações no n8n
 sidebar_position: 3
 ---
 
