@@ -33,8 +33,6 @@ updates:
     allow:
       - dependency-type: "direct"
       - dependency-type: "indirect"
-    # Configurações de segurança
-    security-updates-only: false
     # Verificar vulnerabilidades conhecidas
     vulnerability-alerts: true
 
@@ -56,35 +54,4 @@ updates:
     labels:
       - "dependencies"
       - "github-actions"
-      - "automated"
-
-  # Atualizações de dependências específicas de segurança
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
-    open-pull-requests-limit: 5
-    reviewers:
-      - "n8n-brasil"
-    assignees:
-      - "n8n-brasil"
-    commit-message:
-      prefix: "security"
-      include: "scope"
-    labels:
-      - "security"
-      - "high-priority"
-      - "automated"
-    # Focar apenas em dependências com vulnerabilidades conhecidas
-    allow:
-      - dependency-name: "webpack-dev-server"
-      - dependency-name: "sharp"
-      - dependency-name: "katex"
-      - dependency-name: "core-js"
-      - dependency-name: "rimraf"
-      - dependency-name: "glob"
-    # Configurações específicas para segurança
-    security-updates-only: true
-    vulnerability-alerts: true 
+      - "automated" 
