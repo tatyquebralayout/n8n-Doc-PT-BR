@@ -21,12 +21,17 @@ A integração do Google Sheets é uma das mais populares do n8n, permitindo aut
 3. **Conectar:** Sua credencial OAuth2
 
 ### 2. Configurar Credenciais
+
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+**Nota importante:** As credenciais mostradas abaixo são apenas exemplos. Nunca use credenciais reais em documentação ou código de exemplo.
+
 ```json
 {
   "type": "service_account",
   "project_id": "exemplo-projeto",
   "private_key_id": "exemplo-key-id",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nEXEMPLO-NAO-USE\n-----END PRIVATE KEY-----\n",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nEXEMPLO-DE-CHAVE-PRIVADA-NAO-USE-EM-PRODUCAO\n-----END PRIVATE KEY-----\n",
   "client_email": "service@exemplo-projeto.iam.gserviceaccount.com"
 }
 ```

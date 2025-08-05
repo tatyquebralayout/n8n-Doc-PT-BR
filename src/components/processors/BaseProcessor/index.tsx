@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import IonicIcon from '@site/src/components/IonicIcon';
+import IonicIcon from '../../IonicIcon';
 import styles from './styles.module.css';
 
 interface BaseProcessorProps {

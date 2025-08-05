@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import IonicIcon from '@site/src/components/IonicIcon';
+import IonicIcon from '../IonicIcon';
 
 interface SphinxProcessorProps {
   content: string;

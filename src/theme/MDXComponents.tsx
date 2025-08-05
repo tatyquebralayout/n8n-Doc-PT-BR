@@ -1,15 +1,15 @@
 import React from 'react';
 import MDXComponents from '@theme-original/MDXComponents';
-import IonicIcon from '@site/src/components/IonicIcon';
-import HighlightCard from '@site/src/components/HighlightCard';
-import CardGrid from '@site/src/components/CardGrid';
-import ArticleCard from '@site/src/components/ArticleCard';
-import RepoCard from '@site/src/components/RepoCard';
-import GuidanceCard from '@site/src/components/GuidanceCard';
-import CommunityStats from '@site/src/components/CommunityStats';
-import RSTProcessor from '@site/src/components/RSTProcessor';
-import SphinxProcessor from '@site/src/components/SphinxProcessor';
-import HybridProcessor from '@site/src/components/HybridProcessor';
+import IonicIcon from '../components/IonicIcon';
+import HighlightCard from '../components/HighlightCard';
+import CardGrid from '../components/CardGrid';
+import ArticleCard from '../components/ArticleCard';
+import RepoCard from '../components/RepoCard';
+import GuidanceCard from '../components/GuidanceCard';
+import CommunityStats from '../components/CommunityStats';
+import RSTProcessor from '../components/RSTProcessor';
+import SphinxProcessor from '../components/SphinxProcessor';
+import HybridProcessor from '../components/HybridProcessor';
 
 interface CustomCodeBlockProps {
   children: React.ReactNode;
@@ -97,9 +97,9 @@ export default {
 
   
   // Native HTML elements with uppercase (MDX v3 requirement)
-  Details: (props) => <details {...props} />,
-  Summary: (props) => <summary {...props} />,
+  Details: (props: React.HTMLAttributes<HTMLDetailsElement>) => <details {...props} />,
+  Summary: (props: React.HTMLAttributes<HTMLElement>) => <summary {...props} />,
   // Admonition components (MDX v3 PascalCase requirement)
-  MdxAdmonitionTitle: (props) => <div className="admonition-heading" {...props} />,
-  Admonition: (props) => <div className="theme-admonition" {...props} />,
+  MdxAdmonitionTitle: (props: React.HTMLAttributes<HTMLDivElement>) => <div className="admonition-heading" {...props} />,
+  Admonition: (props: React.HTMLAttributes<HTMLDivElement>) => <div className="theme-admonition" {...props} />,
 }; 

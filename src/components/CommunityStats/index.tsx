@@ -1,7 +1,7 @@
 // Componente otimizado com lazy loading para melhor performance
 import React from 'react';
 import clsx from 'clsx';
-import StatItem from '@site/src/components/common/StatItem';
+import StatItem from '../common/StatItem';
 import styles from './styles.module.css';
 
 interface CommunityStatsProps {
