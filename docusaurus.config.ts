@@ -89,17 +89,6 @@ const config: Config = {
   ],
 
   plugins: [
-    // Plugin oficial de blog com RSS
-    [
-      '@docusaurus/plugin-content-blog',
-      {
-        feedOptions: {
-          type: 'all',
-          copyright: `Copyright © ${new Date().getFullYear()} n8n Brasil.`,
-        },
-      },
-    ],
-    
     // Plugin de busca local
     ["@easyops-cn/docusaurus-search-local", {
       indexDocs: true,
