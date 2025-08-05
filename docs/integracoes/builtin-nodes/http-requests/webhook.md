@@ -139,7 +139,7 @@ Ative isso para limitar quem (ou o quê) pode invocar uma URL de trigger de Webh
 **Exemplo:**
 
 ```text
-192.168.1.100,10.0.0.50,203.0.113.0/24
+SEU_IP_INTERNO00,10.0.0.50,203.0.113.0/24
 ```
 
 ### Sem Body de Resposta
