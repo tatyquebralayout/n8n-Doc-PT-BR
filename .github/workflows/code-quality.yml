@@ -66,8 +66,65 @@ jobs:
       - name: 🔒 Dependency analysis
         run: |
           echo "🔒 Analisando dependências para vulnerabilidades..."
+          
+          # Auditoria completa de dependências
           npm audit --audit-level=low --json > audit-report.json || true
           npm outdated --json > outdated-report.json || true
+          
+          # Análise específica das dependências críticas
+          echo "🔒 Verificando dependências críticas identificadas..."
+          
+          # Verificar versões das dependências críticas
+          echo "## 📊 Análise de Dependências Críticas" > critical-deps-analysis.md
+          echo "" >> critical-deps-analysis.md
+          
+          # webpack-dev-server (vulnerabilidades CVE-2025-30359/30360)
+          WEBPACK_VERSION=$(npm list webpack-dev-server --depth=0 --json | jq -r '.dependencies.webpack-dev-server.version // "não instalado"')
+          echo "- **webpack-dev-server:** $WEBPACK_VERSION" >> critical-deps-analysis.md
+          if [[ "$WEBPACK_VERSION" < "5.2.1" ]]; then
+            echo "  ⚠️ **CRÍTICO:** Versão vulnerável detectada!" >> critical-deps-analysis.md
+          else
+            echo "  ✅ Versão segura" >> critical-deps-analysis.md
+          fi
+          
+          # sharp (RCE e buffer overflow)
+          SHARP_VERSION=$(npm list sharp --depth=0 --json | jq -r '.dependencies.sharp.version // "não instalado"')
+          echo "- **sharp:** $SHARP_VERSION" >> critical-deps-analysis.md
+          if [[ "$SHARP_VERSION" < "0.32.6" ]]; then
+            echo "  ⚠️ **CRÍTICO:** Versão vulnerável detectada!" >> critical-deps-analysis.md
+          else
+            echo "  ✅ Versão segura" >> critical-deps-analysis.md
+          fi
+          
+          # katex (XSS)
+          KATEX_VERSION=$(npm list katex --depth=0 --json | jq -r '.dependencies.katex.version // "não instalado"')
+          echo "- **katex:** $KATEX_VERSION" >> critical-deps-analysis.md
+          if [[ "$KATEX_VERSION" < "0.16.21" ]]; then
+            echo "  ⚠️ **CRÍTICO:** Versão vulnerável detectada!" >> critical-deps-analysis.md
+          else
+            echo "  ✅ Versão segura" >> critical-deps-analysis.md
+          fi
+          
+          # core-js (prototype pollution)
+          COREJS_VERSION=$(npm list core-js --depth=0 --json | jq -r '.dependencies.core-js.version // "não instalado"')
+          echo "- **core-js:** $COREJS_VERSION" >> critical-deps-analysis.md
+          if [[ "$COREJS_VERSION" < "3.32.0" ]]; then
+            echo "  ⚠️ **CRÍTICO:** Versão vulnerável detectada!" >> critical-deps-analysis.md
+          else
+            echo "  ✅ Versão segura" >> critical-deps-analysis.md
+          fi
+          
+          # Dependências menores
+          echo "" >> critical-deps-analysis.md
+          echo "### 🔍 Dependências Menores" >> critical-deps-analysis.md
+          echo "- **restructured@0.0.11:** Monitorar continuamente" >> critical-deps-analysis.md
+          echo "- **medium-zoom@1.1.0:** Monitorar continuamente" >> critical-deps-analysis.md
+          
+          echo "" >> critical-deps-analysis.md
+          echo "**Data da verificação:** $(date -u)" >> critical-deps-analysis.md
+          echo "**Commit:** $GITHUB_SHA" >> critical-deps-analysis.md
+          
+          cat critical-deps-analysis.md
         continue-on-error: true
         
       - name: 📤 Upload analysis reports
@@ -81,6 +138,7 @@ jobs:
             markdown-report.txt
             audit-report.json
             outdated-report.json
+            critical-deps-analysis.md
             gitleaks-report.json
             trivy-results.sarif
           retention-days: 30

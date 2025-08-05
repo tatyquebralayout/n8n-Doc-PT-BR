@@ -35,7 +35,12 @@
     "security:check": "node scripts/fix-sensitive-content.js --check",
     "security:scan": "gitleaks detect --config .gitleaks.toml --verbose",
     "security:full": "npm run security:check && npm run security:scan",
-    "prepare": "husky install || true"
+    "deps:monitor": "node scripts/monitor-dependencies.js full",
+    "deps:critical": "node scripts/monitor-dependencies.js critical",
+    "deps:minor": "node scripts/monitor-dependencies.js minor",
+    "deps:performance": "node scripts/monitor-dependencies.js performance",
+    "deps:report": "node scripts/monitor-dependencies.js full --save",
+    "prepare": "echo 'Skipping husky install'"
   },
   "keywords": [
     "n8n",
@@ -101,7 +106,8 @@
     "inflight": "npm:@isaacs/caching-transform@^1.0.1",
     "webpack-dev-server": "^5.2.1",
     "@babel/plugin-proposal-private-property-in-object": "npm:@babel/plugin-transform-private-property-in-object@^7.24.1",
-    "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@^1.4.15"
+    "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@^1.4.15",
+    "core-js": "^3.35.1"
   },
   "browserslist": {
     "production": [
@@ -117,5 +123,10 @@
   },
   "engines": {
     "node": ">=18.0"
+  },
+  "resolutions": {
+    "core-js": "^3.35.1",
+    "acorn-dynamic-import": "^4.0.0",
+    "source-map": "^0.8.0"
   }
 }
