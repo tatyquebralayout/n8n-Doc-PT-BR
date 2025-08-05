@@ -2,13 +2,15 @@
 
 ## Visão Geral
 
-Este guia estabelece as diretrizes para contribuir com a documentação n8n em português brasileiro, garantindo qualidade, consistência e evitando redundâncias no nosso hub de conhecimento.
+Este guia estabelece as diretrizes para contribuir com a documentação n8n em português brasileiro,
+garantindo qualidade, consistência e evitando redundâncias no nosso hub de conhecimento.
 
 ## Princípios Fundamentais
 
 ### Hub de Conhecimento Sem Redundâncias
 
-Nossa documentação funciona como um hub centralizado de conhecimento onde cada tópico deve ter um local único e bem definido. Evitamos duplicações que podem confundir usuários e dificultar a manutenção.
+Nossa documentação funciona como um hub centralizado de conhecimento onde cada tópico deve ter um local único
+e bem definido. Evitamos duplicações que podem confundir usuários e dificultar a manutenção.
 
 ### Estrutura Hierárquica Clara
 
@@ -27,7 +29,7 @@ A organização segue uma hierarquia lógica que facilita a navegação e locali
 Antes de criar nova documentação, **sempre** verifique:
 
 - **Busca no repositório**: Use a funcionalidade de busca para verificar se o tópico já existe
-- **Consulta ao `sidebars.json`**: Verifique a estrutura definida no arquivo de configuração
+- **Consulta ao `sidebars.ts`**: Verifique a estrutura definida no arquivo de configuração
 - **Revisão de seções relacionadas**: Examine seções que podem ter conteúdo similar
 
 ### 2. Critérios de Decisão para Novos Conteúdos
@@ -50,8 +52,8 @@ Antes de criar nova documentação, **sempre** verifique:
 
 Antes de submeter um pull request, verifique:
 
-- [ ] **Busca por termos relacionados**: Use palavras-chave do `sidebars.json` para verificar overlaps
-- [ ] **Revisão de seções afins**: Examine seções listadas em `sectionsToMonitor`
+- [ ] **Busca por termos relacionados**: Use palavras-chave do `sidebars.ts` para verificar overlaps
+- [ ] **Revisão de seções afins**: Examine seções relacionadas no `sidebars.ts`
 - [ ] **Consulta à estrutura**: Verifique se o conteúdo se encaixa na hierarquia definida
 - [ ] **Análise de nomenclatura**: Confirme que não há conflitos de nomenclatura
 
@@ -143,12 +145,12 @@ Quando overlaps são identificados:
 #### Revisões Periódicas
 
 - **Mensal**: Verificar por novos overlaps
-- **Trimestral**: Revisar estrutura do `sidebars.json`
+- **Trimestral**: Revisar estrutura do `sidebars.ts`
 - **Semestral**: Avaliar organização geral da documentação
 
 #### Atualizações de Configuração
 
-- Mantenha o `sidebars.json` atualizado
+- Mantenha o `sidebars.ts` atualizado
 - Adicione novas palavras-chave conforme necessário
 - Atualize seções de monitoramento
 
@@ -158,7 +160,7 @@ Quando overlaps são identificados:
 
 ```bash
 docs/
-├── intro.md                    # Página inicial
+├── intro.mdx                    # Página inicial
 ├── primeiros-passos/           # Conceitos básicos e instalação
 ├── usando-n8n/                 # Funcionalidades principais
 ├── logica-e-dados/             # Processamento de dados
@@ -217,15 +219,15 @@ docs/
 
 ### Recursos e Ferramentas
 
-- **Estrutura**: `sidebars.json` - Configuração centralizada
+- **Estrutura**: `sidebars.ts` - Configuração centralizada
 - **Busca**: Funcionalidade de busca do repositório
 - **Validação**: Scripts de verificação automática
 
 ### Documentação Relacionada
 
-- [Guia de Estilo](docs/contribuir/esta-documentacao/padroes-e-estilo/guia-de-estilo.mdx)
-- [Padrões Markdown](docs/contribuir/esta-documentacao/padroes-e-estilo/markdown-features.mdx)
-- [Estrutura do Projeto](docs/contribuir/esta-documentacao/01-entendendo-o-projeto/estrutura-projeto.mdx)
+- [Guia de Estilo](docs/contribuir/esta-documentacao/padroes-e-estilo/guia-de-estilo.mdx) *(em desenvolvimento)*
+- [Padrões Markdown](docs/contribuir/esta-documentacao/padroes-e-estilo/markdown-features.mdx) *(em desenvolvimento)*
+- [Estrutura do Projeto](docs/contribuir/esta-documentacao/01-entendendo-o-projeto/estrutura-projeto.mdx) *(em desenvolvimento)*
 
 ### Contatos
 
@@ -235,4 +237,5 @@ docs/
 
 ## Agradecimentos
 
-Obrigado por contribuir com a documentação n8n em português brasileiro! Sua participação ajuda a criar um hub de conhecimento robusto e acessível para toda a comunidade.
+Obrigado por contribuir com a documentação n8n em português brasileiro! Sua participação ajuda a criar um hub de
+conhecimento robusto e acessível para toda a comunidade.
