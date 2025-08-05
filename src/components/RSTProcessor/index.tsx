@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import IonicIcon from '@site/src/components/IonicIcon';
+import IonicIcon from '../IonicIcon';
 
 // === LAZY LOADING OTIMIZADO ===
 interface LazyModules {

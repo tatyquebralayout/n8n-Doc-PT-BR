@@ -193,8 +193,8 @@ function DocumentationProgress() {
   }, [progressPercentage]);
 
   // Calcular progresso por categoria
-  const getCategoryProgress = (items) => {
-    const completed = items.filter(item => item.status === "Completo").length;
+  const getCategoryProgress = (items: any[]) => {
+    const completed = items.filter((item: any) => item.status === "Completo").length;
     return Math.round((completed / items.length) * 100);
   };
 
@@ -245,7 +245,7 @@ function DocumentationProgress() {
                       <div className={styles.categoryHeader}>
                         <h3 className={`${styles.categoryTitle} ${isComplete ? styles.complete : ''}`}>
                           <IonicIcon 
-                            name={categoryIcons[categoryName]} 
+                            name={categoryIcons[categoryName as keyof typeof categoryIcons]} 
                             size={18} 
                             color={isComplete ? "#28a745" : "#ea4b71"} 
                           />

@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useMemo, Suspense } from 'react';
-import IonicIcon from '@site/src/components/IonicIcon';
+import IonicIcon from '../IonicIcon';
 
 // === LAZY LOADING COMPONENTS ===
-const RSTProcessor = React.lazy(() => import('@site/src/components/RSTProcessor'));
-const SphinxProcessor = React.lazy(() => import('@site/src/components/SphinxProcessor'));
+const RSTProcessor = React.lazy(() => import('../RSTProcessor'));
+const SphinxProcessor = React.lazy(() => import('../SphinxProcessor'));
 
 // Loading fallback otimizado
 const ProcessorLoadingFallback: React.FC<{ type: string }> = ({ type }) => (

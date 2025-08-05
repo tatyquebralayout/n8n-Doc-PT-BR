@@ -207,7 +207,7 @@ export const CustomFormatting: Story = {
     label: 'Porcentagem',
     value: 95.5,
     icon: 'percentage-outline',
-    formatValue: (value) => `${value}%`,
+    formatValue: (value: number | string) => `${value}%`,
   },
 };
 

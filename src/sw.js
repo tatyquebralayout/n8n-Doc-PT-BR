@@ -1,4 +1,5 @@
 // Service Worker para PWA do n8n Brasil
+/* eslint-disable no-undef */
 const CACHE_NAME = 'n8n-brasil-v1';
 const urlsToCache = [
   '/',

@@ -14,7 +14,13 @@ interface GitHubUser {
   blog?: string;
 }
 
-function FooterLink({ to, href, label, prependBaseUrlToHref, ...props }) {
+function FooterLink({ to, href, label, prependBaseUrlToHref, ...props }: {
+  to?: string;
+  href?: string;
+  label: string;
+  prependBaseUrlToHref?: boolean;
+  [key: string]: any;
+}) {
   const toUrl = useBaseUrl(to);
   const normalizedHref = useBaseUrl(href, { forcePrependBaseUrl: true });
   return (
@@ -80,7 +86,7 @@ function Footer(): React.JSX.Element | null {
         <div className="row">
           {links.map((item, i) => (
             <div key={i} className="col footer__col">
-              {item.title != null && (
+              {item.title != null && typeof item.title === 'string' && (
                 <div className="footer__title">{item.title}</div>
               )}
               {item.title === 'Projeto concebido por' ? (
@@ -119,7 +125,7 @@ function Footer(): React.JSX.Element | null {
                 </div>
               ) : (
                 <ul className="footer__items clean-list">
-                  {item.items?.map((child, j) => {
+                  {Array.isArray(item.items) && item.items.map((child: any, j: number) => {
                     if (typeof child === 'object' && child !== null) {
                       return (
                         <li key={j}>
@@ -127,7 +133,7 @@ function Footer(): React.JSX.Element | null {
                         </li>
                       );
                     }
-                    return child;
+                    return <span key={j}>{child}</span>;
                   })}
                 </ul>
               )}

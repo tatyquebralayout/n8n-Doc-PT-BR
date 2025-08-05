@@ -1,8 +1,8 @@
 // Componente otimizado com lazy loading para melhor performance
 import React from 'react';
 import clsx from 'clsx';
-import BaseCard from '@site/src/components/common/BaseCard';
-import IonicIcon from '@site/src/components/IonicIcon';
+import BaseCard from '../common/BaseCard';
+import IonicIcon from '../IonicIcon';
 import styles from './styles.module.css';
 
 interface GuidanceCardProps {

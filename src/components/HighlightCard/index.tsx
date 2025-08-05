@@ -1,9 +1,9 @@
 // Componente otimizado com lazy loading para melhor performance
 import React from 'react';
 import clsx from 'clsx';
-import BaseCard from '@site/src/components/common/BaseCard';
-import TagList from '@site/src/components/common/TagList';
-import IonicIcon from '@site/src/components/IonicIcon';
+import BaseCard from '../common/BaseCard';
+import TagList from '../common/TagList';
+import IonicIcon from '../IonicIcon';
 import styles from './styles.module.css';
 
 interface HighlightCardProps {
