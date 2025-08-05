@@ -1,0 +1,263 @@
+---
+title: Schema Preview
+description: Visualização e validação de estrutura de dados no n8n
+sidebar_label: Schema Preview
+---
+
+# Schema Preview
+
+O Schema Preview no n8n permite visualizar e validar a estrutura de dados que está sendo processada em cada node do workflow.
+
+## Conceitos Fundamentais
+
+### O que é Schema Preview
+
+O Schema Preview é uma funcionalidade que mostra a estrutura esperada dos dados em cada node, facilitando:
+
+- **Validação de dados**: Verificar se os dados estão no formato correto
+- **Debugging**: Identificar problemas na estrutura de dados
+- **Documentação**: Entender o formato dos dados em cada etapa
+- **Desenvolvimento**: Planejar transformações e mapeamentos
+
+### Tipos de Schema
+
+#### Schema de Entrada
+Define a estrutura dos dados que chegam ao node:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "number" },
+    "name": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "active": { "type": "boolean" },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["id", "name", "email"]
+}
+```
+
+#### Schema de Saída
+Define a estrutura dos dados que o node produz:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "userId": { "type": "number" },
+    "fullName": { "type": "string" },
+    "emailAddress": { "type": "string" },
+    "status": { "type": "string", "enum": ["active", "inactive"] },
+    "processedAt": { "type": "string", "format": "date-time" }
+  }
+}
+```
+
+## Como Usar o Schema Preview
+
+### Visualizando Schema
+
+1. **Abra um workflow** no editor do n8n
+2. **Clique em um node** para selecioná-lo
+3. **Vá para a aba "Schema"** no painel lateral direito
+4. **Visualize a estrutura** dos dados de entrada e saída
+
+### Configurando Schema
+
+#### Schema Automático
+O n8n pode inferir automaticamente o schema baseado nos dados:
+
+```javascript
+// Exemplo: Schema inferido automaticamente
+const sampleData = {
+  "id": 123,
+  "name": "João Silva",
+  "email": "joao@exemplo.com",
+  "active": true
+};
+
+// n8n infere automaticamente:
+// - id: number
+// - name: string
+// - email: string
+// - active: boolean
+```
+
+#### Schema Manual
+Para casos específicos, você pode definir o schema manualmente:
+
+```json
+{
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "customerId": { "type": "number" },
+      "orderItems": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "productId": { "type": "number" },
+            "quantity": { "type": "number" },
+            "price": { "type": "number" }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## Validação de Schema
+
+### Validação Automática
+O n8n pode validar automaticamente se os dados correspondem ao schema esperado:
+
+```javascript
+// Exemplo: Validação automática
+const schema = {
+  type: "object",
+  properties: {
+    email: { type: "string", format: "email" },
+    age: { type: "number", minimum: 0, maximum: 120 }
+  },
+  required: ["email", "age"]
+};
+
+// n8n valida automaticamente se os dados correspondem
+```
+
+### Validação Manual
+Para validações customizadas, use o Function node:
+
+```javascript
+// Exemplo: Validação manual
+const data = $input.first().json;
+
+// Validar email
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailRegex.test(data.email)) {
+  throw new Error('Email inválido');
+}
+
+// Validar idade
+if (data.age < 0 || data.age > 120) {
+  throw new Error('Idade inválida');
+}
+
+// Validar campos obrigatórios
+const requiredFields = ['name', 'email', 'age'];
+for (const field of requiredFields) {
+  if (!data[field]) {
+    throw new Error(`Campo obrigatório: ${field}`);
+  }
+}
+
+return data;
+```
+
+## Casos de Uso
+
+### API Integration
+Ao integrar com APIs, o schema preview ajuda a entender o formato dos dados:
+
+```javascript
+// Exemplo: Schema de resposta de API
+const apiResponseSchema = {
+  type: "object",
+  properties: {
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "number" },
+          "title": { "type": "string" },
+          "completed": { "type": "boolean" }
+        }
+      }
+    },
+    "total": { "type": "number" },
+    "page": { "type": "number" }
+  }
+};
+```
+
+### Data Transformation
+Para transformações de dados, o schema preview mostra antes e depois:
+
+```javascript
+// Schema de entrada
+const inputSchema = {
+  type: "object",
+  properties: {
+    "firstName": { "type": "string" },
+    "lastName": { "type": "string" },
+    "email": { "type": "string" }
+  }
+};
+
+// Schema de saída (após transformação)
+const outputSchema = {
+  type: "object",
+  properties: {
+    "fullName": { "type": "string" },
+    "email": { "type": "string" },
+    "domain": { "type": "string" }
+  }
+};
+```
+
+### Error Handling
+O schema preview ajuda a identificar problemas nos dados:
+
+```javascript
+// Exemplo: Detecção de problemas
+const data = $input.first().json;
+
+// Verificar se todos os campos esperados estão presentes
+const expectedFields = ['id', 'name', 'email', 'status'];
+const missingFields = expectedFields.filter(field => !data[field]);
+
+if (missingFields.length > 0) {
+  console.log('Campos faltantes:', missingFields);
+  // Tratar dados incompletos
+}
+
+// Verificar tipos de dados
+if (typeof data.id !== 'number') {
+  console.log('ID deve ser um número');
+  // Converter ou rejeitar
+}
+
+return data;
+```
+
+## Boas Práticas
+
+### Documentação
+1. **Defina schemas claros** para todos os nodes importantes
+2. **Documente transformações** de schema entre nodes
+3. **Use nomes descritivos** para propriedades do schema
+4. **Mantenha schemas atualizados** conforme o workflow evolui
+
+### Validação
+1. **Valide dados de entrada** antes do processamento
+2. **Implemente validações customizadas** para regras de negócio
+3. **Use schemas para debugging** quando houver problemas
+4. **Teste com dados reais** para verificar schema
+
+### Performance
+1. **Use schemas simples** quando possível
+2. **Evite validações desnecessárias** em workflows de alta performance
+3. **Cache resultados** de validações custosas
+4. **Monitore performance** de validações em produção
+
+## Recursos Relacionados
+
+- **[Data Structure](./data-structure)** - Estruturas de dados no n8n
+- **[Data Validation](./data-filtering)** - Validação e filtragem de dados
+- **[Error Handling](../flow-logic/error-handling)** - Tratamento de erros
+- **[Debugging](../flow-logic/debugging)** - Identificação de problemas
+- **[Function Node](../../integracoes/builtin-nodes/core-nodes/function)** - Validações customizadas 

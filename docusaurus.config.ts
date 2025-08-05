@@ -21,7 +21,7 @@ const config: Config = {
   onBrokenMarkdownLinks: process.env.CI ? "throw" : "warn",
 
   // Trailing slash para hard refresh no GitHub Pages
-  trailingSlash: true,
+  trailingSlash: false,
 
   i18n: {
     defaultLocale: "pt-BR",

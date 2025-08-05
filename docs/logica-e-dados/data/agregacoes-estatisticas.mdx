@@ -1,0 +1,386 @@
+---
+title: Agregações e Estatísticas
+description: Técnicas para agregar, analisar e calcular estatísticas de dados no n8n
+sidebar_label: Agregações
+---
+
+# Agregações e Estatísticas
+
+As agregações e estatísticas permitem analisar, resumir e extrair insights de grandes volumes de dados no n8n.
+
+## Conceitos Fundamentais
+
+### Tipos de Agregações
+
+#### Agregações Numéricas
+Operações matemáticas sobre valores numéricos:
+
+- **Soma**: Total de valores
+- **Média**: Valor médio de um conjunto
+- **Mínimo/Máximo**: Valores extremos
+- **Contagem**: Número de itens
+- **Mediana**: Valor central ordenado
+
+#### Agregações de Texto
+Operações sobre dados textuais:
+
+- **Concatenação**: Juntar múltiplos textos
+- **Contagem de caracteres**: Tamanho de strings
+- **Valores únicos**: Lista de valores distintos
+- **Moda**: Valor mais frequente
+
+#### Agregações Temporais
+Análise de dados temporais:
+
+- **Períodos**: Agrupar por dia, mês, ano
+- **Tendências**: Análise de padrões temporais
+- **Intervalos**: Diferenças entre datas
+- **Sazonalidade**: Padrões cíclicos
+
+## Nodes de Agregação
+
+### Aggregate Node
+O node **Aggregate** é a principal ferramenta para agregações:
+
+```javascript
+// Exemplo: Configuração do Aggregate node
+{
+  "groupBy": ["category", "status"],
+  "aggregations": [
+    {
+      "field": "amount",
+      "operation": "sum",
+      "name": "total_amount"
+    },
+    {
+      "field": "amount",
+      "operation": "average",
+      "name": "avg_amount"
+    },
+    {
+      "field": "id",
+      "operation": "count",
+      "name": "transaction_count"
+    }
+  ]
+}
+```
+
+### Function Node para Agregações Complexas
+Para agregações personalizadas:
+
+```javascript
+// Exemplo: Agregação customizada
+const items = $input.all();
+const grouped = {};
+
+// Agrupar por categoria
+for (const item of items) {
+  const data = item.json;
+  const category = data.category || 'uncategorized';
+  
+  if (!grouped[category]) {
+    grouped[category] = {
+      category: category,
+      total: 0,
+      count: 0,
+      min: Infinity,
+      max: -Infinity,
+      items: []
+    };
+  }
+  
+  const amount = parseFloat(data.amount) || 0;
+  grouped[category].total += amount;
+  grouped[category].count += 1;
+  grouped[category].min = Math.min(grouped[category].min, amount);
+  grouped[category].max = Math.max(grouped[category].max, amount);
+  grouped[category].items.push(data);
+}
+
+// Calcular estatísticas
+const results = [];
+for (const [category, stats] of Object.entries(grouped)) {
+  results.push({
+    category: category,
+    total: stats.total,
+    average: stats.total / stats.count,
+    count: stats.count,
+    min: stats.min === Infinity ? 0 : stats.min,
+    max: stats.max === -Infinity ? 0 : stats.max,
+    median: calculateMedian(stats.items.map(item => parseFloat(item.amount)))
+  });
+}
+
+function calculateMedian(values) {
+  const sorted = values.filter(v => !isNaN(v)).sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0 
+    ? (sorted[mid - 1] + sorted[mid]) / 2 
+    : sorted[mid];
+}
+
+return results;
+```
+
+## Estatísticas Descritivas
+
+### Medidas de Tendência Central
+
+```javascript
+// Exemplo: Cálculo de estatísticas básicas
+const values = $input.all().map(item => parseFloat(item.json.value)).filter(v => !isNaN(v));
+
+const stats = {
+  count: values.length,
+  sum: values.reduce((a, b) => a + b, 0),
+  mean: values.reduce((a, b) => a + b, 0) / values.length,
+  min: Math.min(...values),
+  max: Math.max(...values),
+  range: Math.max(...values) - Math.min(...values)
+};
+
+// Mediana
+const sorted = values.sort((a, b) => a - b);
+const mid = Math.floor(sorted.length / 2);
+stats.median = sorted.length % 2 === 0 
+  ? (sorted[mid - 1] + sorted[mid]) / 2 
+  : sorted[mid];
+
+// Moda
+const frequency = {};
+values.forEach(value => {
+  frequency[value] = (frequency[value] || 0) + 1;
+});
+stats.mode = Object.keys(frequency).reduce((a, b) => 
+  frequency[a] > frequency[b] ? a : b
+);
+
+return stats;
+```
+
+### Medidas de Dispersão
+
+```javascript
+// Exemplo: Cálculo de variância e desvio padrão
+const values = $input.all().map(item => parseFloat(item.json.value)).filter(v => !isNaN(v));
+const mean = values.reduce((a, b) => a + b, 0) / values.length;
+
+const variance = values.reduce((sum, value) => {
+  return sum + Math.pow(value - mean, 2);
+}, 0) / values.length;
+
+const standardDeviation = Math.sqrt(variance);
+
+return {
+  mean: mean,
+  variance: variance,
+  standardDeviation: standardDeviation,
+  coefficientOfVariation: standardDeviation / mean
+};
+```
+
+## Agrupamentos e Segmentações
+
+### Agrupamento por Categoria
+
+```javascript
+// Exemplo: Agrupamento por múltiplas dimensões
+const items = $input.all();
+const grouped = {};
+
+for (const item of items) {
+  const data = item.json;
+  const key = `${data.region}_${data.product}_${data.status}`;
+  
+  if (!grouped[key]) {
+    grouped[key] = {
+      region: data.region,
+      product: data.product,
+      status: data.status,
+      total: 0,
+      count: 0,
+      items: []
+    };
+  }
+  
+  grouped[key].total += parseFloat(data.amount) || 0;
+  grouped[key].count += 1;
+  grouped[key].items.push(data);
+}
+
+// Converter para array
+const results = Object.values(grouped).map(group => ({
+  ...group,
+  average: group.total / group.count
+}));
+
+return results;
+```
+
+### Análise Temporal
+
+```javascript
+// Exemplo: Agregação por período temporal
+const items = $input.all();
+const dailyStats = {};
+
+for (const item of items) {
+  const data = item.json;
+  const date = new Date(data.timestamp);
+  const dateKey = date.toISOString().split('T')[0]; // YYYY-MM-DD
+  
+  if (!dailyStats[dateKey]) {
+    dailyStats[dateKey] = {
+      date: dateKey,
+      total: 0,
+      count: 0,
+      uniqueUsers: new Set()
+    };
+  }
+  
+  dailyStats[dateKey].total += parseFloat(data.amount) || 0;
+  dailyStats[dateKey].count += 1;
+  dailyStats[dateKey].uniqueUsers.add(data.userId);
+}
+
+// Converter para array e calcular métricas adicionais
+const results = Object.values(dailyStats).map(day => ({
+  date: day.date,
+  total: day.total,
+  count: day.count,
+  average: day.total / day.count,
+  uniqueUsers: day.uniqueUsers.size
+}));
+
+return results;
+```
+
+## Análises Avançadas
+
+### Análise de Tendências
+
+```javascript
+// Exemplo: Detecção de tendências
+const timeSeriesData = $input.all()
+  .map(item => ({
+    date: new Date(item.json.timestamp),
+    value: parseFloat(item.json.value)
+  }))
+  .sort((a, b) => a.date - b.date);
+
+// Calcular tendência linear (método dos mínimos quadrados)
+const n = timeSeriesData.length;
+const xValues = timeSeriesData.map((_, index) => index);
+const yValues = timeSeriesData.map(item => item.value);
+
+const sumX = xValues.reduce((a, b) => a + b, 0);
+const sumY = yValues.reduce((a, b) => a + b, 0);
+const sumXY = xValues.reduce((sum, x, i) => sum + x * yValues[i], 0);
+const sumXX = xValues.reduce((sum, x) => sum + x * x, 0);
+
+const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+const intercept = (sumY - slope * sumX) / n;
+
+// Calcular R² (coeficiente de determinação)
+const yMean = sumY / n;
+const ssRes = yValues.reduce((sum, y, i) => {
+  const yPred = slope * xValues[i] + intercept;
+  return sum + Math.pow(y - yPred, 2);
+}, 0);
+const ssTot = yValues.reduce((sum, y) => sum + Math.pow(y - yMean, 2), 0);
+const rSquared = 1 - (ssRes / ssTot);
+
+return {
+  slope: slope,
+  intercept: intercept,
+  rSquared: rSquared,
+  trend: slope > 0 ? 'crescente' : slope < 0 ? 'decrescente' : 'estável',
+  strength: rSquared > 0.7 ? 'forte' : rSquared > 0.3 ? 'moderada' : 'fraca'
+};
+```
+
+### Análise de Correlação
+
+```javascript
+// Exemplo: Correlação entre variáveis
+const items = $input.all();
+const data = items.map(item => ({
+  x: parseFloat(item.json.x),
+  y: parseFloat(item.json.y)
+})).filter(point => !isNaN(point.x) && !isNaN(point.y));
+
+const n = data.length;
+const sumX = data.reduce((sum, point) => sum + point.x, 0);
+const sumY = data.reduce((sum, point) => sum + point.y, 0);
+const sumXY = data.reduce((sum, point) => sum + point.x * point.y, 0);
+const sumXX = data.reduce((sum, point) => sum + point.x * point.x, 0);
+const sumYY = data.reduce((sum, point) => sum + point.y * point.y, 0);
+
+const correlation = (n * sumXY - sumX * sumY) / 
+  Math.sqrt((n * sumXX - sumX * sumX) * (n * sumYY - sumY * sumY));
+
+return {
+  correlation: correlation,
+  strength: Math.abs(correlation) > 0.7 ? 'forte' : 
+            Math.abs(correlation) > 0.3 ? 'moderada' : 'fraca',
+  direction: correlation > 0 ? 'positiva' : 'negativa'
+};
+```
+
+## Visualização de Dados
+
+### Gráficos de Resumo
+
+```javascript
+// Exemplo: Dados para visualização
+const items = $input.all();
+const stats = calculateStats(items);
+
+return {
+  summary: {
+    total: stats.total,
+    average: stats.average,
+    median: stats.median,
+    min: stats.min,
+    max: stats.max
+  },
+  distribution: {
+    quartiles: calculateQuartiles(items),
+    percentiles: calculatePercentiles(items, [10, 25, 50, 75, 90])
+  },
+  trends: {
+    daily: aggregateByPeriod(items, 'day'),
+    weekly: aggregateByPeriod(items, 'week'),
+    monthly: aggregateByPeriod(items, 'month')
+  }
+};
+```
+
+## Boas Práticas
+
+### Performance
+1. **Use índices** para agregações em grandes datasets
+2. **Implemente paginação** para evitar sobrecarga de memória
+3. **Cache resultados** de agregações custosas
+4. **Otimize queries** para datasets muito grandes
+
+### Precisão
+1. **Valide dados de entrada** antes de agregar
+2. **Trate valores nulos** e inválidos adequadamente
+3. **Use tipos de dados apropriados** para cálculos
+4. **Teste com datasets conhecidos** para verificar precisão
+
+### Interpretação
+1. **Contextualize resultados** com informações de negócio
+2. **Documente metodologias** de cálculo
+3. **Considere outliers** na análise
+4. **Valide insights** com especialistas de domínio
+
+## Recursos Relacionados
+
+- **[Data Filtering](./data-filtering)** - Filtragem de dados para análise
+- **[Data Mapping Avançado](./data-mapping-avancado)** - Mapeamento complexo de dados
+- **[Function Node](../../integracoes/builtin-nodes/core-nodes/function)** - Agregações customizadas
+- **[Aggregate Node](../../integracoes/builtin-nodes/data-processing/aggregate)** - Node de agregação
+- **[Performance](../data/otimizacao-performance)** - Otimização de workflows 
