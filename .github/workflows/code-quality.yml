@@ -129,6 +129,12 @@ jobs:
         run: |
           echo "🕵️ Verificando conteúdo sensível na documentação..."
           
+          # Verificar se o script existe
+          if [ ! -f "scripts/fix-sensitive-content.js" ]; then
+            echo "❌ Script scripts/fix-sensitive-content.js não encontrado"
+            exit 1
+          fi
+          
           # Executar script personalizado de verificação
           node scripts/fix-sensitive-content.js --check || {
             echo "⚠️ Encontradas informações sensíveis na documentação"
