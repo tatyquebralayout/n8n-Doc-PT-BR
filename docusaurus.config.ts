@@ -116,6 +116,8 @@ const config: Config = {
         { from: "/community", to: "/comunidade" },
         { from: "/catalog", to: "/catalogo" },
         { from: "/courses", to: "/comunidade" },
+        { from: "/cursos", to: "/comunidade" },
+        { from: "/contribuir", to: "/comunidade/como-participar" },
       ],
     }],
 
