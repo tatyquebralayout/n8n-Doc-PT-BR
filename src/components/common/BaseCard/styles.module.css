@@ -1,0 +1,245 @@
+.baseCard {
+  display: block;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--ifm-transition-fast) ease;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.baseCard:hover {
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--ifm-global-shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--ifm-color-primary);
+}
+
+.baseCard:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary);
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 0.5rem 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ifm-heading-color);
+  line-height: var(--line-height-tight);
+}
+
+.description {
+  margin: 0;
+  color: var(--ifm-font-color-base);
+  line-height: var(--line-height-normal);
+  font-size: var(--font-size-sm);
+}
+
+.children {
+  margin-top: 1rem;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ifm-font-color-secondary);
+  font-size: var(--font-size-sm);
+  margin-top: 1rem;
+}
+
+/* Variantes */
+.default {
+  /* Estilo padrão já definido acima */
+}
+
+.elevated {
+  box-shadow: var(--ifm-global-shadow-lg);
+  border: none;
+}
+
+.elevated:hover {
+  box-shadow: var(--ifm-global-shadow-xl);
+  transform: translateY(-4px);
+}
+
+.outlined {
+  background: transparent;
+  border: 2px solid var(--ifm-color-emphasis-300);
+}
+
+.outlined:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-50);
+}
+
+.filled {
+  background: var(--ifm-color-primary-lightest);
+  border-color: var(--ifm-color-primary-light);
+}
+
+.filled:hover {
+  background: var(--ifm-color-primary-lighter);
+  border-color: var(--ifm-color-primary);
+}
+
+.ghost {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.ghost:hover {
+  background: var(--ifm-color-emphasis-50);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Tamanhos */
+.small {
+  padding: 1rem;
+}
+
+.small .icon {
+  width: 32px;
+  height: 32px;
+}
+
+.small .title {
+  font-size: var(--font-size-base);
+}
+
+.medium {
+  /* Tamanho padrão já definido acima */
+}
+
+.large {
+  padding: 2rem;
+}
+
+.large .icon {
+  width: 48px;
+  height: 48px;
+}
+
+.large .title {
+  font-size: var(--font-size-xl);
+}
+
+.large .description {
+  font-size: var(--font-size-base);
+}
+
+/* Estados */
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.disabled:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--ifm-color-emphasis-200);
+}
+
+.loading {
+  cursor: wait;
+}
+
+.loading:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Variantes como link/botão */
+.baseCard.asLink {
+  cursor: pointer;
+}
+
+.baseCard.asButton {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.baseCard.asButton:hover {
+  background: transparent;
+  transform: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .title {
+    font-size: var(--font-size-base);
+  }
+
+  .small {
+    padding: 0.75rem;
+  }
+
+  .large {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .baseCard {
+    padding: 1rem;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .title {
+    font-size: var(--font-size-sm);
+  }
+
+  .description {
+    font-size: var(--font-size-xs);
+  }
+} 

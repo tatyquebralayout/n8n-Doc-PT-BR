@@ -1,11 +1,11 @@
----
+﻿---
 title: Set Node
 description: Guia completo sobre o Set Node no n8n, incluindo configuração, exemplos práticos e boas práticas para manipulação de dados
 sidebar_position: 2
 keywords: [n8n, set node, manipulação, dados, transformação, campos, valores]
 ---
 
-# <ion-icon name="add-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Set Node
+<IonicIcon name="add-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O **Set Node** é um dos nodes mais versáteis do n8n para manipulação de dados. Ele permite adicionar, modificar ou remover campos dos dados que fluem através do workflow.
 
@@ -20,7 +20,7 @@ O **Set Node** permite:
 - **Calcular** valores baseados em outros campos
 - **Formatar** dados para uso posterior
 
-### Quando Usar o Set Node
+## Quando usar o Set Node
 
 - **Transformação** básica de dados
 - **Adição** de metadados (timestamps, IDs)
@@ -60,26 +60,26 @@ O **Set Node** permite:
 }
 ```
 
-### Modos de Operação
+## Modos de Operação
 
-#### 1. Keep All Set
+### Keep All Set
 - **Mantém** todos os campos existentes
 - **Adiciona** novos campos especificados
 - **Modifica** campos existentes se especificados
 
-#### 2. Keep Only Set
+### Keep Only Set
 - **Remove** todos os campos existentes
 - **Mantém** apenas os campos especificados
 - **Adiciona** novos campos especificados
 
-#### 3. Keep All Except Set
+### Keep All Except Set
 - **Mantém** todos os campos existentes
 - **Remove** apenas os campos especificados
 - **Adiciona** novos campos especificados
 
 ## Tipos de Valores
 
-### 1. String
+### String
 
 ```javascript
 // Adicionar campo de texto
@@ -91,17 +91,17 @@ O **Set Node** permite:
 // Usar expressão
 {
   "name": "nome_completo",
-  "value": "{{ $json.nome + ' ' + $json.sobrenome }}"
+  "value": "{{$json.nome + ' ' + $json.sobrenome}}"
 }
 
 // Formatação de texto
 {
   "name": "email_formatado",
-  "value": "{{ $json.email.toLowerCase() }}"
+  "value": "{{$json.email.toLowerCase()}}"
 }
 ```
 
-### 2. Number
+### Number
 
 ```javascript
 // Adicionar número fixo
@@ -113,17 +113,17 @@ O **Set Node** permite:
 // Cálculo simples
 {
   "name": "total",
-  "value": "{{ $json.preco * $json.quantidade }}"
+  "value": "{{$json.preco * $json.quantidade}}"
 }
 
 // Cálculo com desconto
 {
   "name": "valor_final",
-  "value": "{{ $json.valor * (1 - $json.desconto / 100) }}"
+  "value": "{{$json.valor * (1 - $json.desconto / 100)}}"
 }
 ```
 
-### 3. Boolean
+### Boolean
 
 ```javascript
 // Valor booleano fixo
@@ -135,17 +135,17 @@ O **Set Node** permite:
 // Condição booleana
 {
   "name": "premium",
-  "value": "{{ $json.valor > 1000 }}"
+  "value": "{{$json.valor > 1000}}"
 }
 
 // Validação
 {
   "name": "valido",
-  "value": "{{ $json.email && $json.nome }}"
+  "value": "{{$json.email && $json.nome}}"
 }
 ```
 
-### 4. Object
+### Object
 
 ```javascript
 // Objeto simples
@@ -162,15 +162,15 @@ O **Set Node** permite:
 {
   "name": "dados_completos",
   "value": {
-    "nome": "{{ $json.nome }}",
-    "email": "{{ $json.email }}",
-    "idade": "{{ $json.idade }}",
-    "timestamp": "{{ $now.toISOString() }}"
+    "nome": "{{$json.nome}}",
+    "email": "{{$json.email}}",
+    "idade": "{{$json.idade}}",
+    "timestamp": "{{$now.toISOString()}}"
   }
 }
 ```
 
-### 5. Array
+### Array
 
 ```javascript
 // Array simples
@@ -182,19 +182,19 @@ O **Set Node** permite:
 // Array com expressões
 {
   "name": "categorias",
-  "value": "{{ $json.tags.map(tag => tag.toUpperCase()) }}"
+  "value": "{{$json.tags.map(tag => tag.toUpperCase())}}"
 }
 
 // Array filtrado
 {
   "name": "produtos_ativos",
-  "value": "{{ $json.produtos.filter(p => p.ativo) }}"
+  "value": "{{$json.produtos.filter(p => p.ativo)}}"
 }
 ```
 
 ## Exemplos Práticos
 
-### 1. Adicionar Metadados
+### Adicionar Metadados
 
 ```javascript
 // Set Node - Adicionar metadados
@@ -204,30 +204,30 @@ O **Set Node** permite:
     "string": [
       {
         "name": "workflow_id",
-        "value": "{{ $workflow.id }}"
+        "value": "{{$workflow.id}}"
       },
       {
         "name": "node_name",
-        "value": "{{ $node.name }}"
+        "value": "{{$node.name}}"
       }
     ],
     "number": [
       {
         "name": "timestamp",
-        "value": "{{ $now.toMillis() }}"
+        "value": "{{$now.toMillis()}}"
       }
     ],
     "string": [
       {
         "name": "data_processamento",
-        "value": "{{ $now.toFormat('dd/MM/yyyy HH:mm:ss') }}"
+        "value": "{{$now.toFormat('dd/MM/yyyy HH:mm:ss')}}"
       }
     ]
   }
 }
 ```
 
-### 2. Formatação de Dados
+### Formatação de Dados
 
 ```javascript
 // Set Node - Formatação de dados
@@ -237,7 +237,7 @@ O **Set Node** permite:
     "string": [
       {
         "name": "nome_formatado",
-        "value": "{{ $json.nome.charAt(0).toUpperCase() + $json.nome.slice(1).toLowerCase() }}"
+        "value": "{{$json.nome.charAt(0).toUpperCase() + $json.nome.slice(1).toLowerCase()}}"
       },
       {
         "name": "telefone_formatado",
@@ -252,7 +252,7 @@ O **Set Node** permite:
 }
 ```
 
-### 3. Cálculos Financeiros
+### Cálculos Financeiros
 
 ```javascript
 // Set Node - Cálculos financeiros
@@ -262,26 +262,26 @@ O **Set Node** permite:
     "number": [
       {
         "name": "subtotal",
-        "value": "{{ $json.preco * $json.quantidade }}"
+        "value": "{{$json.preco * $json.quantidade}}"
       },
       {
         "name": "desconto_valor",
-        "value": "{{ ($json.preco * $json.quantidade) * ($json.desconto / 100) }}"
+        "value": "{{($json.preco * $json.quantidade) * ($json.desconto / 100)}}"
       },
       {
         "name": "total",
-        "value": "{{ ($json.preco * $json.quantidade) * (1 - $json.desconto / 100) }}"
+        "value": "{{($json.preco * $json.quantidade) * (1 - $json.desconto / 100)}}"
       },
       {
         "name": "valor_parcela",
-        "value": "{{ (($json.preco * $json.quantidade) * (1 - $json.desconto / 100)) / $json.num_parcelas }}"
+        "value": "{{(($json.preco * $json.quantidade) * (1 - $json.desconto / 100)) / $json.num_parcelas}}"
       }
     ]
   }
 }
 ```
 
-### 4. Validação e Classificação
+### Validação e Classificação
 
 ```javascript
 // Set Node - Validação e classificação
@@ -291,32 +291,32 @@ O **Set Node** permite:
     "boolean": [
       {
         "name": "dados_completos",
-        "value": "{{ $json.nome && $json.email && $json.telefone }}"
+        "value": "{{$json.nome && $json.email && $json.telefone}}"
       },
       {
         "name": "email_valido",
-        "value": "{{ /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email) }}"
+        "value": "{{/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($json.email)}}"
       },
       {
         "name": "maior_idade",
-        "value": "{{ $json.idade >= 18 }}"
+        "value": "{{$json.idade >= 18}}"
       }
     ],
     "string": [
       {
         "name": "categoria_cliente",
-        "value": "{{ $json.valor_total > 10000 ? 'Premium' : $json.valor_total > 5000 ? 'Gold' : 'Standard' }}"
+        "value": "{{$json.valor_total > 10000 ? 'Premium' : $json.valor_total > 5000 ? 'Gold' : 'Standard'}}"
       },
       {
         "name": "prioridade",
-        "value": "{{ $json.urgente ? 'Alta' : $json.valor_total > 1000 ? 'Média' : 'Baixa' }}"
+        "value": "{{$json.urgente ? 'Alta' : $json.valor_total > 1000 ? 'Média' : 'Baixa'}}"
       }
     ]
   }
 }
 ```
 
-### 5. Limpeza de Dados
+### Limpeza de Dados
 
 ```javascript
 // Set Node - Limpeza de dados
@@ -326,38 +326,38 @@ O **Set Node** permite:
     "string": [
       {
         "name": "nome",
-        "value": "{{ $json.nome.trim() }}"
+        "value": "{{$json.nome.trim()}}"
       },
       {
         "name": "email",
-        "value": "{{ $json.email.toLowerCase().trim() }}"
+        "value": "{{$json.email.toLowerCase().trim()}}"
       },
       {
         "name": "telefone",
-        "value": "{{ $json.telefone.replace(/\D/g, '') }}"
+        "value": "{{$json.telefone.replace(/\D/g, '')}}"
       }
     ],
     "number": [
       {
         "name": "idade",
-        "value": "{{ parseInt($json.idade) || 0 }}"
+        "value": "{{parseInt($json.idade) || 0}}"
       },
       {
         "name": "valor",
-        "value": "{{ parseFloat($json.valor) || 0 }}"
+        "value": "{{parseFloat($json.valor) || 0}}"
       }
     ],
     "string": [
       {
         "name": "data_processamento",
-        "value": "{{ $now.toISOString() }}"
+        "value": "{{$now.toISOString()}}"
       }
     ]
   }
 }
 ```
 
-### 6. Agregação de Dados
+### Agregação de Dados
 
 ```javascript
 // Set Node - Agregação de dados
@@ -367,21 +367,21 @@ O **Set Node** permite:
     "number": [
       {
         "name": "total_itens",
-        "value": "{{ $json.itens.length }}"
+        "value": "{{$json.itens.length}}"
       },
       {
         "name": "valor_total",
-        "value": "{{ $json.itens.reduce((sum, item) => sum + item.valor, 0) }}"
+        "value": "{{$json.itens.reduce((sum, item) => sum + item.valor, 0)}}"
       },
       {
         "name": "media_valor",
-        "value": "{{ $json.itens.reduce((sum, item) => sum + item.valor, 0) / $json.itens.length }}"
+        "value": "{{$json.itens.reduce((sum, item) => sum + item.valor, 0) / $json.itens.length}}"
       }
     ],
     "string": [
       {
         "name": "categorias",
-        "value": "{{ [...new Set($json.itens.map(item => item.categoria))].join(', ') }}"
+        "value": "{{[...new Set($json.itens.map(item => item.categoria))].join(', ')}}"
       }
     ]
   }
@@ -390,7 +390,7 @@ O **Set Node** permite:
 
 ## Casos de Uso Avançados
 
-### 1. Transformação de Estrutura
+### Transformação de Estrutura
 
 ```javascript
 // Set Node - Transformar estrutura de dados
@@ -401,26 +401,26 @@ O **Set Node** permite:
       {
         "name": "cliente",
         "value": {
-          "id": "{{ $json.id }}",
-          "nome": "{{ $json.nome }}",
-          "email": "{{ $json.email }}",
-          "telefone": "{{ $json.telefone }}"
+          "id": "{{$json.id}}",
+          "nome": "{{$json.nome}}",
+          "email": "{{$json.email}}",
+          "telefone": "{{$json.telefone}}"
         }
       },
       {
         "name": "pedido",
         "value": {
-          "numero": "{{ $json.numero_pedido }}",
-          "data": "{{ $json.data_pedido }}",
-          "valor": "{{ $json.valor_total }}",
-          "status": "{{ $json.status }}"
+          "numero": "{{$json.numero_pedido}}",
+          "data": "{{$json.data_pedido}}",
+          "valor": "{{$json.valor_total}}",
+          "status": "{{$json.status}}"
         }
       },
       {
         "name": "metadata",
         "value": {
-          "processado_em": "{{ $now.toISOString() }}",
-          "workflow": "{{ $workflow.name }}",
+          "processado_em": "{{$now.toISOString()}}",
+          "workflow": "{{$workflow.name}}",
           "versao": "1.0"
         }
       }
@@ -429,7 +429,7 @@ O **Set Node** permite:
 }
 ```
 
-### 2. Condicionais Avançadas
+### Condicionais Avançadas
 
 ```javascript
 // Set Node - Condicionais avançadas
@@ -439,30 +439,30 @@ O **Set Node** permite:
     "string": [
       {
         "name": "status_processamento",
-        "value": "{{ $json.erro ? 'Falha' : $json.pendente ? 'Pendente' : 'Sucesso' }}"
+        "value": "{{$json.erro ? 'Falha' : $json.pendente ? 'Pendente' : 'Sucesso'}}"
       },
       {
         "name": "mensagem",
-        "value": "{{ $json.erro ? 'Erro: ' + $json.erro : $json.pendente ? 'Aguardando aprovação' : 'Processado com sucesso' }}"
+        "value": "{{$json.erro ? 'Erro: ' + $json.erro : $json.pendente ? 'Aguardando aprovação' : 'Processado com sucesso'}}"
       }
     ],
     "number": [
       {
         "name": "prioridade",
-        "value": "{{ $json.urgente ? 1 : $json.importante ? 2 : 3 }}"
+        "value": "{{$json.urgente ? 1 : $json.importante ? 2 : 3}}"
       }
     ],
     "boolean": [
       {
         "name": "requer_aprovacao",
-        "value": "{{ $json.valor > 5000 || $json.categoria === 'financeiro' }}"
+        "value": "{{$json.valor > 5000 || $json.categoria === 'financeiro'}}"
       }
     ]
   }
 }
 ```
 
-### 3. Manipulação de Arrays
+### Manipulação de Arrays
 
 ```javascript
 // Set Node - Manipulação de arrays
@@ -472,11 +472,11 @@ O **Set Node** permite:
     "array": [
       {
         "name": "produtos_ativos",
-        "value": "{{ $json.produtos.filter(p => p.ativo) }}"
+        "value": "{{$json.produtos.filter(p => p.ativo)}}"
       },
       {
         "name": "categorias_unicas",
-        "value": "{{ [...new Set($json.produtos.map(p => p.categoria))] }}"
+        "value": "{{[...new Set($json.produtos.map(p => p.categoria))]}}"
       },
       {
         "name": "produtos_premium",
@@ -486,11 +486,11 @@ O **Set Node** permite:
     "number": [
       {
         "name": "total_produtos",
-        "value": "{{ $json.produtos.length }}"
+        "value": "{{$json.produtos.length}}"
       },
       {
         "name": "produtos_ativos_count",
-        "value": "{{ $json.produtos.filter(p => p.ativo).length }}"
+        "value": "{{$json.produtos.filter(p => p.ativo).length}}"
       }
     ]
   }
@@ -499,39 +499,39 @@ O **Set Node** permite:
 
 ## Boas Práticas
 
-### 1. Nomenclatura de Campos
+### Nomenclatura de Campos
 
 ```javascript
 // ✅ Bom: Nomes descritivos
 {
   "name": "data_processamento",
-  "value": "{{ $now.toISOString() }}"
+  "value": "{{$now.toISOString()}}"
 }
 
 // ❌ Evitar: Nomes genéricos
 {
   "name": "data",
-  "value": "{{ $now.toISOString() }}"
+  "value": "{{$now.toISOString()}}"
 }
 ```
 
-### 2. Validação de Dados
+### Validação de Dados
 
 ```javascript
 // ✅ Bom: Validar antes de usar
 {
   "name": "valor_formatado",
-  "value": "{{ $json.valor ? parseFloat($json.valor).toFixed(2) : '0.00' }}"
+  "value": "{{$json.valor ? parseFloat($json.valor).toFixed(2) : '0.00'}}"
 }
 
 // ❌ Evitar: Usar sem validação
 {
   "name": "valor_formatado",
-  "value": "{{ parseFloat($json.valor).toFixed(2) }}"
+  "value": "{{parseFloat($json.valor).toFixed(2)}}"
 }
 ```
 
-### 3. Organização de Campos
+### Organização de Campos
 
 ```javascript
 // ✅ Bom: Agrupar campos relacionados
@@ -539,31 +539,31 @@ O **Set Node** permite:
   "mode": "keepAllSet",
   "values": {
     "string": [
-      { "name": "nome", "value": "{{ $json.nome }}" },
-      { "name": "email", "value": "{{ $json.email }}" },
-      { "name": "telefone", "value": "{{ $json.telefone }}" }
+      { "name": "nome", "value": "{{$json.nome}}" },
+      { "name": "email", "value": "{{$json.email}}" },
+      { "name": "telefone", "value": "{{$json.telefone}}" }
     ],
     "number": [
-      { "name": "idade", "value": "{{ $json.idade }}" },
-      { "name": "valor", "value": "{{ $json.valor }}" }
+      { "name": "idade", "value": "{{$json.idade}}" },
+      { "name": "valor", "value": "{{$json.valor}}" }
     ]
   }
 }
 ```
 
-### 4. Performance
+### Performance
 
 ```javascript
 // ✅ Bom: Cálculos eficientes
 {
   "name": "total",
-  "value": "{{ $json.preco * $json.quantidade }}"
+  "value": "{{$json.preco * $json.quantidade}}"
 }
 
 // ❌ Evitar: Cálculos complexos em Set Node
 {
   "name": "estatisticas",
-  "value": "{{ $json.itens.reduce((acc, item) => { /* lógica complexa */ }, {}) }}"
+  "value": "{{ $json.itens.reduce((acc, item) => { /*lógica complexa*/ }, {}) }}"
 }
 ```
 
@@ -571,33 +571,34 @@ O **Set Node** permite:
 
 ### Problemas Comuns
 
-#### Campo não aparece
+**Campo não aparece**
 - Verifique se o modo está correto
 - Confirme se o nome do campo está correto
 - Teste com valor simples primeiro
 - Verifique se há erros de sintaxe
 
-#### Valor incorreto
+**Valor incorreto**
 - Verifique a expressão usada
 - Confirme se os campos de origem existem
 - Teste com dados de exemplo
 - Use Debug Helper para ver dados
 
-#### Performance lenta
+**Performance lenta**
 - Evite cálculos complexos
 - Use expressões simples
 - Limite o número de campos
 - Considere usar Code Node para lógica complexa
 
-### Debug
+### Debug de Set Node
 
 ```javascript
-// Code Node - Debug de Set Node
+// Função para debug de dados antes do Set Node
 const debugSetNode = (dados) => {
-  console.log('=== DEBUG SET NODE ===');
+  console.log('========================');
+  console.log('Debug - Set Node');
   console.log('Dados de entrada:', dados);
+  console.log('Tipo de dados:', typeof dados);
   console.log('Campos disponíveis:', Object.keys(dados));
-  console.log('Tipos de dados:', Object.entries(dados).map(([k, v]) => `${k}: ${typeof v}`));
   console.log('========================');
   
   return dados;
@@ -609,7 +610,7 @@ return { json: debugSetNode($json) };
 
 ## Integração com Outros Nodes
 
-### 1. Set Node + If Node
+### Set Node + If Node
 
 ```javascript
 // Set Node - Preparar dados para condição
@@ -619,7 +620,7 @@ return { json: debugSetNode($json) };
     "boolean": [
       {
         "name": "cliente_valido",
-        "value": "{{ $json.nome && $json.email && $json.cpf }}"
+        "value": "{{$json.nome && $json.email && $json.cpf}}"
       }
     ]
   }
@@ -627,13 +628,13 @@ return { json: debugSetNode($json) };
 
 // If Node - Usar campo criado
 {
-  "condition": "{{ $json.cliente_valido }}",
+  "condition": "{{$json.cliente_valido}}",
   "true": "Processar Cliente",
   "false": "Cliente Inválido"
 }
 ```
 
-### 2. Set Node + HTTP Request
+### Set Node + HTTP Request
 
 ```javascript
 // Set Node - Preparar dados para API
@@ -643,20 +644,20 @@ return { json: debugSetNode($json) };
     "string": [
       {
         "name": "api_key",
-        "value": "{{ $credentials.apiKey }}"
+        "value": "{{$credentials.apiKey}}"
       },
       {
         "name": "endpoint",
-        "value": "{{ $json.tipo === 'cliente' ? '/clientes' : '/produtos' }}"
+        "value": "{{$json.tipo === 'cliente' ? '/clientes' : '/produtos'}}"
       }
     ],
     "object": [
       {
         "name": "payload",
         "value": {
-          "nome": "{{ $json.nome }}",
-          "email": "{{ $json.email }}",
-          "timestamp": "{{ $now.toISOString() }}"
+          "nome": "{{$json.nome}}",
+          "email": "{{$json.email}}",
+          "timestamp": "{{$now.toISOString()}}"
         }
       }
     ]

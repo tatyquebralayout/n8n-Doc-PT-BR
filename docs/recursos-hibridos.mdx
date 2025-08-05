@@ -1,64 +1,59 @@
----
+﻿---
 sidebar_position: 2
-title: Recursos Híbridos - Demonstração Completa
-description: Sistema híbrido completo de reStructuredText + Sphinx + Docusaurus
-keywords: [reStructuredText, Sphinx, Docusaurus, híbrido, documentação, RST]
+title: Recursos Híbridos
+description: Componentes React customizados para processar sintaxe reStructuredText e Sphinx no Docusaurus
+keywords: [reStructuredText, Sphinx, Docusaurus, React, componentes, híbrido]
 ---
 
 import HybridProcessor from '@site/src/components/HybridProcessor';
 
-# Recursos Híbridos de Documentação
+<IonicIcon name="layers-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Recursos Híbridos
 
-## <ion-icon name="flask-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral
+Esta página demonstra o uso de componentes React customizados que processam sintaxe reStructuredText e Sphinx, mantendo a compatibilidade com o Docusaurus.
 
-Esta página demonstra como podemos integrar funcionalidades avançadas do **reStructuredText** e **Sphinx** mantendo o **Docusaurus** como tema principal. Esta abordagem híbrida oferece o melhor dos três mundos: simplicidade do Markdown, poder do RST e funcionalidades especializadas do Sphinx.
-
-:::info Funcionalidade Híbrida
+:::info **Funcionalidade Híbrida**
 Esta página usa componentes React customizados que processam sintaxe reStructuredText e Sphinx, mantendo a compatibilidade com o Docusaurus.
 :::
 
 ---
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Testes de Componentes
+<IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Teste de Configuração
 
-### Teste RST Simples
+<HybridProcessor 
+  type="rst" 
+  content={`
+.. code-block:: json
+   :caption: Configuração HTTP Request
+   :name: http-config
 
-<HybridProcessor type="rst" content={`
-.. note:: Teste de Nota
-   Esta é uma nota de teste para verificar se o componente está funcionando.
-
-.. warning:: Teste de Aviso
-   Este é um aviso de teste.
+   {
+     "url": "https:/api.exemplo.com/dados",
+     "method": "GET",
+     "headers": {
+       "Authorization": "Bearer token"
+     }
+   }
 `} />
 
-### Teste Sphinx Simples
+## Teste de Detecção Automática
 
-<HybridProcessor type="sphinx" content={`
-.. n8n-workflow:: test-workflow
-   :title: Workflow de Teste
-   :description: Um workflow simples para teste
-   :nodes: 3
-   :executions: 100/month
-   
-   .. workflow-step:: trigger
-      :description: Trigger de teste
-      :config: { "method": "GET" }
-`} />
-
-### Teste de Detecção Automática
-
-<HybridProcessor content={`
+<HybridProcessor 
+  content={`
 .. note:: Detecção Automática
    Este conteúdo deve ser detectado automaticamente como RST.
 `} />
 
 ---
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sintaxe reStructuredText Integrada
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Sintaxe reStructuredText Integrada
 
-### Notas e Advertências Estruturadas
+## Notas e Advertências Estruturadas
 
-<HybridProcessor content={`
+<HybridProcessor 
+  content={`
 .. note:: Nota importante
    Esta é uma nota usando sintaxe reStructuredText
    processada pelo docutils e renderizada no Docusaurus.
@@ -89,9 +84,10 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
    Use para micro-interações e melhorias.
 `} />
 
-### Blocos de Código Avançados
+## Blocos de Código Avançados
 
-<HybridProcessor content={`
+<HybridProcessor 
+  content={`
 .. code-block:: javascript
    :caption: Exemplo de Workflow n8n
    :name: workflow-example
@@ -114,7 +110,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
          type: 'n8n-nodes-base.httpRequest',
          position: [450, 300],
          parameters: {
-           url: 'https://api.exemplo.com/dados',
+           url: 'https:/api.exemplo.com/dados',
            method: 'GET'
          }
        }
@@ -127,7 +123,7 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
 
    import requests
    import json
-   
+
    def process_webhook_data(data):
        """Processa dados do webhook n8n"""
        processed = []
@@ -138,16 +134,17 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
                    'processed_at': datetime.now().isoformat()
                })
        return processed
-   
+
    # Exemplo de uso
-   webhook_data = requests.get('http://localhost:5678/webhook/test').json()
+   webhook_data = requests.get('http:/localhost:5678/webhook/test').json()
    result = process_webhook_data(webhook_data)
    print(f"Processados {len(result)} itens")
 `} />
 
-### Tabelas Complexas
+## Tabelas Complexas
 
-<HybridProcessor content={`
+<HybridProcessor 
+  content={`
 .. table:: Comparação de Integrações
    :widths: 20 30 25 25
    :align: center
@@ -187,1265 +184,105 @@ Esta página usa componentes React customizados que processam sintaxe reStructur
 
 ---
 
-## <ion-icon name="layers-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Workflows Sphinx Avançados
+<IonicIcon name="layers-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Funcionalidades Avançadas
 
-### Automação de E-commerce
+## Processamento de Sphinx
 
-<HybridProcessor content={`
-.. n8n-workflow:: ecommerce-automation
-   :title: Automação Completa de E-commerce
-   :description: Workflow para automação de vendas online com integração PIX
-   :nodes: 8
-   :executions: 500/day
-   
-   .. workflow-step:: webhook-trigger
-      :description: Recebe pedidos do e-commerce
-      :config: { "method": "POST", "path": "order-received" }
-      :service: n8n-nodes-base.webhook
-   
-   .. workflow-step:: validate-order
+<HybridProcessor 
+  type="sphinx" 
+  content={`
+.. n8n-workflow:: exemplo-avancado
+   :title: Workflow de E-commerce
+   :description: Automação completa de pedidos
+   :nodes: 5
+   :complexity: alta
+
+   .. workflow-step:: webhook
+      :description: Recebe pedidos da loja
+      :config: { "method": "POST" }
+
+   .. workflow-step:: validate
       :description: Valida dados do pedido
-      :code: |
-        const order = $input.item.json;
-        if (!order.customer || !order.items) {
-          throw new Error('Dados do pedido inválidos');
-        }
-        return order;
-      :service: n8n-nodes-base.code
-   
-   .. workflow-step:: pix-payment
-      :description: Gera PIX para pagamento
-      :config: { "bank": "itau", "expiration": "30min" }
-      :service: n8n-nodes-base.httpRequest
-   
-   .. workflow-step:: send-notification
-      :description: Envia notificação ao cliente
-      :template: "Pedido confirmado: {{$json.order_id}}"
-      :channel: whatsapp
-      :service: n8n-nodes-base.whatsapp
+      :config: { "rules": ["email", "cpf"] }
+
+   .. workflow-step:: payment
+      :description: Processa pagamento
+      :config: { "gateway": "stripe" }
+
+   .. workflow-step:: inventory
+      :description: Atualiza estoque
+      :config: { "sync": true }
+
+   .. workflow-step:: notification
+      :description: Envia confirmação
+      :config: { "channels": ["email", "sms"] }
 `} />
 
-### Conciliação Bancária
+## Expressões Matemáticas
 
-<HybridProcessor content={`
-.. n8n-workflow:: financial-reconciliation
-   :title: Conciliação Bancária Automática
-   :description: Sistema de conciliação automática com APIs bancárias
-   :nodes: 12
-   :executions: 1000/day
-   
-   .. workflow-step:: bank-api
-      :description: Busca transações bancárias
-      :config: { "bank": "banco-do-brasil", "period": "daily" }
-      :service: n8n-nodes-base.httpRequest
-   
-   .. workflow-step:: match-transactions
-      :description: Correlaciona transações
-      :code: |
-        const bankTransactions = $input.all();
-        const internalRecords = $('internal-db').all();
-        
-        return bankTransactions.map(transaction => {
-          const match = internalRecords.find(record => 
-            record.amount === transaction.amount &&
-            record.date === transaction.date
-          );
-          return { transaction, matched: !!match };
-        });
-      :service: n8n-nodes-base.code
-   
-   .. workflow-step:: generate-report
-      :description: Gera relatório de conciliação
-      :template: "Relatório diário: {{$json.date}}"
-      :service: n8n-nodes-base.googleSheets
-`} />
-
----
-
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Diretivas Sphinx Customizadas
-
-### Documentação de Workflows n8n
-
-<HybridProcessor content={`
-.. n8n-workflow:: lead-processing-workflow
-   :title: Workflow de Processamento de Leads
-   :description: Automatiza o processamento completo de leads do formulário web até o CRM
-   :nodes: 8
-   :executions: 2500/month
-   :complexity: intermediate
-   
-   .. workflow-step:: webhook-trigger
-      :description: Recebe dados do formulário de contato
-      :config: { "method": "POST", "path": "/leads", "responseMode": "responseNode" }
-      :validation: |
-         - Email obrigatório
-         - Nome obrigatório
-         - Telefone opcional
-   
-   .. workflow-step:: data-validation
-      :description: Valida e limpa dados de entrada
-      :code: |
-         const email = $input.item.json.email;
-         const phone = $input.item.json.phone;
-         const name = $input.item.json.name;
-         
-         // Validações
-         if (!email || !email.includes('@')) {
-           throw new Error('Email inválido');
-         }
-         
-         if (!name || name.length < 2) {
-           throw new Error('Nome inválido');
-         }
-         
-         return {
-           ...$input.item.json,
-           validated: true,
-           timestamp: new Date().toISOString()
-         };
-   
-   .. workflow-step:: lead-scoring
-      :description: Calcula score do lead baseado em múltiplos critérios
-      :code: |
-         const data = $input.item.json;
-         let score = 0;
-         
-         // Score por tipo de empresa
-         if (data.companyType === 'enterprise') score += 50;
-         else if (data.companyType === 'startup') score += 30;
-         else score += 10;
-         
-         // Score por valor estimado
-         if (data.estimatedValue > 100000) score += 40;
-         else if (data.estimatedValue > 50000) score += 25;
-         else score += 10;
-         
-         // Score por localização
-         if (['SP', 'RJ', 'MG'].includes(data.state)) score += 20;
-         
-         return {
-           ...data,
-           leadScore: score,
-           priority: score > 80 ? 'high' : score > 50 ? 'medium' : 'low'
-         };
-   
-   .. workflow-step:: crm-update
-      :description: Atualiza CRM com dados do lead
-      :service: salesforce
-      :config: { "operation": "create", "resource": "lead", "additionalFields": { "LeadSource": "Website" } }
-      :error-handling: |
-         - Retry automático em caso de falha
-         - Log de erro para análise posterior
-         - Notificação para equipe técnica
-   
-   .. workflow-step:: slack-notification
-      :description: Notifica equipe de vendas sobre novo lead
-      :channel: "#leads"
-      :template: |
-         🎯 *Novo Lead Qualificado*
-         *Nome:* {name}
-         *Email:* {email}
-         *Empresa:* {company}
-         *Score:* {leadScore}/100
-         *Prioridade:* {priority}
-         *Valor Estimado:* R$ {estimatedValue}
-   
-   .. workflow-step:: email-followup
-      :description: Envia email de boas-vindas personalizado
-      :template: "welcome-email"
-      :delay: "5 minutes"
-      :personalization: |
-         - Nome do lead
-         - Tipo de empresa
-         - Score calculado
-         - Próximos passos específicos
-   
-   .. workflow-step:: analytics-tracking
-      :description: Registra evento no Google Analytics
-      :service: google-analytics
-      :config: { "eventName": "lead_conversion", "eventCategory": "marketing" }
-   
-   .. workflow-step:: database-backup
-      :description: Salva backup dos dados em banco local
-      :service: postgresql
-      :config: { "operation": "insert", "table": "leads_backup" }
-`} />
-
-### Diagramas Técnicos com Graphviz
-
-<HybridProcessor content={`
-.. graphviz:: n8n-architecture
-   :caption: Arquitetura Completa de Workflow n8n
-   :align: center
-   :class: architecture-diagram
-   
-   digraph n8n_workflow {
-       rankdir=TB;
-       node [shape=box, style=filled, fillcolor=lightblue, fontname="Arial"];
-       edge [fontname="Arial", fontsize=10];
-       
-       // Trigger Nodes
-       webhook [label="Webhook\\nTrigger", fillcolor=lightgreen];
-       schedule [label="Schedule\\nTrigger", fillcolor=lightgreen];
-       manual [label="Manual\\nTrigger", fillcolor=lightgreen];
-       
-       // Processing Nodes
-       validate [label="Data\\nValidation", fillcolor=lightyellow];
-       transform [label="Data\\nTransform", fillcolor=lightyellow];
-       filter [label="Data\\nFilter", fillcolor=lightyellow];
-       
-       // Action Nodes
-       crm [label="CRM\\nUpdate", fillcolor=lightcoral];
-       email [label="Email\\nService", fillcolor=lightcoral];
-       slack [label="Slack\\nNotification", fillcolor=lightcoral];
-       analytics [label="Analytics\\nTracking", fillcolor=lightcoral];
-       
-       // Error Handling
-       error_handler [label="Error\\nHandler", fillcolor=lightpink];
-       retry [label="Retry\\nLogic", fillcolor=lightpink];
-       
-       // Connections
-       webhook -> validate;
-       schedule -> transform;
-       manual -> filter;
-       
-       validate -> transform;
-       transform -> filter;
-       filter -> crm;
-       filter -> email;
-       
-       crm -> slack;
-       crm -> analytics;
-       email -> analytics;
-       
-       // Error paths
-       validate -> error_handler [style=dashed, color=red];
-       crm -> retry [style=dashed, color=red];
-       
-       // Subgraph for error handling
-       subgraph cluster_error {
-           label="Error Handling System";
-           style=filled;
-           color=lightgrey;
-           
-           error_handler;
-           retry;
-       }
-       
-       // Subgraph for triggers
-       subgraph cluster_triggers {
-           label="Trigger Layer";
-           style=filled;
-           color=lightblue;
-           
-           webhook;
-           schedule;
-           manual;
-       }
-       
-       // Subgraph for processing
-       subgraph cluster_processing {
-           label="Processing Layer";
-           style=filled;
-           color=lightyellow;
-           
-           validate;
-           transform;
-           filter;
-       }
-       
-       // Subgraph for actions
-       subgraph cluster_actions {
-           label="Action Layer";
-           style=filled;
-           color=lightcoral;
-           
-           crm;
-           email;
-           slack;
-           analytics;
-       }
-   }
-`} />
-
-### Documentação de API Estruturada
-
-<HybridProcessor content={`
-.. http:post:: /api/v1/workflows/{id}/execute
-   :synopsis: Executa um workflow específico do n8n
-   
-   Executa um workflow n8n pelo ID fornecido. Esta API permite executar workflows
-   programaticamente, útil para integrações externas e automações de nível superior.
-   
-   :param id: ID único do workflow
-   :type id: string
-   :param data: Dados de entrada para o workflow
-   :type data: object
-   :param options: Opções de execução (opcional)
-   :type options: object
-   :param waitForCompletion: Aguardar conclusão da execução (padrão: false)
-   :type waitForCompletion: boolean
-   
-   :>json object success: Status da execução (true/false)
-   :>json string executionId: ID único da execução
-   :>json object result: Resultado do workflow (apenas se waitForCompletion=true)
-   :>json string status: Status da execução (running/completed/failed)
-   :>json number startedAt: Timestamp de início da execução
-   :>json number finishedAt: Timestamp de conclusão (apenas se concluído)
-   
-   :status 200: Workflow executado com sucesso
-   :status 400: Dados de entrada inválidos
-   :status 404: Workflow não encontrado
-   :status 500: Erro interno do servidor
-   
-   **Exemplo de requisição:**
-   
-   .. sourcecode:: bash
-      
-      curl -X POST "https://api.n8n.io/v1/workflows/abc123/execute" \\
-           -H "Content-Type: application/json" \\
-           -H "Authorization: Bearer YOUR_API_KEY" \\
-           -d '{
-             "data": {
-               "email": "test@example.com",
-               "name": "João Silva",
-               "company": "Empresa ABC",
-               "estimatedValue": 50000
-             },
-             "options": {
-               "waitForCompletion": true
-             }
-           }'
-   
-   **Exemplo de resposta (waitForCompletion=false):**
-   
-   .. sourcecode:: json
-      
-      {
-        "success": true,
-        "executionId": "exec_789",
-        "status": "running",
-        "startedAt": 1640995200000
-      }
-   
-   **Exemplo de resposta (waitForCompletion=true):**
-   
-   .. sourcecode:: json
-      
-      {
-        "success": true,
-        "executionId": "exec_789",
-        "status": "completed",
-        "startedAt": 1640995200000,
-        "finishedAt": 1640995260000,
-        "result": {
-          "processed": true,
-          "crmUpdated": true,
-          "notificationSent": true,
-          "leadScore": 85,
-          "priority": "high"
-        }
-      }
-   
-   **Códigos de erro:**
-   
-   .. sourcecode:: json
-      
-      {
-        "success": false,
-        "error": {
-          "code": "WORKFLOW_NOT_FOUND",
-          "message": "Workflow with ID 'abc123' not found",
-          "details": {
-            "workflowId": "abc123",
-            "availableWorkflows": ["def456", "ghi789"]
-          }
-        }
-      }
-`} />
-
-### Documentação de Endpoints de Webhook
-
-<HybridProcessor content={`
-.. http:post:: /webhook/leads
-   :synopsis: Endpoint para receber leads de formulários
-   
-   Endpoint público para receber dados de leads de formulários web.
-   Processa automaticamente os dados e inicia o workflow de processamento.
-   
-   :param email: Email do lead (obrigatório)
-   :type email: string
-   :param name: Nome completo do lead (obrigatório)
-   :type name: string
-   :param phone: Telefone do lead (opcional)
-   :type phone: string
-   :param company: Nome da empresa (opcional)
-   :type company: string
-   :param source: Origem do lead (padrão: "website")
-   :type source: string
-   :param utm_source: Parâmetro UTM source (opcional)
-   :type utm_source: string
-   :param utm_medium: Parâmetro UTM medium (opcional)
-   :type utm_medium: string
-   :param utm_campaign: Parâmetro UTM campaign (opcional)
-   :type utm_campaign: string
-   
-   :>json object success: Status do processamento
-   :>json string message: Mensagem de confirmação
-   :>json string leadId: ID único do lead processado
-   :>json number timestamp: Timestamp do processamento
-   
-   :status 200: Lead recebido e processado com sucesso
-   :status 400: Dados inválidos ou obrigatórios ausentes
-   :status 429: Rate limit excedido
-   :status 500: Erro interno do servidor
-   
-   **Exemplo de requisição:**
-   
-   .. sourcecode:: bash
-      
-      curl -X POST "https://n8n.example.com/webhook/leads" \\
-           -H "Content-Type: application/json" \\
-           -d '{
-             "email": "joao@empresa.com",
-             "name": "João Silva",
-             "phone": "+55 11 99999-9999",
-             "company": "Empresa ABC Ltda",
-             "source": "landing-page",
-             "utm_source": "google",
-             "utm_medium": "cpc",
-             "utm_campaign": "n8n-automation"
-           }'
-   
-   **Exemplo de resposta:**
-   
-   .. sourcecode:: json
-      
-      {
-        "success": true,
-        "message": "Lead processado com sucesso",
-        "leadId": "lead_123456",
-        "timestamp": 1640995200000
-      }
-`} />
-
----
-
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Índices e Cross-References
-
-### Índice Automático com Sphinx
-
-<HybridProcessor content={`
-.. index::
-   single: n8n; introdução
-   single: automação; plataformas
-   single: workflow; conceitos
-   single: reStructuredText; sintaxe
-   single: Sphinx; diretivas
-   single: Docusaurus; tema
-   pair: integração; sistemas
-   pair: documentação; híbrida
-   pair: RST; processamento
-   see: n8n; n8n Brasil
-   see: automação; workflow automation
-   see: reStructuredText; RST
-   see: Sphinx; documentação técnica
-`} />
-
-### Referências Cruzadas
-
-<HybridProcessor content={`
-.. _workflow-examples: https://docs.n8n.io/workflows/
-.. _api-reference: https://docs.n8n.io/api/
-.. _node-documentation: https://docs.n8n.io/nodes/
-
-Veja :ref:\`workflow-examples\` para mais exemplos de workflows.
-
-Consulte :ref:\`api-reference\` para documentação completa da API.
-
-Para detalhes sobre nodes específicos, acesse :ref:\`node-documentation\`.
-`} />
-
----
-
-## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Diagramas e Visualizações
-
-### Diagramas Graphviz
-
-<HybridProcessor content={`
-.. graphviz:: workflow-diagram
-   :caption: Fluxo de Automação de Vendas
-   :align: center
-
-   digraph G {
-     rankdir=LR;
-     node [shape=box, style=filled, fillcolor=lightblue];
-     
-     A [label="Lead Capturado"];
-     B [label="Validação"];
-     C [label="Scoring"];
-     D [label="Follow-up"];
-     E [label="Venda"];
-     F [label="CRM"];
-     
-     A -> B;
-     B -> C;
-     C -> D;
-     D -> E;
-     E -> F;
-     
-     B -> A [label="Inválido", color=red];
-     C -> A [label="Baixo Score", color=orange];
-   }
-
-.. graphviz:: system-architecture
-   :caption: Arquitetura do Sistema n8n
-   :align: center
-
-   digraph G {
-     rankdir=TB;
-     node [shape=box, style=filled];
-     
-     subgraph cluster_0 {
-       label="Frontend";
-       style=filled;
-       color=lightgrey;
-       node [fillcolor=lightblue];
-       UI [label="Interface Web"];
-       API [label="API REST"];
-     }
-     
-     subgraph cluster_1 {
-       label="Backend";
-       style=filled;
-       color=lightgrey;
-       node [fillcolor=lightgreen];
-       Engine [label="Engine n8n"];
-       Queue [label="Queue System"];
-       DB [label="Database"];
-     }
-     
-     subgraph cluster_2 {
-       label="Integrações";
-       style=filled;
-       color=lightgrey;
-       node [fillcolor=lightyellow];
-       Webhook [label="Webhooks"];
-       Cron [label="Cron Jobs"];
-       External [label="APIs Externas"];
-     }
-     
-     UI -> API;
-     API -> Engine;
-     Engine -> Queue;
-     Engine -> DB;
-     Engine -> Webhook;
-     Engine -> Cron;
-     Engine -> External;
-   }
-`} />
-
----
-
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Documentação de API
-
-### Endpoints REST
-
-<HybridProcessor content={`
-.. http:get:: /api/v1/workflows
-   :synopsis: Lista todos os workflows disponíveis
-   
-   :param limit: Número máximo de workflows a retornar
-   :type limit: integer
-   :param offset: Número de workflows para pular
-   :type offset: integer
-   :param active: Filtrar apenas workflows ativos
-   :type active: boolean
-   
-   :status 200: Lista de workflows retornada com sucesso
-   :status 401: Não autorizado
-   :status 500: Erro interno do servidor
-   
-   .. sourcecode:: json
-   
-      {
-        "workflows": [
-          {
-            "id": "workflow-1",
-            "name": "Automação de Vendas",
-            "active": true,
-            "nodes": 5,
-            "created_at": "2024-01-15T10:30:00Z"
-          }
-        ],
-        "total": 1,
-        "limit": 10,
-        "offset": 0
-      }
-
-.. http:post:: /api/v1/workflows
-   :synopsis: Cria um novo workflow
-   
-   :param name: Nome do workflow
-   :type name: string
-   :param nodes: Array de nós do workflow
-   :type nodes: array
-   :param settings: Configurações do workflow
-   :type settings: object
-   
-   :status 201: Workflow criado com sucesso
-   :status 400: Dados inválidos
-   :status 401: Não autorizado
-   
-   .. sourcecode:: json
-   
-      {
-        "name": "Novo Workflow",
-        "nodes": [
-          {
-            "name": "Webhook",
-            "type": "n8n-nodes-base.webhook",
-            "position": [250, 300]
-          }
-        ],
-        "settings": {
-          "timezone": "America/Sao_Paulo"
-        }
-      }
-
-.. http:put:: /api/v1/workflows/{id}
-   :synopsis: Atualiza um workflow existente
-   
-   :param id: ID do workflow
-   :type id: string
-   :param name: Novo nome do workflow
-   :type name: string
-   :param active: Status ativo/inativo
-   :type active: boolean
-   
-   :status 200: Workflow atualizado com sucesso
-   :status 404: Workflow não encontrado
-   :status 400: Dados inválidos
-`} />
-
----
-
-## <ion-icon name="calculator-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Matemática e Métricas
-
-### Equações e Fórmulas
-
-<HybridProcessor content={`
+<HybridProcessor 
+  content={`
 .. math::
-   :label: eq:workflow-complexity
-   
-   C = \\sum_{i=1}^{n} w_i \\times c_i
-   
-   Where:
-   - C is the total workflow complexity
-   - w_i is the weight of node i
-   - c_i is the individual complexity of node i
-   - n is the total number of nodes
+
+   \\text{Performance} = \\frac{\\text{Execuções Sucesso}}{\\text{Total Execuções}} \\times 100
 
 .. math::
-   :label: eq:execution-time
-   
-   T_{exec} = T_{setup} + \\sum_{i=1}^{n} T_i + T_{cleanup}
-   
-   Where:
-   - T_{exec} is the total execution time
-   - T_{setup} is the setup time
-   - T_i is the execution time of node i
-   - T_{cleanup} is the cleanup time
 
-.. math::
-   :label: eq:cost-calculation
-   
-   C_{total} = C_{infra} + C_{api} + C_{dev} + C_{maintenance}
-   
-   Where:
-   - C_{total} is the total monthly cost
-   - C_{infra} is the infrastructure cost
-   - C_{api} is the external APIs cost
-   - C_{dev} is the development cost
-   - C_{maintenance} is the maintenance cost
-`} />
-
-### Estatísticas de Performance
-
-<HybridProcessor content={`
-.. table:: Métricas de Execução
-   :widths: 25 25 25 25
-   :align: center
-
-   +----------------+----------------+----------------+----------------+
-   | Métrica        | Valor Atual    | Meta           | Status         |
-   +================+================+================+================+
-   | Execuções/dia  | 1,250          | 1,000          | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Excedida    |
-   +----------------+----------------+----------------+----------------+
-   | Tempo médio    | 2.3s           | < 3s           | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Dentro      |
-   +----------------+----------------+----------------+----------------+
-   | Taxa de erro   | 0.5%           | < 1%           | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Dentro      |
-   +----------------+----------------+----------------+----------------+
-   | Uptime         | 99.8%          | > 99.5%        | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Dentro      |
-   +----------------+----------------+----------------+----------------+
-
-.. rubric:: Análise de Custos
-
-Custo médio por execução: R$ 0.15
-
-Custo total mensal: R$ 5,625
-
-ROI estimado: 340% (baseado em economia de tempo manual)
+   \\text{Custo Mensal} = \\sum_{i=1}^{n} \\text{Execuções}_i \\times \\text{Preço}_i
 `} />
 
 ---
 
-## <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Benefícios da Abordagem Híbrida
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Configuração e Uso
 
-:::tip Vantagens da Integração Híbrida
-- **Markdown simples** para conteúdo básico e rápido
-- **Sintaxe RST avançada** para documentação técnica complexa
-- **Diretivas Sphinx** para funcionalidades especializadas
-- **Tema Docusaurus** mantido para consistência visual
-- **Processamento automático** via docutils/Sphinx
-- **Compatibilidade total** com ecossistema existente
-:::
+## Como Usar
 
-### **Funcionalidades Disponíveis:**
+1. **Importe o componente**:
+   ```jsx
+   import HybridProcessor from '@site/src/components/HybridProcessor';
+   ```
 
-#### 1. **reStructuredText:**
-- ✅ Notas, avisos e advertências estruturadas
-- ✅ Blocos de código com syntax highlighting avançado
-- ✅ Tabelas complexas e alinhadas
+2. **Use com tipo específico**:
+   ```jsx
+   <HybridProcessor 
+     type="rst" 
+     content={`
+   .. note:: Exemplo
+      Conteúdo RST aqui.
+   `}    />
+   ```
+
+3. **Detecção automática**:
+   ```jsx
+   <HybridProcessor 
+     content={`
+   .. tip:: Detecção
+      O tipo será detectado automaticamente.
+   `}    />
+   ```
+
+## Tipos Suportados
+
+- **`rst`**: reStructuredText puro
+- **`sphinx`**: Extensões Sphinx
+- **`auto`**: Detecção automática (padrão)
+
+## Recursos Disponíveis
+
+### reStructuredText
+- ✅ Notas e advertências
+- ✅ Blocos de código
+- ✅ Tabelas
+- ✅ Listas
+- ✅ Links e referências
+
+### Sphinx
 - ✅ Diretivas customizadas
-- ✅ Cross-references automáticos
-- ✅ Índices estruturados
-
-#### 2. **Sphinx:**
-- ✅ Diagramas técnicos (Graphviz)
-- ✅ Documentação de API estruturada
-- ✅ Índices automáticos
-- ✅ Cross-references avançadas
-- ✅ Diretivas customizadas para n8n
-- ✅ Processamento de workflows
-
-#### 3. **Docusaurus:**
-- ✅ Tema visual consistente
-- ✅ Navegação e sidebar
-- ✅ Busca integrada
-- ✅ Responsividade
-- ✅ SEO otimizado
-- ✅ Performance otimizada
-
----
-
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como Usar
-
-### **Para Autores de Conteúdo:**
-
-1. **Conteúdo Básico**: Use Markdown normalmente
-2. **Documentação Técnica**: Use blocos RST dentro de ```rst
-3. **Workflows n8n**: Use diretivas `.. n8n-workflow::`
-4. **Diagramas**: Use `.. graphviz::` para diagramas técnicos
-5. **APIs**: Use `.. http::` para documentação de endpoints
-
-### **Para Desenvolvedores:**
-
-1. **Componentes React**: Já implementados e funcionais
-2. **Processamento Automático**: Detecta automaticamente o tipo de conteúdo
-3. **Fallback Graceful**: Se RST falhar, mostra como código
-4. **Extensibilidade**: Fácil adicionar novas diretivas
-
-### **Para Administradores:**
-
-1. **Build Pipeline**: Processamento automático no build
-2. **Performance**: Otimizado para não impactar velocidade
-3. **Compatibilidade**: Não quebra conteúdo existente
-4. **Manutenção**: Código modular e bem documentado
-
----
-
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Práticos
-
-### **1. Documentação de Workflows Complexos**
-- Workflows com múltiplos nós
-- Lógica de negócio detalhada
-- Configurações específicas
-- Exemplos de código
-
-### **2. Documentação de API**
-- Endpoints estruturados
-- Parâmetros e respostas
-- Exemplos de uso
-- Códigos de erro
-
-### **3. Diagramas Arquiteturais**
-- Fluxos de dados
-- Arquitetura de sistemas
-- Relacionamentos entre componentes
-- Processos de negócio
-
-### **4. Guias Técnicos**
-- Tutoriais passo a passo
-- Configurações avançadas
-- Troubleshooting
-- Boas práticas
-
----
-
-## <ion-icon name="heart-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Contribuição
-
-Esta funcionalidade híbrida é mantida pela comunidade brasileira de n8n. Para contribuir:
-
-- **Reportar bugs**: Use o sistema de issues do GitHub
-- **Sugerir melhorias**: Abra uma discussão na comunidade
-- **Adicionar funcionalidades**: Submeta um pull request
-- **Documentar casos de uso**: Compartilhe exemplos práticos
-
-:::note Implementação
-Esta funcionalidade é implementada através de componentes React customizados que processam sintaxe RST e Sphinx, mantendo a compatibilidade com o Docusaurus. O código está disponível em `src/components/`.
-:::
-
----
-
-<HybridProcessor content={`
-.. index::
-   single: recursos híbridos; documentação
-   single: reStructuredText; integração
-   single: Sphinx; diretivas
-   single: Docusaurus; tema
-   pair: documentação; técnica
-   see: recursos híbridos; funcionalidades avançadas
-`} />
-
----
-
-## <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conclusão e Funcionalidades Implementadas
-
-Esta página demonstra o poder da abordagem híbrida combinando as melhores funcionalidades de três ecossistemas de documentação:
-
-### ✅ **Funcionalidades reStructuredText Implementadas**
-
-#### **Admonitions (Notas e Avisos)**
-- `.. note::` - Notas informativas
-- `.. warning::` - Avisos importantes
-- `.. tip::` - Dicas úteis
-- `.. important::` - Informações cruciais
-- `.. caution::` - Cuidados necessários
-- `.. error::` - Demonstração de erros
-- `.. hint::` - Sugestões rápidas
-
-#### **Blocos de Código Avançados**
-- `.. code-block::` com suporte a múltiplas linguagens
-- Atributos: `:caption:`, `:name:`, `:linenos:`, `:emphasize-lines:`
-- Destaque de sintaxe automático
-- Numeração de linhas
-- Destaque de linhas específicas
-
-#### **Tabelas Complexas**
-- `.. table::` com controle de larguras
-- Atributos: `:widths:`, `:align:`, `:class:`
-- Suporte a tabelas complexas com múltiplas colunas
-- Alinhamento personalizado
-- Classes CSS customizadas
-
-#### **Matemática e Fórmulas**
-- `.. math::` para equações matemáticas
-- Suporte a LaTeX para fórmulas complexas
-- Labels para referências cruzadas
-- Fórmulas de complexidade, tempo de execução, custos
-
-### ✅ **Funcionalidades Sphinx Implementadas**
-
-#### **Workflows n8n Detalhados**
-- `.. n8n-workflow::` para documentação de workflows
-- Atributos: `:title:`, `:description:`, `:nodes:`, `:executions:`
-- `.. workflow-step::` para documentar passos individuais
-- Suporte a código JavaScript/Python inline
-- Configurações de serviços e templates
-
-#### **Diagramas Graphviz**
-- `.. graphviz::` para diagramas de fluxo
-- Suporte a subgraphs e clusters
-- Cores e estilos personalizados
-- Diagramas de arquitetura de sistema
-- Fluxos de automação visual
-
-#### **Documentação de API**
-- `.. http:get::`, `.. http:post::`, `.. http:put::` para endpoints
-- Parâmetros com tipos e descrições
-- Códigos de status HTTP
-- Exemplos de request/response em JSON
-- Synopsis e documentação completa
-
-### ✅ **Funcionalidades Híbridas Avançadas**
-
-#### **Detecção Automática de Tipo**
-- Análise inteligente do conteúdo
-- Identificação automática de RST vs Sphinx
-- Fallback graceful para Markdown
-- Logs de debug para troubleshooting
-
-#### **Estilos Visuais Integrados**
-- Componentes React customizados
-- CSS responsivo e moderno
-- Ícones Ionic integrados
-- Badges indicativos de tipo de processamento
-- Bordas coloridas para identificação visual
-
-#### **Compatibilidade Total**
-- Integração seamless com Docusaurus
-- Suporte a MDX para componentes React
-- Preservação de funcionalidades nativas do Docusaurus
-- Admonitions nativas do Docusaurus mantidas
-
-### 🚀 **Próximas Funcionalidades Planejadas**
-
-#### **reStructuredText Avançado**
-- `.. figure::` para imagens com legendas
-- `.. rubric::` para títulos de seção
-- `.. epigraph::` para citações
-- `.. bibliography::` para referências
-- `.. index::` para índices automáticos
-- `.. glossary::` para glossários
-
-#### **Sphinx Avançado**
-- `.. toctree::` para navegação hierárquica
-- `.. automodule::` para documentação automática de código
-- `.. autoclass::` para classes Python
-- `.. autofunction::` para funções
-- `.. versionadded::` e `.. versionchanged::` para changelog
-
-#### **Funcionalidades Experimentais**
-- Suporte a diagramas Mermaid
-- Componentes customizados para casos específicos
-- Sistema de templates para workflows
-- Integração com APIs brasileiras (ViaCEP, Receita Federal)
-- Sistema de métricas e analytics
-
-### 💡 **Casos de Uso Ideais**
-
-#### **Documentação Técnica**
-- APIs REST com exemplos completos
-- Workflows complexos com diagramas
-- Arquiteturas de sistema
-- Guias de implementação passo a passo
-
-#### **Documentação Empresarial**
-- Relatórios com métricas e estatísticas
-- Análises de custo e ROI
-- Comparações de tecnologias
-- Estudos de caso detalhados
-
-#### **Tutoriais Interativos**
-- Exemplos práticos e executáveis
-- Código com syntax highlighting
-- Fluxos de automação visual
-- Troubleshooting guiado
-
-#### **Referências e Glossários**
-- Índices automáticos
-- Cross-references inteligentes
-- Glossários técnicos
-- Bibliografias estruturadas
-
-### 🎯 **Vantagens da Abordagem Híbrida**
-
-1. **Simplicidade do Markdown**: Fácil de escrever e manter
-2. **Poder do reStructuredText**: Estrutura hierárquica e formatação rica
-3. **Funcionalidades do Sphinx**: Documentação técnica especializada
-4. **Tema do Docusaurus**: Interface moderna e responsiva
-5. **Detecção Automática**: Zero configuração para tipos de conteúdo
-6. **Extensibilidade**: Fácil adição de novos componentes
-7. **Compatibilidade**: Funciona com ecossistema existente
-
-Esta abordagem híbrida oferece uma solução completa para documentação técnica moderna, combinando a simplicidade do Markdown com o poder do reStructuredText e as funcionalidades especializadas do Sphinx, tudo integrado perfeitamente no ecossistema Docusaurus. A página `/recursos-hibridos` serve como demonstração completa e playground para testar todas essas funcionalidades avançadas.
-
----
-
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Funcionalidades Avançadas do reStructuredText
-
-### <ion-icon name="image-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Figuras e Imagens
-
-<HybridProcessor content={`
-.. figure:: /img/n8n_mono_claro.webp
-   :alt: Logo do n8n
-   :align: center
-   :width: 300px
-   :class: logo-n8n
-
-   Logo oficial do n8n em versão clara
-`} />
-
-### <ion-icon name="text-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Rubricas e Títulos Especiais
-
-<HybridProcessor content={`
-.. rubric:: Título Especial sem Numeração
-
-Este é um título especial que não aparece na numeração automática.
-`} />
-
-### <ion-icon name="list-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Lista de Tabelas
-
-<HybridProcessor content={`
-.. list-table:: Integrações Populares
-   :widths: 20 30 50
-   :header-rows: 1
-   :class: comparison-table
-
-   * - Serviço
-     - Tipo
-     - Descrição
-   * - Gmail
-     - Email
-     - Automação de emails e anexos
-   * - Slack
-     - Comunicação
-     - Notificações e mensagens
-   * - Google Sheets
-     - Produtividade
-     - Manipulação de dados
-   * - WhatsApp
-     - Comunicação
-     - Mensagens e notificações
-   * - Trello
-     - Produtividade
-     - Gerenciamento de tarefas
-`} />
-
-### <ion-icon name="code-slash-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Código com Atributos Avançados
-
-<HybridProcessor content={`
-.. code-block:: javascript
-   :caption: Exemplo de Workflow n8n
-   :name: workflow-exemplo
-   :linenos:
-   :emphasize-lines: 3,7,12
-
-const workflow = {
-  name: "Automação de Vendas",
-  nodes: [
-    {
-      name: "Webhook",
-      type: "n8n-nodes-base.webhook",
-      position: [250, 300]
-    },
-    {
-      name: "Gmail",
-      type: "n8n-nodes-base.gmail",
-      position: [450, 300]
-    },
-    {
-      name: "Slack",
-      type: "n8n-nodes-base.slack",
-      position: [650, 300]
-    }
-  ]
-};
-`} />
-
-### <ion-icon name="document-text-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Tópicos e Sidebars
-
-<HybridProcessor content={`
-.. topic:: Informação Importante
-
-Este é um tópico destacado que pode conter informações importantes
-ou dicas especiais para o usuário.
-
-.. sidebar:: Dica Rápida
-   :subtitle: Otimização de Performance
-
-   Use o modo de execução "Wait" para workflows que precisam
-   aguardar respostas de APIs externas.
-`} />
-
----
-
-**Esta página demonstra o poder e a flexibilidade do sistema híbrido de documentação, combinando a simplicidade do Markdown com o poder expressivo do reStructuredText e Sphinx, mantendo o Docusaurus como base sólida e confiável.**
-
-### <ion-icon name="analytics-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Tabelas com Alinhamento e Larguras
-
-<HybridProcessor content={`
-.. table:: Métricas de Performance
-   :widths: 25 25 25 25
-   :align: center
-   :class: metrics-table
-
-   +----------------+----------------+----------------+----------------+
-   | Métrica        | Valor Atual    | Meta           | Status         |
-   +================+================+================+================+
-   | Execuções/dia  | 1,250          | 1,000          | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Excedida    |
-   +----------------+----------------+----------------+----------------+
-   | Tempo médio    | 2.3s           | < 3s           | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Dentro      |
-   +----------------+----------------+----------------+----------------+
-   | Taxa de erro   | 0.5%           | < 1%           | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Dentro      |
-   +----------------+----------------+----------------+----------------+
-   | Uptime         | 99.8%          | > 99.5%        | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Dentro      |
-   +----------------+----------------+----------------+----------------+
-
-.. rubric:: Análise de Custos
-
-Custo médio por execução: R$ 0.15
-
-Custo total mensal: R$ 5,625
-
-ROI estimado: 340% (baseado em economia de tempo manual)
-`} />
-
-### <ion-icon name="git-compare-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Tabela de Comparação
-
-<HybridProcessor content={`
-.. table:: Comparação de Funcionalidades
-   :widths: 30 35 35
-   :align: center
-   :class: comparison-table
-
-   +----------------+----------------+----------------+
-   | Funcionalidade | Markdown       | RST/Sphinx    |
-   +================+================+================+
-   | Simplicidade   | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Excelente   | <ion-icon name="warning" style="color: #f59e0b; font-size: 16px;"></ion-icon> Moderada   |
-   +----------------+----------------+----------------+
-   | Poder Expressivo| <ion-icon name="warning" style="color: #f59e0b; font-size: 16px;"></ion-icon> Limitado   | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Avançado   |
-   +----------------+----------------+----------------+
-   | Integração     | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Nativa      | <ion-icon name="construct" style="color: #6b7280; font-size: 16px;"></ion-icon> Customizada |
-   +----------------+----------------+----------------+
-   | Performance    | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Rápida      | <ion-icon name="warning" style="color: #f59e0b; font-size: 16px;"></ion-icon> Processamento|
-   +----------------+----------------+----------------+
-   | Extensibilidade| <ion-icon name="warning" style="color: #f59e0b; font-size: 16px;"></ion-icon> Limitada    | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Infinita    |
-   +----------------+----------------+----------------+
-`} />
-
-### <ion-icon name="checkmark-circle-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Tabela de Status
-
-<HybridProcessor content={`
-.. table:: Status dos Componentes
-   :widths: 20 30 25 25
-   :align: center
-   :class: status-table
-
-   +----------------+----------------+----------------+----------------+
-   | Componente     | Status         | Versão         | Última Atualização |
-   +================+================+================+================+
-   | RSTProcessor   | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Ativo       | 1.2.0          | 2024-01-15        |
-   +----------------+----------------+----------------+----------------+
-   | SphinxProcessor| <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Ativo       | 1.1.5          | 2024-01-14        |
-   +----------------+----------------+----------------+----------------+
-   | HybridProcessor| <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Ativo       | 1.3.0          | 2024-01-16        |
-   +----------------+----------------+----------------+----------------+
-   | CSS Styles     | <ion-icon name="checkmark-circle" style="color: #10b981; font-size: 16px;"></ion-icon> Ativo       | 1.0.8          | 2024-01-13        |
-   +----------------+----------------+----------------+----------------+
-   | Python Parser  | <ion-icon name="warning" style="color: #f59e0b; font-size: 16px;"></ion-icon> Manutenção  | 0.9.2          | 2024-01-10        |
-   +----------------+----------------+----------------+----------------+
-`} />
-
-### <ion-icon name="trending-up-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Tabela de Tendências
-
-<HybridProcessor content={`
-.. table:: Análise de Tendências
-   :widths: 25 25 25 25
-   :align: center
-
-   +----------------+----------------+----------------+----------------+
-   | Período        | Execuções      | Performance    | Tendência      |
-   +================+================+================+================+
-   | Janeiro        | 1,250          | 95%            | <ion-icon name="trending-up" style="color: #10b981; font-size: 16px;"></ion-icon> Crescente   |
-   +----------------+----------------+----------------+----------------+
-   | Fevereiro      | 1,380          | 97%            | <ion-icon name="trending-up" style="color: #10b981; font-size: 16px;"></ion-icon> Crescente   |
-   +----------------+----------------+----------------+----------------+
-   | Março          | 1,520          | 98%            | <ion-icon name="trending-up" style="color: #10b981; font-size: 16px;"></ion-icon> Crescente   |
-   +----------------+----------------+----------------+----------------+
-   | Abril          | 1,450          | 96%            | <ion-icon name="trending-down" style="color: #ef4444; font-size: 16px;"></ion-icon> Decrescente |
-   +----------------+----------------+----------------+----------------+
-   | Maio           | 1,680          | 99%            | <ion-icon name="trending-up" style="color: #10b981; font-size: 16px;"></ion-icon> Crescente   |
-   +----------------+----------------+----------------+----------------+
-`} />
-
-### <ion-icon name="calculator-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Equações Matemáticas
-
-<HybridProcessor content={`
-.. math::
- :label: eq:workflow-complexity
-
- C = \\sum_{i=1}^{n} w_i \\times c_i
-
- Onde:
- - C é a complexidade total do workflow
- - w_i é o peso do nó i
- - c_i é a complexidade individual do nó i
- - n é o número total de nós
-
-.. math::
- :label: eq:execution-time
-
- T_{exec} = T_{setup} + \\sum_{i=1}^{n} T_i + T_{cleanup}
-
- Onde:
- - T_{exec} é o tempo total de execução
- - T_{setup} é o tempo de configuração
- - T_i é o tempo de execução do nó i
- - T_{cleanup} é o tempo de limpeza
-
-.. math::
- :label: eq:cost-calculation
-
- C_{total} = C_{infra} + C_{api} + C_{dev} + C_{maintenance}
-
- Onde:
- - C_{total} é o custo total mensal
- - C_{infra} é o custo de infraestrutura
- - C_{api} é o custo de APIs externas
- - C_{dev} é o custo de desenvolvimento
- - C_{maintenance} é o custo de manutenção
-`} />
-
-### <ion-icon name="git-network-outline" style={{ fontSize: '20px', color: '#10b981' }}></ion-icon> Diagramas Graphviz
-
-<HybridProcessor content={`
-.. graphviz::
- :caption: Fluxo de Automação de Vendas
-
- digraph G {
-   rankdir=LR;
-   node [shape=box, style=filled, fillcolor=lightblue];
-   
-   A [label="Webhook\nTrigger"];
-   B [label="Gmail\nNode"];
-   C [label="Slack\nNotification"];
-   D [label="Database\nUpdate"];
-   
-   A -> B;
-   B -> C;
-   C -> D;
- }
-
-.. graphviz::
- :caption: Arquitetura do Sistema n8n
-
- digraph G {
-   rankdir=TB;
-   node [shape=box, style=filled];
-   
-   subgraph cluster_0 {
-     label="Frontend";
-     style=filled;
-     color=lightgrey;
-     A [label="Docusaurus\nDocs", fillcolor=lightgreen];
-     B [label="React\nComponents", fillcolor=lightgreen];
-   }
-   
-   subgraph cluster_1 {
-     label="Backend";
-     style=filled;
-     color=lightgrey;
-     C [label="Python\nParser", fillcolor=lightblue];
-     D [label="RST\nProcessor", fillcolor=lightblue];
-     E [label="Sphinx\nProcessor", fillcolor=lightblue];
-   }
-   
-   A -> C;
-   B -> D;
-   B -> E;
-   C -> D;
-   C -> E;
- }
-`} />
+- ✅ Workflow diagrams
+- ✅ Configurações avançadas
+- ✅ Extensões específicas
+
+<IonicIcon name="bulb-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
+**Dica**: Use os componentes híbridos para manter a compatibilidade com documentação existente em reStructuredText enquanto aproveita os recursos do Docusaurus.

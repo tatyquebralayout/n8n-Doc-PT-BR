@@ -1,12 +1,358 @@
----
+﻿---
 sidebar_position: 2
 title: Autenticação com API Keys
 description: Como configurar e gerenciar API keys no n8n para integrações seguras
 keywords: [n8n, api keys, autenticação, segurança, credenciais]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Autenticação com API Keys
+<IonicIcon name="key-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 Este documento explica como **configurar e gerenciar API keys** no n8n para autenticação segura, abordando melhores práticas de armazenamento, rotação de chaves, configuração de headers de autorização, troubleshooting de problemas de autenticação, e implementação de políticas de segurança que protegem suas integrações contra acessos não autorizados e vazamentos de credenciais.
 
-**Em construção:** Este conteúdo incluirá exemplos específicos com APIs brasileiras e políticas de segurança.
+## O que são API Keys
+
+API Keys são tokens de autenticação que permitem que aplicações se identifiquem e autorizem o acesso a APIs e serviços externos. No n8n, elas são usadas para autenticar requisições HTTP e integrar com diversos serviços.
+
+## Tipos de API Keys
+
+### Chaves de Acesso Simples
+
+Chaves básicas para autenticação:
+
+```javascript
+// Exemplo de configuração
+{
+  "header": "X-API-Key",
+  "value": "sua-chave-api-aqui"
+}
+```
+
+### Chaves com Escopo
+
+Chaves com permissões específicas:
+
+```javascript
+// Exemplo de configuração
+{
+  "header": "Authorization",
+  "value": "Bearer sua-chave-com-escopo"
+}
+```
+
+### Chaves Temporárias
+
+Chaves com expiração:
+
+```javascript
+// Exemplo de configuração
+{
+  "header": "X-Temp-Key",
+  "value": "chave-temporaria",
+  "expires_at": "2024-12-31T23:59:59Z"
+}
+```
+
+## Configuração no n8n
+
+### Criar Credencial de API Key
+
+1. **Acesse o n8n**
+2. **Vá para Settings > Credentials**
+3. **Clique em "Add Credential"**
+4. **Selecione "Generic API"**
+5. **Configure os parâmetros:**
+
+```javascript
+// Configuração básica
+{
+  "name": "Minha API Key",
+  "header": "X-API-Key",
+  "value": "sua-chave-aqui",
+  "url": "https://api.exemplo.com"
+}
+```
+
+### Configuração Avançada
+
+Para APIs mais complexas:
+
+```javascript
+// Configuração avançada
+{
+  "name": "API Complexa",
+  "headers": {
+    "X-API-Key": "sua-chave",
+    "X-Client-ID": "seu-client-id",
+    "Content-Type": "application/json"
+  },
+  "url": "https://api.exemplo.com",
+  "timeout": 30000
+}
+```
+
+## Casos de Uso
+
+### APIs REST Simples
+
+```javascript
+// Configuração para API REST
+{
+  "method": "GET",
+  "url": "https://api.exemplo.com/dados",
+  "headers": {
+    "X-API-Key": "{{$credentials.apiKey}}"
+  }
+}
+```
+
+### Serviços de Terceiros
+
+```javascript
+// Configuração para serviço externo
+{
+  "method": "POST",
+  "url": "https://servico.externo.com/webhook",
+  "headers": {
+    "Authorization": "Bearer {{$credentials.apiKey}}",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "event": "dados_atualizados",
+    "timestamp": "{{$now}}"
+  }
+}
+```
+
+### APIs Internas
+
+```javascript
+// Configuração para API interna
+{
+  "method": "PUT",
+  "url": "https://api-interna.empresa.com/recurso",
+  "headers": {
+    "X-Internal-Key": "{{$credentials.apiKey}}",
+    "X-User-ID": "{{$json.user_id}}"
+  }
+}
+```
+
+## Boas Práticas de Segurança
+
+### Armazenamento Seguro
+
+- **Use variáveis de ambiente** para chaves sensíveis
+- **Nunca commite** chaves no código
+- **Use criptografia** quando possível
+- **Monitore acesso** às chaves
+
+### Rotação de Chaves
+
+```javascript
+// Exemplo de rotação automática
+{
+  "key_rotation": {
+    "enabled": true,
+    "interval_days": 90,
+    "grace_period_hours": 24
+  }
+}
+```
+
+### Controle de Acesso
+
+- **Limite permissões** ao mínimo necessário
+- **Use chaves específicas** para cada ambiente
+- **Monitore uso** das chaves
+- **Configure alertas** para uso anômalo
+
+## Troubleshooting
+
+### Problemas Comuns
+
+#### Chave inválida
+
+**Sintomas:**
+- Erro 401 Unauthorized
+- Erro 403 Forbidden
+- Mensagem "Invalid API Key"
+
+**Soluções:**
+```javascript
+// Verificar formato da chave
+{
+  "test_key": "{{$credentials.apiKey}}",
+  "key_length": "{{$credentials.apiKey.length}}",
+  "key_format": "{{typeof $credentials.apiKey}}"
+}
+```
+
+#### Chave expirada
+
+**Sintomas:**
+- Erro 401 com mensagem de expiração
+- Chave não funciona após período
+
+**Soluções:**
+```javascript
+// Verificar expiração
+{
+  "check_expiration": {
+    "key": "{{$credentials.apiKey}}",
+    "expires_at": "{{$credentials.expiresAt}}",
+    "is_expired": "{{$now > $credentials.expiresAt}}"
+  }
+}
+```
+
+#### Rate Limiting
+
+**Sintomas:**
+- Erro 429 Too Many Requests
+- Resposta lenta da API
+- Limite de requisições atingido
+
+**Soluções:**
+```javascript
+// Implementar delays
+{
+  "delay_between_requests": 1000,
+  "max_requests_per_minute": 60,
+  "retry_after_seconds": 60
+}
+```
+
+### Debug de Problemas
+
+#### Verificar Configuração
+
+```javascript
+// Teste de conectividade
+{
+  "test_request": {
+    "url": "{{$credentials.url}}/test",
+    "method": "GET",
+    "headers": {
+      "X-API-Key": "{{$credentials.apiKey}}"
+    },
+    "timeout": 10000
+  }
+}
+```
+
+#### Logs de Erro
+
+```bash
+# Verificar logs do n8n
+n8n logs --level debug | grep "API Key"
+
+# Verificar logs específicos
+n8n logs --level error | grep "authentication"
+```
+
+## Integração com APIs Brasileiras
+
+### PagSeguro
+
+```javascript
+// Configuração PagSeguro
+{
+  "name": "PagSeguro API",
+  "headers": {
+    "Authorization": "Bearer {{$credentials.pagseguroKey}}",
+    "Content-Type": "application/json"
+  },
+  "url": "https://api.pagseguro.com"
+}
+```
+
+### Mercado Pago
+
+```javascript
+// Configuração Mercado Pago
+{
+  "name": "Mercado Pago API",
+  "headers": {
+    "Authorization": "Bearer {{$credentials.mercadopagoKey}}",
+    "Content-Type": "application/json"
+  },
+  "url": "https://api.mercadopago.com"
+}
+```
+
+### WhatsApp Business API
+
+```javascript
+// Configuração WhatsApp
+{
+  "name": "WhatsApp Business API",
+  "headers": {
+    "Authorization": "Bearer {{$credentials.whatsappKey}}",
+    "Content-Type": "application/json"
+  },
+  "url": "https://graph.facebook.com/v17.0"
+}
+```
+
+## Exemplos Práticos
+
+### Exemplo 1: Integração com CRM
+
+```javascript
+// Configuração para CRM
+{
+  "workflow": {
+    "trigger": "webhook",
+    "action": "create_contact",
+    "api_key": "{{$credentials.crmKey}}",
+    "endpoint": "https://crm.exemplo.com/api/contacts"
+  }
+}
+```
+
+### Exemplo 2: Webhook Seguro
+
+```javascript
+// Configuração de webhook
+{
+  "webhook": {
+    "url": "https://seu-dominio.com/webhook",
+    "headers": {
+      "X-Webhook-Key": "{{$credentials.webhookKey}}",
+      "Content-Type": "application/json"
+    },
+    "security": {
+      "validate_signature": true,
+      "timeout": 30000
+    }
+  }
+}
+```
+
+### Exemplo 3: API com Rate Limiting
+
+```javascript
+// Configuração com rate limiting
+{
+  "api_config": {
+    "base_url": "https://api.exemplo.com",
+    "api_key": "{{$credentials.apiKey}}",
+    "rate_limit": {
+      "requests_per_minute": 60,
+      "delay_between_requests": 1000
+    },
+    "retry": {
+      "max_attempts": 3,
+      "backoff_multiplier": 2
+    }
+  }
+}
+```
+
+## Próximos Passos
+
+- [Basic Authentication](/integracoes/credential-nodes/basic-auth) - Configurar autenticação básica
+- [OAuth Authentication](/integracoes/credential-nodes/oauth) - Configurar OAuth 2.0
+- [HTTP Request Node](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições autenticadas
+- [Segurança](/privacidade-seguranca/security-best-practices) - Boas práticas de segurança
+- [Troubleshooting](/usando-n8n/troubleshooting) - Resolução de problemas

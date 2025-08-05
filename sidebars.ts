@@ -145,7 +145,7 @@ const sidebars: SidebarsConfig = {
             // 'logica-e-dados/data/schema-preview',
             'logica-e-dados/data/data-filtering',
             'logica-e-dados/data/data-editing',
-            'logica-e-dados/data/agregacoes-estatisticas',
+            // 'logica-e-dados/data/agregacoes-estatisticas',
             'logica-e-dados/data/integracao-apis',
             // 'logica-e-dados/data/otimizacao-performance', // Agora só fundamentos, com link para o prático
             // 'logica-e-dados/data/visualizacao-dados',
@@ -495,11 +495,11 @@ const sidebars: SidebarsConfig = {
           label: 'Exemplos e Casos',
                 items: [
         'advanced-ai/exemplos-casos/index',
-        'advanced-ai/exemplos-casos/chatbot-suporte',
-        'advanced-ai/exemplos-casos/classificacao-dados',
-        'advanced-ai/exemplos-casos/geracao-conteudo',
-        'advanced-ai/exemplos-casos/rag-com-arquivos',
-        'advanced-ai/exemplos-casos/ferramentas-ia',
+        // 'advanced-ai/exemplos-casos/chatbot-suporte',
+        // 'advanced-ai/exemplos-casos/classificacao-dados',
+        // 'advanced-ai/exemplos-casos/geracao-conteudo',
+        // 'advanced-ai/exemplos-casos/rag-com-arquivos',
+        // 'advanced-ai/exemplos-casos/ferramentas-ia',
       ],
         },
       ],
@@ -555,49 +555,7 @@ const sidebars: SidebarsConfig = {
         'catalogo/ia-machine-learning',
       ],
     },
-    {
-      type: 'category',
-      label: 'Cursos',
-      items: [
-        'cursos/index',
-        {
-          type: 'category',
-          label: 'Cursos em Vídeo',
-          items: [
-            'cursos/cursos-em-video/index',
-            'cursos/cursos-em-video/curso-iniciante',
-            'cursos/cursos-em-video/curso-avancado',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Cursos em Texto',
-          items: [
-            'cursos/cursos-em-texto/index',
-            {
-              type: 'category',
-              label: 'Nível Um',
-              items: [
-                'cursos/cursos-em-texto/nivel-um/capitulo-1',
-                'cursos/cursos-em-texto/nivel-um/capitulo-2',
-                'cursos/cursos-em-texto/nivel-um/capitulo-3',
-                'cursos/cursos-em-texto/nivel-um/capitulo-4',
-                'cursos/cursos-em-texto/nivel-um/capitulo-5',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Nível Dois',
-              items: [
-                'cursos/cursos-em-texto/nivel-dois/capitulo-1',
-                'cursos/cursos-em-texto/nivel-dois/capitulo-2',
-                'cursos/cursos-em-texto/nivel-dois/capitulo-3',
-              ],
-            },
-          ],
-        },
-      ],
-    },
+
     {
       type: 'category',
       label: 'Comunidade',

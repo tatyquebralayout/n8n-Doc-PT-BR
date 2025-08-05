@@ -1,13 +1,19 @@
----
-title: "Estrutura de Dados no n8n: Guia Completo"
-description: "Entenda como o n8n trafega dados entre os nós, o padrão array de objetos, uso de json e binary, boas práticas e exemplos visuais para automação empresarial."
-keywords: [n8n, estrutura de dados, data structure, json, binary, automação, workflow, boas práticas, integração, exemplos, mermaid]
+﻿---
 sidebar_position: 3
+title: Estrutura de Dados no n8n - Guia Completo
+description: Entenda como o n8n trafega dados entre os nós, o padrão array de objetos, uso de json e binary, boas práticas e exemplos visuais para automação empresarial.
+keywords: [n8n, estrutura de dados, data structure, json, binary, automação, workflow, boas práticas, integração, exemplos, mermaid]
 ---
 
-# <ion-icon name="cube-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura de Dados no n8n: Guia Completo
+<IonicIcon name="cube-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Estrutura de Dados no n8n - Guia Completo
 
 No n8n, **todos os dados trafegam entre os nós como um array de objetos**. Cada objeto representa um item de dados processado pelo workflow, podendo conter informações em formato JSON e/ou binário.
+
+---
+
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ## Estrutura Padrão de Item
 
@@ -33,20 +39,36 @@ Cada item do array possui, no mínimo, a chave `json`. Se houver arquivos ou dad
 ]
 ```
 
-### Explicação dos Campos
+---
 
-- **json**: Objeto com dados estruturados (campos, valores, objetos aninhados).
-- **binary**: Objeto opcional, presente apenas quando há arquivos ou dados binários.
-  - **data**: Conteúdo do arquivo em base64.
-  - **mimeType**: Tipo MIME do arquivo (ex: `image/png`, `application/pdf`).
-  - **fileExtension**: Extensão do arquivo (ex: `png`, `pdf`).
-  - **fileName**: Nome do arquivo original.
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Explicação dos Campos
+
+### Campo `json`
+Objeto com dados estruturados (campos, valores, objetos aninhados).
+
+### Campo `binary` (opcional)
+Objeto presente apenas quando há arquivos ou dados binários:
+- **data**: Conteúdo do arquivo em base64
+- **mimeType**: Tipo MIME do arquivo (ex: `image/png`, `application/pdf`)
+- **fileExtension**: Extensão do arquivo (ex: `png`, `pdf`)
+- **fileName**: Nome do arquivo original
+
+---
+
+<IonicIcon name="checkmark-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ## Boas Práticas
 
-- Sempre defina `mimeType`, `fileExtension` e `fileName` ao manipular dados binários. Isso garante compatibilidade entre nós e facilita o download ou visualização dos arquivos.
-- Estruture o objeto `json` de forma clara, utilizando nomes de campos descritivos e, se necessário, objetos aninhados para dados complexos.
-- Lembre-se: mesmo que um nó processe apenas um item, o dado será sempre um array de objetos.
+**Sempre defina `mimeType`, `fileExtension` e `fileName`** ao manipular dados binários. Isso garante compatibilidade entre nós e facilita o download ou visualização dos arquivos.
+
+- **Estruture o objeto `json`** de forma clara, utilizando nomes de campos descritivos e, se necessário, objetos aninhados para dados complexos
+- **Lembre-se**: mesmo que um nó processe apenas um item, o dado será sempre um array de objetos
+
+---
+
+<IonicIcon name="business-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ## Exemplo Prático
 
@@ -71,7 +93,11 @@ Imagine um workflow que recebe dados de um formulário e um upload de imagem:
 ]
 ```
 
-## Exemplo Nacional: Anexos Contratuais
+---
+
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Exemplo Nacional - Anexos Contratuais
 
 Em automações jurídicas ou empresariais no Brasil, é comum trafegar contratos digitais em PDF junto com os dados do cliente ou empresa. Veja como ficaria um item típico:
 
@@ -95,10 +121,32 @@ Em automações jurídicas ou empresariais no Brasil, é comum trafegar contrato
 ]
 ```
 
-- O campo `contrato_id` facilita rastreabilidade e integração com ERPs/CRMs.
-- O PDF do contrato é armazenado em `binary.contrato`, pronto para assinatura digital, envio por e-mail ou arquivamento.
-- Use sempre metadados corretos para garantir compatibilidade e conformidade jurídica.
+- O campo `contrato_id` facilita rastreabilidade e integração com ERPs/CRMs
+- O PDF do contrato é armazenado em `binary.contrato`, pronto para assinatura digital, envio por e-mail ou arquivamento
+- Use sempre metadados corretos para garantir compatibilidade e conformidade jurídica
 
-## Visualização em Mermaid.js
+---
 
-```
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Próximos passos
+
+1. **[Manipulação de Dados](./data/data-structure)** - Aprenda a trabalhar com arrays e objetos
+2. **[Expressões JavaScript](./expressoes)** - Use expressões para manipular dados
+3. **[Conexões entre Nodes](./conexoes)** - Entenda como os dados fluem
+
+> *Agora você entende a estrutura de dados do n8n. Use essas técnicas para criar workflows eficientes e bem estruturados!*
+
+---
+
+:::tip **Dica Pro**
+Sempre valide a estrutura dos dados antes de processá-los para garantir que estejam no formato esperado.
+:::
+
+:::warning **Importante**
+Mantenha backups seguros dos dados binários, pois são arquivos importantes que podem ser perdidos.
+:::
+
+:::info **Recurso Adicional**
+Use o Debug Helper para visualizar a estrutura completa dos dados que fluem entre os nodes.
+:::

@@ -1,94 +1,103 @@
----
+﻿---
 sidebar_position: 1
 title: Estrutura de Dados
 description: Entenda como os dados são estruturados no n8n
 keywords: [n8n, dados, estrutura, json, binary, array, objetos]
 ---
 
-# <ion-icon name="document-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura de Dados
+<IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Estrutura de Dados
 
 No n8n, todos os dados passados entre nodes são um array de objetos. Eles seguem a seguinte estrutura:
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Estrutura Básica
+---
+
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Estrutura Básica
 
 ```json
 [
- {
-  // Para a maioria dos dados:
   // Envolva cada item em outro objeto, com a chave 'json'
-  "json": {
-   // Exemplo de dados
-   "nome": "João Silva",
-   "idade": 30,
-   "endereco": {
-    "rua": "Rua das Flores",
-    "numero": 123
-   }
-  },
-  // Para dados binários:
-  // Envolva cada item em outro objeto, com a chave 'binary'
-  "binary": {
-   // Exemplo de dados
-   "foto-perfil": {
-    "data": "....", // Dados binários codificados em Base64 (obrigatório)
-    "mimeType": "image/png", // Boa prática definir se possível (opcional)
-    "fileExtension": "png", // Boa prática definir se possível (opcional)
-    "fileName": "perfil.png", // Boa prática definir se possível (opcional)
-   }
+  {
+    "json": {
+      // Exemplo de dados
+      "nome": "João Silva",
+      "idade": 30,
+      "endereco": {
+        "rua": "Rua das Flores",
+        "numero": 123
+      }
+    },
+    // Para dados binários:
+    // Envolva cada item em outro objeto, com a chave 'binary'
+    "binary": {
+      // Exemplo de dados
+      "foto-perfil": {
+        "data": "....", // Dados binários codificados em Base64 (obrigatório)
+        "mimeType": "image/png", // Boa prática definir se possível (opcional)
+        "fileExtension": "png", // Boa prática definir se possível (opcional)
+        "fileName": "perfil.png" // Boa prática definir se possível (opcional)
+      }
+    }
   }
- },
 ]
 ```
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Processamento de Itens de Dados
+---
+
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Processamento de Itens de Dados
 
 :::tip **Pular a chave `json` e sintaxe de array**
 A partir da versão 0.166.0, ao usar o Function node ou Code node, o n8n adiciona automaticamente a chave `json` se estiver faltando. Ele também envolve automaticamente seus itens em um array (`[]`) se necessário. Isso só acontece ao usar os Function ou Code nodes. Ao construir seus próprios nodes, você ainda deve garantir que o node retorne dados com a chave `json`.
 :::
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Exemplos Práticos
+---
+
+<IonicIcon name="grid-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Exemplos de Estruturas
 
 ### Dados Simples
 
 ```json
 [
- {
-  "json": {
-   "id": 1,
-   "nome": "Produto A",
-   "preco": 29.99
+  {
+    "json": {
+      "id": 1,
+      "nome": "Produto A",
+      "preco": 29.99
+    }
+  },
+  {
+    "json": {
+      "id": 2,
+      "nome": "Produto B",
+      "preco": 49.99
+    }
   }
- },
- {
-  "json": {
-   "id": 2,
-   "nome": "Produto B", 
-   "preco": 49.99
-  }
- }
 ]
 ```
 
-### Dados Aninhados
+### Dados Complexos
 
 ```json
 [
- {
-  "json": {
-   "cliente": {
-    "id": "C001",
-    "nome": "Maria Santos",
-    "contato": {
-     "email": "maria@email.com",
-     "telefone": "(11) 99999-9999"
+  {
+    "json": {
+      "cliente": {
+        "id": "C001",
+        "nome": "Maria Santos",
+        "contato": {
+          "email": "maria@email.com",
+          "telefone": "(11) 99999-9999"
+        }
+      },
+      "pedidos": [
+        {"id": "P001", "valor": 150.00},
+        {"id": "P002", "valor": 75.50}
+      ]
     }
-   },
-   "pedidos": [
-    {"id": "P001", "valor": 150.00},
-    {"id": "P002", "valor": 75.50}
-   ]
   }
- }
 ]
 ```
 
@@ -96,23 +105,26 @@ A partir da versão 0.166.0, ao usar o Function node ou Code node, o n8n adicion
 
 ```json
 [
- {
-  "json": {
-   "nome": "documento.pdf"
-  },
-  "binary": {
-   "arquivo": {
-    "data": "JVBERi0xLjQKJcOkw7zDtsO...",
-    "mimeType": "application/pdf",
-    "fileExtension": "pdf",
-    "fileName": "documento.pdf"
-   }
+  {
+    "json": {
+      "nome": "documento.pdf"
+    },
+    "binary": {
+      "arquivo": {
+        "data": "JVBERi0xLjQKJcOkw7zDtsO...",
+        "mimeType": "application/pdf",
+        "fileExtension": "pdf",
+        "fileName": "documento.pdf"
+      }
+    }
   }
- }
 ]
 ```
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Como os Dados Fluem
+---
+
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Como os Dados Fluem
 
 Cada node no n8n:
 
@@ -134,25 +146,27 @@ graph LR
     D --> D1[Array de 5 emails enviados]
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurações de Execução
+---
 
-### Execute Once
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Próximos passos
 
-Para situações onde você não quer que um node processe todos os itens recebidos, você pode ativar o parâmetro **Execute Once** na aba **Settings** do node. Isso é útil quando os dados de entrada contêm múltiplos itens e você quer processar apenas o primeiro.
+1. **[Fluxo de Dados Dentro dos Nodes](./data-flow-nodes)** - Entenda como os dados fluem
+2. **[Data Mapping Avançado](./data-mapping-avancado)** - Técnicas de mapeamento
+3. **[Filtros de Dados](./data-filtering)** - Filtre e processe dados
 
-### Processamento em Lote
+> *Agora você entende a estrutura de dados do n8n. Use esse conhecimento para criar workflows mais eficientes!*
 
-Alguns nodes podem processar todos os itens de uma vez, enquanto outros processam item por item. Isso depende da configuração do node e do tipo de operação.
+---
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+:::tip **Dica Pro**
+Sempre verifique a estrutura dos dados de saída de cada node antes de conectá-lo ao próximo para evitar erros de mapeamento.
+:::
 
-1. **Entenda [Data Flow](./data-flow-nodes)** para ver como os dados se movem entre nodes
-2. **Aprenda [Transforming Data](./transformacoes-dados)** para modificar a estrutura dos dados
-3. **Explore [Data Mapping](./data-mapping-avancado)** para mapear dados entre nodes
+:::warning **Importante**
+Dados binários devem sempre ser codificados em Base64 e incluir o campo `data` obrigatório.
+:::
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
-
-- **[Data Flow](./data-flow-nodes)** - Como os dados fluem entre nodes
-- **[Transforming Data](./transformacoes-dados)** - Transformar estrutura de dados
-- **[Binary Data](./binary-data)** - Trabalhar com arquivos e dados binários
-- **[Core Nodes](../integracoes/builtin-nodes/core-nodes/)** - Nodes para manipulação de dados
+:::info **Recurso Adicional**
+Use o Schema Preview para visualizar a estrutura dos dados antes de processá-los em seus workflows.
+:::

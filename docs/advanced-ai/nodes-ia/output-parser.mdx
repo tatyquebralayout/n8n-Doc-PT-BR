@@ -1,19 +1,232 @@
-import { Icon } from '@iconify/react';
-
 ---
-
 sidebar_position: 4
-title: Output Parser
+title: "Output Parser"
 description: Como usar o node Output Parser para estruturar respostas de IA
 keywords: [n8n, output parser, estruturação de dados, validação de IA, parsing, automação inteligente, dados estruturados]
 ---
 
-# Output Parser no n8n: Estruturação e Validação de Respostas de IA
+## Output Parser no n8n: Estruturação e Validação de Respostas de IA
 
 Este documento descreve o **Analisador de Saída (Output Parser)**, usado para estruturar e validar os dados retornados por um modelo de IA.
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node Output Parser
+## O que é o Output Parser?
 
-Este documento ensina como **usar o Output Parser** para estruturar respostas de IA, incluindo extração de dados estruturados, formatação de JSON, validação de outputs, transformação de texto livre em campos organizados, e técnicas que garantem consistência e usabilidade das respostas geradas por modelos de linguagem em workflows automatizados que requerem dados padronizados.
+O Output Parser é um node especializado que converte respostas de texto livre de modelos de IA em dados estruturados e validados. Ele é essencial para garantir que as respostas de IA sejam consistentes e utilizáveis em workflows automatizados.
 
-**Em construção:** Este conteúdo incluirá exemplos específicos para parsing de dados brasileiros e validações locais.
+## Funcionalidades Principais
+
+### Estruturação de Dados
+
+- Conversão de texto livre em JSON
+- Extração de campos específicos
+- Formatação padronizada
+
+### Validação de Outputs
+
+- Verificação de tipos de dados
+- Validação de campos obrigatórios
+- Tratamento de erros de parsing
+
+### Transformação Inteligente
+
+- Mapeamento de campos
+- Conversão de formatos
+- Normalização de dados
+
+## Configuração Básica
+
+### 1. Definição do Schema
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "sentiment": {
+      "type": "string",
+      "enum": ["POSITIVO", "NEUTRO", "NEGATIVO"]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "keywords": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "required": ["sentiment", "confidence"]
+}
+```
+
+### 2. Configuração do Parser
+
+- Defina o formato de saída esperado
+- Configure validações específicas
+- Implemente tratamento de erros
+
+### 3. Integração com IA
+
+- Conecte com nodes de IA
+- Configure prompts estruturados
+- Valide respostas automaticamente
+
+## Casos de Uso
+
+### Análise de Sentimentos
+
+```javascript
+// Exemplo de parsing de análise de sentimentos
+const sentimentParser = {
+  "type": "object",
+  "properties": {
+    "sentiment": {"type": "string"},
+    "score": {"type": "number"},
+    "keywords": {"type": "array"}
+  }
+};
+```
+
+### Classificação de Tickets
+
+```javascript
+// Parser para classificação de tickets
+const ticketParser = {
+  "type": "object",
+  "properties": {
+    "category": {"type": "string"},
+    "priority": {"type": "string"},
+    "urgency": {"type": "number"}
+  }
+};
+```
+
+### Extração de Informações
+
+```javascript
+// Parser para extração de dados
+const extractionParser = {
+  "type": "object",
+  "properties": {
+    "name": {"type": "string"},
+    "email": {"type": "string"},
+    "phone": {"type": "string"}
+  }
+};
+```
+
+## Configurações Avançadas
+
+### Validação Customizada
+
+```javascript
+// Validação específica para dados brasileiros
+const brazilianValidation = {
+  "cpf": {
+    "type": "string",
+    "pattern": "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$"
+  },
+  "phone": {
+    "type": "string",
+    "pattern": "^\\+55\\s?\\d{2}\\s?\\d{4,5}-?\\d{4}$"
+  }
+};
+```
+
+### Tratamento de Erros
+
+- Implemente fallbacks para parsing falhado
+- Configure retry logic
+- Registre erros para análise
+
+### Otimização de Performance
+
+- Cache de schemas validados
+- Processamento em lote
+- Compressão de dados
+
+## Integração com Outros Nodes
+
+### OpenAI Chat
+
+- Estruture respostas de GPT
+- Valide formatos esperados
+- Implemente retry em caso de falha
+
+### Code Node
+
+- Processe dados estruturados
+- Implemente lógica customizada
+- Transforme dados conforme necessário
+
+### HTTP Request
+
+- Envie dados validados para APIs
+- Garanta formato correto
+- Implemente logging de erros
+
+## Exemplos Práticos
+
+### Chatbot com Resposta Estruturada
+
+```javascript
+// Prompt para resposta estruturada
+const structuredPrompt = `
+Analise o seguinte texto e responda em JSON:
+Texto: {{$json.text}}
+
+Responda no formato:
+{
+  "sentiment": "POSITIVO|NEUTRO|NEGATIVO",
+  "confidence": 0.85,
+  "keywords": ["palavra1", "palavra2"]
+}
+`;
+```
+
+### Classificação Automática
+
+```javascript
+// Parser para classificação automática
+const classificationParser = {
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "enum": ["TÉCNICO", "COMERCIAL", "FINANCEIRO", "OPERACIONAL"]
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["ALTA", "MÉDIA", "BAIXA"]
+    }
+  }
+};
+```
+
+## Troubleshooting
+
+### Problemas Comuns
+
+- **Parsing Falhado**: Verifique formato do prompt
+- **Campos Ausentes**: Configure campos obrigatórios
+- **Tipos Incorretos**: Valide tipos de dados
+
+### Otimizações
+
+- Use schemas específicos para cada caso
+- Implemente validação progressiva
+- Monitore taxa de sucesso do parsing
+
+:::tip **Dica**
+Sempre teste o parsing com dados reais antes de implementar em produção. Use exemplos brasileiros para validar o comportamento.
+:::
+
+## Próximos Passos
+
+- [OpenAI Chat](./openai-chat) - Geração de respostas
+- [Memory Manager](./memory-manager) - Contexto estruturado
+- [Tutorial de IA](../tutorial-ai) - Casos de uso reais
+
+---
+
+**Em desenvolvimento:** Este conteúdo incluirá exemplos específicos para parsing de dados brasileiros e validações locais.

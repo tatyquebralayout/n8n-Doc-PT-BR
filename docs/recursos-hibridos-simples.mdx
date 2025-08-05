@@ -7,13 +7,15 @@ keywords: [reStructuredText, Sphinx, Docusaurus, teste, híbrido]
 
 import HybridProcessor from '@site/src/components/HybridProcessor';
 
-# 🧪 Teste Simples - Recursos Híbridos
+# Teste Simples - Recursos Híbridos
 
 Esta página contém testes básicos e simplificados dos componentes híbridos.
 
-## 📝 Teste RST Básico
+## Teste RST Básico
 
-<HybridProcessor type="rst" content={`
+<HybridProcessor 
+  type="rst" 
+  content={`
 .. note:: Teste Simples
    Esta é uma nota básica para verificar funcionamento.
 
@@ -21,9 +23,11 @@ Esta página contém testes básicos e simplificados dos componentes híbridos.
    Este é um aviso simples.
 `} />
 
-## 🔧 Teste Sphinx Básico
+## Teste Sphinx Básico
 
-<HybridProcessor type="sphinx" content={`
+<HybridProcessor 
+  type="sphinx" 
+  content={`
 .. n8n-workflow:: teste-basico
    :title: Workflow Básico
    :description: Um teste simples
@@ -33,16 +37,18 @@ Esta página contém testes básicos e simplificados dos componentes híbridos.
       :description: Trigger básico
 `} />
 
-## ⚡ Teste de Detecção Automática
+## Teste de Detecção Automática
 
-<HybridProcessor content={`
+<HybridProcessor 
+  content={`
 .. tip:: Detecção Automática
    Este conteúdo deve ser detectado como RST automaticamente.
 `} />
 
-## 💻 Teste de Código
+## Teste de Código
 
-<HybridProcessor content={`
+<HybridProcessor 
+  content={`
 .. code-block:: javascript
    :caption: Exemplo Simples
 
@@ -52,9 +58,10 @@ Esta página contém testes básicos e simplificados dos componentes híbridos.
    };
 `} />
 
-## 📊 Teste de Tabela
+## Teste de Tabela
 
-<HybridProcessor content={`
+<HybridProcessor 
+  content={`
 .. table:: Teste Simples
    :widths: 50 50
 
@@ -69,18 +76,24 @@ Esta página contém testes básicos e simplificados dos componentes híbridos.
 
 ---
 
-## ✅ **Status dos Testes**
+## Status dos Testes
 
-Se você consegue ver os componentes acima renderizados corretamente, o sistema híbrido está funcionando! 
+Se você consegue ver os componentes acima renderizados corretamente, o sistema híbrido está funcionando!
 
-### 🐛 **Problemas Conhecidos Corrigidos:**
-- ✅ Erro de hoisting no RSTProcessor
+## Problemas Conhecidos
+
+### ✅ Corrigidos
+- Erro de hoisting no RSTProcessor
 - ✅ Lazy loading otimizado
 - ✅ Error boundaries implementados
 - ✅ Performance melhorada
 
-### 🔄 **Próximos Passos:**
-1. Testar esta página simples primeiro
-2. Corrigir problemas do KaTeX com Unicode
-3. Otimizar página principal recursos-hibridos.mdx
-4. Adicionar mais funcionalidades gradualmente 
+## Próximos Passos
+
+1. **Testar esta página simples** primeiro
+2. **Corrigir problemas do KaTeX** com Unicode
+3. **Otimizar página principal** recursos-hibridos.mdx
+4. **Adicionar mais funcionalidades** gradualmente
+
+<IonicIcon name="bulb-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
+**Dica**: Esta página serve como teste básico para verificar se os componentes híbridos estão funcionando corretamente.

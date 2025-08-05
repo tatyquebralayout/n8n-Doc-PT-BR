@@ -5,43 +5,12 @@ description: Como integrar n8n com PIX para automação de pagamentos brasileiro
 keywords: [n8n, pix, pagamentos, brasil, financeiro, automação, qr code, banco]
 ---
 
-# <ion-icon name="card-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração PIX
+<IonicIcon name="card-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+integrao-pix
 
 O **PIX** é o sistema de pagamentos instantâneos do Banco Central do Brasil, e a integração com n8n permite automatizar processos financeiros, criar workflows de pagamento e gerenciar transações de forma eficiente e segura.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visão Geral
-
-A integração n8n-PIX oferece:
-
-- **Geração automática de QR Codes** para pagamentos
-- **Verificação de recebimentos** em tempo real
-- **Conciliação bancária automatizada** com PIX
-- **Integração com e-commerces** brasileiros
-- **Webhooks para notificações** de pagamentos
-- **Relatórios financeiros** automatizados
-
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configuração
-
-### 1. Configurar Conta Bancária
-
-Para usar PIX com n8n, você precisa:
-
-1. **Conta bancária habilitada para PIX**
-2. **Chave PIX cadastrada** (CPF, CNPJ, email, telefone ou chave aleatória)
-3. **Acesso à API do banco** (se disponível)
-4. **Certificados digitais** (para APIs bancárias)
-
-### 2. APIs Bancárias Disponíveis
-
-**Bancos com APIs PIX:**
-- **Banco do Brasil** - API PIX
-- **Itaú** - API PIX
-- **Bradesco** - API PIX
-- **Santander** - API PIX
-- **Caixa Econômica** - API PIX
-- **Nubank** - API PIX
-
-### 3. Configurar Credenciais
+## Configuração Inicial
 
 ```json
 {
@@ -53,7 +22,7 @@ Para usar PIX com n8n, você precisa:
 }
 ```
 
-## <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nós Disponíveis
+## Nós Disponíveis
 
 ### 1. PIX QR Code Generator
 
@@ -67,19 +36,20 @@ Gera QR Codes PIX para pagamentos.
   "valor": 100.50,
   "beneficiario": "Empresa Exemplo LTDA",
   "cidade": "São Paulo",
-  "descricao": "Pedido #12345"
+  "txid": "12345"
 }
 ```
 
 **Configuração avançada:**
+
 ```json
 {
-  "banco": "{{ $json.banco }}",
-  "chave_pix": "{{ $json.chave_pix }}",
-  "valor": "{{ $json.valor }}",
-  "beneficiario": "{{ $json.beneficiario }}",
-  "cidade": "{{ $json.cidade }}",
-  "descricao": "{{ $json.descricao }}",
+  "banco": "{{$json.banco}}",
+  "chave_pix": "{{$json.chave_pix}}",
+  "valor": "{{$json.valor}}",
+  "beneficiario": "{{$json.beneficiario}}",
+  "cidade": "{{$json.cidade}}",
+  "descricao": "{{$json.descricao}}",
   "tipo_qr": "dinamico",
   "expiracao": 3600
 }
@@ -90,12 +60,13 @@ Gera QR Codes PIX para pagamentos.
 Verifica se um pagamento PIX foi recebido.
 
 **Configuração:**
+
 ```json
 {
   "banco": "banco_do_brasil",
-  "txid": "{{ $json.txid }}",
-  "data_inicio": "{{ $now.subtract(1, 'hour') }}",
-  "data_fim": "{{ $now }}"
+  "txid": "{{$json.txid}}",
+  "data_inicio": "{{$now.subtract(1, 'hour')}}",
+  "data_fim": "{{$now}}"
 }
 ```
 
@@ -104,6 +75,7 @@ Verifica se um pagamento PIX foi recebido.
 Recebe notificações de pagamentos PIX via webhook.
 
 **Configuração:**
+
 ```json
 {
   "webhook_url": "https://seu-dominio.com/webhook/pix",
@@ -115,11 +87,11 @@ Recebe notificações de pagamentos PIX via webhook.
 }
 ```
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Práticos
+## Casos de Uso Práticos
 
 ### 1. E-commerce com PIX
 
-**Cenário**: Sistema de pagamento PIX para loja online.
+**Cenário:** Sistema de pagamento PIX para loja online.
 
 ```mermaid
 graph TD
@@ -133,20 +105,22 @@ graph TD
 ```
 
 **Configuração do QR Code:**
+
 ```json
 {
   "banco": "banco_do_brasil",
   "chave_pix": "vendas@empresa.com",
-  "valor": "{{ $json.valor_total }}",
+  "valor": "{{$json.valor_total}}",
   "beneficiario": "Empresa LTDA",
   "cidade": "São Paulo",
-  "descricao": "Pedido #{{ $json.pedido_id }}",
+  "descricao": "Pedido #{{$json.pedido_id}}",
   "tipo_qr": "dinamico",
   "expiracao": 1800
 }
 ```
 
 **Configuração do Monitoramento:**
+
 ```javascript
 // Code Node - Verificar pagamento
 const txid = $json.txid;
@@ -187,13 +161,14 @@ graph TD
 ```
 
 **Configuração da Cobrança:**
+
 ```json
 {
-  "banco": "{{ $json.banco }}",
-  "chave_pix": "{{ $json.chave_pix }}",
-  "valor": "{{ $json.valor_mensalidade }}",
+  "banco": "{{$json.banco}}",
+  "chave_pix": "{{$json.chave_pix}}",
+  "valor": "{{$json.valor_mensalidade}}",
   "beneficiario": "Empresa LTDA",
-  "descricao": "Mensalidade {{ $json.plano }} - {{ $json.cliente }}",
+  "descricao": "Mensalidade {{$json.plano}} - {{$json.cliente}}",
   "tipo_qr": "dinamico",
   "expiracao": 259200  // 3 dias
 }
@@ -201,7 +176,7 @@ graph TD
 
 ### 3. Conciliação Bancária PIX
 
-**Cenário**: Conciliação automática de pagamentos PIX com sistema interno.
+**Cenário:** Conciliação automática de pagamentos PIX com sistema interno.
 
 ```mermaid
 graph TD
@@ -215,6 +190,7 @@ graph TD
 ```
 
 **Configuração da Conciliação:**
+
 ```javascript
 // Code Node - Conciliação
 const pixData = $json;
@@ -260,30 +236,31 @@ graph TD
 ```
 
 **Configuração da Devolução:**
+
 ```json
 {
   "banco": "banco_do_brasil",
-  "txid_original": "{{ $json.txid_original }}",
-  "valor_devolucao": "{{ $json.valor_devolucao }}",
+  "txid_original": "{{$json.txid_original}}",
+  "valor_devolucao": "{{$json.valor_devolucao}}",
   "motivo": "Cancelamento de pedido",
-  "chave_pix_devolucao": "{{ $json.chave_pix_cliente }}"
+  "chave_pix_devolucao": "{{$json.chave_pix_cliente}}"
 }
 ```
 
-## <ion-icon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões e Data Mapping
+## Expressões e Data Mapping
 
 ### QR Codes Dinâmicos
 
 ```javascript
 // QR Code com dados dinâmicos
 {
-  "banco": "{{ $json.banco }}",
-  "chave_pix": "{{ $json.chave_pix }}",
-  "valor": "{{ $json.valor }}",
-  "beneficiario": "{{ $json.beneficiario }}",
-  "descricao": "{{ $json.tipo }} #{{ $json.id }} - {{ $json.cliente }}",
+  "banco": "{{$json.banco}}",
+  "chave_pix": "{{$json.chave_pix}}",
+  "valor": "{{$json.valor}}",
+  "beneficiario": "{{$json.beneficiario}}",
+  "descricao": "{{$json.tipo}} - {{$json.cliente}}",
   "tipo_qr": "dinamico",
-  "expiracao": "{{ $json.expiracao_horas * 3600 }}"
+  "expiracao": "{{$json.expiracao_horas * 3600}}"
 }
 ```
 
@@ -304,7 +281,7 @@ for (let i = 0; i < maxTentativas; i++) {
       data_pagamento: pagamento.data
     };
   }
-  
+
   if (i < maxTentativas - 1) {
     await new Promise(resolve => setTimeout(resolve, intervalo));
   }
@@ -316,26 +293,29 @@ return {
 };
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
+## Tratamento de Erros
 
-### Erros Comuns PIX
+### Erros Comuns
 
 **Erro: "QR Code expirado"**
+
 - Gere novo QR Code
 - Aumente tempo de expiração
 - Implemente renovação automática
 
 **Erro: "Pagamento não encontrado"**
+
 - Verifique TXID
 - Aguarde sincronização bancária
 - Implemente retry com delay
 
 **Erro: "Valor divergente"**
+
 - Verifique valores no sistema
 - Implemente tolerância
 - Log detalhado para auditoria
 
-### Retry Strategy
+### Estratégia de Retry
 
 ```javascript
 // Estratégia de retry para PIX
@@ -363,7 +343,7 @@ for (let attempt = 1; attempt <= retryConfig.maxTries; attempt++) {
 }
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
+## Boas Práticas
 
 ### 1. Segurança
 
@@ -415,26 +395,29 @@ await enviarMetricas(metrics);
 - **Implemente auditoria** completa
 - **Use certificados** digitais válidos
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+## Troubleshooting
 
 ### Problemas Comuns
 
 **Erro: "Certificado inválido"**
+
 - Verifique validade do certificado
 - Confirme senha do certificado
 - Renove certificado se necessário
 
 **Erro: "API rate limit"**
+
 - Implemente delays entre requisições
 - Use cache para dados não críticos
 - Distribua carga entre múltiplas contas
 
 **Erro: "QR Code não gerado"**
+
 - Verifique dados obrigatórios
 - Confirme chave PIX válida
 - Teste com valores menores
 
-### Debugging
+### Debugging Detalhado
 
 ```javascript
 // Log detalhado para debugging
@@ -447,7 +430,7 @@ console.log('PIX Debug:', {
 });
 ```
 
-## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Outros Nós
+## Integração com Outros Nós
 
 ### Fluxo Completo
 
@@ -486,23 +469,23 @@ return qrCodeData;
 
 // 3. PIX - Gerar QR Code
 {
-  "banco": "{{ $json.banco }}",
-  "chave_pix": "{{ $json.chave_pix }}",
-  "valor": "{{ $json.valor }}",
-  "beneficiario": "{{ $json.beneficiario }}",
-  "descricao": "{{ $json.descricao }}",
-  "tipo_qr": "{{ $json.tipo_qr }}",
-  "expiracao": "{{ $json.expiracao }}"
+  "banco": "{{$json.banco}}",
+  "chave_pix": "{{$json.chave_pix}}",
+  "valor": "{{$json.valor}}",
+  "beneficiario": "{{$json.beneficiario}}",
+  "descricao": "{{$json.descricao}}",
+  "tipo_qr": "{{$json.tipo_qr}}",
+  "expiracao": "{{$json.expiracao}}"
 }
 
 // 4. Email - Enviar QR Code
 {
-  "to": "{{ $('Webhook').json.cliente_email }}",
-  "subject": "Pagamento PIX - Pedido #{{ $('Webhook').json.id }}",
+  "to": "{{$('Webhook').json.cliente_email}}",
+  "subject": "Pagamento PIX - Pedido #{{$('Webhook').json.id}}",
   "html": `
     <h2>Pagamento PIX</h2>
-    <p>Valor: R$ {{ $json.valor }}</p>
-    <img src="{{ $json.qr_code_url }}" alt="QR Code PIX">
+    <p>Valor: R$ {{$json.valor}}</p>
+    <img src="{{$json.qr_code_url}}" alt="QR Code PIX">
   `
 }
 
@@ -514,15 +497,15 @@ return qrCodeData;
 
 // 6. PIX - Verificar pagamento
 {
-  "banco": "{{ $('Code Node').json.banco }}",
-  "txid": "{{ $('PIX QR Code').json.txid }}"
+  "banco": "{{$('Code Node').json.banco}}",
+  "txid": "{{$('PIX QR Code').json.txid}}"
 }
 ```
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências
+## Referências
 
-- **[Conciliação Bancária](../financeiro/conciliacao-bancaria)** - Conciliação automatizada
-- **[NFE Integração](../financeiro/nfe-integracao)** - Integração com notas fiscais
+- **[Conciliação Bancária](./conciliacao-bancaria)** - Conciliação automatizada
+- **[NFE Integração](./nfe-integracao)** - Integração com notas fiscais
 - **[HTTP Request](../../integracoes/builtin-nodes/http-requests/http-request)** - APIs bancárias
 - **[Webhook Trigger](../../integracoes/trigger-nodes/event-based/webhook-trigger)** - Notificações PIX
 
@@ -532,4 +515,4 @@ return qrCodeData;
 Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
 :::
 
-> <ion-icon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon> **Dica**: Use a integração PIX para modernizar seus processos financeiros. Lembre-se de sempre implementar logs detalhados e monitoramento para garantir a segurança e rastreabilidade das transações.
+> **O conhecimento compartilhado em vídeo é uma das formas mais eficazes de aprender automação. Cada tutorial, cada dica, cada caso de uso ajuda a construir uma comunidade mais forte e capacitada.**

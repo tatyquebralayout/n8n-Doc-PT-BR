@@ -1,21 +1,22 @@
----
+﻿---
 title: Controle de Lógica
 description: Nodes para controlar o fluxo de execução e tomar decisões baseadas em condições no n8n
 sidebar_position: 1
 keywords: [n8n, lógica, controle, fluxo, condições, decisões, if, switch, merge]
 ---
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Controle de Lógica
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 Os nodes de **Controle de Lógica** são fundamentais para criar workflows inteligentes e dinâmicos no n8n. Eles permitem que você controle o fluxo de execução, tome decisões baseadas em condições e combine dados de diferentes fontes.
 
 ## Nodes Disponíveis
 
-### <ion-icon name="checkmark-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> If
+### If Node
 
-O node **If** permite criar condições e tomar decisões baseadas em valores ou expressões, direcionando o fluxo do workflow.
+<IonicIcon name="checkmark-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 **Principais funcionalidades:**
+
 - Avaliar condições simples e complexas
 - Direcionar dados para diferentes caminhos
 - Usar expressões n8n para lógica avançada
@@ -23,6 +24,7 @@ O node **If** permite criar condições e tomar decisões baseadas em valores ou
 - Criar fluxos condicionais
 
 **Casos de uso:**
+
 - Validar dados de entrada
 - Filtrar informações por critérios
 - Implementar regras de negócio
@@ -31,11 +33,12 @@ O node **If** permite criar condições e tomar decisões baseadas em valores ou
 
 [Ver documentação completa →](/integracoes/builtin-nodes/logic-control/if)
 
-### <ion-icon name="git-network-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Switch
+### Switch Node
 
-O node **Switch** permite direcionar dados para múltiplos caminhos baseado em diferentes condições, criando fluxos complexos.
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 **Principais funcionalidades:**
+
 - Múltiplos caminhos de saída
 - Condições independentes
 - Caminho padrão para casos não cobertos
@@ -43,6 +46,7 @@ O node **Switch** permite direcionar dados para múltiplos caminhos baseado em d
 - Fluxos paralelos de processamento
 
 **Casos de uso:**
+
 - Classificar dados por tipo
 - Implementar máquinas de estado
 - Processar diferentes tipos de eventos
@@ -51,11 +55,12 @@ O node **Switch** permite direcionar dados para múltiplos caminhos baseado em d
 
 [Ver documentação completa →](/integracoes/builtin-nodes/logic-control/switch)
 
-### <ion-icon name="git-merge-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Merge
+### Merge Node
 
-O node **Merge** permite combinar dados de múltiplas fontes em um único fluxo, unindo informações relacionadas.
+<IonicIcon name="git-merge-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 **Principais funcionalidades:**
+
 - Combinar dados de diferentes nodes
 - Unir informações relacionadas
 - Sincronizar fluxos paralelos
@@ -63,6 +68,7 @@ O node **Merge** permite combinar dados de múltiplas fontes em um único fluxo,
 - Criar estruturas de dados consolidadas
 
 **Casos de uso:**
+
 - Mesclar dados de diferentes APIs
 - Combinar informações de clientes
 - Sincronizar processamento paralelo
@@ -71,6 +77,28 @@ O node **Merge** permite combinar dados de múltiplas fontes em um único fluxo,
 
 [Ver documentação completa →](/integracoes/builtin-nodes/logic-control/merge)
 
+### Wait Node
+
+<IonicIcon name="time-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+**Principais funcionalidades:**
+
+- Adicionar pausas programadas
+- Implementar delays condicionais
+- Sincronizar processos
+- Controlar timing de execução
+- Implementar rate limiting
+
+**Casos de uso:**
+
+- Rate limiting para APIs
+- Processamento em lotes
+- Retry com backoff exponencial
+- Sincronização com sistemas externos
+- Polling inteligente
+
+[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/wait)
+
 ## Conceitos Fundamentais
 
 ### Fluxo de Controle
@@ -78,6 +106,7 @@ O node **Merge** permite combinar dados de múltiplas fontes em um único fluxo,
 O **fluxo de controle** determina como os dados se movem através do workflow, baseado em condições e decisões.
 
 **Tipos de fluxo:**
+
 - **Sequencial**: Execução linha por linha
 - **Condicional**: Execução baseada em condições
 - **Paralelo**: Execução simultânea
@@ -88,6 +117,7 @@ O **fluxo de controle** determina como os dados se movem através do workflow, b
 As **condições** são expressões que avaliam para verdadeiro ou falso, determinando o caminho do fluxo.
 
 **Tipos de condições:**
+
 - **Comparações**: `==`, `!=`, `>`, `<`, `>=`, `<=`
 - **Lógicas**: `AND`, `OR`, `NOT`
 - **Existe**: Verificar se campo existe
@@ -105,12 +135,15 @@ As **estruturas de decisão** permitem criar lógica complexa no workflow:
 
 ## Padrões de Controle
 
-### 1. Validação e Filtragem
+### Validação e Filtragem
 
-```
-Dados de Entrada → Validação → Dados Válidos → Processamento
-                ↓
-            Dados Inválidos → Tratamento de Erro
+```mermaid
+graph TD
+    A[Dados de Entrada] --> B[Validação]
+    B --> C[Dados Válidos]
+    C --> D[Processamento]
+    B --> E[Dados Inválidos]
+    E --> F[Tratamento de Erro]
 ```
 
 **Exemplo:**
@@ -119,25 +152,36 @@ Dados de Entrada → Validação → Dados Válidos → Processamento
 3. **If** node confirma se dados estão completos
 4. Dados válidos seguem para processamento
 
-### 2. Roteamento por Tipo
+### Roteamento por Tipo
 
-```
-Dados de Entrada → Switch → Tipo A → Processamento A
-                ↓        → Tipo B → Processamento B
-                          → Tipo C → Processamento C
+```mermaid
+graph TD
+    A[Dados de Entrada] --> B[Switch]
+    B --> C[Tipo A]
+    B --> D[Tipo B]
+    B --> E[Tipo C]
+    C --> F[Processamento A]
+    D --> G[Processamento B]
+    E --> H[Processamento C]
 ```
 
 **Exemplo:**
+
 1. **Switch** node classifica por tipo de pedido
 2. Pedidos normais vão para processamento padrão
 3. Pedidos urgentes vão para processamento prioritário
 4. Pedidos especiais vão para aprovação manual
 
-### 3. Processamento Paralelo
+### Processamento Paralelo
 
-```
-Dados de Entrada → Divisão → Processamento A → Merge → Resultado
-                ↓         → Processamento B ↗
+```mermaid
+graph TD
+    A[Dados de Entrada] --> B[Divisão]
+    B --> C[Processamento A]
+    B --> D[Processamento B]
+    C --> E[Merge]
+    D --> E
+    E --> F[Resultado]
 ```
 
 **Exemplo:**
@@ -146,14 +190,19 @@ Dados de Entrada → Divisão → Processamento A → Merge → Resultado
 3. **HTTP Request** busca histórico de compras
 4. **Merge** node combina as informações
 
-### 4. Fluxo de Aprovação
+### Fluxo de Aprovação
 
-```
-Solicitação → Validação → Aprovado → Processamento
-           ↓           → Rejeitado → Notificação
+```mermaid
+graph TD
+    A[Solicitação] --> B[Validação]
+    B --> C[Aprovado]
+    B --> D[Rejeitado]
+    C --> E[Processamento]
+    D --> F[Notificação]
 ```
 
 **Exemplo:**
+
 1. **If** node verifica se valor está dentro do limite
 2. **If** node confirma se aprovador está disponível
 3. **Switch** node direciona para diferentes níveis de aprovação
@@ -166,12 +215,20 @@ Solicitação → Validação → Aprovado → Processamento
 **Cenário:** Enviar notificações diferentes baseado no tipo de evento.
 
 **Workflow:**
-```
-Webhook → If (tipo_evento) → Email → Slack → Merge → Log
-       ↓                  → SMS ↗
+
+```mermaid
+graph TD
+    A[Webhook] --> B[If tipo_evento]
+    B --> C[Email]
+    B --> D[SMS]
+    C --> E[Slack]
+    D --> E
+    E --> F[Merge]
+    F --> G[Log]
 ```
 
 **Configuração:**
+
 - **If** node: `$json.tipo_evento === "urgente"`
 - **Switch** node: `$json.canal` (email, sms, slack)
 - **Merge** node: Combina resultados de todos os canais
@@ -181,12 +238,19 @@ Webhook → If (tipo_evento) → Email → Slack → Merge → Log
 **Cenário:** Processar pedidos de forma diferente baseado no valor e tipo.
 
 **Workflow:**
-```
-Pedido → If (valor > 1000) → Aprovação Manual → Merge → Confirmação
-      ↓                   → Processamento Automático ↗
+
+```mermaid
+graph TD
+    A[Pedido] --> B[If valor > 1000]
+    B --> C[Aprovação Manual]
+    B --> D[Processamento Automático]
+    C --> E[Merge]
+    D --> E
+    E --> F[Confirmação]
 ```
 
 **Configuração:**
+
 - **If** node: `$json.valor > 1000`
 - **Switch** node: `$json.tipo_pedido` (normal, premium, express)
 - **Merge** node: Unifica resultado final
@@ -196,13 +260,21 @@ Pedido → If (valor > 1000) → Aprovação Manual → Merge → Confirmação
 **Cenário:** Monitorar diferentes serviços e alertar baseado na severidade.
 
 **Workflow:**
-```
-Monitor → Switch (serviço) → Verificação A → Merge → Análise
-       ↓                   → Verificação B ↗
-       ↓                   → Verificação C ↗
+
+```mermaid
+graph TD
+    A[Monitor] --> B[Switch serviço]
+    B --> C[Verificação A]
+    B --> D[Verificação B]
+    B --> E[Verificação C]
+    C --> F[Merge]
+    D --> F
+    E --> F
+    F --> G[Análise]
 ```
 
 **Configuração:**
+
 - **Switch** node: `$json.servico` (api, database, website)
 - **If** node: `$json.status === "down"`
 - **Merge** node: Consolida status de todos os serviços
@@ -237,25 +309,25 @@ Monitor → Switch (serviço) → Verificação A → Merge → Análise
 
 ### Problemas Comuns
 
-#### Condições não funcionam
+**Condições não funcionam**
 - Verifique sintaxe das expressões
 - Confirme tipos de dados
 - Use o node Debug Helper
 - Teste condições individualmente
 
-#### Fluxo inesperado
+**Fluxo inesperado**
 - Verifique ordem das condições
 - Confirme valores de entrada
 - Valide lógica de decisão
 - Use logs para rastrear fluxo
 
-#### Merge não funciona
+**Merge não funciona**
 - Verifique se todos os inputs estão conectados
 - Confirme estrutura dos dados
 - Valide configuração do merge
 - Teste com dados de exemplo
 
-### Debug
+### Dicas de Debug
 
 1. **Use o node Debug Helper** para inspecionar dados
 2. **Configure logging detalhado**

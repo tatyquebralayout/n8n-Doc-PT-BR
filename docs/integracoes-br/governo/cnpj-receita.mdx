@@ -5,7 +5,8 @@ sidebar_position: 1
 keywords: [n8n, cnpj, receita federal, empresa, validação, brasil, governo]
 ---
 
-# <ion-icon name="business-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> CNPJ Receita Federal
+<IonicIcon name="business-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+cnpj-receita-federal
 
 A **API de CNPJ da Receita Federal** permite consultar dados de empresas brasileiras através do CNPJ (Cadastro Nacional da Pessoa Jurídica). Esta integração permite validar e obter informações completas sobre empresas.
 
@@ -19,9 +20,7 @@ A API de CNPJ da Receita Federal é um serviço que fornece dados oficiais de em
 - **Histórico** de alterações
 - **Situação cadastral** atualizada
 
-### Dados Retornados
-
-Para cada CNPJ consultado, a API retorna:
+Quando um CNPJ é consultado, a API retorna:
 
 ```json
 {
@@ -68,13 +67,12 @@ Para cada CNPJ consultado, a API retorna:
 }
 ```
 
-## Como Usar a API de CNPJ no n8n
+## Como usar a API de CNPJ no n8n
 
-### 1. Configuração Básica
+### 1. Configuração Básica - Node HTTP Request
 
-**Node:** HTTP Request
 **Método:** GET
-**URL:** `https://receitaws.com.br/v1/cnpj/{{ $json.cnpj }}`
+**URL:** `https://receitaws.com.br/v1/cnpj/{{$json.cnpj}}`
 
 ### 2. Parâmetros
 
@@ -85,7 +83,7 @@ Para cada CNPJ consultado, a API retorna:
 ```javascript
 // Configuração do HTTP Request
 Method: GET
-URL: https://receitaws.com.br/v1/cnpj/{{ $json.cnpj }}
+URL: https://receitaws.com.br/v1/cnpj/{{$json.cnpj}}
 Headers: {
   "Accept": "application/json"
 }
@@ -103,6 +101,7 @@ Webhook → HTTP Request (CNPJ) → If (CNPJ válido) → Set → HTTP Request (
 ```
 
 **Configuração:**
+
 - **HTTP Request**: Consulta CNPJ
 - **If**: Verifica se `$json.situacao === "ATIVA"`
 - **Set**: Formata dados da empresa
@@ -118,6 +117,7 @@ Manual Trigger → HTTP Request (CNPJ) → Code (Análise) → Relatório
 ```
 
 **Configuração:**
+
 - **Manual Trigger**: Entrada do CNPJ
 - **HTTP Request**: Consulta CNPJ
 - **Code**: Análise de riscos e compliance
@@ -133,6 +133,7 @@ Webhook (Novo Fornecedor) → HTTP Request (CNPJ) → Validação → Aprovaçã
 ```
 
 **Configuração:**
+
 - **Webhook**: Recebe dados do fornecedor
 - **HTTP Request**: Consulta CNPJ
 - **Validação**: Verifica situação e dados
@@ -148,6 +149,7 @@ Schedule Trigger → HTTP Request (CNPJ) → Agregação → Relatório
 ```
 
 **Configuração:**
+
 - **Schedule Trigger**: Executa periodicamente
 - **HTTP Request**: Consulta CNPJs
 - **Agregação**: Consolida dados
@@ -160,6 +162,7 @@ Schedule Trigger → HTTP Request (CNPJ) → Agregação → Relatório
 **Cenário:** Validar CNPJ de empresa durante cadastro de marketplace.
 
 **Workflow:**
+
 ```
 Webhook (Cadastro) → HTTP Request (CNPJ) → If (CNPJ Válido) → Aprovar Cadastro
                 ↓
@@ -167,24 +170,25 @@ Webhook (Cadastro) → HTTP Request (CNPJ) → If (CNPJ Válido) → Aprovar Cad
 ```
 
 **Configuração:**
+
 ```javascript
 // HTTP Request - CNPJ
 Method: GET
-URL: https://receitaws.com.br/v1/cnpj/{{ $json.cnpj }}
+URL: https://receitaws.com.br/v1/cnpj/{{$json.cnpj}}
 
 // If - Validação
 Condition: $json.situacao === "ATIVA" && $json.tipo === "MATRIZ"
 
 // Set - Dados da Empresa
 {
-  "cnpj": "{{ $('CNPJ').json.cnpj }}",
-  "razao_social": "{{ $('CNPJ').json.razao_social }}",
-  "nome_fantasia": "{{ $('CNPJ').json.nome_fantasia }}",
-  "situacao": "{{ $('CNPJ').json.situacao }}",
-  "porte": "{{ $('CNPJ').json.porte }}",
-  "endereco": "{{ $('CNPJ').json.endereco.logradouro }}, {{ $('CNPJ').json.endereco.numero }}",
-  "cidade": "{{ $('CNPJ').json.endereco.municipio }}",
-  "estado": "{{ $('CNPJ').json.endereco.uf }}"
+  "cnpj": "{{$('CNPJ').json.cnpj}}",
+  "razao_social": "{{$('CNPJ').json.razao_social}}",
+  "nome_fantasia": "{{$('CNPJ').json.nome_fantasia}}",
+  "situacao": "{{$('CNPJ').json.situacao}}",
+  "porte": "{{$('CNPJ').json.porte}}",
+  "endereco": "{{$('CNPJ').json.endereco.logradouro}}, {{$('CNPJ').json.endereco.numero}}",
+  "cidade": "{{$('CNPJ').json.endereco.municipio}}",
+  "estado": "{{$('CNPJ').json.endereco.uf}}"
 }
 ```
 
@@ -193,11 +197,13 @@ Condition: $json.situacao === "ATIVA" && $json.tipo === "MATRIZ"
 **Cenário:** Análise automática de empresas para investimento.
 
 **Workflow:**
+
 ```
 Manual Trigger → HTTP Request (CNPJ) → Code (Análise) → Switch (Risco) → Relatório
 ```
 
 **Configuração:**
+
 ```javascript
 // Manual Trigger - Entrada
 {
@@ -206,7 +212,7 @@ Manual Trigger → HTTP Request (CNPJ) → Code (Análise) → Switch (Risco) �
 
 // HTTP Request - CNPJ
 Method: GET
-URL: https://receitaws.com.br/v1/cnpj/{{ $json.cnpj }}
+URL: https://receitaws.com.br/v1/cnpj/{{$json.cnpj}}
 
 // Code - Análise de Risco
 const data = $json;
@@ -254,15 +260,17 @@ return {
 **Cenário:** Validar fornecedores automaticamente.
 
 **Workflow:**
+
 ```
 Webhook (Fornecedor) → HTTP Request (CNPJ) → Validação → Aprovação → Notificação
 ```
 
 **Configuração:**
+
 ```javascript
 // HTTP Request - CNPJ
 Method: GET
-URL: https://receitaws.com.br/v1/cnpj/{{ $json.cnpj }}
+URL: https://receitaws.com.br/v1/cnpj/{{$json.cnpj}}
 
 // Code - Validação Completa
 const cnpjData = $json;
@@ -290,7 +298,7 @@ return {
 
 ## Tratamento de Erros
 
-### 1. CNPJ Não Encontrado
+### 1. CNPJ não encontrado
 
 Quando o CNPJ não existe:
 
@@ -301,6 +309,7 @@ Quando o CNPJ não existe:
 ```
 
 **Tratamento:**
+
 ```javascript
 // If - CNPJ Inválido
 Condition: $json.erro !== undefined
@@ -309,7 +318,7 @@ Condition: $json.erro !== undefined
 {
   "erro": true,
   "mensagem": "CNPJ não encontrado na Receita Federal.",
-  "cnpj_informado": "{{ $('Manual Trigger').json.cnpj }}"
+  "cnpj_informado": "{{$('Manual Trigger').json.cnpj}}"
 }
 ```
 
@@ -411,33 +420,36 @@ Configure timeouts adequados:
 ```javascript
 // HTTP Request - Configuração
 Method: GET
-URL: https://receitaws.com.br/v1/cnpj/{{ $json.cnpj }}
+URL: https://receitaws.com.br/v1/cnpj/{{$json.cnpj}}
 Timeout: 30000 // 30 segundos
 ```
 
-## Troubleshooting
+## troubleshooting
 
-### Problemas Comuns
+## Problemas Comuns
 
-#### API não responde
+### API não responde
+
 - Verifique conectividade com internet
 - Confirme se a API está funcionando
 - Teste com CNPJ conhecido
 - Verifique formato do CNPJ
 
-#### CNPJ não encontrado
+### CNPJ não encontrado
+
 - Confirme se o CNPJ existe
 - Verifique formato (00.000.000/0001-00)
 - Teste com CNPJs de diferentes tipos
 - Consulte site da Receita Federal
 
-#### Rate limiting
+### Rate Limiting
+
 - Implemente delays entre consultas
 - Use cache para consultas frequentes
 - Configure retry com backoff
 - Monitore limites da API
 
-### Debug
+## debugging
 
 1. **Use o node Debug Helper** para inspecionar dados
 2. **Teste com CNPJs conhecidos** (ex: 00.000.000/0001-00)
@@ -473,5 +485,5 @@ Timeout: 30000 // 30 segundos
 - [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições HTTP
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
-- [Integrações Brasileiras](/integracoes-br/index) - Outras integrações brasileiras
+- [Integrações Brasileiras](/integracoes-br/) - Outras integrações brasileiras
 - [Compliance LGPD](/privacidade-seguranca/lgpd-compliance) - Conformidade com LGPD

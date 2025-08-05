@@ -1,4 +1,11 @@
-# <ion-icon name="mail-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Automação de Email
+﻿---
+title: Automação de Email
+description: Implementação de automação de email marketing usando n8n para campanhas inteligentes
+sidebar_position: 1
+keywords: [email, automação, marketing, campanhas, segmentação, n8n]
+---
+
+<IonicIcon name="mail-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 A automação de email permite criar campanhas inteligentes e personalizadas, automatizando o envio de mensagens baseado em comportamentos, eventos e segmentação de audiência.
 
@@ -122,7 +129,7 @@ graph LR
 
 ## Workflows Práticos
 
-### Workflow: Onboarding de Clientes
+### Workflow Onboarding de Clientes
 
 1. **Trigger**: Cliente faz primeira compra
 2. **Email 1**: Confirmação e próximos passos
@@ -130,7 +137,7 @@ graph LR
 4. **Email 3**: Solicitar feedback
 5. **Email 4**: Oferta de produtos relacionados
 
-### Workflow: Nurture de Leads
+### Workflow Nurture de Leads
 
 1. **Trigger**: Lead se inscreve no blog
 2. **Email 1**: Boas-vindas e conteúdo gratuito
@@ -173,14 +180,15 @@ graph LR
 ### Variáveis Dinâmicas
 
 ```html
-<h1>Olá {{ first_name }}!</h1>
-<p>Vimos que você se interessou por {{ product_name }}.</p>
-<p>Como cliente desde {{ join_date }}, você tem {{ loyalty_points }} pontos.</p>
+<h1>Olá {{first_name}}!</h1>
+<p>Vimos que você se interessou por {{product_name}}.</p>
+<p>Como cliente desde {{join_date}}, você tem {{loyalty_points}} pontos.</p>
 ```
 
 ### Responsividade
 
-- **Mobile-first**: Design otimizado para dispositivos móveis
+**Mobile First Design** otimizado para dispositivos móveis
+
 - **Compatibilidade**: Testado em diferentes clientes de email
 - **Acessibilidade**: Seguindo padrões WCAG
 - **Performance**: Otimização de imagens e código
@@ -203,7 +211,7 @@ graph LR
   "schedule": "weekly",
   "metrics": [
     "open_rate",
-    "click_rate", 
+    "click_rate",
     "conversion_rate",
     "revenue_generated"
   ],
@@ -211,11 +219,94 @@ graph LR
 }
 ```
 
+## Implementação no n8n
+
+### Configuração de Node HTTP Request
+
+```javascript
+// Configuração para RD Station
+Method: POST
+URL: https://api.rdstation.com/v1/contacts
+Headers: {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer {{$json.apiKey}}"
+}
+Body: {
+  "email": "{{$json.email}}",
+  "name": "{{$json.name}}",
+  "tags": ["{{$json.source}}"]
+}
+```
+
+### Workflow de Automação Completo
+
+```javascript
+// Workflow: Sequência de Boas-vindas
+Webhook (Novo Lead) → HTTP Request (RD Station) → Delay (1 hora) → 
+HTTP Request (Enviar Email 1) → Delay (2 dias) → HTTP Request (Enviar Email 2)
+```
+
+## Boas Práticas
+
+### Timing e Frequência
+
+- **Evite spam**: Respeite limites de envio
+- **Horários ideais**: 9h-11h e 14h-16h
+- **Frequência adequada**: Máximo 2-3 emails por semana
+- **Teste A/B**: Otimize horários de envio
+
+### Personalização
+
+- **Use dados reais**: Nome, empresa, histórico
+- **Segmentação inteligente**: Comportamento e preferências
+- **Conteúdo relevante**: Baseado em interações anteriores
+- **Call-to-action claro**: Objetivo específico por email
+
+### Compliance e Privacidade
+
+- **LGPD compliance**: Consentimento explícito
+- **Opt-out fácil**: Link de cancelamento visível
+- **Dados seguros**: Criptografia e proteção
+- **Auditoria**: Logs de consentimento
+
+## Troubleshooting
+
+### Problemas Comuns
+
+**Taxa de abertura baixa**
+
+- Verifique assunto do email
+- Teste horários de envio
+- Segmentação mais específica
+- Melhore preview text
+
+**Taxa de clique baixa**
+
+- Revise call-to-action
+- Teste diferentes CTAs
+- Melhore design do email
+- Personalize mais o conteúdo
+
+**Alta taxa de cancelamento**
+
+- Revise frequência de envio
+- Melhore relevância do conteúdo
+- Verifique segmentação
+- Implemente feedback
+
+### Debugging
+
+1. **Teste com lista pequena** antes de enviar para todos
+2. **Monitore métricas** em tempo real
+3. **A/B test** diferentes elementos
+4. **Analise logs** de erro
+5. **Verifique configurações** de API
+
 ## Próximos Passos
 
 - [Integração WhatsApp](/integracoes-br/communication/whatsapp) - Campanhas multicanal
 - [Integração CRM](/integracoes-br/financeiro/crm-integration) - Gestão de leads
-- [Análise de Dados](/logica-e-dados/data/agregacoes-estatisticas) - Relatórios avançados
+- [Análise de Dados](/logica-e-dados/data/data-mapping-avancado) - Relatórios avançados
 - [A/B Testing](/logica-e-dados/data/data-mapping-avancado) - Otimização de campanhas
 
 ## Recursos Relacionados

@@ -1,11 +1,12 @@
----
+﻿---
 title: Manual Trigger
 description: Guia completo sobre o Manual Trigger no n8n, incluindo configuração, execução manual, exemplos práticos e boas práticas
 sidebar_position: 1
 keywords: [n8n, manual trigger, execução manual, teste, desenvolvimento, workflow]
 ---
 
-# <ion-icon name="play-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Manual Trigger
+<IonicIcon name="play-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+Manual Trigger
 
 O **Manual Trigger** é o node mais fundamental do n8n, permitindo executar workflows manualmente. É essencial para testes, desenvolvimento e execução sob demanda de automações.
 
@@ -20,7 +21,7 @@ O **Manual Trigger** permite:
 - **Executar workflows** sob demanda
 - **Criar workflows** independentes de eventos externos
 
-### Quando Usar o Manual Trigger
+## Quando usar o Manual Trigger
 
 - **Desenvolvimento** e teste de workflows
 - **Execução manual** de automações
@@ -49,12 +50,13 @@ O **Manual Trigger** permite:
 }
 ```
 
-### Configuração de Dados de Entrada
+## Configuração de Dados de Entrada
 
-#### 1. Dados Simples
+### Dados Simples
+
+Dados básicos para teste:
 
 ```javascript
-// Dados básicos
 {
   "name": "nome",
   "value": "João Silva"
@@ -71,10 +73,11 @@ O **Manual Trigger** permite:
 }
 ```
 
-#### 2. Dados Estruturados
+### Dados Estruturados
+
+Objeto complexo com múltiplos campos:
 
 ```javascript
-// Objeto complexo
 {
   "name": "cliente",
   "value": {
@@ -87,10 +90,11 @@ O **Manual Trigger** permite:
 }
 ```
 
-#### 3. Arrays de Dados
+### Arrays de Dados
+
+Lista de itens para processamento em lote:
 
 ```javascript
-// Lista de itens
 {
   "name": "produtos",
   "value": [
@@ -108,29 +112,30 @@ O **Manual Trigger** permite:
 }
 ```
 
-#### 4. Dados com Expressões
+### Dados com Expressões
+
+Usar expressões para dados dinâmicos:
 
 ```javascript
-// Usar expressões para dados dinâmicos
 {
   "name": "data_atual",
-  "value": "{{ $now.toISOString() }}"
+  "value": "{{$now.toISOString()}}"
 }
 
 {
   "name": "usuario",
-  "value": "{{ $env.USER || 'desenvolvedor' }}"
+  "value": "{{$env.USER || 'desenvolvedor'}}"
 }
 
 {
   "name": "ambiente",
-  "value": "{{ $env.NODE_ENV || 'desenvolvimento' }}"
+  "value": "{{$env.NODE_ENV || 'desenvolvimento'}}"
 }
 ```
 
 ## Exemplos Práticos
 
-### 1. Teste de Validação de Dados
+### Teste de Validação de Dados
 
 ```javascript
 // Manual Trigger - Teste de validação
@@ -162,7 +167,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 2. Simulação de Pedido
+### Simulação de Pedido
 
 ```javascript
 // Manual Trigger - Simular pedido
@@ -203,7 +208,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 3. Teste de API
+### Teste de API
 
 ```javascript
 // Manual Trigger - Teste de API
@@ -232,7 +237,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 4. Simulação de Evento
+### Simulação de Evento
 
 ```javascript
 // Manual Trigger - Simular evento
@@ -245,7 +250,7 @@ O **Manual Trigger** permite:
         "name": "evento",
         "value": {
           "tipo": "cliente_novo",
-          "timestamp": "{{ $now.toISOString() }}",
+          "timestamp": "{{$now.toISOString()}}",
           "dados": {
             "cliente_id": 67890,
             "nome": "Pedro Costa",
@@ -264,7 +269,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 5. Teste de Processamento em Lote
+### Teste de Processamento em Lote
 
 ```javascript
 // Manual Trigger - Processamento em lote
@@ -309,7 +314,7 @@ O **Manual Trigger** permite:
 
 ## Casos de Uso Avançados
 
-### 1. Teste com Diferentes Cenários
+### Teste com Diferentes Cenários
 
 ```javascript
 // Manual Trigger - Múltiplos cenários
@@ -356,7 +361,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 2. Simulação de Dados Reais
+### Simulação de Dados Reais
 
 ```javascript
 // Manual Trigger - Dados realistas
@@ -368,19 +373,19 @@ O **Manual Trigger** permite:
       {
         "name": "transacao_real",
         "value": {
-          "id": "{{ $now.toMillis() }}",
+          "id": "{{$now.toMillis()}}",
           "cliente": {
-            "id": "{{ Math.floor(Math.random() * 10000) }}",
-            "nome": "{{ ['João', 'Maria', 'Pedro', 'Ana'][Math.floor(Math.random() * 4)] }} {{ ['Silva', 'Santos', 'Costa', 'Oliveira'][Math.floor(Math.random() * 4)] }}",
-            "email": "{{ ['joao', 'maria', 'pedro', 'ana'][Math.floor(Math.random() * 4)] }}@email.com"
+            "id": "{{Math.floor(Math.random() * 10000)}}",
+            "nome": "{{['João', 'Maria', 'Pedro', 'Ana'][Math.floor(Math.random() * 4)]}} {{['Silva', 'Santos', 'Costa', 'Oliveira'][Math.floor(Math.random() * 4)]}}",
+            "email": "{{['joao', 'maria', 'pedro', 'ana'][Math.floor(Math.random() * 4)]}}@email.com"
           },
           "produto": {
-            "id": "{{ Math.floor(Math.random() * 100) }}",
-            "nome": "{{ ['Notebook', 'Mouse', 'Teclado', 'Monitor'][Math.floor(Math.random() * 4)] }}",
-            "preco": "{{ Math.floor(Math.random() * 1000) + 100 }}"
+            "id": "{{Math.floor(Math.random() * 100)}}",
+            "nome": "{{['Notebook', 'Mouse', 'Teclado', 'Monitor'][Math.floor(Math.random() * 4)]}}",
+            "preco": "{{Math.floor(Math.random() * 1000) + 100}}"
           },
-          "timestamp": "{{ $now.toISOString() }}",
-          "status": "{{ ['aprovado', 'pendente', 'rejeitado'][Math.floor(Math.random() * 3)] }}"
+          "timestamp": "{{$now.toISOString()}}",
+          "status": "{{['aprovado', 'pendente', 'rejeitado'][Math.floor(Math.random() * 3)]}}"
         }
       }
     ]
@@ -388,7 +393,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 3. Teste de Performance
+### Teste de Performance
 
 ```javascript
 // Manual Trigger - Teste de performance
@@ -406,7 +411,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 4. Simulação de Erros
+### Simulação de Erros
 
 ```javascript
 // Manual Trigger - Simular erros
@@ -449,7 +454,7 @@ O **Manual Trigger** permite:
 
 ## Boas Práticas
 
-### 1. Nomenclatura Descritiva
+### Nomenclatura Descritiva
 
 ```javascript
 // ✅ Bom: Nome descritivo
@@ -463,7 +468,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 2. Documentação Clara
+### Documentação Clara
 
 ```javascript
 // ✅ Bom: Descrição detalhada
@@ -477,7 +482,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 3. Dados Realistas
+### Dados Realistas
 
 ```javascript
 // ✅ Bom: Dados que simulam produção
@@ -499,7 +504,7 @@ O **Manual Trigger** permite:
 }
 ```
 
-### 4. Múltiplos Cenários
+### Múltiplos Cenários
 
 ```javascript
 // ✅ Bom: Testar diferentes cenários
@@ -524,37 +529,38 @@ O **Manual Trigger** permite:
 ### Problemas Comuns
 
 #### Workflow não executa
-- Verifique se o Manual Trigger está conectado
+
+**Verifique se o Manual Trigger está conectado:**
+
 - Confirme se há dados de entrada
 - Teste com dados simples
 - Verifique logs de erro
 
-#### Dados não aparecem
-- Verifique a estrutura dos dados
+**Verifique a estrutura dos dados:**
+
 - Confirme se os campos estão corretos
 - Teste com dados básicos
 - Use Debug Helper
 
 #### Performance lenta
-- Reduza volume de dados de teste
+
+**Reduza volume de dados de teste:**
+
 - Simplifique expressões
 - Use dados otimizados
 - Monitore recursos
 
-### Debug
+**Code Node - Debug de Manual Trigger:**
 
 ```javascript
-// Code Node - Debug de Manual Trigger
-const debugManualTrigger = (dados) => {
-  console.log('=== DEBUG MANUAL TRIGGER ===');
-  console.log('Dados de entrada:', dados);
-  console.log('Tipo de dados:', typeof dados);
-  console.log('É array:', Array.isArray(dados));
-  console.log('Número de itens:', Array.isArray(dados) ? dados.length : 1);
-  console.log('===========================');
-  
-  return dados;
-};
+function debugManualTrigger(data) {
+  console.log('Dados do Manual Trigger:', data);
+  return {
+    timestamp: new Date().toISOString(),
+    dados: data,
+    workflow_id: $workflow.id
+  };
+}
 
 // Usar após o Manual Trigger
 return { json: debugManualTrigger($json) };
@@ -562,7 +568,7 @@ return { json: debugManualTrigger($json) };
 
 ## Integração com Outros Nodes
 
-### 1. Manual Trigger + Set Node
+### Manual Trigger + Set Node
 
 ```javascript
 // Manual Trigger - Dados básicos
@@ -581,18 +587,18 @@ return { json: debugManualTrigger($json) };
     "string": [
       {
         "name": "timestamp_processamento",
-        "value": "{{ $now.toISOString() }}"
+        "value": "{{$now.toISOString()}}"
       },
       {
         "name": "workflow_id",
-        "value": "{{ $workflow.id }}"
+        "value": "{{$workflow.id}}"
       }
     ]
   }
 }
 ```
 
-### 2. Manual Trigger + If Node
+### Manual Trigger + If Node
 
 ```javascript
 // Manual Trigger - Dados de teste
@@ -606,13 +612,13 @@ return { json: debugManualTrigger($json) };
 
 // If Node - Roteamento baseado em dados
 {
-  "condition": "{{ $json.tipo === 'cliente_vip' && $json.valor > 1000 }}",
+  "condition": "{{$json.tipo === 'cliente_vip' && $json.valor > 1000}}",
   "true": "Processamento VIP",
   "false": "Processamento Regular"
 }
 ```
 
-### 3. Manual Trigger + HTTP Request
+### Manual Trigger + HTTP Request
 
 ```javascript
 // Manual Trigger - Configuração de API
@@ -629,9 +635,9 @@ return { json: debugManualTrigger($json) };
 
 // HTTP Request - Usar configuração
 {
-  "url": "{{ $json.url }}",
-  "method": "{{ $json.method }}",
-  "headers": "{{ $json.headers }}"
+  "url": "{{$json.url}}",
+  "method": "{{$json.method}}",
+  "headers": "{{$json.headers}}"
 }
 ```
 

@@ -135,6 +135,19 @@ docs/teste-hibrido.md
 docs/md-vs-mdx-study.md
 docs/guia-dependencias-libs.md
 
+# Arquivos de exemplo e demonstração (apenas para desenvolvimento local)
+docs/exemplos-github-codeblock.mdx
+docs/exemplos-image-zoom.mdx
+docs/exemplos-live-codeblock.mdx
+docs/exemplos-mermaid.mdx
+docs/exemplos-rss.mdx
+docs/exemplos-tabs-npm2yarn.mdx
+docs/limpeza-dependencias.mdx
+docs/plugins-implementados.mdx
+docs/recursos-hibridos-simples.mdx
+docs/recursos-hibridos.mdx
+docs/status-plugins-code.mdx
+
 # Scripts de fix e configuração temporária
 final-fix-ionicons.js
 fix-all-ionicons.js
@@ -145,4 +158,20 @@ fix-title-quotes.js
 fix-missing-braces.js
 remove-title-quotes.js
 .markdownlint.json
+
+# Relatórios e arquivos de análise local (não enviar para open source)
+RELATORIO_MELHORIAS.md
+RELATORIO_PROBLEMAS_WORKFLOWS.md
+monitoring-report.json
+performance-report.json
+optimization-report.json
+overlap-report.json
+test-report.json
+
+# Scripts de desenvolvimento local (não essenciais para produção)
+scripts/
+fix-ion-icons.ps1
+
+# Arquivos de configuração local
+cspell.json
 

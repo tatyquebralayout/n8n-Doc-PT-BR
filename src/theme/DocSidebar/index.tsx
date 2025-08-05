@@ -19,7 +19,7 @@ export default function DocSidebarWrapper(props: Props): JSX.Element {
   // Se estiver na seção contribuir, renderiza o sidebar específico
   return (
     <div className="contribuir-section-only">
-      <div className="contribuir-sidebar">
+      <div className="contribuir-sidebar" data-testid="sidebar">
         <div className="contribuir-sidebar-header">
           <h3>Contribuir</h3>
         </div>
@@ -27,16 +27,16 @@ export default function DocSidebarWrapper(props: Props): JSX.Element {
           <ul>
             <li><a href="/contribuir" className={isActive('/contribuir') && !location.pathname.includes('/contribuir/') ? 'active' : ''}>Visão Geral</a></li>
             <li>
-              <details open={location.pathname.includes('/contribuir/n8n-oficial')}>
+              <details open={location.pathname.includes('/contribuir/n8n-oficial')} data-testid="sidebar-category">
                 <summary>Contribuir com n8n oficial</summary>
                 <ul>
-                  <li><a href="/contribuir/n8n-oficial" className={isActive('/contribuir/n8n-oficial') && !location.pathname.includes('/contribuir/n8n-oficial/') ? 'active' : ''}>Visão Geral</a></li>
-                  <li><a href="/contribuir/n8n-oficial/contribuir-codigo-e-docs" className={isActive('/contribuir/n8n-oficial/contribuir-codigo-e-docs') ? 'active' : ''}>Contribuir com Código e Docs</a></li>
-                  <li><a href="/contribuir/n8n-oficial/contribuir-community" className={isActive('/contribuir/n8n-oficial/contribuir-community') ? 'active' : ''}>Contribuir com a Comunidade</a></li>
-                  <li><a href="/contribuir/n8n-oficial/contribuir-modelos" className={isActive('/contribuir/n8n-oficial/contribuir-modelos') ? 'active' : ''}>Contribuir com Modelos</a></li>
-                  <li><a href="/contribuir/n8n-oficial/adicionar-casos-uso" className={isActive('/contribuir/n8n-oficial/adicionar-casos-uso') ? 'active' : ''}>Adicionar Casos de Uso</a></li>
-                  <li><a href="/contribuir/n8n-oficial/afiliados-e-creators" className={isActive('/contribuir/n8n-oficial/afiliados-e-creators') ? 'active' : ''}>Afiliados e Creators</a></li>
-                  <li><a href="/contribuir/n8n-oficial/referral-vagas" className={isActive('/contribuir/n8n-oficial/referral-vagas') ? 'active' : ''}>Vagas de Referência</a></li>
+                  <li><a href="/contribuir/n8n-oficial" className={isActive('/contribuir/n8n-oficial') && !location.pathname.includes('/contribuir/n8n-oficial/') ? 'active' : ''} data-testid="sidebar-item">Visão Geral</a></li>
+                  <li><a href="/contribuir/n8n-oficial/contribuir-codigo-e-docs" className={isActive('/contribuir/n8n-oficial/contribuir-codigo-e-docs') ? 'active' : ''} data-testid="sidebar-item">Contribuir com Código e Docs</a></li>
+                  <li><a href="/contribuir/n8n-oficial/contribuir-community" className={isActive('/contribuir/n8n-oficial/contribuir-community') ? 'active' : ''} data-testid="sidebar-item">Contribuir com a Comunidade</a></li>
+                  <li><a href="/contribuir/n8n-oficial/contribuir-modelos" className={isActive('/contribuir/n8n-oficial/contribuir-modelos') ? 'active' : ''} data-testid="sidebar-item">Contribuir com Modelos</a></li>
+                  <li><a href="/contribuir/n8n-oficial/adicionar-casos-uso" className={isActive('/contribuir/n8n-oficial/adicionar-casos-uso') ? 'active' : ''} data-testid="sidebar-item">Adicionar Casos de Uso</a></li>
+                  <li><a href="/contribuir/n8n-oficial/afiliados-e-creators" className={isActive('/contribuir/n8n-oficial/afiliados-e-creators') ? 'active' : ''} data-testid="sidebar-item">Afiliados e Creators</a></li>
+                  <li><a href="/contribuir/n8n-oficial/referral-vagas" className={isActive('/contribuir/n8n-oficial/referral-vagas') ? 'active' : ''} data-testid="sidebar-item">Vagas de Referência</a></li>
                 </ul>
               </details>
             </li>

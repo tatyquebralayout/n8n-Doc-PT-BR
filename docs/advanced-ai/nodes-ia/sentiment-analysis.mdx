@@ -1,4 +1,11 @@
-# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node Sentiment Analysis
+﻿---
+sidebar_position: 8
+title: "Sentiment Analysis"
+description: Como usar o node Sentiment Analysis para análise de sentimentos
+keywords: [n8n, sentiment analysis, análise de sentimentos, processamento de texto, IA, feedback, monitoramento, redes sociais]
+---
+
+## Node Sentiment Analysis
 
 O node **Sentiment Analysis** permite analisar o sentimento de textos usando modelos de IA avançados. Este node é especialmente útil para análise de feedback de clientes, monitoramento de redes sociais e compreensão de sentimentos em comunicações.
 
@@ -25,6 +32,7 @@ A análise de sentimento é uma técnica de processamento de linguagem natural q
 ### Pontuação de Sentimento
 
 O node retorna uma pontuação entre -1 e 1, onde:
+
 - **1.0**: Extremamente positivo
 - **0.0**: Neutro
 - **-1.0**: Extremamente negativo
@@ -43,7 +51,7 @@ O node retorna uma pontuação entre -1 e 1, onde:
 ```json
 {
   "model": "openai-gpt-4",
-  "inputField": "{{ $json.text }}",
+  "inputField": "{{$json.text}}",
   "language": "pt-BR",
   "minConfidence": 0.7
 }
@@ -72,14 +80,14 @@ graph LR
 
 ## Próximos Passos
 
-- [Análise de Dados](/logica-e-dados/data/agregacoes-estatisticas) - Processar resultados
+- [Análise de Dados](/logica-e-dados/data/data-mapping-avancado) - Processar resultados
 - [Alertas e Notificações](/usando-n8n/monitoring/configurar-alertas) - Configurar alertas
 - [Integração com APIs](/integracoes/builtin-nodes/http-requests/http-request) - Conectar sistemas
-- [Workflows Avançados](/advanced-ai/exemplos-casos/classificacao-dados) - Ver exemplos práticos
+- [Workflows Avançados](/advanced-ai/nodes-ia/sentiment-analysis) - Ver exemplos práticos
 
 ## Recursos Relacionados
 
 - [AI Agent](/advanced-ai/nodes-ia/ai-agent) - Agentes de IA completos
 - [OpenAI Chat](/advanced-ai/nodes-ia/openai-chat) - Chat com IA
 - [Expressões n8n](/logica-e-dados/expressoes) - Processar resultados
-- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas 
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas

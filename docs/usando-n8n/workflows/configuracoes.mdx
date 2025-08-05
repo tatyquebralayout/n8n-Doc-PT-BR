@@ -1,4 +1,11 @@
-# Configurações de Workflow
+---
+title: Configurações de Workflow
+sidebar_position: 4
+description: Configure comportamento, performance e aparência dos seus workflows
+keywords: [n8n, configurações, workflow, performance, segurança]
+---
+
+## Configurações de Workflow
 
 As configurações de workflow permitem personalizar o comportamento, performance e aparência dos seus workflows no n8n. Esta seção aborda todas as opções de configuração disponíveis para otimizar seus workflows.
 
@@ -12,9 +19,9 @@ As configurações de workflow oferecem controle granular sobre como seus workfl
 - **Configurações de segurança** e permissões
 - **Configurações de notificação** e alertas
 
-## Acessando as Configurações
+## Como acessar as configurações
 
-### Interface Web
+### Interface web
 
 Para acessar as configurações de um workflow:
 
@@ -22,525 +29,29 @@ Para acessar as configurações de um workflow:
 2. **Clique no ícone de configurações** (⚙️) no canto superior direito
 3. **Selecione "Workflow Settings"** no menu
 
-### Configurações Globais
+### Configurações globais
 
 Algumas configurações podem ser definidas globalmente:
 
-```bash
-# Configurações de ambiente
-export N8N_WORKFLOW_TIMEOUT=3600000
-export N8N_WORKFLOW_MAX_EXECUTIONS=1000
-export N8N_WORKFLOW_SAVE_DATA_EXECUTION=true
-export N8N_WORKFLOW_SAVE_DATA_EXECUTION_ALL=false
-```
+```bash\n# Configurações de ambiente\nexport N8N_WORKFLOW_TIMEOUT=3600000\nexport N8N_WORKFLOW_MAX_EXECUTIONS=1000\nexport N8N_WORKFLOW_SAVE_DATA_EXECUTION=true\nexport N8N_WORKFLOW_SAVE_DATA_EXECUTION_ALL=false\n```\n\n## Configurações de execução\n\n### Timeout de execução\n\nDefina o tempo máximo que um workflow pode executar:\n\n```javascript\n// Configurar timeout no workflow\n{\n  "settings": {\n    "executionTimeout": 3600000, // 1 hora em milissegundos\n    "executionTimeoutWarning": 3000000 // Aviso 5 minutos antes\n  }\n}\n```\n\n### Limite de execuções\n\nConfigure limites para evitar sobrecarga:\n\n```javascript\n// Configurar limites de execução\n{\n  "settings": {\n    "maxExecutions": 1000, // Máximo de execuções por dia\n    "maxExecutionsPerMinute": 10, // Limite por minuto\n    "retryOnFail": true, // Tentar novamente em caso de falha\n    "maxRetries": 3 // Número máximo de tentativas\n  }\n}\n```\n\n## Configurações de performance\n\nOtimize a performance do workflow:\n\n```javascript\n// Configurações de performance\n{\n  "settings": {\n    "saveExecutionProgress": true, // Salvar progresso\n    "saveDataOnSuccess": true, // Salvar dados de sucesso\n    "saveDataOnError": true, // Salvar dados de erro\n    "saveManualExecutions": true, // Salvar execuções manuais\n    "saveDataS3": false, // Salvar dados no S3\n    "saveDataS3Bucket": "n8n-executions",\n    "saveDataS3Region": "us-east-1"\n  }\n}\n```\n\n## Configurações de dados\n\n### Mapeamento de dados\n\nConfigure como os dados são processados:\n\n```javascript\n// Configurações de mapeamento\n{\n  "settings": {\n    "dataMapping": {\n      "includeEmptyFields": false, // Incluir campos vazios\n      "includeNullValues": false, // Incluir valores nulos\n      "maxDataSize": 1048576, // Tamanho máximo de dados (1MB)\n      "compressData": true, // Comprimir dados\n      "encryptSensitiveData": true // Criptografar dados sensíveis\n    }\n  }\n}\n```\n\n### Validação de dados\n\nConfigure validações automáticas:\n\n```javascript\n// Configurações de validação\n{\n  "settings": {\n    "validation": {\n      "validateInputData": true, // Validar dados de entrada\n      "validateOutputData": true, // Validar dados de saída\n      "strictMode": false, // Modo estrito\n      "customValidators": [\n        {\n          "field": "email",\n          "validator": "email",\n          "required": true\n        },\n        {\n          "field": "cpf",\n          "validator": "cpf",\n          "required": true\n        }\n      ]\n    }\n  }\n}\n```\n\n### Cache de dados\n\nConfigure cache para melhorar performance:\n\n```javascript\n// Configurações de cache\n{\n  "settings": {\n    "cache": {\n      "enabled": true, // Habilitar cache\n      "ttl": 3600000, // Time to live (1 hora)\n      "maxSize": 100, // Máximo de itens em cache\n      "persistent": false, // Cache persistente\n      "cacheDirectory": "/tmp/n8n-cache"\n    }\n  }\n}\n```\n\n## Configurações de interface\n\n### Visualização do workflow\n\nPersonalize a aparência do workflow:\n\n```javascript\n// Configurações de visualização\n{\n  "settings": {\n    "ui": {\n      "showNodeDetails": true, // Mostrar detalhes dos nodes\n      "showExecutionData": true, // Mostrar dados de execução\n      "showNodeStatus": true, // Mostrar status dos nodes\n      "autoLayout": true, // Layout automático\n      "compactMode": false, // Modo compacto\n      "theme": "light", // Tema (light/dark)\n      "zoomLevel": 100 // Nível de zoom\n    }\n  }\n}\n```\n\n### Configurações de navegação\n\nConfigure a navegação no editor:\n\n```javascript\n// Configurações de navegação\n{\n  "settings": {\n    "navigation": {\n      "enableKeyboardShortcuts": true, // Atalhos de teclado\n      "enableMouseGestures": true, // Gestos do mouse\n      "enableAutoSave": true, // Salvamento automático\n      "autoSaveInterval": 30000, // Intervalo de salvamento (30s)\n      "showUnsavedChangesWarning": true // Aviso de mudanças não salvas\n    }\n  }\n}\n```\n\n## Configurações de segurança\n\n### Controle de acesso\n\nConfigure permissões e acesso:\n\n```javascript\n// Configurações de segurança\n{\n  "settings": {\n    "security": {\n      "requireAuthentication": true, // Requer autenticação\n      "allowedUsers": ["admin", "editor"], // Usuários permitidos\n      "allowedRoles": ["owner", "admin"], // Roles permitidas\n      "restrictExecution": false, // Restringir execução\n      "auditLog": true, // Log de auditoria\n      "encryptCredentials": true // Criptografar credenciais\n    }\n  }\n}\n```\n\n### Configurações de rede\n\nConfigure acesso de rede:\n\n```javascript\n// Configurações de rede\n{\n  "settings": {\n    "network": {\n      "allowedHosts": ["api.exemplo.com", "webhook.exemplo.com"],\n      "blockedHosts": ["malicious-site.com"],\n      "proxyEnabled": false,\n      "proxyUrl": "http://proxy:8080",\n      "timeout": 30000, // Timeout de rede (30s)\n      "retryOnNetworkError": true\n    }\n  }\n}\n```\n\n## Configurações de notificação\n\n### Alertas e notificações\n\nConfigure notificações automáticas:\n\n```javascript\n// Configurações de notificação\n{\n  "settings": {\n    "notifications": {\n      "onSuccess": {\n        "enabled": true,\n        "channels": ["email", "slack"],\n        "recipients": ["admin@empresa.com"]\n      },\n      "onError": {\n        "enabled": true,\n        "channels": ["email", "slack", "sms"],\n        "recipients": ["admin@empresa.com", "dev@empresa.com"]\n      },\n      "onTimeout": {\n        "enabled": true,\n        "channels": ["email"],\n        "recipients": ["admin@empresa.com"]\n      }\n    }\n  }\n}\n```\n\n### Configurações de email\n\nConfigure notificações por email:\n\n```javascript\n// Configurações de email\n{\n  "settings": {\n    "email": {\n      "smtp": {\n        "host": "smtp.gmail.com",\n        "port": 587,\n        "secure": true,\n        "auth": {\n          "user": "n8n@empresa.com",\n          "pass": "senha-segura"\n        }\n      },\n      "from": "n8n@empresa.com",\n      "replyTo": "suporte@empresa.com",\n      "template": {\n        "success": "Workflow executado com sucesso",\n        "error": "Erro na execução do workflow",\n        "timeout": "Workflow excedeu o tempo limite"\n      }\n    }\n  }\n}\n```\n\n## Configurações de monitoramento\n\n### Métricas e analytics\n\nConfigure coleta de métricas:\n\n```javascript\n// Configurações de monitoramento\n{\n  "settings": {\n    "monitoring": {\n      "enabled": true,\n      "metrics": {\n        "executionTime": true,\n        "successRate": true,\n        "errorRate": true,\n        "dataVolume": true,\n        "resourceUsage": true\n      },\n      "alerts": {\n        "highErrorRate": {\n          "threshold": 0.1, // 10% de erro\n          "action": "notify"\n        },\n        "slowExecution": {\n          "threshold": 300000, // 5 minutos\n          "action": "notify"\n        }\n      }\n    }\n  }\n}\n```\n\n### Logs e debugging\n\nConfigure logs detalhados:\n\n```javascript\n// Configurações de logs\n{\n  "settings": {\n    "logging": {\n      "level": "info", // debug, info, warn, error\n      "includeExecutionData": true,\n      "includeNodeData": true,\n      "includeTimestamps": true,\n      "logToFile": true,\n      "logFile": "/var/log/n8n/workflow.log",\n      "maxLogSize": 10485760, // 10MB\n      "maxLogFiles": 5\n    }\n  }\n}\n```\n\n## Configurações avançadas\n\n### Configurações de banco de dados\n\nConfigure persistência de dados:\n\n```javascript\n// Configurações de banco de dados\n{\n  "settings": {\n    "database": {\n      "type": "postgresql", // postgresql, mysql, sqlite\n      "host": "localhost",\n      "port": 5432,\n      "database": "n8n",\n      "username": "n8n_user",\n      "password": "senha-segura",\n      "ssl": true,\n      "pool": {\n        "min": 2,\n        "max": 10,\n        "acquireTimeoutMillis": 30000,\n        "createTimeoutMillis": 30000,\n        "destroyTimeoutMillis": 5000,\n        "idleTimeoutMillis": 30000,\n        "reapIntervalMillis": 1000,\n        "createRetryIntervalMillis": 200\n      }\n    }\n  }\n}\n```\n\n### Configurações de filas\n\nConfigure processamento em fila:\n\n```javascript\n// Configurações de fila\n{\n  "settings": {\n    "queue": {\n      "enabled": true,\n      "type": "redis", // redis, bull, bee-queue\n      "redis": {\n        "host": "localhost",\n        "port": 6379,\n        "password": "senha-redis",\n        "db": 0\n      },\n      "concurrency": 5, // Execuções simultâneas\n      "retryAttempts": 3,\n      "retryDelay": 5000\n    }\n  }\n}\n```\n\n## Configurações específicas para Brasil\n\n### Configurações de LGPD\n\nConfigure conformidade com LGPD:\n\n```javascript\n// Configurações de LGPD\n{\n  "settings": {\n    "lgpd": {\n      "enabled": true,\n      "dataRetention": {\n        "executionData": 90, // Dias para reter dados\n        "logs": 365, // Dias para reter logs\n        "userData": 730 // Dias para reter dados de usuário\n      },\n      "dataMasking": {\n        "enabled": true,\n        "fields": ["cpf", "cnpj", "email", "telefone"],\n        "maskPattern": "***"\n      },\n      "consentTracking": {\n        "enabled": true,\n        "requireConsent": true,\n        "consentExpiry": 365 // Dias para expirar consentimento\n      }\n    }\n  }\n}\n```\n\n### Configurações de moeda\n\nConfigure para Real brasileiro:\n\n```javascript\n// Configurações de moeda\n{\n  "settings": {\n    "currency": {\n      "default": "BRL",\n      "format": {\n        "symbol": "R$",\n        "position": "before",\n        "decimal": ",",\n        "thousands": ".",\n        "precision": 2\n      },\n      "exchangeRates": {\n        "enabled": true,\n        "api": "https://api.exchangerate-api.com/v4/latest/BRL",\n        "updateInterval": 3600000 // 1 hora\n      }\n    }\n  }\n}\n```\n\n## Aplicando configurações\n\n### Via interface\n\n1. **Abra as configurações** do workflow\n2. **Navegue pelas abas** de configuração\n3. **Modifique os valores** conforme necessário\n4. **Clique em "Save"** para aplicar\n\n### Via API JavaScript\n\nAtualizar configurações via API:\n\n```javascript\nconst atualizarConfiguracoes = async (workflowId, configuracoes) => {\n  const response = await fetch(`/api/v1/workflows/${workflowId}/settings`, {\n    method: 'PUT',\n    headers: {\n      'Content-Type': 'application/json',\n      'Authorization': 'Bearer YOUR_API_KEY'\n    },\n    body: JSON.stringify(configuracoes)\n  });\n  \n  return response.json();\n};\n\n// Exemplo de uso\nconst configuracoes = {\n  executionTimeout: 1800000,\n  saveExecutionProgress: true,\n  notifications: {\n    onError: {\n      enabled: true,\n      channels: ['email'],\n      recipients: ['admin@empresa.com']\n    }\n  }\n};\n\nawait atualizarConfiguracoes('workflow-123', configuracoes);\n```\n\n### Via variáveis de ambiente\n\n```bash\n# Configurações globais via ambiente\nexport N8N_WORKFLOW_DEFAULT_TIMEOUT=1800000\nexport N8N_WORKFLOW_SAVE_EXECUTION_PROGRESS=true\nexport N8N_WORKFLOW_NOTIFICATIONS_ON_ERROR=true\nexport N8N_WORKFLOW_NOTIFICATIONS_EMAIL=admin@empresa.com\n```
 
-## Configurações de Execução
+## Boas práticas
 
-### Timeout de Execução
-
-Defina o tempo máximo que um workflow pode executar:
-
-```javascript
-// Configurar timeout no workflow
-{
-  "settings": {
-    "executionTimeout": 3600000, // 1 hora em milissegundos
-    "executionTimeoutWarning": 3000000 // Aviso 5 minutos antes
-  }
-}
-```
-
-### Limite de Execuções
-
-Configure limites para evitar sobrecarga:
-
-```javascript
-// Configurar limites de execução
-{
-  "settings": {
-    "maxExecutions": 1000, // Máximo de execuções por dia
-    "maxExecutionsPerMinute": 10, // Limite por minuto
-    "retryOnFail": true, // Tentar novamente em caso de falha
-    "maxRetries": 3 // Número máximo de tentativas
-  }
-}
-```
-
-### Configurações de Performance
-
-Otimize a performance do workflow:
-
-```javascript
-// Configurações de performance
-{
-  "settings": {
-    "saveExecutionProgress": true, // Salvar progresso
-    "saveDataOnSuccess": true, // Salvar dados de sucesso
-    "saveDataOnError": true, // Salvar dados de erro
-    "saveManualExecutions": true, // Salvar execuções manuais
-    "saveDataS3": false, // Salvar dados no S3
-    "saveDataS3Bucket": "n8n-executions",
-    "saveDataS3Region": "us-east-1"
-  }
-}
-```
-
-## Configurações de Dados
-
-### Mapeamento de Dados
-
-Configure como os dados são processados:
-
-```javascript
-// Configurações de mapeamento
-{
-  "settings": {
-    "dataMapping": {
-      "includeEmptyFields": false, // Incluir campos vazios
-      "includeNullValues": false, // Incluir valores nulos
-      "maxDataSize": 1048576, // Tamanho máximo de dados (1MB)
-      "compressData": true, // Comprimir dados
-      "encryptSensitiveData": true // Criptografar dados sensíveis
-    }
-  }
-}
-```
-
-### Validação de Dados
-
-Configure validações automáticas:
-
-```javascript
-// Configurações de validação
-{
-  "settings": {
-    "validation": {
-      "validateInputData": true, // Validar dados de entrada
-      "validateOutputData": true, // Validar dados de saída
-      "strictMode": false, // Modo estrito
-      "customValidators": [
-        {
-          "field": "email",
-          "validator": "email",
-          "required": true
-        },
-        {
-          "field": "cpf",
-          "validator": "cpf",
-          "required": true
-        }
-      ]
-    }
-  }
-}
-```
-
-### Cache de Dados
-
-Configure cache para melhorar performance:
-
-```javascript
-// Configurações de cache
-{
-  "settings": {
-    "cache": {
-      "enabled": true, // Habilitar cache
-      "ttl": 3600000, // Time to live (1 hora)
-      "maxSize": 100, // Máximo de itens em cache
-      "persistent": false, // Cache persistente
-      "cacheDirectory": "/tmp/n8n-cache"
-    }
-  }
-}
-```
-
-## Configurações de Interface
-
-### Visualização do Workflow
-
-Personalize a aparência do workflow:
-
-```javascript
-// Configurações de visualização
-{
-  "settings": {
-    "ui": {
-      "showNodeDetails": true, // Mostrar detalhes dos nodes
-      "showExecutionData": true, // Mostrar dados de execução
-      "showNodeStatus": true, // Mostrar status dos nodes
-      "autoLayout": true, // Layout automático
-      "compactMode": false, // Modo compacto
-      "theme": "light", // Tema (light/dark)
-      "zoomLevel": 100 // Nível de zoom
-    }
-  }
-}
-```
-
-### Configurações de Navegação
-
-Configure a navegação no editor:
-
-```javascript
-// Configurações de navegação
-{
-  "settings": {
-    "navigation": {
-      "enableKeyboardShortcuts": true, // Atalhos de teclado
-      "enableMouseGestures": true, // Gestos do mouse
-      "enableAutoSave": true, // Salvamento automático
-      "autoSaveInterval": 30000, // Intervalo de salvamento (30s)
-      "showUnsavedChangesWarning": true // Aviso de mudanças não salvas
-    }
-  }
-}
-```
-
-## Configurações de Segurança
-
-### Controle de Acesso
-
-Configure permissões e acesso:
-
-```javascript
-// Configurações de segurança
-{
-  "settings": {
-    "security": {
-      "requireAuthentication": true, // Requer autenticação
-      "allowedUsers": ["admin", "editor"], // Usuários permitidos
-      "allowedRoles": ["owner", "admin"], // Roles permitidas
-      "restrictExecution": false, // Restringir execução
-      "auditLog": true, // Log de auditoria
-      "encryptCredentials": true // Criptografar credenciais
-    }
-  }
-}
-```
-
-### Configurações de Rede
-
-Configure acesso de rede:
-
-```javascript
-// Configurações de rede
-{
-  "settings": {
-    "network": {
-      "allowedHosts": ["api.exemplo.com", "webhook.exemplo.com"],
-      "blockedHosts": ["malicious-site.com"],
-      "proxyEnabled": false,
-      "proxyUrl": "http://proxy:8080",
-      "timeout": 30000, // Timeout de rede (30s)
-      "retryOnNetworkError": true
-    }
-  }
-}
-```
-
-## Configurações de Notificação
-
-### Alertas e Notificações
-
-Configure notificações automáticas:
-
-```javascript
-// Configurações de notificação
-{
-  "settings": {
-    "notifications": {
-      "onSuccess": {
-        "enabled": true,
-        "channels": ["email", "slack"],
-        "recipients": ["admin@empresa.com"]
-      },
-      "onError": {
-        "enabled": true,
-        "channels": ["email", "slack", "sms"],
-        "recipients": ["admin@empresa.com", "dev@empresa.com"]
-      },
-      "onTimeout": {
-        "enabled": true,
-        "channels": ["email"],
-        "recipients": ["admin@empresa.com"]
-      }
-    }
-  }
-}
-```
-
-### Configurações de Email
-
-Configure notificações por email:
-
-```javascript
-// Configurações de email
-{
-  "settings": {
-    "email": {
-      "smtp": {
-        "host": "smtp.gmail.com",
-        "port": 587,
-        "secure": true,
-        "auth": {
-          "user": "n8n@empresa.com",
-          "pass": "senha-segura"
-        }
-      },
-      "from": "n8n@empresa.com",
-      "replyTo": "suporte@empresa.com",
-      "template": {
-        "success": "Workflow executado com sucesso",
-        "error": "Erro na execução do workflow",
-        "timeout": "Workflow excedeu o tempo limite"
-      }
-    }
-  }
-}
-```
-
-## Configurações de Monitoramento
-
-### Métricas e Analytics
-
-Configure coleta de métricas:
-
-```javascript
-// Configurações de monitoramento
-{
-  "settings": {
-    "monitoring": {
-      "enabled": true,
-      "metrics": {
-        "executionTime": true,
-        "successRate": true,
-        "errorRate": true,
-        "dataVolume": true,
-        "resourceUsage": true
-      },
-      "alerts": {
-        "highErrorRate": {
-          "threshold": 0.1, // 10% de erro
-          "action": "notify"
-        },
-        "slowExecution": {
-          "threshold": 300000, // 5 minutos
-          "action": "notify"
-        }
-      }
-    }
-  }
-}
-```
-
-### Logs e Debugging
-
-Configure logs detalhados:
-
-```javascript
-// Configurações de logs
-{
-  "settings": {
-    "logging": {
-      "level": "info", // debug, info, warn, error
-      "includeExecutionData": true,
-      "includeNodeData": true,
-      "includeTimestamps": true,
-      "logToFile": true,
-      "logFile": "/var/log/n8n/workflow.log",
-      "maxLogSize": 10485760, // 10MB
-      "maxLogFiles": 5
-    }
-  }
-}
-```
-
-## Configurações Avançadas
-
-### Configurações de Banco de Dados
-
-Configure persistência de dados:
-
-```javascript
-// Configurações de banco de dados
-{
-  "settings": {
-    "database": {
-      "type": "postgresql", // postgresql, mysql, sqlite
-      "host": "localhost",
-      "port": 5432,
-      "database": "n8n",
-      "username": "n8n_user",
-      "password": "senha-segura",
-      "ssl": true,
-      "pool": {
-        "min": 2,
-        "max": 10,
-        "acquireTimeoutMillis": 30000,
-        "createTimeoutMillis": 30000,
-        "destroyTimeoutMillis": 5000,
-        "idleTimeoutMillis": 30000,
-        "reapIntervalMillis": 1000,
-        "createRetryIntervalMillis": 200
-      }
-    }
-  }
-}
-```
-
-### Configurações de Filas
-
-Configure processamento em fila:
-
-```javascript
-// Configurações de fila
-{
-  "settings": {
-    "queue": {
-      "enabled": true,
-      "type": "redis", // redis, bull, bee-queue
-      "redis": {
-        "host": "localhost",
-        "port": 6379,
-        "password": "senha-redis",
-        "db": 0
-      },
-      "concurrency": 5, // Execuções simultâneas
-      "retryAttempts": 3,
-      "retryDelay": 5000
-    }
-  }
-}
-```
-
-## Configurações Específicas para Brasil
-
-### Configurações de LGPD
-
-Configure conformidade com LGPD:
-
-```javascript
-// Configurações de LGPD
-{
-  "settings": {
-    "lgpd": {
-      "enabled": true,
-      "dataRetention": {
-        "executionData": 90, // Dias para reter dados
-        "logs": 365, // Dias para reter logs
-        "userData": 730 // Dias para reter dados de usuário
-      },
-      "dataMasking": {
-        "enabled": true,
-        "fields": ["cpf", "cnpj", "email", "telefone"],
-        "maskPattern": "***"
-      },
-      "consentTracking": {
-        "enabled": true,
-        "requireConsent": true,
-        "consentExpiry": 365 // Dias para expirar consentimento
-      }
-    }
-  }
-}
-```
-
-### Configurações de Moeda
-
-Configure para Real brasileiro:
-
-```javascript
-// Configurações de moeda
-{
-  "settings": {
-    "currency": {
-      "default": "BRL",
-      "format": {
-        "symbol": "R$",
-        "position": "before",
-        "decimal": ",",
-        "thousands": ".",
-        "precision": 2
-      },
-      "exchangeRates": {
-        "enabled": true,
-        "api": "https://api.exchangerate-api.com/v4/latest/BRL",
-        "updateInterval": 3600000 // 1 hora
-      }
-    }
-  }
-}
-```
-
-## Aplicando Configurações
-
-### Via Interface
-
-1. **Abra as configurações** do workflow
-2. **Navegue pelas abas** de configuração
-3. **Modifique os valores** conforme necessário
-4. **Clique em "Save"** para aplicar
-
-### Via API
-
-```javascript
-// Atualizar configurações via API
-const atualizarConfiguracoes = async (workflowId, configuracoes) => {
-  const response = await fetch(`/api/v1/workflows/${workflowId}/settings`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer YOUR_API_KEY'
-    },
-    body: JSON.stringify(configuracoes)
-  });
-  
-  return response.json();
-};
-
-// Exemplo de uso
-const configuracoes = {
-  executionTimeout: 1800000,
-  saveExecutionProgress: true,
-  notifications: {
-    onError: {
-      enabled: true,
-      channels: ['email'],
-      recipients: ['admin@empresa.com']
-    }
-  }
-};
-
-await atualizarConfiguracoes('workflow-123', configuracoes);
-```
-
-### Via Variáveis de Ambiente
-
-```bash
-# Configurações globais via ambiente
-export N8N_WORKFLOW_DEFAULT_TIMEOUT=1800000
-export N8N_WORKFLOW_SAVE_EXECUTION_PROGRESS=true
-export N8N_WORKFLOW_NOTIFICATIONS_ON_ERROR=true
-export N8N_WORKFLOW_NOTIFICATIONS_EMAIL=admin@empresa.com
-```
-
-## Boas Práticas
-
-### Configurações de Performance
+### Configurações de performance
 
 - **Configure timeouts adequados** para evitar travamentos
 - **Use cache** para dados frequentemente acessados
 - **Limite execuções simultâneas** para evitar sobrecarga
 - **Monitore uso de recursos** regularmente
 
-### Configurações de Segurança
+### Configurações de segurança
 
 - **Habilite autenticação** sempre que possível
 - **Criptografe dados sensíveis** automaticamente
 - **Configure logs de auditoria** para compliance
 - **Restrinja acesso** por usuário e role
 
-### Configurações de Monitoramento
+### Configurações de monitoramento
 
 - **Configure alertas proativos** para problemas
 - **Monitore métricas importantes** como tempo de execução
@@ -549,34 +60,39 @@ export N8N_WORKFLOW_NOTIFICATIONS_EMAIL=admin@empresa.com
 
 ## Troubleshooting
 
-### Problemas Comuns
+### Problemas comuns
 
 **Workflow não executa:**
+
 - Verificar configurações de timeout
 - Verificar permissões de usuário
 - Verificar configurações de rede
 
 **Performance lenta:**
+
 - Ajustar configurações de cache
 - Reduzir execuções simultâneas
 - Otimizar configurações de banco de dados
 
 **Notificações não funcionam:**
+
 - Verificar configurações de email/SMTP
 - Verificar configurações de webhook
 - Verificar permissões de API
 
-## Recursos Adicionais
+## Recursos adicionais
 
-### Documentação Oficial
-- [Workflow Settings](https://docs.n8n.io/workflows/settings/)
+### Documentação oficial
+
+- [Workflow Settings](https://docs.n8n.io/workflows/settings)
 - [Configuration Options](https://docs.n8n.io/hosting/configuration/)
 
-### Ferramentas Relacionadas
+### Ferramentas relacionadas
+
 - **n8n CLI**: Configuração via linha de comando
 - **n8n API**: Configuração programática
 - **n8n Docker**: Configuração via variáveis de ambiente
 
 ---
 
-**Próximo**: [Compartilhamento de Workflows](./compartilhamento) - Compartilhe workflows com sua equipe 
+**Próximo**: [Compartilhamento de Workflows](./compartilhamento) - Compartilhe workflows com sua equipe

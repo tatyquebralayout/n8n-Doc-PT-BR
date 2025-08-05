@@ -1,112 +1,287 @@
----
+﻿---
 sidebar_position: 2
 title: Built-in Nodes
 description: Nodes nativos e funcionalidades básicas do n8n
 keywords: [n8n, built-in nodes, funcionalidades, core, http, dados]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Os nodes built-in são os blocos fundamentais do n8n, fornecendo funcionalidades essenciais que você pode usar em qualquer workflow. Eles são nativos da plataforma e não requerem instalação adicional.
+Os **nodes built-in** são os blocos fundamentais do n8n, fornecendo funcionalidades essenciais que você pode usar em qualquer workflow. Eles são nativos da plataforma e não requerem instalação adicional.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+## Categorias de Nodes
 
 ### Core Nodes
 
-- **Code**: Execute código JavaScript customizado
-- **Debug Helper**: Depure e analise dados
-- **Edit Fields Set**: Manipule campos de dados
-- **Error Trigger**: Capture e trate erros
-- **Execute Sub-workflow**: Execute workflows aninhados
-- **Workflow Trigger**: Inicie workflows manualmente
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+**Principais funcionalidades:**
+
+- Execução de código JavaScript
+- Manipulação de dados
+- Debug e logging
+- Transformações customizadas
+- Lógica de negócio
+
+**Casos de uso:**
+
+- Processamento de dados complexo
+- Validações customizadas
+- Transformações de formato
+- Integração com APIs externas
+- Lógica de negócio específica
+
+[Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/index)
 
 ### HTTP Requests
 
-- **HTTP Request**: Faça chamadas para APIs REST
-- **Webhook**: Receba dados via webhooks
+<IonicIcon name="globe-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-### Data Processing
+**Principais funcionalidades:**
 
-- **Set**: Configure e manipule dados
-- **Transform**: Transforme dados entre formatos
+- Requisições HTTP/HTTPS
+- Suporte a múltiplos métodos
+- Autenticação integrada
+- Headers customizados
+- Tratamento de respostas
+
+**Casos de uso:**
+
+- Integração com APIs REST
+- Webhooks e callbacks
+- Autenticação OAuth
+- Upload e download de arquivos
+- Comunicação com serviços externos
+
+[Ver documentação completa →](/integracoes/builtin-nodes/http-requests/index)
 
 ### Logic Control
 
-- **IF**: Lógica condicional
-- **Switch**: Múltiplas condições
-- **Merge**: Combine dados de diferentes fontes
-- **Split**: Divida dados para processamento paralelo
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+**Principais funcionalidades:**
+
+- Controle de fluxo condicional
+- Múltiplas condições
+- Combinação de dados
+- Delays e sincronização
+- Roteamento dinâmico
+
+**Casos de uso:**
+
+- Validação de dados
+- Roteamento por critérios
+- Processamento paralelo
+- Rate limiting
+- Fluxos de aprovação
+
+[Ver documentação completa →](/integracoes/builtin-nodes/logic-control/index)
+
+### Data Processing
+
+<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+**Principais funcionalidades:**
+
+- Agregação de dados
+- Transformação de campos
+- Filtragem e ordenação
+- Conversão de formatos
+- Manipulação de arrays
+
+**Casos de uso:**
+
+- Consolidação de relatórios
+- Limpeza de dados
+- Normalização de formatos
+- Agregação estatística
+- Preparação de dados
+
+[Ver documentação completa →](/integracoes/builtin-nodes/data-processing/index)
 
 ### Utilities
 
-- **Wait**: Pause execução por tempo
-- **Date & Time**: Manipule datas e horários
-- **Expression**: Use expressões para cálculos
+<IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
+**Principais funcionalidades:**
 
-### O que são Built-in Nodes?
+- Manipulação de datas
+- Processamento de texto
+- Conversões de formato
+- Validações
+- Transformações matemáticas
 
-Nodes built-in são funcionalidades nativas do n8n que:
+**Casos de uso:**
 
-- **Não requerem instalação** adicional
-- **Sempre disponíveis** em qualquer instância
-- **Documentados oficialmente** pelo n8n
-- **Mantidos pela equipe** do n8n
-- **Compatíveis** com todas as versões
+- Formatação de dados
+- Validação de entrada
+- Conversão de tipos
+- Cálculos matemáticos
+- Manipulação de strings
 
-### Categorias de Nodes
+[Ver documentação completa →](/integracoes/builtin-nodes/utilities/index)
 
-- **Core**: Funcionalidades fundamentais
-- **HTTP**: Comunicação com APIs
-- **Data**: Processamento de dados
-- **Logic**: Controle de fluxo
-- **Utilities**: Ferramentas auxiliares
+### Trigger Nodes
 
-### Vantagens dos Built-in Nodes
+<IonicIcon name="flash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-- **Confiabilidade**: Testados e estáveis
-- **Performance**: Otimizados para o n8n
-- **Suporte**: Suporte oficial garantido
-- **Documentação**: Bem documentados
-- **Atualizações**: Recebem atualizações regulares
+**Principais funcionalidades:**
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões de Uso
+- Inicialização de workflows
+- Webhooks
+- Agendamento
+- Eventos de aplicações
+- Triggers manuais
+
+**Casos de uso:**
+
+- Automação baseada em eventos
+- Integração com aplicações
+- Agendamento de tarefas
+- Webhooks de sistemas externos
+- Triggers manuais para testes
+
+[Ver documentação completa →](/integracoes/builtin-nodes/trigger-nodes/index)
+
+## Conceitos Fundamentais
+
+### Estrutura de um Node
+
+Cada node no n8n possui uma estrutura básica:
+
+```javascript
+{
+  "name": "Nome do Node",
+  "type": "n8n-nodes-base.nodeType",
+  "position": [x, y],
+  "parameters": {
+    // Configurações específicas do node
+  }
+}
+```
 
 ### Fluxo de Dados
 
-1. **Trigger**: Inicie o workflow
-2. **Process**: Use nodes built-in para processar dados
-3. **Transform**: Manipule dados conforme necessário
-4. **Output**: Envie dados para destinos
+Os dados fluem entre os nodes através de:
 
-### Combinações Comuns
+- **Entrada**: Dados recebidos do node anterior
+- **Processamento**: Transformação dos dados
+- **Saída**: Dados enviados para o próximo node
 
-- **HTTP Request + Set**: Busque dados e configure campos
-- **IF + Merge**: Tome decisões e combine resultados
-- **Code + Debug**: Processe dados e analise resultados
-- **Split + Merge**: Processe dados em paralelo
+### Tipos de Nodes
 
-### Boas Práticas
+**Trigger Nodes:**
+- Iniciam workflows
+- Não recebem dados de entrada
+- Exemplos: Webhook, Schedule, Manual
 
-- **Use nodes apropriados** para cada tarefa
-- **Mantenha workflows simples** e legíveis
-- **Documente lógica complexa** com comentários
-- **Teste cada node** individualmente
+**Regular Nodes:**
+- Processam dados
+- Recebem e enviam dados
+- Exemplos: HTTP Request, Code, If
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+**Output Nodes:**
+- Finalizam workflows
+- Não enviam dados para outros nodes
+- Exemplos: Email, Slack, Database
 
-1. **Explore [Core Nodes](./core-nodes/)** para funcionalidades fundamentais
-2. **Aprenda [HTTP Requests](./http-requests/)** para conectar com APIs
-3. **Use [Data Processing](./data-processing/)** para manipular dados
+## Padrões de Uso
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
+### Padrão Básico
 
-- **[App Nodes](../app-nodes/)** - Integrações com aplicações
-- **[Community Nodes](../community-nodes/)** - Nodes da comunidade
-- **[Criar Nodes](../criar-nodes/)** - Desenvolva nodes customizados
-- **[Flow Logic](../../logica-e-dados/flow-logic/)** - Controle de fluxo
+```mermaid
+graph TD
+    A[Trigger] --> B[Processamento]
+    B --> C[Validação]
+    C --> D[Transformação]
+    D --> E[Saída]
+```
 
----
+### Padrão com Condições
 
-**<ion-icon name="code-slash-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Domine os fundamentos para criar workflows poderosos!**
+```mermaid
+graph TD
+    A[Trigger] --> B[Validação]
+    B --> C{Sucesso?}
+    C -->|Sim| D[Processamento]
+    C -->|Não| E[Tratamento de Erro]
+    D --> F[Saída]
+    E --> F
+```
+
+### Padrão Paralelo
+
+```mermaid
+graph TD
+    A[Trigger] --> B[Divisão]
+    B --> C[Processamento A]
+    B --> D[Processamento B]
+    C --> E[Merge]
+    D --> E
+    E --> F[Saída]
+```
+
+## Boas Práticas
+
+### Nomenclatura
+
+1. **Use nomes descritivos** para nodes
+2. **Mantenha consistência** na nomenclatura
+3. **Documente funções** nos comentários
+4. **Use tags** para organização
+5. **Evite nomes genéricos**
+
+### Organização
+
+1. **Agrupe nodes relacionados**
+2. **Use espaçamento adequado**
+3. **Mantenha fluxo lógico**
+4. **Documente workflows complexos**
+5. **Teste cada seção**
+
+### Performance
+
+1. **Otimize queries** de banco de dados
+2. **Use paginação** para grandes datasets
+3. **Implemente cache** quando apropriado
+4. **Monitore tempo de execução**
+5. **Evite loops desnecessários**
+
+## Troubleshooting
+
+### Problemas Comuns
+
+**Node não executa**
+- Verifique se está conectado corretamente
+- Confirme se recebe dados de entrada
+- Teste com dados de exemplo
+- Verifique logs de erro
+
+**Dados incorretos**
+- Valide formato dos dados de entrada
+- Confirme configuração do node
+- Teste com dados conhecidos
+- Use Debug Helper
+
+**Workflow lento**
+- Identifique gargalos
+- Otimize queries
+- Use processamento paralelo
+- Monitore recursos
+
+### Dicas de Debug
+
+1. **Use Debug Helper** para inspecionar dados
+2. **Configure logging** detalhado
+3. **Teste nodes individualmente**
+4. **Valide dados de entrada**
+5. **Monitore execução**
+
+## Próximos Passos
+
+- [Core Nodes](/integracoes/builtin-nodes/core-nodes/index) - Funcionalidades básicas
+- [HTTP Requests](/integracoes/builtin-nodes/http-requests/index) - Integração com APIs
+- [Logic Control](/integracoes/builtin-nodes/logic-control/index) - Controle de fluxo
+- [Data Processing](/integracoes/builtin-nodes/data-processing/index) - Processamento de dados
+- [Utilities](/integracoes/builtin-nodes/utilities/index) - Ferramentas auxiliares
+- [Trigger Nodes](/integracoes/builtin-nodes/trigger-nodes/index) - Inicialização de workflows

@@ -1,27 +1,30 @@
----
-id: workflow-na-pratica
+﻿---
 title: Workflow na Prática
-sidebar_label: Workflow na Prática
+sidebar_position: 2
+description: Crie um workflow real integrando GitHub e Discord
+keywords: [n8n, workflow, tutorial, github, discord, integração]
 ---
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Workflow na Prática
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+# Workflow na Prática
 
 Este tutorial mostra como criar um workflow real no n8n, integrando diferentes serviços para resolver um problema do dia a dia. Vamos criar um fluxo que envia uma notificação no Discord sempre que uma nova issue for criada em um repositório do GitHub.
 
-## <ion-icon name="rocket-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
+## <IonicIcon name="rocket-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> O que você vai aprender
 
 - Como usar triggers baseados em eventos (GitHub Trigger)
 - Como configurar nodes de integração (Discord)
 - Como mapear e transformar dados entre nodes
 - Como testar, depurar e ativar seu workflow
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Passo a Passo: GitHub → Discord
+## <IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Passo a Passo: GitHub → Discord
 
 ### 1. Crie um novo workflow
 
 - Clique em **New Workflow** e dê um nome (ex: "GitHub Issues para Discord").
 
-### 2. Adicione o Trigger do GitHub
+### 2. Adicione o trigger do GitHub
 
 - Clique em **+** e selecione **GitHub Trigger**.
 - Configure:
@@ -31,7 +34,7 @@ Este tutorial mostra como criar um workflow real no n8n, integrando diferentes s
   - **Credenciais**: Conecte sua conta GitHub (OAuth ou token)
 - Salve e clique em **Listen for events** para registrar o webhook.
 
-### 3. Adicione o Node do Discord
+### 3. Adicione o node do Discord
 
 - Clique em **+** após o trigger e selecione **Discord**.
 - Escolha a operação **Send Message**.
@@ -39,37 +42,34 @@ Este tutorial mostra como criar um workflow real no n8n, integrando diferentes s
   - **Channel ID**: ID do canal de destino
   - **Message**: Use dados do trigger, ex:
 
-    ```
-    Nova issue criada: {{$json["title"]}}
-    Link: {{$json["html_url"]}}
-    Autor: {{$json["user"]["login"]}}
-    ```
+    ```\n    Nova issue criada: {{$json["title"]}}\n    Link: {{$json["html_url"]}}\n    Autor: {{$json["user"]["login"]}}\n    ```
 
   - **Credenciais**: Conecte seu bot Discord
 
-### 4. Conecte os Nodes
+### 4. Conecte os nodes
 
-- Arraste a seta do GitHub Trigger para o Discord.
+Arraste a seta do GitHub Trigger para o Discord.
 
-### 5. Teste o Workflow
+### 5. Teste o workflow
 
-- Crie uma issue de teste no GitHub.
+Crie uma issue de teste no GitHub.
+
 - Veja a mensagem aparecer no Discord.
 - Use o painel lateral para ver logs e dados de entrada/saída.
 
-### 6. Ative o Workflow
+### 6. Ative o workflow
 
-- Clique em **Activate** para rodar automaticamente.
+Clique em **Activate** para rodar automaticamente.
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Dicas e Boas Práticas
+## <IonicIcon name="bulb-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Dicas e Boas Práticas
 
 - Use **expressões** para personalizar mensagens.
 - Teste com o **Manual Trigger** antes de ativar triggers reais.
-- Consulte a [documentação oficial do GitHub Trigger](https://docs.n8n.io/integrations/builtin/app-nodes/github/#trigger) e do [Discord](https://docs.n8n.io/integrations/builtin/app-nodes/discord/).
+- Consulte a [documentação oficial do GitHub Trigger](https://docs.n8n.io/integrations/builtin/app-nodes/github/) e do [Discord](https://docs.n8n.io/integrations/builtin/app-nodes/discord/).
 - Use o **Data Pinning** para fixar dados de teste.
 - Explore outros nodes: Slack, Telegram, Email, Google Sheets.
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Úteis
+## <IonicIcon name="help-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Recursos Úteis
 
 - [Documentação Oficial n8n](https://docs.n8n.io/)
 - [Exemplo de Workflow GitHub → Discord](https://n8n.io/workflows/1342)
@@ -77,4 +77,4 @@ Este tutorial mostra como criar um workflow real no n8n, integrando diferentes s
 
 ---
 
-**<ion-icon name="git-branch-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Pronto para criar automações reais? Experimente outros exemplos e compartilhe seu workflow na comunidade!**
+**<IonicIcon name="git-branch-outline" style={{fontSize: '16px', color: '#ea4b71'}} /> Pronto para criar automações reais? Experimente outros exemplos e compartilhe seu workflow na comunidade!**

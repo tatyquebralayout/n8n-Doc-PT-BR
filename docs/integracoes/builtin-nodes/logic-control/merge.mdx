@@ -1,26 +1,17 @@
----
-title: Merge Node
-description: Guia completo sobre o Merge Node no n8n, incluindo combinação de dados, sincronização, exemplos práticos e boas práticas
+﻿---
+title: Node Merge
+description: Aprenda a usar o node Merge no n8n para combinar dados de múltiplas fontes
 sidebar_position: 3
 keywords: [n8n, merge node, combinação, dados, sincronização, união, fluxo]
 ---
 
-# <ion-icon name="git-merge-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Merge Node
+<IonicIcon name="git-merge-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-O **Merge Node** é uma ferramenta essencial do n8n para combinar dados de múltiplas fontes. Ele permite unir informações de diferentes caminhos do workflow, criando datasets consolidados e enriquecidos.
+O **node Merge** é uma ferramenta essencial do n8n para combinar dados de múltiplas fontes. Ele permite unir informações de diferentes caminhos do workflow, criando datasets consolidados e enriquecidos.
 
-## O que é o Merge Node?
+## Quando usar o Merge
 
-O **Merge Node** permite:
-
-- **Combinar** dados de múltiplos nodes
-- **Sincronizar** informações de diferentes fontes
-- **Enriquecer** dados com informações adicionais
-- **Consolidar** resultados de processamentos paralelos
-- **Criar** datasets completos e estruturados
-- **Unificar** fluxos de dados separados
-
-### Quando Usar o Merge Node
+O node Merge é ideal para:
 
 - **Consolidação** de dados de múltiplas APIs
 - **Enriquecimento** de dados com informações complementares
@@ -45,12 +36,13 @@ O **Merge Node** permite:
 }
 ```
 
-### Modos de Operação
+## Modos de Operação
 
-#### 1. Combine Mode
+### Combine Mode
+
+Combinar dados baseado em campo comum.
 
 ```javascript
-// Combinar dados baseado em campo comum
 {
   "mode": "combine",
   "combineBy": "id",
@@ -65,10 +57,11 @@ O **Merge Node** permite:
 - Cria um item consolidado com dados de todas as fontes
 - Mantém a estrutura original dos dados
 
-#### 2. Append Mode
+### Append Mode
+
+Anexar dados de diferentes fontes.
 
 ```javascript
-// Anexar dados de diferentes fontes
 {
   "mode": "append",
   "options": {
@@ -82,10 +75,11 @@ O **Merge Node** permite:
 - Cria arrays com todos os itens
 - Útil para consolidar listas
 
-#### 3. Overwrite Mode
+### Overwrite Mode
+
+Sobrescrever dados com informações mais recentes.
 
 ```javascript
-// Sobrescrever dados com informações mais recentes
 {
   "mode": "overwrite",
   "combineBy": "id",
@@ -100,9 +94,9 @@ O **Merge Node** permite:
 - Mantém apenas a versão mais recente
 - Útil para atualizações de dados
 
-### Modos de Combinação
+## Modos de Combinação
 
-#### 1. Multiplex
+### Multiplex
 
 ```javascript
 // Processar dados assim que chegarem
@@ -117,7 +111,7 @@ O **Merge Node** permite:
 - Mais rápido e eficiente
 - Pode resultar em dados incompletos
 
-#### 2. Wait for All
+### Wait for All
 
 ```javascript
 // Aguardar dados de todas as fontes
@@ -134,7 +128,7 @@ O **Merge Node** permite:
 
 ## Exemplos Práticos
 
-### 1. Enriquecimento de Dados de Cliente
+### Exemplo 1: Enriquecimento de Dados de Cliente
 
 ```javascript
 // Merge Node - Enriquecer dados de cliente
@@ -148,11 +142,13 @@ O **Merge Node** permite:
 ```
 
 **Fontes de dados:**
+
 - **Fonte 1:** Dados básicos do cliente (nome, email, telefone)
 - **Fonte 2:** Histórico de compras (total, frequência, última compra)
 - **Fonte 3:** Dados de endereço (CEP, cidade, estado)
 
 **Resultado:**
+
 ```json
 {
   "cliente_id": "12345",
@@ -168,7 +164,7 @@ O **Merge Node** permite:
 }
 ```
 
-### 2. Consolidação de Vendas por Região
+### Exemplo 2: Consolidação de Vendas por Região
 
 ```javascript
 // Merge Node - Consolidar vendas
@@ -181,11 +177,13 @@ O **Merge Node** permite:
 ```
 
 **Fontes de dados:**
+
 - **Fonte 1:** Vendas da região Norte
 - **Fonte 2:** Vendas da região Sul
 - **Fonte 3:** Vendas da região Sudeste
 
 **Resultado:**
+
 ```json
 [
   {
@@ -206,7 +204,7 @@ O **Merge Node** permite:
 ]
 ```
 
-### 3. Atualização de Produtos
+### Exemplo 3: Atualização de Produtos
 
 ```javascript
 // Merge Node - Atualizar produtos
@@ -235,7 +233,7 @@ O **Merge Node** permite:
 }
 ```
 
-### 4. Relatório Consolidado
+### Exemplo 4: Relatório Consolidado
 
 ```javascript
 // Merge Node - Relatório consolidado
@@ -280,17 +278,17 @@ O **Merge Node** permite:
 
 ## Casos de Uso Avançados
 
-### 1. Merge com Transformação de Dados
+### Merge com Transformação de Dados
 
 ```javascript
 // Code Node - Preparar dados para merge
-const prepararDados = (dados) => {
-  return dados.map(item => ({
-    ...item,
-    timestamp: new Date().toISOString(),
-    fonte: 'sistema_principal'
-  }));
-};
+const dadosPreparados = $json.map(item => ({
+  ...item,
+  timestamp: new Date().toISOString(),
+  fonte: 'api_principal'
+}));
+
+return dadosPreparados;
 
 // Merge Node - Combinar dados
 {
@@ -302,35 +300,33 @@ const prepararDados = (dados) => {
 }
 
 // Code Node - Processar dados consolidados
-const processarConsolidado = (dados) => {
-  return {
-    ...dados,
-    total_campos: Object.keys(dados).length,
-    processado_em: new Date().toISOString()
-  };
-};
+const dadosConsolidados = $json.map(item => ({
+  ...item,
+  processado_em: new Date().toISOString()
+}));
+
+return dadosConsolidados;
 ```
 
-### 2. Merge com Validação
+### Merge com Validação
 
 ```javascript
 // Code Node - Validar dados antes do merge
-const validarDados = (dados) => {
-  const validacoes = {
-    tem_id: dados.id && dados.id.length > 0,
-    tem_nome: dados.nome && dados.nome.length > 0,
-    tem_email: dados.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dados.email)
-  };
-  
-  const todasValidas = Object.values(validacoes).every(v => v);
-  
-  if (!todasValidas) {
-    console.warn('Dados inválidos:', dados, validacoes);
-    return null;
-  }
-  
-  return dados;
+const dados = $json;
+const validacoes = {
+  nome: dados.nome && dados.nome.length > 0,
+  email: dados.email && dados.email.includes('@'),
+  telefone: dados.telefone && dados.telefone.length >= 10
 };
+
+const todasValidas = Object.values(validacoes).every(v => v);
+
+if (!todasValidas) {
+  console.warn('Dados inválidos:', dados, validacoes);
+  return null;
+}
+
+return dados;
 
 // Merge Node - Combinar apenas dados válidos
 {
@@ -342,7 +338,7 @@ const validarDados = (dados) => {
 }
 ```
 
-### 3. Merge com Agregação
+### Merge com Agregação
 
 ```javascript
 // Aggregate Node - Agregar dados por categoria
@@ -372,13 +368,13 @@ const validarDados = (dados) => {
 }
 ```
 
-### 4. Merge com Cache
+### Merge com Cache
 
 ```javascript
 // Code Node - Cache de dados
 const cache = new Map();
 
-const obterComCache = async (id) => {
+async function buscarDados(id) {
   if (cache.has(id)) {
     return cache.get(id);
   }
@@ -386,7 +382,7 @@ const obterComCache = async (id) => {
   const dados = await buscarDados(id);
   cache.set(id, dados);
   return dados;
-};
+}
 
 // Merge Node - Combinar dados frescos com cache
 {
@@ -400,17 +396,20 @@ const obterComCache = async (id) => {
 
 ## Workflows Complexos
 
-### 1. Merge com Múltiplas Fontes
+### Merge com Múltiplas Fontes
 
-```
-Fonte A → Processamento A → Merge Node
-    ↓              ↓              ↓
-Fonte B → Processamento B → Merge Node → Resultado Consolidado
-    ↓              ↓              ↓
-Fonte C → Processamento C → Merge Node
+```mermaid
+graph TD
+    A[Fonte A] --> B[Processamento A]
+    C[Fonte B] --> D[Processamento B]
+    E[Fonte C] --> F[Processamento C]
+    B --> G[Merge Node]
+    D --> G
+    F --> G
+    G --> H[Resultado Consolidado]
 ```
 
-### 2. Merge Hierárquico
+### Merge Hierárquico
 
 ```javascript
 // Primeiro Merge - Dados básicos
@@ -432,19 +431,23 @@ Fonte C → Processamento C → Merge Node
 }
 ```
 
-### 3. Merge com Paralelização
+### Merge com Paralelização
 
-```
-Dados Originais → Switch Node → Processamento A → Merge Node
-      ↓              ↓              ↓              ↓
-Dados Originais → Switch Node → Processamento B → Merge Node
-      ↓              ↓              ↓              ↓
-Dados Originais → Switch Node → Processamento C → Merge Node
+```mermaid
+graph TD
+    A[Dados Originais] --> B[Switch Node]
+    B --> C[Processamento A]
+    B --> D[Processamento B]
+    B --> E[Processamento C]
+    C --> F[Merge Node]
+    D --> F
+    E --> F
+    F --> G[Resultado Final]
 ```
 
 ## Boas Práticas
 
-### 1. Escolha do Campo de Combinação
+### Escolha do Campo de Combinação
 
 ```javascript
 // ✅ Bom: Campo único e estável
@@ -458,7 +461,7 @@ Dados Originais → Switch Node → Processamento C → Merge Node
 }
 ```
 
-### 2. Modo de Combinação
+### Modo de Combinação
 
 ```javascript
 // ✅ Bom: Multiplex para dados independentes
@@ -472,7 +475,7 @@ Dados Originais → Switch Node → Processamento C → Merge Node
 }
 ```
 
-### 3. Validação de Dados
+### Validação de Dados
 
 ```javascript
 // ✅ Bom: Validar antes do merge
@@ -484,7 +487,7 @@ const dadosValidados = dados.filter(item =>
 // Pode resultar em dados inconsistentes
 ```
 
-### 4. Tratamento de Erros
+### Tratamento de Erros
 
 ```javascript
 // ✅ Bom: Tratar dados ausentes
@@ -502,30 +505,29 @@ const dadosCompletos = dados.map(item => ({
 
 ### Problemas Comuns
 
-#### Dados não são combinados
+**Dados não são combinados**
 - Verifique se o campo de combinação existe
 - Confirme se os valores são iguais
 - Teste com dados de exemplo
 - Use Debug Helper para ver dados
 
-#### Merge lento
+**Merge lento**
 - Use multiplex para dados independentes
 - Reduza o número de fontes
 - Otimize as consultas de dados
 - Considere usar cache
 
-#### Dados duplicados
+**Dados duplicados**
 - Verifique se há campos únicos
 - Use overwrite mode quando apropriado
 - Implemente validação de duplicatas
 - Considere usar Aggregate Node
 
-### Debug
+### Debug de Merge Node
 
 ```javascript
-// Code Node - Debug de Merge Node
-const debugMerge = (dados) => {
-  console.log('=== DEBUG MERGE ===');
+// Função de debug para Merge Node
+function debugMerge(dados) {
   console.log('Dados recebidos:', dados);
   console.log('Número de itens:', dados.length);
   console.log('Campos disponíveis:', Object.keys(dados[0] || {}));
@@ -533,15 +535,15 @@ const debugMerge = (dados) => {
   console.log('==================');
   
   return dados;
-};
+}
 
 // Usar após o Merge Node
 return { json: debugMerge($json) };
 ```
 
-## Integração com Outros Nodes
+## Integração com Outros Nós
 
-### 1. Merge Node + Set Node
+### Merge Node com Set Node
 
 ```javascript
 // Merge Node - Combinar dados
@@ -557,18 +559,18 @@ return { json: debugMerge($json) };
     "string": [
       {
         "name": "fonte_consolidada",
-        "value": "{{ $json.fonte_1 || $json.fonte_2 || 'múltiplas' }}"
+        "value": "{{$json.fonte_1 || $json.fonte_2 || 'múltiplas'}}"
       },
       {
         "name": "timestamp_merge",
-        "value": "{{ $now.toISOString() }}"
+        "value": "{{$now.toISOString()}}"
       }
     ]
   }
 }
 ```
 
-### 2. Merge Node + Aggregate Node
+### Merge Node com Aggregate Node
 
 ```javascript
 // Merge Node - Combinar dados de vendas
@@ -597,7 +599,7 @@ return { json: debugMerge($json) };
 }
 ```
 
-### 3. Merge Node + If Node
+### Merge Node com If Node
 
 ```javascript
 // Merge Node - Combinar dados de cliente
@@ -608,7 +610,7 @@ return { json: debugMerge($json) };
 
 // If Node - Verificar dados completos
 {
-  "condition": "{{ $json.nome && $json.email && $json.telefone }}",
+  "condition": "{{$json.nome && $json.email && $json.telefone}}",
   "true": "Dados Completos",
   "false": "Dados Incompletos"
 }

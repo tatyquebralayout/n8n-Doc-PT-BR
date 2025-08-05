@@ -1,41 +1,20 @@
----
+﻿---
 sidebar_position: 2
 title: Merging de Dados
 description: Como combinar e mesclar dados de múltiplas fontes no n8n
 keywords: [n8n, merge, combinar, dados, junção, sincronização, join]
 ---
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Merging de Dados
+<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Merging de Dados**
 
 O merging de dados é uma técnica fundamental para combinar informações de múltiplas fontes, criar visões unificadas e consolidar dados dispersos. O n8n oferece várias estratégias para realizar merges eficientes e precisos.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
-
-### O que é Merging de Dados?
-
-Merging é o processo de **combinar dados** de diferentes fontes em um resultado único, permitindo:
-
-- **Consolidação**: Unir dados de múltiplas APIs
-- **Enriquecimento**: Adicionar informações de fontes externas
-- **Sincronização**: Manter dados atualizados entre sistemas
-- **Relatórios**: Criar visões unificadas de informações
-- **Integração**: Conectar sistemas diferentes
-
-### Tipos de Merge
-
-1. **Concatenation**: Juntar dados sequencialmente
-2. **Join**: Combinar baseado em chaves comuns
-3. **Union**: Unir datasets similares
-4. **Intersection**: Manter apenas dados comuns
-5. **Enrichment**: Adicionar dados de fontes externas
-
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação
-
-### 1. Merge Node
-
-O **Merge Node** é a forma mais direta de combinar dados.
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Configuração Básica**
 
 **Configuração básica:**
+
 ```json
 {
   "mode": "combine",
@@ -43,7 +22,10 @@ O **Merge Node** é a forma mais direta de combinar dados.
 }
 ```
 
+### Configuração Avançada
+
 **Configuração avançada:**
+
 ```json
 {
   "mode": "combine",
@@ -53,7 +35,7 @@ O **Merge Node** é a forma mais direta de combinar dados.
 }
 ```
 
-### 2. Code Node para Merge Customizado
+## Code Node para Merge Customizado
 
 Para merges complexos, use o Code Node.
 
@@ -87,9 +69,10 @@ const usuariosComPedidos = usuarios.map(usuario => {
 return usuariosComPedidos;
 ```
 
-## <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões de Merge
+<IonicIcon name="code-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Padrões de Merge
 
-### 1. Merge por Posição
+### Merge por Posição
 
 Combina dados baseado na posição nos arrays.
 
@@ -101,6 +84,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Dados de entrada
 const clientes = [
@@ -122,7 +106,7 @@ const resultado = clientes.map((cliente, index) => ({
 return resultado;
 ```
 
-### 2. Merge por Chave
+### Merge por Chave
 
 Combina dados baseado em chaves comuns.
 
@@ -134,6 +118,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Dados de entrada
 const clientes = [
@@ -164,7 +149,7 @@ const clientesComPedidos = clientes.map(cliente => {
 return clientesComPedidos;
 ```
 
-### 3. Merge com Enriquecimento
+### Merge com Enriquecimento
 
 Adiciona dados de fontes externas.
 
@@ -176,6 +161,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Dados base
 const clientes = [
@@ -214,9 +200,10 @@ const clientesEnriquecidos = await Promise.all(
 return clientesEnriquecidos;
 ```
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Práticos
+<IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Casos de Uso Práticos
 
-### 1. Relatório de Vendas Consolidado
+### Relatório de Vendas Consolidado
 
 **Cenário**: Consolidar dados de vendas de múltiplas plataformas.
 
@@ -229,6 +216,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Dados de diferentes fontes
 const vendasEcommerce = $('E-commerce API').json;
@@ -267,7 +255,7 @@ const relatorio = {
 return relatorio;
 ```
 
-### 2. Sincronização de Clientes
+### Sincronização de Clientes
 
 **Cenário**: Sincronizar dados de clientes entre CRM e sistema financeiro.
 
@@ -280,6 +268,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Dados dos sistemas
 const clientesCRM = $('CRM API').json;
@@ -332,7 +321,7 @@ return {
 };
 ```
 
-### 3. Merge de Dados de Monitoramento
+### Merge de Dados de Monitoramento
 
 **Cenário**: Consolidar alertas de diferentes sistemas de monitoramento.
 
@@ -346,6 +335,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Alertas de diferentes sistemas
 const alertasSistema1 = $('Sistema 1').json;
@@ -365,6 +355,7 @@ const alertasPorSeveridade = todosAlertas.reduce((acc, alerta) => {
   if (!acc[severidade]) {
     acc[severidade] = [];
   }
+  
   acc[severidade].push(alerta);
   return acc;
 }, {});
@@ -389,7 +380,8 @@ const resumo = {
 return resumo;
 ```
 
-## <ion-icon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões e Data Mapping
+<IonicIcon name="flash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Expressões e Data Mapping
 
 ### Merge Dinâmico
 
@@ -430,7 +422,8 @@ if (dados2 && dados2.length > 0) {
 return resultado;
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Tratamento de Erros
 
 ### Merge com Tratamento de Erros
 
@@ -441,10 +434,17 @@ const dados2 = $('Fonte 2').json;
 
 const validarDados = (dados, fonte) => {
   if (!Array.isArray(dados)) {
-    console.warn(`Dados inválidos da fonte ${fonte}`);
+    console.error(`Dados inválidos da ${fonte}`);
     return [];
   }
-  return dados;
+  
+  return dados.filter(item => {
+    if (!item || typeof item !== 'object') {
+      console.warn(`Item inválido na ${fonte}:`, item);
+      return false;
+    }
+    return true;
+  });
 };
 
 const dadosValidados1 = validarDados(dados1, 'fonte1');
@@ -483,7 +483,8 @@ const resultado = mergeComFallback(dadosPrincipais, dadosFallback);
 return resultado;
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance e Otimização
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Performance e Otimização
 
 ### Boas Práticas
 
@@ -522,7 +523,8 @@ await cache.set(cacheKey, resultado, 300); // 5 minutos
 return resultado;
 ```
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+<IonicIcon name="help-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Troubleshooting
 
 ### Problemas Comuns
 
@@ -541,7 +543,7 @@ return resultado;
 - Use chaves únicas
 - Valide dados antes do merge
 
-### Debugging
+### Debug com Logging
 
 ```javascript
 // Debug de merge
@@ -562,7 +564,8 @@ return {
 };
 ```
 
-## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Outros Nós
+<IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Integração com Outros Nós
 
 ### Fluxo Típico
 
@@ -603,7 +606,7 @@ const dadosCombinados = $json;
 const relatorio = {
   total_clientes: dadosCombinados.length,
   total_pedidos: dadosCombinados.reduce((sum, c) => sum + c.pedidos.length, 0),
-  valor_total: dadosCombinados.reduce((sum, c) => 
+  valor_total: dadosCombinados.reduce((sum, c) =>
     sum + c.pedidos.reduce((s, p) => s + p.valor, 0), 0
   ),
   clientes: dadosCombinados
@@ -619,7 +622,8 @@ return relatorio;
 }
 ```
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Referências
 
 - **[Merge Node](../../integracoes/builtin-nodes/logic-control/merge)** - Nó específico para merge
 - **[Data Mapping](../../logica-e-dados/data/data-mapping-avancado)** - Mapeamento avançado de dados
@@ -628,10 +632,5 @@ return relatorio;
 
 ---
 
-> <ion-icon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon> **Dica**: Use merge de dados para criar visões unificadas e consolidadas de informações dispersas. Lembre-se de sempre validar e normalizar dados antes do merge para garantir consistência e qualidade.
-
----
-
-:::warning **Nota de Atenção**
-Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
-:::
+<IonicIcon name="bulb-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
+**Dica**: Use o Debug Helper para inspecionar dados antes e depois do merge, garantindo que a combinação está correta.

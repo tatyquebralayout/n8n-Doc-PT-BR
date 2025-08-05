@@ -5,9 +5,16 @@ sidebar_position: 1
 keywords: [glossário n8n, termos técnicos, dicionário de automação, conceitos n8n, referência rápida, explicações claras]
 ---
 
-# Glossário n8n: Termos Técnicos e Conceitos de Automação
+import IonicIcon from '@site/src/components/IonicIcon';
+
+<IonicIcon name="book-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 Definições dos principais termos e conceitos utilizados no n8n e em automação de workflows. Use este glossário como dicionário de referência rápida para tirar dúvidas sobre automação, integrações, nodes, credenciais e outros conceitos essenciais.
+
+:::info
+<IonicIcon name="information-circle-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
+**Dica:** Use Ctrl+F (ou Cmd+F no Mac) para buscar rapidamente um termo específico neste glossário.
+:::
 
 ## A
 
@@ -223,12 +230,15 @@ Formato de arquivo compactado suportado pelo n8n.
 
 ---
 
-## 🔗 Links Relacionados
+<IonicIcon name="link-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
 
-- **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais.md)** - Entenda os conceitos básicos
-- **[API Reference](../../api/referencia/index.md)** - Documentação técnica da API
-- **[Guias](../guias/index.md)** - Guias práticos e tutoriais
+## Links Relacionados
+
+- **[Conceitos Fundamentais](../../primeiros-passos/conceitos-fundamentais)** - Entenda os conceitos básicos
+- **[API Reference](../../api/referencia/)** - Documentação técnica da API
+- **[Guias](../guias/)** - Guias práticos e tutoriais
 
 ---
 
-**Não encontrou um termo? [Contribua](../../contribuir/index.md) adicionando novas definições!**
+<IonicIcon name="add-circle-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**Não encontrou um termo?** [Contribua](../../contribuir/) adicionando novas definições!

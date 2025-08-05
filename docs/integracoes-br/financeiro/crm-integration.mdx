@@ -1,8 +1,18 @@
-# <ion-icon name="people-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração CRM
+﻿---
+title: Integração CRM
+description: Conectar n8n com sistemas de gestão de relacionamento com clientes populares no Brasil
+sidebar_position: 3
+keywords: [n8n, crm, integração, vendas, marketing, atendimento, brasil]
+---
+
+<IonicIcon name="people-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+integrao-crm
 
 A integração CRM permite conectar o n8n com sistemas de gestão de relacionamento com clientes populares no Brasil, automatizando processos de vendas, marketing e atendimento ao cliente.
 
-## O que você encontrará aqui
+## o que voc encontrar
+
+aqui
 
 Esta documentação abrange:
 
@@ -12,9 +22,11 @@ Esta documentação abrange:
 - **Sincronização de dados**: Manter dados atualizados entre sistemas
 - **Casos de uso avançados**: Integrações complexas
 
-## Conceitos Fundamentais
+## conceitos
 
-### CRM (Customer Relationship Management)
+fundamentais
+
+## crm customer relationship management
 
 CRM é um sistema que gerencia todas as interações e relacionamentos com clientes, incluindo:
 
@@ -23,7 +35,9 @@ CRM é um sistema que gerencia todas as interações e relacionamentos com clien
 - **Atendimento ao cliente**: Suporte e tickets
 - **Marketing**: Campanhas e segmentação
 
-### Integração n8n-CRM
+## integrao
+
+n8n-crm
 
 O n8n permite automatizar processos CRM através de:
 
@@ -31,14 +45,17 @@ O n8n permite automatizar processos CRM através de:
 - **Webhooks**: Receber notificações em tempo real
 - **Sincronização**: Manter dados consistentes entre sistemas
 
-## Sistemas CRM Suportados
+## sistemas crm
 
-### CRMs Brasileiros
+suportados
+
+## crms brasileiros
 
 1. **RD Station CRM**
-   - API REST completa
-   - Webhooks para eventos
-   - Integração com marketing digital
+
+- API REST completa
+- Webhooks para eventos
+- Integração com marketing digital
 
 2. **Pipedrive**
    - API robusta
@@ -55,9 +72,11 @@ O n8n permite automatizar processos CRM através de:
    - Customização extensiva
    - Integração com ecossistema
 
-## Configuração Básica
+## configurao
 
-### Credenciais Necessárias
+bsica
+
+## credenciais necessrias
 
 ```json
 {
@@ -67,23 +86,27 @@ O n8n permite automatizar processos CRM através de:
 }
 ```
 
-### Exemplo de Conexão
+## exemplo de conexo
 
 ```javascript
 // Configuração do node HTTP Request
 {
   "method": "POST",
-  "url": "{{ $credentials.crm.baseUrl }}/contacts",
+  "url": "{{$credentials.crm.baseUrl}}/contacts",
   "headers": {
-    "Authorization": "Bearer {{ $credentials.crm.apiKey }}",
+    "Authorization": "Bearer {{$credentials.crm.apiKey}}",
     "Content-Type": "application/json"
   }
 }
 ```
 
-## Casos de Uso Comuns
+## casos de uso
 
-### 1. Captura de Leads
+comuns
+
+## id
+
+1-captura-de-leads
 
 ```mermaid
 graph LR
@@ -93,7 +116,9 @@ graph LR
     D --> E[Notificar Vendedor]
 ```
 
-### 2. Sincronização de Oportunidades
+## id
+
+2-sincronizao-de-oportunidades
 
 ```mermaid
 graph LR
@@ -102,7 +127,9 @@ graph LR
     C --> D[Registrar Log]
 ```
 
-### 3. Automação de Follow-up
+## id
+
+3-automao-de-follow-up
 
 ```mermaid
 graph LR
@@ -111,9 +138,11 @@ graph LR
     C --> D[Atualizar Status]
 ```
 
-## Workflows Práticos
+## workflows
 
-### Workflow: Lead Qualification
+prticos
+
+## workflow lead qualification
 
 1. **Trigger**: Novo lead no formulário
 2. **Validação**: Verificar dados obrigatórios
@@ -121,21 +150,21 @@ graph LR
 4. **Qualificação**: Aplicar regras de scoring
 5. **Distribuição**: Atribuir ao vendedor correto
 
-### Workflow: Pipeline Management
+## workflow pipeline management
 
 1. **Monitoramento**: Verificar mudanças de status
 2. **Notificações**: Alertar responsáveis
 3. **Relatórios**: Gerar dashboards automáticos
 4. **Follow-up**: Agendar próximos contatos
 
-## Próximos Passos
+## prximos passos
 
 - [Automação de Marketing](/integracoes-br/marketing/email-automation) - Campanhas automáticas
 - [Integração Financeira](/integracoes-br/financeiro/nfe-integracao) - Faturamento automático
-- [Análise de Dados](/logica-e-dados/data/agregacoes-estatisticas) - Relatórios avançados
+- [Análise de Dados](/logica-e-dados/data/data-mapping-avancado) - Relatórios avançados
 - [Webhooks](/integracoes/webhooks) - Eventos em tempo real
 
-## Recursos Relacionados
+## recursos relacionados
 
 - [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer chamadas para APIs
 - [Expressões n8n](/logica-e-dados/expressoes) - Processar dados dinamicamente

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import IonicIcon from '../components/IonicIcon';
@@ -9,7 +8,22 @@ import IonicIcon from '../components/IonicIcon';
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  // const {siteConfig} = useDocusaurusContext();
+  // Registra service worker para cache offline
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('SW registered: ', registration);
+          })
+          .catch(function(registrationError) {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  }, []);
+
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)} itemScope itemType="https://schema.org/TechArticle">
       <div className="container">
@@ -185,14 +199,14 @@ function DocumentationProgress() {
   };
 
   return (
-    <section className={styles.progressSection}>
+    <section className={styles.progressSection} data-testid="progress-section">
       <div className="container">
         <div className={styles.progressCard}>
           <div className={styles.progressHeader}>
             <IonicIcon name="trophy-outline" size={20} color="#ea4b71" />
             <h2>Progresso da Documentação</h2>
             <div className={styles.progressStats}>
-              <span className={styles.progressPercentage}>{animatedProgress}%</span>
+              <span className={styles.progressPercentage} data-testid="progress-percentage">{animatedProgress}%</span>
               <span className={styles.progressText}>
                 {completedGoals} de {totalGoals} metas
               </span>
@@ -211,7 +225,7 @@ function DocumentationProgress() {
             </button>
           </div>
           
-          <div className={styles.progressBar}>
+          <div className={styles.progressBar} data-testid="progress-bar">
             <div 
               className={styles.progressFill} 
               style={{ width: `${animatedProgress}%` }}

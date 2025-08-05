@@ -40,6 +40,7 @@ Fixes #(número da issue)
 ## ✅ Checklist
 
 ### Verificações Gerais
+
 - [ ] Meu código segue as diretrizes de estilo do projeto
 - [ ] Revisei meu próprio código
 - [ ] Comentei meu código, especialmente em partes complexas
@@ -47,12 +48,14 @@ Fixes #(número da issue)
 - [ ] Testei localmente e tudo funciona
 
 ### Documentação
+
 - [ ] Atualizei a documentação relevante
 - [ ] Verifiquei se não há links quebrados
 - [ ] Testei a navegação nas páginas modificadas
 - [ ] Verifiquei ortografia e gramática
 
 ### Build e Testes
+
 - [ ] `npm run build` executa sem erros
 - [ ] `npm run lint` passa sem erros
 - [ ] `npm run typecheck` passa sem erros
@@ -60,6 +63,7 @@ Fixes #(número da issue)
 - [ ] Testei responsividade (se aplicável)
 
 ### SEO e Acessibilidade
+
 - [ ] Adicionei/atualizei meta tags apropriadas
 - [ ] Verifiquei que alt text está presente em imagens
 - [ ] Testei navegação por teclado (se aplicável)

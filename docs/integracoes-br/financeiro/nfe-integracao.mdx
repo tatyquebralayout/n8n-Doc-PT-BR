@@ -5,11 +5,12 @@ sidebar_position: 2
 keywords: [n8n, nfe, nota fiscal, eletrônica, fiscal, brasil, sefaz]
 ---
 
-# <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> NFE Integração
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+nfe-integrao
 
 A **Nota Fiscal Eletrônica (NFE)** é um documento fiscal obrigatório no Brasil. Esta integração permite automatizar processos relacionados à NFE, incluindo emissão, consulta, cancelamento e relatórios fiscais.
 
-## O que é NFE?
+## O que é NFE
 
 A NFE é um documento fiscal eletrônico que:
 
@@ -19,7 +20,7 @@ A NFE é um documento fiscal eletrônico que:
 - **Gera XML** com assinatura digital
 - **Permite consulta** online da validade
 
-### Benefícios da Automação
+## Benefícios da Automação
 
 - **Emissão automática** de NFEs
 - **Validação** em tempo real
@@ -101,6 +102,7 @@ Webhook (Pedido) → Validação → HTTP Request (SEFAZ) → Processamento → 
 ```
 
 **Configuração:**
+
 - **Webhook**: Recebe dados do pedido
 - **Validação**: Valida dados obrigatórios
 - **HTTP Request**: Envia para SEFAZ
@@ -117,6 +119,7 @@ Schedule Trigger → HTTP Request (Consulta) → Processamento → Relatório
 ```
 
 **Configuração:**
+
 - **Schedule Trigger**: Executa periodicamente
 - **HTTP Request**: Consulta SEFAZ
 - **Processamento**: Analisa status
@@ -132,6 +135,7 @@ Webhook (Cancelamento) → Validação → HTTP Request (Cancelamento) → Confi
 ```
 
 **Configuração:**
+
 - **Webhook**: Recebe solicitação de cancelamento
 - **Validação**: Valida permissões e prazo
 - **HTTP Request**: Envia cancelamento para SEFAZ
@@ -144,11 +148,13 @@ Webhook (Cancelamento) → Validação → HTTP Request (Cancelamento) → Confi
 **Cenário:** Emitir NFE automaticamente quando um pedido é aprovado.
 
 **Workflow:**
+
 ```
 Webhook (Pedido Aprovado) → Validação → HTTP Request (SEFAZ) → Processamento → Notificação
 ```
 
 **Configuração:**
+
 ```javascript
 // Webhook - Dados do Pedido
 {
@@ -209,11 +215,13 @@ return { json: nfeData };
 **Cenário:** Consultar status de NFEs emitidas.
 
 **Workflow:**
+
 ```
 Schedule Trigger → HTTP Request (Consulta) → Code (Análise) → Relatório
 ```
 
 **Configuração:**
+
 ```javascript
 // Schedule Trigger - Execução
 Cron: 0 */2 * * * // A cada 2 horas
@@ -223,12 +231,12 @@ Method: POST
 URL: https://api.sefaz.gov.br/nfe/consulta
 Headers: {
   "Content-Type": "application/json",
-  "Authorization": "Bearer {{ $credentials.sefaz.token }}"
+  "Authorization": "Bearer {{$credentials.sefaz.token}}"
 }
 Body: {
   "cnpj_emitente": "00.000.000/0001-00",
   "data_inicio": "{{ $now.minus({ days: 1 }).toFormat('yyyy-MM-dd') }}",
-  "data_fim": "{{ $now.toFormat('yyyy-MM-dd') }}"
+  "data_fim": "{{$now.toFormat('yyyy-MM-dd')}}"
 }
 
 // Code - Análise de Status
@@ -247,6 +255,7 @@ const alertas = [];
 if (analise.rejeitadas > 0) {
   alertas.push(`NFEs rejeitadas: ${analise.rejeitadas}`);
 }
+
 if (analise.pendentes > 5) {
   alertas.push(`Muitas NFEs pendentes: ${analise.pendentes}`);
 }
@@ -266,11 +275,13 @@ return {
 **Cenário:** Cancelar NFE automaticamente quando pedido é cancelado.
 
 **Workflow:**
+
 ```
 Webhook (Pedido Cancelado) → Validação → HTTP Request (Cancelamento) → Confirmação
 ```
 
 **Configuração:**
+
 ```javascript
 // Webhook - Pedido Cancelado
 {
@@ -334,7 +345,7 @@ Method: POST
 URL: https://api.sefaz.gov.br/nfe/emissao
 Headers: {
   "Content-Type": "application/json",
-  "Authorization": "Bearer {{ $credentials.sefaz.token }}"
+  "Authorization": "Bearer {{$credentials.sefaz.token}}"
 }
 Body: {
   "emitente": $json.emitente,
@@ -351,9 +362,9 @@ Body: {
 ```javascript
 // HTTP Request - Consulta Status
 Method: GET
-URL: https://api.sefaz.gov.br/nfe/status/{{ $json.nfe_numero }}
+URL: https://api.sefaz.gov.br/nfe/status/{{$json.nfe_numero}}
 Headers: {
-  "Authorization": "Bearer {{ $credentials.sefaz.token }}"
+  "Authorization": "Bearer {{$credentials.sefaz.token}}"
 }
 ```
 
@@ -398,6 +409,7 @@ try {
     const resposta = await enviarNFE($json);
     return { json: resposta };
   }
+  
   throw error;
 }
 ```
@@ -461,9 +473,9 @@ const dados = $json;
 
 const dashboard = {
   metricas: {
-    nfes_hoje: dados.nfes.filter(nfe => 
+    nfes_hoje: dados.nfes.filter(nfe =>
       nfe.data_emissao.startsWith(new Date().toISOString().split('T')[0])).length,
-    valor_hoje: dados.nfes.filter(nfe => 
+    valor_hoje: dados.nfes.filter(nfe =>
       nfe.data_emissao.startsWith(new Date().toISOString().split('T')[0]))
       .reduce((sum, nfe) => sum + nfe.valor_total, 0),
     pendentes: dados.nfes.filter(nfe => nfe.status === "PENDENTE").length
@@ -504,32 +516,35 @@ return { json: dashboard };
 - **Documente processos** fiscais
 - **Configure backup** de dados
 
-## Troubleshooting
+## troubleshooting
 
-### Problemas Comuns
+## Problemas Comuns
 
-#### NFE rejeitada
-- Verifique dados obrigatórios
+### NFE Rejeitada
+
+- **Verifique dados obrigatórios**
 - Confirme formato dos dados
 - Valide certificado digital
 - Consulte códigos de erro
 - Teste com dados de exemplo
 
-#### Timeout da SEFAZ
-- Configure timeouts adequados
+### Timeout da SEFAZ
+
+- **Configure timeouts adequados**
 - Implemente retry logic
 - Monitore conectividade
 - Verifique certificado
 - Configure alertas
 
-#### Certificado expirado
-- Monitore data de expiração
+### Certificado Expirado
+
+- **Monitore data de expiração**
 - Configure alertas antecipados
 - Mantenha backup de certificados
 - Documente processo de renovação
 - Configure notificações
 
-### Debug
+## debugging
 
 1. **Use o node Debug Helper** para inspecionar dados
 2. **Configure logging detalhado**
@@ -537,10 +552,11 @@ return { json: dashboard };
 4. **Monitore logs da SEFAZ**
 5. **Valide certificado digital**
 
-## Próximos Passos
+## Próximos passos
 
 - [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições HTTP
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
-- [Integrações Brasileiras](/integracoes-br/index) - Outras integrações brasileiras
+- [Integrações Brasileiras](/integracoes-br/) - Outras integrações brasileiras
 - [Compliance Fiscal](/integracoes-br/financeiro/compliance-fiscal) - Conformidade fiscal
+

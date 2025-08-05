@@ -1,133 +1,68 @@
----
+﻿---
 sidebar_position: 2
 title: Dados
 description: Manipulação e transformação de dados no n8n
 keywords: [n8n, dados, manipulação, transformação, processamento]
 ---
 
-# <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Introdução
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+# Introdução
 
 O processamento de dados é fundamental para workflows eficazes no n8n. Nesta seção, você aprenderá a manipular, transformar e analisar dados de diferentes fontes para criar automações inteligentes e informadas.
 
-## <ion-icon name="grid-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você encontrará aqui
+---
 
-### Processamento de Dados
+<IonicIcon name="grid-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Conteúdo da Seção
 
-- **Transformações de Dados**: Modifique e estruture dados
-- **Dados Binários e Arquivos**: Trabalhe com imagens, documentos e arquivos
-- **Criação de Dados de Teste**: Gere dados sintéticos para desenvolvimento
-- **Visualização de Schema**: Entenda a estrutura dos dados
-- **Filtros de Dados**: Filtre e processe dados eficientemente
-- **Edição de Dados**: Modifique e transforme dados
-- **Integração de APIs**: Conecte e processe dados de APIs
-- **Agregações Estatísticas**: Calcule métricas e estatísticas
-- **Otimização de Performance**: Melhore velocidade e eficiência
+<IonicIcon name="document-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**[Estrutura de Dados](./data-structure)** - Entenda como os dados são estruturados no n8n
 
-### Análise e Visualização
+<IonicIcon name="git-network-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**[Fluxo de Dados Dentro dos Nodes](./data-flow-nodes)** - Como os dados fluem entre os nodes
 
-- **Visualização de Dados**: Crie gráficos e dashboards
-- **Relatórios Automatizados**: Gere relatórios dinâmicos
-- **Métricas e KPIs**: Monitore indicadores importantes
+<IonicIcon name="analytics-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**[Data Mapping Avançado](./data-mapping-avancado)** - Técnicas avançadas de mapeamento e transformação
 
-### Padrões Avançados
+<IonicIcon name="filter-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**[Filtros de Dados](./data-filtering)** - Filtre e processe dados de forma eficiente
 
-- **Data Mapping Avançado**: Mapeamento complexo de dados
-- **Validação e Limpeza**: Garanta qualidade dos dados
-- **Cache e Armazenamento**: Otimize acesso a dados
+<IonicIcon name="create-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**[Edição de Dados](./data-editing)** - Modifique e transforme dados
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
+<IonicIcon name="construct-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**[Criação de Dados de Teste](./data-mocking)** - Gere dados sintéticos para desenvolvimento
 
-### Tipos de Dados
+<IonicIcon name="pin-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**[Data Pinning](./data-pinning)** - Fixe dados para desenvolvimento e debugging
 
-O n8n trabalha com diversos tipos de dados:
+<IonicIcon name="cloud-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**[Integração com APIs](./integracao-apis)** - Mapeamento de respostas de API
 
-- **JSON**: Estrutura de dados principal
-- **Text**: Dados de texto simples
-- **Numbers**: Valores numéricos
-- **Dates**: Datas e timestamps
-- **Arrays**: Listas de itens
-- **Objects**: Estruturas complexas
-
-### Fluxo de Dados
-
-Como os dados se movem através dos workflows:
-
-- **Input**: Dados recebidos de fontes externas
-- **Processing**: Transformação e manipulação
-- **Validation**: Verificação de integridade
-- **Output**: Dados enviados para destinos
-
-### Operações Comuns
-
-- **Filtering**: Filtrar dados por critérios
-- **Sorting**: Ordenar dados
-- **Grouping**: Agrupar dados similares
-- **Aggregation**: Calcular totais e médias
-- **Transformation**: Modificar estrutura dos dados
-
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões de Processamento
-
-### ETL (Extract, Transform, Load)
-
-- **Extract**: Extrair dados de fontes
-- **Transform**: Processar e modificar dados
-- **Load**: Carregar dados em destinos
-
-### Data Pipeline
-
-- **Source**: Origem dos dados
-- **Processing**: Etapas de transformação
-- **Destination**: Destino final dos dados
-- **Monitoring**: Acompanhamento do processo
-
-### Batch vs Stream
-
-- **Batch Processing**: Processamento em lotes
-- **Stream Processing**: Processamento em tempo real
-- **Hybrid**: Combinação de ambos os métodos
-
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
-
-1. **Aprenda [Transformações de Dados](./transformacoes-dados)** para manipular dados
-2. **Explore [Dados Binários e Arquivos](./binary-data)** para trabalhar com arquivos
-3. **Gere [Dados de Teste](./data-mocking)** para desenvolvimento
-4. **Visualize [Schemas](./schema-preview)** para entender estruturas
-5. **Filtre [Dados](./data-filtering)** para processamento eficiente
-6. **Edite [Dados](./data-editing)** para transformações
-7. **Use [Integração de APIs](./integracao-apis)** para conectar fontes externas
-8. **Calcule [Agregações Estatísticas](./agregacoes-estatisticas)** para análise
-9. **Experimente [Data Pinning](./data-pinning)** para desenvolvimento
-
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Boas Práticas
-
-### Qualidade de Dados
-
-- **Valide dados** antes do processamento
-- **Trate valores nulos** adequadamente
-- **Padronize formatos** de dados
-- **Documente transformações** importantes
-
-### Performance
-
-- **Processe dados em lotes** quando possível
-- **Use filtros** para reduzir volume
-- **Cache dados** frequentemente acessados
-- **Monitore uso de memória** e CPU
-
-### Manutenção
-
-- **Version controle** suas transformações
-- **Teste com dados reais** antes de produção
-- **Mantenha logs** de processamento
-- **Documente dependências** de dados
-
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Recursos Relacionados
-
-- **[Flow Logic](../flow-logic/)** - Controle de fluxo e lógica
-- **[Integrações](../../integracoes/index.mdx)** - Conectar com serviços externos
-- **[API](../../api/)** - Automação via API
-- **[Usando n8n](../../usando-n8n/index.mdx)** - Conceitos básicos de workflows
+<IonicIcon name="bar-chart-outline" style={{fontSize: '16px', color: '#ea4b71'}} />
+**[Visualização de Dados](./visualizacao-dados)** - Crie dashboards e relatórios
 
 ---
 
-**<ion-icon name="analytics-outline" style={{ fontSize: '16px', color: '#ea4b71' }}></ion-icon> Transforme dados em insights valiosos!**
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Próximos passos
+
+1. **[Estrutura de Dados](./data-structure)** - Comece entendendo como os dados são organizados
+2. **[Fluxo de Dados Dentro dos Nodes](./data-flow-nodes)** - Entenda como os dados fluem
+3. **[Data Mapping Avançado](./data-mapping-avancado)** - Aprenda técnicas de mapeamento
+
+> *Domine o processamento de dados no n8n para criar workflows mais inteligentes e eficientes!*
+
+---
+
+:::tip **Dica Pro**
+Comece sempre pela estrutura de dados para entender como o n8n organiza as informações antes de avançar para técnicas mais complexas.
+:::
+
+:::warning **Importante**
+Sempre valide e teste seus dados antes de usar em workflows de produção para evitar erros e inconsistências.
+:::
+
+:::info **Recurso Adicional**
+Use o Data Mapping Avançado para visualizar e transformar a estrutura dos dados antes de processá-los em seus workflows.
+:::

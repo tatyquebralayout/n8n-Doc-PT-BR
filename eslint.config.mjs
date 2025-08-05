@@ -160,6 +160,23 @@ export default [
         getComputedStyle: 'readonly',
         matchMedia: 'readonly',
         reportError: 'readonly',
+        
+        // Performance APIs
+        PerformanceObserver: 'readonly',
+        PerformanceEntry: 'readonly',
+        PerformanceNavigationTiming: 'readonly',
+        PerformanceResourceTiming: 'readonly',
+        PerformancePaintTiming: 'readonly',
+        PerformanceMark: 'readonly',
+        PerformanceMeasure: 'readonly',
+        
+        // Service Worker APIs
+        caches: 'readonly',
+        Cache: 'readonly',
+        CacheStorage: 'readonly',
+        
+        // Google Analytics
+        gtag: 'readonly',
       },
     },
     plugins: {

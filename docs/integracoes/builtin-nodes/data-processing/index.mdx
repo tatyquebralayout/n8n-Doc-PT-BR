@@ -1,21 +1,20 @@
----
+﻿---
 title: Processamento de Dados
 description: Nodes para manipular, transformar e processar dados no n8n
 sidebar_position: 1
 keywords: [n8n, dados, processamento, transformação, manipulação, agregação]
 ---
 
-# <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Processamento de Dados
+<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 Os nodes de **Processamento de Dados** são essenciais para manipular, transformar e organizar informações no n8n. Eles permitem que você prepare dados para uso em workflows, agrupe informações relacionadas e crie estruturas de dados otimizadas.
 
 ## Nodes Disponíveis
 
-### <ion-icon name="add-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Aggregate
-
-O node **Aggregate** permite agrupar e agregar dados baseado em campos específicos, criando resumos e estatísticas.
+<IonicIcon name="add-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 **Principais funcionalidades:**
+
 - Agrupar dados por campos
 - Calcular somas, médias, contagens
 - Encontrar valores mínimos e máximos
@@ -23,6 +22,7 @@ O node **Aggregate** permite agrupar e agregar dados baseado em campos específi
 - Combinar dados relacionados
 
 **Casos de uso:**
+
 - Calcular totais de vendas por período
 - Agrupar dados de clientes por região
 - Criar relatórios consolidados
@@ -31,11 +31,10 @@ O node **Aggregate** permite agrupar e agregar dados baseado em campos específi
 
 [Ver documentação completa →](/integracoes/builtin-nodes/data-processing/aggregate)
 
-### <ion-icon name="create-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Set
-
-O node **Set** permite definir, modificar e remover campos nos dados, oferecendo controle total sobre a estrutura dos dados.
+<IonicIcon name="create-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 **Principais funcionalidades:**
+
 - Definir novos campos
 - Modificar valores existentes
 - Remover campos desnecessários
@@ -43,6 +42,7 @@ O node **Set** permite definir, modificar e remover campos nos dados, oferecendo
 - Aplicar transformações
 
 **Casos de uso:**
+
 - Padronizar formatos de dados
 - Adicionar campos calculados
 - Limpar dados de entrada
@@ -58,6 +58,7 @@ O node **Set** permite definir, modificar e remover campos nos dados, oferecendo
 No n8n, os dados são organizados em **items** (itens), onde cada item representa uma entrada de dados. Cada item pode conter múltiplos campos com diferentes tipos de dados.
 
 **Exemplo de estrutura:**
+
 ```json
 {
   "id": 1,
@@ -138,11 +139,9 @@ if ($json.ativo === true) {
 
 ## Padrões de Processamento
 
-### 1. Pipeline de Limpeza
+### Pipeline de Limpeza
 
-```
 Dados Brutos → Limpeza → Validação → Transformação → Dados Prontos
-```
 
 **Exemplo:**
 1. **Set** node remove campos desnecessários
@@ -150,11 +149,9 @@ Dados Brutos → Limpeza → Validação → Transformação → Dados Prontos
 3. **Set** node adiciona campos calculados
 4. **Set** node valida dados obrigatórios
 
-### 2. Agregação e Consolidação
+### Agregação e Consolidação
 
-```
 Dados Detalhados → Agrupamento → Agregação → Resumo
-```
 
 **Exemplo:**
 1. **Aggregate** node agrupa vendas por mês
@@ -162,11 +159,9 @@ Dados Detalhados → Agrupamento → Agregação → Resumo
 3. **Set** node adiciona percentuais
 4. **Set** node formata para relatório
 
-### 3. Enriquecimento de Dados
+### Enriquecimento de Dados
 
-```
 Dados Básicos → Consulta Externa → Mesclagem → Dados Enriquecidos
-```
 
 **Exemplo:**
 1. **HTTP Request** busca dados de cliente
@@ -179,6 +174,7 @@ Dados Básicos → Consulta Externa → Mesclagem → Dados Enriquecidos
 ### Exemplo 1: Processamento de Vendas
 
 **Dados de entrada:**
+
 ```json
 [
   {
@@ -199,12 +195,14 @@ Dados Básicos → Consulta Externa → Mesclagem → Dados Enriquecidos
 ```
 
 **Processamento:**
+
 1. **Set** node adiciona campo `valor_total`
 2. **Aggregate** node agrupa por vendedor
 3. **Set** node calcula comissão (10%)
 4. **Set** node formata para relatório
 
 **Resultado:**
+
 ```json
 [
   {
@@ -225,6 +223,7 @@ Dados Básicos → Consulta Externa → Mesclagem → Dados Enriquecidos
 ### Exemplo 2: Limpeza de Dados de Clientes
 
 **Dados de entrada:**
+
 ```json
 {
   "nome": "joão silva",
@@ -236,6 +235,7 @@ Dados Básicos → Consulta Externa → Mesclagem → Dados Enriquecidos
 ```
 
 **Processamento:**
+
 1. **Set** node padroniza nome (primeira letra maiúscula)
 2. **Set** node remove formatação do telefone
 3. **Set** node remove formatação do CPF
@@ -243,6 +243,7 @@ Dados Básicos → Consulta Externa → Mesclagem → Dados Enriquecidos
 5. **Set** node valida email
 
 **Resultado:**
+
 ```json
 {
   "nome": "João Silva",
@@ -260,6 +261,7 @@ Dados Básicos → Consulta Externa → Mesclagem → Dados Enriquecidos
 ### Exemplo 3: Análise de Logs
 
 **Dados de entrada:**
+
 ```json
 [
   {
@@ -278,6 +280,7 @@ Dados Básicos → Consulta Externa → Mesclagem → Dados Enriquecidos
 ```
 
 **Processamento:**
+
 1. **Aggregate** node agrupa por nível de log
 2. **Aggregate** node conta ocorrências por hora
 3. **Set** node adiciona percentuais
@@ -313,19 +316,18 @@ Dados Básicos → Consulta Externa → Mesclagem → Dados Enriquecidos
 
 ### Problemas Comuns
 
-#### Dados corrompidos
-- Valide formato dos dados de entrada
+**Formato dos dados de entrada**
 - Verifique encoding (UTF-8)
 - Implemente tratamento de erros
 - Use logs para debug
 
-#### Performance lenta
+**Performance lenta**
 - Otimize agregações
 - Use filtros apropriados
 - Processe em lotes menores
 - Monitore uso de recursos
 
-#### Campos ausentes
+**Campos ausentes**
 - Implemente valores padrão
 - Valide dados obrigatórios
 - Use operadores de coalescência

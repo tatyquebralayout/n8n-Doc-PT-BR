@@ -1,15 +1,18 @@
----
+﻿---
 title: Conciliação Bancária
 description: Automatizar a conciliação bancária usando n8n para integrar extratos bancários com sistemas contábeis
 sidebar_position: 1
 keywords: [n8n, conciliação, bancária, financeiro, extrato, contabilidade, brasil]
 ---
 
-# <ion-icon name="calculator-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conciliação Bancária
+<IonicIcon name="calculator-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+conciliao-bancria
 
 A **Conciliação Bancária** é o processo de comparar e igualar os registros de uma empresa com os extratos bancários. Esta automação permite conciliar transações automaticamente, reduzindo erros e economizando tempo.
 
-## O que é Conciliação Bancária?
+## o que conciliao
+
+bancria
 
 A conciliação bancária é um processo contábil que:
 
@@ -19,7 +22,7 @@ A conciliação bancária é um processo contábil que:
 - **Detecta** erros e fraudes
 - **Gera** relatórios de conformidade
 
-### Benefícios da Automação
+## benefcios da automao
 
 - **Redução de erros** manuais
 - **Economia de tempo** significativa
@@ -27,9 +30,13 @@ A conciliação bancária é um processo contábil que:
 - **Detecção rápida** de inconsistências
 - **Compliance** automático
 
-## Componentes da Conciliação
+## componentes da
 
-### 1. Extrato Bancário
+conciliao
+
+## id 
+
+1-extrato-bancrio
 
 Dados do banco que incluem:
 
@@ -44,7 +51,9 @@ Dados do banco que incluem:
 }
 ```
 
-### 2. Registros Internos
+## id 
+
+2-registros-internos
 
 Dados do sistema contábil da empresa:
 
@@ -59,7 +68,9 @@ Dados do sistema contábil da empresa:
 }
 ```
 
-### 3. Regras de Conciliação
+## id 
+
+3-regras-de-conciliao
 
 Critérios para igualar transações:
 
@@ -69,9 +80,13 @@ Critérios para igualar transações:
 - **Descrição**: Texto similar
 - **Tipo**: Mesma natureza da transação
 
-## Workflows de Conciliação
+## workflows de
 
-### 1. Conciliação Automática
+conciliao
+
+## id 
+
+1-conciliao-automtica
 
 Workflow para conciliação totalmente automática:
 
@@ -81,13 +96,16 @@ Schedule Trigger → HTTP Request (Extrato) → HTTP Request (Registros) → Cod
 ```
 
 **Configuração:**
+
 - **Schedule Trigger**: Executa diariamente
 - **HTTP Request**: Busca extrato bancário
 - **HTTP Request**: Busca registros internos
 - **Code**: Algoritmo de conciliação
 - **Relatório**: Gera relatório de conciliação
 
-### 2. Conciliação Semi-Automática
+## id 
+
+2-conciliao-semi-automtica
 
 Workflow com intervenção manual para casos complexos:
 
@@ -97,13 +115,16 @@ Webhook → HTTP Request (Extrato) → Code (Análise) → Switch (Tipo) → Pro
 ```
 
 **Configuração:**
+
 - **Webhook**: Recebe novos registros
 - **HTTP Request**: Busca extrato correspondente
 - **Code**: Analisa e classifica transações
 - **Switch**: Direciona por tipo de conciliação
 - **Processamento**: Concilia ou envia para revisão
 
-### 3. Conciliação por Lotes
+## id 
+
+3-conciliao-por-lotes
 
 Workflow para processar grandes volumes:
 
@@ -113,6 +134,7 @@ Schedule Trigger → HTTP Request (Extrato) → Split In Batches → Code (Conci
 ```
 
 **Configuração:**
+
 - **Schedule Trigger**: Executa periodicamente
 - **HTTP Request**: Busca extrato completo
 - **Split In Batches**: Divide em lotes menores
@@ -120,18 +142,22 @@ Schedule Trigger → HTTP Request (Extrato) → Split In Batches → Code (Conci
 - **Merge**: Consolida resultados
 - **Relatório**: Gera relatório final
 
-## Exemplos Práticos
+## exemplos prticos
 
-### Exemplo 1: Conciliação Automática Simples
+## exemplo 
+
+1-conciliao-automtica-simples
 
 **Cenário:** Conciliar transações bancárias com registros contábeis.
 
 **Workflow:**
+
 ```
 Schedule Trigger → HTTP Request (Banco) → HTTP Request (Contabilidade) → Code (Conciliação) → Relatório
 ```
 
 **Configuração:**
+
 ```javascript
 // Schedule Trigger - Execução
 Cron: 0 8 * * * // Diariamente às 8h
@@ -140,14 +166,14 @@ Cron: 0 8 * * * // Diariamente às 8h
 Method: GET
 URL: https://api.banco.com.br/extrato
 Headers: {
-  "Authorization": "Bearer {{ $credentials.banco.token }}"
+  "Authorization": "Bearer {{$credentials.banco.token}}"
 }
 
 // HTTP Request - Registros Contábeis
 Method: GET
 URL: https://api.contabilidade.com.br/registros
 Headers: {
-  "Authorization": "Bearer {{ $credentials.contabilidade.token }}"
+  "Authorization": "Bearer {{$credentials.contabilidade.token}}"
 }
 
 // Code - Algoritmo de Conciliação
@@ -198,16 +224,20 @@ return {
 };
 ```
 
-### Exemplo 2: Conciliação com Regras Complexas
+## exemplo 
+
+2-conciliao-com-regras-complexas
 
 **Cenário:** Conciliação com múltiplas regras e categorização automática.
 
 **Workflow:**
+
 ```
 Webhook → HTTP Request (Extrato) → Code (Análise) → Switch (Categoria) → Conciliação → Notificação
 ```
 
 **Configuração:**
+
 ```javascript
 // Code - Análise e Categorização
 const transacao = $json;
@@ -247,16 +277,20 @@ return {
 };
 ```
 
-### Exemplo 3: Conciliação com PIX
+## exemplo 
+
+3-conciliao-com-pix
 
 **Cenário:** Conciliar transações PIX automaticamente.
 
 **Workflow:**
+
 ```
 Webhook (PIX) → HTTP Request (Extrato) → Code (Conciliação PIX) → Notificação
 ```
 
 **Configuração:**
+
 ```javascript
 // Code - Conciliação PIX
 const pix = $json;
@@ -291,14 +325,18 @@ if (transacaoPix) {
 }
 ```
 
-## Regras de Conciliação
+## regras de
 
-### 1. Regras Básicas
+conciliao
+
+## id 
+
+1-regras-bsicas
 
 ```javascript
 // Regra 1: Valor e Data
 function regraValorData(extrato, registro) {
-  return Math.abs(extrato.valor) === Math.abs(registro.valor) && 
+  return Math.abs(extrato.valor) === Math.abs(registro.valor) &&
          extrato.data === registro.data;
 }
 
@@ -316,7 +354,9 @@ function regraDescricao(extrato, registro) {
 }
 ```
 
-### 2. Regras Avançadas
+## id 
+
+2-regras-avanadas
 
 ```javascript
 // Regra 4: Padrões de Transação
@@ -357,9 +397,13 @@ function regraCategoria(transacao) {
 }
 ```
 
-## Tratamento de Erros
+## tratamento de
 
-### 1. Transações Não Conciliadas
+erros
+
+## id 
+
+1-transaes-no-conciliadas
 
 ```javascript
 // Code - Tratamento de Não Conciliados
@@ -378,7 +422,9 @@ if (naoConciliados.length > 0) {
 }
 ```
 
-### 2. Duplicatas
+## id 
+
+2-duplicatas
 
 ```javascript
 // Code - Detecção de Duplicatas
@@ -407,7 +453,9 @@ return {
 };
 ```
 
-### 3. Inconsistências
+## id 
+
+3-inconsistncias
 
 ```javascript
 // Code - Detecção de Inconsistências
@@ -420,7 +468,7 @@ const inconsistencias = conciliacoes.filter(c => {
   // Verificar inconsistências
   return Math.abs(extrato.valor) !== Math.abs(registro.valor) ||
          extrato.data !== registro.data ||
-         (extrato.documento && registro.documento && 
+         (extrato.documento && registro.documento &&
           !extrato.documento.includes(registro.documento));
 });
 
@@ -433,9 +481,13 @@ return {
 };
 ```
 
-## Relatórios e Dashboards
+## relatrios e
 
-### 1. Relatório de Conciliação
+dashboards
+
+## id 
+
+1-relatrio-de-conciliao
 
 ```javascript
 // Code - Geração de Relatório
@@ -460,7 +512,9 @@ const relatorio = {
 return { json: relatorio };
 ```
 
-### 2. Dashboard de Performance
+## id 
+
+2-dashboard-de-performance
 
 ```javascript
 // Code - Métricas de Performance
@@ -476,9 +530,11 @@ const metricas = {
 return { json: metricas };
 ```
 
-## Boas Práticas
+## boas prticas
 
-### 1. Configuração
+## id 
+
+1-configuração
 
 - **Defina regras claras** de conciliação
 - **Configure tolerâncias** para valores e datas
@@ -486,7 +542,9 @@ return { json: metricas };
 - **Configure alertas** para inconsistências
 - **Mantenha backup** dos dados
 
-### 2. Performance
+## id 
+
+2-performance
 
 - **Processe em lotes** para grandes volumes
 - **Implemente cache** para consultas frequentes
@@ -494,40 +552,46 @@ return { json: metricas };
 - **Monitore tempo** de processamento
 - **Configure timeouts** adequados
 
-### 3. Segurança
+## id 
 
-- **Criptografe dados** sensíveis
+3-segurança
+
+- **Criptografe dados sensíveis**
 - **Implemente autenticação** robusta
 - **Configure auditoria** de acesso
 - **Mantenha logs** de segurança
 - **Configure backup** automático
 
-## Troubleshooting
+## troubleshooting
 
-### Problemas Comuns
+## problemas comuns
 
-#### Conciliação incorreta
-- Verifique regras de conciliação
+## conciliao incorreta
+
+Verifique regras de conciliação:
+
 - Confirme formatos de dados
 - Valide tolerâncias configuradas
 - Teste com dados de exemplo
 - Monitore logs de erro
 
-#### Performance lenta
-- Otimize algoritmos de busca
+## performance lenta
+
+Otimize algoritmos de busca:
+
 - Implemente cache
 - Processe em lotes menores
 - Monitore uso de recursos
 - Configure timeouts adequados
 
-#### Dados inconsistentes
-- Valide formatos de entrada
+## formatos de entrada
+
 - Verifique integridade dos dados
 - Implemente validações
 - Configure alertas
 - Monitore qualidade dos dados
 
-### Debug
+## debugging
 
 1. **Use o node Debug Helper** para inspecionar dados
 2. **Configure logging detalhado**
@@ -535,10 +599,11 @@ return { json: metricas };
 4. **Monitore performance**
 5. **Valide resultados** manualmente
 
-## Próximos Passos
+## prximos passos
 
 - [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições HTTP
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
-- [Integrações Brasileiras](/integracoes-br/index) - Outras integrações brasileiras
+- [Integrações Brasileiras](/integracoes-br/) - Outras integrações brasileiras
 - [Relatórios Fiscais](/integracoes-br/financeiro/relatorios-fiscais) - Gerar relatórios fiscais
+

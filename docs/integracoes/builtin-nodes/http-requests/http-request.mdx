@@ -1,30 +1,28 @@
----
+﻿---
 title: Node HTTP Request
 description: Aprenda a usar o node HTTP Request no n8n para fazer requisições a APIs REST e integrar com qualquer serviço
 sidebar_position: 1
 keywords: [n8n, http request, api, rest, integração, automação]
 ---
 
-# <ion-icon name="globe-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Node HTTP Request
+<IonicIcon name="arrow-up-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-O node **HTTP Request** é um dos nodes mais versáteis do n8n. Ele permite que você faça requisições HTTP para consultar dados de qualquer aplicação ou serviço que tenha uma API REST. Você pode usar este node como um node regular ou conectá-lo a um [agente de IA](/advanced-ai/nodes-ia/ai-agent) para funcionar como uma [ferramenta](/advanced-ai/exemplos-casos/ferramentas-ia).
+O node **HTTP Request** é um dos nodes mais versáteis do n8n. Ele permite que você faça requisições HTTP para consultar dados de qualquer aplicação ou serviço que tenha uma API REST. Você pode usar este node como um node regular ou conectá-lo a um [agente de IA](/advanced-ai/nodes-ia/ai-agent) para funcionar como uma [ferramenta](/advanced-ai/nodes-ia/openai-chat).
 
 Quando você usa este node, está criando uma chamada de API REST. É importante ter um entendimento básico de terminologia e conceitos de API.
 
-Existem duas formas de criar uma requisição HTTP: configurando os [parâmetros do node](#parâmetros-do-node) ou [importando um comando curl](#importar-comando-curl).
+Existem duas formas de criar uma requisição HTTP: configurando os [parâmetros do node](#parâmetros-do-node) ou importando um comando curl. [Importar comando curl](#importar-comando-curl) é uma forma rápida de configurar requisições HTTP a partir de comandos curl existentes.
 
-/// note | Credenciais
-Consulte [Credenciais HTTP Request](/integracoes/credential-nodes/http-request) para orientações sobre como configurar autenticação.
-///
-
-## Quando usar o HTTP Request
+:::note **Credenciais**
+Consulte [Credenciais HTTP Request](/integracoes/credential-nodes/http-request) para orientações sobre como configurar autenticação quando usar o HTTP Request.
+:::
 
 O node HTTP Request é ideal para:
 
-- **Integrar com APIs não suportadas**: Conectar com serviços que não têm nodes específicos
-- **Automações customizadas**: Criar integrações específicas para seu negócio
-- **Prototipagem rápida**: Testar APIs antes de criar nodes dedicados
-- **Operações avançadas**: Requisições complexas com headers e parâmetros customizados
+- **Integrar com APIs não suportadas** - Conectar com serviços que não têm nodes específicos
+- **Automações customizadas** - Criar integrações específicas para seu negócio
+- **Prototipagem rápida** - Testar APIs antes de criar nodes dedicados
+- **Operações avançadas** - Requisições complexas com headers e parâmetros customizados
 
 ## Parâmetros do Node
 
@@ -42,99 +40,86 @@ Selecione o método HTTP para a requisição:
 
 ### URL
 
-Digite o endpoint que você quer usar. Exemplos:
+Digite o endpoint que você quer usar.
 
-```
-https://api.exemplo.com/v1/usuarios
-https://jsonplaceholder.typicode.com/posts
-https://viacep.com.br/ws/01001000/json/
-```
+**Exemplos:**
+- `https://api.exemplo.com/v1/usuarios`
+- `https://jsonplaceholder.typicode.com/posts`
+- `https://viacep.com.br/ws/01001000/json/`
 
 ### Autenticação
 
-O n8n recomenda usar a opção **Tipo de Credencial Predefinida** quando disponível. Ela oferece uma forma mais fácil de configurar e gerenciar credenciais, comparado a configurar credenciais genéricas.
+O n8n recomenda usar a opção **Tipo de Credencial Predefinida** quando disponível. Ela oferece uma forma mais fácil de configurar e gerenciar credenciais comparado a configurar credenciais genéricas.
 
-#### Credenciais predefinidas
+**Credenciais Predefinidas**: Credenciais para integrações suportadas pelo n8n, incluindo nodes integrados e da comunidade. Use tipo de credencial predefinida para operações customizadas sem configuração extra.
 
-Credenciais para integrações suportadas pelo n8n, incluindo nodes integrados e da comunidade. Use **Tipo de Credencial Predefinida** para operações customizadas sem configuração extra.
-
-#### Credenciais genéricas
-
-Credenciais para integrações não suportadas pelo n8n. Você precisará configurar manualmente o processo de autenticação, incluindo especificar os endpoints de API necessários, parâmetros obrigatórios e o método de autenticação.
+**Credenciais Genéricas**: Credenciais para integrações não suportadas pelo n8n. Você precisará configurar manualmente o processo de autenticação, incluindo especificar os endpoints de API necessários, parâmetros obrigatórios e o método de autenticação.
 
 Você pode selecionar um dos seguintes métodos:
 
-- **Basic auth**: Autenticação básica (usuário/senha)
-- **Custom auth**: Autenticação customizada
-- **Digest auth**: Autenticação digest
-- **Header auth**: Autenticação via headers
+- **Basic Auth**: Autenticação básica (usuário/senha)
+- **Custom Auth**: Autenticação customizada
+- **Digest Auth**: Autenticação digest
+- **Header Auth**: Autenticação via headers
 - **OAuth1 API**: Autenticação OAuth 1.0
 - **OAuth2 API**: Autenticação OAuth 2.0
-- **Query auth**: Autenticação via parâmetros de query
+- **Query Auth**: Autenticação via parâmetros de query
 
 ### Enviar Parâmetros de Query
 
 Parâmetros de query atuam como filtros nas requisições HTTP. Se a API que você está interagindo suporta parâmetros de query e a requisição que você está fazendo precisa de um filtro, ative esta opção.
 
-**Especifique seus parâmetros de query** usando uma das opções disponíveis:
+Especifique seus parâmetros de query usando uma das opções disponíveis:
 
-- **Usando Campos Abaixo**: Digite pares **Nome**/**Valor** de **Parâmetros de Query**. Para adicionar mais pares, selecione **Adicionar Parâmetro**.
-- **Usando JSON**: Digite **JSON** para definir seus parâmetros de query.
+**Usando campos abaixo**: Digite pares nome/valor de parâmetros de query. Para adicionar mais pares, selecione "Adicionar Parâmetro".
+
+**Usando JSON**: Digite JSON para definir seus parâmetros de query.
 
 **Exemplo prático - ViaCEP:**
-```
-Nome: cep
-Valor: 01001000
-```
+- Nome: `cep`
+- Valor: `01001000`
 
 ### Enviar Headers
 
 Use este parâmetro para enviar headers com sua requisição. Headers contêm metadados ou contexto sobre sua requisição.
 
-**Especifique Headers** usando uma das opções disponíveis:
+Especifique headers usando uma das opções disponíveis:
 
-- **Usando Campos Abaixo**: Digite pares **Nome**/**Valor** de **Parâmetros de Header**
-- **Usando JSON**: Digite **JSON** para definir seus parâmetros de header
+**Usando campos abaixo**: Digite pares nome/valor de parâmetros de header.
+
+**Usando JSON**: Digite JSON para definir seus parâmetros de header.
 
 **Exemplos comuns:**
-```
-Content-Type: application/json
-Authorization: Bearer seu-token-aqui
-User-Agent: n8n-workflow/1.0
-```
+- `Content-Type: application/json`
+- `Authorization: Bearer seu-token-aqui`
+- `User-Agent: n8n-workflow-1.0`
 
 ### Enviar Body
 
-Se você precisa enviar um body com sua requisição de API, ative esta opção.
+Se você precisa enviar um body com sua requisição de API, ative esta opção. Depois, selecione o tipo de conteúdo do body que melhor corresponde ao formato do conteúdo que você deseja enviar.
 
-Depois selecione o **Tipo de Conteúdo do Body** que melhor corresponde ao formato do conteúdo que você deseja enviar.
+**Form-URLEncoded**: Use esta opção para enviar seu body como `application/x-www-form-urlencoded`.
 
-#### Form URLencoded
+Especifique body usando uma das opções disponíveis:
 
-Use esta opção para enviar seu body como `application/x-www-form-urlencoded`.
+**Usando campos abaixo**: Digite pares nome/valor de parâmetros do body.
 
-**Especifique Body** usando uma das opções disponíveis:
+**Usando campo único**: Digite seus pares nome/valor em um único parâmetro body com formato `campo1=valor1&campo2=valor2`.
 
-- **Usando Campos Abaixo**: Digite pares **Nome**/**Valor** de **Parâmetros do Body**
-- **Usando Campo Único**: Digite seus pares nome/valor em um único parâmetro **Body** com formato `campo1=valor1&campo2=valor2`
+**Form-Data**: Use esta opção para enviar seu body como `multipart/form-data`.
 
-#### Form-Data
+Configure seus parâmetros do body selecionando o tipo de parâmetro:
 
-Use esta opção para enviar seu body como `multipart/form-data`.
-
-Configure seus **Parâmetros do Body** selecionando o **Tipo de Parâmetro**:
-
-- Escolha **Form Data** para digitar pares **Nome**/**Valor**
+- Escolha **Form Data** para digitar pares nome/valor
 - Escolha **Arquivo Binário n8n** para extrair o body de um arquivo que o node tem acesso
 
-#### JSON
+**JSON**: Use esta opção para enviar seu body como JSON.
 
-Use esta opção para enviar seu body como JSON.
+Especifique body usando uma das opções disponíveis:
 
-**Especifique Body** usando uma das opções disponíveis:
+**Usando campos abaixo**: Digite pares nome/valor de parâmetros do body.
 
-- **Usando Campos Abaixo**: Digite pares **Nome**/**Valor** de **Parâmetros do Body**
-- **Usando JSON**: Digite **JSON** para definir seu body
+**Usando JSON**: Digite JSON para definir seu body.
 
 **Exemplo de JSON:**
 ```json
@@ -146,55 +131,49 @@ Use esta opção para enviar seu body como JSON.
 }
 ```
 
-#### Arquivo Binário n8n
+**Arquivo Binário n8n**: Use esta opção para enviar o conteúdo de um arquivo armazenado no n8n como body. Digite o nome do campo de entrada que contém o arquivo como nome do campo de dados de entrada.
 
-Use esta opção para enviar o conteúdo de um arquivo armazenado no n8n como body.
+**Raw**: Use esta opção para enviar dados brutos no body.
 
-Digite o nome do campo de entrada que contém o arquivo como **Nome do Campo de Dados de Entrada**.
-
-#### Raw
-
-Use esta opção para enviar dados brutos no body.
-
-- **Content Type**: Digite o header `Content-Type` para usar no conteúdo do body
+- **Content-Type**: Digite o header Content-Type para usar no conteúdo do body
 - **Body**: Digite o conteúdo do body bruto para enviar
 
-## Opções do Node
+### Opções do Node
 
-Selecione **Adicionar Opção** para visualizar e selecionar estas opções. As opções estão disponíveis para todos os parâmetros, a menos que seja observado o contrário.
+Selecione "Adicionar Opção" para visualizar e selecionar estas opções. As opções estão disponíveis para todos os parâmetros, a menos que seja observado o contrário.
 
-### Formato de Array em Parâmetros de Query
+**Formato de Array em Parâmetros de Query**
 
-/// note | Disponibilidade da opção
-Esta opção só está disponível quando você ativa **Enviar Parâmetros de Query**.
-///
+:::note **Disponibilidade da opção**
+Esta opção está disponível quando você ativa "Enviar Parâmetros de Query".
+:::
 
 Use esta opção para controlar o formato para arrays incluídos em parâmetros de query. Escolha entre estas opções:
 
-- **Sem Colchetes**: Arrays serão formatados como nome=valor para cada item no array, por exemplo: `foo=bar&foo=qux`
-- **Apenas Colchetes**: O node adiciona colchetes após cada nome de array, por exemplo: `foo[]=bar&foo[]=qux`
-- **Colchetes com Índices**: O node adiciona colchetes com um valor de índice após cada nome de array, por exemplo: `foo[0]=bar&foo[1]=qux`
+- **Sem colchetes**: Arrays serão formatados como `nome=valor` para cada item no array. Por exemplo: `foo=bar&foo=qux`
+- **Apenas colchetes**: O node adiciona colchetes após cada nome de array. Por exemplo: `foo[]=bar&foo[]=qux`
+- **Colchetes com índices**: O node adiciona colchetes com um valor de índice após cada nome de array. Por exemplo: `foo[0]=bar&foo[1]=qux`
 
-### Batching (Processamento em Lotes)
+**Batching (Processamento em Lotes)**
 
 Controle como processar grandes números de itens de entrada:
 
-- **Itens por Lote**: Digite o número de itens de entrada para incluir em cada lote
-- **Intervalo do Lote**: Digite o tempo para esperar entre cada lote de requisições em milissegundos. Digite 0 para nenhum intervalo
+- **Itens por lote**: Digite o número de itens de entrada para incluir em cada lote
+- **Intervalo do lote**: Digite o tempo para esperar entre cada lote de requisições em milissegundos. Digite 0 para nenhum intervalo
 
-### Ignorar Problemas SSL
+**Ignorar Problemas SSL**
 
 Por padrão, o n8n só baixa a resposta se a validação do certificado SSL for bem-sucedida. Se você quiser baixar a resposta mesmo se a validação do certificado SSL falhar, ative esta opção.
 
-### Headers em Minúsculas
+**Headers em Minúsculas**
 
-Escolha se deve colocar nomes de headers em minúsculas (ativado, padrão) ou não (desativado).
+Escolha se deve colocar nomes de headers em minúsculas (ativado por padrão) ou não (desativado).
 
-### Redirecionamentos
+**Redirecionamentos**
 
 Escolha se deve seguir redirecionamentos (ativado por padrão) ou não (desativado). Se ativado, digite o número máximo de redirecionamentos que a requisição deve seguir em **Máximo de Redirecionamentos**.
 
-### Resposta
+**Resposta**
 
 Use esta opção para definir alguns detalhes sobre a resposta da API esperada, incluindo:
 
@@ -206,23 +185,25 @@ Use esta opção para definir alguns detalhes sobre a resposta da API esperada, 
   - **JSON**: Selecione esta opção para formatar a resposta como JSON
   - **Texto**: Selecione esta opção para formatar a resposta como texto simples
 
-### Paginação
+**Paginação**
 
 Use esta opção para paginar resultados, útil para lidar com resultados de query que são muito grandes para a API retornar em uma única chamada.
 
-/// note | Inspecione os dados da API primeiro
+:::note **Inspecione os dados da API primeiro**
 Antes de configurar paginação, execute o node uma vez para ver a estrutura dos dados retornados pela API. Isso ajudará você a entender como configurar a paginação corretamente.
-///
+:::
 
 ## Exemplos Práticos
 
 ### Exemplo 1: Consultar CEP via ViaCEP
 
 **Configuração:**
+
 - **Método**: GET
-- **URL**: `https://viacep.com.br/ws/{{ $json.cep }}/json/`
+- **URL**: `https://viacep.com.br/ws/{{$json.cep}}/json/`
 
 **Resultado esperado:**
+
 ```json
 {
   "cep": "01001-000",
@@ -238,48 +219,54 @@ Antes de configurar paginação, execute o node uma vez para ver a estrutura dos
 }
 ```
 
-### Exemplo 2: Enviar dados para API REST
+### Exemplo 2: Enviar Dados para API REST
 
 **Configuração:**
+
 - **Método**: POST
 - **URL**: `https://api.exemplo.com/usuarios`
-- **Headers**: 
+- **Headers**:
   - `Content-Type: application/json`
-  - `Authorization: Bearer {{ $json.token }}`
+  - `Authorization: Bearer {{$json.token}}`
 - **Body (JSON)**:
+
 ```json
 {
-  "nome": "{{ $json.nome }}",
-  "email": "{{ $json.email }}",
-  "telefone": "{{ $json.telefone }}"
+  "nome": "{{$json.nome}}",
+  "email": "{{$json.email}}",
+  "telefone": "{{$json.telefone}}"
 }
 ```
 
-### Exemplo 3: Upload de arquivo
+### Exemplo 3: Upload de Arquivo
 
 **Configuração:**
+
 - **Método**: POST
 - **URL**: `https://api.exemplo.com/upload`
 - **Body**: Form-Data
 - **Parâmetros**:
   - Nome: `arquivo`, Tipo: `Arquivo Binário n8n`
-  - Nome: `descricao`, Tipo: `Form Data`, Valor: `{{ $json.descricao }}`
+  - Nome: `descricao`, Tipo: `Form Data`, Valor: `{{$json.descricao}}`
 
 ## Troubleshooting
 
 ### Problemas Comuns
 
-#### Erro 401 - Não Autorizado
+### Erro 401 - Não Autorizado
+
 - Verifique se as credenciais estão configuradas corretamente
 - Confirme se o token de autenticação não expirou
 - Verifique se o header `Authorization` está sendo enviado
 
-#### Erro 404 - Não Encontrado
+### Erro 404 - Não Encontrado
+
 - Confirme se a URL está correta
 - Verifique se o endpoint existe na API
 - Teste a URL diretamente no navegador ou Postman
 
-#### Erro 500 - Erro Interno do Servidor
+### Erro 500 - Erro Interno do Servidor
+
 - Verifique se o formato dos dados enviados está correto
 - Confirme se todos os campos obrigatórios estão preenchidos
 - Verifique a documentação da API para requisitos específicos
@@ -334,3 +321,4 @@ Quando importado, este comando cURL configura automaticamente:
 - [Credenciais HTTP Request](/integracoes/credential-nodes/http-request) - Configurar autenticação
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos nas requisições
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas nas requisições
+

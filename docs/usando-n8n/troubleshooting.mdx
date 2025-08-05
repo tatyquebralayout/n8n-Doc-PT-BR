@@ -1,0 +1,439 @@
+---
+sidebar_position: 10
+title: Troubleshooting
+description: Guia completo para resolução de problemas comuns no n8n
+keywords: [n8n, troubleshooting, problemas, debug, erros, soluções]
+---
+
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+Este guia apresenta soluções para **problemas comuns** encontrados ao usar o n8n, incluindo erros de execução, problemas de conectividade, configurações incorretas e outras questões que podem afetar o funcionamento dos workflows.
+
+## Problemas de Execução
+
+### Workflow não executa
+
+**Sintomas:**
+- Workflow não inicia
+- Trigger não responde
+- Execução fica pendente
+
+**Soluções:**
+
+1. **Verificar Trigger**
+```bash
+# Verificar se o trigger está ativo
+# Confirme se há dados de entrada
+# Teste com dados de exemplo
+```
+
+2. **Verificar Conexões**
+```javascript
+// Teste de conectividade básica
+{
+  "test": "conexao",
+  "timestamp": "{{$now}}",
+  "status": "ativo"
+}
+```
+
+3. **Verificar Logs**
+```bash
+# Acessar logs do n8n
+n8n logs --level debug
+
+# Verificar logs específicos
+n8n logs --level error
+```
+
+### Erro de Autenticação
+
+**Sintomas:**
+- Erro 401/403
+- Credenciais inválidas
+- Token expirado
+
+**Soluções:**
+
+1. **Renovar Credenciais**
+```javascript
+// Verificar validade do token
+{
+  "token": "{{$credentials.apiKey}}",
+  "validade": "{{$json.expires_at}}",
+  "status": "ativo"
+}
+```
+
+2. **Verificar Permissões**
+- Confirme se a API key tem permissões adequadas
+- Verifique se o escopo está correto
+- Teste com credenciais de teste
+
+3. **Configurar OAuth**
+```javascript
+// Configuração OAuth básica
+{
+  "client_id": "seu_client_id",
+  "client_secret": "seu_client_secret",
+  "redirect_uri": "https://seu-dominio.com/callback"
+}
+```
+
+## Problemas de Conectividade
+
+### API não responde
+
+**Sintomas:**
+- Timeout de requisições
+- Erro de conexão
+- Resposta lenta
+
+**Soluções:**
+
+1. **Verificar URL e Endpoint**
+```javascript
+// Teste de conectividade
+{
+  "url": "{{$json.api_url}}",
+  "method": "GET",
+  "timeout": 30000,
+  "retry": 3
+}
+```
+
+2. **Configurar Timeout**
+```javascript
+// Configuração de timeout
+{
+  "timeout": 60000,
+  "retry_attempts": 3,
+  "retry_delay": 1000
+}
+```
+
+3. **Verificar Rate Limits**
+- Implemente delays entre requisições
+- Use paginação quando necessário
+- Monitore limites da API
+
+### Problemas de Webhook
+
+**Sintomas:**
+- Webhook não recebe dados
+- URL inválida
+- Erro de SSL
+
+**Soluções:**
+
+1. **Verificar URL do Webhook**
+```javascript
+// Configuração de webhook
+{
+  "url": "https://seu-dominio.com/webhook",
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/json"
+  }
+}
+```
+
+2. **Configurar SSL**
+- Use HTTPS para webhooks
+- Configure certificados válidos
+- Teste com ferramentas online
+
+3. **Verificar Firewall**
+- Libere portas necessárias
+- Configure regras de firewall
+- Teste conectividade externa
+
+## Problemas de Dados
+
+### Dados incorretos
+
+**Sintomas:**
+- Valores inesperados
+- Formato incorreto
+- Dados faltantes
+
+**Soluções:**
+
+1. **Validar Dados de Entrada**
+```javascript
+// Função de validação
+function validarDados(dados) {
+  if (!dados || typeof dados !== 'object') {
+    throw new Error('Dados inválidos');
+  }
+  return dados;
+}
+```
+
+2. **Verificar Mapeamento**
+```javascript
+// Mapeamento seguro
+{
+  "campo_original": "{{$json.campo}}",
+  "campo_processado": "{{$json.campo || 'padrão'}}",
+  "validacao": "{{typeof $json.campo === 'string'}}"
+}
+```
+
+3. **Implementar Tratamento de Erros**
+```javascript
+// Tratamento de erro
+try {
+  const resultado = processarDados($input.first().json);
+  return [{json: resultado}];
+} catch (erro) {
+  console.error('Erro no processamento:', erro);
+  return [{json: {erro: erro.message}}];
+}
+```
+
+### Problemas de Performance
+
+**Sintomas:**
+- Execução lenta
+- Timeout frequente
+- Alto uso de memória
+
+**Soluções:**
+
+1. **Otimizar Queries**
+```javascript
+// Query otimizada
+{
+  "limit": 100,
+  "offset": 0,
+  "filters": {
+    "status": "ativo",
+    "data_inicio": "{{$now.minus({days: 30})}}"
+  }
+}
+```
+
+2. **Implementar Cache**
+```javascript
+// Cache simples
+const cache = new Map();
+
+function getCachedData(key) {
+  if (cache.has(key)) {
+    return cache.get(key);
+  }
+  const data = fetchData(key);
+  cache.set(key, data);
+  return data;
+}
+```
+
+3. **Usar Processamento em Lotes**
+```javascript
+// Processamento em lotes
+{
+  "batch_size": 50,
+  "delay_between_batches": 1000,
+  "max_concurrent": 5
+}
+```
+
+## Problemas de Configuração
+
+### Variáveis de Ambiente
+
+**Sintomas:**
+- Variáveis não encontradas
+- Valores incorretos
+- Configuração não aplicada
+
+**Soluções:**
+
+1. **Verificar Arquivo .env**
+```bash
+# Exemplo de .env
+N8N_BASIC_AUTH_ACTIVE=true
+N8N_BASIC_AUTH_USER=admin
+N8N_BASIC_AUTH_PASSWORD=senha123
+N8N_HOST=0.0.0.0
+N8N_PORT=5678
+```
+
+2. **Validar Configuração**
+```bash
+# Verificar variáveis
+echo $N8N_HOST
+echo $N8N_PORT
+
+# Testar configuração
+n8n start --dry-run
+```
+
+3. **Reiniciar Serviço**
+```bash
+# Reiniciar n8n
+n8n restart
+
+# Verificar status
+n8n status
+```
+
+### Problemas de Permissões
+
+**Sintomas:**
+- Erro de acesso negado
+- Arquivos não encontrados
+- Permissões insuficientes
+
+**Soluções:**
+
+1. **Corrigir Permissões de Arquivos**
+```bash
+# Corrigir permissões
+sudo chown -R $USER:$USER /path/to/n8n
+sudo chmod -R 755 /path/to/n8n
+
+# Verificar permissões
+ls -la /path/to/n8n
+```
+
+2. **Configurar Usuário do Sistema**
+```bash
+# Criar usuário específico
+sudo useradd -r -s /bin/false n8n
+
+# Configurar permissões
+sudo chown -R n8n:n8n /path/to/n8n
+```
+
+3. **Verificar Permissões de Rede**
+```bash
+# Verificar portas
+netstat -tulpn | grep 5678
+
+# Configurar firewall
+sudo ufw allow 5678
+```
+
+## Problemas Específicos por Node
+
+### HTTP Request Node
+
+**Problemas comuns:**
+- Timeout de requisições
+- Erro de SSL
+- Headers incorretos
+
+**Soluções:**
+```javascript
+// Configuração robusta
+{
+  "url": "{{$json.api_url}}",
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer {{$credentials.apiKey}}"
+  },
+  "timeout": 30000,
+  "retry": {
+    "attempts": 3,
+    "delay": 1000
+  }
+}
+```
+
+### Code Node
+
+**Problemas comuns:**
+- Erro de sintaxe
+- Variáveis não definidas
+- Loop infinito
+
+**Soluções:**
+```javascript
+// Código seguro
+try {
+  const dados = $input.first().json;
+  
+  // Validação de entrada
+  if (!dados) {
+    throw new Error('Dados de entrada não encontrados');
+  }
+  
+  // Processamento
+  const resultado = processarDados(dados);
+  
+  return [{json: resultado}];
+} catch (erro) {
+  console.error('Erro no Code Node:', erro);
+  return [{json: {erro: erro.message}}];
+}
+```
+
+### If Node
+
+**Problemas comuns:**
+- Condição sempre falsa
+- Expressão inválida
+- Dados não encontrados
+
+**Soluções:**
+```javascript
+// Condição robusta
+{
+  "condition": "{{$json.campo && $json.campo !== '' && $json.campo !== null}}",
+  "true": "Dados Válidos",
+  "false": "Dados Inválidos"
+}
+```
+
+## Ferramentas de Debug
+
+### Debug Helper Node
+
+**Uso:**
+```javascript
+// Configuração do Debug Helper
+{
+  "debug": true,
+  "log_level": "debug",
+  "include_input": true,
+  "include_output": true
+}
+```
+
+### Logs do Sistema
+
+**Comandos úteis:**
+```bash
+# Ver logs em tempo real
+n8n logs --follow
+
+# Filtrar por nível
+n8n logs --level error
+
+# Ver logs de execução específica
+n8n logs --execution-id 123
+```
+
+### Monitoramento
+
+**Métricas importantes:**
+```javascript
+// Métricas de performance
+{
+  "tempo_execucao": "{{$execution.time}}",
+  "memoria_uso": "{{$execution.memory}}",
+  "nodes_executados": "{{$execution.nodes}}",
+  "status": "{{$execution.status}}"
+}
+```
+
+## Próximos Passos
+
+- [Analisar Logs](/usando-n8n/monitoring/analisar-logs) - Análise detalhada de logs
+- [Visualizar Execuções](/usando-n8n/monitoring/visualizar-execucoes) - Monitoramento de execuções
+- [Configurar Alertas](/usando-n8n/monitoring/configurar-alertas) - Sistema de notificações
+- [Debug Helper](/integracoes/builtin-nodes/core-nodes/debug-helper) - Node para debugging
+- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões para debug 

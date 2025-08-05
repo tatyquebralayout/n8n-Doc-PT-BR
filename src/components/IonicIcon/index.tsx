@@ -12,7 +12,7 @@ import React from 'react';
  * <IonicIcon name="rocket-outline" size={24} color="var(--ifm-color-primary)" />
  */
 
-const ALLOWED_SIZES = [16, 20, 24, 32, 48, 64];
+// const ALLOWED_SIZES = [16, 20, 24, 32, 48, 64];
 
 interface IonicIconProps {
   name: string;
@@ -20,6 +20,7 @@ interface IonicIconProps {
   color?: string;
   className?: string;
   style?: React.CSSProperties;
+  'data-testid'?: string;
 }
 
 const isLogo = (name: string) => name.startsWith('logo-');
@@ -31,33 +32,25 @@ const IonicIcon: React.FC<IonicIconProps> = ({
   color,
   className = '',
   style = {},
+  'data-testid': testId,
 }) => {
-  if (!name) {
-    // Fallback visual para evitar quebra geral
-    return <span style={{display: 'inline-block', width: size, height: size}} aria-hidden="true" />;
-  }
-
-  // Validação de tamanho
-  const iconSize = ALLOWED_SIZES.includes(size) ? size : 24;
+  const iconName = isOutline(name) ? name : `${name}-outline`;
   
-  // Validação de estilo
-  if (!isOutline(name)) {
-    console.warn(`IonicIcon: Apenas ícones outline ou logos são permitidos. Ícone '${name}' pode não seguir o padrão.`);
-  }
+  const iconStyle = {
+    fontSize: `${size}px`,
+    color: color || 'currentColor',
+    ...style,
+  };
 
-  // Usar o elemento ion-icon que já está carregado via CDN
-  return React.createElement('ion-icon', {
-    name,
-    style: {
-      fontSize: `${iconSize}px`,
-      color: color || 'currentColor',
-      display: 'inline-block',
-      verticalAlign: 'middle',
-      ...style,
-    } as React.CSSProperties,
-    className,
-    'aria-hidden': 'true',
-  });
+  return (
+    <ion-icon
+      name={iconName}
+      style={iconStyle}
+      className={className}
+      data-testid={testId || 'ion-icon'}
+      aria-hidden="true"
+    />
+  );
 };
 
 export default IonicIcon; 

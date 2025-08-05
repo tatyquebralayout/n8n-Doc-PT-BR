@@ -1,21 +1,22 @@
----
+﻿---
 title: HTTP Requests
 description: Nodes para fazer e receber requisições HTTP no n8n
 sidebar_position: 1
 keywords: [n8n, http, requests, webhook, api, rest]
 ---
 
-# <ion-icon name="globe-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> HTTP Requests
+<IonicIcon name="globe-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 Os nodes de **HTTP Requests** são fundamentais para integração com APIs e serviços externos no n8n. Eles permitem que você se comunique com qualquer sistema que tenha uma interface HTTP, seja para enviar dados ou receber notificações.
 
 ## Nodes Disponíveis
 
-### <ion-icon name="arrow-up-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> HTTP Request
+<IonicIcon name="arrow-up-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **HTTP Request** é usado para **enviar** requisições HTTP para APIs e serviços externos. É o node mais versátil para integração com sistemas que não possuem nodes dedicados.
 
 **Principais funcionalidades:**
+
 - Suporte a todos os métodos HTTP (GET, POST, PUT, DELETE, etc.)
 - Múltiplos tipos de autenticação
 - Envio de dados em diferentes formatos (JSON, Form Data, etc.)
@@ -24,6 +25,7 @@ O node **HTTP Request** é usado para **enviar** requisições HTTP para APIs e 
 - Tratamento de respostas
 
 **Casos de uso:**
+
 - Integrar com APIs REST
 - Enviar dados para sistemas externos
 - Fazer consultas a bancos de dados via API
@@ -32,11 +34,12 @@ O node **HTTP Request** é usado para **enviar** requisições HTTP para APIs e 
 
 [Ver documentação completa →](/integracoes/builtin-nodes/http-requests/http-request)
 
-### <ion-icon name="link-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Webhook
+<IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Webhook** é usado para **receber** requisições HTTP de sistemas externos. É um node trigger que pode iniciar workflows baseado em eventos externos.
 
 **Principais funcionalidades:**
+
 - Receber dados de sistemas externos
 - Suporte a diferentes métodos HTTP
 - Autenticação configurável
@@ -45,6 +48,7 @@ O node **Webhook** é usado para **receber** requisições HTTP de sistemas exte
 - Configuração de CORS
 
 **Casos de uso:**
+
 - Receber notificações de sistemas externos
 - Criar endpoints de API
 - Integração com webhooks de terceiros
@@ -63,19 +67,22 @@ O node **Webhook** é usado para **receber** requisições HTTP de sistemas exte
 | **URL** | Configurada pelo usuário | Gerada pelo n8n |
 | **Uso principal** | Integração com APIs | Receber notificações |
 
-## Fluxo de Trabalho Típico
+## Fluxo de Trabalho
 
-### 1. Receber Dados (Webhook)
+### Receber Dados
+
 ```
 Sistema Externo → Webhook → n8n Workflow
 ```
 
-### 2. Processar Dados
+### Processar Dados
+
 ```
 n8n Workflow → Nodes de Processamento → Dados Transformados
 ```
 
-### 3. Enviar Dados (HTTP Request)
+### Enviar Dados
+
 ```
 n8n Workflow → HTTP Request → Sistema Externo
 ```
@@ -172,14 +179,14 @@ await new Promise(resolve => setTimeout(resolve, delay));
 
 ### Problemas Comuns
 
-#### HTTP Request
-- **Timeout**: Aumente o timeout ou verifique a conectividade
+**HTTP Request timeout**
+- Aumente o timeout ou verifique a conectividade
 - **Autenticação**: Verifique credenciais e formato
 - **Rate Limiting**: Implemente delays entre requisições
 - **Formato de dados**: Verifique Content-Type e estrutura
 
-#### Webhook
-- **Não recebe dados**: Verifique se o workflow está ativo
+**Webhook não recebe dados**
+- Verifique se o workflow está ativo
 - **Erro 403**: Verifique autenticação e IPs permitidos
 - **Payload muito grande**: Comprima dados ou aumente limite
 - **CORS**: Configure origens permitidas

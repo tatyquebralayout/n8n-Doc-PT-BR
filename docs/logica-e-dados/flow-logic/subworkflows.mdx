@@ -1,46 +1,19 @@
----
+﻿---
 sidebar_position: 5
 title: Subworkflows
 description: Como criar e utilizar subworkflows para modularizar automações no n8n
 keywords: [n8n, subworkflow, modular, reutilização, organização, workflow trigger]
 ---
 
-# <ion-icon name="git-branch-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Subworkflows
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## O que são Subworkflows?
 
 Subworkflows são workflows menores e especializados que podem ser executados por outros workflows, permitindo modularização, reutilização e organização de automações complexas. Esta abordagem facilita a manutenção, teste e escalabilidade de projetos n8n.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-### O que são Subworkflows?
+### Configuração Básica
 
-Subworkflows são **workflows independentes** que:
-- Executam uma função específica e bem definida
-- Podem ser chamados por outros workflows
-- Recebem dados de entrada e retornam resultados
-- Podem ser reutilizados em múltiplos contextos
-- Facilitam a organização e manutenção de código
-
-### Benefícios dos Subworkflows
-
-- **Modularização**: Dividir lógica complexa em partes menores
-- **Reutilização**: Usar o mesmo código em múltiplos workflows
-- **Manutenção**: Atualizar lógica em um só lugar
-- **Teste**: Testar componentes isoladamente
-- **Organização**: Estruturar projetos de forma clara
-- **Colaboração**: Equipes podem trabalhar em módulos diferentes
-
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação
-
-### 1. Criando um Subworkflow
-
-**Estrutura básica:**
-```mermaid
-graph TD
-    A[Workflow Trigger] --> B[Processamento]
-    B --> C[Resultado]
-```
-
-**Configuração do Workflow Trigger:**
 ```json
 {
   "name": "validacao_cliente",
@@ -48,11 +21,12 @@ graph TD
 }
 ```
 
-### 2. Workflow Trigger Node
+## Workflow Trigger Node
 
 O **Workflow Trigger** é o ponto de entrada de um subworkflow.
 
 **Configuração:**
+
 ```json
 {
   "workflowId": "workflow_123456",
@@ -62,6 +36,7 @@ O **Workflow Trigger** é o ponto de entrada de um subworkflow.
 ```
 
 **Dados de entrada esperados:**
+
 ```json
 {
   "cliente": {
@@ -72,46 +47,45 @@ O **Workflow Trigger** é o ponto de entrada de um subworkflow.
 }
 ```
 
-### 3. Executando Subworkflows
+## Executando Subworkflows
 
-Use o **Workflow Trigger Node** para executar subworkflows.
+### Configuração Básica
 
 **Configuração básica:**
+
 ```json
 {
   "workflowId": "validacao_cliente",
   "waitForWorkflow": true,
   "options": {
-    "pinData": {
-      "cliente": "{{ $json.cliente }}"
-    }
+    "pinData": {}
   }
 }
 ```
+
+### Configuração Avançada
 
 **Configuração avançada:**
+
 ```json
 {
-  "workflowId": "{{ $json.workflow_id }}",
+  "workflowId": "{{$json.workflow_id}}",
   "waitForWorkflow": true,
   "options": {
-    "pinData": {
-      "dados": "{{ $json }}",
-      "contexto": {
-        "origem": "{{ $workflow.name }}",
-        "timestamp": "{{ $now }}"
-      }
-    },
-    "startNodes": ["node_1", "node_2"]
-  }
+    "pinData": {},
+    "dados": "{{$json}}",
+    "contexto": {}
+  },
+  "startNodes": ["node_1", "node_2"]
 }
 ```
 
-## <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões de Design
+<IonicIcon name="code-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Padrões de Design
 
-### 1. Subworkflow de Validação
+### Subworkflow de Validação
 
-**Cenário**: Validar dados de entrada antes do processamento.
+**Cenário:** Validar dados de entrada antes do processamento.
 
 ```mermaid
 graph TD
@@ -122,6 +96,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Code Node - Validação de email
 const email = $json.cliente.email;
@@ -144,9 +119,9 @@ return {
 };
 ```
 
-### 2. Subworkflow de Notificação
+### Subworkflow de Notificação
 
-**Cenário**: Enviar notificações através de múltiplos canais.
+**Cenário:** Enviar notificações através de múltiplos canais.
 
 ```mermaid
 graph TD
@@ -157,6 +132,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Code Node - Determinar canais de notificação
 const prioridade = $json.prioridade;
@@ -172,7 +148,7 @@ return {
 };
 ```
 
-### 3. Subworkflow de Processamento de Dados
+### Subworkflow de Processamento de Dados
 
 **Cenário**: Transformar e enriquecer dados.
 
@@ -185,6 +161,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Code Node - Processamento de dados
 const dados = $json;
@@ -206,9 +183,10 @@ const dadosEnriquecidos = {
 return dadosEnriquecidos;
 ```
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Práticos
+<IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Casos de Uso Práticos
 
-### 1. Sistema de Aprovações
+### Sistema de Aprovações
 
 **Cenário**: Workflow principal que usa subworkflows para diferentes tipos de aprovação.
 
@@ -222,6 +200,7 @@ graph TD
 ```
 
 **Workflow Principal:**
+
 ```javascript
 // 1. Subworkflow - Validação
 {
@@ -247,7 +226,7 @@ graph TD
 }
 ```
 
-### 2. Pipeline de Dados
+### Pipeline de Dados
 
 **Cenário**: Processamento de dados em etapas modulares.
 
@@ -261,6 +240,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Subworkflow - Limpeza
 const dados = $json;
@@ -280,7 +260,7 @@ return {
 };
 ```
 
-### 3. Sistema de Monitoramento
+### Sistema de Monitoramento
 
 **Cenário**: Monitoramento modular de diferentes sistemas.
 
@@ -294,6 +274,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Subworkflow - Monitorar API
 const apis = ['api1', 'api2', 'api3'];
@@ -322,9 +303,8 @@ return {
 };
 ```
 
-## <ion-icon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Passagem de Dados
-
-### Dados de Entrada
+<IonicIcon name="flash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Passagem de Dados
 
 ```javascript
 // Dados passados para o subworkflow
@@ -340,8 +320,6 @@ return {
   }
 }
 ```
-
-### Dados de Retorno
 
 ```javascript
 // Dados retornados pelo subworkflow
@@ -359,28 +337,29 @@ return {
 }
 ```
 
-### Expressões Avançadas
+## Expressões Avançadas
 
 ```javascript
 // Passagem dinâmica de dados
 {
-  "workflowId": "{{ $json.tipo_validacao }}",
+  "workflowId": "{{$json.tipo_validacao}}",
   "waitForWorkflow": true,
   "options": {
     "pinData": {
-      "dados": "{{ $json }}",
-      "configuracao": "{{ $('Config Node').json }}",
+      "dados": "{{$json}}",
+      "configuracao": "{{$('Config Node').json}}",
       "contexto": {
-        "origem": "{{ $workflow.name }}",
-        "usuario": "{{ $user.name }}",
-        "timestamp": "{{ $now }}"
+        "origem": "{{$workflow.name}}",
+        "usuario": "{{$user.name}}",
+        "timestamp": "{{$now}}"
       }
     }
   }
 }
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Tratamento de Erros
 
 ### Error Handling em Subworkflows
 
@@ -429,7 +408,8 @@ if (resultado.status === 'erro') {
 return resultado;
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance e Otimização
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Performance e Otimização
 
 ### Boas Práticas
 
@@ -471,7 +451,8 @@ return {
 };
 ```
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+<IonicIcon name="help-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Troubleshooting
 
 ### Problemas Comuns
 
@@ -490,7 +471,7 @@ return {
 - Use contadores para limitar recursão
 - Reestruture a lógica se necessário
 
-### Debugging
+### Debug com Logging
 
 ```javascript
 // Subworkflow com debugging
@@ -512,7 +493,8 @@ return {
 };
 ```
 
-## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Outros Nós
+<IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Integração com Outros Nós
 
 ### Fluxo Típico
 
@@ -576,7 +558,8 @@ if (validacao.status === 'sucesso') {
 }
 ```
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Referências
 
 - **[Workflow Trigger](../../integracoes/builtin-nodes/core-nodes/workflow-trigger)** - Nó para executar subworkflows
 - **[Error Handling](./error-handling)** - Tratamento de erros em workflows
@@ -585,10 +568,5 @@ if (validacao.status === 'sucesso') {
 
 ---
 
-> <ion-icon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon> **Dica**: Use subworkflows para criar bibliotecas de componentes reutilizáveis. Isso facilita a manutenção e permite que equipes diferentes trabalhem em módulos específicos sem interferir no workflow principal.
-
----
-
-:::warning **Nota de Atenção**
-Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
-:::
+<IonicIcon name="bulb-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
+**Dica**: Use subworkflows para modularizar workflows complexos, facilitando manutenção e reutilização de código.

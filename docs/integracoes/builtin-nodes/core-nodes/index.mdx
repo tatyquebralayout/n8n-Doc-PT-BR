@@ -1,21 +1,22 @@
----
+﻿---
 title: Nodes Core
 description: Nodes fundamentais e essenciais para operações básicas no n8n
 sidebar_position: 1
 keywords: [n8n, core, nodes, básicos, fundamentais, operações]
 ---
 
-# <ion-icon name="cube-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Nodes Core
+<IonicIcon name="cube-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 Os **Nodes Core** são os componentes fundamentais do n8n, fornecendo funcionalidades essenciais para operações básicas, debug, manipulação de dados e controle de workflows.
 
 ## Nodes Disponíveis
 
-### <ion-icon name="code-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Code
+### Code Node
 
-O node **Code** permite executar código JavaScript customizado dentro do workflow, oferecendo controle total sobre a lógica de processamento.
+<IonicIcon name="code-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 **Principais funcionalidades:**
+
 - Executar código JavaScript
 - Manipular dados com lógica customizada
 - Implementar algoritmos complexos
@@ -23,6 +24,7 @@ O node **Code** permite executar código JavaScript customizado dentro do workfl
 - Criar funções reutilizáveis
 
 **Casos de uso:**
+
 - Transformações de dados complexas
 - Validações customizadas
 - Cálculos avançados
@@ -31,11 +33,14 @@ O node **Code** permite executar código JavaScript customizado dentro do workfl
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/code)
 
-### <ion-icon name="bug-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Debug Helper
+### Debug Helper
+
+<IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Debug Helper** é essencial para desenvolvimento e troubleshooting, permitindo inspecionar dados em qualquer ponto do workflow.
 
 **Principais funcionalidades:**
+
 - Inspecionar dados de entrada e saída
 - Visualizar estrutura de dados
 - Testar expressões
@@ -43,6 +48,7 @@ O node **Debug Helper** é essencial para desenvolvimento e troubleshooting, per
 - Facilitar desenvolvimento
 
 **Casos de uso:**
+
 - Debug de workflows
 - Validação de dados
 - Teste de expressões
@@ -51,11 +57,14 @@ O node **Debug Helper** é essencial para desenvolvimento e troubleshooting, per
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/debug-helper)
 
-### <ion-icon name="create-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Edit Fields (Set)
+### Edit Fields
+
+<IonicIcon name="create-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Edit Fields** permite definir, modificar e remover campos nos dados de forma visual e intuitiva.
 
 **Principais funcionalidades:**
+
 - Definir novos campos
 - Modificar valores existentes
 - Remover campos desnecessários
@@ -63,6 +72,7 @@ O node **Edit Fields** permite definir, modificar e remover campos nos dados de 
 - Aplicar transformações básicas
 
 **Casos de uso:**
+
 - Padronizar formatos de dados
 - Adicionar campos calculados
 - Limpar dados de entrada
@@ -71,11 +81,14 @@ O node **Edit Fields** permite definir, modificar e remover campos nos dados de 
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/edit-fields-set) (Em construção)
 
-### <ion-icon name="play-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Execute Sub-Workflow
+### Execute Sub-Workflow
+
+<IonicIcon name="play-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Execute Sub-Workflow** permite executar outros workflows como parte do workflow atual, criando modularidade e reutilização.
 
 **Principais funcionalidades:**
+
 - Executar workflows como sub-rotinas
 - Passar dados entre workflows
 - Receber resultados de sub-workflows
@@ -83,6 +96,7 @@ O node **Execute Sub-Workflow** permite executar outros workflows como parte do 
 - Reutilizar lógica comum
 
 **Casos de uso:**
+
 - Modularizar workflows complexos
 - Reutilizar lógica comum
 - Criar bibliotecas de workflows
@@ -91,11 +105,14 @@ O node **Execute Sub-Workflow** permite executar outros workflows como parte do 
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/execute-sub-workflow)
 
-### <ion-icon name="alert-circle-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Error Trigger
+### Error Trigger
+
+<IonicIcon name="alert-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Error Trigger** permite capturar e processar erros que ocorrem em outros nodes, implementando tratamento de erro robusto.
 
 **Principais funcionalidades:**
+
 - Capturar erros de outros nodes
 - Processar falhas de forma controlada
 - Implementar retry logic
@@ -103,6 +120,7 @@ O node **Error Trigger** permite capturar e processar erros que ocorrem em outro
 - Registrar logs de erro
 
 **Casos de uso:**
+
 - Tratamento de erro robusto
 - Notificações de falha
 - Retry automático
@@ -111,11 +129,14 @@ O node **Error Trigger** permite capturar e processar erros que ocorrem em outro
 
 [Ver documentação completa →](/integracoes/builtin-nodes/core-nodes/error-trigger)
 
-### <ion-icon name="git-branch-outline" style={{ fontSize: '20px', color: '#ea4b71' }}></ion-icon> Workflow Trigger
+### Workflow Trigger
+
+<IonicIcon name="git-branch-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O node **Workflow Trigger** permite que um workflow seja executado por outro workflow, criando hierarquias e dependências.
 
 **Principais funcionalidades:**
+
 - Disparar workflows de forma programática
 - Passar dados entre workflows
 - Criar dependências entre workflows
@@ -123,6 +144,7 @@ O node **Workflow Trigger** permite que um workflow seja executado por outro wor
 - Implementar pipelines de dados
 
 **Casos de uso:**
+
 - Orquestração de workflows
 - Pipelines de dados
 - Workflows dependentes
@@ -156,9 +178,9 @@ Os nodes core processam dados de forma sequencial:
 - **Controle**: Gerenciar fluxo (Execute Sub-Workflow, Workflow Trigger)
 - **Tratamento**: Lidar com erros (Error Trigger)
 
-## Padrões de Uso
+### Padrões de Uso
 
-### 1. Pipeline de Processamento
+#### Pipeline de Processamento
 
 ```
 Dados Brutos → Debug Helper → Code → Edit Fields → Dados Processados
@@ -170,7 +192,7 @@ Dados Brutos → Debug Helper → Code → Edit Fields → Dados Processados
 3. **Edit Fields** padroniza estrutura
 4. **Debug Helper** valida resultado final
 
-### 2. Modularização
+#### Modularização de Workflow
 
 ```
 Workflow Principal → Execute Sub-Workflow → Sub-Workflow → Resultado
@@ -182,7 +204,7 @@ Workflow Principal → Execute Sub-Workflow → Sub-Workflow → Resultado
 3. Sub-workflow valida e retorna resultado
 4. Workflow principal processa dados validados
 
-### 3. Tratamento de Erro
+#### Tratamento de Erro
 
 ```
 Node Principal → Error Trigger → Tratamento → Notificação
@@ -245,7 +267,7 @@ Schedule Trigger → HTTP Request → Error Trigger → Code (Retry Logic) → N
 
 ### Desenvolvimento
 
-1. **Use Debug Helper** frequentemente durante desenvolvimento
+1. **Use Debug Helper frequentemente** durante desenvolvimento
 2. **Teste código** em pequenos trechos antes de integrar
 3. **Documente lógica complexa** nos comentários
 4. **Valide dados** em cada etapa
@@ -261,7 +283,7 @@ Schedule Trigger → HTTP Request → Error Trigger → Code (Retry Logic) → N
 
 ### Manutenção
 
-1. **Modularize workflows** complexos
+1. **Modularize workflows complexos**
 2. **Implemente logging** adequado
 3. **Configure alertas** para falhas
 4. **Mantenha documentação** atualizada
@@ -271,31 +293,35 @@ Schedule Trigger → HTTP Request → Error Trigger → Code (Retry Logic) → N
 
 ### Problemas Comuns
 
-#### Code node não funciona
-- Verifique sintaxe JavaScript
+#### Code Node não funciona
+
+- **Verifique sintaxe JavaScript**
 - Confirme acesso a variáveis
 - Use Debug Helper para inspecionar dados
 - Teste código em console primeiro
 
-#### Debug Helper não mostra dados
-- Verifique se node está conectado
+#### Dados não chegam
+
+- **Verifique se node está conectado**
 - Confirme se dados estão chegando
 - Use "Include All" para ver dados completos
 - Verifique configuração do node
 
 #### Execute Sub-Workflow falha
-- Verifique se sub-workflow existe
+
+- **Verifique se sub-workflow existe**
 - Confirme se está ativo
 - Valide dados de entrada
 - Verifique permissões
 
 #### Error Trigger não captura erros
-- Verifique configuração de conexão
+
+- **Verifique configuração de conexão**
 - Confirme se erro está sendo gerado
 - Valide expressões de condição
 - Use Debug Helper para verificar
 
-### Debug
+### Dicas de Debug
 
 1. **Use Debug Helper** em pontos críticos
 2. **Configure logging detalhado**
@@ -304,8 +330,6 @@ Schedule Trigger → HTTP Request → Error Trigger → Code (Retry Logic) → N
 5. **Monitore execuções**
 
 ## Expressões Avançadas
-
-### Acesso a Dados
 
 ```javascript
 // Dados do item atual
@@ -351,7 +375,7 @@ function validarCPF(cpf) {
 
 ## Próximos Passos
 
-- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões avançadas
+- [Expressões JavaScript](/logica-e-dados/expressoes) - Usar expressões avançadas
 - [Nodes de Dados](/integracoes/builtin-nodes/data-processing/index) - Processar dados
 - [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index) - Controlar fluxo
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas

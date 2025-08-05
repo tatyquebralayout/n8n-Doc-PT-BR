@@ -1,15 +1,15 @@
----
+﻿---
 sidebar_position: 2
 title: Function Node
 description: Execute funções JavaScript simples e rápidas em seus workflows n8n
 keywords: [n8n, function, javascript, simples, rápido, operações]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Function Node
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O **Function Node** é uma versão simplificada do Code Node, ideal para **operações rápidas e simples** em JavaScript. Ele executa uma função para cada item de entrada, oferecendo performance superior para tarefas básicas.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Conceito Principal**
+## O que é o Function Node?
 
 **Function Node = "Função Simples por Item"**
 
@@ -22,38 +22,11 @@ O Function Node é uma **AÇÃO** que:
 
 > **💡 Dica:** Use o Function Node para operações simples e o Code Node para lógica complexa que envolve múltiplos itens.
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
+## Exemplos Práticos
 
-### **1. Function Code**
+<IonicIcon name="bulb-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-```javascript
-// Estrutura básica
-return {
-  json: {
-    // Seus dados processados aqui
-  }
-};
-```
-
-### **2. Variáveis Disponíveis**
-
-```javascript
-// Dados do item atual
-$json              // Dados JSON do item
-$binary            // Dados binários (se houver)
-$position          // Posição do item (0, 1, 2...)
-$index             // Índice do item (1, 2, 3...)
-
-// Contexto
-$now               // Data/hora atual
-$today             // Data atual
-$workflow          // Informações do workflow
-$node              // Informações do node atual
-```
-
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos Práticos**
-
-### **Exemplo 1: Transformação Simples de Dados**
+### Exemplo 1: Transformação Simples de Dados
 
 **Entrada:**
 
@@ -89,7 +62,7 @@ return {
 }
 ```
 
-### **Exemplo 2: Validação de Dados**
+### Exemplo 2: Validação de Dados
 
 **Função:**
 
@@ -118,7 +91,7 @@ return {
 };
 ```
 
-### **Exemplo 3: Formatação de Dados**
+### Exemplo 3: Formatação de Dados
 
 **Função:**
 
@@ -146,9 +119,7 @@ return {
 };
 ```
 
-### **Exemplo 4: Cálculos Matemáticos**
-
-**Função:**
+### Exemplo 4: Cálculos Matemáticos
 
 ```javascript
 // Calcular desconto
@@ -176,14 +147,14 @@ return {
         pis: pis.toFixed(2),
         cofins: cofins.toFixed(2),
         total_impostos: (icms + pis + cofins).toFixed(2)
-      },
-      total_final: total.toFixed(2)
-    }
+      }
+    },
+    total_final: total.toFixed(2)
   }
 };
 ```
 
-### **Exemplo 5: Manipulação de Texto**
+### Exemplo 5: Manipulação de Texto
 
 **Função:**
 
@@ -222,7 +193,7 @@ return {
 };
 ```
 
-### **Exemplo 6: Condicionais e Lógica**
+### Exemplo 6: Condicionais e Lógica
 
 **Função:**
 
@@ -263,11 +234,11 @@ return {
 };
 ```
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Operações Avançadas**
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-### **Manipulação de Arrays**
+## Operações Avançadas
 
-**Função:**
+### Manipulação de Arrays
 
 ```javascript
 // Filtrar e mapear arrays
@@ -297,9 +268,7 @@ return {
 };
 ```
 
-### **Manipulação de Objetos**
-
-**Função:**
+### Manipulação de Objetos
 
 ```javascript
 // Mesclar objetos
@@ -328,9 +297,7 @@ return {
 };
 ```
 
-### **Validações Complexas**
-
-**Função:**
+### Validações Complexas
 
 ```javascript
 // Validar CPF
@@ -347,6 +314,7 @@ function validarCPF(cpf) {
   for (let i = 0; i < 9; i++) {
     soma += parseInt(cpf.charAt(i)) * (10 - i);
   }
+  
   let resto = 11 - (soma % 11);
   let dv1 = resto < 2 ? 0 : resto;
   
@@ -355,6 +323,7 @@ function validarCPF(cpf) {
   for (let i = 0; i < 10; i++) {
     soma += parseInt(cpf.charAt(i)) * (11 - i);
   }
+  
   resto = 11 - (soma % 11);
   let dv2 = resto < 2 ? 0 : resto;
   
@@ -377,6 +346,7 @@ function validarCNPJ(cnpj) {
     soma += parseInt(cnpj.charAt(i)) * peso;
     peso = peso === 9 ? 2 : peso + 1;
   }
+  
   let resto = soma % 11;
   let dv1 = resto < 2 ? 0 : 11 - resto;
   
@@ -387,6 +357,7 @@ function validarCNPJ(cnpj) {
     soma += parseInt(cnpj.charAt(i)) * peso;
     peso = peso === 9 ? 2 : peso + 1;
   }
+  
   resto = soma % 11;
   let dv2 = resto < 2 ? 0 : 11 - resto;
   
@@ -406,25 +377,27 @@ return {
 };
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Performance vs Code Node**
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-### **Quando usar Function Node:**
+## Performance vs Code Node
 
-- ✅ Operações simples por item
+### Quando usar Function Node
+
+✅ **Operações simples por item**
 - ✅ Transformações básicas de dados
 - ✅ Validações rápidas
 - ✅ Formatação de campos
 - ✅ Cálculos matemáticos simples
 
-### **Quando usar Code Node:**
+### Quando usar Code Node
 
-- ✅ Lógica complexa envolvendo múltiplos itens
+✅ **Lógica complexa envolvendo múltiplos itens**
 - ✅ Agregações e estatísticas
 - ✅ Integração com APIs externas
 - ✅ Processamento em lote
 - ✅ Manipulação de arrays complexos
 
-### **Comparação de Performance:**
+### Comparação de Performance
 
 ```javascript
 // Function Node - Mais rápido para operações simples
@@ -448,16 +421,19 @@ for (const item of items) {
 return returnData;
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações e Considerações**
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-### **Limitações do Function Node:**
+## Limitações e Considerações
 
-- **Escopo isolado**: Cada item é processado independentemente
+### Limitações do Function Node
+
+**Escopo isolado**: Cada item é processado independentemente
+
 - **Sem acesso a outros itens**: Não pode referenciar dados de outros itens
 - **Sem loops**: Não pode iterar sobre múltiplos itens
 - **Sem async/await**: Não suporta operações assíncronas
 
-### **Boas Práticas:**
+### Boas Práticas
 
 ```javascript
 // ✅ Bom: Código simples e direto
@@ -477,7 +453,7 @@ return {
 };
 ```
 
-### **Tratamento de Erros:**
+### Tratamento de Erros
 
 ```javascript
 // Tratamento básico de erros
@@ -501,7 +477,9 @@ try {
 }
 ```
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
+<IonicIcon name="arrow-forward-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Próximos Passos
 
 Agora que você entende o Function Node:
 

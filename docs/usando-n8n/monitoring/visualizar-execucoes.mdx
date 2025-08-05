@@ -1,4 +1,4 @@
----
+﻿---
 sidebar_position: 2
 title: Visualizar Execuções
 description: Como acompanhar e analisar execuções de workflows no n8n
@@ -6,28 +6,25 @@ keywords: [n8n, execuções, visualizar, status, histórico, resultados]
 ---
 
 :::warning
-<ion-icon name="time-outline" style={{ fontSize: '18px', color: '#f59e0b' }}></ion-icon> Esta página ainda está em processo de validação. O conteúdo pode sofrer alterações.
-:::
-
-
-# <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Visualizar Execuções
+<IonicIcon name="time-outline" style={{fontSize: '18px', color: '#ea4b71'}} />}
+}
+<IonicIcon name="color-palette-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+visualizar-execues
 
 Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu em cada execução dos seus workflows.
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 1 | Onde Encontrar Execuções
+## ionicicon namechevron forward outline style fontsize
 
-### Menu de Execuções
-
-1. **Acesse o menu lateral** → Clique em **"Execuções"**
+1-acesse o menu lateral** → Clique em **"Execuções"**
 2. **Visualize todas as execuções** recentes
 3. **Filtre por workflow** específico
 4. **Pesquise** por data, status ou conteúdo
 
-### Histórico de Execuções
+## histrico de execues informaes
 
-**Informações disponíveis:**
+disponveis
 
 - **Data e hora** da execução
 - **Workflow** executado
@@ -37,54 +34,8 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 2 | Status das Execuções
+## ionicicon namechevron forward outline style fontsize
 
-### Status de Sucesso
-
-**Características:**
-
-- **Cor verde** no indicador
-- **Todos os nodes** executaram com sucesso
-- **Dados processados** conforme esperado
-- **Logs limpos** sem erros
-
-### Status de Erro
-
-**Características:**
-
-- **Cor vermelha** no indicador
-- **Um ou mais nodes** falharam
-- **Execução interrompida** no ponto de falha
-- **Logs com detalhes** do erro
-
-### Status de Aguardando
-
-**Características:**
-
-- **Cor amarela** no indicador
-- **Workflow pausado** temporariamente
-- **Aguardando input** manual ou condição
-- **Pode ser retomado** quando necessário
-
-### Status de Em Andamento
-
-**Características:**
-
-- **Cor azul** no indicador
-- **Execução ativa** no momento
-- **Nodes sendo processados** sequencialmente
-- **Tempo real** de progresso
-
----
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 3 | Detalhes da Execução
-
-### Informações Gerais
-
-**Ao clicar em uma execução:**
-
-```json
-{
   "executionId": "abc123-def456-ghi789",
   "workflowName": "Enviar Relatório Diário",
   "startTime": "2024-01-15T09:00:00Z",
@@ -93,119 +44,13 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
   "status": "success",
   "trigger": "schedule",
   "nodesExecuted": 5,
-  "dataProcessed": 150
-}
-```
+  "dataProcessed": 150}
 
-### Fluxo de Execução
+```\n\n## fluxo de execuo visualizao\n\ndo caminho:**\n\n1. **Trigger** → Iniciou a execução\n2. **Node 1** → Processou dados (200ms)\n3. **Node 2** → Fez requisição HTTP (1.5s)\n4. **Node 3** → Transformou dados (100ms)\n5. **Node 4** → Enviou notificação (500ms)\n6. **Finalizado** → Sucesso total\n\n---\n\n<IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />\n4 Análise de Performance\n\n## mtricas de tempo tempos\n\nimportantes\n\n| Métrica | Descrição | Exemplo |\n|---------|-----------|---------|\n| **Tempo Total** | Duração completa da execução | 2m 30s |\n| **Tempo por Node** | Tempo gasto em cada node | Node 2: 1.5s |\n| **Tempo de Espera** | Tempo entre nodes | 100ms |\n| **Tempo de Processamento** | Tempo ativo de processamento | 2m 15s |\n\n## anlise de tendncias compare\n\nexecues\n\n- **Performance ao longo do tempo**\n- **Padrões de uso** (horários, dias)\n- **Crescimento** no volume de dados\n- **Melhorias** após otimizações\n\n---\n\n## ionicicon namefilter outline style fontsize\n\n  "display": {\n    "showTimestamps": true,\n    "showDuration": true,\n    "showDataSize": true,\n    "autoRefresh": false,\n    "refreshInterval": 30}\n}\n  },\n  "filters": {\n    "defaultStatus": "all",\n    "defaultTimeRange": "24h",\n    "maxResults": 100}\n\n}\n\n```
 
-**Visualização do caminho:**
+## ocultar informaes sensveis proteja
 
-1. **Trigger** → Iniciou a execução
-2. **Node 1** → Processou dados (200ms)
-3. **Node 2** → Fez requisição HTTP (1.5s)
-4. **Node 3** → Transformou dados (100ms)
-5. **Node 4** → Enviou notificação (500ms)
-6. **Finalizado** → Sucesso total
-
----
-
-## <ion-icon name="analytics-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 4 | Análise de Performance
-
-### Métricas de Tempo
-
-**Tempos importantes:**
-
-| Métrica | Descrição | Exemplo |
-|---------|-----------|---------|
-| **Tempo Total** | Duração completa da execução | 2m 30s |
-| **Tempo por Node** | Tempo gasto em cada node | Node 2: 1.5s |
-| **Tempo de Espera** | Tempo entre nodes | 100ms |
-| **Tempo de Processamento** | Tempo ativo de processamento | 2m 15s |
-
-### Análise de Tendências
-
-**Compare execuções:**
-
-- **Performance ao longo do tempo**
-- **Padrões de uso** (horários, dias)
-- **Crescimento** no volume de dados
-- **Melhorias** após otimizações
-
----
-
-## <ion-icon name="filter-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 5 | Filtros e Busca
-
-### Filtros Disponíveis
-
-**Filtre execuções por:**
-
-- **Status**: Sucesso, Erro, Em andamento
-- **Workflow**: Nome específico do workflow
-- **Data**: Período de tempo
-- **Trigger**: Tipo de gatilho
-- **Duração**: Tempo de execução
-
-### Busca Avançada
-
-**Pesquise por:**
-
-- **ID da execução** específico
-- **Conteúdo** dos dados processados
-- **Mensagens de erro** específicas
-- **Usuário** que executou
-- **Tags** ou metadados
-
----
-
-## <ion-icon name="cloud-download-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 6 | Exportar e Compartilhar
-
-### Exportar Dados
-
-**Formatos disponíveis:**
-
-- **JSON**: Dados completos da execução
-- **CSV**: Dados tabulares para análise
-- **PDF**: Relatório formatado
-- **Logs**: Arquivo de texto com logs
-
-### Compartilhar Execuções
-
-**Opções de compartilhamento:**
-
-- **Link direto** para a execução
-- **Screenshot** do resultado
-- **Relatório** resumido
-- **Dados específicos** selecionados
-
----
-
-## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 7 | Configurações de Visualização
-
-### Personalizar Interface
-
-**Configurações disponíveis:**
-
-```json
-{
-  "display": {
-    "showTimestamps": true,
-    "showDuration": true,
-    "showDataSize": true,
-    "autoRefresh": false,
-    "refreshInterval": 30
-  },
-  "filters": {
-    "defaultStatus": "all",
-    "defaultTimeRange": "24h",
-    "maxResults": 100
-  }
-}
-```
-
-### Ocultar Informações Sensíveis
-
-**Proteja dados sensíveis:**
+dados sensíveis:**
 
 - **Mascarar** credenciais nos logs
 - **Ocultar** dados pessoais
@@ -214,7 +59,8 @@ Aprenda como acompanhar o status, analisar resultados e entender o que aconteceu
 
 ---
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> 8 | Próximos passos
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+8 Próximos passos
 
 1. **[Analisar Logs](./analisar-logs)** - Investigar problemas detalhadamente
 2. **[Configurar Alertas](./configurar-alertas)** - Receber notificações automáticas
@@ -235,3 +81,4 @@ Mantenha logs de execuções por pelo menos 30 dias para análise de tendências
 :::info **Recurso Adicional**
 Use a API do n8n para integrar dados de execução com ferramentas externas de monitoramento como Grafana ou Datadog.
 :::
+

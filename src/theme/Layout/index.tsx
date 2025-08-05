@@ -1,10 +1,11 @@
 import React from 'react';
 import OriginalLayout from '@theme-original/Layout';
+import ImageZoom from '../../components/ImageZoom';
 
-export default function Layout({ children, ...props }) {
+export default function Layout(props: any) {
   return (
-    <OriginalLayout {...props}>
-      {children}
-    </OriginalLayout>
+    <ImageZoom>
+      <OriginalLayout {...props} />
+    </ImageZoom>
   );
-} 
+}

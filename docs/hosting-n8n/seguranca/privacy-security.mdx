@@ -1,4 +1,11 @@
-# Privacidade e Segurança
+﻿---
+sidebar_position: 2
+title: Privacidade e Segurança
+description: Configuração de privacidade e segurança no n8n com conformidade LGPD
+keywords: [n8n, privacidade, segurança, LGPD, conformidade, dados]
+---
+
+## Privacidade e Segurança
 
 A privacidade e segurança dos dados são fundamentais ao usar o n8n, especialmente considerando a Lei Geral de Proteção de Dados (LGPD) no Brasil. Esta seção aborda as melhores práticas para proteger dados sensíveis e garantir conformidade regulatória.
 
@@ -77,24 +84,25 @@ O n8n deve ser configurado seguindo os princípios da LGPD:
 **Não Discriminação**: Não use dados para fins discriminatórios
 **Responsabilização**: Demonstre conformidade com a LGPD
 
-### Implementação Prática
+## Implementação Prática
 
-#### 1. Mapeamento de Dados
+### 1. Mapeamento de Dados
 
 Documente todos os dados processados:
 
 ```markdown
-## Mapeamento de Dados Pessoais
+# Mapeamento de Dados Pessoais
 
-### Workflow: Integração CRM
-- **Dados coletados**: Nome, email, telefone, empresa
+## Workflow Integração CRM
+
+**Dados coletados**: Nome, email, telefone, empresa
 - **Finalidade**: Automação de vendas
 - **Base legal**: Legítimo interesse
 - **Retenção**: 2 anos após último contato
 - **Compartilhamento**: Apenas com CRM autorizado
 ```
 
-#### 2. Consentimento e Base Legal
+### 2. Consentimento e Base Legal
 
 Configure workflows para respeitar consentimentos:
 
@@ -114,7 +122,7 @@ await registrarBaseLegal({
 });
 ```
 
-#### 3. Direitos dos Titulares
+### 3. Direitos dos Titulares
 
 Implemente endpoints para atender direitos LGPD:
 
@@ -162,14 +170,19 @@ Implemente alertas para atividades suspeitas:
 
 ```javascript
 // Monitorar tentativas de login
-const monitorarLogin = async (email, ip, sucesso) => {
-  if (!sucesso) {
-    await registrarTentativaFalha(email, ip);
-    
-    const tentativas = await contarTentativasFalha(email, '1h');
-    if (tentativas > 5) {
-      await bloquearUsuario(email, '1h');
-      await enviarAlertaSeguranca(email, ip);
+const monitorLogin = {
+  failedAttempts: 0,
+  maxAttempts: 5,
+  lockoutDuration: 15 * 60 * 1000, // 15 minutos
+  
+  checkLogin: function(email, success) {
+    if (!success) {
+      this.failedAttempts++;
+      if (this.failedAttempts >= this.maxAttempts) {
+        this.lockAccount(email);
+      }
+    } else {
+      this.failedAttempts = 0;
     }
   }
 };
@@ -180,10 +193,6 @@ const monitorarLogin = async (email, ip, sucesso) => {
 Configure backups criptografados:
 
 ```bash
-# Backup com criptografia
-pg_dump n8n_db | gpg --encrypt --recipient admin@empresa.com > backup_$(date +%Y%m%d).sql.gpg
-
-# Backup automático com retenção
 #!/bin/bash
 BACKUP_DIR="/backups/n8n"
 RETENTION_DAYS=30
@@ -198,6 +207,7 @@ find $BACKUP_DIR -name "*.gpg" -mtime +$RETENTION_DAYS -delete
 ## Checklist de Conformidade
 
 ### Configuração Inicial
+
 - [ ] Autenticação robusta configurada
 - [ ] HTTPS habilitado
 - [ ] Criptografia de credenciais ativa
@@ -205,6 +215,7 @@ find $BACKUP_DIR -name "*.gpg" -mtime +$RETENTION_DAYS -delete
 - [ ] Backup seguro configurado
 
 ### LGPD Compliance
+
 - [ ] Mapeamento de dados pessoais documentado
 - [ ] Base legal definida para cada workflow
 - [ ] Mecanismos de consentimento implementados
@@ -213,6 +224,7 @@ find $BACKUP_DIR -name "*.gpg" -mtime +$RETENTION_DAYS -delete
 - [ ] Procedimentos de exclusão implementados
 
 ### Monitoramento Contínuo
+
 - [ ] Alertas de segurança configurados
 - [ ] Revisão regular de logs
 - [ ] Atualizações de segurança aplicadas
@@ -222,14 +234,17 @@ find $BACKUP_DIR -name "*.gpg" -mtime +$RETENTION_DAYS -delete
 ## Recursos Adicionais
 
 ### Documentação Oficial
+
 - [Guia de Segurança do n8n](https://docs.n8n.io/hosting/security/)
 - [Configuração de Autenticação](https://docs.n8n.io/hosting/authentication/)
 
 ### Legislação Brasileira
+
 - [Lei Geral de Proteção de Dados (LGPD)](http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)
 - [Guia da ANPD sobre LGPD](https://www.gov.br/anpd/pt-br)
 
 ### Ferramentas de Compliance
+
 - [Checklist LGPD](https://www.gov.br/anpd/pt-br/assuntos/noticias-tecnicas/checklist-lgpd)
 - [Ferramentas de Auditoria](https://www.gov.br/anpd/pt-br/assuntos/noticias-tecnicas/ferramentas-de-auditoria)
 
@@ -243,4 +258,4 @@ Para dúvidas sobre implementação de segurança ou conformidade LGPD:
 
 ---
 
-**Nota**: Esta documentação fornece orientações gerais. Consulte sempre um advogado especializado em proteção de dados para garantir conformidade completa com a LGPD e outras regulamentações aplicáveis. 
+**Nota**: Esta documentação fornece orientações gerais. Consulte sempre um advogado especializado em proteção de dados para garantir conformidade completa com a LGPD e outras regulamentações aplicáveis.

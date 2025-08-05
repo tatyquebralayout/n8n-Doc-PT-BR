@@ -1,33 +1,20 @@
----
+﻿---
 sidebar_position: 2
 title: Usuários e Permissões
 description: Como gerenciar usuários e configurar permissões granulares no n8n
 keywords: [n8n, usuários, permissões, rbac, controle acesso, roles]
 ---
 
-
-# <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Usuários e Permissões
+## Usuários e Permissões
 
 Este documento detalha **gerenciamento de usuários e permissões** no n8n, incluindo criação de roles customizados, controle granular de acesso, permissões por workflow, segregação de ambientes, auditoria de ações, e implementação de RBAC (Role-Based Access Control) que garante princípio de menor privilégio e conformidade com políticas de segurança empresarial em organizações de grande porte.
 
-## <ion-icon name="school-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> O que você vai aprender
+## Roles Padrão
 
-- Sistema RBAC (Role-Based Access Control)
-- Controle granular de permissões
-- Auditoria e monitoramento
-- Segregação de ambientes
-- Templates de roles organizacionais
-
----
-
-## <ion-icon name="color-palette-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Sistema RBAC
-
-### Roles Padrão
-
-#### **Owner (Proprietário)**
+### Owner (Proprietário)
 
 ```javascript
-// Role com acesso total ao sistema
+// Role para acesso total ao sistema
 const ownerRole = {
   name: "owner",
   description: "Acesso total ao sistema",
@@ -42,7 +29,7 @@ const ownerRole = {
 };
 ```
 
-#### **Admin (Administrador)**
+### Admin (Administrador)
 
 ```javascript
 // Role para administração do sistema
@@ -60,7 +47,7 @@ const adminRole = {
 };
 ```
 
-#### **Editor (Editor)**
+### Editor
 
 ```javascript
 // Role para criação e edição de workflows
@@ -75,7 +62,7 @@ const editorRole = {
 };
 ```
 
-#### **Viewer (Visualizador)**
+### Viewer (Visualizador)
 
 ```javascript
 // Role para apenas visualização
@@ -89,9 +76,9 @@ const viewerRole = {
 };
 ```
 
-### Roles Customizados
+## Roles Customizados
 
-#### **Criar Role Customizado**
+### Criar Role Customizado
 
 ```javascript
 // Exemplo: Role para equipe de marketing
@@ -134,13 +121,9 @@ const financeRole = {
 };
 ```
 
----
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Controle Granular de Acesso
+## Controle Granular de Acesso
 
 ### Permissões por Workflow
-
-#### **Configuração de Permissões**
 
 ```javascript
 // Configurar permissões específicas por workflow
@@ -164,7 +147,7 @@ const financeRole = {
 }
 ```
 
-#### **Permissões por Tag**
+### Permissões por Tag
 
 ```javascript
 // Configurar permissões baseadas em tags
@@ -196,7 +179,7 @@ const financeRole = {
 
 ### Permissões por Credencial
 
-#### **Controle de Acesso a Credenciais**
+#### Controle de Acesso a Credenciais
 
 ```javascript
 // Configurar acesso a credenciais
@@ -219,7 +202,7 @@ const financeRole = {
 }
 ```
 
-#### **Credenciais Sensíveis**
+#### Credenciais Sensíveis
 
 ```javascript
 // Configuração para credenciais sensíveis
@@ -242,13 +225,11 @@ const financeRole = {
 }
 ```
 
----
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Segregação de Ambientes
+## Segregação de Ambientes
 
 ### Ambientes Separados
 
-#### **Configuração de Ambientes**
+#### Configuração de Ambientes
 
 ```javascript
 // Configuração para múltiplos ambientes
@@ -289,7 +270,7 @@ const environments = {
 };
 ```
 
-#### **Isolamento de Dados**
+#### Isolamento de Dados
 
 ```javascript
 // Configuração de isolamento
@@ -314,68 +295,64 @@ const environments = {
 }
 ```
 
----
-
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Auditoria e Monitoramento
+## Auditoria e Monitoramento
 
 ### Logs de Auditoria
 
-#### **Configuração de Auditoria**
+#### Configuração de Auditoria
 
 ```bash
-# <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Configurar logs de auditoria
-N8N_AUDIT_ENABLED=true
-N8N_AUDIT_LOG_LEVEL=info
-N8N_AUDIT_LOG_FILE=/var/log/n8n/audit.log
-N8N_AUDIT_RETENTION_DAYS=90
-N8N_AUDIT_MASK_SENSITIVE_DATA=true
+# Configurar logs de auditoria
+export N8N_AUDIT_LOGGING=true
+export N8N_AUDIT_LOG_LEVEL=info
+export N8N_AUDIT_LOG_FILE=/var/log/n8n/audit.log
 ```
 
-#### **Eventos Auditados**
-
 ```javascript
-// Eventos que são registrados na auditoria
-const auditEvents = {
-  // Autenticação
-  "auth.login": "Login de usuário",
-  "auth.logout": "Logout de usuário",
-  "auth.failed_login": "Tentativa de login falhou",
-  "auth.password_change": "Senha alterada",
-  "auth.2fa_enabled": "2FA ativado",
-  "auth.2fa_disabled": "2FA desativado",
-  
-  // Usuários
-  "user.created": "Usuário criado",
-  "user.updated": "Usuário atualizado",
-  "user.deleted": "Usuário deletado",
-  "user.role_changed": "Role alterada",
-  "user.suspended": "Usuário suspenso",
-  
-  // Workflows
-  "workflow.created": "Workflow criado",
-  "workflow.updated": "Workflow atualizado",
-  "workflow.deleted": "Workflow deletado",
-  "workflow.executed": "Workflow executado",
-  "workflow.activated": "Workflow ativado",
-  "workflow.deactivated": "Workflow desativado",
-  
-  // Credenciais
-  "credential.created": "Credencial criada",
-  "credential.updated": "Credencial atualizada",
-  "credential.deleted": "Credencial deletada",
-  "credential.accessed": "Credencial acessada",
-  
-  // Execuções
-  "execution.started": "Execução iniciada",
-  "execution.completed": "Execução completada",
-  "execution.failed": "Execução falhou",
-  "execution.cancelled": "Execução cancelada"
-};
+// Eventos de auditoria
+{
+  "auditEvents": {
+    // Autenticação
+    "auth.login": "Login de usuário",
+    "auth.logout": "Logout de usuário",
+    "auth.failed_login": "Tentativa de login falhou",
+    "auth.password_change": "Senha alterada",
+    "auth.2fa_enabled": "2FA ativado",
+    "auth.2fa_disabled": "2FA desativado",
+    
+    // Usuários
+    "user.created": "Usuário criado",
+    "user.updated": "Usuário atualizado",
+    "user.deleted": "Usuário deletado",
+    "user.role_changed": "Role alterada",
+    "user.suspended": "Usuário suspenso",
+    
+    // Workflows
+    "workflow.created": "Workflow criado",
+    "workflow.updated": "Workflow atualizado",
+    "workflow.deleted": "Workflow deletado",
+    "workflow.executed": "Workflow executado",
+    "workflow.activated": "Workflow ativado",
+    "workflow.deactivated": "Workflow desativado",
+    
+    // Credenciais
+    "credential.created": "Credencial criada",
+    "credential.updated": "Credencial atualizada",
+    "credential.deleted": "Credencial deletada",
+    "credential.accessed": "Credencial acessada",
+    
+    // Execuções
+    "execution.started": "Execução iniciada",
+    "execution.completed": "Execução completada",
+    "execution.failed": "Execução falhou",
+    "execution.cancelled": "Execução cancelada"
+  }
+}
 ```
 
 ### Alertas de Segurança
 
-#### **Configuração de Alertas**
+#### Configuração de Alertas
 
 ```javascript
 // Configurar alertas de segurança
@@ -406,7 +383,7 @@ const auditEvents = {
 }
 ```
 
-#### **Notificações**
+#### Notificações
 
 ```javascript
 // Configuração de notificações
@@ -434,13 +411,11 @@ const auditEvents = {
 }
 ```
 
----
-
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Templates de Roles Organizacionais
+## Templates de Roles Organizacionais
 
 ### Startup (10-50 funcionários)
 
-#### **Roles Essenciais**
+#### Roles Essenciais
 
 ```javascript
 // Configuração para startup
@@ -476,7 +451,7 @@ const startupRoles = {
 
 ### Empresa Média (50-500 funcionários)
 
-#### **Roles Departamentais**
+#### Roles Departamentais
 
 ```javascript
 // Configuração para empresa média
@@ -560,7 +535,7 @@ const mediumCompanyRoles = {
 
 ### Empresa Grande (500+ funcionários)
 
-#### **Roles Corporativos**
+#### Roles Corporativos
 
 ```javascript
 // Configuração para empresa grande
@@ -659,9 +634,7 @@ const largeCompanyRoles = {
 };
 ```
 
----
-
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Checklist de Implementação
+## Checklist de Implementação
 
 ### Configuração Inicial
 
@@ -695,34 +668,15 @@ const largeCompanyRoles = {
 - [ ] Matriz de responsabilidades
 - [ ] Plano de continuidade
 
----
+## Próximos Passos
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Próximos Passos
+- [Monitoramento](/usando-n8n/monitoring/configurar-alertas) - Alertas de segurança
+- [Backup e Recovery](/hosting-n8n/seguranca/backup-recovery) - Recuperação de dados
+- [LGPD Compliance](/privacidade-seguranca/lgpd-compliance) - Conformidade legal
 
-Agora que você configurou usuários e permissões:
+## Recursos Relacionados
 
-1. **[Backup e Recovery](./backup-recovery)** - Implemente estratégias de backup
-2. **[Monitoramento](./monitoring)** - Configure alertas e métricas
-3. **[Autenticação](./autenticacao)** - Configure métodos de login seguros
-
----
-
-:::tip **Dica Pro**
-Implemente o princípio do menor privilégio: dê apenas as permissões necessárias para cada usuário realizar suas funções.
-:::
-
-:::warning **Importante**
-Revise regularmente as permissões dos usuários e mantenha logs de auditoria por pelo menos 90 dias para compliance.
-:::
-
-:::info **Recurso Adicional**
-Considere implementar um sistema de aprovação para mudanças de permissões críticas e acesso a dados sensíveis.
-:::
-
----
-
-**Links úteis:**
-
-- [Documentação oficial n8n](https://docs.n8n.io/)
-- [Gerenciamento de Usuários](https://docs.n8n.io/hosting/user-management/)
-- [Segurança n8n](https://docs.n8n.io/hosting/security/)
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer chamadas para APIs
+- [Expressões n8n](/logica-e-dados/expressoes) - Personalizar autenticação
+- [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
+- [Credenciais](/usando-n8n/credenciais/criar-editar) - Gerenciar tokens de API

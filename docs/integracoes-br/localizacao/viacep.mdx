@@ -1,15 +1,15 @@
----
+﻿---
 title: ViaCEP
 description: Integração com a API ViaCEP para consulta de CEPs brasileiros no n8n
 sidebar_position: 1
 keywords: [n8n, viacep, cep, endereço, brasil, localização, api]
 ---
 
-# <ion-icon name="location-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> ViaCEP
+<IonicIcon name="location-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O **ViaCEP** é uma API gratuita que permite consultar endereços brasileiros através do CEP. Esta integração permite que você valide e complete endereços automaticamente em seus workflows n8n.
 
-## O que é o ViaCEP?
+## O que é o ViaCEP
 
 O ViaCEP é um serviço que fornece dados de endereços brasileiros baseado no CEP (Código de Endereçamento Postal). Ele é mantido pelos Correios e oferece:
 
@@ -19,9 +19,7 @@ O ViaCEP é um serviço que fornece dados de endereços brasileiros baseado no C
 - **Sem necessidade** de cadastro
 - **Alta disponibilidade** e confiabilidade
 
-### Dados Retornados
-
-Para cada CEP consultado, o ViaCEP retorna:
+Quando um CEP é consultado, o ViaCEP retorna:
 
 ```json
 {
@@ -38,29 +36,30 @@ Para cada CEP consultado, o ViaCEP retorna:
 }
 ```
 
-## Como Usar o ViaCEP no n8n
+## Como usar o ViaCEP no n8n
 
-### 1. Configuração Básica
+### Configuração básica
 
-**Node:** HTTP Request
+**Node HTTP Request**
+
 **Método:** GET
-**URL:** `https://viacep.com.br/ws/{{ $json.cep }}/json/`
+**URL:** `https://viacep.com.br/ws/{{$json.cep}}/json/`
 
-### 2. Parâmetros
+### Parâmetros
 
 - **cep**: CEP a ser consultado (formato: 00000-000 ou 00000000)
 
-### 3. Exemplo de Configuração
+### Exemplo de configuração
 
 ```javascript
 // Configuração do HTTP Request
 Method: GET
-URL: https://viacep.com.br/ws/{{ $json.cep }}/json/
+URL: https://viacep.com.br/ws/{{$json.cep}}/json/
 ```
 
-## Casos de Uso
+## Casos de uso
 
-### 1. Validação de Endereços
+### Validação de endereços
 
 Validar se um CEP existe e retorna dados válidos:
 
@@ -70,12 +69,13 @@ Webhook → HTTP Request (ViaCEP) → If (CEP válido) → Set → HTTP Request 
 ```
 
 **Configuração:**
+
 - **HTTP Request**: Consulta ViaCEP
 - **If**: Verifica se `$json.erro` não existe
 - **Set**: Formata dados do endereço
 - **HTTP Request**: Salva dados validados
 
-### 2. Preenchimento Automático de Formulários
+### Preenchimento automático de formulários
 
 Completar formulários com dados do CEP:
 
@@ -85,12 +85,13 @@ Manual Trigger → HTTP Request (ViaCEP) → Set → HTTP Request (Enviar Formul
 ```
 
 **Configuração:**
+
 - **Manual Trigger**: Entrada do CEP
 - **HTTP Request**: Consulta ViaCEP
 - **Set**: Mapeia dados para formulário
 - **HTTP Request**: Envia formulário preenchido
 
-### 3. Cálculo de Frete
+### Cálculo de frete
 
 Usar dados do CEP para calcular frete:
 
@@ -100,12 +101,13 @@ Webhook (Pedido) → HTTP Request (ViaCEP) → HTTP Request (API Frete) → Noti
 ```
 
 **Configuração:**
+
 - **Webhook**: Recebe pedido com CEP
 - **HTTP Request**: Consulta ViaCEP
 - **HTTP Request**: Calcula frete com dados do endereço
 - **Notificação**: Envia resultado para cliente
 
-### 4. Segmentação Geográfica
+### Segmentação geográfica
 
 Classificar clientes por região:
 
@@ -115,18 +117,20 @@ Webhook (Novo Cliente) → HTTP Request (ViaCEP) → Switch (Por UF) → Process
 ```
 
 **Configuração:**
+
 - **Webhook**: Recebe dados do cliente
 - **HTTP Request**: Consulta ViaCEP
 - **Switch**: Direciona por estado (UF)
 - **Processamento**: Aplica regras específicas da região
 
-## Exemplos Práticos
+## Exemplos práticos
 
-### Exemplo 1: Validação de CEP em E-commerce
+### Exemplo 1: Validação de CEP em e-commerce
 
 **Cenário:** Validar CEP durante checkout de e-commerce.
 
 **Workflow:**
+
 ```
 Webhook (Checkout) → HTTP Request (ViaCEP) → If (CEP Válido) → Processar Pedido
                 ↓
@@ -134,34 +138,37 @@ Webhook (Checkout) → HTTP Request (ViaCEP) → If (CEP Válido) → Processar 
 ```
 
 **Configuração:**
+
 ```javascript
 // HTTP Request - ViaCEP
 Method: GET
-URL: https://viacep.com.br/ws/{{ $json.cep }}/json/
+URL: https://viacep.com.br/ws/{{$json.cep}}/json/
 
 // If - Validação
 Condition: $json.erro === undefined
 
 // Set - Dados do Endereço
 {
-  "cep": "{{ $('ViaCEP').json.cep }}",
-  "logradouro": "{{ $('ViaCEP').json.logradouro }}",
-  "bairro": "{{ $('ViaCEP').json.bairro }}",
-  "cidade": "{{ $('ViaCEP').json.localidade }}",
-  "estado": "{{ $('ViaCEP').json.uf }}"
+  "cep": "{{$('ViaCEP').json.cep}}",
+  "logradouro": "{{$('ViaCEP').json.logradouro}}",
+  "bairro": "{{$('ViaCEP').json.bairro}}",
+  "cidade": "{{$('ViaCEP').json.localidade}}",
+  "estado": "{{$('ViaCEP').json.uf}}"
 }
 ```
 
-### Exemplo 2: Preenchimento de Formulário de Cadastro
+### Exemplo 2: Preenchimento de formulário de cadastro
 
 **Cenário:** Preencher automaticamente campos de endereço.
 
 **Workflow:**
+
 ```
 Manual Trigger → HTTP Request (ViaCEP) → Set → HTTP Request (Salvar Cliente)
 ```
 
 **Configuração:**
+
 ```javascript
 // Manual Trigger - Entrada
 {
@@ -170,26 +177,27 @@ Manual Trigger → HTTP Request (ViaCEP) → Set → HTTP Request (Salvar Client
 
 // HTTP Request - ViaCEP
 Method: GET
-URL: https://viacep.com.br/ws/{{ $json.cep }}/json/
+URL: https://viacep.com.br/ws/{{$json.cep}}/json/
 
 // Set - Mapeamento
 {
-  "nome": "{{ $json.nome }}",
-  "email": "{{ $json.email }}",
-  "cep": "{{ $('ViaCEP').json.cep }}",
-  "endereco": "{{ $('ViaCEP').json.logradouro }}",
-  "bairro": "{{ $('ViaCEP').json.bairro }}",
-  "cidade": "{{ $('ViaCEP').json.localidade }}",
-  "estado": "{{ $('ViaCEP').json.uf }}",
-  "ddd": "{{ $('ViaCEP').json.ddd }}"
+  "nome": "{{$json.nome}}",
+  "email": "{{$json.email}}",
+  "cep": "{{$('ViaCEP').json.cep}}",
+  "endereco": "{{$('ViaCEP').json.logradouro}}",
+  "bairro": "{{$('ViaCEP').json.bairro}}",
+  "cidade": "{{$('ViaCEP').json.localidade}}",
+  "estado": "{{$('ViaCEP').json.uf}}",
+  "ddd": "{{$('ViaCEP').json.ddd}}"
 }
 ```
 
-### Exemplo 3: Sistema de Delivery
+### Exemplo 3: Sistema de delivery
 
 **Cenário:** Validar endereço para delivery.
 
 **Workflow:**
+
 ```
 Webhook (Pedido) → HTTP Request (ViaCEP) → If (Zona de Entrega) → Agendar Entrega
               ↓
@@ -197,10 +205,11 @@ Webhook (Pedido) → HTTP Request (ViaCEP) → If (Zona de Entrega) → Agendar 
 ```
 
 **Configuração:**
+
 ```javascript
 // HTTP Request - ViaCEP
 Method: GET
-URL: https://viacep.com.br/ws/{{ $json.cep }}/json/
+URL: https://viacep.com.br/ws/{{$json.cep}}/json/
 
 // If - Zona de Entrega
 Condition: $('ViaCEP').json.localidade === "São Paulo" && 
@@ -209,9 +218,9 @@ Condition: $('ViaCEP').json.localidade === "São Paulo" &&
            $('ViaCEP').json.bairro === "Vila Olímpia")
 ```
 
-## Tratamento de Erros
+## Tratamento de erros
 
-### 1. CEP Não Encontrado
+### CEP não encontrado
 
 Quando o CEP não existe, o ViaCEP retorna:
 
@@ -222,6 +231,7 @@ Quando o CEP não existe, o ViaCEP retorna:
 ```
 
 **Tratamento:**
+
 ```javascript
 // If - CEP Inválido
 Condition: $json.erro === true
@@ -230,11 +240,11 @@ Condition: $json.erro === true
 {
   "erro": true,
   "mensagem": "CEP não encontrado. Verifique o número informado.",
-  "cep_informado": "{{ $('Manual Trigger').json.cep }}"
+  "cep_informado": "{{$('Manual Trigger').json.cep}}"
 }
 ```
 
-### 2. CEP Inválido
+### CEP inválido
 
 Para CEPs com formato inválido:
 
@@ -246,7 +256,7 @@ if (cep.length !== 8) {
 }
 ```
 
-### 3. Rate Limiting
+### Rate limiting
 
 O ViaCEP tem limites de uso:
 
@@ -263,9 +273,9 @@ try {
 }
 ```
 
-## Boas Práticas
+## Boas práticas
 
-### 1. Formatação de CEP
+### Formatação de CEP
 
 Sempre formate o CEP antes da consulta:
 
@@ -275,7 +285,7 @@ const cep = $json.cep.replace(/\D/g, ''); // Remove caracteres não numéricos
 const cepFormatado = cep.replace(/^(\d{5})(\d{3})$/, '$1-$2'); // Adiciona hífen
 ```
 
-### 2. Cache de Consultas
+### Cache de consultas
 
 Implemente cache para CEPs consultados frequentemente:
 
@@ -300,7 +310,7 @@ await saveToCache(cacheKey, data);
 return { json: data };
 ```
 
-### 3. Validação de Dados
+### Validação de dados
 
 Sempre valide os dados retornados:
 
@@ -319,40 +329,46 @@ if (!cepRegex.test(data.cep)) {
 }
 ```
 
-### 4. Tratamento de Timeout
+### Tratamento de timeout
 
 Configure timeouts adequados:
 
 ```javascript
 // HTTP Request - Configuração
 Method: GET
-URL: https://viacep.com.br/ws/{{ $json.cep }}/json/
+URL: https://viacep.com.br/ws/{{$json.cep}}/json/
 Timeout: 10000 // 10 segundos
 ```
 
 ## Troubleshooting
 
-### Problemas Comuns
+### Problemas comuns
 
-#### API não responde
-- Verifique conectividade com internet
+**API não responde**
+
+Verifique conectividade com internet:
+
 - Confirme se o ViaCEP está funcionando
 - Teste com CEP conhecido (ex: 01001-000)
 - Verifique formato do CEP
 
-#### CEP não encontrado
-- Confirme se o CEP existe
+**CEP não encontrado**
+
+Confirme se o CEP existe:
+
 - Verifique formato (00000-000)
 - Teste com CEPs de diferentes regiões
 - Consulte site dos Correios
 
-#### Dados incompletos
-- Verifique se todos os campos estão sendo retornados
+**Dados incompletos**
+
+Verifique se todos os campos estão sendo retornados:
+
 - Confirme se o CEP é válido
 - Teste com diferentes CEPs
 - Implemente validação de dados
 
-### Debug
+### Debugging
 
 1. **Use o node Debug Helper** para inspecionar dados
 2. **Teste com CEPs conhecidos** (ex: 01001-000, 20040-007)
@@ -360,7 +376,7 @@ Timeout: 10000 // 10 segundos
 4. **Monitore logs** de erro
 5. **Teste a API diretamente** no navegador
 
-## Limitações e Considerações
+## Limitações e considerações
 
 ### Limitações do ViaCEP
 
@@ -369,26 +385,26 @@ Timeout: 10000 // 10 segundos
 - **CEP não encontrado**: Alguns CEPs podem não existir
 - **Formato fixo**: Apenas CEPs brasileiros
 
-### Considerações de Performance
+### Considerações de performance
 
 - **Cache**: Implemente cache para consultas frequentes
 - **Batch**: Evite múltiplas consultas simultâneas
 - **Timeout**: Configure timeouts adequados
 - **Retry**: Implemente retry logic para falhas
 
-### Alternativas
+### Alternativas para casos específicos
 
-Para casos específicos, considere:
+Considere:
 
 - **APIs pagas**: Maior confiabilidade e suporte
 - **Bases locais**: Para consultas muito frequentes
 - **APIs alternativas**: Outras fontes de dados de endereço
 - **Validação local**: Para CEPs conhecidos
 
-## Próximos Passos
+## Próximos passos
 
 - [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições HTTP
 - [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
-- [Integrações Brasileiras](/integracoes-br/index) - Outras integrações brasileiras
-- [Localização](/integracoes-br/localizacao/index) - Mais ferramentas de localização
+- [Integrações Brasileiras](/integracoes-br/) - Outras integrações brasileiras
+- [Localização](/integracoes-br/localizacao/) - Mais ferramentas de localização

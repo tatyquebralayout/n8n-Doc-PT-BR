@@ -1,13 +1,19 @@
 ---
-title: "Automação de Boletos Bancários no n8n"
-description: "Exemplo prático de geração, manipulação e envio de boletos bancários em workflows n8n, com dicas para integração com bancos brasileiros."
-keywords: [n8n, boletos, automação bancária, integração bancária, workflow, pdf, pagamentos, bancos brasileiros]
 sidebar_position: 1
+title: Automação de Boletos Bancários no n8n
+description: Exemplo prático de geração, manipulação e envio de boletos bancários em workflows n8n, com dicas para integração com bancos brasileiros.
+keywords: [n8n, boletos, automação bancária, integração bancária, workflow, pdf, pagamentos, bancos brasileiros]
 ---
 
-# Automação de Boletos Bancários no n8n
+<IonicIcon name="card-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Automação de Boletos Bancários no n8n
 
 Este exemplo mostra como gerar boletos para clientes, anexar o PDF do boleto a cada item e integrar com APIs de bancos nacionais.
+
+---
+
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 ## Estrutura de Dados do Item
 
@@ -31,10 +37,39 @@ Este exemplo mostra como gerar boletos para clientes, anexar o PDF do boleto a c
 ]
 ```
 
-## Dicas para Integração
-- Use APIs de bancos homologadas para geração e registro de boletos.
-- Valide campos como `cpf`, `valor` e vencimento antes de enviar.
-- Armazene o PDF do boleto no campo `binary` para facilitar envio por e-mail ou integração com ERPs.
-- Utilize webhooks para receber notificações de pagamento e atualizar o status do item.
+---
 
-> Consulte também: [Estrutura de Dados no n8n](../estrutura-dados.md) 
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Dicas para Integração
+
+- **Use APIs de bancos homologadas** para geração e registro de boletos
+- **Valide campos como `cpf`, `valor` e vencimento** antes de enviar
+- **Armazene o PDF do boleto no campo `binary`** para facilitar envio por e-mail ou integração com ERPs
+- **Utilize webhooks** para receber notificações de pagamento e atualizar o status do item
+
+---
+
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Próximos passos
+
+1. **[Estrutura de Dados](./data-structure)** - Entenda como os dados são organizados
+2. **[Dados Binários](./binary-data)** - Trabalhe com arquivos PDF
+3. **[Transformações de Dados](./transformacoes-dados)** - Processe dados bancários
+
+> *Agora você pode trabalhar com boletos bancários no n8n. Use essas técnicas para automatizar processos financeiros!*
+
+---
+
+:::tip **Dica Pro**
+Sempre valide os dados do boleto antes de gerá-lo para evitar erros de processamento bancário.
+:::
+
+:::warning **Importante**
+Mantenha backups seguros dos boletos gerados, pois são documentos financeiros importantes.
+:::
+
+:::info **Recurso Adicional**
+Use APIs de bancos homologadas para garantir conformidade com regulamentações bancárias brasileiras.
+:::

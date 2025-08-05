@@ -1,12 +1,123 @@
----
+﻿---
 sidebar_position: 2
 title: Integração Trello
 description: Como integrar n8n com Trello para automação de gestão de projetos
 keywords: [n8n, trello, integração, projetos, automação, cards]
 ---
 
-# <ion-icon name="git-network-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração Trello
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+# Integração Trello
 
 Este documento explica como **integrar n8n com Trello** para automação de gestão de projetos, abordando configuração de credenciais, criação e atualização de cards, movimentação entre listas, sincronização com outras ferramentas, automação de workflows de aprovação, e casos de uso práticos que otimizam a produtividade de equipes brasileiras usando metodologias ágeis com Trello.
 
-**Em construção:** Este conteúdo incluirá tutoriais passo-a-passo e casos de uso brasileiros reais.
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Configuração
+
+### 1. Obter Credenciais do Trello
+1. Acesse [trello.com/app-key](https://trello.com/app-key)
+2. Copie sua **API Key**
+3. Gere um **Token** com permissões de leitura/escrita
+4. Configure no n8n com as credenciais
+
+### 2. Configurar Node no n8n
+```json
+{
+  "apiKey": "sua-api-key",
+  "token": "seu-token",
+  "boardId": "id-do-board"
+}
+```
+
+<IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Operações Principais
+
+### Criar Card
+```json
+{
+  "operation": "create",
+  "listId": "id-da-lista",
+  "name": "Novo Card",
+  "description": "Descrição do card",
+  "labels": ["urgente", "bug"]
+}
+```
+
+### Atualizar Card
+```json
+{
+  "operation": "update",
+  "cardId": "id-do-card",
+  "name": "Card Atualizado",
+  "description": "Nova descrição",
+  "listId": "nova-lista"
+}
+```
+
+### Mover Card
+```json
+{
+  "operation": "move",
+  "cardId": "id-do-card",
+  "listId": "lista-destino",
+  "position": "top"
+}
+```
+
+### Adicionar Comentário
+```json
+{
+  "operation": "comment",
+  "cardId": "id-do-card",
+  "text": "Comentário automático do n8n"
+}
+```
+
+<IonicIcon name="bulb-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Casos de Uso Comuns
+
+### Gestão de Bugs
+**Workflow:** GitHub Webhook → Trello (Criar Card)
+
+**Cenário:** Bugs reportados automaticamente criam cards no Trello
+
+### Aprovação de Tarefas
+**Workflow:** Trello → Slack → Trello (Atualizar Status)
+
+**Cenário:** Notificação de aprovação e atualização automática
+
+### Sincronização com CRM
+**Workflow:** CRM → Trello → Email
+
+**Cenário:** Leads qualificados viram cards de follow-up
+
+### Relatórios Automáticos
+**Workflow:** Schedule → Trello → Google Sheets
+
+**Cenário:** Relatórios semanais de progresso
+
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Em Construção
+
+Este conteúdo incluirá tutoriais passo-a-passo e casos de uso brasileiros reais:
+
+- **Configuração detalhada** de credenciais
+- **Exemplos práticos** de workflows
+- **Integração com ferramentas** brasileiras
+- **Casos de uso** específicos do mercado nacional
+- **Templates de boards** prontos para uso
+- **Automação de metodologias ágeis** (Scrum, Kanban)
+
+<IonicIcon name="checkmark-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Próximas Atualizações
+
+- Documentação completa de todas as operações
+- Exemplos de workflows complexos
+- Integração com outras ferramentas de produtividade
+- Templates de automação para equipes ágeis
+- Guias de configuração para diferentes cenários

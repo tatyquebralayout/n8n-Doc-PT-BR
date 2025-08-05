@@ -1,17 +1,17 @@
----
+﻿---
 sidebar_position: 2
 title: Split In Batches
 description: Divida dados em lotes para processamento eficiente em workflows n8n
 keywords: [n8n, split, batches, lotes, processamento, dados, performance]
 ---
 
-# <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Split In Batches Node
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O **Split In Batches Node** é essencial para processar grandes volumes de dados de forma eficiente, dividindo-os em lotes menores que podem ser processados sequencialmente ou em paralelo.
 
-## <ion-icon name="chevron-forward-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Conceito Principal**
+## O que é o Split In Batches Node?
 
-**Split In Batches = "Dividir Dados em Lotes"**
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 O Split In Batches Node é uma **AÇÃO** que:
 
@@ -20,33 +20,13 @@ O Split In Batches Node é uma **AÇÃO** que:
 - **Evita** timeouts e problemas de memória
 - **Facilita** operações em paralelo
 
-> **💡 Dica:** Use este node quando tiver muitos dados para processar ou quando APIs têm limites de rate limiting.
+> **Nota importante:** Use este node quando tiver muitos dados para processar ou quando APIs têm limites de rate limiting.
 
-## <ion-icon name="sparkles-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Principais**
+## Exemplos Práticos
 
-### **1. Batch Size**
+<IonicIcon name="sparkles-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-```
-Número de itens por lote (ex: 100, 500, 1000)
-```
-
-### **2. Options**
-
-```
-Wait Between Batches - Aguardar entre lotes
-Batch Size - Tamanho do lote
-Reset - Reiniciar contador de lotes
-```
-
-### **3. Wait Between Batches**
-
-```
-Delay (ms) - Tempo de espera entre lotes
-```
-
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos Práticos**
-
-### **Exemplo 1: Processar Lista de Emails**
+### Exemplo 1: Enviar Emails em Lotes
 
 **Entrada (1000 emails):**
 
@@ -73,7 +53,7 @@ Wait Between Batches: 1000ms (1 segundo)
 - ...
 - **Lote 10**: Emails 901-1000
 
-### **Exemplo 2: Enviar Notificações em Lotes**
+### Exemplo 2: Enviar Notificações em Lotes
 
 **Workflow:**
 
@@ -93,10 +73,10 @@ Wait Between Batches: 2000ms
 ```
 Method: POST
 URL: https://api.notificacao.com/batch
-Body: {{ JSON.stringify($json) }}
+Body: {{JSON.stringify($json)}}
 ```
 
-### **Exemplo 3: Processar Produtos de E-commerce**
+### Exemplo 3: Processar Produtos de E-commerce
 
 **Entrada (5000 produtos):**
 
@@ -121,9 +101,11 @@ Wait Between Batches: 500ms
 - Sincronizar estoque
 - Enviar para API externa
 
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Casos de Uso Comuns**
+## Casos de Uso Comuns
 
-### **1. Rate Limiting de APIs**
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Rate Limiting de APIs
 
 **Problema:** API tem limite de 100 requisições por minuto
 **Solução:** Dividir em lotes de 100 com delay de 60 segundos
@@ -134,7 +116,7 @@ Batch Size: 100
 Wait Between Batches: 60000ms (60 segundos)
 ```
 
-### **2. Processamento de Arquivos Grandes**
+### Processamento de Arquivos Grandes
 
 **Problema:** Arquivo CSV com 10.000 linhas
 **Solução:** Processar em lotes de 500 linhas
@@ -145,7 +127,7 @@ Batch Size: 500
 Wait Between Batches: 1000ms
 ```
 
-### **3. Envio de Emails em Massa**
+### Envio de Emails em Massa
 
 **Problema:** Enviar 5.000 emails sem sobrecarregar servidor
 **Solução:** Enviar em lotes de 100 com delay
@@ -156,7 +138,7 @@ Batch Size: 100
 Wait Between Batches: 5000ms (5 segundos)
 ```
 
-### **4. Sincronização de Dados**
+### Sincronização de Dados
 
 **Problema:** Sincronizar 20.000 registros com sistema externo
 **Solução:** Processar em lotes de 1.000
@@ -167,51 +149,33 @@ Batch Size: 1000
 Wait Between Batches: 2000ms
 ```
 
-## <ion-icon name="code-slash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Configurações Avançadas**
+## Configuração Dinâmica
 
-### **Wait Between Batches**
-
-**Delay Fixo:**
-
-```
-Wait Between Batches: 1000ms
-```
-
-**Delay Dinâmico (usando expressão):**
-
-```
-Wait Between Batches: {{ $json.batch_number * 1000 }}ms
-```
-
-**Delay Baseado em Rate Limiting:**
-
-```
-Wait Between Batches: {{ Math.ceil(60000 / 100) }}ms  // 100 req/min
-```
-
-### **Batch Size Dinâmico**
+<IonicIcon name="code-slash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 **Baseado no tipo de dados:**
 
 ```
-Batch Size: {{ $json.tipo === 'email' ? 100 : 500 }}
+Batch Size: {{$json.tipo === 'email' ? 100 : 500}}
 ```
 
 **Baseado na API:**
 
 ```
-Batch Size: {{ $json.api_limit || 100 }}
+Batch Size: {{$json.api_limit || 100}}
 ```
 
 **Baseado na performance:**
 
 ```
-Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
+Batch Size: {{$json.performance === 'high' ? 1000 : 100}}
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Otimização de Performance**
+## Otimização de Performance
 
-### **Escolhendo o Tamanho do Lote**
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Escolhendo o Tamanho do Lote
 
 | Cenário | Tamanho Recomendado | Justificativa |
 |---------|-------------------|---------------|
@@ -221,7 +185,7 @@ Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
 | **Sincronização** | 1000-2000 | Máxima velocidade |
 | **Arquivos Grandes** | 500-1000 | Balance entre memória e velocidade |
 
-### **Configuração de Delays**
+### Configuração de Delays
 
 | Tipo de Operação | Delay Recomendado | Razão |
 |------------------|-------------------|-------|
@@ -230,7 +194,7 @@ Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
 | **Processamento Local** | 100-500ms | Otimização |
 | **Sincronização** | 500-2000ms | Balance |
 
-### **Monitoramento de Performance**
+### Monitoramento de Performance
 
 ```javascript
 // Adicionar métricas ao lote
@@ -244,9 +208,11 @@ Batch Size: {{ $json.performance === 'high' ? 1000 : 100 }}
 }
 ```
 
-## <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Tratamento de Erros**
+## Tratamento de Erros
 
-### **Erro em um Lote**
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Erro em um Lote
 
 **Configuração de Retry:**
 
@@ -268,7 +234,7 @@ if ($json.error) {
 }
 ```
 
-### **Recuperação de Falhas**
+### Recuperação de Falhas
 
 **Workflow com Error Handling:**
 
@@ -282,9 +248,11 @@ Split In Batches → HTTP Request → Error Trigger → Log Error → Continue
 Continue on Fail: true
 ```
 
-## <ion-icon name="bulb-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Exemplos de Workflows**
+## Exemplos de Workflows
 
-### **Workflow 1: Envio de Newsletter**
+<IonicIcon name="bulb-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+### Workflow 1: Envio de Newsletter
 
 ```
 Manual Trigger → Split In Batches (100) → Email Node → Wait (2s) → Continue
@@ -296,7 +264,7 @@ Manual Trigger → Split In Batches (100) → Email Node → Wait (2s) → Conti
 - **Wait**: 2 segundos entre lotes
 - **Email Node**: Template personalizado
 
-### **Workflow 2: Sincronização de Produtos**
+### Workflow 2: Sincronização de Produtos
 
 ```
 Schedule Trigger → HTTP Request (buscar produtos) → Split In Batches (500) → HTTP Request (atualizar) → Wait (1s) → Continue
@@ -308,7 +276,7 @@ Schedule Trigger → HTTP Request (buscar produtos) → Split In Batches (500) �
 - **Wait**: 1 segundo entre lotes
 - **HTTP Request**: API de atualização
 
-### **Workflow 3: Processamento de Arquivos**
+### Workflow 3: Processamento de Arquivos
 
 ```
 Webhook (upload arquivo) → CSV Parser → Split In Batches (1000) → Process Data → Wait (500ms) → Continue
@@ -320,66 +288,66 @@ Webhook (upload arquivo) → CSV Parser → Split In Batches (1000) → Process 
 - **Wait**: 500ms entre lotes
 - **Process Data**: Transformação de dados
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Limitações e Considerações**
+## Boas Práticas
 
-### **Limitações Técnicas**
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-- **Memória**: Cada lote é mantido em memória
-- **Timeout**: Workflows têm timeout total
-- **Rate Limiting**: APIs externas podem ter limites
-- **Concorrência**: Processamento sequencial por padrão
+### Escolha do Tamanho do Lote
 
-### **Considerações de Design**
+- **Comece pequeno** e aumente gradualmente
+- **Monitore performance** e ajuste conforme necessário
+- **Considere limites** de APIs externas
+- **Teste com dados reais** antes de produção
 
-- **Tamanho do lote**: Balance entre performance e memória
-- **Delays**: Evitar sobrecarregar sistemas externos
-- **Error handling**: Tratar falhas em lotes individuais
-- **Monitoramento**: Acompanhar progresso dos lotes
+### Configuração de Delays
 
-### **Boas Práticas**
+- **Use delays apropriados** para cada tipo de operação
+- **Evite sobrecarregar** sistemas externos
+- **Monitore logs** para identificar problemas
+- **Ajuste dinamicamente** baseado na resposta
 
-```javascript
-// ✅ Bom: Tamanho de lote apropriado
-Batch Size: 100  // Para APIs com rate limiting
+### Monitoramento
 
-// ✅ Bom: Delay adequado
-Wait Between Batches: 2000ms  // 2 segundos
+- **Adicione logs** para cada lote processado
+- **Monitore métricas** de performance
+- **Configure alertas** para falhas
+- **Mantenha histórico** de processamento
 
-// ❌ Evitar: Lotes muito grandes
-Batch Size: 10000  // Pode causar timeout
+### Tratamento de Erros
 
-// ❌ Evitar: Sem delay
-Wait Between Batches: 0ms  // Pode sobrecarregar API
-```
+- **Implemente retry logic** para falhas temporárias
+- **Log detalhado** de erros para debug
+- **Continue processamento** mesmo com falhas
+- **Notifique administradores** de problemas críticos
 
-## <ion-icon name="arrow-forward-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> **Próximos Passos**
+## Troubleshooting
 
-Agora que você entende o Split In Batches Node:
+### Problemas Comuns
 
-1. **[Set Node](./set)** - Para manipulação básica de dados
-2. **[Aggregate Node](./aggregate)** - Para agregações e resumos
-3. **[Code Node](../core-nodes/code)** - Para lógica customizada
-4. **[IF Node](../logic-control/if)** - Para controle de fluxo
+**Lotes muito grandes causam timeout**
+- Reduza o tamanho do lote
+- Aumente o delay entre lotes
+- Monitore uso de memória
 
----
+**APIs retornam erro 429 (Too Many Requests)**
+- Diminua o tamanho do lote
+- Aumente significativamente o delay
+- Implemente backoff exponencial
 
-:::tip **Dica Pro**
-Use **lotes menores** (50-100) para APIs com rate limiting e **lotes maiores** (500-1000) para processamento local.
-:::
+**Processamento muito lento**
+- Aumente o tamanho do lote
+- Reduza o delay entre lotes
+- Otimize o processamento individual
 
-:::info **Performance**
-O tamanho ideal do lote depende do seu caso de uso. Teste diferentes tamanhos para encontrar o ótimo.
-:::
+**Falhas em lotes específicos**
+- Implemente retry logic
+- Log detalhado de erros
+- Continue processamento de outros lotes
 
-:::warning **Rate Limiting**
-Sempre configure delays adequados para evitar exceder limites de APIs externas.
-:::
+## Próximos Passos
 
----
-
-**Links úteis:**
-
-- [Documentação oficial do Split In Batches](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.splitinbatches/)
-- [Set Node](./set) - Para manipulação de dados
-- [Aggregate Node](./aggregate) - Para agregações
-- [Code Node](../core-nodes/code) - Para lógica customizada
+- [Set Node](/integracoes/builtin-nodes/data-processing/set) - Manipulação de dados
+- [Aggregate Node](/integracoes/builtin-nodes/data-processing/aggregate) - Agregação de dados
+- [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Requisições HTTP
+- [Error Handling](/logica-e-dados/flow-logic/error-handling) - Tratamento de erros
+- [Performance Guide](/referencia/guias/performance-guide) - Otimização de workflows

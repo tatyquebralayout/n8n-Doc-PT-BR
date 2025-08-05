@@ -1,41 +1,20 @@
----
+﻿---
 sidebar_position: 3
 title: Looping no n8n
 description: Como criar loops e repetições em workflows n8n
 keywords: [n8n, loop, repetição, lógica, fluxo, iteração, array]
 ---
 
-# <ion-icon name="repeat-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Looping no n8n
+<IonicIcon name="repeat-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Looping no n8n**
 
 Looping é uma técnica fundamental para processar dados repetitivos, iterar sobre arrays e criar workflows dinâmicos. O n8n oferece várias estratégias para implementar loops eficientes e controlados.
 
-## <ion-icon name="information-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Conceitos Fundamentais
-
-### O que é Looping?
-
-Looping é o processo de **repetir operações** sobre um conjunto de dados, permitindo:
-
-- **Processamento em lote**: Tratar múltiplos itens automaticamente
-- **Iteração sobre arrays**: Processar cada elemento de uma lista
-- **Retry logic**: Tentar operações múltiplas vezes
-- **Polling**: Verificar status periodicamente
-- **Processamento paralelo**: Executar operações simultaneamente
-
-### Tipos de Loops
-
-1. **For Loop**: Iteração sobre array com índice
-2. **While Loop**: Repetição baseada em condição
-3. **ForEach Loop**: Processamento de cada elemento
-4. **Recursive Loop**: Chamadas recursivas
-5. **Parallel Loop**: Execução simultânea
-
-## <ion-icon name="settings-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Implementação
-
-### 1. Split In Batches Node
-
-O **Split In Batches** é a forma mais comum de criar loops.
+<IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+**Configuração Básica**
 
 **Configuração básica:**
+
 ```json
 {
   "batchSize": 10,
@@ -45,10 +24,13 @@ O **Split In Batches** é a forma mais comum de criar loops.
 }
 ```
 
+### Configuração Avançada
+
 **Configuração avançada:**
+
 ```json
 {
-  "batchSize": "{{ $json.items.length > 100 ? 50 : 10 }}",
+  "batchSize": "={{$json.items.length > 100 ? 50 : 10}}",
   "options": {
     "reset": true,
     "waitBetweenBatches": 1000
@@ -56,7 +38,7 @@ O **Split In Batches** é a forma mais comum de criar loops.
 }
 ```
 
-### 2. Code Node para Loops Customizados
+## Code Node para Loops Customizados
 
 Para loops complexos, use o Code Node.
 
@@ -75,7 +57,7 @@ return resultados;
 ```
 
 ```javascript
-// Loop com condição
+/ Loop com condição
 const dados = $json;
 const resultados = [];
 let i = 0;
@@ -88,10 +70,10 @@ while (i < dados.length && dados[i].status !== 'erro') {
 
 return resultados;
 ```
+<IonicIcon name="code-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Padrões de Loop
 
-## <ion-icon name="code-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Padrões de Loop
-
-### 1. Processamento de Array
+### Processamento de Array
 
 Processa cada elemento de um array.
 
@@ -106,6 +88,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Dados de entrada
 const clientes = [
@@ -132,7 +115,7 @@ const clientesProcessados = clientes.map(async cliente => {
 return await Promise.all(clientesProcessados);
 ```
 
-### 2. Retry com Backoff
+### Retry com Backoff
 
 Tenta uma operação múltiplas vezes com delays crescentes.
 
@@ -147,14 +130,15 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Retry com backoff exponencial
 const maxTentativas = 5;
+
 const operacao = async () => {
-  // Simular operação que pode falhar
   const response = await fetch('https://api.exemplo.com/dados');
   if (!response.ok) {
-    throw new Error('API não respondeu');
+    throw new Error(`HTTP ${response.status}`);
   }
   return response.json();
 };
@@ -168,11 +152,10 @@ while (tentativa < maxTentativas) {
     break; // Sucesso, sair do loop
   } catch (error) {
     tentativa++;
-    
-    if (tentativa >= maxTentativas) {
+        if (tentativa >= maxTentativas) {
       throw new Error(`Falha após ${maxTentativas} tentativas: ${error.message}`);
     }
-    
+
     // Backoff exponencial
     const delay = Math.pow(2, tentativa) * 1000;
     await new Promise(resolve => setTimeout(resolve, delay));
@@ -182,7 +165,7 @@ while (tentativa < maxTentativas) {
 return resultado;
 ```
 
-### 3. Polling
+### Polling
 
 Verifica status periodicamente até uma condição ser atendida.
 
@@ -196,6 +179,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Polling com timeout
 const maxTentativas = 20;
@@ -212,24 +196,24 @@ while (tentativa < maxTentativas) {
       tentativas: tentativa + 1
     };
   }
-  
+
   if (status.status === 'failed') {
     throw new Error(`Job falhou: ${status.erro}`);
   }
-  
+
   tentativa++;
   
-  if (tentativa < maxTentativas) {
-    await new Promise(resolve => setTimeout(resolve, intervalo));
+  if (tentativa < maxTentativas) {    await new Promise(resolve => setTimeout(resolve, intervalo));
   }
 }
 
 throw new Error(`Timeout: Job não foi concluído em ${maxTentativas * intervalo / 1000} segundos`);
 ```
 
-## <ion-icon name="construct-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Casos de Uso Práticos
+<IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Casos de Uso Práticos
 
-### 1. Processamento de Pedidos em Lote
+### Processamento de Pedidos em Lote
 
 **Cenário**: Processar múltiplos pedidos de uma vez.
 
@@ -243,6 +227,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Code Node - Processar lote de pedidos
 const pedidos = $json;
@@ -259,7 +244,7 @@ const resultados = await Promise.all(
           erro: validacao.erro
         };
       }
-      
+
       // Processar pagamento
       const pagamento = await processarPagamento(pedido);
       
@@ -292,7 +277,7 @@ return {
 };
 ```
 
-### 2. Sincronização de Dados
+### Sincronização de Dados
 
 **Cenário**: Sincronizar dados entre sistemas diferentes.
 
@@ -311,6 +296,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Code Node - Sincronização de dados
 const dadosOrigem = $json;
@@ -357,7 +343,7 @@ return {
 };
 ```
 
-### 3. Processamento Paralelo
+### Processamento Paralelo
 
 **Cenário**: Executar múltiplas operações simultaneamente.
 
@@ -370,6 +356,7 @@ graph TD
 ```
 
 **Implementação:**
+
 ```javascript
 // Code Node - Processamento paralelo
 const urls = $json;
@@ -415,7 +402,8 @@ return {
 };
 ```
 
-## <ion-icon name="flash-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Expressões e Data Mapping
+<IonicIcon name="flash-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Expressões e Data Mapping
 
 ### Loops Dinâmicos
 
@@ -456,7 +444,7 @@ for (const item of dados) {
   if (item.prioridade === 'alta') {
     const processado = await processarItem(item);
     resultados.push(processado);
-    
+
     if (processado.status === 'erro') {
       break; // Parar se encontrar erro em item de alta prioridade
     }
@@ -466,7 +454,8 @@ for (const item of dados) {
 return resultados;
 ```
 
-## <ion-icon name="warning-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Tratamento de Erros
+<IonicIcon name="warning-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Tratamento de Erros
 
 ### Loop com Error Handling
 
@@ -518,8 +507,7 @@ const processarComRetry = async (item) => {
         throw error;
       }
       
-      // Aguardar antes da próxima tentativa
-      await new Promise(resolve => setTimeout(resolve, 1000 * tentativa));
+      // Aguardar antes da próxima tentativa      await new Promise(resolve => setTimeout(resolve, 1000 * tentativa));
     }
   }
 };
@@ -546,7 +534,8 @@ const resultados = await Promise.all(
 return resultados;
 ```
 
-## <ion-icon name="speedometer-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Performance e Otimização
+<IonicIcon name="speedometer-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Performance e Otimização
 
 ### Boas Práticas
 
@@ -582,15 +571,15 @@ for (let i = 0; i < dados.length; i++) {
   resultados.push(resultado);
   
   // Rate limiting
-  if (i < dados.length - 1) {
-    await new Promise(resolve => setTimeout(resolve, delay));
+  if (i < dados.length - 1) {    await new Promise(resolve => setTimeout(resolve, delay));
   }
 }
 
 return resultados;
 ```
 
-## <ion-icon name="help-circle-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Troubleshooting
+<IonicIcon name="help-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Troubleshooting
 
 ### Problemas Comuns
 
@@ -609,7 +598,7 @@ return resultados;
 - Use backoff exponencial
 - Distribua carga ao longo do tempo
 
-### Debugging
+### Debug com Logging
 
 ```javascript
 // Loop com debugging
@@ -646,7 +635,8 @@ return {
 };
 ```
 
-## <ion-icon name="link-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Integração com Outros Nós
+<IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Integração com Outros Nós
 
 ### Fluxo Típico
 
@@ -702,7 +692,8 @@ const consolidado = {
 return consolidado;
 ```
 
-## <ion-icon name="document-text-outline" style={{ fontSize: '24px', color: '#ea4b71' }}></ion-icon> Referências
+<IonicIcon name="document-text-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Referências
 
 - **[Split In Batches](../../integracoes/builtin-nodes/data-processing/split-in-batches)** - Nó específico para loops
 - **[Wait Node](../../integracoes/builtin-nodes/logic-control/wait)** - Delays em loops
@@ -715,4 +706,5 @@ return consolidado;
 Esta documentação está em processo de validação. Os exemplos práticos e configurações de nós apresentados precisam ser testados e validados em ambientes reais. A intenção é sempre fornecer práticas e exemplos que funcionem corretamente em produção. Se encontrar inconsistências ou problemas, por favor, reporte para que possamos melhorar a qualidade da documentação.
 :::
 
-> <ion-icon name="bulb-outline" style={{ fontSize: '18px', color: '#ea4b71' }}></ion-icon> **Dica**: Use loops estrategicamente para processar dados em lote e criar workflows dinâmicos. Lembre-se de sempre implementar rate limiting e tratamento de erros para garantir robustez e performance.
+<IonicIcon name="bulb-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
+**Dica**: Use o Debug Helper para inspecionar dados em cada etapa do loop e identificar problemas rapidamente.

@@ -1,32 +1,36 @@
+﻿---
+sidebar_position: 6
+title: Criação de Dados de Teste
+description: Técnicas para gerar dados sintéticos realistas para testes de workflows no n8n
+keywords: [n8n, dados de teste, mocking, dados sintéticos, testes, desenvolvimento]
+---
+
+<IonicIcon name="construct-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 # Criação de Dados de Teste
 
 A criação de dados de teste (mocking) é essencial para desenvolver e testar workflows sem depender de dados reais ou APIs externas. Esta seção aborda como gerar dados sintéticos realistas para diferentes cenários de teste.
+
+---
 
 ## Visão Geral
 
 Dados de teste permitem desenvolver workflows de forma segura e eficiente, simulando cenários reais sem comprometer dados de produção ou sistemas externos. O n8n oferece ferramentas integradas e suporte para bibliotecas externas de geração de dados.
 
+---
+
+<IonicIcon name="person-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 ## Tipos de Dados de Teste
 
-### Dados Pessoais
-
-Gere dados pessoais realistas para testes:
+### Dados Pessoais Realistas para Testes
 
 ```javascript
 // Gerar dados de usuário brasileiro
 const gerarUsuarioBR = () => {
-  const nomes = ['João Silva', 'Maria Santos', 'Pedro Oliveira', 'Ana Costa'];
-  const emails = ['joao.silva@email.com', 'maria.santos@email.com'];
-  const cpf = gerarCPF();
-  const telefone = gerarTelefoneBR();
-  
   return {
-    nome: nomes[Math.floor(Math.random() * nomes.length)],
-    email: emails[Math.floor(Math.random() * emails.length)],
-    cpf: cpf,
-    telefone: telefone,
-    dataNascimento: gerarDataNascimento(),
-    endereco: gerarEnderecoBR()
+    nome: 'João Silva',
+    email: 'joao.silva@exemplo.com',
+    cpf: gerarCPF(),
+    telefone: '(11) 99999-9999'
   };
 };
 
@@ -39,6 +43,7 @@ const gerarCPF = () => {
   for (let i = 0; i < 9; i++) {
     soma += numeros[i] * (10 - i);
   }
+
   const digito1 = ((soma * 10) % 11) % 10;
   numeros.push(digito1);
   
@@ -47,6 +52,7 @@ const gerarCPF = () => {
   for (let i = 0; i < 10; i++) {
     soma += numeros[i] * (11 - i);
   }
+
   const digito2 = ((soma * 10) % 11) % 10;
   numeros.push(digito2);
   
@@ -54,28 +60,16 @@ const gerarCPF = () => {
 };
 ```
 
-### Dados Comerciais
-
-Crie dados de negócios para testes:
+### Dados de Negócios para Testes
 
 ```javascript
 // Gerar dados de empresa brasileira
 const gerarEmpresaBR = () => {
-  const razoesSociais = [
-    'Tech Solutions Ltda',
-    'Inovação Digital S.A.',
-    'Sistemas Avançados Eireli',
-    'Consultoria Empresarial Ltda'
-  ];
-  
   return {
-    razaoSocial: razoesSociais[Math.floor(Math.random() * razoesSociais.length)],
+    razaoSocial: 'Empresa Exemplo LTDA',
     cnpj: gerarCNPJ(),
-    inscricaoEstadual: gerarInscricaoEstadual(),
-    endereco: gerarEnderecoComercial(),
-    telefone: gerarTelefoneComercial(),
-    email: gerarEmailComercial(),
-    setor: ['Tecnologia', 'Consultoria', 'Varejo', 'Indústria'][Math.floor(Math.random() * 4)]
+    email: 'contato@empresa.com',
+    website: 'https://empresa.com'
   };
 };
 
@@ -89,6 +83,7 @@ const gerarCNPJ = () => {
   for (let i = 0; i < 12; i++) {
     soma += numeros[i] * pesos1[i];
   }
+
   const digito1 = ((soma * 10) % 11) % 10;
   numeros.push(digito1);
   
@@ -98,6 +93,7 @@ const gerarCNPJ = () => {
   for (let i = 0; i < 13; i++) {
     soma += numeros[i] * pesos2[i];
   }
+
   const digito2 = ((soma * 10) % 11) % 10;
   numeros.push(digito2);
   
@@ -105,24 +101,16 @@ const gerarCNPJ = () => {
 };
 ```
 
-### Dados Financeiros
-
-Simule dados financeiros para testes:
+### Dados Financeiros para Testes
 
 ```javascript
 // Gerar dados de transação financeira
-const gerarTransacaoFinanceira = () => {
-  const tipos = ['PIX', 'Cartão de Crédito', 'Boleto', 'Transferência'];
-  const status = ['Aprovada', 'Pendente', 'Rejeitada', 'Processando'];
-  
+const gerarTransacao = () => {
   return {
     id: gerarUUID(),
-    valor: (Math.random() * 10000).toFixed(2),
-    tipo: tipos[Math.floor(Math.random() * tipos.length)],
-    status: status[Math.floor(Math.random() * status.length)],
-    dataTransacao: new Date().toISOString(),
-    estabelecimento: gerarEstabelecimento(),
-    cliente: gerarUsuarioBR()
+    valor: (Math.random() * 1000).toFixed(2),
+    data: new Date().toISOString(),
+    tipo: ['credito', 'debito'][Math.floor(Math.random() * 2)]
   };
 };
 
@@ -150,6 +138,9 @@ const gerarFatura = () => {
 };
 ```
 
+---
+
+<IonicIcon name="library-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 ## Bibliotecas de Mocking
 
 ### Faker.js
@@ -214,45 +205,35 @@ const dadosEspecificos = {
 };
 ```
 
+---
+
+<IonicIcon name="business-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 ## Cenários de Teste Comuns
 
 ### E-commerce
 
 ```javascript
 // Gerar dados de e-commerce
-const gerarDadosEcommerce = () => {
+const gerarPedidoEcommerce = () => {
   return {
+    id: gerarUUID(),
     cliente: gerarUsuarioBR(),
-    pedido: {
-      id: gerarUUID(),
-      data: new Date().toISOString(),
-      status: ['Pendente', 'Aprovado', 'Em Separação', 'Enviado', 'Entregue'][Math.floor(Math.random() * 5)],
-      itens: Array.from({length: Math.floor(Math.random() * 5) + 1}, () => ({
-        produto: gerarProduto(),
-        quantidade: Math.floor(Math.random() * 5) + 1,
-        preco: (Math.random() * 500).toFixed(2)
-      })),
-      enderecoEntrega: gerarEnderecoBR(),
-      formaPagamento: ['Cartão', 'PIX', 'Boleto'][Math.floor(Math.random() * 3)]
-    }
+    itens: Array.from({length: Math.floor(Math.random() * 5) + 1}, () => ({
+      produto: gerarProduto(),
+      quantidade: Math.floor(Math.random() * 5) + 1,
+      preco: (Math.random() * 500).toFixed(2)
+    })),
+    enderecoEntrega: gerarEnderecoBR(),
+    formaPagamento: ['Cartão', 'PIX', 'Boleto'][Math.floor(Math.random() * 3)]
   };
 };
 
 const gerarProduto = () => {
-  const produtos = [
-    'Smartphone Galaxy S23',
-    'Notebook Dell Inspiron',
-    'Fone de Ouvido Bluetooth',
-    'Smart TV 55" 4K',
-    'Tablet iPad Pro'
-  ];
-  
   return {
-    nome: produtos[Math.floor(Math.random() * produtos.length)],
-    sku: gerarSKU(),
-    categoria: ['Eletrônicos', 'Informática', 'Acessórios'][Math.floor(Math.random() * 3)],
-    preco: (Math.random() * 5000).toFixed(2),
-    estoque: Math.floor(Math.random() * 100)
+    id: gerarUUID(),
+    nome: faker.commerce.productName(),
+    preco: faker.commerce.price(),
+    categoria: faker.commerce.department()
   };
 };
 ```
@@ -261,20 +242,13 @@ const gerarProduto = () => {
 
 ```javascript
 // Gerar dados de CRM
-const gerarDadosCRM = () => {
+const gerarClienteCRM = () => {
   return {
-    lead: {
-      id: gerarUUID(),
-      nome: faker.person.fullName(),
-      email: faker.internet.email(),
-      telefone: faker.phone.number(),
-      empresa: faker.company.name(),
-      cargo: faker.person.jobTitle(),
-      origem: ['Website', 'LinkedIn', 'Indicação', 'Evento'][Math.floor(Math.random() * 4)],
-      status: ['Novo', 'Contatado', 'Qualificado', 'Proposta', 'Fechado'][Math.floor(Math.random() * 5)],
-      valor: (Math.random() * 100000).toFixed(2),
-      dataCriacao: faker.date.past().toISOString()
-    },
+    id: gerarUUID(),
+    nome: faker.person.fullName(),
+    email: faker.internet.email(),
+    telefone: faker.phone.number(),
+    empresa: faker.company.name(),
     oportunidades: Array.from({length: Math.floor(Math.random() * 3) + 1}, () => ({
       id: gerarUUID(),
       titulo: faker.company.catchPhrase(),
@@ -292,28 +266,30 @@ const gerarDadosCRM = () => {
 // Gerar dados de ERP
 const gerarDadosERP = () => {
   return {
-    produto: {
+    produtos: Array.from({length: Math.floor(Math.random() * 10) + 1}, () => ({
       codigo: gerarCodigoProduto(),
       nome: faker.commerce.productName(),
-      categoria: faker.commerce.department(),
-      preco: parseFloat(faker.commerce.price()),
-      custo: parseFloat(faker.commerce.price({ min: 10, max: 100 })),
+      preco: faker.commerce.price(),
       estoque: Math.floor(Math.random() * 1000),
       fornecedor: faker.company.name()
-    },
+    })),
     fornecedor: {
       codigo: gerarCodigoFornecedor(),
       razaoSocial: faker.company.name(),
       cnpj: faker.helpers.replaceSymbolWithNumber('##.###.###/####-##'),
-      contato: faker.person.fullName(),
-      email: faker.internet.email(),
-      telefone: faker.phone.number()
+      contato: {
+        nome: faker.person.fullName(),
+        email: faker.internet.email(),
+        telefone: faker.phone.number()
+      }
     },
     cliente: {
       codigo: gerarCodigoCliente(),
       nome: faker.person.fullName(),
       tipo: ['PF', 'PJ'][Math.floor(Math.random() * 2)],
-      documento: Math.random() > 0.5 ? faker.helpers.replaceSymbolWithNumber('###.###.###-##') : faker.helpers.replaceSymbolWithNumber('##.###.###/####-##'),
+      documento: Math.random() > 0.5 ? 
+        faker.helpers.replaceSymbolWithNumber('###.###.###-##') : 
+        faker.helpers.replaceSymbolWithNumber('##.###.###/####-##'),
       email: faker.internet.email(),
       telefone: faker.phone.number()
     }
@@ -321,9 +297,12 @@ const gerarDadosERP = () => {
 };
 ```
 
+---
+
+<IonicIcon name="git-network-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 ## Workflows de Teste
 
-### Workflow: Geração de Dados de Teste
+### Workflow Geração de Dados de Teste
 
 ```mermaid
 graph TD
@@ -337,7 +316,7 @@ graph TD
     H --> D
 ```
 
-### Workflow: Teste de Performance
+### Workflow Teste de Performance
 
 ```mermaid
 graph TD
@@ -349,6 +328,9 @@ graph TD
     F --> G[Send Alert if Issues]
 ```
 
+---
+
+<IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 ## Configuração de Ambiente de Teste
 
 ### Variáveis de Ambiente
@@ -365,36 +347,28 @@ export N8N_TEST_API_URL=https://api-test.exemplo.com
 
 ```javascript
 // Configurar dados de teste
-const configurarDadosTeste = () => {
-  return {
-    // Habilitar dados de teste
-    habilitado: process.env.N8N_MOCK_DATA_ENABLED === 'true',
-    
-    // Configurações de geração
-    quantidade: {
-      usuarios: 100,
-      empresas: 50,
-      transacoes: 1000,
-      produtos: 200
-    },
-    
-    // Configurações de dados
-    dados: {
-      incluirDadosSensiveis: false,
-      mascararDados: true,
-      usarDadosRealistas: true
-    },
-    
-    // Configurações de API
-    api: {
-      url: process.env.N8N_TEST_API_URL,
-      timeout: 5000,
-      retryAttempts: 3
-    }
-  };
+const configTeste = {
+  ambiente: 'test',
+  
+  // Configurações de dados
+  dados: {
+    incluirDadosSensiveis: false,
+    mascararDados: true,
+    usarDadosRealistas: true
+  },
+  
+  // Configurações de API
+  api: {
+    url: process.env.N8N_TEST_API_URL,
+    timeout: 5000,
+    retryAttempts: 3
+  }
 };
 ```
 
+---
+
+<IonicIcon name="checkmark-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 ## Validação de Dados de Teste
 
 ### Validação de Formato
@@ -404,26 +378,21 @@ const configurarDadosTeste = () => {
 const validarDadosBR = (dados) => {
   const erros = [];
   
-  // Validar CPF
-  if (dados.cpf && !validarCPF(dados.cpf)) {
-    erros.push('CPF inválido');
-  }
-  
   // Validar CNPJ
   if (dados.cnpj && !validarCNPJ(dados.cnpj)) {
     erros.push('CNPJ inválido');
   }
-  
+
   // Validar email
   if (dados.email && !validarEmail(dados.email)) {
     erros.push('Email inválido');
   }
-  
+
   // Validar telefone
   if (dados.telefone && !validarTelefone(dados.telefone)) {
     erros.push('Telefone inválido');
   }
-  
+
   return {
     valido: erros.length === 0,
     erros: erros
@@ -432,24 +401,21 @@ const validarDadosBR = (dados) => {
 
 // Validar CPF
 const validarCPF = (cpf) => {
-  cpf = cpf.replace(/[^\d]/g, '');
-  
-  if (cpf.length !== 11) return false;
-  
-  // Verificar dígitos repetidos
-  if (/^(\d)\1{10}$/.test(cpf)) return false;
+  if (!/^\d{11}$/.test(cpf)) return false;
   
   // Calcular dígitos verificadores
   let soma = 0;
   for (let i = 0; i < 9; i++) {
     soma += parseInt(cpf[i]) * (10 - i);
   }
+
   const digito1 = ((soma * 10) % 11) % 10;
   
   soma = 0;
   for (let i = 0; i < 10; i++) {
     soma += parseInt(cpf[i]) * (11 - i);
   }
+
   const digito2 = ((soma * 10) % 11) % 10;
   
   return parseInt(cpf[9]) === digito1 && parseInt(cpf[10]) === digito2;
@@ -463,21 +429,16 @@ const validarCPF = (cpf) => {
 const validarConsistencia = (dados) => {
   const inconsistencias = [];
   
-  // Verificar se cliente tem dados obrigatórios
-  if (dados.cliente && (!dados.cliente.nome || !dados.cliente.email)) {
-    inconsistencias.push('Cliente sem dados obrigatórios');
-  }
-  
   // Verificar se pedido tem itens
   if (dados.pedido && (!dados.pedido.itens || dados.pedido.itens.length === 0)) {
     inconsistencias.push('Pedido sem itens');
   }
-  
+
   // Verificar se valores são positivos
   if (dados.valor && parseFloat(dados.valor) <= 0) {
     inconsistencias.push('Valor deve ser positivo');
   }
-  
+
   return {
     consistente: inconsistencias.length === 0,
     inconsistencias: inconsistencias
@@ -485,48 +446,27 @@ const validarConsistencia = (dados) => {
 };
 ```
 
-## Boas Práticas
+---
 
-### Segurança
+<IonicIcon name="chevron-forward-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+## Próximos passos
 
-- **Nunca use dados reais** em ambiente de teste
-- **Mascare dados sensíveis** sempre que possível
-- **Use dados sintéticos** realistas mas não identificáveis
-- **Limpe dados de teste** regularmente
-- **Isole ambiente de teste** da produção
+1. **[Schema Preview](./schema-preview)** - Entenda a estrutura dos dados
+2. **[Data Pinning](./data-pinning)** - Fixe dados importantes
+3. **[Otimização de Performance](./otimizacao-performance)** - Melhore eficiência
 
-### Qualidade
-
-- **Valide dados gerados** antes do uso
-- **Mantenha consistência** entre diferentes tipos de dados
-- **Use padrões realistas** para o contexto brasileiro
-- **Documente formatos** de dados esperados
-- **Teste com diferentes volumes** de dados
-
-### Performance
-
-- **Gere dados em lotes** para grandes volumes
-- **Use cache** para dados frequentemente acessados
-- **Otimize geração** de dados complexos
-- **Monitore uso de memória** durante geração
-- **Limpe dados antigos** regularmente
-
-## Recursos Adicionais
-
-### Bibliotecas Úteis
-
-- **Faker.js**: Geração de dados realistas
-- **Chance.js**: Dados mais específicos e controlados
-- **JSON Schema Faker**: Baseado em schemas JSON
-- **TestData-Generator**: Dados estruturados
-
-### Ferramentas de Teste
-
-- **Postman**: Testes de API com dados mock
-- **Insomnia**: Alternativa ao Postman
-- **JMeter**: Testes de carga
-- **Artillery**: Testes de performance
+> *Agora você domina técnicas de criação de dados de teste. Use essas habilidades para desenvolver workflows de forma segura e eficiente!*
 
 ---
 
-**Próximo**: [Visualização de Schema](./schema-preview) - Entenda a estrutura dos dados 
+:::tip **Dica Pro**
+Crie templates de dados de teste reutilizáveis para cenários comuns. Isso acelera o desenvolvimento de novos workflows.
+:::
+
+:::warning **Importante**
+Nunca use dados reais em ambiente de teste. Sempre mascare dados sensíveis e use dados sintéticos.
+:::
+
+:::info **Recurso Adicional**
+Use bibliotecas como Faker.js e Chance.js para gerar dados realistas e consistentes com o contexto brasileiro.
+:::
