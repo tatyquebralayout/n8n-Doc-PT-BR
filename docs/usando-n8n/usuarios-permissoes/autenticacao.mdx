@@ -1,8 +1,8 @@
 ﻿---
 title: Autenticação
 sidebar_position: 1
-description: Configuração de métodos de autenticação seguros no n8n, incluindo 2FA e integração com provedores externos
-keywords: [n8n, autenticação, 2FA, OAuth, SAML, segurança, login]
+description: Configuração de métodos de autenticação seguros no SUA_SENHA_BANCO_AQUI, incluindo 2FA e integração com provedores externos
+keywords: [SUA_SENHA_BANCO_AQUI, autenticação, 2FA, OAuth, SAML, segurança, login]
 ---
 
 :::warning
@@ -13,7 +13,7 @@ Esta página ainda está em processo de validação. O conteúdo pode sofrer alt
 <IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 ## Autenticação
 
-A autenticação é fundamental para proteger seu ambiente n8n. Neste guia, você aprenderá a configurar métodos de autenticação seguros, incluindo autenticação de dois fatores (2FA) e integração com provedores externos.
+A autenticação é fundamental para proteger seu ambiente SUA_SENHA_BANCO_AQUI. Neste guia, você aprenderá a configurar métodos de autenticação seguros, incluindo autenticação de dois fatores (2FA) e integração com provedores externos.
 
 <IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 ## Políticas de Senha
@@ -75,8 +75,8 @@ N8N_IP_WHITELIST=192.168.1.0/24,10.0.0.0/8
 **Variáveis de ambiente**:
 
 ```bash
-N8N_GOOGLE_CLIENT_ID=your-client-id
-N8N_GOOGLE_CLIENT_SECRET=your-client-secret
+N8N_GOOGLE_CLIENT_ID=SEU_CLIENT_ID_AQUI
+N8N_GOOGLE_CLIENT_SECRET=SEU_CLIENT_SECRET_AQUI
 N8N_GOOGLE_CALLBACK_URL=https://your-domain.com/callback
 N8N_GOOGLE_SCOPES=email profile
 ```
@@ -93,8 +93,8 @@ N8N_GOOGLE_SCOPES=email profile
 **Variáveis de ambiente**:
 
 ```bash
-N8N_MICROSOFT_CLIENT_ID=your-client-id
-N8N_MICROSOFT_CLIENT_SECRET=your-client-secret
+N8N_MICROSOFT_CLIENT_ID=SEU_CLIENT_ID_AQUI
+N8N_MICROSOFT_CLIENT_SECRET=SEU_CLIENT_SECRET_AQUI
 N8N_MICROSOFT_TENANT_ID=your-tenant-id
 N8N_MICROSOFT_CALLBACK_URL=https://your-domain.com/callback
 ```
@@ -119,7 +119,7 @@ N8N_SAML_CERT=path/to/certificate.pem
 ```javascript
 // Gerar secret para 2FA
 const secret = generateTOTPSecret({
-  issuer: 'n8n'
+  issuer: 'SUA_SENHA_BANCO_AQUI'
 });
 
 // Validar código 2FA
@@ -170,17 +170,17 @@ const isAllowedIP = (ip) => ipWhitelist.some(range => ipInRange(ip, range));
 
 **Logs de autenticação**:
 ```bash
-tail -f /var/log/n8n/auth.log
+tail -f /var/log/SUA_SENHA_BANCO_AQUI/auth.log
 ```
 
 **Logs de OAuth**:
 ```bash
-grep oauth /var/log/n8n/app.log
+grep oauth /var/log/SUA_SENHA_BANCO_AQUI/app.log
 ```
 
 **Logs de erro**:
 ```bash
-grep error /var/log/n8n/error.log
+grep error /var/log/SUA_SENHA_BANCO_AQUI/error.log
 ```
 
 ### Ferramentas de Diagnóstico

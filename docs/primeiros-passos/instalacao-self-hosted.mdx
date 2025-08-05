@@ -1,9 +1,9 @@
 ﻿---
 sidebar_position: 4
 title: Self-hosted (Auto-hospedado)
-description: Guia completo para instalação self-hosted do n8n com Docker, configurações avançadas e segurança
+description: Guia completo para instalação self-hosted do SUA_SENHA_BANCO_AQUI com Docker, configurações avançadas e segurança
 slug: /primeiros-passos/instalacao-self-hosted
-keywords: [n8n, self-hosted, docker, instalação, produção, segurança]
+keywords: [SUA_SENHA_BANCO_AQUI, self-hosted, docker, instalação, produção, segurança]
 ---
 
 <IonicIcon name="eye-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
@@ -11,7 +11,7 @@ keywords: [n8n, self-hosted, docker, instalação, produção, segurança]
 
 ## O que é Self-Hosted?
 
-Self-hosted significa que você instala e gerencia o n8n em sua própria infraestrutura – seja um servidor local, VPS, cloud ou Kubernetes.
+Self-hosted significa que você instala e gerencia o SUA_SENHA_BANCO_AQUI em sua própria infraestrutura – seja um servidor local, VPS, cloud ou Kubernetes.
 
 ## Principais Vantagens
 
@@ -38,8 +38,8 @@ Self-hosted significa que você instala e gerencia o n8n em sua própria infraes
 version: '3.8'
 
 services:
-  n8n:
-    image: docker.n8n.io/n8nio/n8n
+  SUA_SENHA_BANCO_AQUI:
+    image: docker.SUA_SENHA_BANCO_AQUI.io/SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
     restart: unless-stopped
     ports:
       - "5678:5678"
@@ -51,14 +51,14 @@ services:
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_PORT=5432
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
-      - DB_POSTGRESDB_PASSWORD=senha_segura
+      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_PASSWORD=SUA_SENHA_SEGURA_AQUI
       - REDIS_URL=redis://redis:6379
       - EXECUTIONS_PROCESS=main
       - EXECUTIONS_MODE=regular
     volumes:
-      - n8n_data:/home/node/.n8n
+      - SUA_SENHA_BANCO_AQUI_data:/home/node/.SUA_SENHA_BANCO_AQUI
     depends_on:
       - postgres
       - redis
@@ -67,9 +67,9 @@ services:
     image: postgres:13
     restart: unless-stopped
     environment:
-      - POSTGRES_DB=n8n
-      - POSTGRES_USER=n8n
-      - POSTGRES_PASSWORD=senha_segura
+      - POSTGRES_DB=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_USER=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_PASSWORD=SUA_SENHA_SEGURA_AQUI
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -80,7 +80,7 @@ services:
       - redis_data:/data
 
 volumes:
-  n8n_data:
+  SUA_SENHA_BANCO_AQUI_data:
   postgres_data:
   redis_data:
 ```
@@ -95,8 +95,8 @@ docker-compose up -d
 # parar todos os serviços docker
 docker-compose down
 
-# ver logs do n8n
-docker-compose logs -f n8n
+# ver logs do SUA_SENHA_BANCO_AQUI
+docker-compose logs -f SUA_SENHA_BANCO_AQUI
 ```
 
 </details>
@@ -108,15 +108,15 @@ docker-compose logs -f n8n
 ### Teste rápido (sem instalar)
 
 ```bash
-npx n8n
+npx SUA_SENHA_BANCO_AQUI
 ```
 
 ### Instalação global
 
-**1. Instalar o n8n:**
+**1. Instalar o SUA_SENHA_BANCO_AQUI:**
 
 ```bash
-npm install n8n -g
+npm install SUA_SENHA_BANCO_AQUI -g
 ```
 
 **2. Executar com configurações:**
@@ -125,11 +125,11 @@ npm install n8n -g
 N8N_PROTOCOL=https \
 N8N_HOST=seu-dominio.com \
 GENERIC_TIMEZONE=America/Sao_Paulo \
-n8n start
+SUA_SENHA_BANCO_AQUI start
 ```
 
 :::warning **Requisitos Node.js**
-n8n requer Node.js versão entre 20.19 e 24.x. Verifique sua versão com `node --version`.
+SUA_SENHA_BANCO_AQUI requer Node.js versão entre 20.19 e 24.x. Verifique sua versão com `node --version`.
 :::
 
 ---
@@ -192,20 +192,20 @@ sudo crontab -e
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: n8n
+  name: SUA_SENHA_BANCO_AQUI
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: n8n
+      app: SUA_SENHA_BANCO_AQUI
   template:
     metadata:
       labels:
-        app: n8n
+        app: SUA_SENHA_BANCO_AQUI
     spec:
       containers:
-      - name: n8n
-        image: docker.n8n.io/n8nio/n8n
+      - name: SUA_SENHA_BANCO_AQUI
+        image: docker.SUA_SENHA_BANCO_AQUI.io/SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
         ports:
         - containerPort: 5678
         env:
@@ -224,7 +224,7 @@ spec:
 <IonicIcon name="lock-closed-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 **Segurança**
 
-A segurança é fundamental em ambientes de produção, pois protege dados sensíveis, credenciais e workflows contra acesso não autorizado. O n8n oferece múltiplas camadas de segurança que incluem autenticação básica, OAuth2, configurações de firewall e restrições de acesso que devem ser configuradas adequadamente para cada ambiente.
+A segurança é fundamental em ambientes de produção, pois protege dados sensíveis, credenciais e workflows contra acesso não autorizado. O SUA_SENHA_BANCO_AQUI oferece múltiplas camadas de segurança que incluem autenticação básica, OAuth2, configurações de firewall e restrições de acesso que devem ser configuradas adequadamente para cada ambiente.
 
 ### Autenticação
 
@@ -234,7 +234,7 @@ A segurança é fundamental em ambientes de produção, pois protege dados sens�
 ```bash
 N8N_BASIC_AUTH_ACTIVE=true
 N8N_BASIC_AUTH_USER=admin
-N8N_BASIC_AUTH_PASSWORD=senha_segura
+N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_SEGURA_AQUI
 ```
 
 </details>
@@ -245,16 +245,16 @@ N8N_BASIC_AUTH_PASSWORD=senha_segura
 ```bash
 N8N_OAUTH2_ACTIVE=true
 N8N_OAUTH2_CLIENT_ID=seu_client_id
-N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
+N8N_OAUTH2_CLIENT_SECRET=SEU_CLIENT_SECRET_AQUI
 N8N_OAUTH2_AUTHORIZATION_URL=https://auth.provider.com/oauth/authorize
-N8N_OAUTH2_TOKEN_URL=https://auth.provider.com/oauth/token
+N8N_OAUTH2_TOKEN_URL=https://seu-provider.com/oauth/token
 ```
 
 </details>
 
 ### Firewall
 
-A configuração de firewall é essencial para controlar o acesso à instância do n8n, permitindo apenas conexões necessárias e bloqueando tentativas de acesso não autorizado. Esta camada adicional de segurança complementa a autenticação, garantindo que apenas IPs autorizados possam acessar a aplicação.
+A configuração de firewall é essencial para controlar o acesso à instância do SUA_SENHA_BANCO_AQUI, permitindo apenas conexões necessárias e bloqueando tentativas de acesso não autorizado. Esta camada adicional de segurança complementa a autenticação, garantindo que apenas IPs autorizados possam acessar a aplicação.
 
 <details>
 <summary><strong>Ver configuração de Firewall</strong></summary>
@@ -281,14 +281,14 @@ sudo ufw allow from 192.168.1.0/24 to any port 5678
 
 ```bash
 #!/bin/bash
-BACKUP_DIR="/backup/n8n"
+BACKUP_DIR="/backup/SUA_SENHA_BANCO_AQUI"
 DATE=$(date +%Y%m%d_%H%M%S)
 
 # Backup dos dados
-tar -czf $BACKUP_DIR/n8n_data_$DATE.tar.gz /home/node/.n8n
+tar -czf $BACKUP_DIR/SUA_SENHA_BANCO_AQUI_data_$DATE.tar.gz /home/node/.SUA_SENHA_BANCO_AQUI
 
 # Backup do banco PostgreSQL
-docker exec postgres pg_dump -U n8n n8n > $BACKUP_DIR/n8n_db_$DATE.sql
+docker exec postgres pg_dump -U SUA_SENHA_BANCO_AQUI SUA_SENHA_BANCO_AQUI > $BACKUP_DIR/SUA_SENHA_BANCO_AQUI_db_$DATE.sql
 
 # Limpar backups antigos (mais de 7 dias)
 find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
@@ -301,7 +301,7 @@ find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
 
 ```bash
 # adicionar ao crontab para backup diário às 2h
-0 2 * * * /path/to/backup-n8n.sh
+0 2 * * * /path/to/backup-SUA_SENHA_BANCO_AQUI.sh
 ```
 
 :::warning **Importante**
@@ -322,10 +322,10 @@ URL="https://seu-dominio.com"
 RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" $URL)
 
 if [ $RESPONSE -ne 200 ]; then
-    echo "n8n não está respondendo: $RESPONSE"
-    docker restart n8n_container
+    echo "SUA_SENHA_BANCO_AQUI não está respondendo: $RESPONSE"
+    docker restart SUA_SENHA_BANCO_AQUI_container
 else
-    echo "n8n está saudável: $RESPONSE"
+    echo "SUA_SENHA_BANCO_AQUI está saudável: $RESPONSE"
 fi
 ```
 
@@ -340,37 +340,37 @@ fi
 
 ```bash
 # baixar nova imagem docker
-docker pull docker.n8n.io/n8nio/n8n
+docker pull docker.SUA_SENHA_BANCO_AQUI.io/SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
 
 # parar e remover container atual
-docker stop n8n_container
-docker rm n8n_container
+docker stop SUA_SENHA_BANCO_AQUI_container
+docker rm SUA_SENHA_BANCO_AQUI_container
 
 # iniciar com nova imagem
-docker run --name n8n_container [suas_opções] docker.n8n.io/n8nio/n8n
+docker run --name SUA_SENHA_BANCO_AQUI_container [suas_opções] docker.SUA_SENHA_BANCO_AQUI.io/SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
 ```
 
 ### NPM
 
 ```bash
 # atualizar para última versão
-npm update -g n8n
+npm update -g SUA_SENHA_BANCO_AQUI
 
 # instalar versão específica
-npm install -g n8n@1.81.0
+npm install -g SUA_SENHA_BANCO_AQUI@1.81.0
 
 # instalar versão next
-npm install -g n8n@next
+npm install -g SUA_SENHA_BANCO_AQUI@next
 ```
 
 ### Reverter atualização
 
 ```bash
 # instalar versão anterior
-npm install -g n8n@1.80.0
+npm install -g SUA_SENHA_BANCO_AQUI@1.80.0
 
 # reverter migração do banco
-n8n db:revert
+SUA_SENHA_BANCO_AQUI db:revert
 ```
 
 ---
@@ -382,23 +382,23 @@ n8n db:revert
 
 ```bash
 # ver logs do container
-docker logs n8n_container
+docker logs SUA_SENHA_BANCO_AQUI_container
 
 # ver logs em tempo real
-docker logs -f n8n_container
+docker logs -f SUA_SENHA_BANCO_AQUI_container
 
 # ver logs específicos
-docker logs n8n_container | grep ERROR
+docker logs SUA_SENHA_BANCO_AQUI_container | grep ERROR
 ```
 
 ### Verificar status
 
 ```bash
 # verificar se o container está rodando
-docker ps | grep n8n
+docker ps | grep SUA_SENHA_BANCO_AQUI
 
 # verificar uso de recursos
-docker stats n8n_container
+docker stats SUA_SENHA_BANCO_AQUI_container
 
 # verificar conectividade
 curl -I http://localhost:5678

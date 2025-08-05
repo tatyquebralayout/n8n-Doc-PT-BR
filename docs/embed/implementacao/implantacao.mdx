@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 1
 title: Implantação do Embed
-description: Como implantar e configurar n8n embarcado em produção
-keywords: [n8n, embed, implantação, deployment, produção, iframe, SSO, segurança]
+description: Como implantar e configurar SUA_SENHA_BANCO_AQUI embarcado em produção
+keywords: [SUA_SENHA_BANCO_AQUI, embed, implantação, deployment, produção, iframe, SSO, segurança]
 ---
 
 <IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Implantação do Embed
 
-Este guia explica como **implantar o n8n embarcado** em ambiente de produção, cobrindo segurança, autenticação, performance, monitoramento, exemplos de deployment e troubleshooting para garantir integração robusta e segura com sua aplicação.
+Este guia explica como **implantar o SUA_SENHA_BANCO_AQUI embarcado** em ambiente de produção, cobrindo segurança, autenticação, performance, monitoramento, exemplos de deployment e troubleshooting para garantir integração robusta e segura com sua aplicação.
 
 ---
 
@@ -59,7 +59,7 @@ location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
 
 ### Logs e Alertas
 
-- Configure logs de acesso e auditoria no backend do n8n
+- Configure logs de acesso e auditoria no backend do SUA_SENHA_BANCO_AQUI
 - Configure alertas para falhas de autenticação e erros de integração
 - Use webhooks para notificar eventos críticos (ex: workflow.error, workflow.saved)
 
@@ -93,10 +93,10 @@ Exemplo de webhook para monitoramento:
 ```yaml
 version: '3.8'
 services:
-  n8n:
-    image: n8nio/n8n
+  SUA_SENHA_BANCO_AQUI:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
     environment:
-      - N8N_HOST=n8n.suaempresa.com
+      - N8N_HOST=SUA_SENHA_BANCO_AQUI.suaempresa.com
       - N8N_PROTOCOL=https
       - N8N_PORT=5678
       - N8N_USER_MANAGEMENT_DISABLED=false
@@ -106,7 +106,7 @@ services:
       - N8N_SAML_ENTRY_POINT=https://sso.suaempresa.com/sso
       - N8N_SAML_CERT=/path/to/certificate.pem
     volumes:
-      - n8n_data:/home/node/.n8n
+      - SUA_SENHA_BANCO_AQUI_data:/home/node/.SUA_SENHA_BANCO_AQUI
     ports:
       - "5678:5678"
     restart: always
@@ -116,14 +116,14 @@ services:
   postgres:
     image: postgres:15
     environment:
-      - POSTGRES_USER=n8n
-      - POSTGRES_PASSWORD=senha_forte
-      - POSTGRES_DB=n8n
+      - POSTGRES_USER=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_PASSWORD=SUA_SENHA_FORTE_AQUI
+      - POSTGRES_DB=SUA_SENHA_BANCO_AQUI
     volumes:
       - pg_data:/var/lib/postgresql/data
 
 volumes:
-  n8n_data:
+  SUA_SENHA_BANCO_AQUI_data:
   pg_data:
 ```
 
@@ -132,10 +132,10 @@ volumes:
 ```nginx
 server {
     listen 443 ssl http2;
-    server_name n8n.suaempresa.com;
+    server_name SUA_SENHA_BANCO_AQUI.suaempresa.com;
 
-    ssl_certificate /etc/letsencrypt/live/n8n.suaempresa.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/n8n.suaempresa.com/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/SUA_SENHA_BANCO_AQUI.suaempresa.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/SUA_SENHA_BANCO_AQUI.suaempresa.com/privkey.pem;
 
     # Headers de segurança para embed
     add_header X-Frame-Options "ALLOW-FROM https://app.suaempresa.com" always;
@@ -195,5 +195,5 @@ Automatize o deploy do embed com CI/CD e monitore o uso do iframe para identific
 :::
 
 :::warning **Importante**
-Nunca exponha o n8n embed sem HTTPS e sem restrição de domínios. Teste todos os fluxos de autenticação e fallback antes de liberar para produção.
+Nunca exponha o SUA_SENHA_BANCO_AQUI embed sem HTTPS e sem restrição de domínios. Teste todos os fluxos de autenticação e fallback antes de liberar para produção.
 :::

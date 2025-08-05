@@ -1,13 +1,13 @@
 ﻿---
 title: HTTP Requests
-description: Nodes para fazer e receber requisições HTTP no n8n
+description: Nodes para fazer e receber requisições HTTP no SUA_SENHA_BANCO_AQUI
 sidebar_position: 1
-keywords: [n8n, http, requests, webhook, api, rest]
+keywords: [SUA_SENHA_BANCO_AQUI, http, requests, webhook, api, rest]
 ---
 
 <IonicIcon name="globe-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Os nodes de **HTTP Requests** são fundamentais para integração com APIs e serviços externos no n8n. Eles permitem que você se comunique com qualquer sistema que tenha uma interface HTTP, seja para enviar dados ou receber notificações.
+Os nodes de **HTTP Requests** são fundamentais para integração com APIs e serviços externos no SUA_SENHA_BANCO_AQUI. Eles permitem que você se comunique com qualquer sistema que tenha uma interface HTTP, seja para enviar dados ou receber notificações.
 
 ## Nodes Disponíveis
 
@@ -64,7 +64,7 @@ O node **Webhook** é usado para **receber** requisições HTTP de sistemas exte
 | **Direção** | Enviar dados | Receber dados |
 | **Tipo** | Node de ação | Node trigger |
 | **Inicia workflow** | Não | Sim |
-| **URL** | Configurada pelo usuário | Gerada pelo n8n |
+| **URL** | Configurada pelo usuário | Gerada pelo SUA_SENHA_BANCO_AQUI |
 | **Uso principal** | Integração com APIs | Receber notificações |
 
 ## Fluxo de Trabalho
@@ -72,19 +72,19 @@ O node **Webhook** é usado para **receber** requisições HTTP de sistemas exte
 ### Receber Dados
 
 ```
-Sistema Externo → Webhook → n8n Workflow
+Sistema Externo → Webhook → SUA_SENHA_BANCO_AQUI Workflow
 ```
 
 ### Processar Dados
 
 ```
-n8n Workflow → Nodes de Processamento → Dados Transformados
+SUA_SENHA_BANCO_AQUI Workflow → Nodes de Processamento → Dados Transformados
 ```
 
 ### Enviar Dados
 
 ```
-n8n Workflow → HTTP Request → Sistema Externo
+SUA_SENHA_BANCO_AQUI Workflow → HTTP Request → Sistema Externo
 ```
 
 ## Exemplos de Integração
@@ -196,12 +196,12 @@ await new Promise(resolve => setTimeout(resolve, delay));
 1. **Use o node Debug Helper** para inspecionar dados
 2. **Configure "Incluir Headers e Status"** no HTTP Request
 3. **Use URLs de teste** para webhooks
-4. **Monitore logs** do n8n
+4. **Monitore logs** do SUA_SENHA_BANCO_AQUI
 5. **Teste com ferramentas externas** (Postman, curl)
 
 ## Próximos Passos
 
-- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
+- [Expressões SUA_SENHA_BANCO_AQUI](/logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
 - [Credenciais](/integracoes/credential-nodes/index) - Configurar autenticação
 - [Nodes de Lógica](/integracoes/builtin-nodes/logic-control/index) - Controlar fluxo

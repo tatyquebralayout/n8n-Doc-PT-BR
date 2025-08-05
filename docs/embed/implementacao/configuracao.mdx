@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 2
 title: Configuração do Embed
-description: Como configurar parâmetros e opções do n8n embarcado
-keywords: [n8n, embed, configuração, parâmetros, customização, iframe, SSO, permissões]
+description: Como configurar parâmetros e opções do SUA_SENHA_BANCO_AQUI embarcado
+keywords: [SUA_SENHA_BANCO_AQUI, embed, configuração, parâmetros, customização, iframe, SSO, permissões]
 ---
 
 <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Configuração do Embed
 
-Este guia ensina como **configurar o n8n embarcado** em sua aplicação, cobrindo parâmetros essenciais, permissões, customização visual, integração com autenticação e exemplos práticos para diferentes cenários empresariais.
+Este guia ensina como **configurar o SUA_SENHA_BANCO_AQUI embarcado** em sua aplicação, cobrindo parâmetros essenciais, permissões, customização visual, integração com autenticação e exemplos práticos para diferentes cenários empresariais.
 
 ---
 
@@ -21,7 +21,7 @@ Este guia ensina como **configurar o n8n embarcado** em sua aplicação, cobrind
 
 ```html
 <iframe
-  src="https://n8n.suaempresa.com/embed?workflowId=123&mode=edit&theme=corporate&lang=pt-BR&hideSidebar=true"
+  src="https://SUA_SENHA_BANCO_AQUI.suaempresa.com/embed?workflowId=123&mode=edit&theme=corporate&lang=pt-BR&hideSidebar=true"
   width="100%"
   height="800"
   frameborder="0"
@@ -81,7 +81,7 @@ N8N_SAML_CERT=/path/to/certificate.pem
 N8N_OAUTH2_AUTH_URL=https://sso.suaempresa.com/oauth/authorize
 N8N_OAUTH2_TOKEN_URL=https://sso.suaempresa.com/oauth/token
 N8N_OAUTH2_CLIENT_ID=seu_client_id
-N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
+N8N_OAUTH2_CLIENT_SECRET=SEU_CLIENT_SECRET_AQUI
 ```
 
 #### LDAP
@@ -90,7 +90,7 @@ N8N_OAUTH2_CLIENT_SECRET=seu_client_secret
 N8N_LDAP_ENABLED=true
 N8N_LDAP_SERVER_URL=ldap://ldap.suaempresa.com:389
 N8N_LDAP_BIND_DN=cn=admin,dc=suaempresa,dc=com
-N8N_LDAP_BIND_PASSWORD=senha_ldap
+N8N_LDAP_BIND_PASSWORD=SUA_SENHA_LDAP_AQUI
 N8N_LDAP_BASE_DN=dc=suaempresa,dc=com
 ```
 
@@ -115,7 +115,7 @@ N8N_THEME_LOGO_URL=https://suaempresa.com/logo.png
 CSS customizado:
 
 ```yaml
-N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n_custom.css
+N8N_CUSTOM_CSS_URL=https://suaempresa.com/SUA_SENHA_BANCO_AQUI_custom.css
 ```
 
 ---
@@ -128,11 +128,11 @@ N8N_CUSTOM_CSS_URL=https://suaempresa.com/n8n_custom.css
 
 ```javascript
 // No host
-iframe.contentWindow.postMessage({ type: 'n8n_load_workflow', workflowId: 'abc123' }, '*');
+iframe.contentWindow.postMessage({ type: 'SUA_SENHA_BANCO_AQUI_load_workflow', workflowId: 'abc123' }, '*');
 
 // No embed
 window.addEventListener('message', (event) => {
-  if (event.data.type === 'n8n_load_workflow') {
+  if (event.data.type === 'SUA_SENHA_BANCO_AQUI_load_workflow') {
     // Carregar workflow
   }
 });
@@ -159,7 +159,7 @@ Webhooks para eventos do editor:
 
 ```html
 <iframe
-  src="https://n8n.suaempresa.com/embed?workflowId=456&mode=view&theme=dark&lang=pt-BR&readonly=true&token=eyJ..."
+  src="https://SUA_SENHA_BANCO_AQUI.suaempresa.com/embed?workflowId=456&mode=view&theme=dark&lang=pt-BR&readonly=true&token=eyJ..."
   width="100%"
   height="900"
   frameborder="0"
@@ -180,7 +180,7 @@ const params = new URLSearchParams({
   token: 'eyJ...'
 });
 
-iframe.src = `https://n8n.suaempresa.com/embed?${params.toString()}`;
+iframe.src = `https://SUA_SENHA_BANCO_AQUI.suaempresa.com/embed?${params.toString()}`;
 ```
 
 ---

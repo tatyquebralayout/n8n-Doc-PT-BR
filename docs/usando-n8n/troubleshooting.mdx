@@ -1,13 +1,13 @@
 ---
 sidebar_position: 10
 title: Troubleshooting
-description: Guia completo para resolução de problemas comuns no n8n
-keywords: [n8n, troubleshooting, problemas, debug, erros, soluções]
+description: Guia completo para resolução de problemas comuns no SUA_SENHA_BANCO_AQUI
+keywords: [SUA_SENHA_BANCO_AQUI, troubleshooting, problemas, debug, erros, soluções]
 ---
 
 <IonicIcon name="bug-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Este guia apresenta soluções para **problemas comuns** encontrados ao usar o n8n, incluindo erros de execução, problemas de conectividade, configurações incorretas e outras questões que podem afetar o funcionamento dos workflows.
+Este guia apresenta soluções para **problemas comuns** encontrados ao usar o SUA_SENHA_BANCO_AQUI, incluindo erros de execução, problemas de conectividade, configurações incorretas e outras questões que podem afetar o funcionamento dos workflows.
 
 ## Problemas de Execução
 
@@ -39,11 +39,11 @@ Este guia apresenta soluções para **problemas comuns** encontrados ao usar o n
 
 3. **Verificar Logs**
 ```bash
-# Acessar logs do n8n
-n8n logs --level debug
+# Acessar logs do SUA_SENHA_BANCO_AQUI
+SUA_SENHA_BANCO_AQUI logs --level debug
 
 # Verificar logs específicos
-n8n logs --level error
+SUA_SENHA_BANCO_AQUI logs --level error
 ```
 
 ### Erro de Autenticação
@@ -75,7 +75,7 @@ n8n logs --level error
 // Configuração OAuth básica
 {
   "client_id": "seu_client_id",
-  "client_secret": "seu_client_secret",
+  "client_secret": "SEU_CLIENT_SECRET_AQUI",
   "redirect_uri": "https://seu-dominio.com/callback"
 }
 ```
@@ -255,7 +255,7 @@ function getCachedData(key) {
 # Exemplo de .env
 N8N_BASIC_AUTH_ACTIVE=true
 N8N_BASIC_AUTH_USER=admin
-N8N_BASIC_AUTH_PASSWORD=senha123
+N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_SEGURA_AQUI
 N8N_HOST=0.0.0.0
 N8N_PORT=5678
 ```
@@ -267,16 +267,16 @@ echo $N8N_HOST
 echo $N8N_PORT
 
 # Testar configuração
-n8n start --dry-run
+SUA_SENHA_BANCO_AQUI start --dry-run
 ```
 
 3. **Reiniciar Serviço**
 ```bash
-# Reiniciar n8n
-n8n restart
+# Reiniciar SUA_SENHA_BANCO_AQUI
+SUA_SENHA_BANCO_AQUI restart
 
 # Verificar status
-n8n status
+SUA_SENHA_BANCO_AQUI status
 ```
 
 ### Problemas de Permissões
@@ -291,20 +291,20 @@ n8n status
 1. **Corrigir Permissões de Arquivos**
 ```bash
 # Corrigir permissões
-sudo chown -R $USER:$USER /path/to/n8n
-sudo chmod -R 755 /path/to/n8n
+sudo chown -R $USER:$USER /path/to/SUA_SENHA_BANCO_AQUI
+sudo chmod -R 755 /path/to/SUA_SENHA_BANCO_AQUI
 
 # Verificar permissões
-ls -la /path/to/n8n
+ls -la /path/to/SUA_SENHA_BANCO_AQUI
 ```
 
 2. **Configurar Usuário do Sistema**
 ```bash
 # Criar usuário específico
-sudo useradd -r -s /bin/false n8n
+sudo useradd -r -s /bin/false SUA_SENHA_BANCO_AQUI
 
 # Configurar permissões
-sudo chown -R n8n:n8n /path/to/n8n
+sudo chown -R SUA_SENHA_BANCO_AQUI:SUA_SENHA_BANCO_AQUI /path/to/SUA_SENHA_BANCO_AQUI
 ```
 
 3. **Verificar Permissões de Rede**
@@ -408,13 +408,13 @@ try {
 **Comandos úteis:**
 ```bash
 # Ver logs em tempo real
-n8n logs --follow
+SUA_SENHA_BANCO_AQUI logs --follow
 
 # Filtrar por nível
-n8n logs --level error
+SUA_SENHA_BANCO_AQUI logs --level error
 
 # Ver logs de execução específica
-n8n logs --execution-id 123
+SUA_SENHA_BANCO_AQUI logs --execution-id 123
 ```
 
 ### Monitoramento
@@ -432,8 +432,8 @@ n8n logs --execution-id 123
 
 ## Próximos Passos
 
-- [Analisar Logs](/usando-n8n/monitoring/analisar-logs) - Análise detalhada de logs
-- [Visualizar Execuções](/usando-n8n/monitoring/visualizar-execucoes) - Monitoramento de execuções
-- [Configurar Alertas](/usando-n8n/monitoring/configurar-alertas) - Sistema de notificações
+- [Analisar Logs](/usando-SUA_SENHA_BANCO_AQUI/monitoring/analisar-logs) - Análise detalhada de logs
+- [Visualizar Execuções](/usando-SUA_SENHA_BANCO_AQUI/monitoring/visualizar-execucoes) - Monitoramento de execuções
+- [Configurar Alertas](/usando-SUA_SENHA_BANCO_AQUI/monitoring/configurar-alertas) - Sistema de notificações
 - [Debug Helper](/integracoes/builtin-nodes/core-nodes/debug-helper) - Node para debugging
-- [Expressões n8n](/logica-e-dados/expressoes) - Usar expressões para debug 
+- [Expressões SUA_SENHA_BANCO_AQUI](/logica-e-dados/expressoes) - Usar expressões para debug 

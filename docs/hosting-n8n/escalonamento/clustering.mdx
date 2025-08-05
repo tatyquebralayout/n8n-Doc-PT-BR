@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 2
 title: Clustering
-description: Como implementar clustering para alta disponibilidade do n8n
-keywords: [n8n, clustering, alta disponibilidade, escalabilidade, cluster]
+description: Como implementar clustering para alta disponibilidade do SUA_SENHA_BANCO_AQUI
+keywords: [SUA_SENHA_BANCO_AQUI, clustering, alta disponibilidade, escalabilidade, cluster]
 ---
 
 <IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Clustering
 
-Este documento explica como **implementar clustering** para alta disponibilidade do n8n, incluindo configuração de múltiplas instâncias, balanceamento de carga inteligente, sincronização de dados, failover automático, e arquiteturas distribuídas que garantem operação contínua mesmo com falhas de hardware ou software, proporcionando disponibilidade enterprise-grade para automações críticas de negócio.
+Este documento explica como **implementar clustering** para alta disponibilidade do SUA_SENHA_BANCO_AQUI, incluindo configuração de múltiplas instâncias, balanceamento de carga inteligente, sincronização de dados, failover automático, e arquiteturas distribuídas que garantem operação contínua mesmo com falhas de hardware ou software, proporcionando disponibilidade enterprise-grade para automações críticas de negócio.
 
 ---
 
@@ -34,15 +34,15 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./ssl:/etc/nginx/ssl
     depends_on:
-      - n8n-main
-      - n8n-worker-1
-      - n8n-worker-2
+      - SUA_SENHA_BANCO_AQUI-main
+      - SUA_SENHA_BANCO_AQUI-worker-1
+      - SUA_SENHA_BANCO_AQUI-worker-2
     networks:
-      - n8n_network
+      - SUA_SENHA_BANCO_AQUI_network
 
   # Instância principal
-  n8n-main:
-    image: n8nio/n8n:latest
+  SUA_SENHA_BANCO_AQUI-main:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
     restart: unless-stopped
     environment:
       - EXECUTIONS_PROCESS=main
@@ -50,8 +50,8 @@ services:
       - REDIS_URL=redis://redis:6379
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
       - N8N_PROTOCOL=https
@@ -60,11 +60,11 @@ services:
       - postgres
       - redis
     networks:
-      - n8n_network
+      - SUA_SENHA_BANCO_AQUI_network
 
   # Instâncias de execução
-  n8n-worker-1:
-    image: n8nio/n8n:latest
+  SUA_SENHA_BANCO_AQUI-worker-1:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
     restart: unless-stopped
     environment:
       - EXECUTIONS_PROCESS=worker
@@ -72,18 +72,18 @@ services:
       - REDIS_URL=redis://redis:6379
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
     depends_on:
       - postgres
       - redis
     networks:
-      - n8n_network
+      - SUA_SENHA_BANCO_AQUI_network
 
-  n8n-worker-2:
-    image: n8nio/n8n:latest
+  SUA_SENHA_BANCO_AQUI-worker-2:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
     restart: unless-stopped
     environment:
       - EXECUTIONS_PROCESS=worker
@@ -91,28 +91,28 @@ services:
       - REDIS_URL=redis://redis:6379
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
     depends_on:
       - postgres
       - redis
     networks:
-      - n8n_network
+      - SUA_SENHA_BANCO_AQUI_network
 
   # Banco de dados compartilhado
   postgres:
     image: postgres:15
     restart: unless-stopped
     environment:
-      - POSTGRES_DB=n8n
-      - POSTGRES_USER=n8n
+      - POSTGRES_DB=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_USER=SUA_SENHA_BANCO_AQUI
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - n8n_network
+      - SUA_SENHA_BANCO_AQUI_network
 
   # Redis compartilhado
   redis:
@@ -122,14 +122,14 @@ services:
     volumes:
       - redis_data:/data
     networks:
-      - n8n_network
+      - SUA_SENHA_BANCO_AQUI_network
 
 volumes:
   postgres_data:
   redis_data:
 
 networks:
-  n8n_network:
+  SUA_SENHA_BANCO_AQUI_network:
     driver: bridge
 ```
 
@@ -147,14 +147,14 @@ events {
 }
 
 http {
-    # Upstream para instâncias n8n
-    upstream n8n_backend {
+    # Upstream para instâncias SUA_SENHA_BANCO_AQUI
+    upstream SUA_SENHA_BANCO_AQUI_backend {
         # Instância principal
-        server n8n-main:5678 max_fails=3 fail_timeout=30s;
+        server SUA_SENHA_BANCO_AQUI-main:5678 max_fails=3 fail_timeout=30s;
         
         # Instâncias de execução
-        server n8n-worker-1:5678 max_fails=3 fail_timeout=30s;
-        server n8n-worker-2:5678 max_fails=3 fail_timeout=30s;
+        server SUA_SENHA_BANCO_AQUI-worker-1:5678 max_fails=3 fail_timeout=30s;
+        server SUA_SENHA_BANCO_AQUI-worker-2:5678 max_fails=3 fail_timeout=30s;
         
         # Health check
         keepalive 32;
@@ -197,7 +197,7 @@ http {
         # API endpoints com rate limiting
         location /api/ {
             limit_req zone=api burst=20 nodelay;
-            proxy_pass http://n8n_backend;
+            proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -210,7 +210,7 @@ http {
         # Webhook endpoints com rate limiting
         location /webhook/ {
             limit_req zone=webhook burst=50 nodelay;
-            proxy_pass http://n8n_backend;
+            proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -223,7 +223,7 @@ http {
 
         # Configuração geral
         location / {
-            proxy_pass http://n8n_backend;
+            proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -266,9 +266,9 @@ defaults
     timeout client  50000
     timeout server  50000
 
-frontend n8n_frontend
+frontend SUA_SENHA_BANCO_AQUI_frontend
     bind *:80
-    bind *:443 ssl crt /etc/ssl/certs/n8n.pem
+    bind *:443 ssl crt /etc/ssl/certs/SUA_SENHA_BANCO_AQUI.pem
     redirect scheme https if !{ ssl_fc }
 
     # ACLs para diferentes tipos de tráfego
@@ -280,17 +280,17 @@ frontend n8n_frontend
     http-request track-sc0 src
     http-request deny deny_status 429 if { sc_http_req_rate(0) gt 10 }
 
-    default_backend n8n_backend
+    default_backend SUA_SENHA_BANCO_AQUI_backend
 
-backend n8n_backend
+backend SUA_SENHA_BANCO_AQUI_backend
     balance roundrobin
     option httpchk GET /healthz
     http-check expect status 200
 
     # Instâncias
-    server n8n-main n8n-main:5678 check maxconn 100
-    server n8n-worker-1 n8n-worker-1:5678 check maxconn 100
-    server n8n-worker-2 n8n-worker-2:5678 check maxconn 100
+    server SUA_SENHA_BANCO_AQUI-main SUA_SENHA_BANCO_AQUI-main:5678 check maxconn 100
+    server SUA_SENHA_BANCO_AQUI-worker-1 SUA_SENHA_BANCO_AQUI-worker-1:5678 check maxconn 100
+    server SUA_SENHA_BANCO_AQUI-worker-2 SUA_SENHA_BANCO_AQUI-worker-2:5678 check maxconn 100
 
     # Configurações de failover
     option redispatch
@@ -315,12 +315,12 @@ N8N_HOST="localhost"
 N8N_PORT="5678"
 HEALTH_ENDPOINT="/healthz"
 
-# Verificar saúde do n8n
+# Verificar saúde do SUA_SENHA_BANCO_AQUI
 if curl -f -s "http://$N8N_HOST:$N8N_PORT$HEALTH_ENDPOINT" > /dev/null; then
-    echo "OK: n8n está saudável"
+    echo "OK: SUA_SENHA_BANCO_AQUI está saudável"
     exit 0
 else
-    echo "ERROR: n8n não está respondendo"
+    echo "ERROR: SUA_SENHA_BANCO_AQUI não está respondendo"
     exit 1
 fi
 ```
@@ -331,10 +331,10 @@ fi
 #!/bin/bash
 
 # Configurações
-CLUSTER_NODES=("n8n-main" "n8n-worker-1" "n8n-worker-2")
+CLUSTER_NODES=("SUA_SENHA_BANCO_AQUI-main" "SUA_SENHA_BANCO_AQUI-worker-1" "SUA_SENHA_BANCO_AQUI-worker-2")
 WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 
-echo "=== Monitoramento do Cluster n8n ==="
+echo "=== Monitoramento do Cluster SUA_SENHA_BANCO_AQUI ==="
 echo
 
 # Verificar cada nó
@@ -364,29 +364,29 @@ done
 ### Deployment Completo
 
 ```yaml
-# n8n-deployment.yaml
+# SUA_SENHA_BANCO_AQUI-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: n8n-main
+  name: SUA_SENHA_BANCO_AQUI-main
   labels:
-    app: n8n
+    app: SUA_SENHA_BANCO_AQUI
     component: main
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: n8n
+      app: SUA_SENHA_BANCO_AQUI
       component: main
   template:
     metadata:
       labels:
-        app: n8n
+        app: SUA_SENHA_BANCO_AQUI
         component: main
     spec:
       containers:
-      - name: n8n
-        image: n8nio/n8n:latest
+      - name: SUA_SENHA_BANCO_AQUI
+        image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
         ports:
         - containerPort: 5678
         env:
@@ -401,21 +401,21 @@ spec:
         - name: DB_POSTGRESDB_HOST
           value: "postgres-service"
         - name: DB_POSTGRESDB_DATABASE
-          value: "n8n"
+          value: "SUA_SENHA_BANCO_AQUI"
         - name: DB_POSTGRESDB_USER
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: db-user
         - name: DB_POSTGRESDB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: db-password
         - name: N8N_ENCRYPTION_KEY
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: encryption-key
         - name: N8N_PROTOCOL
           value: "https"
@@ -444,25 +444,25 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: n8n-worker
+  name: SUA_SENHA_BANCO_AQUI-worker
   labels:
-    app: n8n
+    app: SUA_SENHA_BANCO_AQUI
     component: worker
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: n8n
+      app: SUA_SENHA_BANCO_AQUI
       component: worker
   template:
     metadata:
       labels:
-        app: n8n
+        app: SUA_SENHA_BANCO_AQUI
         component: worker
     spec:
       containers:
-      - name: n8n
-        image: n8nio/n8n:latest
+      - name: SUA_SENHA_BANCO_AQUI
+        image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
         ports:
         - containerPort: 5678
         env:
@@ -477,21 +477,21 @@ spec:
         - name: DB_POSTGRESDB_HOST
           value: "postgres-service"
         - name: DB_POSTGRESDB_DATABASE
-          value: "n8n"
+          value: "SUA_SENHA_BANCO_AQUI"
         - name: DB_POSTGRESDB_USER
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: db-user
         - name: DB_POSTGRESDB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: db-password
         - name: N8N_ENCRYPTION_KEY
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: encryption-key
         resources:
           requests:
@@ -515,16 +515,16 @@ spec:
 ```
 
 ```yaml
-# n8n-service.yaml
+# SUA_SENHA_BANCO_AQUI-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: n8n-service
+  name: SUA_SENHA_BANCO_AQUI-service
   labels:
-    app: n8n
+    app: SUA_SENHA_BANCO_AQUI
 spec:
   selector:
-    app: n8n
+    app: SUA_SENHA_BANCO_AQUI
   ports:
   - port: 5678
     targetPort: 5678
@@ -533,11 +533,11 @@ spec:
 ```
 
 ```yaml
-# n8n-ingress.yaml
+# SUA_SENHA_BANCO_AQUI-ingress.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: n8n-ingress
+  name: SUA_SENHA_BANCO_AQUI-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -547,7 +547,7 @@ spec:
   tls:
   - hosts:
     - seudominio.com
-    secretName: n8n-tls
+    secretName: SUA_SENHA_BANCO_AQUI-tls
   rules:
   - host: seudominio.com
     http:
@@ -556,7 +556,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: n8n-service
+            name: SUA_SENHA_BANCO_AQUI-service
             port:
               number: 5678
 ```
@@ -572,11 +572,11 @@ spec:
 ```bash
 #!/bin/bash
 
-echo "=== Métricas do Cluster n8n ==="
+echo "=== Métricas do Cluster SUA_SENHA_BANCO_AQUI ==="
 echo
 
 echo "1. Status dos Containers:"
-docker ps --filter "name=n8n" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+docker ps --filter "name=SUA_SENHA_BANCO_AQUI" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 echo
 
 echo "2. Uso de Recursos:"
@@ -584,11 +584,11 @@ docker stats --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsa
 echo
 
 echo "3. Logs de Erro (últimas 10 linhas):"
-docker logs --tail 10 n8n-main 2>&1 | grep -E "(ERROR|WARN)" || echo "Nenhum erro encontrado"
+docker logs --tail 10 SUA_SENHA_BANCO_AQUI-main 2>&1 | grep -E "(ERROR|WARN)" || echo "Nenhum erro encontrado"
 echo
 
 echo "4. Health Checks:"
-for container in n8n-main n8n-worker-1 n8n-worker-2; do
+for container in SUA_SENHA_BANCO_AQUI-main SUA_SENHA_BANCO_AQUI-worker-1 SUA_SENHA_BANCO_AQUI-worker-2; do
     if docker exec $container curl -f -s "http://localhost:5678/healthz" > /dev/null; then
         echo "✅ $container: Saudável"
     else
@@ -598,10 +598,10 @@ done
 echo
 
 echo "5. Métricas Redis:"
-echo "Jobs na fila: $(redis-cli llen n8n:queue:jobs)"
-echo "Webhooks na fila: $(redis-cli llen n8n:queue:webhooks)"
-echo "Jobs processados: $(redis-cli get n8n:stats:processed || echo '0')"
-echo "Jobs falharam: $(redis-cli get n8n:stats:failed || echo '0')"
+echo "Jobs na fila: $(redis-cli llen SUA_SENHA_BANCO_AQUI:queue:jobs)"
+echo "Webhooks na fila: $(redis-cli llen SUA_SENHA_BANCO_AQUI:queue:webhooks)"
+echo "Jobs processados: $(redis-cli get SUA_SENHA_BANCO_AQUI:stats:processed || echo '0')"
+echo "Jobs falharam: $(redis-cli get SUA_SENHA_BANCO_AQUI:stats:failed || echo '0')"
 ```
 
 ### Alertas Automáticos
@@ -616,7 +616,7 @@ ALERT_THRESHOLD_QUEUE=1000
 WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
 
 # Verificar CPU
-CPU_USAGE=$(docker stats --no-stream --format "{{.CPUPerc}}" n8n-main | sed 's/%//')
+CPU_USAGE=$(docker stats --no-stream --format "{{.CPUPerc}}" SUA_SENHA_BANCO_AQUI-main | sed 's/%//')
 if (( $(echo "$CPU_USAGE > $ALERT_THRESHOLD_CPU" | bc -l) )); then
     curl -X POST $WEBHOOK_URL \
       -H "Content-type: application/json" \
@@ -624,7 +624,7 @@ if (( $(echo "$CPU_USAGE > $ALERT_THRESHOLD_CPU" | bc -l) )); then
 fi
 
 # Verificar memória
-MEMORY_USAGE=$(docker stats --no-stream --format "{{.MemPerc}}" n8n-main | sed 's/%//')
+MEMORY_USAGE=$(docker stats --no-stream --format "{{.MemPerc}}" SUA_SENHA_BANCO_AQUI-main | sed 's/%//')
 if (( $(echo "$MEMORY_USAGE > $ALERT_THRESHOLD_MEMORY" | bc -l) )); then
     curl -X POST $WEBHOOK_URL \
       -H "Content-type: application/json" \
@@ -632,7 +632,7 @@ if (( $(echo "$MEMORY_USAGE > $ALERT_THRESHOLD_MEMORY" | bc -l) )); then
 fi
 
 # Verificar fila
-QUEUE_SIZE=$(redis-cli llen n8n:queue:jobs)
+QUEUE_SIZE=$(redis-cli llen SUA_SENHA_BANCO_AQUI:queue:jobs)
 if [ $QUEUE_SIZE -gt $ALERT_THRESHOLD_QUEUE ]; then
     curl -X POST $WEBHOOK_URL \
       -H "Content-type: application/json" \
@@ -651,15 +651,15 @@ fi
 ```bash
 #!/bin/bash
 
-echo "=== Diagnóstico do Cluster n8n ==="
+echo "=== Diagnóstico do Cluster SUA_SENHA_BANCO_AQUI ==="
 echo
 
 echo "1. Verificar variáveis de ambiente:"
-docker exec n8n-main env | grep -E "(DB_|REDIS_|N8N_)"
+docker exec SUA_SENHA_BANCO_AQUI-main env | grep -E "(DB_|REDIS_|N8N_)"
 echo
 
 echo "2. Verificar conectividade entre nós:"
-for node in n8n-main n8n-worker-1 n8n-worker-2; do
+for node in SUA_SENHA_BANCO_AQUI-main SUA_SENHA_BANCO_AQUI-worker-1 SUA_SENHA_BANCO_AQUI-worker-2; do
     echo "=== $node ==="
     docker exec $node curl -I http://localhost:5678/healthz
     echo

@@ -1,31 +1,31 @@
 ﻿---
 sidebar_position: 5
 title: Instalação Local via npm
-description: Guia para instalação local do n8n via npm para desenvolvimento e testes
+description: Guia para instalação local do SUA_SENHA_BANCO_AQUI via npm para desenvolvimento e testes
 slug: /primeiros-passos/instalacao-npm
-keywords: [n8n, npm, instalação local, desenvolvimento, node.js]
+keywords: [SUA_SENHA_BANCO_AQUI, npm, instalação local, desenvolvimento, node.js]
 ---
 
 
 <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 instalao-local via npm
 
-A instalação local via **npm** é ideal para desenvolvimento, testes rápidos e experimentação offline. É a forma mais simples de começar com o n8n.
+A instalação local via **npm** é ideal para desenvolvimento, testes rápidos e experimentação offline. É a forma mais simples de começar com o SUA_SENHA_BANCO_AQUI.
 
 ## 📦 Instalação via NPM
 
 ### Instalação Global
 
 ```bash
-npm install -g n8n
+npm install -g SUA_SENHA_BANCO_AQUI
 ```
 
 ### Instalação Local (Desenvolvimento)
 
 ```bash
 # Clonar repositório
-git clone https://github.com/n8n-io/n8n.git
-cd n8n
+git clone https://github.com/SUA_SENHA_BANCO_AQUI-io/SUA_SENHA_BANCO_AQUI.git
+cd SUA_SENHA_BANCO_AQUI
 
 # Instalar dependências
 npm install
@@ -37,8 +37,8 @@ npm run dev
 ### Exemplo de Node Customizado
 
 ```typescript
-import { IExecuteFunctions } from 'n8n-core';
-import { INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
+import { IExecuteFunctions } from 'SUA_SENHA_BANCO_AQUI-core';
+import { INodeExecutionData, INodeType, INodeTypeDescription } from 'SUA_SENHA_BANCO_AQUI-workflow';
 
 export class MyNode implements INodeType {
   description: INodeTypeDescription = {
@@ -95,10 +95,10 @@ export class MyNode implements INodeType {
 
 ```bash
 # Executar com logs detalhados
-DEBUG=* n8n start
+DEBUG=* SUA_SENHA_BANCO_AQUI start
 
 # Executar com mais memória
-NODE_OPTIONS="--max-old-space-size=4096" n8n start
+NODE_OPTIONS="--max-old-space-size=4096" SUA_SENHA_BANCO_AQUI start
 ```
 
 ### Problemas de Rede
@@ -110,8 +110,8 @@ curl -I http://localhost:5678
 # Verificar portas em uso
 netstat -tulpn | grep 5678
 
-# Verificar logs do n8n
-n8n start --verbose
+# Verificar logs do SUA_SENHA_BANCO_AQUI
+SUA_SENHA_BANCO_AQUI start --verbose
 ```
 
 ---
@@ -129,13 +129,13 @@ export N8N_PROTOCOL=http
 
 # Configurações de banco
 export DB_TYPE=sqlite
-export DB_SQLITE_DATABASE=n8n.db
+export DB_SQLITE_DATABASE=SUA_SENHA_BANCO_AQUI.db
 
 # Configurações de segurança
 export N8N_ENCRYPTION_KEY=sua_chave_32_caracteres
 export N8N_BASIC_AUTH_ACTIVE=true
 export N8N_BASIC_AUTH_USER=admin
-export N8N_BASIC_AUTH_PASSWORD=senha_segura
+export N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_SEGURA_AQUI
 ```
 
 ### Executar com Configurações
@@ -145,11 +145,11 @@ export N8N_BASIC_AUTH_PASSWORD=senha_segura
 N8N_HOST=localhost \
 N8N_PORT=5678 \
 N8N_PROTOCOL=http \
-n8n start
+SUA_SENHA_BANCO_AQUI start
 
 # Executar em modo produção
-NODE_ENV=production n8n start
+NODE_ENV=production SUA_SENHA_BANCO_AQUI start
 
 # Executar com configuração personalizada
-n8n start --config /path/to/config.json
+SUA_SENHA_BANCO_AQUI start --config /path/to/config.json
 ```

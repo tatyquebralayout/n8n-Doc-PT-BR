@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 2
-title: Instalação Self-hosted do n8n
-description: Guia completo para instalação self-hosted do n8n com Docker e npm
-keywords: [n8n, instalação, docker, npm, setup, self-hosted]
+title: Instalação Self-hosted do SUA_SENHA_BANCO_AQUI
+description: Guia completo para instalação self-hosted do SUA_SENHA_BANCO_AQUI com Docker e npm
+keywords: [SUA_SENHA_BANCO_AQUI, instalação, docker, npm, setup, self-hosted]
 ---
 
 <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-## Instalação Self-hosted do n8n
+## Instalação Self-hosted do SUA_SENHA_BANCO_AQUI
 
-Esta página detalha os métodos de instalação **self-hosted** do n8n, incluindo Docker (recomendado) e npm. Para uma visão geral de todos os métodos, consulte o [Guia de Instalação – Visão Panorâmica](./guia-instalacao).
+Esta página detalha os métodos de instalação **self-hosted** do SUA_SENHA_BANCO_AQUI, incluindo Docker (recomendado) e npm. Para uma visão geral de todos os métodos, consulte o [Guia de Instalação – Visão Panorâmica](./guia-instalacao).
 
 ---
 
@@ -39,12 +39,12 @@ A instalação self-hosted requer conhecimentos básicos de:
 ### Instalação Rápida
 
 ```bash
-# Baixar e executar n8n
+# Baixar e executar SUA_SENHA_BANCO_AQUI
 docker run -it --rm \
-  --name n8n \
+  --name SUA_SENHA_BANCO_AQUI \
   -p 5678:5678 \
-  -v ~/.n8n:/home/node/.n8n \
-  n8nio/n8n
+  -v ~/.SUA_SENHA_BANCO_AQUI:/home/node/.SUA_SENHA_BANCO_AQUI \
+  SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
 ```
 
 ### Com Docker Compose
@@ -55,17 +55,17 @@ Crie um arquivo `docker-compose.yml`:
 version: '3.8'
 
 services:
-  n8n:
-    image: n8nio/n8n
+  SUA_SENHA_BANCO_AQUI:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
     restart: always
     ports:
       - "5678:5678"
     environment:
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=admin
-      - N8N_BASIC_AUTH_PASSWORD=senha123
+      - N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_SEGURA_AQUI
     volumes:
-      - ~/.n8n:/home/node/.n8n
+      - ~/.SUA_SENHA_BANCO_AQUI:/home/node/.SUA_SENHA_BANCO_AQUI
 ```
 
 Execute:
@@ -88,21 +88,21 @@ docker-compose up -d
 ### Instalação
 
 ```bash
-# Instalar n8n globalmente
-npm install n8n -g
+# Instalar SUA_SENHA_BANCO_AQUI globalmente
+npm install SUA_SENHA_BANCO_AQUI -g
 
 # Ou usar npx
-npx n8n
+npx SUA_SENHA_BANCO_AQUI
 ```
 
 ### Executar
 
 ```bash
-# Iniciar n8n
-n8n
+# Iniciar SUA_SENHA_BANCO_AQUI
+SUA_SENHA_BANCO_AQUI
 
 # Ou com configurações específicas
-n8n start --tunnel
+SUA_SENHA_BANCO_AQUI start --tunnel
 ```
 
 ---
@@ -117,14 +117,14 @@ n8n start --tunnel
 # Configurações básicas
 N8N_BASIC_AUTH_ACTIVE=true
 N8N_BASIC_AUTH_USER=admin
-N8N_BASIC_AUTH_PASSWORD=senha123
+N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_SEGURA_AQUI
 
 # Configurações de banco de dados
 N8N_DATABASE_TYPE=postgresdb
 N8N_DATABASE_POSTGRESDB_HOST=localhost
-N8N_DATABASE_POSTGRESDB_DATABASE=n8n
-N8N_DATABASE_POSTGRESDB_USER=n8n
-N8N_DATABASE_POSTGRESDB_PASSWORD=senha123
+N8N_DATABASE_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+N8N_DATABASE_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
+N8N_DATABASE_POSTGRESDB_PASSWORD=SUA_SENHA_SEGURA_AQUI
 ```
 
 ### Configurações de Produção
@@ -150,10 +150,10 @@ N8N_DATABASE_POSTGRESDB_PASSWORD=senha123
 
 ```bash
 # Docker
-docker logs n8n
+docker logs SUA_SENHA_BANCO_AQUI
 
 # npm
-n8n start --verbose
+SUA_SENHA_BANCO_AQUI start --verbose
 ```
 
 ---
@@ -164,9 +164,9 @@ n8n start --verbose
 
 1. **[Criar Primeiro Workflow](./criar-primeiro-workflow)** - Aprenda a criar workflows básicos
 2. **[Conectar Aplicações](./conectar-aplicacoes)** - Integre diferentes serviços
-3. **[Configuração Avançada](../usando-n8n/configuracao/)** - Configure para produção
+3. **[Configuração Avançada](../usando-SUA_SENHA_BANCO_AQUI/configuracao/)** - Configure para produção
 
-> *A instalação é apenas o primeiro passo. O verdadeiro poder do n8n está na automação que você vai criar!*
+> *A instalação é apenas o primeiro passo. O verdadeiro poder do SUA_SENHA_BANCO_AQUI está na automação que você vai criar!*
 
 ---
 
@@ -179,7 +179,7 @@ Sempre configure autenticação básica em ambientes de produção para proteger
 :::
 
 :::info **Recurso Adicional**
-Consulte a documentação oficial do n8n para configurações avançadas e troubleshooting.
+Consulte a documentação oficial do SUA_SENHA_BANCO_AQUI para configurações avançadas e troubleshooting.
 :::
 
 

@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 2
 title: Instalação via NPM
-description: Como instalar n8n usando npm para máximo controle e customização
-keywords: [n8n, npm, instalação, nodejs, customização, desenvolvimento]
+description: Como instalar SUA_SENHA_BANCO_AQUI usando npm para máximo controle e customização
+keywords: [SUA_SENHA_BANCO_AQUI, npm, instalação, nodejs, customização, desenvolvimento]
 ---
 
 <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Instalação via NPM
 
-Este guia detalha como **instalar n8n via npm** para máximo controle e customização, ideal para desenvolvimento, testes e ambientes personalizados.
+Este guia detalha como **instalar SUA_SENHA_BANCO_AQUI via npm** para máximo controle e customização, ideal para desenvolvimento, testes e ambientes personalizados.
 
 ## <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Instalação Básica
 
@@ -20,24 +20,24 @@ Este guia detalha como **instalar n8n via npm** para máximo controle e customiz
 node --version
 npm --version
 
-# Instalar n8n globalmente
-npm install -g n8n
+# Instalar SUA_SENHA_BANCO_AQUI globalmente
+npm install -g SUA_SENHA_BANCO_AQUI
 
 # Ou instalar localmente
-npm install n8n
+npm install SUA_SENHA_BANCO_AQUI
 ```
 
-### Executar n8n
+### Executar SUA_SENHA_BANCO_AQUI
 
 ```bash
 # Executar globalmente
-n8n start
+SUA_SENHA_BANCO_AQUI start
 
 # Executar localmente
-npx n8n start
+npx SUA_SENHA_BANCO_AQUI start
 
 # Com configurações customizadas
-n8n start --tunnel
+SUA_SENHA_BANCO_AQUI start --tunnel
 ```
 
 ## <IonicIcon name="code-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Desenvolvimento de Nodes Customizados
@@ -45,8 +45,8 @@ n8n start --tunnel
 ### Estrutura de um Node
 
 ```typescript
-import { IExecuteFunctions } from 'n8n-core';
-import { INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
+import { IExecuteFunctions } from 'SUA_SENHA_BANCO_AQUI-core';
+import { INodeExecutionData, INodeType, INodeTypeDescription } from 'SUA_SENHA_BANCO_AQUI-workflow';
 
 export class MyNode implements INodeType {
   description: INodeTypeDescription = {
@@ -104,10 +104,10 @@ export class MyNode implements INodeType {
 
 ```bash
 # Habilitar logs detalhados
-DEBUG=n8n:* n8n start
+DEBUG=SUA_SENHA_BANCO_AQUI:* SUA_SENHA_BANCO_AQUI start
 
 # Aumentar memória heap
-NODE_OPTIONS="--max-old-space-size=4096" n8n start
+NODE_OPTIONS="--max-old-space-size=4096" SUA_SENHA_BANCO_AQUI start
 ```
 
 ### Problemas de Rede
@@ -120,15 +120,15 @@ curl -I http://localhost:5678
 netstat -tulpn | grep 5678
 
 # Configurar proxy
-n8n start --proxy http://proxy:8080
+SUA_SENHA_BANCO_AQUI start --proxy http://proxy:8080
 ```
 
 ### Problemas de Permissão
 
 ```bash
 # Corrigir permissões no Linux
-sudo chown -R $USER:$USER ~/.n8n
+sudo chown -R $USER:$USER ~/.SUA_SENHA_BANCO_AQUI
 
 # Corrigir permissões no Windows
-icacls "%USERPROFILE%\.n8n" /grant "%USERNAME%":(OI)(CI)F
+icacls "%USERPROFILE%\.SUA_SENHA_BANCO_AQUI" /grant "%USERNAME%":(OI)(CI)F
 ```

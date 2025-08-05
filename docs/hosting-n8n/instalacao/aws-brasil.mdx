@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 2
-title: "AWS Brasil - Deploy n8n na Nuvem"
-description: "Guia completo para fazer deploy do n8n na AWS Brasil, incluindo EC2, RDS, VPC e configurações de produção"
-keywords: [n8n, aws, brasil, ec2, rds, vpc, deploy, cloud, produção]
+title: "AWS Brasil - Deploy SUA_SENHA_BANCO_AQUI na Nuvem"
+description: "Guia completo para fazer deploy do SUA_SENHA_BANCO_AQUI na AWS Brasil, incluindo EC2, RDS, VPC e configurações de produção"
+keywords: [SUA_SENHA_BANCO_AQUI, aws, brasil, ec2, rds, vpc, deploy, cloud, produção]
 ---
 
 <IonicIcon name="cloud-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-# AWS Brasil - Deploy n8n na Nuvem
+# AWS Brasil - Deploy SUA_SENHA_BANCO_AQUI na Nuvem
 
-Este guia mostra como fazer deploy do n8n na AWS Brasil, aproveitando a infraestrutura local para melhor performance e compliance com regulamentações brasileiras.
+Este guia mostra como fazer deploy do SUA_SENHA_BANCO_AQUI na AWS Brasil, aproveitando a infraestrutura local para melhor performance e compliance com regulamentações brasileiras.
 
 ## <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> Configuração de Recursos AWS
 
@@ -22,23 +22,23 @@ provider "aws" {
 }
 
 # VPC Resource
-resource "aws_vpc" "n8n_vpc" {
+resource "aws_vpc" "SUA_SENHA_BANCO_AQUI_vpc" {
   cidr_block = "10.0.0.0/16"
   
   tags = {
-    Name = "n8n-vpc"
+    Name = "SUA_SENHA_BANCO_AQUI-vpc"
     Environment = "production"
-    Project = "n8n-automation"
+    Project = "SUA_SENHA_BANCO_AQUI-automation"
   }
 }
 
 # EC2 Instance
-resource "aws_instance" "n8n_server" {
+resource "aws_instance" "SUA_SENHA_BANCO_AQUI_server" {
   ami           = "ami-0c02fb55956c7d316" # Amazon Linux 2
   instance_type = "t3.medium"
   
-  vpc_security_group_ids = [aws_security_group.n8n_sg.id]
-  subnet_id              = aws_subnet.n8n_public.id
+  vpc_security_group_ids = [aws_security_group.SUA_SENHA_BANCO_AQUI_sg.id]
+  subnet_id              = aws_subnet.SUA_SENHA_BANCO_AQUI_public.id
   
   user_data = <<-EOF
               #!/bin/bash
@@ -46,17 +46,17 @@ resource "aws_instance" "n8n_server" {
               yum install -y docker
               systemctl start docker
               systemctl enable docker
-              docker run -d --name n8n -p 5678:5678 n8nio/n8n:latest
+              docker run -d --name SUA_SENHA_BANCO_AQUI -p 5678:5678 SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
               EOF
   
   tags = {
-    Name = "n8n-server"
+    Name = "SUA_SENHA_BANCO_AQUI-server"
   }
 }
 
 # RDS PostgreSQL
-resource "aws_db_instance" "n8n_database" {
-  identifier = "n8n-db"
+resource "aws_db_instance" "SUA_SENHA_BANCO_AQUI_database" {
+  identifier = "SUA_SENHA_BANCO_AQUI-db"
   
   engine         = "postgres"
   engine_version = "13.7"
@@ -66,19 +66,19 @@ resource "aws_db_instance" "n8n_database" {
   storage_type         = "gp2"
   storage_encrypted    = true
   
-  db_name  = "n8n"
-  username = "n8n_user"
+  db_name  = "SUA_SENHA_BANCO_AQUI"
+  username = "SUA_SENHA_BANCO_AQUI_user"
   password = var.db_password
   
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
-  db_subnet_group_name   = aws_db_subnet_group.n8n_db_subnet.name
+  db_subnet_group_name   = aws_db_subnet_group.SUA_SENHA_BANCO_AQUI_db_subnet.name
   
   backup_retention_period = 7
   backup_window          = "03:00-04:00"
   maintenance_window     = "sun:04:00-sun:05:00"
   
   tags = {
-    Name = "n8n-database"
+    Name = "SUA_SENHA_BANCO_AQUI-database"
   }
 }
 ```
@@ -90,8 +90,8 @@ resource "aws_db_instance" "n8n_database" {
 ```bash
 # Configurar alarme de CPU
 aws cloudwatch put-metric-alarm \
-  --alarm-name "n8n-cpu-high" \
-  --alarm-description "CPU alta na instância n8n" \
+  --alarm-name "SUA_SENHA_BANCO_AQUI-cpu-high" \
+  --alarm-description "CPU alta na instância SUA_SENHA_BANCO_AQUI" \
   --metric-name CPUUtilization \
   --namespace AWS/EC2 \
   --statistic Average \
@@ -99,15 +99,15 @@ aws cloudwatch put-metric-alarm \
   --threshold 85 \
   --comparison-operator GreaterThanThreshold \
   --evaluation-periods 2 \
-  --alarm-actions arn:aws:sns:us-east-1:123456789012:n8n-alerts
+  --alarm-actions arn:aws:sns:us-east-1:123456789012:SUA_SENHA_BANCO_AQUI-alerts
 ```
 
 ### SNS Notification
 
 ```json
 {
-  "Subject": "Alerta n8n - CPU alta",
-  "Message": "A instância n8n está com CPU em 85%. Verifique imediatamente."
+  "Subject": "Alerta SUA_SENHA_BANCO_AQUI - CPU alta",
+  "Message": "A instância SUA_SENHA_BANCO_AQUI está com CPU em 85%. Verifique imediatamente."
 }
 ```
 
@@ -129,7 +129,7 @@ aws ec2 describe-instances --instance-ids i-1234567890abcdef0
 
 ```bash
 # Testar conectividade com RDS
-aws rds describe-db-instances --db-instance-identifier n8n-db
+aws rds describe-db-instances --db-instance-identifier SUA_SENHA_BANCO_AQUI-db
 
 # Verificar security groups
 aws ec2 describe-security-groups --group-ids sg-1234567890abcdef0

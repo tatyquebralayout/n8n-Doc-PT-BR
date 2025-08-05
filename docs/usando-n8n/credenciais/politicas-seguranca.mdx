@@ -1,15 +1,15 @@
 ﻿---
 title: Políticas de Segurança
 sidebar_position: 3
-description: Estabeleça políticas de segurança robustas para gerenciar credenciais no n8n de forma segura
-keywords: [n8n, políticas de segurança, credenciais, compliance, LGPD, auditoria, criptografia]
+description: Estabeleça políticas de segurança robustas para gerenciar credenciais no SUA_SENHA_BANCO_AQUI de forma segura
+keywords: [SUA_SENHA_BANCO_AQUI, políticas de segurança, credenciais, compliance, LGPD, auditoria, criptografia]
 ---
 
 <IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Políticas de Segurança
 
-Estabelecer políticas de segurança robustas é fundamental para proteger credenciais e dados sensíveis no n8n. Neste guia, você aprenderá a criar e implementar políticas de segurança abrangentes.
+Estabelecer políticas de segurança robustas é fundamental para proteger credenciais e dados sensíveis no SUA_SENHA_BANCO_AQUI. Neste guia, você aprenderá a criar e implementar políticas de segurança abrangentes.
 
 ## <IonicIcon name="information-circle-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> O que você aprenderá
 
@@ -132,7 +132,7 @@ async function encryptCredential(credential) {
   const iv = crypto.randomBytes(16);
   
   const cipher = crypto.createCipher(algorithm, key);
-  cipher.setAAD(Buffer.from('n8n-credential', 'utf8'));
+  cipher.setAAD(Buffer.from('SUA_SENHA_BANCO_AQUI-credential', 'utf8'));
   
   let encrypted = cipher.update(JSON.stringify(credential), 'utf8', 'hex');
   encrypted += cipher.final('hex');
@@ -155,7 +155,7 @@ async function decryptCredential(encryptedData) {
   const authTag = Buffer.from(encryptedData.authTag, 'hex');
   
   const decipher = crypto.createDecipher(algorithm, key);
-  decipher.setAAD(Buffer.from('n8n-credential', 'utf8'));
+  decipher.setAAD(Buffer.from('SUA_SENHA_BANCO_AQUI-credential', 'utf8'));
   decipher.setAuthTag(authTag);
   
   let decrypted = decipher.update(encryptedData.encrypted, 'hex', 'utf8');
@@ -174,9 +174,9 @@ async function decryptCredential(encryptedData) {
 N8N_DB_TYPE=postgresdb
 N8N_DB_POSTGRESDB_HOST=your-db-host
 N8N_DB_POSTGRESDB_PORT=5432
-N8N_DB_POSTGRESDB_DATABASE=n8n
-N8N_DB_POSTGRESDB_USER=n8n_user
-N8N_DB_POSTGRESDB_PASSWORD=secure-password
+N8N_DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+N8N_DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI_user
+N8N_DB_POSTGRESDB_PASSWORD=SUA_SENHA_SEGURA_AQUI
 N8N_DB_POSTGRESDB_SCHEMA=public
 N8N_DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED=true
 N8N_DB_POSTGRESDB_SSL_CA=/path/to/ca-certificate.crt
@@ -190,8 +190,8 @@ N8N_DB_POSTGRESDB_SSL_CA=/path/to/ca-certificate.crt
 
 # Configurações
 DB_HOST="your-db-host"
-DB_NAME="n8n"
-DB_USER="n8n_user"
+DB_NAME="SUA_SENHA_BANCO_AQUI"
+DB_USER="SUA_SENHA_BANCO_AQUI_user"
 BACKUP_DIR="/secure/backup/credentials"
 ENCRYPTION_KEY="your-backup-encryption-key"
 
@@ -871,7 +871,7 @@ class LGPDCompliance {
 **Políticas não aplicadas**:
 
 - Verifique configuração de variáveis de ambiente
-- Confirme reinicialização do n8n
+- Confirme reinicialização do SUA_SENHA_BANCO_AQUI
 - Teste validação de senha
 - Verifique logs de erro
 
@@ -893,12 +893,12 @@ class LGPDCompliance {
 
 ```bash
 # Testar política de senha
-curl -X POST "https://your-n8n.com/api/v1/users" \
+curl -X POST "https://your-SUA_SENHA_BANCO_AQUI.com/api/v1/users" \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com","password":"weak"}'
 
 # Verificar logs de auditoria
-tail -f /var/log/n8n/audit.log
+tail -f /var/log/SUA_SENHA_BANCO_AQUI/audit.log
 
 # Testar criptografia
 openssl enc -aes-256-gcm -k "test-key" -in test.txt -out test.enc
@@ -916,8 +916,8 @@ openssl enc -aes-256-gcm -k "test-key" -in test.txt -out test.enc
 
 - **[Boas Práticas](./boas-praticas)** - Práticas recomendadas
 - **[Compartilhamento](./compartilhamento)** - Compartilhamento seguro
-- **[Segurança](../../hosting-n8n/seguranca/)** - Configurações de segurança
-- **[LGPD](../../hosting-n8n/compliance/lgpd)** - Conformidade LGPD
+- **[Segurança](../../hosting-SUA_SENHA_BANCO_AQUI/seguranca/)** - Configurações de segurança
+- **[LGPD](../../hosting-SUA_SENHA_BANCO_AQUI/compliance/lgpd)** - Conformidade LGPD
 - **[Comunidade](../../comunidade/)** - Suporte e dicas
 
 ---

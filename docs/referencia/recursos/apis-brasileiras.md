@@ -1,16 +1,16 @@
 ---
 id: apis-brasileiras
-title: "APIs Brasileiras para n8n: Catálogo, Exemplos e Integração Nacional"
-description: Catálogo de APIs brasileiras populares para integração com n8n, exemplos práticos, tutoriais e casos de uso para o mercado nacional.
+title: "APIs Brasileiras para SUA_SENHA_BANCO_AQUI: Catálogo, Exemplos e Integração Nacional"
+description: Catálogo de APIs brasileiras populares para integração com SUA_SENHA_BANCO_AQUI, exemplos práticos, tutoriais e casos de uso para o mercado nacional.
 sidebar_label: APIs Brasileiras
-keywords: [n8n, APIs brasileiras, integração nacional, catálogo APIs n8n, exemplos de integração, tutoriais, automação Brasil, mercado brasileiro]
+keywords: [SUA_SENHA_BANCO_AQUI, APIs brasileiras, integração nacional, catálogo APIs SUA_SENHA_BANCO_AQUI, exemplos de integração, tutoriais, automação Brasil, mercado brasileiro]
 ---
 
 import IonicIcon from '@site/src/components/IonicIcon';
 
 <IonicIcon name="globe-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Este catálogo especializado lista APIs brasileiras populares que podem ser integradas com n8n, incluindo serviços financeiros, governo, logística, marketplace, comunicação e dezenas de outras APIs nacionais, com exemplos práticos, tutoriais e casos de uso para o mercado brasileiro.
+Este catálogo especializado lista APIs brasileiras populares que podem ser integradas com SUA_SENHA_BANCO_AQUI, incluindo serviços financeiros, governo, logística, marketplace, comunicação e dezenas de outras APIs nacionais, com exemplos práticos, tutoriais e casos de uso para o mercado brasileiro.
 
 :::info
 <IonicIcon name="information-circle-outline" style={{fontSize: '18px', color: '#ea4b71'}} />
@@ -73,10 +73,10 @@ Este catálogo especializado lista APIs brasileiras populares que podem ser inte
 
 ### Configuração Básica
 
-Para integrar APIs brasileiras no n8n:
+Para integrar APIs brasileiras no SUA_SENHA_BANCO_AQUI:
 
 1. **Obtenha credenciais** da API desejada
-2. **Configure autenticação** no n8n
+2. **Configure autenticação** no SUA_SENHA_BANCO_AQUI
 3. **Use HTTP Request nodes** para chamadas
 4. **Processe respostas** com nodes de dados
 5. **Implemente tratamento de erros**

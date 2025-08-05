@@ -1,0 +1,231 @@
+---
+sidebar_position: 5
+title: Diretrizes de Segurança para Documentação
+description: Guia de boas práticas para manter a segurança na documentação do SUA_SENHA_BANCO_AQUI
+keywords: [SUA_SENHA_BANCO_AQUI, segurança, documentação, boas práticas, credenciais, senhas]
+---
+
+<IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
+
+## Diretrizes de Segurança para Documentação
+
+Este documento estabelece as diretrizes para manter a segurança na documentação do SUA_SENHA_BANCO_AQUI, evitando a exposição de informações sensíveis e garantindo que os exemplos sejam seguros para uso em produção.
+
+---
+
+## Princípios Fundamentais
+
+### 1. Nunca Exponha Informações Sensíveis
+
+**O que NÃO fazer:**
+- Incluir senhas reais nos exemplos
+- Usar tokens de API válidos
+- Expor credenciais de banco de dados
+- Incluir chaves privadas ou secrets
+
+**O que fazer:**
+- Use placeholders descritivos
+- Substitua por variáveis de ambiente
+- Utilize valores de exemplo seguros
+- Documente claramente que são exemplos
+
+### 2. Use Placeholders Seguros
+
+```bash
+# ❌ INCORRETO
+N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_SEGURA_AQUI
+DB_PASSWORD=minhasenha
+
+# ✅ CORRETO
+N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_SEGURA_AQUI
+DB_PASSWORD=SUA_SENHA_BANCO_AQUI
+```
+
+### 3. Padrões de Placeholders
+
+Use estes padrões consistentes:
+
+| Tipo | Placeholder | Exemplo |
+|------|-------------|---------|
+| Senhas | `SUA_SENHA_[TIPO]_AQUI` | `SUA_SENHA_ADMIN_AQUI` |
+| API Keys | `SUA_API_KEY_AQUI` | `SUA_API_KEY_AQUI` |
+| Tokens | `SEU_TOKEN_[TIPO]_AQUI` | `SEU_TOKEN_AUTORIZACAO_AQUI` |
+| Client Secrets | `SEU_CLIENT_SECRET_AQUI` | `SEU_CLIENT_SECRET_AQUI` |
+| URLs | `https://seu-[servico].com` | `https://seu-provider.com` |
+
+---
+
+## Exemplos Seguros
+
+### Configuração de Banco de Dados
+
+```yaml
+# Docker Compose - Exemplo Seguro
+version: '3.8'
+services:
+  SUA_SENHA_BANCO_AQUI:
+    environment:
+      - DB_POSTGRESDB_PASSWORD=SUA_SENHA_BANCO_AQUI
+      - N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_ADMIN_AQUI
+```
+
+### Variáveis de Ambiente
+
+```bash
+# Exemplo de configuração segura
+export N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_SEGURA_AQUI
+export DB_PASSWORD=SUA_SENHA_BANCO_AQUI
+export API_KEY=SUA_API_KEY_AQUI
+```
+
+### Credenciais em JSON
+
+```json
+{
+  "type": "apiKey",
+  "name": "Exemplo API",
+  "value": "SUA_API_KEY_AQUI",
+  "description": "Chave da API para exemplo"
+}
+```
+
+---
+
+## Verificação Automática
+
+### Script de Validação
+
+Execute regularmente o script de correção:
+
+```bash
+npm run fix-sensitive-content
+```
+
+### Checklist de Revisão
+
+Antes de publicar documentação:
+
+- [ ] Verificar se não há senhas reais
+- [ ] Confirmar uso de placeholders seguros
+- [ ] Validar URLs de exemplo
+- [ ] Revisar tokens e secrets
+- [ ] Testar configurações de exemplo
+
+---
+
+## Boas Práticas
+
+### 1. Use Variáveis de Ambiente
+
+```bash
+# ✅ RECOMENDADO
+export DB_PASSWORD="${DB_PASSWORD}"
+export API_KEY="${API_KEY}"
+
+# ❌ EVITAR
+export DB_PASSWORD="SUA_SENHA_SEGURA_AQUI"
+export API_KEY="sk_test_123456"
+```
+
+### 2. Documente Configurações de Produção
+
+```markdown
+:::warning **Importante**
+Substitua os placeholders por valores reais seguros antes de usar em produção.
+:::
+```
+
+### 3. Inclua Avisos de Segurança
+
+```markdown
+:::tip **Dica de Segurança**
+- Use senhas fortes (mínimo 12 caracteres)
+- Ative autenticação de dois fatores
+- Monitore logs de acesso
+- Faça backup regular das configurações
+:::
+```
+
+---
+
+## Padrões de Substituição
+
+### Senhas Comuns
+
+| Padrão Encontrado | Substituição Segura |
+|-------------------|---------------------|
+| `SUA_SENHA_SEGURA_AQUI` | `SUA_SENHA_SEGURA_AQUI` |
+| `SUA_SENHA_ADMIN_AQUI` | `SUA_SENHA_ADMIN_AQUI` |
+| `SUA_SENHA_BANCO_AQUI` | `SUA_SENHA_BANCO_AQUI` |
+| `SUA_SENHA_SEGURA_AQUI` | `SUA_SENHA_SEGURA_AQUI` |
+
+### Tokens e Secrets
+
+| Padrão Encontrado | Substituição Segura |
+|-------------------|---------------------|
+| `SUA_API_KEY_AQUI` | `SUA_API_KEY_AQUI` |
+| `SEU_CLIENT_SECRET_AQUI` | `SEU_CLIENT_SECRET_AQUI` |
+| `your-super-secret-key` | `SUA_CHAVE_SECRETA_AQUI` |
+
+### URLs Sensíveis
+
+| Padrão Encontrado | Substituição Segura |
+|-------------------|---------------------|
+| `https://auth.provider.com` | `https://seu-provider.com` |
+| `https://SUA_SENHA_BANCO_AQUI.suaempresa.com` | `https://SUA_SENHA_BANCO_AQUI.suaempresa.com` |
+
+---
+
+## Monitoramento Contínuo
+
+### Verificação Regular
+
+1. **Executar script de correção** mensalmente
+2. **Revisar novos arquivos** antes do commit
+3. **Validar exemplos** em pull requests
+4. **Atualizar placeholders** conforme necessário
+
+### Ferramentas de Validação
+
+```bash
+# Verificar conteúdo sensível
+grep -r "SUA_SENHA_SEGURA_AQUI\|SUA_SENHA_ADMIN_AQUI\|sk_test" docs/
+
+# Validar placeholders
+grep -r "SUA_SENHA\|SEU_TOKEN\|SUA_API_KEY" docs/
+```
+
+---
+
+## Responsabilidades
+
+### Autores de Documentação
+
+- [ ] Seguir diretrizes de segurança
+- [ ] Usar placeholders seguros
+- [ ] Incluir avisos quando necessário
+- [ ] Revisar exemplos antes de publicar
+
+### Revisores
+
+- [ ] Verificar compliance com diretrizes
+- [ ] Validar exemplos de segurança
+- [ ] Confirmar uso de placeholders
+- [ ] Aprovar apenas conteúdo seguro
+
+### Mantenedores
+
+- [ ] Executar verificações regulares
+- [ ] Atualizar diretrizes conforme necessário
+- [ ] Treinar novos colaboradores
+- [ ] Monitorar mudanças na documentação
+
+---
+
+:::info **Recurso Adicional**
+Consulte a documentação oficial do SUA_SENHA_BANCO_AQUI para configurações avançadas de segurança e compliance.
+:::
+
+:::warning **Lembrete Importante**
+A segurança é responsabilidade de todos. Sempre revise e teste as configurações antes de usar em produção.
+::: 

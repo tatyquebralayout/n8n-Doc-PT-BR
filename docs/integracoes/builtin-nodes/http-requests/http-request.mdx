@@ -1,13 +1,13 @@
 ﻿---
 title: Node HTTP Request
-description: Aprenda a usar o node HTTP Request no n8n para fazer requisições a APIs REST e integrar com qualquer serviço
+description: Aprenda a usar o node HTTP Request no SUA_SENHA_BANCO_AQUI para fazer requisições a APIs REST e integrar com qualquer serviço
 sidebar_position: 1
-keywords: [n8n, http request, api, rest, integração, automação]
+keywords: [SUA_SENHA_BANCO_AQUI, http request, api, rest, integração, automação]
 ---
 
 <IonicIcon name="arrow-up-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-O node **HTTP Request** é um dos nodes mais versáteis do n8n. Ele permite que você faça requisições HTTP para consultar dados de qualquer aplicação ou serviço que tenha uma API REST. Você pode usar este node como um node regular ou conectá-lo a um [agente de IA](/advanced-ai/nodes-ia/ai-agent) para funcionar como uma [ferramenta](/advanced-ai/nodes-ia/openai-chat).
+O node **HTTP Request** é um dos nodes mais versáteis do SUA_SENHA_BANCO_AQUI. Ele permite que você faça requisições HTTP para consultar dados de qualquer aplicação ou serviço que tenha uma API REST. Você pode usar este node como um node regular ou conectá-lo a um [agente de IA](/advanced-ai/nodes-ia/ai-agent) para funcionar como uma [ferramenta](/advanced-ai/nodes-ia/openai-chat).
 
 Quando você usa este node, está criando uma chamada de API REST. É importante ter um entendimento básico de terminologia e conceitos de API.
 
@@ -49,11 +49,11 @@ Digite o endpoint que você quer usar.
 
 ### Autenticação
 
-O n8n recomenda usar a opção **Tipo de Credencial Predefinida** quando disponível. Ela oferece uma forma mais fácil de configurar e gerenciar credenciais comparado a configurar credenciais genéricas.
+O SUA_SENHA_BANCO_AQUI recomenda usar a opção **Tipo de Credencial Predefinida** quando disponível. Ela oferece uma forma mais fácil de configurar e gerenciar credenciais comparado a configurar credenciais genéricas.
 
-**Credenciais Predefinidas**: Credenciais para integrações suportadas pelo n8n, incluindo nodes integrados e da comunidade. Use tipo de credencial predefinida para operações customizadas sem configuração extra.
+**Credenciais Predefinidas**: Credenciais para integrações suportadas pelo SUA_SENHA_BANCO_AQUI, incluindo nodes integrados e da comunidade. Use tipo de credencial predefinida para operações customizadas sem configuração extra.
 
-**Credenciais Genéricas**: Credenciais para integrações não suportadas pelo n8n. Você precisará configurar manualmente o processo de autenticação, incluindo especificar os endpoints de API necessários, parâmetros obrigatórios e o método de autenticação.
+**Credenciais Genéricas**: Credenciais para integrações não suportadas pelo SUA_SENHA_BANCO_AQUI. Você precisará configurar manualmente o processo de autenticação, incluindo especificar os endpoints de API necessários, parâmetros obrigatórios e o método de autenticação.
 
 Você pode selecionar um dos seguintes métodos:
 
@@ -92,7 +92,7 @@ Especifique headers usando uma das opções disponíveis:
 **Exemplos comuns:**
 - `Content-Type: application/json`
 - `Authorization: Bearer seu-token-aqui`
-- `User-Agent: n8n-workflow-1.0`
+- `User-Agent: SUA_SENHA_BANCO_AQUI-workflow-1.0`
 
 ### Enviar Body
 
@@ -111,7 +111,7 @@ Especifique body usando uma das opções disponíveis:
 Configure seus parâmetros do body selecionando o tipo de parâmetro:
 
 - Escolha **Form Data** para digitar pares nome/valor
-- Escolha **Arquivo Binário n8n** para extrair o body de um arquivo que o node tem acesso
+- Escolha **Arquivo Binário SUA_SENHA_BANCO_AQUI** para extrair o body de um arquivo que o node tem acesso
 
 **JSON**: Use esta opção para enviar seu body como JSON.
 
@@ -131,7 +131,7 @@ Especifique body usando uma das opções disponíveis:
 }
 ```
 
-**Arquivo Binário n8n**: Use esta opção para enviar o conteúdo de um arquivo armazenado no n8n como body. Digite o nome do campo de entrada que contém o arquivo como nome do campo de dados de entrada.
+**Arquivo Binário SUA_SENHA_BANCO_AQUI**: Use esta opção para enviar o conteúdo de um arquivo armazenado no SUA_SENHA_BANCO_AQUI como body. Digite o nome do campo de entrada que contém o arquivo como nome do campo de dados de entrada.
 
 **Raw**: Use esta opção para enviar dados brutos no body.
 
@@ -163,7 +163,7 @@ Controle como processar grandes números de itens de entrada:
 
 **Ignorar Problemas SSL**
 
-Por padrão, o n8n só baixa a resposta se a validação do certificado SSL for bem-sucedida. Se você quiser baixar a resposta mesmo se a validação do certificado SSL falhar, ative esta opção.
+Por padrão, o SUA_SENHA_BANCO_AQUI só baixa a resposta se a validação do certificado SSL for bem-sucedida. Se você quiser baixar a resposta mesmo se a validação do certificado SSL falhar, ative esta opção.
 
 **Headers em Minúsculas**
 
@@ -246,7 +246,7 @@ Antes de configurar paginação, execute o node uma vez para ver a estrutura dos
 - **URL**: `https://api.exemplo.com/upload`
 - **Body**: Form-Data
 - **Parâmetros**:
-  - Nome: `arquivo`, Tipo: `Arquivo Binário n8n`
+  - Nome: `arquivo`, Tipo: `Arquivo Binário SUA_SENHA_BANCO_AQUI`
   - Nome: `descricao`, Tipo: `Form Data`, Valor: `{{$json.descricao}}`
 
 ## Troubleshooting
@@ -280,7 +280,7 @@ Antes de configurar paginação, execute o node uma vez para ver a estrutura dos
 
 ## Importar Comando cURL
 
-Você pode importar comandos cURL diretamente no n8n para criar requisições HTTP automaticamente.
+Você pode importar comandos cURL diretamente no SUA_SENHA_BANCO_AQUI para criar requisições HTTP automaticamente.
 
 ### Como Importar
 
@@ -319,6 +319,6 @@ Quando importado, este comando cURL configura automaticamente:
 
 - [Node Webhook](/integracoes/builtin-nodes/http-requests/webhook) - Para receber requisições HTTP
 - [Credenciais HTTP Request](/integracoes/credential-nodes/http-request) - Configurar autenticação
-- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos nas requisições
+- [Expressões SUA_SENHA_BANCO_AQUI](/logica-e-dados/expressoes) - Usar dados dinâmicos nas requisições
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas nas requisições
 

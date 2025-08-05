@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 2
 title: White Labelling
-description: Personalizar a aparência do n8n para sua marca
-keywords: [n8n, embed, white labelling, branding, customização, tema]
+description: Personalizar a aparência do SUA_SENHA_BANCO_AQUI para sua marca
+keywords: [SUA_SENHA_BANCO_AQUI, embed, white labelling, branding, customização, tema]
 ---
 
 <IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # White Labelling
 
-Este documento detalha como **personalizar completamente a aparência do n8n embarcado** para sua marca, incluindo cores, logos, fontes, layout, domínio customizado, e integração visual perfeita com sua aplicação principal, criando uma experiência unificada e profissional para seus usuários.
+Este documento detalha como **personalizar completamente a aparência do SUA_SENHA_BANCO_AQUI embarcado** para sua marca, incluindo cores, logos, fontes, layout, domínio customizado, e integração visual perfeita com sua aplicação principal, criando uma experiência unificada e profissional para seus usuários.
 
 <IonicIcon name="school-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
@@ -30,8 +30,8 @@ N8N_THEME_SHADOW=0 4px 6px -1px rgba(0, 0, 0, 0.1)
 # docker-compose.yml
 version: '3.8'
 services:
-  n8n:
-    image: n8nio/n8n
+  SUA_SENHA_BANCO_AQUI:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
     environment:
       - N8N_THEME_FONT_FAMILY=Inter, sans-serif
       - N8N_THEME_FONT_SIZE_BASE=14px
@@ -51,23 +51,23 @@ services:
 ```css
 /* dark-theme.css */
 :root {
-  --n8n-background-color: #1f2937;
-  --n8n-surface-color: #374151;
-  --n8n-text-color: #f9fafb;
-  --n8n-border-color: #4b5563;
-  --n8n-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  --SUA_SENHA_BANCO_AQUI-background-color: #1f2937;
+  --SUA_SENHA_BANCO_AQUI-surface-color: #374151;
+  --SUA_SENHA_BANCO_AQUI-text-color: #f9fafb;
+  --SUA_SENHA_BANCO_AQUI-border-color: #4b5563;
+  --SUA_SENHA_BANCO_AQUI-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
 /* Aplicar tema escuro */
 body[data-theme="dark"] {
-  background-color: var(--n8n-background-color);
-  color: var(--n8n-text-color);
+  background-color: var(--SUA_SENHA_BANCO_AQUI-background-color);
+  color: var(--SUA_SENHA_BANCO_AQUI-text-color);
 }
 
-body[data-theme="dark"] .n8n-card {
-  background-color: var(--n8n-surface-color);
-  border-color: var(--n8n-border-color);
-  box-shadow: var(--n8n-shadow);
+body[data-theme="dark"] .SUA_SENHA_BANCO_AQUI-card {
+  background-color: var(--SUA_SENHA_BANCO_AQUI-surface-color);
+  border-color: var(--SUA_SENHA_BANCO_AQUI-border-color);
+  box-shadow: var(--SUA_SENHA_BANCO_AQUI-shadow);
 }
 ```
 
@@ -76,25 +76,25 @@ body[data-theme="dark"] .n8n-card {
 ```css
 /* corporate-theme.css */
 :root {
-  --n8n-primary-color: #1e40af;
-  --n8n-secondary-color: #059669;
-  --n8n-accent-color: #dc2626;
-  --n8n-background-color: #ffffff;
-  --n8n-surface-color: #f8fafc;
-  --n8n-text-color: #1e293b;
-  --n8n-border-color: #e2e8f0;
-  --n8n-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --SUA_SENHA_BANCO_AQUI-primary-color: #1e40af;
+  --SUA_SENHA_BANCO_AQUI-secondary-color: #059669;
+  --SUA_SENHA_BANCO_AQUI-accent-color: #dc2626;
+  --SUA_SENHA_BANCO_AQUI-background-color: #ffffff;
+  --SUA_SENHA_BANCO_AQUI-surface-color: #f8fafc;
+  --SUA_SENHA_BANCO_AQUI-text-color: #1e293b;
+  --SUA_SENHA_BANCO_AQUI-border-color: #e2e8f0;
+  --SUA_SENHA_BANCO_AQUI-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo corporativo */
-.n8n-header {
-  background: var(--n8n-primary-color);
+.SUA_SENHA_BANCO_AQUI-header {
+  background: var(--SUA_SENHA_BANCO_AQUI-primary-color);
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.n8n-button-primary {
-  background: var(--n8n-primary-color);
+.SUA_SENHA_BANCO_AQUI-button-primary {
+  background: var(--SUA_SENHA_BANCO_AQUI-primary-color);
   border: none;
   border-radius: 6px;
   padding: 12px 24px;
@@ -102,7 +102,7 @@ body[data-theme="dark"] .n8n-card {
   transition: all 0.2s ease;
 }
 
-.n8n-button-primary:hover {
+.SUA_SENHA_BANCO_AQUI-button-primary:hover {
   background: #1d4ed8;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(30, 64, 175, 0.3);
@@ -123,7 +123,7 @@ N8N_THEME_LOGO_ALT="Sua Empresa - Automação"
 
 ```css
 /* Logo principal */
-.n8n-header-logo {
+.SUA_SENHA_BANCO_AQUI-header-logo {
   background-image: url('https://sua-empresa.com/logo.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -134,14 +134,14 @@ N8N_THEME_LOGO_ALT="Sua Empresa - Automação"
 
 /* Logo responsivo */
 @media (max-width: 768px) {
-  .n8n-header-logo {
+  .SUA_SENHA_BANCO_AQUI-header-logo {
     width: 120px;
     height: 32px;
   }
 }
 
 /* Logo para tema escuro */
-body[data-theme="dark"] .n8n-header-logo {
+body[data-theme="dark"] .SUA_SENHA_BANCO_AQUI-header-logo {
   background-image: url('https://sua-empresa.com/logo-white.png');
 }
 ```
@@ -161,26 +161,26 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 
 ```css
 /* custom-text.css */
-.n8n-app-name {
+.SUA_SENHA_BANCO_AQUI-app-name {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 24px;
-  color: var(--n8n-primary-color);
+  color: var(--SUA_SENHA_BANCO_AQUI-primary-color);
 }
 
-.n8n-app-description {
+.SUA_SENHA_BANCO_AQUI-app-description {
   font-size: 14px;
-  color: var(--n8n-text-secondary);
+  color: var(--SUA_SENHA_BANCO_AQUI-text-secondary);
   margin-top: 4px;
 }
 
-.n8n-footer {
-  background-color: var(--n8n-surface-color);
-  border-top: 1px solid var(--n8n-border-color);
+.SUA_SENHA_BANCO_AQUI-footer {
+  background-color: var(--SUA_SENHA_BANCO_AQUI-surface-color);
+  border-top: 1px solid var(--SUA_SENHA_BANCO_AQUI-border-color);
   padding: 16px 24px;
   text-align: center;
   font-size: 12px;
-  color: var(--n8n-text-secondary);
+  color: var(--SUA_SENHA_BANCO_AQUI-text-secondary);
 }
 ```
 
@@ -197,58 +197,58 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 ```css
 /* custom-layout.css */
 /* Header customizado */
-.n8n-header {
-  background: linear-gradient(135deg, var(--n8n-primary-color), var(--n8n-secondary-color));
+.SUA_SENHA_BANCO_AQUI-header {
+  background: linear-gradient(135deg, var(--SUA_SENHA_BANCO_AQUI-primary-color), var(--SUA_SENHA_BANCO_AQUI-secondary-color));
   padding: 16px 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Sidebar customizada */
-.n8n-sidebar {
-  background-color: var(--n8n-surface-color);
-  border-right: 1px solid var(--n8n-border-color);
+.SUA_SENHA_BANCO_AQUI-sidebar {
+  background-color: var(--SUA_SENHA_BANCO_AQUI-surface-color);
+  border-right: 1px solid var(--SUA_SENHA_BANCO_AQUI-border-color);
   width: 280px;
   transition: width 0.3s ease;
 }
 
-.n8n-sidebar.collapsed {
+.SUA_SENHA_BANCO_AQUI-sidebar.collapsed {
   width: 60px;
 }
 
 /* Cards customizados */
-.n8n-card {
-  background: var(--n8n-surface-color);
-  border: 1px solid var(--n8n-border-color);
-  border-radius: var(--n8n-border-radius);
-  box-shadow: var(--n8n-shadow);
+.SUA_SENHA_BANCO_AQUI-card {
+  background: var(--SUA_SENHA_BANCO_AQUI-surface-color);
+  border: 1px solid var(--SUA_SENHA_BANCO_AQUI-border-color);
+  border-radius: var(--SUA_SENHA_BANCO_AQUI-border-radius);
+  box-shadow: var(--SUA_SENHA_BANCO_AQUI-shadow);
   transition: all 0.2s ease;
 }
 
-.n8n-card:hover {
+.SUA_SENHA_BANCO_AQUI-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* Botões customizados */
-.n8n-button {
-  border-radius: var(--n8n-border-radius);
+.SUA_SENHA_BANCO_AQUI-button {
+  border-radius: var(--SUA_SENHA_BANCO_AQUI-border-radius);
   font-weight: 600;
   transition: all 0.2s ease;
   border: none;
   cursor: pointer;
 }
 
-.n8n-button-primary {
-  background: var(--n8n-primary-color);
+.SUA_SENHA_BANCO_AQUI-button-primary {
+  background: var(--SUA_SENHA_BANCO_AQUI-primary-color);
   color: white;
 }
 
-.n8n-button-primary:hover {
-  background: var(--n8n-secondary-color);
+.SUA_SENHA_BANCO_AQUI-button-primary:hover {
+  background: var(--SUA_SENHA_BANCO_AQUI-secondary-color);
   color: white;
 }
 
-.n8n-button-secondary:hover {
+.SUA_SENHA_BANCO_AQUI-button-secondary:hover {
   background: #059669;
   transform: translateY(-1px);
 }
@@ -259,25 +259,25 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 ```css
 /* custom-components.css */
 /* Nodes customizados */
-.n8n-node {
+.SUA_SENHA_BANCO_AQUI-node {
   border-radius: 8px;
-  border: 2px solid var(--n8n-border-color);
-  background: var(--n8n-surface-color);
+  border: 2px solid var(--SUA_SENHA_BANCO_AQUI-border-color);
+  background: var(--SUA_SENHA_BANCO_AQUI-surface-color);
   transition: all 0.2s ease;
 }
 
-.n8n-node:hover {
-  border-color: var(--n8n-primary-color);
+.SUA_SENHA_BANCO_AQUI-node:hover {
+  border-color: var(--SUA_SENHA_BANCO_AQUI-primary-color);
   box-shadow: 0 4px 8px rgba(234, 75, 113, 0.2);
 }
 
-.n8n-node.selected {
-  border-color: var(--n8n-primary-color);
+.SUA_SENHA_BANCO_AQUI-node.selected {
+  border-color: var(--SUA_SENHA_BANCO_AQUI-primary-color);
   box-shadow: 0 0 0 3px rgba(234, 75, 113, 0.3);
 }
 
 /* Canvas customizado */
-.n8n-canvas {
+.SUA_SENHA_BANCO_AQUI-canvas {
   background-image: 
     linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px);
@@ -286,9 +286,9 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 }
 
 /* Toolbar customizada */
-.n8n-toolbar {
-  background: var(--n8n-surface-color);
-  border-bottom: 1px solid var(--n8n-border-color);
+.SUA_SENHA_BANCO_AQUI-toolbar {
+  background: var(--SUA_SENHA_BANCO_AQUI-surface-color);
+  border-bottom: 1px solid var(--SUA_SENHA_BANCO_AQUI-border-color);
   padding: 12px 24px;
   display: flex;
   align-items: center;
@@ -296,8 +296,8 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 }
 
 /* Status indicators */
-.n8n-status-success {
-  color: var(--n8n-secondary-color);
+.SUA_SENHA_BANCO_AQUI-status-success {
+  color: var(--SUA_SENHA_BANCO_AQUI-secondary-color);
   background: rgba(16, 185, 129, 0.1);
   border: 1px solid rgba(16, 185, 129, 0.2);
   border-radius: 4px;
@@ -306,8 +306,8 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
   font-weight: 600;
 }
 
-.n8n-status-error {
-  color: var(--n8n-accent-color);
+.SUA_SENHA_BANCO_AQUI-status-error {
+  color: var(--SUA_SENHA_BANCO_AQUI-accent-color);
   background: rgba(220, 38, 38, 0.1);
   border: 1px solid rgba(220, 38, 38, 0.2);
   border-radius: 4px;
@@ -323,49 +323,49 @@ N8N_THEME_HELP_TEXT="Precisa de ajuda? Entre em contato com nosso suporte."
 /* responsive.css */
 /* Mobile (até 768px) */
 @media (max-width: 768px) {
-  .n8n-header {
+  .SUA_SENHA_BANCO_AQUI-header {
     padding: 12px 16px;
   }
 
-  .n8n-sidebar {
+  .SUA_SENHA_BANCO_AQUI-sidebar {
     position: fixed;
     left: -280px;
     z-index: 1000;
     transition: left 0.3s ease;
   }
 
-  .n8n-sidebar.open {
+  .SUA_SENHA_BANCO_AQUI-sidebar.open {
     left: 0;
   }
 
-  .n8n-main-content {
+  .SUA_SENHA_BANCO_AQUI-main-content {
     margin-left: 0;
     padding: 16px;
   }
 
-  .n8n-card {
+  .SUA_SENHA_BANCO_AQUI-card {
     margin-bottom: 16px;
   }
 }
 
 /* Tablet (768px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .n8n-sidebar {
+  .SUA_SENHA_BANCO_AQUI-sidebar {
     width: 240px;
   }
 
-  .n8n-main-content {
+  .SUA_SENHA_BANCO_AQUI-main-content {
     margin-left: 240px;
   }
 }
 
 /* Desktop (acima de 1024px) */
 @media (min-width: 1025px) {
-  .n8n-sidebar {
+  .SUA_SENHA_BANCO_AQUI-sidebar {
     width: 280px;
   }
 
-  .n8n-main-content {
+  .SUA_SENHA_BANCO_AQUI-main-content {
     margin-left: 280px;
   }
 }
@@ -402,7 +402,7 @@ server {
     add_header Referrer-Policy "no-referrer-when-downgrade" always;
     add_header Content-Security-Policy "default-src 'self' http: https: data: blob: 'unsafe-inline'" always;
 
-    # Proxy para n8n
+    # Proxy para SUA_SENHA_BANCO_AQUI
     location / {
         proxy_pass http://localhost:5678;
         proxy_http_version 1.1;
@@ -450,12 +450,12 @@ services:
       - ./ssl:/etc/nginx/ssl
       - ./logs:/var/log/nginx
     depends_on:
-      - n8n
+      - SUA_SENHA_BANCO_AQUI
     networks:
-      - n8n-network
+      - SUA_SENHA_BANCO_AQUI-network
 
-  n8n:
-    image: n8nio/n8n
+  SUA_SENHA_BANCO_AQUI:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
     environment:
       - N8N_HOST=automação.suaempresa.com
       - N8N_PROTOCOL=https
@@ -463,15 +463,15 @@ services:
     volumes:
       - ./custom-theme:/app/custom-theme
     networks:
-      - n8n-network
+      - SUA_SENHA_BANCO_AQUI-network
     expose:
       - "5678"
 
 volumes:
-  n8n_data:
+  SUA_SENHA_BANCO_AQUI_data:
 
 networks:
-  n8n-network:
+  SUA_SENHA_BANCO_AQUI-network:
     driver: bridge
 ```
 
@@ -525,39 +525,39 @@ add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
 ```css
 /* integration.css */
 /* Ocultar elementos desnecessários */
-.n8n-sidebar .n8n-navigation-item[data-test-id="settings"] {
+.SUA_SENHA_BANCO_AQUI-sidebar .SUA_SENHA_BANCO_AQUI-navigation-item[data-test-id="settings"] {
   display: none;
 }
 
 /* Integrar com header da aplicação principal */
-.n8n-header {
+.SUA_SENHA_BANCO_AQUI-header {
   background: transparent;
-  border-bottom: 1px solid var(--n8n-border-color);
+  border-bottom: 1px solid var(--SUA_SENHA_BANCO_AQUI-border-color);
   padding: 0;
   height: auto;
 }
 
 /* Estilo consistente com aplicação principal */
-.n8n-button {
+.SUA_SENHA_BANCO_AQUI-button {
   font-family: var(--app-font-family);
   border-radius: var(--app-border-radius);
   font-weight: var(--app-font-weight);
 }
 
-.n8n-card {
+.SUA_SENHA_BANCO_AQUI-card {
   border-radius: var(--app-border-radius);
   box-shadow: var(--app-shadow);
 }
 
 /* Cores consistentes */
 :root {
-  --n8n-primary-color: var(--app-primary-color);
-  --n8n-secondary-color: var(--app-secondary-color);
-  --n8n-accent-color: var(--app-accent-color);
-  --n8n-background-color: var(--app-background-color);
-  --n8n-surface-color: var(--app-surface-color);
-  --n8n-text-color: var(--app-text-color);
-  --n8n-border-color: var(--app-border-color);
+  --SUA_SENHA_BANCO_AQUI-primary-color: var(--app-primary-color);
+  --SUA_SENHA_BANCO_AQUI-secondary-color: var(--app-secondary-color);
+  --SUA_SENHA_BANCO_AQUI-accent-color: var(--app-accent-color);
+  --SUA_SENHA_BANCO_AQUI-background-color: var(--app-background-color);
+  --SUA_SENHA_BANCO_AQUI-surface-color: var(--app-surface-color);
+  --SUA_SENHA_BANCO_AQUI-text-color: var(--app-text-color);
+  --SUA_SENHA_BANCO_AQUI-border-color: var(--app-border-color);
 }
 ```
 
@@ -571,7 +571,7 @@ class N8NIntegration {
   }
 
   init() {
-    // Aguardar carregamento do n8n
+    // Aguardar carregamento do SUA_SENHA_BANCO_AQUI
     this.waitForN8N().then(() => {
       this.applyCustomTheme();
       this.setupEventListeners();
@@ -582,7 +582,7 @@ class N8NIntegration {
   waitForN8N() {
     return new Promise((resolve) => {
       const checkN8N = () => {
-        if (document.querySelector('.n8n-app')) {
+        if (document.querySelector('.SUA_SENHA_BANCO_AQUI-app')) {
           resolve();
         } else {
           setTimeout(checkN8N, 100);
@@ -602,19 +602,19 @@ class N8NIntegration {
     // Aplicar variáveis CSS
     Object.entries(theme).forEach(([key, value]) => {
       document.documentElement.style.setProperty(
-        `--n8n-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`,
+        `--SUA_SENHA_BANCO_AQUI-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`,
         value
       );
     });
   }
 
   setupEventListeners() {
-    // Escutar eventos do n8n
-    document.addEventListener('n8n-workflow-executed', (event) => {
+    // Escutar eventos do SUA_SENHA_BANCO_AQUI
+    document.addEventListener('SUA_SENHA_BANCO_AQUI-workflow-executed', (event) => {
       this.notifyMainApp('workflow-executed', event.detail);
     });
 
-    document.addEventListener('n8n-workflow-error', (event) => {
+    document.addEventListener('SUA_SENHA_BANCO_AQUI-workflow-error', (event) => {
       this.notifyMainApp('workflow-error', event.detail);
     });
   }
@@ -636,13 +636,13 @@ class N8NIntegration {
       if (event.origin !== window.parent.location.origin) return;
 
       switch (event.data.type) {
-        case 'n8n-load-workflow':
+        case 'SUA_SENHA_BANCO_AQUI-load-workflow':
           this.loadWorkflow(event.data.workflowId);
           break;
-        case 'n8n-execute-workflow':
+        case 'SUA_SENHA_BANCO_AQUI-execute-workflow':
           this.executeWorkflow(event.data.workflowId, event.data.data);
           break;
-        case 'n8n-get-status':
+        case 'SUA_SENHA_BANCO_AQUI-get-status':
           this.getStatus();
           break;
       }
@@ -650,11 +650,11 @@ class N8NIntegration {
   }
 
   setupWindowIntegration() {
-    // Integração quando n8n está em nova aba
+    // Integração quando SUA_SENHA_BANCO_AQUI está em nova aba
     window.addEventListener('beforeunload', () => {
       if (window.opener) {
         window.opener.postMessage({
-          type: 'n8n-closed',
+          type: 'SUA_SENHA_BANCO_AQUI-closed',
           timestamp: Date.now()
         }, '*');
       }
@@ -664,7 +664,7 @@ class N8NIntegration {
   notifyMainApp(type, data) {
     if (window.parent && window.parent !== window) {
       window.parent.postMessage({
-        type: `n8n-${type}`,
+        type: `SUA_SENHA_BANCO_AQUI-${type}`,
         data: data,
         timestamp: Date.now()
       }, '*');
@@ -698,10 +698,10 @@ class N8NIntegration {
   }
 
   getStatus() {
-    // Obter status atual do n8n
+    // Obter status atual do SUA_SENHA_BANCO_AQUI
     const status = {
-      workflows: document.querySelectorAll('.n8n-workflow').length,
-      activeWorkflows: document.querySelectorAll('.n8n-workflow.active').length,
+      workflows: document.querySelectorAll('.SUA_SENHA_BANCO_AQUI-workflow').length,
+      activeWorkflows: document.querySelectorAll('.SUA_SENHA_BANCO_AQUI-workflow.active').length,
       lastExecution: this.getLastExecutionTime()
     };
 
@@ -710,12 +710,12 @@ class N8NIntegration {
 
   getApiKey() {
     // Obter API key do localStorage ou configuração
-    return localStorage.getItem('n8n-api-key') || '';
+    return localStorage.getItem('SUA_SENHA_BANCO_AQUI-api-key') || '';
   }
 
   getLastExecutionTime() {
     // Obter tempo da última execução
-    const lastExecution = localStorage.getItem('n8n-last-execution');
+    const lastExecution = localStorage.getItem('SUA_SENHA_BANCO_AQUI-last-execution');
     return lastExecution ? new Date(lastExecution) : null;
   }
 }
@@ -758,14 +758,14 @@ new N8NIntegration();
   --neutral-900: #0f172a;
 }
 
-/* Aplicar ao n8n */
+/* Aplicar ao SUA_SENHA_BANCO_AQUI */
 :root {
-  --n8n-primary-color: var(--brand-primary);
-  --n8n-secondary-color: var(--brand-secondary);
-  --n8n-accent-color: var(--warning);
-  --n8n-success-color: var(--success);
-  --n8n-error-color: var(--error);
-  --n8n-info-color: var(--info);
+  --SUA_SENHA_BANCO_AQUI-primary-color: var(--brand-primary);
+  --SUA_SENHA_BANCO_AQUI-secondary-color: var(--brand-secondary);
+  --SUA_SENHA_BANCO_AQUI-accent-color: var(--warning);
+  --SUA_SENHA_BANCO_AQUI-success-color: var(--success);
+  --SUA_SENHA_BANCO_AQUI-error-color: var(--error);
+  --SUA_SENHA_BANCO_AQUI-info-color: var(--info);
 }
 ```
 
@@ -799,19 +799,19 @@ new N8NIntegration();
   --line-height-relaxed: 1.75;
 }
 
-/* Aplicar ao n8n */
-.n8n-app {
+/* Aplicar ao SUA_SENHA_BANCO_AQUI */
+.SUA_SENHA_BANCO_AQUI-app {
   font-family: var(--font-family-sans);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
 }
 
-.n8n-heading {
+.SUA_SENHA_BANCO_AQUI-heading {
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-tight);
 }
 
-.n8n-code {
+.SUA_SENHA_BANCO_AQUI-code {
   font-family: var(--font-family-mono);
   font-size: var(--font-size-sm);
 }
@@ -822,22 +822,22 @@ new N8NIntegration();
 ```css
 /* accessibility.css */
 /* Contraste adequado */
-.n8n-text {
+.SUA_SENHA_BANCO_AQUI-text {
   color: var(--neutral-800);
   background-color: var(--neutral-50);
 }
 
 /* Foco visível */
-.n8n-button:focus,
-.n8n-input:focus,
-.n8n-link:focus {
+.SUA_SENHA_BANCO_AQUI-button:focus,
+.SUA_SENHA_BANCO_AQUI-input:focus,
+.SUA_SENHA_BANCO_AQUI-link:focus {
   outline: 2px solid var(--brand-primary);
   outline-offset: 2px;
 }
 
 /* Estados de hover */
-.n8n-button:hover,
-.n8n-link:hover {
+.SUA_SENHA_BANCO_AQUI-button:hover,
+.SUA_SENHA_BANCO_AQUI-link:hover {
   opacity: 0.8;
   transform: translateY(-1px);
 }
@@ -845,10 +845,10 @@ new N8NIntegration();
 /* Suporte a modo escuro */
 @media (prefers-color-scheme: dark) {
   :root {
-    --n8n-background-color: var(--neutral-900);
-    --n8n-surface-color: var(--neutral-800);
-    --n8n-text-color: var(--neutral-100);
-    --n8n-border-color: var(--neutral-700);
+    --SUA_SENHA_BANCO_AQUI-background-color: var(--neutral-900);
+    --SUA_SENHA_BANCO_AQUI-surface-color: var(--neutral-800);
+    --SUA_SENHA_BANCO_AQUI-text-color: var(--neutral-100);
+    --SUA_SENHA_BANCO_AQUI-border-color: var(--neutral-700);
   }
 }
 
@@ -868,12 +868,12 @@ new N8NIntegration();
 
 ## Próximos Passos
 
-Agora que você entende o white labelling do n8n:
+Agora que você entende o white labelling do SUA_SENHA_BANCO_AQUI:
 
 1. **[Gerenciar Workflows](./gerenciar-workflows)** - Controle total sobre workflows
 2. **[Configuração do Embed](../implementacao/configuracao)** - Configurar parâmetros avançados
-3. **[API do n8n](../../api/)** - Explorar endpoints para integração
-4. **[Hosting](../../hosting-n8n/)** - Configurar ambiente de produção
+3. **[API do SUA_SENHA_BANCO_AQUI](../../api/)** - Explorar endpoints para integração
+4. **[Hosting](../../hosting-SUA_SENHA_BANCO_AQUI/)** - Configurar ambiente de produção
 
 ---
 

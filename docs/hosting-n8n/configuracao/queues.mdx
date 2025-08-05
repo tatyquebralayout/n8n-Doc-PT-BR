@@ -1,14 +1,14 @@
 ﻿---
 sidebar_position: 3
 title: Configuração de Filas
-description: Configurar e gerenciar filas de jobs no n8n para melhor performance e escalabilidade
-keywords: [n8n, filas, redis, jobs, performance, escalabilidade, configuração]
+description: Configurar e gerenciar filas de jobs no SUA_SENHA_BANCO_AQUI para melhor performance e escalabilidade
+keywords: [SUA_SENHA_BANCO_AQUI, filas, redis, jobs, performance, escalabilidade, configuração]
 ---
 
 <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 # Configuração de Filas
 
-Configure e otimize as filas de jobs no n8n para melhorar performance, escalabilidade e confiabilidade em ambientes de produção.
+Configure e otimize as filas de jobs no SUA_SENHA_BANCO_AQUI para melhorar performance, escalabilidade e confiabilidade em ambientes de produção.
 
 ---
 
@@ -47,17 +47,17 @@ Filas são sistemas que gerenciam jobs (tarefas) de forma assíncrona, permitind
 version: '3.8'
 
 services:
-  n8n:
-    image: n8nio/n8n
+  SUA_SENHA_BANCO_AQUI:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
     environment:
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
-      - DB_POSTGRESDB_PASSWORD=n8n
+      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_PASSWORD=SUA_SENHA_BANCO_AQUI
       - QUEUE_BULL_REDIS_HOST=redis
       - QUEUE_BULL_REDIS_PORT=6379
-      - QUEUE_BULL_REDIS_PASSWORD=redis_password
+      - QUEUE_BULL_REDIS_PASSWORD=SUA_SENHA_REDIS_AQUI
       - EXECUTIONS_PROCESS=main
       - EXECUTIONS_MODE=regular
     depends_on:
@@ -67,15 +67,15 @@ services:
   postgres:
     image: postgres:13
     environment:
-      - POSTGRES_DB=n8n
-      - POSTGRES_USER=n8n
-      - POSTGRES_PASSWORD=n8n
+      - POSTGRES_DB=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_USER=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_PASSWORD=SUA_SENHA_BANCO_AQUI
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   redis:
     image: redis:6-alpine
-    command: redis-server --requirepass redis_password
+    command: redis-server --requirepass SUA_SENHA_REDIS_AQUI
     volumes:
       - redis_data:/data
 
@@ -90,7 +90,7 @@ volumes:
 # Configuração de Filas
 QUEUE_BULL_REDIS_HOST=localhost
 QUEUE_BULL_REDIS_PORT=6379
-QUEUE_BULL_REDIS_PASSWORD=senha_redis
+QUEUE_BULL_REDIS_PASSWORD=SUA_SENHA_REDIS_AQUI
 QUEUE_BULL_REDIS_DB=0
 
 # Configuração de Execução
@@ -189,7 +189,7 @@ redis-cli keys "*"
 <IonicIcon name="time-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 REDIS_PORT="6379"
-REDIS_PASSWORD="senha_redis"
+REDIS_PASSWORD="SUA_SENHA_REDIS_AQUI"
 
 <IonicIcon name="analytics-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
@@ -199,11 +199,11 @@ redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD info server | grep up
 echo "=== Memória ==="
 redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD info memory | grep used_memory_human
 
-echo "=== Filas n8n ==="
-echo "Jobs na fila: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD llen n8n:queue:jobs)"
-echo "Webhooks na fila: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD llen n8n:queue:webhooks)"
-echo "Jobs processados: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD get n8n:stats:processed)"
-echo "Jobs falharam: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD get n8n:stats:failed)"
+echo "=== Filas SUA_SENHA_BANCO_AQUI ==="
+echo "Jobs na fila: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD llen SUA_SENHA_BANCO_AQUI:queue:jobs)"
+echo "Webhooks na fila: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD llen SUA_SENHA_BANCO_AQUI:queue:webhooks)"
+echo "Jobs processados: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD get SUA_SENHA_BANCO_AQUI:stats:processed)"
+echo "Jobs falharam: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD get SUA_SENHA_BANCO_AQUI:stats:failed)"
 ```
 
 ### Diagnóstico de Filas
@@ -212,7 +212,7 @@ echo "Jobs falharam: $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWOR
 <IonicIcon name="grid-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 ## Diagnóstico de Filas
 
-echo "=== Diagnóstico de Filas n8n ==="
+echo "=== Diagnóstico de Filas SUA_SENHA_BANCO_AQUI ==="
 echo
 
 # Verificar status do Redis
@@ -222,12 +222,12 @@ echo
 
 # Verificar filas ativas
 echo "2. Filas Ativas:"
-redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD keys "n8n:queue:*"
+redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD keys "SUA_SENHA_BANCO_AQUI:queue:*"
 echo
 
 # Contar jobs em cada fila
 echo "3. Jobs por Fila:"
-for queue in $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD keys "n8n:queue:*"); do
+for queue in $(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD keys "SUA_SENHA_BANCO_AQUI:queue:*"); do
   count=$(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD llen $queue)
   echo "$queue: $count jobs"
 done
@@ -235,7 +235,7 @@ echo
 
 # Verificar jobs com falha
 echo "4. Jobs com Falha:"
-redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD keys "n8n:queue:*:failed" | while read queue; do
+redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD keys "SUA_SENHA_BANCO_AQUI:queue:*:failed" | while read queue; do
   count=$(redis-cli -h $REDIS_HOST -p $REDIS_PORT -a $REDIS_PASSWORD llen $queue)
   if [ $count -gt 0 ]; then
     echo "$queue: $count jobs falharam"
@@ -289,8 +289,8 @@ QUEUE_BULL_REDIS_MAX_MEMORY=2gb
 version: '3.8'
 
 services:
-  n8n-worker-1:
-    image: n8nio/n8n
+  SUA_SENHA_BANCO_AQUI-worker-1:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
     environment:
       - EXECUTIONS_PROCESS=worker
       - EXECUTIONS_WORKER_CONCURRENCY=2
@@ -298,8 +298,8 @@ services:
       - redis
       - postgres
 
-  n8n-worker-2:
-    image: n8nio/n8n
+  SUA_SENHA_BANCO_AQUI-worker-2:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI
     environment:
       - EXECUTIONS_PROCESS=worker
       - EXECUTIONS_WORKER_CONCURRENCY=2
@@ -318,10 +318,10 @@ services:
 **Jobs não processados:**
 ```bash
 # Verificar workers ativos
-docker ps | grep n8n
+docker ps | grep SUA_SENHA_BANCO_AQUI
 
 # Verificar logs dos workers
-docker logs n8n-worker-1
+docker logs SUA_SENHA_BANCO_AQUI-worker-1
 ```
 
 **Redis sem conexão:**

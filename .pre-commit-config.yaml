@@ -1,0 +1,67 @@
+# Pre-commit hooks para segurança da documentação n8n PT-BR
+repos:
+  # Verificações básicas
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: mixed-line-ending
+
+  # Detecção de secrets usando Gitleaks
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks
+
+  # Verificação de credenciais expostas personalizada
+  - repo: local
+    hooks:
+      - id: check-sensitive-content
+        name: Verificar conteúdo sensível na documentação
+        entry: node scripts/fix-sensitive-content.js --check
+        language: node
+        files: \.(md|mdx)$
+        always_run: false
+
+  # Validação de Markdown
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.42.0
+    hooks:
+      - id: markdownlint
+        args: ['--config', '.markdownlint.yml']
+        files: \.(md|mdx)$
+
+  # Validação de links (opcional - pode ser lento)
+  # - repo: https://github.com/tcort/markdown-link-check
+  #   rev: v3.12.2
+  #   hooks:
+  #     - id: markdown-link-check
+  #       args: ['-c', '.markdown-link-check.json']
+  #       files: \.(md|mdx)$
+
+  # ESLint para arquivos TypeScript/JavaScript
+  - repo: local
+    hooks:
+      - id: eslint
+        name: ESLint
+        entry: npx eslint --fix
+        language: node
+        files: \.(js|jsx|ts|tsx)$
+        require_serial: false
+
+  # TypeScript type checking
+  - repo: local
+    hooks:
+      - id: tsc
+        name: TypeScript Compiler
+        entry: npx tsc --noEmit
+        language: node
+        files: \.(ts|tsx)$
+        require_serial: false
+        pass_filenames: false

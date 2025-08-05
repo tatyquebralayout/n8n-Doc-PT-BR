@@ -1,0 +1,67 @@
+# Configuração do MarkdownLint para n8n Documentation PT-BR
+
+# Regras habilitadas
+default: true
+
+# Customizações específicas
+MD003: # Heading style
+  style: "atx"
+
+MD007: # Unordered list indentation
+  indent: 2
+
+MD009: # Trailing spaces
+  br_spaces: 2
+
+MD012: # Multiple consecutive blank lines
+  maximum: 2
+
+MD013: # Line length
+  line_length: 120
+  tables: false
+  code_blocks: false
+
+MD024: # Multiple headings with the same content
+  allow_different_nesting: true
+
+MD025: # Multiple top level headings
+  front_matter_title: "^\\s*title\\s*[:=]"
+
+MD026: # Trailing punctuation in heading
+  punctuation: ".,;:!?"
+
+MD029: # Ordered list item prefix
+  style: "ordered"
+
+MD033: # HTML elements
+  allowed_elements:
+    - "details"
+    - "summary"
+    - "IonicIcon"
+    - "img"
+    - "br"
+    - "div"
+    - "span"
+    - "a"
+    - "sup"
+    - "sub"
+
+MD036: # Emphasis used instead of heading
+  punctuation: ".,;:!?。，；：！？"
+
+MD040: # Fenced code blocks should have a language
+  allowed_languages: []
+
+MD041: # First line in file should be a top level heading
+  front_matter_title: "^\\s*title\\s*[:=]"
+
+MD046: # Code block style
+  style: "fenced"
+
+MD048: # Code fence style
+  style: "backtick"
+
+# Regras desabilitadas para documentação
+MD001: false # Heading increment
+MD034: false # Bare URLs (permitir URLs sem markdown)
+MD051: false # Link fragments (permitir fragmentos)

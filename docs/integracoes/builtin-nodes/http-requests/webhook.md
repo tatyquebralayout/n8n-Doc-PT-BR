@@ -1,13 +1,13 @@
 ---
 title: Node Webhook
-description: Aprenda a usar o node Webhook no n8n para receber dados de aplicações e serviços externos
+description: Aprenda a usar o node Webhook no SUA_SENHA_BANCO_AQUI para receber dados de aplicações e serviços externos
 sidebar_position: 2
-keywords: [n8n, webhook, trigger, receber dados, api endpoint]
+keywords: [SUA_SENHA_BANCO_AQUI, webhook, trigger, receber dados, api endpoint]
 ---
 
 <IonicIcon name="link-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Use o node **Webhook** para criar [webhooks](https://pt.wikipedia.org/wiki/Webhook), que podem receber dados de aplicações e serviços quando um evento ocorre. É um node trigger, o que significa que pode iniciar um workflow do n8n. Isso permite que serviços se conectem ao n8n e executem um workflow.
+Use o node **Webhook** para criar [webhooks](https://pt.wikipedia.org/wiki/Webhook), que podem receber dados de aplicações e serviços quando um evento ocorre. É um node trigger, o que significa que pode iniciar um workflow do SUA_SENHA_BANCO_AQUI. Isso permite que serviços se conectem ao SUA_SENHA_BANCO_AQUI e executem um workflow.
 
 Você pode usar o node Webhook como um trigger para um workflow quando quiser receber dados e executar um workflow baseado nesses dados. O node Webhook também suporta retornar os dados gerados no final de um workflow. Isso o torna útil para construir um workflow que processa dados e retorna os resultados, como um endpoint de API.
 
@@ -24,12 +24,12 @@ O node Webhook é ideal para:
 
 ## URLs do Webhook
 
-O node Webhook tem duas **URLs de Webhook**: teste e produção. O n8n exibe as URLs no topo do painel do node.
+O node Webhook tem duas **URLs de Webhook**: teste e produção. O SUA_SENHA_BANCO_AQUI exibe as URLs no topo do painel do node.
 
-Selecione **URL de Teste** ou **URL de Produção** para alternar qual URL o n8n exibe.
+Selecione **URL de Teste** ou **URL de Produção** para alternar qual URL o SUA_SENHA_BANCO_AQUI exibe.
 
-- **Teste**: O n8n registra um webhook de teste quando você seleciona **Ouvir Evento de Teste** ou **Executar workflow**, se o workflow não estiver ativo. Quando você chama a URL do webhook, o n8n exibe os dados no workflow.
-- **Produção**: O n8n registra um webhook de produção quando você ativa o workflow. Ao usar a URL de produção, o n8n não exibe os dados no workflow. Você ainda pode visualizar dados do workflow para uma execução de produção: selecione a aba **Execuções** no workflow, depois selecione a execução do workflow que deseja visualizar.
+- **Teste**: O SUA_SENHA_BANCO_AQUI registra um webhook de teste quando você seleciona **Ouvir Evento de Teste** ou **Executar workflow**, se o workflow não estiver ativo. Quando você chama a URL do webhook, o SUA_SENHA_BANCO_AQUI exibe os dados no workflow.
+- **Produção**: O SUA_SENHA_BANCO_AQUI registra um webhook de produção quando você ativa o workflow. Ao usar a URL de produção, o SUA_SENHA_BANCO_AQUI não exibe os dados no workflow. Você ainda pode visualizar dados do workflow para uma execução de produção: selecione a aba **Execuções** no workflow, depois selecione a execução do workflow que deseja visualizar.
 
 ## Parâmetros do Node
 
@@ -46,14 +46,14 @@ O node Webhook suporta os métodos [HTTP Request Methods](https://developer.mozi
 
 :::note **Tamanho máximo do payload**
 O tamanho máximo do payload do webhook é 16MB.
-Se você está hospedando o n8n, pode alterar isso usando a [variável de ambiente](/hosting-n8n/configuracao/variaveis-ambiente) `N8N_PAYLOAD_SIZE_MAX`.
+Se você está hospedando o SUA_SENHA_BANCO_AQUI, pode alterar isso usando a [variável de ambiente](/hosting-SUA_SENHA_BANCO_AQUI/configuracao/variaveis-ambiente) `N8N_PAYLOAD_SIZE_MAX`.
 :::
 
 ### Caminho (Path)
 
 Por padrão, este campo contém um caminho de URL de webhook gerado aleatoriamente, para evitar conflitos com outros nodes de webhook.
 
-Você pode especificar manualmente um caminho de URL, incluindo adicionar parâmetros de rota. Por exemplo, você pode precisar fazer isso se usar o n8n para prototipar uma API e quiser URLs de endpoint consistentes.
+Você pode especificar manualmente um caminho de URL, incluindo adicionar parâmetros de rota. Por exemplo, você pode precisar fazer isso se usar o SUA_SENHA_BANCO_AQUI para prototipar uma API e quiser URLs de endpoint consistentes.
 
 O campo **Caminho** pode usar os seguintes formatos:
 
@@ -144,7 +144,7 @@ Ative isso para limitar quem (ou o quê) pode invocar uma URL de trigger de Webh
 
 ### Sem Body de Resposta
 
-Ative isso para impedir que o n8n envie um body com a resposta.
+Ative isso para impedir que o SUA_SENHA_BANCO_AQUI envie um body com a resposta.
 
 ### Body Bruto
 
@@ -164,7 +164,7 @@ Envie headers extras na resposta do Webhook. Consulte [MDN Web Docs | Response h
 
 ### Nome da Propriedade
 
-Por padrão, o n8n retorna todos os dados disponíveis. Você pode escolher retornar uma chave JSON específica, para que o n8n retorne o valor.
+Por padrão, o SUA_SENHA_BANCO_AQUI retorna todos os dados disponíveis. Você pode escolher retornar uma chave JSON específica, para que o SUA_SENHA_BANCO_AQUI retorne o valor.
 
 ## Exemplos Práticos
 
@@ -203,7 +203,7 @@ Por padrão, o n8n retorna todos os dados disponíveis. Você pode escolher reto
 **URL de exemplo:**
 
 ```text
-https://seu-n8n.com/webhook/api/usuarios/123
+https://seu-SUA_SENHA_BANCO_AQUI.com/webhook/api/usuarios/123
 ```
 
 **Resposta esperada:**
@@ -230,7 +230,7 @@ https://seu-n8n.com/webhook/api/usuarios/123
 
 ```bash
 curl -X POST \
-  https://seu-n8n.com/webhook/seguro \
+  https://seu-SUA_SENHA_BANCO_AQUI.com/webhook/seguro \
   -H "X-API-Key: sua-chave-secreta" \
   -H "Content-Type: application/json" \
   -d '{"dados": "exemplo"}'
@@ -345,5 +345,5 @@ if (isNaN(timestamp.getTime())) {
 - [Node HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Para fazer requisições HTTP
 - [Node Responder ao Webhook](/integracoes/builtin-nodes/core-nodes/respond-to-webhook) - Para respostas customizadas
 - [Credenciais Webhook](/integracoes/credential-nodes/webhook) - Configurar autenticação
-- [Expressões n8n](/logica-e-dados/expressoes) - Usar dados dinâmicos
+- [Expressões SUA_SENHA_BANCO_AQUI](/logica-e-dados/expressoes) - Usar dados dinâmicos
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas

@@ -30,7 +30,12 @@
     "preview": "npm run build && npm run serve",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "storybook:serve": "storybook dev -p 6006 --ci"
+    "storybook:serve": "storybook dev -p 6006 --ci",
+    "fix-sensitive-content": "node scripts/fix-sensitive-content.js",
+    "security:check": "node scripts/fix-sensitive-content.js --check",
+    "security:scan": "gitleaks detect --config .gitleaks.toml --verbose",
+    "security:full": "npm run security:check && npm run security:scan",
+    "prepare": "husky install || true"
   },
   "keywords": [
     "n8n",

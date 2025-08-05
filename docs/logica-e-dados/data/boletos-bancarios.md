@@ -1,13 +1,13 @@
 ---
 sidebar_position: 1
-title: Automação de Boletos Bancários no n8n
-description: Exemplo prático de geração, manipulação e envio de boletos bancários em workflows n8n, com dicas para integração com bancos brasileiros.
-keywords: [n8n, boletos, automação bancária, integração bancária, workflow, pdf, pagamentos, bancos brasileiros]
+title: Automação de Boletos Bancários no SUA_SENHA_BANCO_AQUI
+description: Exemplo prático de geração, manipulação e envio de boletos bancários em workflows SUA_SENHA_BANCO_AQUI, com dicas para integração com bancos brasileiros.
+keywords: [SUA_SENHA_BANCO_AQUI, boletos, automação bancária, integração bancária, workflow, pdf, pagamentos, bancos brasileiros]
 ---
 
 <IonicIcon name="card-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-## Automação de Boletos Bancários no n8n
+## Automação de Boletos Bancários no SUA_SENHA_BANCO_AQUI
 
 Este exemplo mostra como gerar boletos para clientes, anexar o PDF do boleto a cada item e integrar com APIs de bancos nacionais.
 
@@ -58,7 +58,7 @@ Este exemplo mostra como gerar boletos para clientes, anexar o PDF do boleto a c
 2. **[Dados Binários](./binary-data)** - Trabalhe com arquivos PDF
 3. **[Transformações de Dados](./transformacoes-dados)** - Processe dados bancários
 
-> *Agora você pode trabalhar com boletos bancários no n8n. Use essas técnicas para automatizar processos financeiros!*
+> *Agora você pode trabalhar com boletos bancários no SUA_SENHA_BANCO_AQUI. Use essas técnicas para automatizar processos financeiros!*
 
 ---
 

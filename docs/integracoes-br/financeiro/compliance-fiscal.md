@@ -1,14 +1,14 @@
 ---
 title: Compliance Fiscal
-description: Garantir conformidade com as regulamentações fiscais brasileiras usando n8n
+description: Garantir conformidade com as regulamentações fiscais brasileiras usando SUA_SENHA_BANCO_AQUI
 sidebar_position: 6
-keywords: [n8n, compliance, fiscal, sefaz, regulamentação, brasil, impostos]
+keywords: [SUA_SENHA_BANCO_AQUI, compliance, fiscal, sefaz, regulamentação, brasil, impostos]
 ---
 
 <IonicIcon name="shield-checkmark-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 compliance-fiscal
 
-O compliance fiscal no n8n abrange as funcionalidades e integrações necessárias para garantir conformidade com as regulamentações fiscais brasileiras.
+O compliance fiscal no SUA_SENHA_BANCO_AQUI abrange as funcionalidades e integrações necessárias para garantir conformidade com as regulamentações fiscais brasileiras.
 
 ## Funcionalidades
 

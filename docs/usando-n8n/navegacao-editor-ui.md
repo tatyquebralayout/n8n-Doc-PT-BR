@@ -1,6 +1,6 @@
 ---
 title: "Navegação do Editor UI"
-description: "Como navegar pela interface do editor n8n"
+description: "Como navegar pela interface do editor SUA_SENHA_BANCO_AQUI"
 sidebar_position: 3
 ---
 

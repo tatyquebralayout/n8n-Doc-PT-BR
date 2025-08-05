@@ -1,15 +1,15 @@
 ---
 sidebar_position: 2
-title: "Visão Geral de LangChain no n8n"
-description: Entenda como integrar LangChain ao n8n para criar automações inteligentes
+title: "Visão Geral de LangChain no SUA_SENHA_BANCO_AQUI"
+description: Entenda como integrar LangChain ao SUA_SENHA_BANCO_AQUI para criar automações inteligentes
   com IA, chains, agents, memory systems e bancos vetoriais.
-keywords: [n8n, langchain, integração IA, chains, agents, memory, vector database,
+keywords: [SUA_SENHA_BANCO_AQUI, langchain, integração IA, chains, agents, memory, vector database,
   automação inteligente, workflow IA, português brasileiro]
 ---
 
-## Visão Geral de LangChain no n8n: Framework para Automações Inteligentes
+## Visão Geral de LangChain no SUA_SENHA_BANCO_AQUI: Framework para Automações Inteligentes
 
-Este documento apresenta a integração do LangChain com o n8n para automação
+Este documento apresenta a integração do LangChain com o SUA_SENHA_BANCO_AQUI para automação
 inteligente, explicando conceitos de chains, agents, memory systems, vector
 databases, prompt engineering e arquiteturas que combinam múltiplos modelos de
 linguagem para criar soluções avançadas de IA para empresas brasileiras.
@@ -26,9 +26,9 @@ IA complexas, incluindo:
 - **Vector Stores**: Armazenamento e busca de embeddings
 - **Tools**: Ferramentas que os agentes podem usar
 
-## Integração com n8n
+## Integração com SUA_SENHA_BANCO_AQUI
 
-O n8n oferece nodes nativos para integração com LangChain, permitindo:
+O SUA_SENHA_BANCO_AQUI oferece nodes nativos para integração com LangChain, permitindo:
 
 - Criar workflows inteligentes com LLMs
 - Implementar agentes conversacionais
@@ -58,7 +58,7 @@ O n8n oferece nodes nativos para integração com LangChain, permitindo:
 
 ## Configuração Básica
 
-Para começar com LangChain no n8n:
+Para começar com LangChain no SUA_SENHA_BANCO_AQUI:
 
 1. **Configure credenciais** de LLM (OpenAI, Anthropic, etc.)
 2. **Adicione nodes LangChain** ao seu workflow

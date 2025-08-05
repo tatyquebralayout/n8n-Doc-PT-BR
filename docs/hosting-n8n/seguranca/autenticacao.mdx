@@ -1,13 +1,13 @@
 ﻿---
 sidebar_position: 1
 title: Autenticação e Acesso
-description: Como configurar autenticação segura e controle de acesso no n8n
-keywords: [n8n, autenticação, segurança, acesso, login, usuarios]
+description: Como configurar autenticação segura e controle de acesso no SUA_SENHA_BANCO_AQUI
+keywords: [SUA_SENHA_BANCO_AQUI, autenticação, segurança, acesso, login, usuarios]
 ---
 
 ## Autenticação e Acesso
 
-Este documento detalha como **configurar autenticação segura** no n8n, abordando métodos de login, integração com LDAP/Active Directory, SSO empresarial, autenticação de dois fatores, controle de sessão, e políticas de segurança que protegem o acesso à plataforma garantindo que apenas usuários autorizados possam criar, modificar ou executar workflows sensíveis em ambiente corporativo.
+Este documento detalha como **configurar autenticação segura** no SUA_SENHA_BANCO_AQUI, abordando métodos de login, integração com LDAP/Active Directory, SSO empresarial, autenticação de dois fatores, controle de sessão, e políticas de segurança que protegem o acesso à plataforma garantindo que apenas usuários autorizados possam criar, modificar ou executar workflows sensíveis em ambiente corporativo.
 
 ## Configuração Básica
 
@@ -69,7 +69,7 @@ N8N_SAML_SIGNATURE_ALGORITHM=SHA256
 # Configuração OAuth
 N8N_OAUTH_ENABLED=true
 N8N_OAUTH_CLIENT_ID=seu_client_id
-N8N_OAUTH_CLIENT_SECRET=seu_client_secret
+N8N_OAUTH_CLIENT_SECRET=SEU_CLIENT_SECRET_AQUI
 N8N_OAUTH_AUTHORIZATION_URL=https://seu-provider.com/oauth/authorize
 N8N_OAUTH_TOKEN_URL=https://seu-provider.com/oauth/token
 N8N_OAUTH_USERINFO_URL=https://seu-provider.com/oauth/userinfo
@@ -82,13 +82,13 @@ N8N_OAUTH_USERINFO_URL=https://seu-provider.com/oauth/userinfo
 N8N_LDAP_ENABLED=true
 N8N_LDAP_SERVER_URL=ldap://dc.empresa.com:389
 N8N_LDAP_BIND_DN=cn=admin,dc=empresa,dc=com
-N8N_LDAP_BIND_PASSWORD=senha_ad
+N8N_LDAP_BIND_PASSWORD=SUA_SENHA_AD_AQUI
 N8N_LDAP_BASE_DN=dc=empresa,dc=com
 N8N_LDAP_USER_FILTER=(sAMAccountName={{username}})
 N8N_LDAP_USER_ATTRIBUTE=sAMAccountName
 N8N_LDAP_EMAIL_ATTRIBUTE=mail
 N8N_LDAP_NAME_ATTRIBUTE=displayName
-N8N_LDAP_GROUP_FILTER=(memberOf=cn=n8n-users,ou=groups,dc=empresa,dc=com)
+N8N_LDAP_GROUP_FILTER=(memberOf=cn=SUA_SENHA_BANCO_AQUI-users,ou=groups,dc=empresa,dc=com)
 ```
 
 ## Configurações de Segurança
@@ -98,7 +98,7 @@ N8N_LDAP_GROUP_FILTER=(memberOf=cn=n8n-users,ou=groups,dc=empresa,dc=com)
 ```bash
 # Timeout de sessão
 N8N_SESSION_TIMEOUT=3600000
-N8N_SESSION_SECRET=seu_session_secret_muito_seguro
+N8N_SESSION_SECRET=SUA_SESSION_SECRET_AQUI
 N8N_SESSION_COOKIE_SECURE=true
 N8N_SESSION_COOKIE_HTTPONLY=true
 ```
@@ -210,7 +210,7 @@ const securityAlerts = {
 # Configuração Nginx com autenticação
 server {
     listen 443 ssl http2;
-    server_name n8n.empresa.com;
+    server_name SUA_SENHA_BANCO_AQUI.empresa.com;
 
     # SSL Configuration
     ssl_certificate /path/to/certificate.crt;
@@ -232,7 +232,7 @@ server {
     # Login endpoint com rate limiting
     location /login {
         limit_req zone=login burst=3 nodelay;
-        proxy_pass http://n8n_backend;
+        proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -242,7 +242,7 @@ server {
     # API endpoints
     location /api {
         limit_req zone=api burst=20 nodelay;
-        proxy_pass http://n8n_backend;
+        proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -251,7 +251,7 @@ server {
 
     # General proxy
     location / {
-        proxy_pass http://n8n_backend;
+        proxy_pass http://SUA_SENHA_BANCO_AQUI_backend;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -277,13 +277,13 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 
 ## Próximos Passos
 
-- [Monitoramento](/usando-n8n/monitoring/configurar-alertas) - Alertas de segurança
-- [Backup e Recovery](/hosting-n8n/seguranca/backup-recovery) - Recuperação de dados
+- [Monitoramento](/usando-SUA_SENHA_BANCO_AQUI/monitoring/configurar-alertas) - Alertas de segurança
+- [Backup e Recovery](/hosting-SUA_SENHA_BANCO_AQUI/seguranca/backup-recovery) - Recuperação de dados
 - [LGPD Compliance](/privacidade-seguranca/lgpd-compliance) - Conformidade legal
 
 ## Recursos Relacionados
 
 - [HTTP Request](/integracoes/builtin-nodes/http-requests/http-request) - Fazer chamadas para APIs
-- [Expressões n8n](/logica-e-dados/expressoes) - Personalizar autenticação
+- [Expressões SUA_SENHA_BANCO_AQUI](/logica-e-dados/expressoes) - Personalizar autenticação
 - [Tratamento de Erros](/logica-e-dados/flow-logic/error-handling) - Lidar com falhas
-- [Credenciais](/usando-n8n/credenciais/criar-editar) - Gerenciar tokens de API
+- [Credenciais](/usando-SUA_SENHA_BANCO_AQUI/credenciais/criar-editar) - Gerenciar tokens de API

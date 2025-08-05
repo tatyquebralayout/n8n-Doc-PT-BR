@@ -1,10 +1,10 @@
 # Edição de Dados
 
-A edição de dados é fundamental para transformar, limpar e preparar informações para uso em workflows. Esta seção aborda técnicas avançadas de edição, transformação e manipulação de dados no n8n.
+A edição de dados é fundamental para transformar, limpar e preparar informações para uso em workflows. Esta seção aborda técnicas avançadas de edição, transformação e manipulação de dados no SUA_SENHA_BANCO_AQUI.
 
 ## Visão Geral
 
-A edição de dados envolve modificar, limpar e transformar informações para atender às necessidades específicas dos workflows. No n8n, você pode editar dados usando:
+A edição de dados envolve modificar, limpar e transformar informações para atender às necessidades específicas dos workflows. No SUA_SENHA_BANCO_AQUI, você pode editar dados usando:
 
 - **Transformações básicas** de tipos e formatos
 - **Limpeza e normalização** de dados

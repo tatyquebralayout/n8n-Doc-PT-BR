@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 1
 title: Variáveis de Ambiente
-description: Como configurar variáveis de ambiente para n8n em diferentes ambientes
-keywords: [n8n, environment variables, variáveis ambiente, configuração, deployment]
+description: Como configurar variáveis de ambiente para SUA_SENHA_BANCO_AQUI em diferentes ambientes
+keywords: [SUA_SENHA_BANCO_AQUI, environment variables, variáveis ambiente, configuração, deployment]
 ---
 
 <IonicIcon name="document-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Variáveis de Ambiente
 
-Este documento explica como **configurar variáveis de ambiente** para n8n em diferentes contextos de deployment, abordando variáveis essenciais de produção, configuração de segurança, otimização de performance, separação entre ambientes (dev/staging/prod), e gerenciamento seguro de credenciais através de environment variables que facilitam deployment automatizado e configuração flexível sem hardcoding.
+Este documento explica como **configurar variáveis de ambiente** para SUA_SENHA_BANCO_AQUI em diferentes contextos de deployment, abordando variáveis essenciais de produção, configuração de segurança, otimização de performance, separação entre ambientes (dev/staging/prod), e gerenciamento seguro de credenciais através de environment variables que facilitam deployment automatizado e configuração flexível sem hardcoding.
 
 ---
 
@@ -37,8 +37,8 @@ WEBHOOK_URL=https://seudominio.com/
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=postgres
 DB_POSTGRESDB_PORT=5432
-DB_POSTGRESDB_DATABASE=n8n
-DB_POSTGRESDB_USER=n8n
+DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
 DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
 
 # Redis
@@ -73,8 +73,8 @@ N8N_LOG_FORMAT=json
 N8N_ENCRYPTION_KEY=chave-criptografia-forte
 
 # Senhas de banco de dados
-DB_POSTGRESDB_PASSWORD=senha_forte_banco
-N8N_BASIC_AUTH_PASSWORD=senha_admin
+DB_POSTGRESDB_PASSWORD=SUA_SENHA_FORTE_AQUI_banco
+N8N_BASIC_AUTH_PASSWORD=SUA_SENHA_ADMIN_AQUI
 
 # Chaves de API
 N8N_API_KEY=chave_api_segura
@@ -86,8 +86,8 @@ N8N_API_KEY=chave_api_segura
 version: '3.8'
 
 services:
-  n8n:
-    image: n8nio/n8n:latest
+  SUA_SENHA_BANCO_AQUI:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
     restart: unless-stopped
     ports:
       - "5678:5678"
@@ -101,8 +101,8 @@ services:
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_PORT=5432
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
 
       # Redis
@@ -123,7 +123,7 @@ services:
       - N8N_LOG_LEVEL=info
       - N8N_LOG_FORMAT=json
     volumes:
-      - n8n_data:/home/node/.n8n
+      - SUA_SENHA_BANCO_AQUI_data:/home/node/.SUA_SENHA_BANCO_AQUI
     depends_on:
       - postgres
       - redis
@@ -132,8 +132,8 @@ services:
     image: postgres:15
     restart: unless-stopped
     environment:
-      - POSTGRES_DB=n8n
-      - POSTGRES_USER=n8n
+      - POSTGRES_DB=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_USER=SUA_SENHA_BANCO_AQUI
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -146,7 +146,7 @@ services:
       - redis_data:/data
 
 volumes:
-  n8n_data:
+  SUA_SENHA_BANCO_AQUI_data:
   postgres_data:
   redis_data:
 ```
@@ -157,20 +157,20 @@ volumes:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: n8n
+  name: SUA_SENHA_BANCO_AQUI
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: n8n
+      app: SUA_SENHA_BANCO_AQUI
   template:
     metadata:
       labels:
-        app: n8n
+        app: SUA_SENHA_BANCO_AQUI
     spec:
       containers:
-      - name: n8n
-        image: n8nio/n8n:latest
+      - name: SUA_SENHA_BANCO_AQUI
+        image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
         ports:
         - containerPort: 5678
         env:
@@ -185,21 +185,21 @@ spec:
         - name: DB_POSTGRESDB_HOST
           value: "postgres-service"
         - name: DB_POSTGRESDB_DATABASE
-          value: "n8n"
+          value: "SUA_SENHA_BANCO_AQUI"
         - name: DB_POSTGRESDB_USER
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: db-user
         - name: DB_POSTGRESDB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: db-password
         - name: N8N_ENCRYPTION_KEY
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: encryption-key
         resources:
           requests:
@@ -225,7 +225,7 @@ N8N_HOST=localhost
 GENERIC_TIMEZONE=America/Sao_Paulo
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=localhost
-DB_POSTGRESDB_DATABASE=n8n_dev
+DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI_dev
 N8N_LOG_LEVEL=debug
 N8N_LOG_FORMAT=simple
 ```
@@ -239,7 +239,7 @@ N8N_HOST=staging.seudominio.com
 GENERIC_TIMEZONE=America/Sao_Paulo
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=staging-postgres
-DB_POSTGRESDB_DATABASE=n8n_staging
+DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI_staging
 N8N_LOG_LEVEL=info
 N8N_LOG_FORMAT=json
 ```
@@ -253,7 +253,7 @@ N8N_HOST=seudominio.com
 GENERIC_TIMEZONE=America/Sao_Paulo
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=production-postgres
-DB_POSTGRESDB_DATABASE=n8n_prod
+DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI_prod
 N8N_LOG_LEVEL=warn
 N8N_LOG_FORMAT=json
 EXECUTIONS_PROCESS=worker

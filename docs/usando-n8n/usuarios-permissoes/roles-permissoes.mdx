@@ -1,8 +1,8 @@
 ---
 title: Roles e Permissões
 sidebar_position: 2
-description: Configure roles e permissões granulares para controlar acesso a workflows, credenciais e recursos do n8n
-keywords: [n8n, roles, permissões, controle de acesso, segurança, usuários, workflows]
+description: Configure roles e permissões granulares para controlar acesso a workflows, credenciais e recursos do SUA_SENHA_BANCO_AQUI
+keywords: [SUA_SENHA_BANCO_AQUI, roles, permissões, controle de acesso, segurança, usuários, workflows]
 ---
 
 :::warning
@@ -13,7 +13,7 @@ Esta página ainda está em processo de validação. O conteúdo pode sofrer alt
 
 # Roles e Permissões
 
-O sistema de roles e permissões do n8n permite controlar com precisão o que cada usuário pode fazer. Neste guia, você aprenderá a configurar permissões granulares para workflows, credenciais e recursos.
+O sistema de roles e permissões do SUA_SENHA_BANCO_AQUI permite controlar com precisão o que cada usuário pode fazer. Neste guia, você aprenderá a configurar permissões granulares para workflows, credenciais e recursos.
 
 ## Configuração Básica
 
@@ -22,7 +22,7 @@ O sistema de roles e permissões do n8n permite controlar com precisão o que ca
 ### Configurar Permissões de Usuário
 
 ```bash
-curl -X PUT "https://your-n8n.com/api/v1/users/123" \
+curl -X PUT "https://your-SUA_SENHA_BANCO_AQUI.com/api/v1/users/123" \
   -H "Authorization: Bearer YOUR_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -230,21 +230,21 @@ N8N_AUDIT_LOGS_RETENTION=90 # dias
 ### Verificar Permissões do Usuário
 
 ```bash
-curl -X GET "https://your-n8n.com/api/v1/users/me" \
+curl -X GET "https://your-SUA_SENHA_BANCO_AQUI.com/api/v1/users/me" \
   -H "Authorization: Bearer USER_TOKEN"
 ```
 
 ### Listar Workflows Acessíveis
 
 ```bash
-curl -X GET "https://your-n8n.com/api/v1/workflows" \
+curl -X GET "https://your-SUA_SENHA_BANCO_AQUI.com/api/v1/workflows" \
   -H "Authorization: Bearer USER_TOKEN"
 ```
 
 ### Verificar Logs de Auditoria
 
 ```bash
-tail -f /var/log/n8n/audit.log
+tail -f /var/log/SUA_SENHA_BANCO_AQUI/audit.log
 ```
 
 ---

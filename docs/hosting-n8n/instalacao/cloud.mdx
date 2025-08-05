@@ -1,21 +1,21 @@
 ﻿---
 sidebar_position: 3
 title: Instalação na Nuvem
-description: Como instalar e configurar n8n em provedores de nuvem
-keywords: [n8n, cloud, nuvem, aws, azure, gcp, instalação]
+description: Como instalar e configurar SUA_SENHA_BANCO_AQUI em provedores de nuvem
+keywords: [SUA_SENHA_BANCO_AQUI, cloud, nuvem, aws, azure, gcp, instalação]
 ---
 
 <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Instalação na Nuvem
 
-Este guia detalha como **instalar n8n em provedores de nuvem**, incluindo n8n Cloud oficial e deployment em AWS, Azure, Google Cloud e outros provedores.
+Este guia detalha como **instalar SUA_SENHA_BANCO_AQUI em provedores de nuvem**, incluindo SUA_SENHA_BANCO_AQUI Cloud oficial e deployment em AWS, Azure, Google Cloud e outros provedores.
 
-## <IonicIcon name="cloud-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> n8n Cloud Oficial
+## <IonicIcon name="cloud-outline" style={{fontSize: '24px', color: '#ea4b71'}} /> SUA_SENHA_BANCO_AQUI Cloud Oficial
 
 ### 1. Criar Conta
 
-1. Acesse [n8n.cloud](https://n8n.cloud)
+1. Acesse [SUA_SENHA_BANCO_AQUI.cloud](https://SUA_SENHA_BANCO_AQUI.cloud)
 2. Clique em **"Start Free Trial"**
 3. Preencha seus dados:
 
@@ -79,7 +79,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ```json
 {
-  "family": "n8n",
+  "family": "SUA_SENHA_BANCO_AQUI",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "512",
@@ -87,8 +87,8 @@ Crie ambientes separados para desenvolvimento e produção:
   "executionRoleArn": "arn:aws:iam::account:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
-      "name": "n8n",
-      "image": "n8nio/n8n:latest",
+      "name": "SUA_SENHA_BANCO_AQUI",
+      "image": "SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest",
       "portMappings": [
         {
           "containerPort": 5678,
@@ -116,7 +116,7 @@ Crie ambientes separados para desenvolvimento e produção:
 
 ```bash
 # Criar instância
-gcloud compute instances create n8n-instance \
+gcloud compute instances create SUA_SENHA_BANCO_AQUI-instance \
   --zone=us-central1-a \
   --machine-type=e2-medium \
   --image-family=ubuntu-2004-lts \
@@ -128,7 +128,7 @@ gcloud compute instances create n8n-instance \
 ```yaml
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['run', '-d', '--name', 'n8n', '-p', '8080:5678', 'n8nio/n8n']
+    args: ['run', '-d', '--name', 'SUA_SENHA_BANCO_AQUI', '-p', '8080:5678', 'SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI']
 ```
 
 ## <IonicIcon name="logo-microsoft" style={{fontSize: '24px', color: '#ea4b71'}} /> Microsoft Azure
@@ -138,8 +138,8 @@ steps:
 ```bash
 # Criar VM
 az vm create \
-  --resource-group n8n-rg \
-  --name n8n-vm \
+  --resource-group SUA_SENHA_BANCO_AQUI-rg \
+  --name SUA_SENHA_BANCO_AQUI-vm \
   --image UbuntuLTS \
   --size Standard_B2s
 ```
@@ -151,9 +151,9 @@ apiVersion: 2019-12-01
 location: eastus
 properties:
   containers:
-  - name: n8n
+  - name: SUA_SENHA_BANCO_AQUI
     properties:
-      image: n8nio/n8n:latest
+      image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
       ports:
       - port: 5678
 ```
@@ -164,6 +164,6 @@ properties:
 
 Para dúvidas sobre instalação em nuvem:
 
-- **Documentação oficial**: [docs.n8n.io](https://docs.n8n.io)
-- **Comunidade**: [community.n8n.io](https://community.n8n.io)
-- **GitHub**: [github.com/n8n-io/n8n](https://github.com/n8n-io/n8n)
+- **Documentação oficial**: [docs.SUA_SENHA_BANCO_AQUI.io](https://docs.SUA_SENHA_BANCO_AQUI.io)
+- **Comunidade**: [community.SUA_SENHA_BANCO_AQUI.io](https://community.SUA_SENHA_BANCO_AQUI.io)
+- **GitHub**: [github.com/SUA_SENHA_BANCO_AQUI-io/SUA_SENHA_BANCO_AQUI](https://github.com/SUA_SENHA_BANCO_AQUI-io/SUA_SENHA_BANCO_AQUI)

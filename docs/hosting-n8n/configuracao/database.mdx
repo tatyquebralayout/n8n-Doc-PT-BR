@@ -1,15 +1,15 @@
 ﻿---
 sidebar_position: 2
 title: Configuração de Database
-description: Como configurar banco de dados para n8n em produção
-keywords: [n8n, database, banco de dados, postgresql, mysql, configuração]
+description: Como configurar banco de dados para SUA_SENHA_BANCO_AQUI em produção
+keywords: [SUA_SENHA_BANCO_AQUI, database, banco de dados, postgresql, mysql, configuração]
 ---
 
 <IonicIcon name="settings-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
 # Configuração de Database
 
-Este documento explica como **configurar banco de dados** para n8n em ambiente de produção, abordando escolha entre PostgreSQL e MySQL, configuração de conexões, otimização de performance, backup e recovery, migrações entre versões, e estratégias de escalabilidade que garantem armazenamento confiável e eficiente de workflows, execuções, e credenciais em implementações empresariais robustas.
+Este documento explica como **configurar banco de dados** para SUA_SENHA_BANCO_AQUI em ambiente de produção, abordando escolha entre PostgreSQL e MySQL, configuração de conexões, otimização de performance, backup e recovery, migrações entre versões, e estratégias de escalabilidade que garantem armazenamento confiável e eficiente de workflows, execuções, e credenciais em implementações empresariais robustas.
 
 ---
 
@@ -21,9 +21,9 @@ Este documento explica como **configurar banco de dados** para n8n em ambiente d
 
 ```sql
 -- Criar usuário e banco
-CREATE USER n8n WITH PASSWORD 'senha_segura';
-CREATE DATABASE n8n OWNER n8n;
-GRANT ALL PRIVILEGES ON DATABASE n8n TO n8n;
+CREATE USER SUA_SENHA_BANCO_AQUI WITH PASSWORD 'SUA_SENHA_SEGURA_AQUI';
+CREATE DATABASE SUA_SENHA_BANCO_AQUI OWNER SUA_SENHA_BANCO_AQUI;
+GRANT ALL PRIVILEGES ON DATABASE SUA_SENHA_BANCO_AQUI TO SUA_SENHA_BANCO_AQUI;
 ```
 
 ### Configuração de Logs
@@ -55,9 +55,9 @@ CREATE INDEX idx_workflows_name ON workflows USING gin(to_tsvector('portuguese',
 
 ```sql
 -- Configurar estatísticas
-ALTER DATABASE n8n SET default_statistics_target = 100;
-ALTER DATABASE n8n SET random_page_cost = 1.1;
-ALTER DATABASE n8n SET effective_io_concurrency = 200;
+ALTER DATABASE SUA_SENHA_BANCO_AQUI SET default_statistics_target = 100;
+ALTER DATABASE SUA_SENHA_BANCO_AQUI SET random_page_cost = 1.1;
+ALTER DATABASE SUA_SENHA_BANCO_AQUI SET effective_io_concurrency = 200;
 
 -- Vacuum e analyze
 VACUUM ANALYZE;
@@ -73,8 +73,8 @@ VACUUM ANALYZE;
 
 ```sql
 -- Criar usuário e banco
-CREATE USER 'n8n'@'localhost' IDENTIFIED BY 'senha_segura';
-GRANT ALL PRIVILEGES ON n8n.* TO 'n8n'@'localhost';
+CREATE USER 'SUA_SENHA_BANCO_AQUI'@'localhost' IDENTIFIED BY 'SUA_SENHA_SEGURA_AQUI';
+GRANT ALL PRIVILEGES ON SUA_SENHA_BANCO_AQUI.* TO 'SUA_SENHA_BANCO_AQUI'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
@@ -117,10 +117,10 @@ OPTIMIZE TABLE workflows;
 
 # Configurações
 BACKUP_DIR="/backups/postgres"
-DB_NAME="n8n"
-DB_USER="n8n"
+DB_NAME="SUA_SENHA_BANCO_AQUI"
+DB_USER="SUA_SENHA_BANCO_AQUI"
 DATE=$(date +%Y%m%d_%H%M%S)
-BACKUP_FILE="$BACKUP_DIR/n8n_$DATE.sql"
+BACKUP_FILE="$BACKUP_DIR/SUA_SENHA_BANCO_AQUI_$DATE.sql"
 
 # Criar backup
 pg_dump -U $DB_USER -d $DB_NAME > $BACKUP_FILE
@@ -141,10 +141,10 @@ echo "Backup criado: $BACKUP_FILE.gz"
 
 # Configurações
 BACKUP_DIR="/backups/mysql"
-DB_NAME="n8n"
-DB_USER="n8n"
+DB_NAME="SUA_SENHA_BANCO_AQUI"
+DB_USER="SUA_SENHA_BANCO_AQUI"
 DATE=$(date +%Y%m%d_%H%M%S)
-BACKUP_FILE="$BACKUP_DIR/n8n_$DATE.sql"
+BACKUP_FILE="$BACKUP_DIR/SUA_SENHA_BANCO_AQUI_$DATE.sql"
 
 # Criar backup
 mysqldump -u $DB_USER -p $DB_NAME > $BACKUP_FILE
@@ -166,7 +166,7 @@ echo "Backup criado: $BACKUP_FILE.gz"
 #!/bin/bash
 
 # Restaurar backup
-gunzip -c backup_file.sql.gz | psql -U n8n -d n8n
+gunzip -c backup_file.sql.gz | psql -U SUA_SENHA_BANCO_AQUI -d SUA_SENHA_BANCO_AQUI
 ```
 
 #### MySQL - Replicação Master-Slave
@@ -179,7 +179,7 @@ GRANT REPLICATION SLAVE ON *.* TO 'replicator'@'%' IDENTIFIED BY 'senha';
 CHANGE MASTER TO
   MASTER_HOST='master_ip',
   MASTER_USER='replicator',
-  MASTER_PASSWORD='senha',
+  MASTER_PASSWORD='SUA_SENHA_MASTER_AQUI',
   MASTER_LOG_FILE='mysql-bin.000001',
   MASTER_LOG_POS=154;
 ```
@@ -197,8 +197,8 @@ CHANGE MASTER TO
 DB_TYPE=postgresdb
 DB_POSTGRESDB_HOST=your-rds-endpoint.amazonaws.com
 DB_POSTGRESDB_PORT=5432
-DB_POSTGRESDB_DATABASE=n8n
-DB_POSTGRESDB_USER=n8n
+DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
 DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
 ```
 
@@ -208,8 +208,8 @@ DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
 version: '3.8'
 
 services:
-  n8n:
-    image: n8nio/n8n:latest
+  SUA_SENHA_BANCO_AQUI:
+    image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
     restart: unless-stopped
     ports:
       - "5678:5678"
@@ -223,8 +223,8 @@ services:
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_PORT=5432
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_DATABASE=SUA_SENHA_BANCO_AQUI
+      - DB_POSTGRESDB_USER=SUA_SENHA_BANCO_AQUI
       - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
 
       # Redis
@@ -245,7 +245,7 @@ services:
       - N8N_LOG_LEVEL=info
       - N8N_LOG_FORMAT=json
     volumes:
-      - n8n_data:/home/node/.n8n
+      - SUA_SENHA_BANCO_AQUI_data:/home/node/.SUA_SENHA_BANCO_AQUI
     depends_on:
       - postgres
       - redis
@@ -254,8 +254,8 @@ services:
     image: postgres:15
     restart: unless-stopped
     environment:
-      - POSTGRES_DB=n8n
-      - POSTGRES_USER=n8n
+      - POSTGRES_DB=SUA_SENHA_BANCO_AQUI
+      - POSTGRES_USER=SUA_SENHA_BANCO_AQUI
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -268,7 +268,7 @@ services:
       - redis_data:/data
 
 volumes:
-  n8n_data:
+  SUA_SENHA_BANCO_AQUI_data:
   postgres_data:
   redis_data:
 ```
@@ -279,20 +279,20 @@ volumes:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: n8n
+  name: SUA_SENHA_BANCO_AQUI
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: n8n
+      app: SUA_SENHA_BANCO_AQUI
   template:
     metadata:
       labels:
-        app: n8n
+        app: SUA_SENHA_BANCO_AQUI
     spec:
       containers:
-      - name: n8n
-        image: n8nio/n8n:latest
+      - name: SUA_SENHA_BANCO_AQUI
+        image: SUA_SENHA_BANCO_AQUIio/SUA_SENHA_BANCO_AQUI:latest
         ports:
         - containerPort: 5678
         env:
@@ -307,21 +307,21 @@ spec:
         - name: DB_POSTGRESDB_HOST
           value: "postgres-service"
         - name: DB_POSTGRESDB_DATABASE
-          value: "n8n"
+          value: "SUA_SENHA_BANCO_AQUI"
         - name: DB_POSTGRESDB_USER
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: db-user
         - name: DB_POSTGRESDB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: db-password
         - name: N8N_ENCRYPTION_KEY
           valueFrom:
             secretKeyRef:
-              name: n8n-secrets
+              name: SUA_SENHA_BANCO_AQUI-secrets
               key: encryption-key
         resources:
           requests:

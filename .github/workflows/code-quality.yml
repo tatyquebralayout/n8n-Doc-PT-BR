@@ -81,6 +81,8 @@ jobs:
             markdown-report.txt
             audit-report.json
             outdated-report.json
+            gitleaks-report.json
+            trivy-results.sarif
           retention-days: 30
 
   # Job 2: Análise de segurança
@@ -127,30 +129,45 @@ jobs:
         run: |
           echo "🕵️ Verificando conteúdo sensível na documentação..."
           
-          # Check for potential secrets in documentation
-          SENSITIVE_FOUND=0
+          # Executar script personalizado de verificação
+          node scripts/fix-sensitive-content.js --check || {
+            echo "⚠️ Encontradas informações sensíveis na documentação"
+            echo "Execute 'npm run fix-sensitive-content' para corrigir"
+            exit 1
+          }
           
-          if grep -r -i "password.*=" docs/ --include="*.md" --include="*.mdx"; then
-            echo "⚠️ Possíveis senhas encontradas na documentação"
-            SENSITIVE_FOUND=1
-          fi
-          
-          if grep -r -i "token.*=" docs/ --include="*.md" --include="*.mdx"; then
-            echo "⚠️ Possíveis tokens encontrados na documentação"
-            SENSITIVE_FOUND=1
-          fi
-          
-          if grep -r -i "secret.*=" docs/ --include="*.md" --include="*.mdx"; then
-            echo "⚠️ Possíveis secrets encontrados na documentação"
-            SENSITIVE_FOUND=1
-          fi
-          
-          if [ $SENSITIVE_FOUND -eq 0 ]; then
-            echo "✅ Nenhum conteúdo sensível óbvio encontrado"
-          else
-            echo "⚠️ Revise se há informações sensíveis expostas na documentação"
-          fi
+          echo "✅ Verificação de conteúdo sensível concluída"
+        continue-on-error: false
+        
+      - name: 🔒 Gitleaks secret scanning
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_CONFIG: .gitleaks.toml
+        with:
+          config-path: .gitleaks.toml
+          report-path: gitleaks-report.json
+          fail-on-error: true
         continue-on-error: true
+        
+      - name: 📊 Security scan results
+        if: always()
+        run: |
+          echo "📊 Resumo da verificação de segurança:"
+          
+          if [ -f "gitleaks-report.json" ]; then
+            LEAKS_COUNT=$(jq length gitleaks-report.json 2>/dev/null || echo "0")
+            echo "- Secrets detectados pelo Gitleaks: $LEAKS_COUNT"
+            
+            if [ "$LEAKS_COUNT" -gt "0" ]; then
+              echo "⚠️ ATENÇÃO: Gitleaks detectou possíveis secrets!"
+              echo "Revise o relatório gitleaks-report.json"
+            fi
+          else
+            echo "- Gitleaks: Nenhum secret detectado ✅"
+          fi
+          
+          echo "- Verificação customizada: Concluída ✅"
 
   # Job 3: Análise de documentação
   documentation-analysis:

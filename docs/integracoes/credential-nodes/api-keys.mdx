@@ -1,17 +1,17 @@
 ﻿---
 sidebar_position: 2
 title: Autenticação com API Keys
-description: Como configurar e gerenciar API keys no n8n para integrações seguras
-keywords: [n8n, api keys, autenticação, segurança, credenciais]
+description: Como configurar e gerenciar API keys no SUA_SENHA_BANCO_AQUI para integrações seguras
+keywords: [SUA_SENHA_BANCO_AQUI, api keys, autenticação, segurança, credenciais]
 ---
 
 <IonicIcon name="key-outline" style={{fontSize: '24px', color: '#ea4b71'}} />
 
-Este documento explica como **configurar e gerenciar API keys** no n8n para autenticação segura, abordando melhores práticas de armazenamento, rotação de chaves, configuração de headers de autorização, troubleshooting de problemas de autenticação, e implementação de políticas de segurança que protegem suas integrações contra acessos não autorizados e vazamentos de credenciais.
+Este documento explica como **configurar e gerenciar API keys** no SUA_SENHA_BANCO_AQUI para autenticação segura, abordando melhores práticas de armazenamento, rotação de chaves, configuração de headers de autorização, troubleshooting de problemas de autenticação, e implementação de políticas de segurança que protegem suas integrações contra acessos não autorizados e vazamentos de credenciais.
 
 ## O que são API Keys
 
-API Keys são tokens de autenticação que permitem que aplicações se identifiquem e autorizem o acesso a APIs e serviços externos. No n8n, elas são usadas para autenticar requisições HTTP e integrar com diversos serviços.
+API Keys são tokens de autenticação que permitem que aplicações se identifiquem e autorizem o acesso a APIs e serviços externos. No SUA_SENHA_BANCO_AQUI, elas são usadas para autenticar requisições HTTP e integrar com diversos serviços.
 
 ## Tipos de API Keys
 
@@ -52,11 +52,11 @@ Chaves com expiração:
 }
 ```
 
-## Configuração no n8n
+## Configuração no SUA_SENHA_BANCO_AQUI
 
 ### Criar Credencial de API Key
 
-1. **Acesse o n8n**
+1. **Acesse o SUA_SENHA_BANCO_AQUI**
 2. **Vá para Settings > Credentials**
 3. **Clique em "Add Credential"**
 4. **Selecione "Generic API"**
@@ -243,11 +243,11 @@ Para APIs mais complexas:
 #### Logs de Erro
 
 ```bash
-# Verificar logs do n8n
-n8n logs --level debug | grep "API Key"
+# Verificar logs do SUA_SENHA_BANCO_AQUI
+SUA_SENHA_BANCO_AQUI logs --level debug | grep "API Key"
 
 # Verificar logs específicos
-n8n logs --level error | grep "authentication"
+SUA_SENHA_BANCO_AQUI logs --level error | grep "authentication"
 ```
 
 ## Integração com APIs Brasileiras
@@ -355,4 +355,4 @@ n8n logs --level error | grep "authentication"
 - [OAuth Authentication](/integracoes/credential-nodes/oauth) - Configurar OAuth 2.0
 - [HTTP Request Node](/integracoes/builtin-nodes/http-requests/http-request) - Fazer requisições autenticadas
 - [Segurança](/privacidade-seguranca/security-best-practices) - Boas práticas de segurança
-- [Troubleshooting](/usando-n8n/troubleshooting) - Resolução de problemas
+- [Troubleshooting](/usando-SUA_SENHA_BANCO_AQUI/troubleshooting) - Resolução de problemas
