@@ -1,0 +1,173 @@
+# Configuração Gitleaks para n8n Documentation PT-BR
+# Detecta secrets, tokens e credenciais expostas
+
+title = "n8n Documentation PT-BR - Gitleaks Config"
+
+[extend]
+# Usar regras padrão do Gitleaks
+useDefault = true
+
+# Regras customizadas para o projeto
+[[rules]]
+id = "brazilian-cpf"
+description = "CPF brasileiro"
+regex = '''(?:\d{3}\.?\d{3}\.?\d{3}-?\d{2})'''
+tags = ["cpf", "pii", "brasil"]
+
+[[rules]]
+id = "brazilian-cnpj"
+description = "CNPJ brasileiro"
+regex = '''(?:\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2})'''
+tags = ["cnpj", "pii", "brasil"]
+
+[[rules]]
+id = "n8n-workflow-id"
+description = "N8N Workflow ID real (suspeito)"
+regex = '''[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'''
+tags = ["n8n", "workflow-id"]
+# Apenas alerta para UUIDs muito específicos
+entropy = 3.5
+
+[[rules]]
+id = "suspicious-passwords"
+description = "Senhas em texto plano suspeitas"
+regex = '''(?i)(password|senha|secret|token)\s*[:=]\s*['""]?[a-zA-Z0-9!@#$%^&*()_+-=]{8,}['""]?'''
+tags = ["password", "credentials"]
+
+[[rules]]
+id = "real-api-keys"
+description = "API Keys reais (não placeholders)"
+regex = '''(?i)(api[_-]?key|access[_-]?token|bearer[_-]?token)\s*[:=]\s*['""]?[a-zA-Z0-9]{20,}['""]?'''
+tags = ["api-key", "token"]
+
+# Paths a serem ignorados
+[allowlist]
+description = "Arquivos e padrões seguros para ignorar"
+paths = [
+    # Arquivos de configuração
+    '''\.gitleaks\.toml''',
+    '''\.pre-commit-config\.yaml''',
+    '''package-lock\.json''',
+    '''\.git/''',
+    '''node_modules/''',
+    '''build/''',
+    '''dist/''',
+    '''\.tsbuildinfo''',
+    '''\.tsbuildinfo\.json''',
+    
+    # Arquivos de exemplo seguros
+    '''docs/.*/security-.*\.mdx?''',
+    '''docs/.*/security-.*\.md''',
+    '''SECURITY\.md''',
+    
+    # Scripts seguros
+    '''scripts/fix-sensitive-content\.js''',
+    '''scripts/.*\.js''',
+    '''scripts/.*\.mjs''',
+    '''scripts/.*\.md''',
+    '''scripts/.*\.txt''',
+    
+    # Arquivos de release notes
+    '''release-notes/.*\.md''',
+    
+    # Arquivos de documentação
+    '''docs/.*\.mdx?''',
+    '''docs/.*\.md''',
+    
+    # Blog
+    '''blog/.*\.md'''
+]
+
+# Commits a serem ignorados (por hash)
+commits = []
+
+# Regexes para ignorar (padrões seguros)
+regexes = [
+    # Placeholders seguros
+    '''SUA_SENHA_[A-Z_]+_AQUI''',
+    '''SEU_[A-Z_]+_AQUI''',
+    '''EXEMPLO[_A-Z]*''',
+    '''your-[a-z-]+''',
+    '''exemplo-[a-z-]+''',
+    
+    # IDs de exemplo conhecidos
+    '''1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms''', # Google Sheets exemplo
+    '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9''', # JWT header exemplo
+    
+    # Base64 de dados de exemplo (imagens pequenas, etc)
+    '''iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==''',
+    
+    # Hexadecimal de exemplo
+    '''4461646f732073656e73c3ad76656973''',
+    
+    # URLs de documentação
+    '''https?://[a-z0-9.-]+\.com/[a-z0-9/.-]*''',
+    
+    # Tokens de exemplo conhecidos
+    '''token_[a-z]+''',
+    '''Bearer token[0-9]*''',
+    '''example-[a-z0-9-]+''',
+    
+    # IDs de webhook de exemplo
+    '''webhook_[0-9a-f]{8}''',
+    
+    # Chaves de desenvolvimento/exemplo
+    '''sk_test_[a-zA-Z0-9]*''',
+    '''pk_test_[a-zA-Z0-9]*''',
+    
+    # Placeholders em arquivos de documentação
+    '''SUA_[A-Z_]*AQUI''',
+    '''SEU_[A-Z_]*AQUI''',
+    '''EXEMPLO''',
+    
+    # Padrões seguros específicos
+    '''SUA_SENHA_[A-Z_]+_AQUI''',
+    '''SEU_TOKEN_[A-Z_]+_AQUI''',
+    '''SUA_API_KEY_[A-Z_]+_AQUI''',
+    '''EXEMPLO_[A-Z_]*''',
+    
+    # UUIDs de exemplo
+    '''a1b2c3d4-e5f6-7890-abcd-ef1234567890''',
+    '''[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}''',
+    
+    # Números de exemplo
+    '''123\.456\.789-[0-9]{2}''',
+    '''12\.345\.678/[0-9]{4}-[0-9]{2}''',
+    '''[0-9]{11}''', # CPFs de exemplo
+    '''[0-9]{14}''', # CNPJs de exemplo
+    
+    # Telefones de exemplo
+    '''\+55[0-9]{10,11}''',
+    '''[0-9]{10,11}''',
+    
+    # Padrões de documentação
+    '''password: ["']password["']''',
+    '''senha: ["']senha["']''',
+    '''secret: ["']secret["']''',
+    '''token: ["']token["']''',
+    
+    # Variáveis de ambiente de exemplo
+    '''[A-Z_]+=SUA_[A-Z_]+_AQUI''',
+    '''[A-Z_]+=SEU_[A-Z_]+_AQUI''',
+    '''[A-Z_]+=EXEMPLO_[A-Z_]*''',
+    
+    # Padrões específicos dos scripts
+    '''const token = process\.env\.GITHUB_TOKEN''',
+    '''const GITHUB_TOKEN = process\.env\.GITHUB_TOKEN''',
+    '''process\.env\.GITHUB_TOKEN''',
+    '''ghp_seu_token_aqui''',
+    '''ghp_seu_token_real_aqui''',
+    '''\$env:GITHUB_TOKEN''',
+    '''export GITHUB_TOKEN''',
+    '''set GITHUB_TOKEN''',
+    
+    # Padrões do blog
+    '''sua_senha_segura''',
+    '''N8N_BASIC_AUTH_PASSWORD=sua_senha_segura''',
+    
+    # Padrões gerais de exemplo
+    '''seu_token_aqui''',
+    '''seu_token_real_aqui''',
+    '''sua_senha_[a-z_]+''',
+    '''seu_[a-z_]+_aqui''',
+]
