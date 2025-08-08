@@ -101,6 +101,21 @@ Para manter a qualidade e evitar redundâncias:
 
 ---
 
+## Compatibilidade de Node.js
+
+Este projeto usa **Node.js 20.x** como versão principal para desenvolvimento e CI/CD. O Node.js 18.x foi removido da matriz de CI devido a incompatibilidades conhecidas com Docusaurus 3.8.1.
+
+**Versões suportadas:**
+- ✅ Node.js 20.x (recomendado)
+- ❌ Node.js 18.x (incompatível com Docusaurus 3.8.1)
+
+**Dependências críticas:**
+- Docusaurus 3.8.1
+- React 18.2.0
+- TypeScript 5.8.3
+
+---
+
 ## Como Contribuir com a Documentação Brasileira
 
 Este é um projeto de código aberto, feito para a comunidade BR n8n, e sua ajuda é fundamental para
