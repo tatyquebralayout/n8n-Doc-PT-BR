@@ -49,6 +49,14 @@ function Footer(): React.JSX.Element | null {
   useEffect(() => {
     const fetchDevelopers = async () => {
       try {
+        const cacheKey = 'n8nbr:footer:devs:v1';
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          setDevelopers(parsed.data || []);
+          setLoading(false);
+        }
+
         const usernames = ['tatyquebralayout', 'CJBiohacker'];
         const userPromises = usernames.map(async (username) => {
           const response = await fetch(`https://api.github.com/users/${username}`);
@@ -60,12 +68,32 @@ function Footer(): React.JSX.Element | null {
 
         const userData = await Promise.all(userPromises);
         setDevelopers(userData);
+
+        // Cache com TTL de 6 horas
+        const payload = { ts: Date.now(), ttl: 6 * 60 * 60 * 1000, data: userData };
+        localStorage.setItem(cacheKey, JSON.stringify(payload));
       } catch (err) {
         console.error('Erro ao buscar desenvolvedores:', err);
       } finally {
         setLoading(false);
       }
     };
+
+    // Evitar uso de cache expirado
+    try {
+      const cacheKey = 'n8nbr:footer:devs:v1';
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (parsed.ts && parsed.ttl && Date.now() - parsed.ts < parsed.ttl) {
+          setDevelopers(parsed.data || []);
+          setLoading(false);
+          // Atualiza em background
+          fetchDevelopers();
+          return;
+        }
+      }
+    } catch {}
 
     fetchDevelopers();
   }, []);

@@ -2,28 +2,28 @@
   "name": "n8n Brasil - Documentação",
   "short_name": "n8n Brasil",
   "description": "Documentação completa do n8n em português brasileiro",
-  "start_url": "/",
+  "start_url": "/n8n-Doc-PT-BR/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ff6a00",
   "orientation": "portrait-primary",
-  "scope": "/",
+  "scope": "/n8n-Doc-PT-BR/",
   "lang": "pt-BR",
   "icons": [
     {
-      "src": "/img/favicon-br.svg",
+      "src": "/n8n-Doc-PT-BR/img/favicon-br.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/img/n8n-color.webp",
+      "src": "/n8n-Doc-PT-BR/img/n8n-color.webp",
       "sizes": "192x192",
       "type": "image/webp",
       "purpose": "any"
     },
     {
-      "src": "/img/n8n-color.webp",
+      "src": "/n8n-Doc-PT-BR/img/n8n-color.webp",
       "sizes": "512x512",
       "type": "image/webp",
       "purpose": "any"
@@ -32,7 +32,7 @@
   "categories": ["education", "productivity", "utilities"],
   "screenshots": [
     {
-      "src": "/img/banner_n8n_ptbr.png",
+      "src": "/n8n-Doc-PT-BR/img/banner_n8n_ptbr.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide"
@@ -46,7 +46,7 @@
       "url": "/primeiros-passos/guia-instalacao",
       "icons": [
         {
-          "src": "/img/favicon-br.svg",
+          "src": "/n8n-Doc-PT-BR/img/favicon-br.svg",
           "sizes": "96x96"
         }
       ]
@@ -58,7 +58,7 @@
       "url": "/integracoes",
       "icons": [
         {
-          "src": "/img/favicon-br.svg",
+          "src": "/n8n-Doc-PT-BR/img/favicon-br.svg",
           "sizes": "96x96"
         }
       ]
@@ -70,7 +70,7 @@
       "url": "/comunidade",
       "icons": [
         {
-          "src": "/img/favicon-br.svg",
+          "src": "/n8n-Doc-PT-BR/img/favicon-br.svg",
           "sizes": "96x96"
         }
       ]

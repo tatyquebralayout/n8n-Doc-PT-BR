@@ -3,7 +3,7 @@
   'use strict';
   
   // Declarações globais para evitar erros de linting
-  /* global PerformanceObserver, gtag */
+  /* global PerformanceObserver */
   
   // Função para medir métricas de performance
   function measurePerformance() {
@@ -13,13 +13,8 @@
         const entries = list.getEntries();
         entries.forEach((entry) => {
           console.log('FCP:', entry.startTime);
-          // Enviar para analytics
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'timing_complete', {
-              name: 'fcp',
-              value: Math.round(entry.startTime)
-            });
-          }
+          // Hook custom: dispatchEvent para coleta opcional sem GA
+          window.dispatchEvent(new CustomEvent('perf:fcp', { detail: Math.round(entry.startTime) }));
         });
       });
       fcpObserver.observe({ entryTypes: ['paint'] });
@@ -31,13 +26,7 @@
         const entries = list.getEntries();
         const lastEntry = entries[entries.length - 1];
         console.log('LCP:', lastEntry.startTime);
-        // Enviar para analytics
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'timing_complete', {
-            name: 'lcp',
-            value: Math.round(lastEntry.startTime)
-          });
-        }
+        window.dispatchEvent(new CustomEvent('perf:lcp', { detail: Math.round(lastEntry.startTime) }));
       });
       lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
     }
@@ -48,13 +37,7 @@
         const entries = list.getEntries();
         entries.forEach((entry) => {
           console.log('FID:', entry.processingStart - entry.startTime);
-          // Enviar para analytics
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'timing_complete', {
-              name: 'fid',
-              value: Math.round(entry.processingStart - entry.startTime)
-            });
-          }
+          window.dispatchEvent(new CustomEvent('perf:fid', { detail: Math.round(entry.processingStart - entry.startTime) }));
         });
       });
       fidObserver.observe({ entryTypes: ['first-input'] });
@@ -69,13 +52,7 @@
           if (!entry.hadRecentInput) {
             clsValue += entry.value;
             console.log('CLS:', clsValue);
-            // Enviar para analytics
-            if (typeof gtag !== 'undefined') {
-              gtag('event', 'timing_complete', {
-                name: 'cls',
-                value: Math.round(clsValue * 1000)
-              });
-            }
+            window.dispatchEvent(new CustomEvent('perf:cls', { detail: Math.round(clsValue * 1000) }));
           }
         });
       });
@@ -87,24 +64,12 @@
   function monitorErrors() {
     window.addEventListener('error', function(e) {
       console.error('JavaScript Error:', e.error);
-      // Enviar erro para analytics
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'exception', {
-          description: e.error.message,
-          fatal: false
-        });
-      }
+      window.dispatchEvent(new CustomEvent('perf:error', { detail: { message: e.error?.message || String(e.error), fatal: false } }));
     });
     
     window.addEventListener('unhandledrejection', function(e) {
       console.error('Unhandled Promise Rejection:', e.reason);
-      // Enviar erro para analytics
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'exception', {
-          description: e.reason,
-          fatal: false
-        });
-      }
+      window.dispatchEvent(new CustomEvent('perf:unhandledrejection', { detail: { reason: e.reason, fatal: false } }));
     });
   }
   
@@ -116,15 +81,8 @@
         entries.forEach((entry) => {
           if (entry.initiatorType === 'img' || entry.initiatorType === 'script') {
             console.log('Resource Load:', entry.name, entry.duration);
-            // Enviar para analytics se demorou muito
             if (entry.duration > 1000) {
-              if (typeof gtag !== 'undefined') {
-                gtag('event', 'timing_complete', {
-                  name: 'resource_load',
-                  value: Math.round(entry.duration),
-                  custom_parameter: entry.name
-                });
-              }
+              window.dispatchEvent(new CustomEvent('perf:resource_load', { detail: { name: entry.name, duration: Math.round(entry.duration) } }));
             }
           }
         });
@@ -143,13 +101,7 @@
         if (window.location.pathname !== currentPath) {
           currentPath = window.location.pathname;
           console.log('Navigation:', currentPath);
-          // Enviar para analytics
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'page_view', {
-              page_title: document.title,
-              page_location: window.location.href
-            });
-          }
+          window.dispatchEvent(new CustomEvent('perf:page_view', { detail: { title: document.title, url: window.location.href } }));
         }
       }, 100);
     }

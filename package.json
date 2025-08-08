@@ -40,7 +40,8 @@
     "deps:minor": "node scripts/monitor-dependencies.js minor",
     "deps:performance": "node scripts/monitor-dependencies.js performance",
     "deps:report": "node scripts/monitor-dependencies.js full --save",
-    "prepare": "echo 'Skipping husky install'"
+    "prepare": "echo 'Skipping husky install'",
+    "progress:update": "node scripts/update-progress-post.js"
   },
   "keywords": [
     "n8n",

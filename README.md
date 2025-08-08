@@ -48,12 +48,16 @@ A Documentação n8n Pt-BR é **comunitária, open source e em evolução consta
 
 A documentação está organizada nas seguintes seções principais:
 
-- **[Usando n8n](/intro):** Do zero ao seu primeiro workflow. Aprenda os conceitos básicos, a usar a interface e a manipular dados.
-- **[Deployment](/hosting-n8n/instalacao):** Guias completos para hospedar e configurar o n8n em diferentes ambientes, de Docker a nuvens públicas.
-- **[Cursos](/cursos):** Conteúdo estruturado em formato de texto e vídeo para aprendizado sequencial, do nível básico ao avançado.
+- **[Usando n8n](/intro):** Do zero ao seu primeiro workflow. Aprenda os conceitos básicos, a usar a
+  interface e a manipular dados.
+- **[Deployment](/hosting-n8n/instalacao):** Guias completos para hospedar e configurar o n8n em diferentes
+  ambientes, de Docker a nuvens públicas.
+- **[Cursos](/cursos):** Conteúdo estruturado em formato de texto e vídeo para aprendizado sequencial,
+  do nível básico ao avançado.
 - **[Comunidade](/contribuir):** Saiba como contribuir para este projeto e para o ecossistema n8n.
 - **[Referência](/referencia):** Guias de migração, dicas de performance, solução de problemas e um glossário de termos técnicos.
-- **[Release Notes](/release-notes/index):** Fique por dentro de todas as novidades, melhorias e correções a cada versão do n8n. _(Em desenvolvimento)_
+- **[Release Notes](/release-notes/index):** Fique por dentro de todas as novidades, melhorias e correções
+  a cada versão do n8n. _(Em desenvolvimento)_
 
 ---
 
@@ -80,27 +84,13 @@ Nossa documentação está organizada de forma lógica e intuitiva:
 - **`/api`** - Documentação da API
 - **`/catalogo`** - Catálogo de serviços e integrações
 
-### **Sistema de Validação de Overlaps**
+### Evitando Overlaps de Conteúdo
 
-Para manter a qualidade e evitar redundâncias, implementamos um sistema automatizado de validação:
+Para manter a qualidade e evitar redundâncias:
 
-- **Configuração centralizada**: `sidebars.json` define a estrutura hierárquica
-- **Detecção automática**: Script identifica conteúdo duplicado e similar
-- **Guidelines claras**: CONTRIBUTING.md com diretrizes para evitar overlaps
-- **Relatórios detalhados**: Análise completa de problemas estruturais
-
-**Comandos de validação:**
-
-```bash
-npm run validate-overlaps  # Executar validação completa
-npm run check-overlaps     # Comando alternativo
-```
-
-**Status de validação:**
-
-- ✅ **Validado** - Conteúdo revisado e sem overlaps
-- ⏳ **Em Progresso** - Conteúdo em desenvolvimento
-- ⚠️ **Overlaps Detectados** - Requer revisão
+- Use a busca do repositório para checar conteúdo existente.
+- Consulte a estrutura em `sidebars.ts` para posicionar novos tópicos.
+- Siga o checklist do `CONTRIBUTING.md` para revisão pré-PR.
 
 ---
 
@@ -113,11 +103,16 @@ npm run check-overlaps     # Comando alternativo
 
 ## Como Contribuir com a Documentação Brasileira
 
-Este é um projeto de código aberto, feito para a comunidade BR n8n, e sua ajuda é fundamental para mantermos a documentação rica e atualizada. Qualquer pessoa pode sugerir melhorias, corrigir erros, criar novos tutoriais ou ajudar na revisão!
+Este é um projeto de código aberto, feito para a comunidade BR n8n, e sua ajuda é fundamental para
+mantermos a documentação rica e atualizada. Qualquer pessoa pode sugerir melhorias, corrigir erros, criar
+novos tutoriais ou ajudar na revisão!
 
-- **Para um guia técnico rápido** sobre como configurar seu ambiente e submeter sua primeira contribuição, veja nosso arquivo: [`CONTRIBUTING.md`](./CONTRIBUTING.md).
-- **[Contribuir com esta Documentação](/docs/contribuir/esta-documentacao/)**: Se você quer ajudar a melhorar esta documentação, corrigindo textos, adicionando exemplos ou traduzindo, comece por aqui.
-- **[Contribuir com o n8n (Oficial)](/docs/contribuir/projeto-n8n/)**: Se seu objetivo é colaborar diretamente com o código-fonte do n8n, criar novos nodes ou participar da documentação oficial em inglês.
+- **Para um guia técnico rápido** sobre como configurar seu ambiente e submeter sua primeira contribuição,
+  veja nosso arquivo: [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+- **[Contribuir com esta Documentação](/docs/contribuir/esta-documentacao/)**: Se você quer ajudar a
+  melhorar esta documentação, corrigindo textos, adicionando exemplos ou traduzindo, comece por aqui.
+- **[Contribuir com o n8n (Oficial)](/docs/contribuir/projeto-n8n/)**: Se seu objetivo é colaborar diretamente
+  com o código-fonte do n8n, criar novos nodes ou participar da documentação oficial em inglês.
 
 Agradecemos imensamente a todos que dedicam seu tempo para fortalecer o n8n no Brasil!
 
@@ -131,7 +126,7 @@ Para ver os passos completos, consulte o arquivo: **[`CONTRIBUTING.md`](./CONTRI
 
 ---
 
-## 🚀 Como Executar
+## Como Executar
 
 ### Desenvolvimento
 
@@ -139,13 +134,13 @@ Para ver os passos completos, consulte o arquivo: **[`CONTRIBUTING.md`](./CONTRI
 # Instalar dependências
 npm install
 
-# Iniciar servidor de desenvolvimento (recomendado)
-npm run start:smart
+# Iniciar servidor de desenvolvimento
+npm run start
 
-# Ou usar comandos alternativos:
-npm run start:clean    # Mata processos na porta 3000 e inicia
+# Opções úteis
+npm run start:clean    # Mata processos nas portas comuns e inicia
 npm run start:alt      # Inicia na porta 3001
-npm run dev           # Comando tradicional
+npm run dev            # Alias para start
 ```
 
 ### Comandos Úteis
@@ -166,10 +161,7 @@ npm run serve
 **Porta 3000 em uso:**
 
 ```bash
-# Opção 1: Usar o comando inteligente
-npm run start:smart
-
-# Opção 2: Matar processos manualmente
+# Opção 1: Matar processos manualmente
 npm run kill-port
 npm run start
 
@@ -182,3 +174,18 @@ npm run start:alt
 Desenvolvido com carinho para a comunidade n8n Brasil.
 
 > _Esta documentação é independente e não substitui a [documentação oficial do n8n](https://docs.n8n.io/)._
+
+---
+
+## Atualizar o Post de Progresso
+
+O post “Progresso da Documentação n8n Brasil” é gerado a partir de `scripts/progress.config.json`.
+
+1. Edite os status em `scripts/progress.config.json`.
+2. Rode:
+
+```bash
+npm run progress:update
+```
+
+Isso atualiza o corpo e a data do post em `blog/2025-01-01-boas-vindas.md`. Em seguida, faça o build/serve para validar.

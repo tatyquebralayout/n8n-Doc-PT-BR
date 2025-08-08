@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /n8n-Doc-PT-BR/
+
+# Diretórios prioritários (respeitando baseUrl)
+Allow: /n8n-Doc-PT-BR/primeiros-passos/
+Allow: /n8n-Doc-PT-BR/usando-n8n/
+Allow: /n8n-Doc-PT-BR/integracoes/
+Allow: /n8n-Doc-PT-BR/hosting-n8n/
+Allow: /n8n-Doc-PT-BR/api/
+Allow: /n8n-Doc-PT-BR/comunidade/
+Allow: /n8n-Doc-PT-BR/blog/
+
+# Atraso mínimo para evitar sobrecarga
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://n8n-brasil.github.io/n8n-Doc-PT-BR/sitemap.xml

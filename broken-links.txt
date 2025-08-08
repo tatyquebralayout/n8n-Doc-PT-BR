@@ -1,0 +1,65 @@
+
+[WARNING] Docusaurus found broken links!
+Note: it's possible to ignore broken links with the 'onBrokenLinks' Docusaurus configuration, and let the build pass.
+It looks like some of the broken links we found appear in many pages of your site.
+Maybe those broken links appear on all pages through your site layout?
+Frequent broken links are linking to:
+Exhaustive list of all broken links found:
+- Broken link on source page path = /n8n-Doc-PT-BR/:
+- Broken link on source page path = /n8n-Doc-PT-BR/advanced-ai:
+- Broken link on source page path = /n8n-Doc-PT-BR/advanced-ai/exemplos-casos:
+- Broken link on source page path = /n8n-Doc-PT-BR/api:
+- Broken link on source page path = /n8n-Doc-PT-BR/api/conceitos:
+- Broken link on source page path = /n8n-Doc-PT-BR/api/ferramentas:
+- Broken link on source page path = /n8n-Doc-PT-BR/api/referencia:
+- Broken link on source page path = /n8n-Doc-PT-BR/comunidade:
+- Broken link on source page path = /n8n-Doc-PT-BR/embed:
+- Broken link on source page path = /n8n-Doc-PT-BR/embed/gerenciamento:
+- Broken link on source page path = /n8n-Doc-PT-BR/embed/gerenciamento/white-labelling:
+- Broken link on source page path = /n8n-Doc-PT-BR/embed/implementacao:
+- Broken link on source page path = /n8n-Doc-PT-BR/embed/preparacao:
+- Broken link on source page path = /n8n-Doc-PT-BR/hosting-n8n/compliance:
+- Broken link on source page path = /n8n-Doc-PT-BR/hosting-n8n/configuracao:
+- Broken link on source page path = /n8n-Doc-PT-BR/hosting-n8n/escalonamento:
+- Broken link on source page path = /n8n-Doc-PT-BR/hosting-n8n/instalacao:
+- Broken link on source page path = /n8n-Doc-PT-BR/hosting-n8n/seguranca:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes-br:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/app-nodes/communication:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/app-nodes/communication/gmail:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/app-nodes/communication/slack:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/app-nodes/productivity:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/core-nodes:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/core-nodes/code:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/data-processing:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/data-processing/aggregate:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/data-processing/set:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/http-requests:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/logic-control:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/logic-control/wait:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/utilities:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/utilities/conversion:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/utilities/date-time:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/utilities/math:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/utilities/text:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/builtin-nodes/utilities/validation:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/templates:
+- Broken link on source page path = /n8n-Doc-PT-BR/integracoes/trigger-nodes/time-based/schedule-trigger:
+- Broken link on source page path = /n8n-Doc-PT-BR/logica-e-dados:
+- Broken link on source page path = /n8n-Doc-PT-BR/logica-e-dados/data:
+- Broken link on source page path = /n8n-Doc-PT-BR/logica-e-dados/data/otimizacao-performance:
+- Broken link on source page path = /n8n-Doc-PT-BR/logica-e-dados/execucao:
+- Broken link on source page path = /n8n-Doc-PT-BR/logica-e-dados/expressoes:
+- Broken link on source page path = /n8n-Doc-PT-BR/logica-e-dados/flow-logic:
+- Broken link on source page path = /n8n-Doc-PT-BR/primeiros-passos:
+- Broken link on source page path = /n8n-Doc-PT-BR/privacidade-seguranca:
+- Broken link on source page path = /n8n-Doc-PT-BR/referencia:
+- Broken link on source page path = /n8n-Doc-PT-BR/referencia/historico:
+- Broken link on source page path = /n8n-Doc-PT-BR/usando-n8n:
+- Broken link on source page path = /n8n-Doc-PT-BR/usando-n8n/credenciais:
+- Broken link on source page path = /n8n-Doc-PT-BR/usando-n8n/getting-started:
+- Broken link on source page path = /n8n-Doc-PT-BR/usando-n8n/interface/navegacao-editor-ui:
+- Broken link on source page path = /n8n-Doc-PT-BR/usando-n8n/usuarios-permissoes:
+- Broken link on source page path = /n8n-Doc-PT-BR/usando-n8n/workflows/criar-editar:
+- Broken link on source page path = /n8n-Doc-PT-BR/usando-n8n/workflows/organizar:
+

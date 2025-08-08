@@ -92,7 +92,7 @@ extensivamente com dados brasileiros para otimizar a performance.
 
 ## Próximos Passos
 
-- [Tutorial de IA](./tutorial-ai/) - Guia prático de implementação
+- [Tutorial de IA](/advanced-ai/tutorial-ai) - Guia prático de implementação
 - [Nodes de IA](nodes-ia/workflow-tool.md) - Referência completa dos nodes
 - [Exemplos Práticos](exemplos-casos/index.mdx) - Casos de uso reais
 

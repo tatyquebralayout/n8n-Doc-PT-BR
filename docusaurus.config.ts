@@ -58,7 +58,19 @@ const config: Config = {
             require('remark-docusaurus-tabs'),
           ],
         },
-        blog: false,
+        blog: {
+          routeBasePath: "/blog",
+          blogTitle: "Blog n8n Brasil",
+          blogDescription: "Artigos, notícias e tutoriais da comunidade n8n Brasil",
+          showReadingTime: true,
+          postsPerPage: 10,
+          feedOptions: {
+            type: 'all',
+            title: 'n8n Brasil - Blog RSS',
+            description: 'Feed RSS do Blog da comunidade n8n Brasil',
+            language: 'pt-BR',
+          },
+        },
         pages: {
           remarkPlugins: [
             require('@docusaurus/remark-plugin-npm2yarn'),
@@ -89,13 +101,16 @@ const config: Config = {
   ],
 
       plugins: [
-      // Plugin de busca local - DESABILITADO TEMPORARIAMENTE devido a conflitos com Node.js 18
-      // ["@easyops-cn/docusaurus-search-local", {
-      //   indexDocs: true,
-      //   docsRouteBasePath: "/",
-      //   hashed: true,
-      //   language: ["pt"],
-      // }],
+      // Plugin de busca local
+      ["@easyops-cn/docusaurus-search-local", {
+        indexDocs: true,
+        docsRouteBasePath: "/",
+        hashed: true,
+        language: ["pt"],
+        searchResultLimits: 8,
+        searchResultContextMaxLength: 50,
+        explicitSearchResultPath: true
+      }],
     
     // Plugin de redirects para SEO
     ["@docusaurus/plugin-client-redirects", {
@@ -116,7 +131,6 @@ const config: Config = {
         { from: "/community", to: "/comunidade" },
         { from: "/catalog", to: "/catalogo" },
         { from: "/courses", to: "/comunidade" },
-        { from: "/cursos", to: "/comunidade" },
         { from: "/contribuir", to: "/comunidade/como-participar" },
       ],
     }],
@@ -126,15 +140,15 @@ const config: Config = {
       debug: false,
       offlineModeActivationStrategies: ["appInstalled", "standalone", "queryString"],
       pwaHead: [
-        { tagName: "link", rel: "icon", href: "/img/favicon-br.svg" },
-        { tagName: "link", rel: "manifest", href: "/manifest.json" },
+        { tagName: "link", rel: "icon", href: "/n8n-Doc-PT-BR/img/favicon-br.svg" },
+        { tagName: "link", rel: "manifest", href: "/n8n-Doc-PT-BR/manifest.json" },
         { tagName: "meta", name: "theme-color", content: "#ff6a00" },
         { tagName: "meta", name: "apple-mobile-web-app-capable", content: "yes" },
         { tagName: "meta", name: "apple-mobile-web-app-status-bar-style", content: "default" },
         { tagName: "meta", name: "apple-mobile-web-app-title", content: "n8n Brasil" },
-        { tagName: "link", rel: "apple-touch-icon", href: "/img/favicon-br.svg" },
+        { tagName: "link", rel: "apple-touch-icon", href: "/n8n-Doc-PT-BR/img/favicon-br.svg" },
         { tagName: "meta", name: "msapplication-TileColor", content: "#ff6a00" },
-        { tagName: "meta", name: "msapplication-config", content: "/browserconfig.xml" },
+        { tagName: "meta", name: "msapplication-config", content: "/n8n-Doc-PT-BR/browserconfig.xml" },
       ],
       // Usar Workbox (padrão) em vez de service worker customizado
       // swCustom: require.resolve('./src/sw.js'),
@@ -186,12 +200,14 @@ const config: Config = {
       src: "https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js",
       nomodule: true,
     },
-    // GoatCounter Analytics (privacy-friendly)
+    // GoatCounter Analytics (privacy-friendly) — sem Google Analytics
     {
       src: "https://gc.zgo.at/count.js",
       async: true,
       "data-goatcounter": "https://n8n-brasil.goatcounter.com/count",
     },
+    // Métricas locais de performance (sem GA)
+    { src: "/js/performance-metrics.js", async: true },
   ],
 
   themeConfig: {
@@ -248,7 +264,7 @@ const config: Config = {
           ],
         },
 
-        // Dropdown "Comunidade" - Agrupa conteúdo da comunidade
+        // Dropdown "Comunidade" - Recursos da comunidade
         {
           type: "dropdown",
           label: "Comunidade",
@@ -259,22 +275,8 @@ const config: Config = {
             { label: "Vídeos da Comunidade", to: "/comunidade/videos" },
             { label: "Repositórios da Comunidade", to: "/comunidade/github" },
             { label: "Como Participar", to: "/comunidade/como-participar" },
-          ],
-        },
-        
-        // Dropdown "Comunidade" - Recursos da comunidade
-        {
-          type: "dropdown",
-          label: "Comunidade",
-          position: "left",
-          className: "navbar-community-dropdown",
-          items: [
             { label: "Visão Geral", to: "/comunidade" },
-            { label: "Automação para Iniciantes", to: "/comunidade/automacao-iniciantes" },
             { label: "Casos de Uso Avançados", to: "/comunidade/casos-uso-avancados" },
-            { label: "Como Participar", to: "/comunidade/como-participar" },
-            { label: "GitHub", to: "/comunidade/github" },
-            { label: "Vídeos", to: "/comunidade/videos" },
           ],
         },
 
@@ -283,6 +285,14 @@ const config: Config = {
           to: "/catalogo",
           position: "left",
           className: "navbar-catalog-link",
+        },
+
+        // Link do Blog
+        {
+          label: "Blog",
+          to: "/blog",
+          position: "left",
+          className: "navbar-blog-link",
         },
 
         // GitHub link com ícone nativo
@@ -461,8 +471,8 @@ const config: Config = {
 
     announcementBar: {
       id: "support_us",
-      content:
-        '🎉 <strong>n8n Brasil</strong> — Documentação em português! ' +
+        content:
+        '<ion-icon name="sparkles-outline" aria-hidden="true"></ion-icon> <strong>n8n Brasil</strong> — Documentação em português! ' +
         '<a target="_blank" rel="noopener noreferrer" aria-label="Contribua no GitHub do n8n Brasil" ' +
         'href="https://github.com/n8n-brasil/n8n-Doc-PT-BR">Contribua no GitHub</a>',
       backgroundColor: "#fafbfc",

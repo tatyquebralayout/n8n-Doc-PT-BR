@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
@@ -9,20 +11,7 @@ import styles from './index.module.css';
 
 function HomepageHeader() {
   // const {siteConfig} = useDocusaurusContext();
-  // Registra service worker para cache offline
-  useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function(registration) {
-            console.log('SW registered: ', registration);
-          })
-          .catch(function(registrationError) {
-            console.log('SW registration failed: ', registrationError);
-          });
-      });
-    }
-  }, []);
+  
 
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)} itemScope itemType="https://schema.org/TechArticle">
@@ -63,248 +52,11 @@ function HomepageHeader() {
   );
 }
 
-function DocumentationProgress() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [animatedProgress, setAnimatedProgress] = useState(0);
-  
-  // Metas da documentação
-  const totalGoals = 38; // Total de metas da documentação
-  const completedGoals = 22; // Ajustado baseado no estado real atual
-  const progressPercentage = Math.round((completedGoals / totalGoals) * 100);
-  
-  // Agrupamento por categorias
-  const categories = {
-    "Fundamentos": [
-      { name: "Primeiros Passos", status: "Completo" },
-      { name: "Conceitos Básicos", status: "Completo" },
-      { name: "Instalação", status: "Completo" },
-      { name: "Primeiro Workflow", status: "Completo" },
-      { name: "Conectar Aplicações", status: "Completo" },
-      { name: "FAQ", status: "Completo" },
-    ],
-    "Usando n8n": [
-      { name: "Interface", status: "Em progresso" },
-      { name: "Workflows", status: "Completo" },
-      { name: "Credenciais", status: "Em progresso" },
-      { name: "Execuções", status: "Em progresso" },
-      { name: "Monitoramento", status: "Em progresso" },
-      { name: "Usuários e Permissões", status: "Em progresso" },
-    ],
-    "Lógica e Dados": [
-      { name: "Flow Logic", status: "Completo" },
-      { name: "Data Processing", status: "Em progresso" },
-      { name: "Expressões", status: "Completo" },
-      { name: "Conexões", status: "Completo" },
-      { name: "Execução", status: "Completo" },
-    ],
-    "Integrações": [
-      { name: "Built-in Nodes", status: "Em progresso" },
-      { name: "App Nodes", status: "Em progresso" },
-      { name: "Trigger Nodes", status: "Em progresso" },
-      { name: "Community Nodes", status: "Em progresso" },
-      { name: "Criar Nodes", status: "Em progresso" },
-      { name: "Templates", status: "Completo" },
-    ],
-    "Integrações BR": [
-      { name: "Financeiro", status: "Em progresso" },
-      { name: "Governo", status: "Em progresso" },
-      { name: "Localização", status: "Em progresso" },
-    ],
-    "Hosting e Deployment": [
-      { name: "Instalação", status: "Completo" },
-      { name: "Configuração", status: "Em progresso" },
-      { name: "Segurança", status: "Em progresso" },
-      { name: "Escalonamento", status: "Completo" },
-      { name: "Compliance", status: "Em progresso" },
-    ],
-    "Advanced AI": [
-      { name: "Overview", status: "Em progresso" },
-      { name: "Nodes", status: "Em progresso" },
-      { name: "Exemplos", status: "Em progresso" },
-      { name: "Tutorial", status: "Em progresso" },
-      { name: "Chatbot de Suporte", status: "Em progresso" },
-    ],
-    "Embed": [
-      { name: "Preparação", status: "Completo" },
-      { name: "Implementação", status: "Completo" },
-      { name: "Gerenciamento", status: "Completo" },
-    ],
-    "API": [
-      { name: "Conceitos", status: "Em progresso" },
-      { name: "Ferramentas", status: "Em progresso" },
-      { name: "Referência", status: "Em progresso" },
-    ],
-    "Cursos": [
-      { name: "Vídeo", status: "Em progresso" },
-      { name: "Texto", status: "Em progresso" },
-    ],
-    "Comunidade": [
-      { name: "Central", status: "Completo" },
-      { name: "Estatísticas", status: "Completo" },
-      { name: "Casos de Uso", status: "Em progresso" },
-      { name: "Vídeos", status: "Em progresso" },
-    ],
-    "Contribuir": [
-      { name: "Esta Documentação", status: "Completo" },
-      { name: "n8n Oficial", status: "Completo" },
-      { name: "Processo de Validação", status: "Em progresso" },
-    ],
-    "Referência": [
-      { name: "Guias", status: "Em progresso" },
-      { name: "Recursos", status: "Em progresso" },
-      { name: "Histórico", status: "Em progresso" },
-    ],
-    "Catálogo": [
-      { name: "Workflows", status: "Em progresso" },
-      { name: "Serviços BR", status: "Completo" },
-      { name: "IA e ML", status: "Completo" },
-    ],
-    "Release Notes": [
-      { name: "n8n Oficial", status: "Em progresso" },
-      { name: "Nossa Doc", status: "Em progresso" },
-    ],
-  };
-
-  // Mapeamento de ícones para cada categoria
-  const categoryIcons = {
-    "Fundamentos": "rocket-outline",
-    "Usando n8n": "settings-outline",
-    "Lógica e Dados": "analytics-outline",
-    "Integrações": "extension-puzzle-outline",
-    "Integrações BR": "flag-outline",
-    "Hosting e Deployment": "cloud-upload-outline",
-    "Advanced AI": "flash-outline",
-    "Embed": "link-outline",
-    "API": "code-slash-outline",
-    "Cursos": "school-outline",
-    "Comunidade": "people-outline",
-    "Contribuir": "heart-outline",
-    "Referência": "library-outline",
-    "Catálogo": "list-outline",
-    "Release Notes": "document-text-outline",
-  };
-
-  // Animar progresso quando componente montar
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimatedProgress(progressPercentage);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [progressPercentage]);
-
-  // Calcular progresso por categoria
-  const getCategoryProgress = (items: any[]) => {
-    const completed = items.filter((item: any) => item.status === "Completo").length;
-    return Math.round((completed / items.length) * 100);
-  };
-
-  return (
-    <section className={styles.progressSection} data-testid="progress-section">
-      <div className="container">
-        <div className={styles.progressCard}>
-          <div className={styles.progressHeader}>
-            <IonicIcon name="trophy-outline" size={20} color="#ea4b71" />
-            <h2>Progresso da Documentação</h2>
-            <div className={styles.progressStats}>
-              <span className={styles.progressPercentage} data-testid="progress-percentage">{animatedProgress}%</span>
-              <span className={styles.progressText}>
-                {completedGoals} de {totalGoals} metas
-              </span>
-            </div>
-            <button 
-              className={styles.expandButton}
-              onClick={() => setIsExpanded(!isExpanded)}
-              aria-expanded={isExpanded}
-            >
-              <IonicIcon 
-                name={isExpanded ? "chevron-up-outline" : "chevron-down-outline"} 
-                size={16} 
-                color="#ea4b71" 
-              />
-              <span>{isExpanded ? "Ocultar detalhes" : "Ver detalhes"}</span>
-            </button>
-          </div>
-          
-          <div className={styles.progressBar} data-testid="progress-bar">
-            <div 
-              className={styles.progressFill} 
-              style={{ width: `${animatedProgress}%` }}
-            ></div>
-          </div>
-
-          {isExpanded && (
-            <div className={styles.progressDetails}>
-              <div className={styles.categoriesGrid}>
-                {Object.entries(categories).map(([categoryName, items]) => {
-                  const isComplete = getCategoryProgress(items) === 100;
-                  return (
-                    <div 
-                      key={categoryName} 
-                      className={`${styles.categoryCard} ${isComplete ? styles.complete : ''}`}
-                    >
-                      <div className={styles.categoryHeader}>
-                        <h3 className={`${styles.categoryTitle} ${isComplete ? styles.complete : ''}`}>
-                          <IonicIcon 
-                            name={categoryIcons[categoryName as keyof typeof categoryIcons]} 
-                            size={18} 
-                            color={isComplete ? "#28a745" : "#ea4b71"} 
-                          />
-                          {categoryName}
-                        </h3>
-                        <div className={styles.categoryProgress}>
-                          <span className={`${styles.categoryPercentage} ${isComplete ? styles.complete : ''}`}>
-                            {getCategoryProgress(items)}%
-                          </span>
-                          <div className={styles.categoryBar}>
-                            <div 
-                              className={`${styles.categoryFill} ${isComplete ? styles.complete : ''}`}
-                              style={{ width: `${getCategoryProgress(items)}%` }}
-                            ></div>
-                          </div>
-                        </div>
-                      </div>
-                      <ul className={styles.categoryList}>
-                        {items.map((item, index) => (
-                          <li key={index} className={styles.categoryItem}>
-                            <span className={styles.itemName}>{item.name}</span>
-                            <span className={styles.itemStatus}>
-                              {item.status === "Completo" ? (
-                                <IonicIcon name="checkmark-outline" size={12} color="#28a745" />
-                              ) : item.status === "Validado" ? (
-                                <IonicIcon name="shield-checkmark-outline" size={12} color="#17a2b8" />
-                              ) : item.status === "Em progresso" ? (
-                                <IonicIcon name="refresh-outline" size={12} color="#ffc107" />
-                              ) : (
-                                <IonicIcon name="time-outline" size={12} color="#6c757d" />
-                              )}
-                              {item.status}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className={styles.progressFooter}>
-                <p>
-                  <IonicIcon name="heart-outline" size={14} color="#ea4b71" />
-                  Ajude-nos a completar a documentação! 
-                  <Link to="/contribuir/esta-documentacao" className={styles.contributeLink}>
-                    Saiba como contribuir
-                  </Link>
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
+function DocumentationProgress() { return null; }
 
 export default function Home(): React.ReactElement {
+  const { siteConfig } = useDocusaurusContext();
+  const blogUrl = useBaseUrl('blog');
   return (
     <Layout
       title={`Página Inicial`}
@@ -327,7 +79,7 @@ export default function Home(): React.ReactElement {
                   <p>Aprenda os conceitos fundamentais do n8n passo a passo.</p>
                   <ul>
                     <li><Link to="/primeiros-passos/guia-instalacao">Instalação</Link></li>
-                    <li><Link to="/primeiros-passos/conceitos-basicos">Conceitos Básicos</Link></li>
+                    <li><Link to="/primeiros-passos/conceitos-fundamentais">Conceitos Básicos</Link></li>
                     <li><Link to="/primeiros-passos/primeiro-workflow">Primeiro Workflow</Link></li>
                   </ul>
                 </div>
@@ -409,7 +161,6 @@ export default function Home(): React.ReactElement {
                   <p>Workflows práticos e casos de uso reais.</p>
                   <ul>
                     <li><Link to="/comunidade">Comunidade</Link></li>
-                    <li><Link to="/cursos">Cursos</Link></li>
                     <li><Link to="/referencia">Referência</Link></li>
                   </ul>
                 </div>
@@ -432,22 +183,7 @@ export default function Home(): React.ReactElement {
                 </div>
               </div>
 
-              {/* Processo da Documentação */}
-              <div className={styles.mainFeature}>
-                <div className={styles.mainFeatureIcon}>
-                  <IonicIcon name="construct-outline" size={20} color="var(--ifm-color-primary)" />
-                </div>
-                <div className={styles.mainFeatureContent}>
-                  <h4>Processo da Documentação</h4>
-                  <p>Metodologia robusta para desenvolvimento e validação de workflows.</p>
-                  <ul>
-                    <li><Link to="/contribuir/esta-documentacao">Contribuir com a Doc</Link></li>
-                    <li><Link to="/contribuir/esta-documentacao/entendendo-o-projeto/como-contribuir">Como Contribuir</Link></li>
-                    <li><Link to="/contribuir/esta-documentacao/padroes-e-estilo/design-system">Padrões de Design</Link></li>
-                    <li><Link to="/contribuir/esta-documentacao/traducao-e-localizacao/guia-traducao">Guia de Tradução</Link></li>
-                  </ul>
-                </div>
-              </div>
+              
 
               {/* Links Úteis */}
               <div className={styles.mainFeature}>
@@ -461,7 +197,7 @@ export default function Home(): React.ReactElement {
                     <li><Link to="/referencia/historico/changelog">Changelog</Link></li>
                     <li><Link to="/catalogo">Catálogo de Workflows</Link></li>
                     <li><Link to="/comunidade">Central da Comunidade</Link></li>
-                    <li><Link to="/contribuir">Como Contribuir</Link></li>
+                    <li><Link to="/comunidade/como-participar">Como Participar</Link></li>
                   </ul>
                 </div>
               </div>
@@ -496,6 +232,19 @@ export default function Home(): React.ReactElement {
             </h2>
             <p className={styles.communitySubtitle}>A comunidade é o coração do nosso projeto. Participe!</p>
             
+              {/* Posts Recentes do Blog */}
+              <div className={styles.communityCard}>
+                <div className={styles.communityCardHeader}>
+                  <IonicIcon name="newspaper-outline" size={24} color="var(--ifm-color-primary)" />
+                  <h3>Posts Recentes</h3>
+                </div>
+                <p>Confira as últimas publicações do nosso blog.</p>
+                <Link to={blogUrl} className={styles.communityLink}>
+                  <IonicIcon name="open-outline" size={16} color="var(--ifm-color-primary)" />
+                  Ver o Blog
+                </Link>
+              </div>
+
             <div className={styles.communityGrid}>
               <div className={styles.communityCard}>
                 <div className={styles.communityCardHeader}>
@@ -504,7 +253,7 @@ export default function Home(): React.ReactElement {
                 </div>
                 <p>Este é um projeto de código aberto. Colabore com código, documentação ou sugestões.</p>
                 <a 
-                  href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR" 
+                  href="https://github.com/n8n-brasil/n8n-Doc-PT-BR" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className={styles.communityLink}
@@ -579,7 +328,7 @@ export default function Home(): React.ReactElement {
                 <p>Abra uma discussão no GitHub para obter ajuda da comunidade.</p>
               </div>
               <a 
-                href="https://github.com/tatyquebralayout/n8n-Doc-pt-BR/discussions"
+                href="https://github.com/n8n-brasil/n8n-Doc-PT-BR/discussions"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="button button--outline button--primary"

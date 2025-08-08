@@ -12,7 +12,7 @@ Esta seção está em construção e abordará temas de compliance e conformidad
 
 ---
 
-- **[LGPD](./lgpd)** - Compliance com a Lei Geral de Proteção de Dados
+- **[LGPD](/hosting-n8n/compliance/lgpd)** - Compliance com a Lei Geral de Proteção de Dados
 
 ---
 

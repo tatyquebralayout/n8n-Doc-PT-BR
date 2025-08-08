@@ -568,7 +568,7 @@
 }
 
 .rst-processor.advanced::before {
-  content: "⚡";
+  content: "";
   position: absolute;
   top: -0.5rem;
   right: -0.5rem;
@@ -590,7 +590,7 @@
 }
 
 .rst-processor.fallback::before {
-  content: "🔄";
+  content: "";
   position: absolute;
   top: -0.5rem;
   right: -0.5rem;

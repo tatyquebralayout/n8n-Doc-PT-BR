@@ -8,8 +8,8 @@ Esta seção contém nodes para integração com plataformas de comunicação co
 
 ## Nodes Disponíveis
 
-- **[Slack](./slack)** - Integração com Slack para notificações e automação
-- **[Gmail](./gmail)** - Automação de emails e comunicação via Gmail
+- **[Slack](/integracoes/app-nodes/communication/slack)** - Integração com Slack para notificações e automação
+- **[Gmail](/integracoes/app-nodes/communication/gmail)** - Automação de emails e comunicação via Gmail
 - **WhatsApp** - Em breve
 - **Telegram** - Em breve
 - **Discord** - Em breve

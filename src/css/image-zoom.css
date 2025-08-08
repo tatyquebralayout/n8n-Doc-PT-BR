@@ -43,20 +43,4 @@
 }
 
 /* Indicador visual de zoom */
-[data-zoomable]::after {
-  content: '🔍';
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 4px 6px;
-  border-radius: 4px;
-  font-size: 12px;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-}
-
-[data-zoomable]:hover::after {
-  opacity: 1;
-} 
+/* Removido emoji; usar ícone via markup quando necessário */

@@ -99,5 +99,5 @@ A interface do n8n é dividida em áreas principais que trabalham em conjunto:
 **Próximos Passos:**
 
 - [Configuração de Credenciais](../credenciais/criar-editar)
-- [Execução de Workflows](../execucoes/index)
+- [Execução de Workflows](../execucoes)
 - [Tratamento de Erros](../../logica-e-dados/flow-logic/error-handling)

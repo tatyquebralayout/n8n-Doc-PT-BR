@@ -43,8 +43,8 @@
 }
 
 .math-error {
-  color: #cc0000;
-  background-color: #ffeeee;
+  color: var(--ifm-color-danger);
+  background-color: var(--ifm-color-danger-contrast-background, rgba(239, 68, 68, 0.1));
   padding: 2px 4px;
   border-radius: 3px;
   font-family: monospace;
@@ -73,7 +73,7 @@
 
 .guidelines-icon {
   font-size: 24px;
-  color: #ea4b71;
+  color: var(--ifm-color-primary);
   margin-right: 8px;
 }
 
@@ -85,13 +85,13 @@
 
 .contribuir-icon {
   font-size: 24px;
-  color: #ea4b71;
+  color: var(--ifm-color-primary);
   margin-right: 8px;
 }
 
 .contribuir-icon-small {
   font-size: 16px;
-  color: #ea4b71;
+  color: var(--ifm-color-primary);
   margin-right: 4px;
 }
 
@@ -210,6 +210,11 @@
 
   --animation-duration: 0.3s;
   --animation-easing: ease-in-out;
+
+  /* Navbar (modo claro) */
+  --ifm-navbar-background-color: #ea4b71; /* mantém identidade com contraste alto */
+  --ifm-navbar-link-color: #ffffff;
+  --ifm-navbar-link-hover-color: #ffeff4; /* tom claro para hover */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -245,6 +250,11 @@
   --ifm-footer-link-hover-color: #f47d98;
   --ifm-footer-title-color: #ffffff;
 
+  /* Navbar (modo escuro) */
+  --ifm-navbar-background-color: #111827; /* cinza bem escuro p/ alto contraste */
+  --ifm-navbar-link-color: #f9fafb; /* quase branco */
+  --ifm-navbar-link-hover-color: #f472b6; /* primária clara para hover */
+
   /* Destaques de Código */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.2);
 
@@ -255,13 +265,13 @@
 
 /* Estilos da seção de busca no modo escuro */
 [data-theme='dark'] .search-section {
-  background: #334155;
-  border: 1px solid #475569;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-card-border-color);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme='dark'] .integration-search {
-  background: #1e293b;
+  background: var(--ifm-card-background-color);
   border-color: var(--ifm-color-primary);
   color: var(--ifm-font-color-base);
 }
@@ -344,9 +354,9 @@ ion-icon {
 .search-section {
   margin: 2rem 0;
   padding: 1.5rem;
-  background: #ffffff;
+  background: var(--ifm-card-background-color);
   border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--ifm-card-border-color);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
@@ -356,7 +366,7 @@ ion-icon {
   border: 2px solid var(--ifm-color-primary);
   border-radius: 8px;
   font-size: var(--font-size-base);
-  background: #ffffff;
+  background: var(--ifm-card-background-color);
   color: var(--ifm-font-color-base);
   transition: all var(--animation-duration) var(--animation-easing);
 }
@@ -798,9 +808,7 @@ ion-icon {
   color: var(--ifm-color-primary); /* Cor aplicada ao container */
 }
 
-.section-title ion-icon {
-  /* Ícone herda cor do container pai */
-}
+.section-title ion-icon { color: currentColor; }
 
 .category-subtitle {
   display: flex;
@@ -810,9 +818,7 @@ ion-icon {
   color: var(--ifm-color-success-dark);
 }
 
-.category-subtitle ion-icon {
-  /* Ícone herda cor do container pai */
-}
+.category-subtitle ion-icon { color: currentColor; }
 
 /* Estilos para o Rodapé (Footer) */
 .footer-initiators {
@@ -1090,9 +1096,7 @@ a.tag:hover {
   color: var(--ifm-color-warning-darkest);
 }
 
-.em-construcao ion-icon {
-  /* Ícone herda cor do container pai */
-}
+.em-construcao ion-icon { color: currentColor; }
 
 /* --- Estilos de Página Específicos --- */
 
@@ -1112,9 +1116,7 @@ a.tag:hover {
   color: var(--ifm-color-primary); /* Cor aplicada ao container */
 }
 
-.section-title ion-icon {
-  /* Ícone herda cor do container pai */
-}
+.section-title ion-icon { color: currentColor; }
 
 /* Lista de links (usada na /comunidade) */
 .link-list {
@@ -1142,10 +1144,7 @@ a.tag:hover {
   text-decoration: none;
 }
 
-.link-list ion-icon {
-  /* Ícone herda cor do contexto de hover */
-  font-size: var(--font-size-lg);
-}
+.link-list ion-icon { font-size: var(--font-size-lg); color: currentColor; }
 
 /* Lista de eventos (usada na /comunidade) */
 .event-list {
@@ -1161,9 +1160,7 @@ a.tag:hover {
   color: var(--ifm-font-color-secondary);
 }
 
-.event-list ion-icon {
-  /* Ícone herda cor do container pai */
-}
+.event-list ion-icon { color: currentColor; }
 
 /* Detalhes de Card (usado no HighlightCard) */
 .card-details {
@@ -1561,24 +1558,7 @@ ion-icon .ionicon-stroke-width {
   font-weight: 500;
 }
 
-/* Custom table styles */
-.markdown table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-}
-
-.markdown th,
-.markdown td {
-  padding: 0.75rem;
-  border: 1px solid #e5e7eb;
-  text-align: left;
-}
-
-.markdown th {
-  background: #f9fafb;
-  font-weight: 600;
-}
+/* Tabelas: estilos consolidados em base.css */
 
 /* Custom link styles */
 .markdown a {
@@ -1590,35 +1570,7 @@ ion-icon .ionicon-stroke-width {
   text-decoration: underline;
 }
 
-/* Custom heading styles */
-.markdown h1,
-.markdown h2,
-.markdown h3,
-.markdown h4,
-.markdown h5,
-.markdown h6 {
-  color: #1f2937;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-.markdown h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  border-bottom: 2px solid var(--ifm-color-primary);
-  padding-bottom: 0.5rem;
-}
-
-.markdown h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--ifm-color-primary);
-}
-
-.markdown h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
+/* Headings: estilos consolidados em base.css */
 
 /* Custom list styles */
 .markdown ul,
@@ -1636,15 +1588,15 @@ ion-icon .ionicon-stroke-width {
   padding-left: 1rem;
   margin: 1rem 0;
   font-style: italic;
-  color: #6b7280;
+  color: var(--ifm-font-color-secondary);
 }
 
 /* Custom details/summary styles */
 .markdown details {
   margin: 1rem 0;
   padding: 1rem;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-card-border-color);
   border-radius: 6px;
 }
 
@@ -1664,8 +1616,8 @@ ion-icon .ionicon-stroke-width {
   text-align: center;
   margin: 1.5rem 0;
   padding: 1rem;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-card-border-color);
   border-radius: 6px;
 }
 
@@ -1772,9 +1724,7 @@ ion-icon {
   font-weight: 600;
 }
 
-.contribuir-sidebar-content details {
-  margin: 0;
-}
+.contribuir-sidebar-content details { margin: 0; }
 
 .contribuir-sidebar-content summary {
   cursor: pointer;
@@ -1872,11 +1822,48 @@ ion-icon {
 
 /* Navbar customizado */
 .navbar {
-  background: var(--ifm-color-primary);
+  background: var(--ifm-navbar-background-color);
   padding: 0.5rem 1rem;
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+/* Links da navbar com alto contraste */
+.navbar .navbar__link,
+.navbar .navbar__brand,
+.navbar .navbar__item {
+  color: var(--ifm-navbar-link-color) !important;
+}
+
+.navbar .navbar__link:hover,
+.navbar .navbar__link--active {
+  color: var(--ifm-navbar-link-hover-color) !important;
+}
+
+/* Menu dropdown herda contraste adequado */
+.navbar__dropdown__menu {
+  color: var(--ifm-font-color-base);
+}
+
+/* Estados de foco visível (acessibilidade) */
+.navbar a:focus-visible,
+.menu__link:focus-visible,
+.navbar__dropdown__item:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Sidebar: reforçar contraste do item ativo */
+.menu__link--active {
+  color: var(--ifm-color-primary) !important;
+  background-color: var(--ifm-color-emphasis-100) !important;
+  border-left-color: var(--ifm-color-primary) !important;
+}
+
+[data-theme='dark'] .menu__link--active {
+  background-color: var(--ifm-background-surface-color) !important;
 }
 
 .navbar-container {

@@ -7,8 +7,8 @@ Esta seção contém nodes para automação de produtividade e gestão de projet
 
 ## Nodes Disponíveis
 
-- **[Google Sheets](./google-sheets)** - Automação de planilhas e dados
-- **[Trello](./trello)** - Gestão de projetos e automação de cards
+- **[Google Sheets](/integracoes/app-nodes/productivity/google-sheets)** - Automação de planilhas e dados
+- **[Trello](/integracoes/app-nodes/productivity/trello)** - Gestão de projetos e automação de cards
 - **Notion** - Em breve
 - **Asana** - Em breve
 - **Monday.com** - Em breve

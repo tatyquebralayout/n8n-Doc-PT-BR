@@ -191,7 +191,7 @@ docs/
 
 1. Fork do repositório
 2. Clone local
-3. Instalação de dependências: `pnpm install`
+3. Instalação de dependências: `npm install`
 4. Configuração do ambiente de desenvolvimento
 
 ### 2. Desenvolvimento
@@ -199,7 +199,7 @@ docs/
 1. Criação de branch: `git checkout -b feature/nome-da-feature`
 2. Verificação de overlaps usando o checklist
 3. Desenvolvimento seguindo as guidelines
-4. Testes locais: `pnpm start`
+4. Testes locais: `npm run start`
 
 ### 3. Submissão
 

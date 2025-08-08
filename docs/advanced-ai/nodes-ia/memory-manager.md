@@ -104,7 +104,7 @@ Use tipos de memória diferentes para diferentes casos de uso. Para conversas lo
 
 - [Agente de IA](./ai-agent) - Como usar com agentes
 - [Exemplos Práticos](../exemplos-casos/index.mdx) - Casos de uso reais
-- [Tutorial de IA](../tutorial-ai) - Guia de implementação
+- [Tutorial de IA](/advanced-ai/tutorial-ai) - Guia de implementação
 
 ---
 
